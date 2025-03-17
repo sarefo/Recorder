@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recorder Fingering Chart</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .fingering-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding-top: 20px;
+        }
+
+        #header-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 101;
+            background-color: #f4f4f4;
+            padding-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        #reference-row {
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            padding-bottom: 5px;
+        }
+
+        #reference-row .chart-container {
+            width: auto;
+            min-width: 35px;
+            flex-grow: 0;
+            flex-shrink: 1;
+            padding: 5px;
+        }
+
+        #reference-row .note-input {
+            width: 80%;
+            font-size: 0.8em;
+        }
+
+        #reference-row .fingering-display {
+            min-height: 110px;
+        }
+
+        #reference-row .hole {
+            width: 15px;
+            height: 15px;
+        }
+
+        #header-wrapper.minimized #reference-row {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header-wrapper.minimized #minimize-button {
+            content: "+";
+        }
+
+        .chart-container {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: calc((100% - 152px) / 18);
+            min-width: 45px;
+            flex-grow: 0;
+            flex-shrink: 1;
+        }
+
+        @media (max-width: 1200px) {
+            .chart-container {
+                width: calc((100% - 120px) / 14);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .chart-container {
+                width: calc((100% - 88px) / 10);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .chart-container {
+                width: calc((100% - 56px) / 6);
+            }
+        }
+
+        .chart-container.bg-red {
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+
+        .chart-container.bg-green {
+            background-color: rgba(0, 128, 0, 0.1);
+        }
+
+        .chart-container.black-key {
+            border: 4px solid black;
+        }
+
+        .fingering-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .note-input {
+            width: 90%;
+            text-align: center;
+            margin-bottom: 8px;
+            padding: 4px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .fingering-display {
+            width: 100%;
+            min-height: 130px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .fingering-holes {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .hand {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .left-thumb {
+            margin-bottom: 8px;
+        }
+
+        .hole {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            position: relative;
+        }
+
+        .o {
+            background-color: white;
+        }
+
+        .c {
+            background-color: black;
+        }
+
+        .p {
+            background: linear-gradient(45deg, black 50%, white 50%);
+        }
+
+        .empty-fingering {
+            color: #999;
+            font-size: 11px;
+        }
+
+        .control-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 10px;
+            background-color: #f4f4f4;
+            position: sticky;
+            top: 0;
+            z-index: 101;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .control-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-grow: 1;
+        }
+
+        .minimize-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .minimize-label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        #minimize-button {
+            padding: 4px 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .control-bar button {
+            padding: 4px 8px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .control-bar button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .transpose-control {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8em;
+        }
+
+        .transpose-buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+        }
+
+        .transpose-buttons button {
+            padding: 2px 5px;
+            font-size: 10px;
+        }
+
+        .transpose-buttons button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-wrapper">
+        <div class="control-bar" id="header-controls">
+            <div class="control-buttons">
+                <button id="copy-button" title="Copy notes to clipboard (Ctrl+C)">To clipboard (Ctrl+C)</button>
+                <button id="paste-button" title="Paste notes from clipboard (Ctrl+V)">From clipboard (Ctrl+V)</button>
+                <div class="transpose-control">
+                    <span>Transpose:</span>
+                    <div class="transpose-buttons">
+                        <button id="transpose-down" title="Transpose down a half step">&#9660;</button>
+                        <button id="transpose-up" title="Transpose up a half step">&#9650;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="minimize-controls">
+                <span class="minimize-label">Chart</span>
+                <button id="minimize-button" title="Minimize/Expand header">&#x2212;</button>
+            </div>
+        </div>
+        <div class="fingering-grid" id="reference-row">
+            <!-- Reference row will be filled with chart containers by JavaScript -->
+        </div>
+    </div>
+
+    <div class="fingering-grid" id="note-grid">
+        <!-- The rest of the grid will be filled with chart containers by JavaScript -->
+    </div>
+
+    <script>
+        // Define the fingering patterns for each note
+        const fingeringData = {
+            // First octave
+            'C4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'c'] },
+            'C#4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'p'] },
+            'D4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
+            'D#4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'p', 'o'] },
+            'E4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
+            'F4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+            'F#4': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'o'] },
+            'G4': { left: ['c', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
+            'G#4': { left: ['c', 'c', 'c', 'o'], right: ['c', 'c', 'p', 'o'] },
+            'A4': { left: ['c', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+            'A#4': { left: ['c', 'c', 'o', 'c'], right: ['c', 'o', 'o', 'o'] },
+            'B4': { left: ['c', 'c', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+
+            // Second octave
+            'C5': { left: ['c', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+            'C#5': { left: ['o', 'c', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+            'D5': { left: ['o', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+            'D#5': { left: ['o', 'o', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
+            'E5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
+            'F5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'o'] }
+        };
+
+        // Note aliases
+        const aliases = {
+            'C': 'C4',
+            'C#': 'C#4', 'DB': 'C#4', 'DB4': 'C#4',
+            'D': 'D4',
+            'D#': 'D#4', 'EB': 'D#4', 'EB4': 'D#4',
+            'E': 'E4',
+            'F': 'F4',
+            'F#': 'F#4', 'GB': 'F#4', 'GB4': 'F#4',
+            'G': 'G4',
+            'G#': 'G#4', 'AB': 'G#4', 'AB4': 'G#4',
+            'A': 'A4',
+            'A#': 'A#4', 'BB': 'A#4', 'BB4': 'A#4',
+            'B': 'B4'
+        };
+
+        // Higher octave aliases
+        const higherOctaveAliases = {
+            'C+': 'C5',
+            'C#+': 'C#5', 'DB+': 'C#5', 'DB5': 'C#5',
+            'D+': 'D5',
+            'D#+': 'D#5', 'EB+': 'D#5', 'EB5': 'D#5',
+            'E+': 'E5',
+            'F+': 'F5'
+        };
+
+        const allNotes = [
+            'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4',
+            'C5', 'C#5', 'D5', 'D#5', 'E5', 'F5'
+        ];
+
+        // Create a chart container with input and display
+        function createChartContainer(index) {
+            const chartContainer = document.createElement('div');
+            chartContainer.className = 'chart-container';
+            chartContainer.id = `chart-${index}`;
+
+            const fingeringChart = document.createElement('div');
+            fingeringChart.className = 'fingering-chart';
+
+            const noteInput = document.createElement('input');
+            noteInput.type = 'text';
+            noteInput.className = 'note-input';
+            noteInput.placeholder = 'Note';
+            noteInput.dataset.index = index;
+            noteInput.addEventListener('input', handleNoteChange);
+
+            const fingeringDisplay = document.createElement('div');
+            fingeringDisplay.className = 'fingering-display';
+            fingeringDisplay.id = `fingering-${index}`;
+            fingeringDisplay.addEventListener('click', toggleBackground);
+
+            const emptyFingering = document.createElement('div');
+            emptyFingering.className = 'empty-fingering';
+
+            fingeringDisplay.appendChild(emptyFingering);
+            fingeringChart.appendChild(noteInput);
+            fingeringChart.appendChild(fingeringDisplay);
+            chartContainer.appendChild(fingeringChart);
+
+            return chartContainer;
+        }
+
+        // Handle note input change
+        function handleNoteChange(event) {
+            const index = event.target.dataset.index;
+            let note = event.target.value.toUpperCase();
+            event.target.value = note;
+
+            // Resolve aliases
+            if (aliases[note]) {
+                note = aliases[note];
+            } else if (higherOctaveAliases[note]) {
+                note = higherOctaveAliases[note];
+            }
+
+            updateFingeringDisplay(index, note);
+        }
+
+        // Toggle background color between none, red, and green
+        function toggleBackground(event) {
+            const chartContainer = event.currentTarget.closest('.chart-container');
+
+            if (chartContainer.classList.contains('bg-red')) {
+                chartContainer.classList.remove('bg-red');
+                chartContainer.classList.add('bg-green');
+            } else if (chartContainer.classList.contains('bg-green')) {
+                chartContainer.classList.remove('bg-green');
+            } else {
+                chartContainer.classList.add('bg-red');
+            }
+        }
+
+        // Update fingering display based on note
+        function updateFingeringDisplay(index, note) {
+            const fingeringDisplay = document.getElementById(`fingering-${index}`);
+            const chartContainer = fingeringDisplay.closest('.chart-container');
+
+            // Preserve background class
+            const hasRedBg = chartContainer.classList.contains('bg-red');
+            const hasGreenBg = chartContainer.classList.contains('bg-green');
+
+            // Add or remove black-key class for sharp/flat notes
+            if (note && (note.includes('#') || note.includes('B') && !note.endsWith('B4'))) {
+                chartContainer.classList.add('black-key');
+            } else {
+                chartContainer.classList.remove('black-key');
+            }
+
+            fingeringDisplay.innerHTML = '';
+
+            if (!note || !fingeringData[note]) {
+                const emptyFingering = document.createElement('div');
+                emptyFingering.className = 'empty-fingering';
+                fingeringDisplay.appendChild(emptyFingering);
+                return;
+            }
+
+            const fingering = fingeringData[note];
+            const fingeringHoles = document.createElement('div');
+            fingeringHoles.className = 'fingering-holes';
+
+            // Create left hand holes
+            const leftHand = document.createElement('div');
+            leftHand.className = 'hand';
+
+            fingering.left.forEach((state, i) => {
+                const hole = document.createElement('div');
+                hole.className = `hole ${state}`;
+                if (i === 0) hole.classList.add('left-thumb');
+                leftHand.appendChild(hole);
+            });
+
+            // Create right hand holes
+            const rightHand = document.createElement('div');
+            rightHand.className = 'hand';
+
+            fingering.right.forEach(state => {
+                const hole = document.createElement('div');
+                hole.className = `hole ${state}`;
+                rightHand.appendChild(hole);
+            });
+
+            fingeringHoles.appendChild(leftHand);
+            fingeringHoles.appendChild(rightHand);
+            fingeringDisplay.appendChild(fingeringHoles);
+
+            // Restore background class
+            if (hasRedBg) {
+                chartContainer.classList.add('bg-red');
+            } else if (hasGreenBg) {
+                chartContainer.classList.add('bg-green');
+            }
+        }
+
+        // Copy notes to clipboard
+        function copyNotesToClipboard() {
+            const noteInputs = document.querySelectorAll('#note-grid .note-input');
+            const notes = [];
+
+            noteInputs.forEach(input => {
+                if (input.value.trim()) {
+                    notes.push(input.value.trim());
+                }
+            });
+
+            const noteText = notes.join(' ');
+
+            if (noteText) {
+                navigator.clipboard.writeText(noteText)
+                    .then(() => {
+                        showFeedback('Notes copied to clipboard!');
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy text: ', err);
+                        alert('Could not copy to clipboard. Please check browser permissions.');
+                    });
+            } else {
+                alert('No notes to copy.');
+            }
+        }
+
+        // Show feedback message
+        function showFeedback(message) {
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.textContent = message;
+            feedbackDiv.style.position = 'fixed';
+            feedbackDiv.style.top = '20px';
+            feedbackDiv.style.left = '50%';
+            feedbackDiv.style.transform = 'translateX(-50%)';
+            feedbackDiv.style.padding = '10px 20px';
+            feedbackDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            feedbackDiv.style.color = 'white';
+            feedbackDiv.style.borderRadius = '5px';
+            feedbackDiv.style.zIndex = '1000';
+
+            document.body.appendChild(feedbackDiv);
+
+            setTimeout(() => {
+                document.body.removeChild(feedbackDiv);
+            }, 2000);
+        }
+
+        // Paste notes from clipboard
+        async function pasteNotesFromClipboard() {
+            try {
+                const text = await navigator.clipboard.readText();
+                const noteStrings = text.split(/\s+/).filter(note => note.trim());
+
+                // Validate note format
+                const validNoteRegex = /^[A-G](#|b)?(\+|4|5)?$/i;
+                if (!noteStrings.every(note => validNoteRegex.test(note))) {
+                    alert('Invalid note format detected. Please ensure all notes are in the format: [A-G][#b]?[45+]?');
+                    return;
+                }
+
+                // Clear existing notes and add new ones
+                const allInputs = document.querySelectorAll('#note-grid .note-input');
+                allInputs.forEach(input => {
+                    input.value = '';
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
+                });
+
+                // Fill with new notes
+                const startIndex = allNotes.length; // Skip reference row
+                for (let i = 0; i < noteStrings.length; i++) {
+                    const inputElement = document.querySelector(`input[data-index="${startIndex + i}"]`);
+                    if (inputElement) {
+                        inputElement.value = noteStrings[i].toUpperCase();
+                        inputElement.dispatchEvent(new Event('input', { bubbles: true }));
+                    }
+                }
+            } catch (err) {
+                console.error('Failed to read clipboard: ', err);
+                alert('Could not access clipboard. Please check browser permissions.');
+            }
+        }
+
+        // Check if transposition is possible
+        function canTranspose(direction) {
+            let highestNote = null;
+            let lowestNote = null;
+            const noteInputs = document.querySelectorAll('#note-grid .note-input');
+
+            noteInputs.forEach(input => {
+                if (input.value.trim()) {
+                    let note = input.value.toUpperCase();
+
+                    // Resolve aliases
+                    if (aliases[note]) {
+                        note = aliases[note];
+                    } else if (higherOctaveAliases[note]) {
+                        note = higherOctaveAliases[note];
+                    }
+
+                    // Skip if not valid
+                    if (!fingeringData[note]) return;
+
+                    const noteIndex = allNotes.indexOf(note);
+                    if (noteIndex === -1) return;
+
+                    // Track highest/lowest notes
+                    if (highestNote === null || noteIndex > allNotes.indexOf(highestNote)) {
+                        highestNote = note;
+                    }
+
+                    if (lowestNote === null || noteIndex < allNotes.indexOf(lowestNote)) {
+                        lowestNote = note;
+                    }
+                }
+            });
+
+            // No notes found
+            if (highestNote === null || lowestNote === null) {
+                return false;
+            }
+
+            // Check limits
+            if (direction === 'up') {
+                return allNotes.indexOf(highestNote) < allNotes.length - 1;
+            } else {
+                return allNotes.indexOf(lowestNote) > 0;
+            }
+        }
+
+        // Transpose all notes
+        function transposeNotes(direction) {
+            if (!canTranspose(direction)) {
+                return;
+            }
+
+            const noteInputs = document.querySelectorAll('#note-grid .note-input');
+
+            noteInputs.forEach(input => {
+                if (input.value.trim()) {
+                    let note = input.value.toUpperCase();
+
+                    // Resolve aliases
+                    let standardizedNote = note;
+                    if (aliases[note]) {
+                        standardizedNote = aliases[note];
+                    } else if (higherOctaveAliases[note]) {
+                        standardizedNote = higherOctaveAliases[note];
+                    }
+
+                    // Skip if not valid
+                    if (!fingeringData[standardizedNote]) return;
+
+                    const noteIndex = allNotes.indexOf(standardizedNote);
+                    if (noteIndex === -1) return;
+
+                    // Calculate new index and update
+                    const newIndex = direction === 'up' ? noteIndex + 1 : noteIndex - 1;
+                    const newNote = allNotes[newIndex];
+
+                    input.value = newNote;
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            });
+
+            updateTransposeButtons();
+        }
+
+        // Update transpose button states
+        function updateTransposeButtons() {
+            document.getElementById('transpose-up').disabled = !canTranspose('up');
+            document.getElementById('transpose-down').disabled = !canTranspose('down');
+        }
+
+        // Initialize grid
+        function initializeGrid() {
+            const referenceRow = document.getElementById('reference-row');
+            const noteGrid = document.getElementById('note-grid');
+
+            // Create reference row with all notes
+            for (let i = 0; i < allNotes.length; i++) {
+                const chartContainer = createChartContainer(i);
+                referenceRow.appendChild(chartContainer);
+
+                // Pre-fill reference row
+                const noteInput = chartContainer.querySelector('.note-input');
+                noteInput.value = allNotes[i];
+            }
+
+            // Create main grid
+            for (let i = allNotes.length; i < 128; i++) {
+                const chartContainer = createChartContainer(i);
+                noteGrid.appendChild(chartContainer);
+            }
+
+            // Update all pre-filled inputs
+            for (let i = 0; i < allNotes.length; i++) {
+                updateFingeringDisplay(i, allNotes[i]);
+            }
+        }
+
+        // Set up keyboard shortcuts and event listeners
+        function setupEventListeners() {
+            // Minimize button
+            document.getElementById('minimize-button').addEventListener('click', function () {
+                const headerWrapper = document.getElementById('header-wrapper');
+                headerWrapper.classList.toggle('minimized');
+                this.innerHTML = headerWrapper.classList.contains('minimized') ? '&#43;' : '&#x2212;';
+            });
+
+            // Control bar buttons
+            document.getElementById('copy-button').addEventListener('click', copyNotesToClipboard);
+            document.getElementById('paste-button').addEventListener('click', pasteNotesFromClipboard);
+            document.getElementById('transpose-up').addEventListener('click', () => transposeNotes('up'));
+            document.getElementById('transpose-down').addEventListener('click', () => transposeNotes('down'));
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function (event) {
+                // Ctrl+P for paste (prevent print dialog)
+                if (event.ctrlKey && event.key === 'p') {
+                    event.preventDefault();
+                    pasteNotesFromClipboard();
+                }
+
+                // Ctrl+V for paste (when not in input field)
+                if (event.ctrlKey && event.key === 'v' && document.activeElement.tagName !== 'INPUT') {
+                    event.preventDefault();
+                    pasteNotesFromClipboard();
+                }
+
+                // Ctrl+C for copy (when no text selected and not in input)
+                if (event.ctrlKey && event.key === 'c' &&
+                    !window.getSelection().toString() &&
+                    document.activeElement.tagName !== 'INPUT') {
+                    event.preventDefault();
+                    copyNotesToClipboard();
+                }
+            });
+
+            // Update transpose buttons when inputs change
+            const allInputs = document.querySelectorAll('.note-input');
+            allInputs.forEach(input => {
+                input.addEventListener('input', () => setTimeout(updateTransposeButtons, 0));
+            });
+        }
+
+        // Initialize app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeGrid();
+            setupEventListeners();
+            updateTransposeButtons();
+        });
+    </script>
+</body>
+
+</html>
