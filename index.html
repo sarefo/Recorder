@@ -274,8 +274,8 @@
     <div id="header-wrapper">
         <div class="control-bar" id="header-controls">
             <div class="control-buttons">
-                <button id="copy-button" title="Copy notes to clipboard (Ctrl+C)">To clipboard (Ctrl+C)</button>
                 <button id="paste-button" title="Paste notes from clipboard (Ctrl+V)">From clipboard (Ctrl+V)</button>
+                <button id="copy-button" title="Copy notes to clipboard (Ctrl+C)">To clipboard (Ctrl+C)</button>
                 <div class="transpose-control">
                     <span>Transpose:</span>
                     <div class="transpose-buttons">
@@ -300,6 +300,7 @@
 
     <script>
         // Define the fingering patterns for each note
+        // Baroque // 'F4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'c'] },
         const fingeringData = {
             // First octave
             'C4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'c'] },
@@ -324,7 +325,6 @@
             'F5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'o'] }
         };
 
-        // Note aliases
         const aliases = {
             'C': 'C4',
             'C#': 'C#4', 'DB': 'C#4', 'DB4': 'C#4',
@@ -340,19 +340,47 @@
             'B': 'B4'
         };
 
-        // Higher octave aliases
+        const lowerOctaveAliases = {
+            'C-': 'C3',
+            'C#-': 'C#3', 'DB-': 'C#3', 'DB3': 'C#3',
+            'D-': 'D3',
+            'D#-': 'D#3', 'EB-': 'D#3', 'EB3': 'D#3',
+            'E-': 'E3',
+            'F-': 'F3',
+            'F#-': 'F#3', 'GB-': 'F#3', 'GB3': 'F#3',
+            'G-': 'G3',
+            'G#-': 'G#3', 'AB-': 'G#3', 'AB3': 'G#3',
+            'A-': 'A3',
+            'A#-': 'A#3', 'BB-': 'A#3', 'BB3': 'A#3',
+            'B-': 'B3'
+        };
+
         const higherOctaveAliases = {
             'C+': 'C5',
             'C#+': 'C#5', 'DB+': 'C#5', 'DB5': 'C#5',
             'D+': 'D5',
             'D#+': 'D#5', 'EB+': 'D#5', 'EB5': 'D#5',
             'E+': 'E5',
-            'F+': 'F5'
+            'F+': 'F5',
+            'F#+': 'F#5', 'GB+': 'F#5', 'GB5': 'F#5',
+            'G+': 'G5',
+            'G#+': 'G#5', 'AB+': 'G#5', 'AB5': 'G#5',
+            'A+': 'A5',
+            'A#+': 'A#5', 'BB+': 'A#5', 'BB5': 'A#5',
+            'B+': 'B5',
+            'C++': 'C6'
         };
 
         const allNotes = [
             'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4',
             'C5', 'C#5', 'D5', 'D#5', 'E5', 'F5'
+        ];
+
+        const allNotesExtended = [
+            'C3', 'C#3', 'D3', 'D#3', 'E3', 'F3', 'F#3', 'G3', 'G#3', 'A3', 'A#3', 'B3',
+            'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4',
+            'C5', 'C#5', 'D5', 'D#5', 'E5', 'F5', 'F#5', 'G5', 'G#5', 'A5', 'A#5', 'B5',
+            'C6'
         ];
 
         // Create a chart container with input and display
@@ -387,7 +415,6 @@
             return chartContainer;
         }
 
-        // Handle note input change
         function handleNoteChange(event) {
             const index = event.target.dataset.index;
             let note = event.target.value.toUpperCase();
@@ -398,9 +425,29 @@
                 note = aliases[note];
             } else if (higherOctaveAliases[note]) {
                 note = higherOctaveAliases[note];
+            } else if (lowerOctaveAliases[note]) {
+                note = lowerOctaveAliases[note];
             }
 
-            updateFingeringDisplay(index, note);
+            // Check if note is outside recorder range
+            const chartContainer = event.target.closest('.chart-container');
+            const normalizedNote = note.replace('#', 'S'); // Normalize for comparison
+
+            if (note && allNotesExtended.includes(note)) {
+                // Note is in extended range but outside recorder range
+                if (allNotesExtended.indexOf(note) < allNotesExtended.indexOf('C4') ||
+                    allNotesExtended.indexOf(note) > allNotesExtended.indexOf('F5')) {
+                    chartContainer.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+                } else {
+                    // Reset background if in recorder range
+                    chartContainer.style.backgroundColor = '';
+                }
+                updateFingeringDisplay(index, note);
+            } else {
+                // Invalid note or empty
+                chartContainer.style.backgroundColor = '';
+                updateFingeringDisplay(index, note);
+            }
         }
 
         // Toggle background color between none, red, and green
@@ -417,17 +464,17 @@
             }
         }
 
-        // Update fingering display based on note
         function updateFingeringDisplay(index, note) {
             const fingeringDisplay = document.getElementById(`fingering-${index}`);
             const chartContainer = fingeringDisplay.closest('.chart-container');
 
-            // Preserve background class
+            // Preserve background class for red/green background (highlighting)
             const hasRedBg = chartContainer.classList.contains('bg-red');
             const hasGreenBg = chartContainer.classList.contains('bg-green');
 
             // Add or remove black-key class for sharp/flat notes
-            if (note && (note.includes('#') || note.includes('B') && !note.endsWith('B4'))) {
+            if (note && (note.includes('#') || note.includes('B') &&
+                !['B3', 'B4', 'B5'].includes(note))) {
                 chartContainer.classList.add('black-key');
             } else {
                 chartContainer.classList.remove('black-key');
@@ -435,13 +482,22 @@
 
             fingeringDisplay.innerHTML = '';
 
-            if (!note || !fingeringData[note]) {
+            if (!note || !fingeringData[note] && allNotesExtended.includes(note)) {
+                // Note is valid but outside recorder range (no fingering data)
+                const emptyFingering = document.createElement('div');
+                emptyFingering.className = 'empty-fingering';
+                emptyFingering.textContent = 'Out of range';
+                fingeringDisplay.appendChild(emptyFingering);
+                return;
+            } else if (!note || !allNotesExtended.includes(note)) {
+                // Invalid note
                 const emptyFingering = document.createElement('div');
                 emptyFingering.className = 'empty-fingering';
                 fingeringDisplay.appendChild(emptyFingering);
                 return;
             }
 
+            // The rest of the function remains unchanged
             const fingering = fingeringData[note];
             const fingeringHoles = document.createElement('div');
             fingeringHoles.className = 'fingering-holes';
@@ -527,16 +583,15 @@
             }, 2000);
         }
 
-        // Paste notes from clipboard
         async function pasteNotesFromClipboard() {
             try {
                 const text = await navigator.clipboard.readText();
                 const noteStrings = text.split(/\s+/).filter(note => note.trim());
 
-                // Validate note format
-                const validNoteRegex = /^[A-G](#|b)?(\+|4|5)?$/i;
+                // Updated regex to account for extended range
+                const validNoteRegex = /^[A-G](#|b)?(\+|\+\+|-|3|4|5|6)?$/i;
                 if (!noteStrings.every(note => validNoteRegex.test(note))) {
-                    alert('Invalid note format detected. Please ensure all notes are in the format: [A-G][#b]?[45+]?');
+                    alert('Invalid note format detected. Please ensure all notes are in the format: [A-G][#b]?[3456+-]?');
                     return;
                 }
 
@@ -562,7 +617,6 @@
             }
         }
 
-        // Check if transposition is possible
         function canTranspose(direction) {
             let highestNote = null;
             let lowestNote = null;
@@ -577,20 +631,22 @@
                         note = aliases[note];
                     } else if (higherOctaveAliases[note]) {
                         note = higherOctaveAliases[note];
+                    } else if (lowerOctaveAliases[note]) {
+                        note = lowerOctaveAliases[note];
                     }
 
-                    // Skip if not valid
-                    if (!fingeringData[note]) return;
+                    // Skip if not a valid note
+                    if (!allNotesExtended.includes(note)) return;
 
-                    const noteIndex = allNotes.indexOf(note);
+                    const noteIndex = allNotesExtended.indexOf(note);
                     if (noteIndex === -1) return;
 
                     // Track highest/lowest notes
-                    if (highestNote === null || noteIndex > allNotes.indexOf(highestNote)) {
+                    if (highestNote === null || noteIndex > allNotesExtended.indexOf(highestNote)) {
                         highestNote = note;
                     }
 
-                    if (lowestNote === null || noteIndex < allNotes.indexOf(lowestNote)) {
+                    if (lowestNote === null || noteIndex < allNotesExtended.indexOf(lowestNote)) {
                         lowestNote = note;
                     }
                 }
@@ -603,13 +659,12 @@
 
             // Check limits
             if (direction === 'up') {
-                return allNotes.indexOf(highestNote) < allNotes.length - 1;
+                return allNotesExtended.indexOf(highestNote) < allNotesExtended.length - 1;
             } else {
-                return allNotes.indexOf(lowestNote) > 0;
+                return allNotesExtended.indexOf(lowestNote) > 0;
             }
         }
 
-        // Transpose all notes
         function transposeNotes(direction) {
             if (!canTranspose(direction)) {
                 return;
@@ -627,17 +682,19 @@
                         standardizedNote = aliases[note];
                     } else if (higherOctaveAliases[note]) {
                         standardizedNote = higherOctaveAliases[note];
+                    } else if (lowerOctaveAliases[note]) {
+                        standardizedNote = lowerOctaveAliases[note];
                     }
 
                     // Skip if not valid
-                    if (!fingeringData[standardizedNote]) return;
+                    if (!allNotesExtended.includes(standardizedNote)) return;
 
-                    const noteIndex = allNotes.indexOf(standardizedNote);
+                    const noteIndex = allNotesExtended.indexOf(standardizedNote);
                     if (noteIndex === -1) return;
 
                     // Calculate new index and update
                     const newIndex = direction === 'up' ? noteIndex + 1 : noteIndex - 1;
-                    const newNote = allNotes[newIndex];
+                    const newNote = allNotesExtended[newIndex];
 
                     input.value = newNote;
                     input.dispatchEvent(new Event('input', { bubbles: true }));
@@ -649,8 +706,8 @@
 
         // Update transpose button states
         function updateTransposeButtons() {
-            document.getElementById('transpose-up').disabled = !canTranspose('up');
             document.getElementById('transpose-down').disabled = !canTranspose('down');
+            document.getElementById('transpose-up').disabled = !canTranspose('up');
         }
 
         // Initialize grid
