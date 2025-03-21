@@ -277,6 +277,7 @@
             <div class="control-buttons">
                 <button id="paste-button" title="Paste notes from clipboard (Ctrl+V)">From clipboard (Ctrl+V)</button>
                 <button id="copy-button" title="Copy notes to clipboard (Ctrl+C)">To clipboard (Ctrl+C)</button>
+                <button id="fingering-toggle" title="Toggle between Baroque and German fingering">Baroque</button>
                 <div class="transpose-control">
                     <span>Transpose:</span>
                     <div class="transpose-buttons">
@@ -445,49 +446,58 @@
             }
 
             // Check if note is outside recorder range
-            const chartContainer = event.target.closest('.chart-container');
+            const noteInput = event.target;
             const normalizedNote = note.replace('#', 'S'); // Normalize for comparison
 
             if (note && allNotesExtended.includes(note)) {
                 // Note is in extended range but outside recorder range
                 if (allNotesExtended.indexOf(note) < allNotesExtended.indexOf('C4') ||
                     allNotesExtended.indexOf(note) > allNotesExtended.indexOf('F5')) {
-                    chartContainer.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+                    noteInput.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
                 } else {
                     // Reset background if in recorder range
-                    chartContainer.style.backgroundColor = '';
+                    noteInput.style.backgroundColor = '';
                 }
                 updateFingeringDisplay(index, note);
             } else {
                 // Invalid note or empty
-                chartContainer.style.backgroundColor = '';
+                noteInput.style.backgroundColor = '';
                 updateFingeringDisplay(index, note);
             }
         }
 
-        // Toggle background color between none, red, and green
-        function toggleBackground(event) {
-            const chartContainer = event.currentTarget.closest('.chart-container');
+        let currentFingeringSystem = 'baroque';
 
-            if (chartContainer.classList.contains('bg-red')) {
-                chartContainer.classList.remove('bg-red');
-                chartContainer.classList.add('bg-green');
-            } else if (chartContainer.classList.contains('bg-green')) {
-                chartContainer.classList.remove('bg-green');
+        function toggleFingeringSystem() {
+            const toggleButton = document.getElementById('fingering-toggle');
+
+            if (currentFingeringSystem === 'baroque') {
+                currentFingeringSystem = 'german';
+                toggleButton.textContent = 'German';
             } else {
-                chartContainer.classList.add('bg-red');
+                currentFingeringSystem = 'baroque';
+                toggleButton.textContent = 'Baroque';
             }
+
+            // Update all displayed fingerings
+            const allInputs = document.querySelectorAll('.note-input');
+            allInputs.forEach(input => {
+                if (input.value) {
+                    const index = input.dataset.index;
+                    updateFingeringDisplay(index, input.value);
+                }
+            });
         }
 
         function updateFingeringDisplay(index, note) {
             const fingeringDisplay = document.getElementById(`fingering-${index}`);
             const chartContainer = fingeringDisplay.closest('.chart-container');
 
-            // Preserve background class for red/green background (highlighting)
+            // Preserve background classes
             const hasRedBg = chartContainer.classList.contains('bg-red');
             const hasGreenBg = chartContainer.classList.contains('bg-green');
 
-            // Add or remove black-key class for sharp/flat notes
+            // Check for sharp/flat notes
             if (note && (note.includes('#') || note.includes('B') &&
                 !['B3', 'B4', 'B5'].includes(note))) {
                 chartContainer.classList.add('black-key');
@@ -498,22 +508,27 @@
             fingeringDisplay.innerHTML = '';
 
             if (!note || !fingeringData[note] && allNotesExtended.includes(note)) {
-                // Note is valid but outside recorder range (no fingering data)
                 const emptyFingering = document.createElement('div');
                 emptyFingering.className = 'empty-fingering';
                 emptyFingering.textContent = 'Out of range';
                 fingeringDisplay.appendChild(emptyFingering);
                 return;
             } else if (!note || !allNotesExtended.includes(note)) {
-                // Invalid note
                 const emptyFingering = document.createElement('div');
                 emptyFingering.className = 'empty-fingering';
                 fingeringDisplay.appendChild(emptyFingering);
                 return;
             }
 
-            // The rest of the function remains unchanged
-            const fingering = fingeringData[note];
+            // Get fingering based on current system
+            let fingering;
+            if (currentFingeringSystem === 'german' && fingeringDataGerman[note]) {
+                fingering = fingeringDataGerman[note];
+            } else {
+                fingering = fingeringData[note];
+            }
+
+            // Create fingering display (rest of the function unchanged)
             const fingeringHoles = document.createElement('div');
             fingeringHoles.className = 'fingering-holes';
 
@@ -547,6 +562,20 @@
                 chartContainer.classList.add('bg-red');
             } else if (hasGreenBg) {
                 chartContainer.classList.add('bg-green');
+            }
+        }
+
+        // Toggle background color between none, red, and green
+        function toggleBackground(event) {
+            const chartContainer = event.currentTarget.closest('.chart-container');
+
+            if (chartContainer.classList.contains('bg-red')) {
+                chartContainer.classList.remove('bg-red');
+                chartContainer.classList.add('bg-green');
+            } else if (chartContainer.classList.contains('bg-green')) {
+                chartContainer.classList.remove('bg-green');
+            } else {
+                chartContainer.classList.add('bg-red');
             }
         }
 
@@ -750,6 +779,8 @@
             for (let i = 0; i < allNotes.length; i++) {
                 updateFingeringDisplay(i, allNotes[i]);
             }
+            document.getElementById('header-wrapper').classList.add('minimized');
+            document.getElementById('minimize-button').innerHTML = '&#43;';
         }
 
         // Set up keyboard shortcuts and event listeners
@@ -766,6 +797,7 @@
             document.getElementById('paste-button').addEventListener('click', pasteNotesFromClipboard);
             document.getElementById('transpose-up').addEventListener('click', () => transposeNotes('up'));
             document.getElementById('transpose-down').addEventListener('click', () => transposeNotes('down'));
+            document.getElementById('fingering-toggle').addEventListener('click', toggleFingeringSystem);
 
             // Keyboard shortcuts
             document.addEventListener('keydown', function (event) {
