@@ -1,0 +1,10 @@
+link: https://musescore.com/user/97106398/scores/23763463
+
+original:
+A5 A5 B5 A5 A5 B5
+A5 B5 C6 B5 A5 B5 A5 F5
+E5 C5 E5 F5 E5 E5 C5 B4
+A5 B5 A5 B5 A5 B5 A5 F5
+E5 C5 E5 F5 E5 E5 C5 B4
+A5 A5 B5 A5 A5 B5
+E5 F5 B5 A5 F5 E5
