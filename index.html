@@ -273,6 +273,7 @@
 <body>
     <div id="header-wrapper">
         <div class="control-bar" id="header-controls">
+
             <div class="control-buttons">
                 <button id="paste-button" title="Paste notes from clipboard (Ctrl+V)">From clipboard (Ctrl+V)</button>
                 <button id="copy-button" title="Copy notes to clipboard (Ctrl+C)">To clipboard (Ctrl+C)</button>
@@ -284,6 +285,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="minimize-controls">
                 <span class="minimize-label">Chart</span>
                 <button id="minimize-button" title="Minimize/Expand header">&#x2212;</button>
@@ -308,21 +310,34 @@
             'D4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
             'D#4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'p', 'o'] },
             'E4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
-            'F4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+            'F4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'c'] },
             'F#4': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'o'] },
             'G4': { left: ['c', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
-            'G#4': { left: ['c', 'c', 'c', 'o'], right: ['c', 'c', 'p', 'o'] },
+            'G#4': { left: ['c', 'c', 'c', 'o'], right: ['c', 'c', 'o', 'o'] },
             'A4': { left: ['c', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
             'A#4': { left: ['c', 'c', 'o', 'c'], right: ['c', 'o', 'o', 'o'] },
             'B4': { left: ['c', 'c', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
 
             // Second octave
             'C5': { left: ['c', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
-            'C#5': { left: ['o', 'c', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+            'C#5': { left: ['o', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
             'D5': { left: ['o', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
             'D#5': { left: ['o', 'o', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
             'E5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
-            'F5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'o'] }
+            'F5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'o'] },
+            'F#5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'o'] },
+            'G5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
+            'G#5': { left: ['p', 'c', 'c', 'o'], right: ['c', 'o', 'o', 'o'] },
+            'A5': { left: ['p', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+        };
+
+        const fingeringDataGerman = {
+            'F4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+            'F#4': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] },
+            'C#5': { left: ['c', 'o', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+            'F5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+            'F#5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'c'] },
+            'G#5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] },
         };
 
         const aliases = {
