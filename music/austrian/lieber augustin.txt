@@ -1,0 +1,40 @@
+original:
+
+g4:4. a4:8 g4:8 f4:8 | e4:4 c4:4 c4:4 | d4:4 g3:4 g3:4 | e4:4 c4:4 c4:4 |
+g4:4. a4:8 g4:8 f4:8 | e4:4 c4:4 c4:4 | d4:4 g3:4 g3:4 | c4:2 0:4 |
+d4:4 g3:4 g3:4 | e4:4 c4:4 c4:4 | d4:4 g3:4 g3:4 | e4:4 c4:4 c4:4 |
+g4:4. a4:8 g4:8 f4:8 | e4:4 c4:4 c4:4 | d4:4 g3:4 g3:4 | c4:2 0:4 |
+
+transposed:
+
+C5:4. D5:8 C5:8 A#4:8 | A4:4 F4:4 F4:4 | G4:4 C4:4 C4:4 | A4:4 F4:4 F4:4 | C5:4. D5:8 C5:8 A#4:8 | A4:4 F4:4 F4:4 | G4:4 C4:4 C4:4 | F4:2 0:4 | G4:4 C4:4 C4:4 | A4:4 F4:4 F4:4 | G4:4 C4:4 C4:4 | A4:4 F4:4 F4:4 | C5:4. D5:8 C5:8 A#4:8 | A4:4 F4:4 F4:4 | G4:4 C4:4 C4:4 | F4:2 0:4 |
+
+https://de.wikipedia.org/wiki/Marx_Augustin
+
+O du lieber Augustin, Augustin, Augustin,
+O du lieber Augustin, alles ist hin.
+
+Geld ist weg, Mensch (Mäd’l) ist weg,
+Alles hin, Augustin.
+O du lieber Augustin,
+Alles ist hin.
+
+Rock ist weg, Stock ist weg,
+Augustin liegt im Dreck,
+O du lieber Augustin,
+Alles ist hin.
+
+Und selbst das reiche Wien,
+Hin ist’s wie Augustin;
+Weint mit mir im gleichen Sinn,
+Alles ist hin!
+
+Jeder Tag war ein Fest,
+Und was jetzt? Pest, die Pest!
+Nur ein groß’ Leichenfest,
+Das ist der Rest.
+
+Augustin, Augustin,
+Leg’ nur ins Grab dich hin!
+O du lieber Augustin,
+Alles ist hin!
