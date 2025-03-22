@@ -77,10 +77,12 @@
             border-radius: 8px;
             padding: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: calc((100% - 152px) / 18);
+            width: 45px;
+            /*width: calc((100% - 152px) / 18);
             min-width: 45px;
             flex-grow: 0;
             flex-shrink: 1;
+            */
         }
 
         @media (max-width: 1200px) {
@@ -190,6 +192,7 @@
         .empty-fingering {
             color: #999;
             font-size: 11px;
+            text-align: center;
         }
 
         .control-bar {
@@ -352,495 +355,500 @@
         - Use 0 for rests: 0:2 (half rest), 0:4 (quarter rest)
         - Use | for visual separators between phrases
         */
-        const durationSymbols = {
-            // Note symbols
-            "1": "𝅝", // Whole note
-            "2": "𝅗𝅥", // Half note
-            "4": "𝅘𝅥", // Quarter note
-            "8": "𝅘𝅥𝅮", // Eighth note
-            "16": "𝅘𝅥𝅯", // Sixteenth note
-            "32": "𝅘𝅥𝅰", // Thirty-second note
+        const noteUtils = {
+            durationSymbols: {
+                // Note symbols
+                "1": "𝅝", "2": "𝅗𝅥", "4": "𝅘𝅥", "8": "𝅘𝅥𝅮", "16": "𝅘𝅥𝅯", "32": "𝅘𝅥𝅰",
+                // Rest symbols
+                "1r": "𝄻", "2r": "𝄼", "4r": "𝄽", "8r": "𝄾", "16r": "𝄿", "32r": "𝅀"
+            },
 
-            // Rest symbols
-            "1r": "𝄻", // Whole rest
-            "2r": "𝄼", // Half rest
-            "4r": "𝄽", // Quarter rest
-            "8r": "𝄾", // Eighth rest
-            "16r": "𝄿", // Sixteenth rest
-            "32r": "𝅀"  // Thirty-second rest
-        };
+            fingeringData: {
+                // First octave
+                'C4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'c'] },
+                'C#4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'p'] },
+                'D4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
+                'D#4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'p', 'o'] },
+                'E4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
+                'F4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'c'] },
+                'F#4': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'o'] },
+                'G4': { left: ['c', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
+                'G#4': { left: ['c', 'c', 'c', 'o'], right: ['c', 'c', 'o', 'o'] },
+                'A4': { left: ['c', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                'A#4': { left: ['c', 'c', 'o', 'c'], right: ['c', 'o', 'o', 'o'] },
+                'B4': { left: ['c', 'c', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+                // Second octave
+                'C5': { left: ['c', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                'C#5': { left: ['o', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                'D5': { left: ['o', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                'D#5': { left: ['o', 'o', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
+                'E5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
+                'F5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'o'] },
+                'F#5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'o'] },
+                'G5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
+                'G#5': { left: ['p', 'c', 'c', 'o'], right: ['c', 'o', 'o', 'o'] },
+                'A5': { left: ['p', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+            },
 
-        // Define the fingering patterns for each note
-        // Baroque // 'F4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'c'] },
-        const fingeringData = {
-            // First octave
-            'C4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'c'] },
-            'C#4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'p'] },
-            'D4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
-            'D#4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'p', 'o'] },
-            'E4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
-            'F4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'c'] },
-            'F#4': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'o'] },
-            'G4': { left: ['c', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
-            'G#4': { left: ['c', 'c', 'c', 'o'], right: ['c', 'c', 'o', 'o'] },
-            'A4': { left: ['c', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
-            'A#4': { left: ['c', 'c', 'o', 'c'], right: ['c', 'o', 'o', 'o'] },
-            'B4': { left: ['c', 'c', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+            fingeringDataGerman: {
+                'F4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+                'F#4': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] },
+                'C#5': { left: ['c', 'o', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+                'F5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+                'F#5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'c'] },
+                'G#5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] },
+            },
 
-            // Second octave
-            'C5': { left: ['c', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
-            'C#5': { left: ['o', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
-            'D5': { left: ['o', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
-            'D#5': { left: ['o', 'o', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
-            'E5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
-            'F5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'o'] },
-            'F#5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'o'] },
-            'G5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
-            'G#5': { left: ['p', 'c', 'c', 'o'], right: ['c', 'o', 'o', 'o'] },
-            'A5': { left: ['p', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
-        };
+            aliases: {
+                'C': 'C4', 'C#': 'C#4', 'DB': 'C#4', 'DB4': 'C#4',
+                'D': 'D4', 'D#': 'D#4', 'EB': 'D#4', 'EB4': 'D#4',
+                'E': 'E4', 'F': 'F4', 'F#': 'F#4', 'GB': 'F#4', 'GB4': 'F#4',
+                'G': 'G4', 'G#': 'G#4', 'AB': 'G#4', 'AB4': 'G#4',
+                'A': 'A4', 'A#': 'A#4', 'BB': 'A#4', 'BB4': 'A#4',
+                'B': 'B4'
+            },
 
-        const fingeringDataGerman = {
-            'F4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
-            'F#4': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] },
-            'C#5': { left: ['c', 'o', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
-            'F5': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
-            'F#5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'c'] },
-            'G#5': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] },
-        };
+            lowerOctaveAliases: {
+                'C-': 'C3', 'C#-': 'C#3', 'DB-': 'C#3', 'DB3': 'C#3',
+                'D-': 'D3', 'D#-': 'D#3', 'EB-': 'D#3', 'EB3': 'D#3',
+                'E-': 'E3', 'F-': 'F3', 'F#-': 'F#3', 'GB-': 'F#3', 'GB3': 'F#3',
+                'G-': 'G3', 'G#-': 'G#3', 'AB-': 'G#3', 'AB3': 'G#3',
+                'A-': 'A3', 'A#-': 'A#3', 'BB-': 'A#3', 'BB3': 'A#3',
+                'B-': 'B3'
+            },
 
-        const aliases = {
-            'C': 'C4',
-            'C#': 'C#4', 'DB': 'C#4', 'DB4': 'C#4',
-            'D': 'D4',
-            'D#': 'D#4', 'EB': 'D#4', 'EB4': 'D#4',
-            'E': 'E4',
-            'F': 'F4',
-            'F#': 'F#4', 'GB': 'F#4', 'GB4': 'F#4',
-            'G': 'G4',
-            'G#': 'G#4', 'AB': 'G#4', 'AB4': 'G#4',
-            'A': 'A4',
-            'A#': 'A#4', 'BB': 'A#4', 'BB4': 'A#4',
-            'B': 'B4'
-        };
+            higherOctaveAliases: {
+                'C+': 'C5', 'C#+': 'C#5', 'DB+': 'C#5', 'DB5': 'C#5',
+                'D+': 'D5', 'D#+': 'D#5', 'EB+': 'D#5', 'EB5': 'D#5',
+                'E+': 'E5', 'F+': 'F5', 'F#+': 'F#5', 'GB+': 'F#5', 'GB5': 'F#5',
+                'G+': 'G5', 'G#+': 'G#5', 'AB+': 'G#5', 'AB5': 'G#5',
+                'A+': 'A5', 'A#+': 'A#5', 'BB+': 'A#5', 'BB5': 'A#5',
+                'B+': 'B5', 'C++': 'C6'
+            },
 
-        const lowerOctaveAliases = {
-            'C-': 'C3',
-            'C#-': 'C#3', 'DB-': 'C#3', 'DB3': 'C#3',
-            'D-': 'D3',
-            'D#-': 'D#3', 'EB-': 'D#3', 'EB3': 'D#3',
-            'E-': 'E3',
-            'F-': 'F3',
-            'F#-': 'F#3', 'GB-': 'F#3', 'GB3': 'F#3',
-            'G-': 'G3',
-            'G#-': 'G#3', 'AB-': 'G#3', 'AB3': 'G#3',
-            'A-': 'A3',
-            'A#-': 'A#3', 'BB-': 'A#3', 'BB3': 'A#3',
-            'B-': 'B3'
-        };
+            allNotes: [
+                'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4',
+                'C5', 'C#5', 'D5', 'D#5', 'E5', 'F5'
+            ],
 
-        const higherOctaveAliases = {
-            'C+': 'C5',
-            'C#+': 'C#5', 'DB+': 'C#5', 'DB5': 'C#5',
-            'D+': 'D5',
-            'D#+': 'D#5', 'EB+': 'D#5', 'EB5': 'D#5',
-            'E+': 'E5',
-            'F+': 'F5',
-            'F#+': 'F#5', 'GB+': 'F#5', 'GB5': 'F#5',
-            'G+': 'G5',
-            'G#+': 'G#5', 'AB+': 'G#5', 'AB5': 'G#5',
-            'A+': 'A5',
-            'A#+': 'A#5', 'BB+': 'A#5', 'BB5': 'A#5',
-            'B+': 'B5',
-            'C++': 'C6'
-        };
+            allNotesExtended: [
+                'C3', 'C#3', 'D3', 'D#3', 'E3', 'F3', 'F#3', 'G3', 'G#3', 'A3', 'A#3', 'B3',
+                'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4',
+                'C5', 'C#5', 'D5', 'D#5', 'E5', 'F5', 'F#5', 'G5', 'G#5', 'A5', 'A#5', 'B5',
+                'C6', 'C#6', 'D6', 'D#6', 'E6', 'F6', 'F#6', 'G6', 'G#6', 'A6', 'A#6', 'B6'
+            ],
 
-        const allNotes = [
-            'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4',
-            'C5', 'C#5', 'D5', 'D#5', 'E5', 'F5'
-        ];
+            resolveNoteAlias(note) {
+                if (this.aliases[note]) return this.aliases[note];
+                if (this.higherOctaveAliases[note]) return this.higherOctaveAliases[note];
+                if (this.lowerOctaveAliases[note]) return this.lowerOctaveAliases[note];
+                return note;
+            },
 
-        const allNotesExtended = [
-            'C3', 'C#3', 'D3', 'D#3', 'E3', 'F3', 'F#3', 'G3', 'G#3', 'A3', 'A#3', 'B3',
-            'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4',
-            'C5', 'C#5', 'D5', 'D#5', 'E5', 'F5', 'F#5', 'G5', 'G#5', 'A5', 'A#5', 'B5',
-            'C6', 'C#6', 'D6', 'D#6', 'E6', 'F6', 'F#6', 'G6', 'G#6', 'A6', 'A#6', 'B6'
-        ];
+            isValidNote(note) {
+                return this.allNotesExtended.includes(note);
+            },
 
-        // Create a chart container with input and display
-        function createChartContainer(index) {
-            const chartContainer = document.createElement('div');
-            chartContainer.className = 'chart-container';
-            chartContainer.id = `chart-${index}`;
+            isSharpOrFlat(note) {
+                return note && (note.includes('#') || (note.includes('B') &&
+                    !['B3', 'B4', 'B5', 'B6'].includes(note)));
+            },
 
-            const fingeringChart = document.createElement('div');
-            fingeringChart.className = 'fingering-chart';
+            getDurationSymbol(duration, isRest = false) {
+                if (!duration) return '';
 
-            const noteInput = document.createElement('input');
-            noteInput.type = 'text';
-            noteInput.className = 'note-input';
-            noteInput.placeholder = 'Note';
-            noteInput.dataset.index = index;
-            noteInput.addEventListener('input', handleNoteChange);
-            noteInput.addEventListener('blur', handleNoteBlur); // Add blur event listener
-
-            const fingeringDisplay = document.createElement('div');
-            fingeringDisplay.className = 'fingering-display';
-            fingeringDisplay.id = `fingering-${index}`;
-            fingeringDisplay.addEventListener('click', toggleBackground);
-
-            const emptyFingering = document.createElement('div');
-            emptyFingering.className = 'empty-fingering';
-
-            fingeringDisplay.appendChild(emptyFingering);
-            fingeringChart.appendChild(noteInput);
-            fingeringChart.appendChild(fingeringDisplay);
-            chartContainer.appendChild(fingeringChart);
-
-            return chartContainer;
-        }
-
-        function handleNoteChange(event) {
-            const index = event.target.dataset.index;
-            let note = event.target.value.toUpperCase();
-
-            // Handle separator
-            const chartContainer = event.target.closest('.chart-container');
-
-            // Extract duration if present
-            let duration = '';
-            if (note.includes(':')) {
-                const parts = note.split(':');
-                note = parts[0];
-                duration = parts[1];
-                event.target.value = note; // Update input to show only the note
-                event.target.dataset.duration = duration;
-            } else if (event.target.dataset.duration) {
-                // Preserve existing duration if no new one was provided
-                duration = event.target.dataset.duration;
-            }
-
-            // Mark as rest if the note is "0"
-            if (note === '0') {
-                chartContainer.classList.add('rest');
-            } else {
-                chartContainer.classList.remove('rest');
-            }
-
-            // Update the fingering display with the current value
-            updateFingeringDisplay(index, note, duration);
-        }
-
-        function handleNoteBlur(event) {
-            const index = event.target.dataset.index;
-            let note = event.target.value.toUpperCase();
-
-            // Skip if separator or empty
-            if (note === '|' || note === '') return;
-
-            // Skip if there's already an octave designation
-            if (/[A-G](#|b)?[3-6]/.test(note)) return;
-
-            // Resolve aliases on blur
-            if (aliases[note]) {
-                note = aliases[note];
-                event.target.value = note;
-            } else if (higherOctaveAliases[note]) {
-                note = higherOctaveAliases[note];
-                event.target.value = note;
-            } else if (lowerOctaveAliases[note]) {
-                note = lowerOctaveAliases[note];
-                event.target.value = note;
-            }
-
-            // Keep any duration information
-            const duration = event.target.dataset.duration;
-            updateFingeringDisplay(index, note, duration);
-        }
-
-        let currentFingeringSystem = 'german';
-
-        function toggleFingeringSystem() {
-            const toggleButton = document.getElementById('fingering-toggle');
-
-            if (currentFingeringSystem === 'baroque') {
-                currentFingeringSystem = 'german';
-                toggleButton.textContent = 'German';
-            } else {
-                currentFingeringSystem = 'baroque';
-                toggleButton.textContent = 'Baroque';
-            }
-
-            // Update all displayed fingerings
-            const allInputs = document.querySelectorAll('.note-input');
-            allInputs.forEach(input => {
-                if (input.value) {
-                    const index = input.dataset.index;
-                    updateFingeringDisplay(index, input.value);
-                }
-            });
-        }
-
-        function updateFingeringDisplay(index, note, duration) {
-            const fingeringDisplay = document.getElementById(`fingering-${index}`);
-            const chartContainer = fingeringDisplay.closest('.chart-container');
-
-            // If no duration was passed, check if there's one in the input's dataset
-            if (!duration) {
-                const input = document.querySelector(`.note-input[data-index="${index}"]`);
-                if (input && input.dataset.duration) {
-                    duration = input.dataset.duration;
-                }
-            }
-
-            // Preserve background classes
-            const hasRedBg = chartContainer.classList.contains('bg-red');
-            const hasGreenBg = chartContainer.classList.contains('bg-green');
-
-            // Handle separator (bar symbol)
-            if (note === '|' || chartContainer.classList.contains('separator')) {
-                fingeringDisplay.innerHTML = '';
-                // Create a vertical line for the bar symbol
-                const barLine = document.createElement('div');
-                barLine.style.height = '120px'; // Match the height of fingering display
-                barLine.style.width = '2px';
-                barLine.style.backgroundColor = '#333';
-                barLine.style.margin = '0 auto';
-                fingeringDisplay.appendChild(barLine);
-
-                // Style the container to remove border
-                chartContainer.style.border = 'none';
-                chartContainer.style.boxShadow = 'none';
-                chartContainer.classList.add('separator');
-
-                // Hide the input field for a cleaner look
-                const inputField = chartContainer.querySelector('.note-input');
-                if (inputField) {
-                    inputField.style.visibility = 'hidden';
-                }
-
-                return;
-            } else {
-                // Reset styles if not a separator
-                chartContainer.style.border = '1px solid #ddd';
-                chartContainer.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
-                chartContainer.classList.remove('separator');
-
-                // Show the input field
-                const inputField = chartContainer.querySelector('.note-input');
-                if (inputField) {
-                    inputField.style.visibility = 'visible';
-                }
-            }
-
-            // Check for sharp/flat notes
-            if (note && (note.includes('#') || (note.includes('B') &&
-                !['B3', 'B4', 'B5', 'B6'].includes(note)))) {
-                chartContainer.classList.add('black-key');
-            } else {
-                chartContainer.classList.remove('black-key');
-            }
-
-            fingeringDisplay.innerHTML = '';
-
-            // Handle rest
-            if (note === '0') {
-                if (duration) {
-                    const durationElement = document.createElement('div');
-                    durationElement.className = 'note-duration-centered';
-
-                    // Get the appropriate rest symbol
-                    const baseDuration = duration.replace('.', '');
-                    let restSymbol = durationSymbols[baseDuration + 'r'] || '?';
-
-                    // Add dot if needed
-                    if (duration.includes('.')) {
-                        restSymbol += '.';
-                    }
-
-                    durationElement.textContent = restSymbol;
-                    fingeringDisplay.appendChild(durationElement);
-                }
-                return;
-            }
-
-            // Handle empty input - don't show any message
-            if (!note || note.trim() === '') {
-                // Leave the display empty without any message
-                return;
-            }
-
-            // Handle notes outside the known fingering data
-            if (!fingeringData[note] && allNotesExtended.includes(note)) {
-                const emptyFingering = document.createElement('div');
-                emptyFingering.className = 'empty-fingering';
-
-                // Check if it's actually out of range
-                if (allNotesExtended.indexOf(note) < allNotesExtended.indexOf('C4') ||
-                    allNotesExtended.indexOf(note) > allNotesExtended.indexOf('A5')) {
-                    emptyFingering.textContent = 'Out of range';
-                } else {
-                    emptyFingering.textContent = 'Unknown fingering';
-                }
-
-                fingeringDisplay.appendChild(emptyFingering);
-                return;
-            } else if (!allNotesExtended.includes(note)) {
-                // Invalid note format but not empty
-                const emptyFingering = document.createElement('div');
-                emptyFingering.className = 'empty-fingering';
-                emptyFingering.textContent = 'Invalid note';
-                fingeringDisplay.appendChild(emptyFingering);
-                return;
-            }
-
-            // Get fingering based on current system
-            let fingering;
-            if (currentFingeringSystem === 'german' && fingeringDataGerman[note]) {
-                fingering = fingeringDataGerman[note];
-            } else {
-                fingering = fingeringData[note];
-            }
-
-            // Create fingering display with vertical arrangement
-            const fingeringHoles = document.createElement('div');
-            fingeringHoles.className = 'fingering-holes';
-
-            // Create left hand holes
-            const leftHand = document.createElement('div');
-            leftHand.className = 'hand';
-
-            fingering.left.forEach((state, i) => {
-                const hole = document.createElement('div');
-                hole.className = `hole ${state}`;
-                if (i === 0) hole.classList.add('left-thumb');
-                leftHand.appendChild(hole);
-            });
-
-            // Add duration symbol in the middle (between hands)
-            if (duration) {
-                const durationElement = document.createElement('div');
-                durationElement.className = 'duration-between-hands';
-
-                // Get basic symbol and add dot if needed
                 const baseDuration = duration.replace('.', '');
-                let symbol = durationSymbols[baseDuration] || '?';
+                const key = isRest ? baseDuration + 'r' : baseDuration;
+                let symbol = this.durationSymbols[key] || '?';
 
                 if (duration.includes('.')) {
                     symbol += '.';
                 }
 
-                durationElement.textContent = symbol;
-                fingeringHoles.appendChild(leftHand);
-                fingeringHoles.appendChild(durationElement);
-            } else {
-                fingeringHoles.appendChild(leftHand);
+                return symbol;
             }
+        };
 
-            // Create right hand holes
-            const rightHand = document.createElement('div');
-            rightHand.className = 'hand';
+        // Chart UI creation and management
+        const chartUI = {
+            currentFingeringSystem: 'german',
 
-            fingering.right.forEach(state => {
-                const hole = document.createElement('div');
-                hole.className = `hole ${state}`;
-                rightHand.appendChild(hole);
-            });
+            createChartContainer(index) {
+                const chartContainer = document.createElement('div');
+                chartContainer.className = 'chart-container';
+                chartContainer.id = `chart-${index}`;
 
-            // Append right hand
-            fingeringHoles.appendChild(rightHand);
-            fingeringDisplay.appendChild(fingeringHoles);
+                const fingeringChart = document.createElement('div');
+                fingeringChart.className = 'fingering-chart';
 
-            // Restore background class
-            if (hasRedBg) {
-                chartContainer.classList.add('bg-red');
-            } else if (hasGreenBg) {
-                chartContainer.classList.add('bg-green');
-            }
-        }
+                const noteInput = document.createElement('input');
+                noteInput.type = 'text';
+                noteInput.className = 'note-input';
+                noteInput.placeholder = 'Note';
+                noteInput.dataset.index = index;
+                noteInput.addEventListener('input', eventHandlers.handleNoteChange);
+                noteInput.addEventListener('blur', eventHandlers.handleNoteBlur);
 
-        // Toggle background color between none, red, and green
-        function toggleBackground(event) {
-            const chartContainer = event.currentTarget.closest('.chart-container');
+                const fingeringDisplay = document.createElement('div');
+                fingeringDisplay.className = 'fingering-display';
+                fingeringDisplay.id = `fingering-${index}`;
+                fingeringDisplay.addEventListener('click', eventHandlers.handleBackgroundToggle);
 
-            if (chartContainer.classList.contains('bg-red')) {
-                chartContainer.classList.remove('bg-red');
-                chartContainer.classList.add('bg-green');
-            } else if (chartContainer.classList.contains('bg-green')) {
-                chartContainer.classList.remove('bg-green');
-            } else {
-                chartContainer.classList.add('bg-red');
-            }
-        }
+                const emptyFingering = document.createElement('div');
+                emptyFingering.className = 'empty-fingering';
 
-        // Copy notes to clipboard
-        function copyNotesToClipboard() {
-            const noteInputs = document.querySelectorAll('#note-grid .note-input');
-            const chartContainers = document.querySelectorAll('#note-grid .chart-container');
-            const notes = [];
+                fingeringDisplay.appendChild(emptyFingering);
+                fingeringChart.appendChild(noteInput);
+                fingeringChart.appendChild(fingeringDisplay);
+                chartContainer.appendChild(fingeringChart);
 
-            for (let i = 0; i < noteInputs.length; i++) {
-                const input = noteInputs[i];
-                const container = chartContainers[i];
+                return chartContainer;
+            },
 
-                if (container.classList.contains('separator')) {
-                    notes.push('|');
-                } else if (input.value.trim()) {
-                    let noteText = input.value.trim();
-                    const duration = input.dataset.duration;
+            toggleFingeringSystem() {
+                const toggleButton = document.getElementById('fingering-toggle');
 
-                    if (duration) {
-                        noteText += ':' + duration;
+                this.currentFingeringSystem =
+                    this.currentFingeringSystem === 'baroque' ? 'german' : 'baroque';
+                toggleButton.textContent = this.currentFingeringSystem === 'german' ? 'German' : 'Baroque';
+
+                // Update all displayed fingerings
+                const allInputs = document.querySelectorAll('.note-input');
+                allInputs.forEach(input => {
+                    if (input.value) {
+                        const index = input.dataset.index;
+                        this.updateFingeringDisplay(index, input.value);
                     }
+                });
+            },
 
-                    notes.push(noteText);
+            createHandElements(handData, isLeftHand) {
+                const hand = document.createElement('div');
+                hand.className = 'hand';
+
+                handData.forEach((state, i) => {
+                    const hole = document.createElement('div');
+                    hole.className = `hole ${state}`;
+                    if (isLeftHand && i === 0) hole.classList.add('left-thumb');
+                    hand.appendChild(hole);
+                });
+
+                return hand;
+            },
+
+            createDurationElement(duration) {
+                const durationElement = document.createElement('div');
+                durationElement.className = 'duration-between-hands';
+
+                if (duration) {
+                    durationElement.textContent = noteUtils.getDurationSymbol(duration);
+                } else {
+                    // Empty placeholder for spacing
+                    durationElement.style.height = '10px';
+                    durationElement.innerHTML = '&nbsp;';
+                }
+
+                return durationElement;
+            },
+
+            createSeparatorElement() {
+                const barLine = document.createElement('div');
+                barLine.style.height = '120px';
+                barLine.style.width = '2px';
+                barLine.style.backgroundColor = '#333';
+                barLine.style.margin = '0 auto';
+                return barLine;
+            },
+
+            createRestElement(duration) {
+                const durationElement = document.createElement('div');
+                durationElement.className = 'note-duration-centered';
+                durationElement.textContent = noteUtils.getDurationSymbol(duration, true);
+                return durationElement;
+            },
+
+            createMessageElement(message) {
+                const element = document.createElement('div');
+                element.className = 'empty-fingering';
+                element.textContent = message;
+                return element;
+            },
+
+            updateFingeringDisplay(index, note, duration) {
+                const fingeringDisplay = document.getElementById(`fingering-${index}`);
+                const chartContainer = fingeringDisplay.closest('.chart-container');
+
+                // If no duration was passed, check if there's one in the input's dataset
+                if (!duration) {
+                    const input = document.querySelector(`.note-input[data-index="${index}"]`);
+                    if (input && input.dataset.duration) {
+                        duration = input.dataset.duration;
+                    }
+                }
+
+                // Preserve background classes
+                const hasRedBg = chartContainer.classList.contains('bg-red');
+                const hasGreenBg = chartContainer.classList.contains('bg-green');
+
+                // Clear previous content
+                fingeringDisplay.innerHTML = '';
+
+                // Handle separator (bar symbol)
+                if (note === '|' || chartContainer.classList.contains('separator')) {
+                    fingeringDisplay.appendChild(this.createSeparatorElement());
+                    this.styleSeparatorContainer(chartContainer);
+                    return;
+                } else {
+                    // Reset styles if not a separator
+                    this.resetContainerStyle(chartContainer);
+                }
+
+                // Update black key styling
+                this.updateBlackKeyStyle(chartContainer, note);
+
+                // Handle rest
+                if (note === '0') {
+                    if (duration) {
+                        fingeringDisplay.appendChild(this.createRestElement(duration));
+                    }
+                    return;
+                }
+
+                // Handle empty input
+                if (!note || note.trim() === '') {
+                    return;
+                }
+
+                // Handle notes outside the known fingering data
+                if (!noteUtils.fingeringData[note] && noteUtils.isValidNote(note)) {
+                    let message = this.getOutOfRangeMessage(note);
+                    fingeringDisplay.appendChild(this.createMessageElement(message));
+                    return;
+                } else if (!noteUtils.isValidNote(note)) {
+                    fingeringDisplay.appendChild(this.createMessageElement('Invalid note'));
+                    return;
+                }
+
+                // Get fingering based on current system
+                const fingering = this.getFingeringForNote(note);
+
+                // Create fingering display with vertical arrangement
+                const fingeringHoles = document.createElement('div');
+                fingeringHoles.className = 'fingering-holes';
+
+                // Add left hand, duration symbol, and right hand
+                fingeringHoles.appendChild(this.createHandElements(fingering.left, true));
+                fingeringHoles.appendChild(this.createDurationElement(duration));
+                fingeringHoles.appendChild(this.createHandElements(fingering.right, false));
+
+                fingeringDisplay.appendChild(fingeringHoles);
+
+                // Restore background class
+                this.restoreBackgroundClass(chartContainer, hasRedBg, hasGreenBg);
+            },
+
+            getFingeringForNote(note) {
+                if (this.currentFingeringSystem === 'german' && noteUtils.fingeringDataGerman[note]) {
+                    return noteUtils.fingeringDataGerman[note];
+                }
+                return noteUtils.fingeringData[note];
+            },
+
+            getOutOfRangeMessage(note) {
+                if (noteUtils.allNotesExtended.indexOf(note) < noteUtils.allNotesExtended.indexOf('C4') ||
+                    noteUtils.allNotesExtended.indexOf(note) > noteUtils.allNotesExtended.indexOf('A5')) {
+                    return 'Out of range';
+                }
+                return 'Unknown fingering';
+            },
+
+            styleSeparatorContainer(container) {
+                container.style.border = 'none';
+                container.style.boxShadow = 'none';
+                container.classList.add('separator');
+
+                // Hide the input field for a cleaner look
+                const inputField = container.querySelector('.note-input');
+                if (inputField) {
+                    inputField.style.visibility = 'hidden';
+                }
+            },
+
+            resetContainerStyle(container) {
+                container.style.border = '1px solid #ddd';
+                container.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+                container.classList.remove('separator');
+
+                // Show the input field
+                const inputField = container.querySelector('.note-input');
+                if (inputField) {
+                    inputField.style.visibility = 'visible';
+                }
+            },
+
+            updateBlackKeyStyle(container, note) {
+                if (noteUtils.isSharpOrFlat(note)) {
+                    container.classList.add('black-key');
+                } else {
+                    container.classList.remove('black-key');
+                }
+            },
+
+            restoreBackgroundClass(container, hasRedBg, hasGreenBg) {
+                if (hasRedBg) {
+                    container.classList.add('bg-red');
+                } else if (hasGreenBg) {
+                    container.classList.add('bg-green');
+                }
+            },
+
+            toggleBackground(chartContainer) {
+                if (chartContainer.classList.contains('bg-red')) {
+                    chartContainer.classList.remove('bg-red');
+                    chartContainer.classList.add('bg-green');
+                } else if (chartContainer.classList.contains('bg-green')) {
+                    chartContainer.classList.remove('bg-green');
+                } else {
+                    chartContainer.classList.add('bg-red');
                 }
             }
+        };
 
-            const noteText = notes.join(' ');
+        // Event handling
+        const eventHandlers = {
+            handleNoteChange(event) {
+                const index = event.target.dataset.index;
+                let note = event.target.value.toUpperCase();
 
-            if (noteText) {
-                navigator.clipboard.writeText(noteText)
-                    .then(() => {
-                        showFeedback('Notes copied to clipboard!');
-                    })
-                    .catch(err => {
+                // Get the chart container
+                const chartContainer = event.target.closest('.chart-container');
+
+                // Extract duration if present
+                let duration = '';
+                if (note.includes(':')) {
+                    const parts = note.split(':');
+                    note = parts[0];
+                    duration = parts[1];
+                    event.target.value = note; // Update input to show only the note
+                    event.target.dataset.duration = duration;
+                } else if (event.target.dataset.duration) {
+                    // Preserve existing duration if no new one was provided
+                    duration = event.target.dataset.duration;
+                }
+
+                // Mark as rest if the note is "0"
+                chartContainer.classList.toggle('rest', note === '0');
+
+                // Update the fingering display with the current value
+                chartUI.updateFingeringDisplay(index, note, duration);
+            },
+
+            handleNoteBlur(event) {
+                const index = event.target.dataset.index;
+                let note = event.target.value.toUpperCase();
+
+                // Skip if separator or empty
+                if (note === '|' || note === '') return;
+
+                // Skip if there's already an octave designation
+                if (/[A-G](#|b)?[3-6]/.test(note)) return;
+
+                // Resolve aliases on blur
+                note = noteUtils.resolveNoteAlias(note);
+                event.target.value = note;
+
+                // Keep any duration information
+                const duration = event.target.dataset.duration;
+                chartUI.updateFingeringDisplay(index, note, duration);
+            },
+
+            handleBackgroundToggle(event) {
+                const chartContainer = event.currentTarget.closest('.chart-container');
+                chartUI.toggleBackground(chartContainer);
+            },
+
+            async copyNotesToClipboard() {
+                const notes = this.collectCurrentNotes();
+                const noteText = notes.join(' ');
+
+                if (noteText) {
+                    try {
+                        await navigator.clipboard.writeText(noteText);
+                        this.showFeedback('Notes copied to clipboard!');
+                    } catch (err) {
                         console.error('Failed to copy text: ', err);
                         alert('Could not copy to clipboard. Please check browser permissions.');
-                    });
-            } else {
-                alert('No notes to copy.');
-            }
-        }
+                    }
+                } else {
+                    alert('No notes to copy.');
+                }
+            },
 
-        // Show feedback message
-        function showFeedback(message) {
-            const feedbackDiv = document.createElement('div');
-            feedbackDiv.textContent = message;
-            feedbackDiv.style.position = 'fixed';
-            feedbackDiv.style.top = '20px';
-            feedbackDiv.style.left = '50%';
-            feedbackDiv.style.transform = 'translateX(-50%)';
-            feedbackDiv.style.padding = '10px 20px';
-            feedbackDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-            feedbackDiv.style.color = 'white';
-            feedbackDiv.style.borderRadius = '5px';
-            feedbackDiv.style.zIndex = '1000';
+            collectCurrentNotes() {
+                const noteInputs = document.querySelectorAll('#note-grid .note-input');
+                const chartContainers = document.querySelectorAll('#note-grid .chart-container');
+                const notes = [];
 
-            document.body.appendChild(feedbackDiv);
+                for (let i = 0; i < noteInputs.length; i++) {
+                    const input = noteInputs[i];
+                    const container = chartContainers[i];
 
-            setTimeout(() => {
-                document.body.removeChild(feedbackDiv);
-            }, 2000);
-        }
+                    if (container.classList.contains('separator')) {
+                        notes.push('|');
+                    } else if (input.value.trim()) {
+                        let noteText = input.value.trim();
+                        const duration = input.dataset.duration;
 
-        async function pasteNotesFromClipboard() {
-            try {
-                const text = await navigator.clipboard.readText();
+                        if (duration) {
+                            noteText += ':' + duration;
+                        }
+
+                        notes.push(noteText);
+                    }
+                }
+
+                return notes;
+            },
+
+            showFeedback(message) {
+                const feedbackDiv = document.createElement('div');
+                feedbackDiv.textContent = message;
+                feedbackDiv.style.position = 'fixed';
+                feedbackDiv.style.top = '20px';
+                feedbackDiv.style.left = '50%';
+                feedbackDiv.style.transform = 'translateX(-50%)';
+                feedbackDiv.style.padding = '10px 20px';
+                feedbackDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                feedbackDiv.style.color = 'white';
+                feedbackDiv.style.borderRadius = '5px';
+                feedbackDiv.style.zIndex = '1000';
+
+                document.body.appendChild(feedbackDiv);
+
+                setTimeout(() => {
+                    document.body.removeChild(feedbackDiv);
+                }, 2000);
+            },
+
+            async pasteNotesFromClipboard() {
+                try {
+                    const text = await navigator.clipboard.readText();
+                    const noteStrings = this.processClipboardText(text);
+
+                    if (this.validateNotes(noteStrings)) {
+                        this.clearExistingNotes();
+                        this.fillGridWithNotes(noteStrings);
+                    }
+                } catch (err) {
+                    console.error('Failed to read clipboard: ', err);
+                    alert('Could not access clipboard. Please check browser permissions.');
+                }
+            },
+
+            processClipboardText(text) {
                 let noteStrings = [];
-
-                // Process input text to handle vertical bars
                 const segments = text.split('|');
+
                 for (let i = 0; i < segments.length; i++) {
                     const segmentNotes = segments[i].trim().split(/\s+/).filter(note => note.trim());
                     noteStrings = noteStrings.concat(segmentNotes);
@@ -851,14 +859,19 @@
                     }
                 }
 
-                // Updated regex to account for extended range and duration notation
+                return noteStrings;
+            },
+
+            validateNotes(noteStrings) {
                 const validNoteRegex = /^([A-G](#|b)?(\+|\+\+|-|3|4|5|6)?)(:[0-9]+\.?)?$|^(0)(:[0-9]+\.?)?$|^\|$/i;
                 if (!noteStrings.every(note => validNoteRegex.test(note))) {
                     alert('Invalid note format detected. Please ensure all notes are in the correct format: [A-G][#b]?[3456+-]?[:duration]? or 0[:duration]? or |');
-                    return;
+                    return false;
                 }
+                return true;
+            },
 
-                // Clear existing notes
+            clearExistingNotes() {
                 const allInputs = document.querySelectorAll('#note-grid .note-input');
                 allInputs.forEach(input => {
                     input.value = '';
@@ -866,198 +879,202 @@
                     chartContainer.classList.remove('separator', 'rest');
                     input.dispatchEvent(new Event('input', { bubbles: true }));
                 });
+            },
 
-                // Fill with new notes
-                const startIndex = allNotes.length; // Skip reference row
+            fillGridWithNotes(noteStrings) {
+                const startIndex = noteUtils.allNotes.length; // Skip reference row
                 let gridIndex = 0;
 
                 for (let i = 0; i < noteStrings.length; i++) {
                     const inputElement = document.querySelector(`input[data-index="${startIndex + gridIndex}"]`);
                     if (!inputElement) break; // Stop if we're out of grid space
 
-                    if (noteStrings[i] === '|') {
-                        // For separators, set the input value to "|"
-                        inputElement.value = '|';
-                        inputElement.dispatchEvent(new Event('input', { bubbles: true }));
-                    } else {
-                        // Process note with possible duration notation
-                        inputElement.value = noteStrings[i].toUpperCase();
-                        inputElement.dispatchEvent(new Event('input', { bubbles: true }));
-                    }
-
+                    inputElement.value = noteStrings[i].toUpperCase();
+                    inputElement.dispatchEvent(new Event('input', { bubbles: true }));
                     gridIndex++;
                 }
-            } catch (err) {
-                console.error('Failed to read clipboard: ', err);
-                alert('Could not access clipboard. Please check browser permissions.');
-            }
-        }
+            },
 
-        function canTranspose(direction) {
-            let highestNote = null;
-            let lowestNote = null;
-            const noteInputs = document.querySelectorAll('#note-grid .note-input');
+            findNoteRange() {
+                let highestNote = null;
+                let lowestNote = null;
+                const noteInputs = document.querySelectorAll('#note-grid .note-input');
 
-            noteInputs.forEach(input => {
-                if (input.value.trim()) {
-                    let note = input.value.toUpperCase();
+                noteInputs.forEach(input => {
+                    if (input.value.trim()) {
+                        let note = input.value.toUpperCase();
+                        note = noteUtils.resolveNoteAlias(note);
 
-                    // Resolve aliases
-                    if (aliases[note]) {
-                        note = aliases[note];
-                    } else if (higherOctaveAliases[note]) {
-                        note = higherOctaveAliases[note];
-                    } else if (lowerOctaveAliases[note]) {
-                        note = lowerOctaveAliases[note];
-                    }
+                        // Skip if not a valid note
+                        if (!noteUtils.isValidNote(note)) return;
 
-                    // Skip if not a valid note
-                    if (!allNotesExtended.includes(note)) return;
+                        const noteIndex = noteUtils.allNotesExtended.indexOf(note);
+                        if (noteIndex === -1) return;
 
-                    const noteIndex = allNotesExtended.indexOf(note);
-                    if (noteIndex === -1) return;
-
-                    // Track highest/lowest notes
-                    if (highestNote === null || noteIndex > allNotesExtended.indexOf(highestNote)) {
-                        highestNote = note;
-                    }
-
-                    if (lowestNote === null || noteIndex < allNotesExtended.indexOf(lowestNote)) {
-                        lowestNote = note;
-                    }
-                }
-            });
-
-            // No notes found
-            if (highestNote === null || lowestNote === null) {
-                return false;
-            }
-
-            // Check limits
-            if (direction === 'up') {
-                return allNotesExtended.indexOf(highestNote) < allNotesExtended.length - 1;
-            } else {
-                return allNotesExtended.indexOf(lowestNote) > 0;
-            }
-        }
-
-        function transposeNotes(direction) {
-            if (!canTranspose(direction)) {
-                return;
-            }
-
-            const noteInputs = document.querySelectorAll('#note-grid .note-input');
-
-            noteInputs.forEach(input => {
-                if (input.value.trim()) {
-                    let note = input.value.toUpperCase();
-                    // Store the duration to preserve it
-                    const duration = input.dataset.duration;
-
-                    // Resolve aliases
-                    let standardizedNote = note;
-                    if (aliases[note]) {
-                        standardizedNote = aliases[note];
-                    } else if (higherOctaveAliases[note]) {
-                        standardizedNote = higherOctaveAliases[note];
-                    } else if (lowerOctaveAliases[note]) {
-                        standardizedNote = lowerOctaveAliases[note];
-                    }
-
-                    // Skip if not valid
-                    if (!allNotesExtended.includes(standardizedNote)) return;
-
-                    const noteIndex = allNotesExtended.indexOf(standardizedNote);
-                    if (noteIndex === -1) return;
-
-                    // Calculate new index and update
-                    const newIndex = direction === 'up' ? noteIndex + 1 : noteIndex - 1;
-                    if (newIndex >= 0 && newIndex < allNotesExtended.length) {
-                        const newNote = allNotesExtended[newIndex];
-
-                        // Update the input with just the note (no duration)
-                        input.value = newNote;
-
-                        // Preserve duration in dataset
-                        if (duration) {
-                            input.dataset.duration = duration;
+                        // Track highest/lowest notes
+                        if (highestNote === null || noteIndex > noteUtils.allNotesExtended.indexOf(highestNote)) {
+                            highestNote = note;
                         }
 
-                        // Trigger input event to update display
-                        input.dispatchEvent(new Event('input', { bubbles: true }));
-
-                        // Fix display since handleNoteChange may have removed duration from input
-                        updateFingeringDisplay(input.dataset.index, newNote, duration);
+                        if (lowestNote === null || noteIndex < noteUtils.allNotesExtended.indexOf(lowestNote)) {
+                            lowestNote = note;
+                        }
                     }
+                });
+
+                return { highestNote, lowestNote };
+            },
+
+            canTranspose(direction) {
+                const { highestNote, lowestNote } = this.findNoteRange();
+
+                // No notes found
+                if (highestNote === null || lowestNote === null) {
+                    return false;
                 }
-            });
 
-            updateTransposeButtons();
-        }
+                // Check limits
+                if (direction === 'up') {
+                    return noteUtils.allNotesExtended.indexOf(highestNote) < noteUtils.allNotesExtended.length - 1;
+                } else {
+                    return noteUtils.allNotesExtended.indexOf(lowestNote) > 0;
+                }
+            },
 
-        // Update transpose button states
-        function updateTransposeButtons() {
-            document.getElementById('transpose-down').disabled = !canTranspose('down');
-            document.getElementById('transpose-up').disabled = !canTranspose('up');
-        }
+            transposeNotes(direction) {
+                if (!this.canTranspose(direction)) {
+                    return;
+                }
 
-        // Initialize grid
-        function initializeGrid() {
-            const referenceRow = document.getElementById('reference-row');
-            const noteGrid = document.getElementById('note-grid');
+                const noteInputs = document.querySelectorAll('#note-grid .note-input');
 
-            // Create reference row with all notes
-            for (let i = 0; i < allNotes.length; i++) {
-                const chartContainer = createChartContainer(i);
-                referenceRow.appendChild(chartContainer);
+                noteInputs.forEach(input => {
+                    this.transposeNoteInput(input, direction);
+                });
 
-                // Pre-fill reference row
-                const noteInput = chartContainer.querySelector('.note-input');
-                noteInput.value = allNotes[i];
+                this.updateTransposeButtons();
+            },
+
+            transposeNoteInput(input, direction) {
+                if (!input.value.trim()) return;
+
+                let note = input.value.toUpperCase();
+                // Store the duration to preserve it
+                const duration = input.dataset.duration;
+
+                // Resolve aliases
+                let standardizedNote = noteUtils.resolveNoteAlias(note);
+
+                // Skip if not valid
+                if (!noteUtils.isValidNote(standardizedNote)) return;
+
+                const noteIndex = noteUtils.allNotesExtended.indexOf(standardizedNote);
+                if (noteIndex === -1) return;
+
+                // Calculate new index and update
+                const newIndex = direction === 'up' ? noteIndex + 1 : noteIndex - 1;
+                if (newIndex >= 0 && newIndex < noteUtils.allNotesExtended.length) {
+                    const newNote = noteUtils.allNotesExtended[newIndex];
+
+                    // Update the input with just the note (no duration)
+                    input.value = newNote;
+
+                    // Preserve duration in dataset
+                    if (duration) {
+                        input.dataset.duration = duration;
+                    }
+
+                    // Trigger input event to update display
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
+
+                    // Fix display since handleNoteChange may have removed duration from input
+                    chartUI.updateFingeringDisplay(input.dataset.index, newNote, duration);
+                }
+            },
+
+            updateTransposeButtons() {
+                document.getElementById('transpose-down').disabled = !this.canTranspose('down');
+                document.getElementById('transpose-up').disabled = !this.canTranspose('up');
             }
+        };
 
-            // Create main grid
-            for (let i = allNotes.length; i < 128; i++) {
-                const chartContainer = createChartContainer(i);
-                noteGrid.appendChild(chartContainer);
-            }
+        // Initialization and setup
+        const appInit = {
+            initializeGrid() {
+                const referenceRow = document.getElementById('reference-row');
+                const noteGrid = document.getElementById('note-grid');
 
-            // Update all pre-filled inputs
-            for (let i = 0; i < allNotes.length; i++) {
-                updateFingeringDisplay(i, allNotes[i]);
-            }
-            document.getElementById('header-wrapper').classList.add('minimized');
-            document.getElementById('minimize-button').innerHTML = '&#43;';
-        }
+                // Create reference row with all notes
+                this.createReferenceRow(referenceRow);
 
-        // Set up keyboard shortcuts and event listeners
-        function setupEventListeners() {
-            // Minimize button
-            document.getElementById('minimize-button').addEventListener('click', function () {
+                // Create main grid
+                this.createMainGrid(noteGrid);
+
+                // Minimize the header by default
+                this.minimizeHeader();
+            },
+
+            createReferenceRow(referenceRow) {
+                for (let i = 0; i < noteUtils.allNotes.length; i++) {
+                    const chartContainer = chartUI.createChartContainer(i);
+                    referenceRow.appendChild(chartContainer);
+
+                    // Pre-fill reference row
+                    const noteInput = chartContainer.querySelector('.note-input');
+                    noteInput.value = noteUtils.allNotes[i];
+
+                    // Update fingering display
+                    chartUI.updateFingeringDisplay(i, noteUtils.allNotes[i]);
+                }
+            },
+
+            createMainGrid(noteGrid) {
+                for (let i = noteUtils.allNotes.length; i < 128; i++) {
+                    const chartContainer = chartUI.createChartContainer(i);
+                    noteGrid.appendChild(chartContainer);
+                }
+            },
+
+            minimizeHeader() {
+                document.getElementById('header-wrapper').classList.add('minimized');
+                document.getElementById('minimize-button').innerHTML = '&#43;';
+            },
+
+            setupEventListeners() {
+                // Minimize button
+                document.getElementById('minimize-button').addEventListener('click', this.toggleHeaderMinimize);
+
+                // Control bar buttons
+                document.getElementById('copy-button').addEventListener('click', eventHandlers.copyNotesToClipboard.bind(eventHandlers));
+                document.getElementById('paste-button').addEventListener('click', eventHandlers.pasteNotesFromClipboard.bind(eventHandlers));
+                document.getElementById('transpose-up').addEventListener('click', () => eventHandlers.transposeNotes('up'));
+                document.getElementById('transpose-down').addEventListener('click', () => eventHandlers.transposeNotes('down'));
+                document.getElementById('fingering-toggle').addEventListener('click', chartUI.toggleFingeringSystem.bind(chartUI));
+
+                // Keyboard shortcuts
+                document.addEventListener('keydown', this.handleKeyboardShortcuts);
+
+                // Update transpose buttons when inputs change
+                this.setupTransposeButtonUpdates();
+            },
+
+            toggleHeaderMinimize() {
                 const headerWrapper = document.getElementById('header-wrapper');
                 headerWrapper.classList.toggle('minimized');
                 this.innerHTML = headerWrapper.classList.contains('minimized') ? '&#43;' : '&#x2212;';
-            });
+            },
 
-            // Control bar buttons
-            document.getElementById('copy-button').addEventListener('click', copyNotesToClipboard);
-            document.getElementById('paste-button').addEventListener('click', pasteNotesFromClipboard);
-            document.getElementById('transpose-up').addEventListener('click', () => transposeNotes('up'));
-            document.getElementById('transpose-down').addEventListener('click', () => transposeNotes('down'));
-            document.getElementById('fingering-toggle').addEventListener('click', toggleFingeringSystem);
-
-            // Keyboard shortcuts
-            document.addEventListener('keydown', function (event) {
+            handleKeyboardShortcuts(event) {
                 // Ctrl+P for paste (prevent print dialog)
                 if (event.ctrlKey && event.key === 'p') {
                     event.preventDefault();
-                    pasteNotesFromClipboard();
+                    eventHandlers.pasteNotesFromClipboard();
                 }
 
                 // Ctrl+V for paste (when not in input field)
                 if (event.ctrlKey && event.key === 'v' && document.activeElement.tagName !== 'INPUT') {
                     event.preventDefault();
-                    pasteNotesFromClipboard();
+                    eventHandlers.pasteNotesFromClipboard();
                 }
 
                 // Ctrl+C for copy (when no text selected and not in input)
@@ -1065,22 +1082,24 @@
                     !window.getSelection().toString() &&
                     document.activeElement.tagName !== 'INPUT') {
                     event.preventDefault();
-                    copyNotesToClipboard();
+                    eventHandlers.copyNotesToClipboard();
                 }
-            });
+            },
 
-            // Update transpose buttons when inputs change
-            const allInputs = document.querySelectorAll('.note-input');
-            allInputs.forEach(input => {
-                input.addEventListener('input', () => setTimeout(updateTransposeButtons, 0));
-            });
-        }
+            setupTransposeButtonUpdates() {
+                const allInputs = document.querySelectorAll('.note-input');
+                allInputs.forEach(input => {
+                    input.addEventListener('input', () =>
+                        setTimeout(eventHandlers.updateTransposeButtons.bind(eventHandlers), 0));
+                });
+            }
+        };
 
-        // Initialize app when DOM is loaded
+        // Start the application
         document.addEventListener('DOMContentLoaded', function () {
-            initializeGrid();
-            setupEventListeners();
-            updateTransposeButtons();
+            appInit.initializeGrid();
+            appInit.setupEventListeners();
+            eventHandlers.updateTransposeButtons();
         });
     </script>
 </body>
