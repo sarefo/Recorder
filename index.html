@@ -506,15 +506,6 @@
 
             // Handle separator
             const chartContainer = event.target.closest('.chart-container');
-            if (note === '|') {
-                chartContainer.classList.add('separator');
-                // Clear the fingering display
-                const fingeringDisplay = document.getElementById(`fingering-${index}`);
-                fingeringDisplay.innerHTML = '';
-                return;
-            } else {
-                chartContainer.classList.remove('separator');
-            }
 
             // Extract duration if present
             let duration = '';
@@ -606,15 +597,45 @@
             const hasRedBg = chartContainer.classList.contains('bg-red');
             const hasGreenBg = chartContainer.classList.contains('bg-green');
 
-            // Handle separator
-            if (chartContainer.classList.contains('separator')) {
+            // Handle separator (bar symbol)
+            if (note === '|' || chartContainer.classList.contains('separator')) {
                 fingeringDisplay.innerHTML = '';
+                // Create a vertical line for the bar symbol
+                const barLine = document.createElement('div');
+                barLine.style.height = '120px'; // Match the height of fingering display
+                barLine.style.width = '2px';
+                barLine.style.backgroundColor = '#333';
+                barLine.style.margin = '0 auto';
+                fingeringDisplay.appendChild(barLine);
+
+                // Style the container to remove border
+                chartContainer.style.border = 'none';
+                chartContainer.style.boxShadow = 'none';
+                chartContainer.classList.add('separator');
+
+                // Hide the input field for a cleaner look
+                const inputField = chartContainer.querySelector('.note-input');
+                if (inputField) {
+                    inputField.style.visibility = 'hidden';
+                }
+
                 return;
+            } else {
+                // Reset styles if not a separator
+                chartContainer.style.border = '1px solid #ddd';
+                chartContainer.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+                chartContainer.classList.remove('separator');
+
+                // Show the input field
+                const inputField = chartContainer.querySelector('.note-input');
+                if (inputField) {
+                    inputField.style.visibility = 'visible';
+                }
             }
 
             // Check for sharp/flat notes
-            if (note && (note.includes('#') || note.includes('B') &&
-                !['B3', 'B4', 'B5', 'B6'].includes(note))) {
+            if (note && (note.includes('#') || (note.includes('B') &&
+                !['B3', 'B4', 'B5', 'B6'].includes(note)))) {
                 chartContainer.classList.add('black-key');
             } else {
                 chartContainer.classList.remove('black-key');
@@ -629,14 +650,12 @@
                     durationElement.className = 'note-duration-centered';
 
                     // Get the appropriate rest symbol
-                    let restSymbol;
-                    const baseSymbol = durationSymbols[duration + 'r'] || '?';
+                    const baseDuration = duration.replace('.', '');
+                    let restSymbol = durationSymbols[baseDuration + 'r'] || '?';
 
                     // Add dot if needed
                     if (duration.includes('.')) {
-                        restSymbol = baseSymbol + '.';
-                    } else {
-                        restSymbol = baseSymbol;
+                        restSymbol += '.';
                     }
 
                     durationElement.textContent = restSymbol;
@@ -645,14 +664,20 @@
                 return;
             }
 
-            // Handle other cases (not a rest)
-            if (!note || !fingeringData[note] && allNotesExtended.includes(note)) {
+            // Handle empty input - don't show any message
+            if (!note || note.trim() === '') {
+                // Leave the display empty without any message
+                return;
+            }
+
+            // Handle notes outside the known fingering data
+            if (!fingeringData[note] && allNotesExtended.includes(note)) {
                 const emptyFingering = document.createElement('div');
                 emptyFingering.className = 'empty-fingering';
 
-                // Keep "Out of range" limited to the original range
+                // Check if it's actually out of range
                 if (allNotesExtended.indexOf(note) < allNotesExtended.indexOf('C4') ||
-                    allNotesExtended.indexOf(note) > allNotesExtended.indexOf('F5')) {
+                    allNotesExtended.indexOf(note) > allNotesExtended.indexOf('A5')) {
                     emptyFingering.textContent = 'Out of range';
                 } else {
                     emptyFingering.textContent = 'Unknown fingering';
@@ -660,9 +685,11 @@
 
                 fingeringDisplay.appendChild(emptyFingering);
                 return;
-            } else if (!note || !allNotesExtended.includes(note)) {
+            } else if (!allNotesExtended.includes(note)) {
+                // Invalid note format but not empty
                 const emptyFingering = document.createElement('div');
                 emptyFingering.className = 'empty-fingering';
+                emptyFingering.textContent = 'Invalid note';
                 fingeringDisplay.appendChild(emptyFingering);
                 return;
             }
@@ -696,7 +723,9 @@
                 durationElement.className = 'duration-between-hands';
 
                 // Get basic symbol and add dot if needed
-                let symbol = durationSymbols[duration.replace('.', '')] || '?';
+                const baseDuration = duration.replace('.', '');
+                let symbol = durationSymbols[baseDuration] || '?';
+
                 if (duration.includes('.')) {
                     symbol += '.';
                 }
