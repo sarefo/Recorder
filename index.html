@@ -141,7 +141,8 @@
         .fingering-holes {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 0px;
+            align-items: center;
             width: 100%;
         }
 
@@ -282,11 +283,18 @@
             background-color: rgba(200, 200, 200, 0.2);
         }
 
-        .note-duration {
+        .duration-between-hands {
+            font-size: 36px;
+            margin: 0px 0;
+            text-align: center;
+        }
+
+        .note-duration-centered {
+            font-size: 32px;
             position: absolute;
-            top: 2px;
-            right: 2px;
-            font-size: 18px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .notation-help {
@@ -346,17 +354,17 @@
         */
         const durationSymbols = {
             "1": "𝅝", // Whole note
-            "2": "𝅗𝅥", // Half note
-            "4": "𝅘𝅥", // Quarter note
-            "8": "𝅘𝅥𝅮", // Eighth note
-            "16": "𝅘𝅥𝅯", // Sixteenth note
-            "32": "𝅘𝅥𝅰", // Thirty-second note
+            "2": "𝅗𝅥", // Half note
+            "4": "𝅘𝅥", // Quarter note
+            "8": "𝅘𝅥𝅮", // Eighth note
+            "16": "𝅘𝅥𝅯", // Sixteenth note
+            "32": "𝅘𝅥𝅰", // Thirty-second note
             "1.": "𝅝.", // Dotted whole note
-            "2.": "𝅗𝅥.", // Dotted half note
-            "4.": "𝅘𝅥.", // Dotted quarter note
-            "8.": "𝅘𝅥𝅮.", // Dotted eighth note
-            "16.": "𝅘𝅥𝅯.", // Dotted sixteenth note
-            "32.": "𝅘𝅥𝅰." // Dotted thirty-second note
+            "2.": "𝅗𝅥.", // Dotted half note
+            "4.": "𝅘𝅥.", // Dotted quarter note
+            "8.": "𝅘𝅥𝅮.", // Dotted eighth note
+            "16.": "𝅘𝅥𝅯.", // Dotted sixteenth note
+            "32.": "𝅘𝅥𝅰." // Dotted thirty-second note
         };
 
         // Define the fingering patterns for each note
@@ -453,7 +461,7 @@
             'C3', 'C#3', 'D3', 'D#3', 'E3', 'F3', 'F#3', 'G3', 'G#3', 'A3', 'A#3', 'B3',
             'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4',
             'C5', 'C#5', 'D5', 'D#5', 'E5', 'F5', 'F#5', 'G5', 'G#5', 'A5', 'A#5', 'B5',
-            'C6'
+            'C6', 'C#6', 'D6', 'D#6', 'E6', 'F6', 'F#6', 'G6', 'G#6', 'A6', 'A#6', 'B6'
         ];
 
         // Create a chart container with input and display
@@ -471,6 +479,7 @@
             noteInput.placeholder = 'Note';
             noteInput.dataset.index = index;
             noteInput.addEventListener('input', handleNoteChange);
+            noteInput.addEventListener('blur', handleNoteBlur); // Add blur event listener
 
             const fingeringDisplay = document.createElement('div');
             fingeringDisplay.className = 'fingering-display';
@@ -512,6 +521,9 @@
                 duration = parts[1];
                 event.target.value = note; // Update input to show only the note
                 event.target.dataset.duration = duration;
+            } else if (event.target.dataset.duration) {
+                // Preserve existing duration if no new one was provided
+                duration = event.target.dataset.duration;
             }
 
             // Mark as rest if the note is "0"
@@ -522,11 +534,12 @@
                 const fingeringDisplay = document.getElementById(`fingering-${index}`);
                 fingeringDisplay.innerHTML = '';
 
-                // Add duration symbol if present
-                if (duration && durationSymbols[duration]) {
+                // Add rest symbol instead of duration symbol if appropriate
+                if (duration) {
                     const durationElement = document.createElement('div');
                     durationElement.className = 'note-duration';
-                    durationElement.textContent = durationSymbols[duration];
+                    // Use rest symbol if available, otherwise use regular duration symbol
+                    durationElement.textContent = durationSymbols[duration + 'r'] || durationSymbols[duration] || '';
                     fingeringDisplay.appendChild(durationElement);
                 }
 
@@ -539,37 +552,36 @@
                 chartContainer.classList.remove('rest');
             }
 
-            // The rest of the function remains unchanged
-            event.target.value = note;
+            // Don't auto-replace note until blur
+            // We'll just update the fingering display with the current value
+            updateFingeringDisplay(index, note, duration);
+        }
 
-            // Resolve aliases
+        function handleNoteBlur(event) {
+            const index = event.target.dataset.index;
+            let note = event.target.value.toUpperCase();
+
+            // Skip if separator or empty
+            if (note === '|' || note === '') return;
+
+            // Skip if there's already an octave designation
+            if (/[A-G](#|b)?[3-6]/.test(note)) return;
+
+            // Resolve aliases on blur
             if (aliases[note]) {
                 note = aliases[note];
+                event.target.value = note;
             } else if (higherOctaveAliases[note]) {
                 note = higherOctaveAliases[note];
+                event.target.value = note;
             } else if (lowerOctaveAliases[note]) {
                 note = lowerOctaveAliases[note];
+                event.target.value = note;
             }
 
-            // Check if note is outside recorder range
-            const noteInput = event.target;
-            const normalizedNote = note.replace('#', 'S'); // Normalize for comparison
-
-            if (note && allNotesExtended.includes(note)) {
-                // Note is in extended range but outside recorder range
-                if (allNotesExtended.indexOf(note) < allNotesExtended.indexOf('C4') ||
-                    allNotesExtended.indexOf(note) > allNotesExtended.indexOf('F5')) {
-                    noteInput.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
-                } else {
-                    // Reset background if in recorder range
-                    noteInput.style.backgroundColor = '';
-                }
-                updateFingeringDisplay(index, note, duration);
-            } else {
-                // Invalid note or empty
-                noteInput.style.backgroundColor = '';
-                updateFingeringDisplay(index, note, duration);
-            }
+            // Keep any duration information
+            const duration = event.target.dataset.duration;
+            updateFingeringDisplay(index, note, duration);
         }
 
         let currentFingeringSystem = 'german';
@@ -599,6 +611,14 @@
             const fingeringDisplay = document.getElementById(`fingering-${index}`);
             const chartContainer = fingeringDisplay.closest('.chart-container');
 
+            // If no duration was passed, check if there's one in the input's dataset
+            if (!duration) {
+                const input = document.querySelector(`.note-input[data-index="${index}"]`);
+                if (input && input.dataset.duration) {
+                    duration = input.dataset.duration;
+                }
+            }
+
             // Preserve background classes
             const hasRedBg = chartContainer.classList.contains('bg-red');
             const hasGreenBg = chartContainer.classList.contains('bg-green');
@@ -611,7 +631,7 @@
 
             // Check for sharp/flat notes
             if (note && (note.includes('#') || note.includes('B') &&
-                !['B3', 'B4', 'B5'].includes(note))) {
+                !['B3', 'B4', 'B5', 'B6'].includes(note))) {
                 chartContainer.classList.add('black-key');
             } else {
                 chartContainer.classList.remove('black-key');
@@ -619,16 +639,26 @@
 
             fingeringDisplay.innerHTML = '';
 
-            // Add duration symbol if present
-            if (duration && durationSymbols[duration]) {
-                const durationElement = document.createElement('div');
-                durationElement.className = 'note-duration';
-                durationElement.textContent = durationSymbols[duration];
-                fingeringDisplay.appendChild(durationElement);
-            }
-
             // Handle rest
             if (note === '0') {
+                // For rests, just show the rest symbol centered in the display
+                if (duration) {
+                    const durationElement = document.createElement('div');
+                    durationElement.className = 'note-duration-centered';
+
+                    // Map the duration to the appropriate rest symbol
+                    let restSymbol = '';
+                    if (duration === '1' || duration === '1.') restSymbol = '𝄻'; // Whole rest
+                    else if (duration === '2' || duration === '2.') restSymbol = '𝄼'; // Half rest
+                    else if (duration === '4' || duration === '4.') restSymbol = '𝄽'; // Quarter rest
+                    else if (duration === '8' || duration === '8.') restSymbol = '𝄾'; // Eighth rest
+                    else if (duration === '16' || duration === '16.') restSymbol = '𝄿'; // Sixteenth rest
+                    else restSymbol = durationSymbols[duration] || ''; // Fall back to regular duration symbol
+
+                    durationElement.textContent = restSymbol;
+                    fingeringDisplay.appendChild(durationElement);
+                }
+
                 const emptyFingering = document.createElement('div');
                 emptyFingering.className = 'empty-fingering';
                 emptyFingering.textContent = 'Rest';
@@ -639,7 +669,15 @@
             if (!note || !fingeringData[note] && allNotesExtended.includes(note)) {
                 const emptyFingering = document.createElement('div');
                 emptyFingering.className = 'empty-fingering';
-                emptyFingering.textContent = 'Out of range';
+
+                // Keep "Out of range" limited to the original range
+                if (allNotesExtended.indexOf(note) < allNotesExtended.indexOf('C4') ||
+                    allNotesExtended.indexOf(note) > allNotesExtended.indexOf('F5')) {
+                    emptyFingering.textContent = 'Out of range';
+                } else {
+                    emptyFingering.textContent = 'Unknown fingering';
+                }
+
                 fingeringDisplay.appendChild(emptyFingering);
                 return;
             } else if (!note || !allNotesExtended.includes(note)) {
@@ -657,7 +695,7 @@
                 fingering = fingeringData[note];
             }
 
-            // Create fingering display
+            // Create fingering display with vertical arrangement
             const fingeringHoles = document.createElement('div');
             fingeringHoles.className = 'fingering-holes';
 
@@ -672,6 +710,17 @@
                 leftHand.appendChild(hole);
             });
 
+            // Add duration symbol in the middle (between hands)
+            if (duration && durationSymbols[duration]) {
+                const durationElement = document.createElement('div');
+                durationElement.className = 'duration-between-hands';
+                durationElement.textContent = durationSymbols[duration];
+                fingeringHoles.appendChild(leftHand);
+                fingeringHoles.appendChild(durationElement);
+            } else {
+                fingeringHoles.appendChild(leftHand);
+            }
+
             // Create right hand holes
             const rightHand = document.createElement('div');
             rightHand.className = 'hand';
@@ -682,7 +731,7 @@
                 rightHand.appendChild(hole);
             });
 
-            fingeringHoles.appendChild(leftHand);
+            // Append right hand
             fingeringHoles.appendChild(rightHand);
             fingeringDisplay.appendChild(fingeringHoles);
 
@@ -886,6 +935,8 @@
             noteInputs.forEach(input => {
                 if (input.value.trim()) {
                     let note = input.value.toUpperCase();
+                    // Store the duration to preserve it
+                    const duration = input.dataset.duration;
 
                     // Resolve aliases
                     let standardizedNote = note;
@@ -905,10 +956,23 @@
 
                     // Calculate new index and update
                     const newIndex = direction === 'up' ? noteIndex + 1 : noteIndex - 1;
-                    const newNote = allNotesExtended[newIndex];
+                    if (newIndex >= 0 && newIndex < allNotesExtended.length) {
+                        const newNote = allNotesExtended[newIndex];
 
-                    input.value = newNote;
-                    input.dispatchEvent(new Event('input', { bubbles: true }));
+                        // Update the input with just the note (no duration)
+                        input.value = newNote;
+
+                        // Preserve duration in dataset
+                        if (duration) {
+                            input.dataset.duration = duration;
+                        }
+
+                        // Trigger input event to update display
+                        input.dispatchEvent(new Event('input', { bubbles: true }));
+
+                        // Fix display since handleNoteChange may have removed duration from input
+                        updateFingeringDisplay(input.dataset.index, newNote, duration);
+                    }
                 }
             });
 
