@@ -267,6 +267,40 @@
             opacity: 0.5;
             cursor: not-allowed;
         }
+
+        .chart-container.separator {
+            border: none;
+            box-shadow: none;
+            width: 10px;
+            min-width: 10px;
+            padding: 0;
+            margin: 0 5px;
+            background-color: transparent;
+        }
+
+        .chart-container.rest {
+            background-color: rgba(200, 200, 200, 0.2);
+        }
+
+        .note-duration {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            font-size: 18px;
+        }
+
+        .notation-help {
+            margin: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .fingering-display {
+            position: relative;
+        }
     </style>
 </head>
 
@@ -302,6 +336,29 @@
     </div>
 
     <script>
+
+        /*
+        - Standard notes: C4, D#4, F5, etc.
+        - Add duration with colon: C4:4 (quarter), F#5:8 (eighth), A4:16 (sixteenth)
+        - Add dot for dotted notes: G4:4. (dotted quarter)
+        - Use 0 for rests: 0:2 (half rest), 0:4 (quarter rest)
+        - Use | for visual separators between phrases
+        */
+        const durationSymbols = {
+            "1": "𝅝", // Whole note
+            "2": "𝅗𝅥", // Half note
+            "4": "𝅘𝅥", // Quarter note
+            "8": "𝅘𝅥𝅮", // Eighth note
+            "16": "𝅘𝅥𝅯", // Sixteenth note
+            "32": "𝅘𝅥𝅰", // Thirty-second note
+            "1.": "𝅝.", // Dotted whole note
+            "2.": "𝅗𝅥.", // Dotted half note
+            "4.": "𝅘𝅥.", // Dotted quarter note
+            "8.": "𝅘𝅥𝅮.", // Dotted eighth note
+            "16.": "𝅘𝅥𝅯.", // Dotted sixteenth note
+            "32.": "𝅘𝅥𝅰." // Dotted thirty-second note
+        };
+
         // Define the fingering patterns for each note
         // Baroque // 'F4': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'c'] },
         const fingeringData = {
@@ -434,6 +491,55 @@
         function handleNoteChange(event) {
             const index = event.target.dataset.index;
             let note = event.target.value.toUpperCase();
+
+            // Handle separator
+            const chartContainer = event.target.closest('.chart-container');
+            if (note === '|') {
+                chartContainer.classList.add('separator');
+                // Clear the fingering display
+                const fingeringDisplay = document.getElementById(`fingering-${index}`);
+                fingeringDisplay.innerHTML = '';
+                return;
+            } else {
+                chartContainer.classList.remove('separator');
+            }
+
+            // Extract duration if present
+            let duration = '';
+            if (note.includes(':')) {
+                const parts = note.split(':');
+                note = parts[0];
+                duration = parts[1];
+                event.target.value = note; // Update input to show only the note
+                event.target.dataset.duration = duration;
+            }
+
+            // Mark as rest if the note is "0"
+            if (note === '0') {
+                chartContainer.classList.add('rest');
+
+                // Create rest display
+                const fingeringDisplay = document.getElementById(`fingering-${index}`);
+                fingeringDisplay.innerHTML = '';
+
+                // Add duration symbol if present
+                if (duration && durationSymbols[duration]) {
+                    const durationElement = document.createElement('div');
+                    durationElement.className = 'note-duration';
+                    durationElement.textContent = durationSymbols[duration];
+                    fingeringDisplay.appendChild(durationElement);
+                }
+
+                const emptyFingering = document.createElement('div');
+                emptyFingering.className = 'empty-fingering';
+                emptyFingering.textContent = 'Rest';
+                fingeringDisplay.appendChild(emptyFingering);
+                return;
+            } else {
+                chartContainer.classList.remove('rest');
+            }
+
+            // The rest of the function remains unchanged
             event.target.value = note;
 
             // Resolve aliases
@@ -458,11 +564,11 @@
                     // Reset background if in recorder range
                     noteInput.style.backgroundColor = '';
                 }
-                updateFingeringDisplay(index, note);
+                updateFingeringDisplay(index, note, duration);
             } else {
                 // Invalid note or empty
                 noteInput.style.backgroundColor = '';
-                updateFingeringDisplay(index, note);
+                updateFingeringDisplay(index, note, duration);
             }
         }
 
@@ -489,13 +595,19 @@
             });
         }
 
-        function updateFingeringDisplay(index, note) {
+        function updateFingeringDisplay(index, note, duration) {
             const fingeringDisplay = document.getElementById(`fingering-${index}`);
             const chartContainer = fingeringDisplay.closest('.chart-container');
 
             // Preserve background classes
             const hasRedBg = chartContainer.classList.contains('bg-red');
             const hasGreenBg = chartContainer.classList.contains('bg-green');
+
+            // Handle separator
+            if (chartContainer.classList.contains('separator')) {
+                fingeringDisplay.innerHTML = '';
+                return;
+            }
 
             // Check for sharp/flat notes
             if (note && (note.includes('#') || note.includes('B') &&
@@ -506,6 +618,23 @@
             }
 
             fingeringDisplay.innerHTML = '';
+
+            // Add duration symbol if present
+            if (duration && durationSymbols[duration]) {
+                const durationElement = document.createElement('div');
+                durationElement.className = 'note-duration';
+                durationElement.textContent = durationSymbols[duration];
+                fingeringDisplay.appendChild(durationElement);
+            }
+
+            // Handle rest
+            if (note === '0') {
+                const emptyFingering = document.createElement('div');
+                emptyFingering.className = 'empty-fingering';
+                emptyFingering.textContent = 'Rest';
+                fingeringDisplay.appendChild(emptyFingering);
+                return;
+            }
 
             if (!note || !fingeringData[note] && allNotesExtended.includes(note)) {
                 const emptyFingering = document.createElement('div');
@@ -528,7 +657,7 @@
                 fingering = fingeringData[note];
             }
 
-            // Create fingering display (rest of the function unchanged)
+            // Create fingering display
             const fingeringHoles = document.createElement('div');
             fingeringHoles.className = 'fingering-holes';
 
@@ -582,13 +711,26 @@
         // Copy notes to clipboard
         function copyNotesToClipboard() {
             const noteInputs = document.querySelectorAll('#note-grid .note-input');
+            const chartContainers = document.querySelectorAll('#note-grid .chart-container');
             const notes = [];
 
-            noteInputs.forEach(input => {
-                if (input.value.trim()) {
-                    notes.push(input.value.trim());
+            for (let i = 0; i < noteInputs.length; i++) {
+                const input = noteInputs[i];
+                const container = chartContainers[i];
+
+                if (container.classList.contains('separator')) {
+                    notes.push('|');
+                } else if (input.value.trim()) {
+                    let noteText = input.value.trim();
+                    const duration = input.dataset.duration;
+
+                    if (duration) {
+                        noteText += ':' + duration;
+                    }
+
+                    notes.push(noteText);
                 }
-            });
+            }
 
             const noteText = notes.join(' ');
 
@@ -630,30 +772,55 @@
         async function pasteNotesFromClipboard() {
             try {
                 const text = await navigator.clipboard.readText();
-                const noteStrings = text.split(/\s+/).filter(note => note.trim());
+                let noteStrings = [];
 
-                // Updated regex to account for extended range
-                const validNoteRegex = /^[A-G](#|b)?(\+|\+\+|-|3|4|5|6)?$/i;
+                // Process input text to handle vertical bars
+                const segments = text.split('|');
+                for (let i = 0; i < segments.length; i++) {
+                    const segmentNotes = segments[i].trim().split(/\s+/).filter(note => note.trim());
+                    noteStrings = noteStrings.concat(segmentNotes);
+
+                    // Add a separator if not the last segment and if there are more segments
+                    if (i < segments.length - 1 && segments.length > 1) {
+                        noteStrings.push('|');
+                    }
+                }
+
+                // Updated regex to account for extended range and duration notation
+                const validNoteRegex = /^([A-G](#|b)?(\+|\+\+|-|3|4|5|6)?)(:[0-9]+\.?)?$|^(0)(:[0-9]+\.?)?$|^\|$/i;
                 if (!noteStrings.every(note => validNoteRegex.test(note))) {
-                    alert('Invalid note format detected. Please ensure all notes are in the format: [A-G][#b]?[3456+-]?');
+                    alert('Invalid note format detected. Please ensure all notes are in the correct format: [A-G][#b]?[3456+-]?[:duration]? or 0[:duration]? or |');
                     return;
                 }
 
-                // Clear existing notes and add new ones
+                // Clear existing notes
                 const allInputs = document.querySelectorAll('#note-grid .note-input');
                 allInputs.forEach(input => {
                     input.value = '';
+                    const chartContainer = input.closest('.chart-container');
+                    chartContainer.classList.remove('separator', 'rest');
                     input.dispatchEvent(new Event('input', { bubbles: true }));
                 });
 
                 // Fill with new notes
                 const startIndex = allNotes.length; // Skip reference row
+                let gridIndex = 0;
+
                 for (let i = 0; i < noteStrings.length; i++) {
-                    const inputElement = document.querySelector(`input[data-index="${startIndex + i}"]`);
-                    if (inputElement) {
+                    const inputElement = document.querySelector(`input[data-index="${startIndex + gridIndex}"]`);
+                    if (!inputElement) break; // Stop if we're out of grid space
+
+                    if (noteStrings[i] === '|') {
+                        // For separators, set the input value to "|"
+                        inputElement.value = '|';
+                        inputElement.dispatchEvent(new Event('input', { bubbles: true }));
+                    } else {
+                        // Process note with possible duration notation
                         inputElement.value = noteStrings[i].toUpperCase();
                         inputElement.dispatchEvent(new Event('input', { bubbles: true }));
                     }
+
+                    gridIndex++;
                 }
             } catch (err) {
                 console.error('Failed to read clipboard: ', err);
