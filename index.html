@@ -353,18 +353,21 @@
         - Use | for visual separators between phrases
         */
         const durationSymbols = {
+            // Note symbols
             "1": "𝅝", // Whole note
             "2": "𝅗𝅥", // Half note
             "4": "𝅘𝅥", // Quarter note
             "8": "𝅘𝅥𝅮", // Eighth note
             "16": "𝅘𝅥𝅯", // Sixteenth note
             "32": "𝅘𝅥𝅰", // Thirty-second note
-            "1.": "𝅝.", // Dotted whole note
-            "2.": "𝅗𝅥.", // Dotted half note
-            "4.": "𝅘𝅥.", // Dotted quarter note
-            "8.": "𝅘𝅥𝅮.", // Dotted eighth note
-            "16.": "𝅘𝅥𝅯.", // Dotted sixteenth note
-            "32.": "𝅘𝅥𝅰." // Dotted thirty-second note
+
+            // Rest symbols
+            "1r": "𝄻", // Whole rest
+            "2r": "𝄼", // Half rest
+            "4r": "𝄽", // Quarter rest
+            "8r": "𝄾", // Eighth rest
+            "16r": "𝄿", // Sixteenth rest
+            "32r": "𝅀"  // Thirty-second rest
         };
 
         // Define the fingering patterns for each note
@@ -529,31 +532,11 @@
             // Mark as rest if the note is "0"
             if (note === '0') {
                 chartContainer.classList.add('rest');
-
-                // Create rest display
-                const fingeringDisplay = document.getElementById(`fingering-${index}`);
-                fingeringDisplay.innerHTML = '';
-
-                // Add rest symbol instead of duration symbol if appropriate
-                if (duration) {
-                    const durationElement = document.createElement('div');
-                    durationElement.className = 'note-duration';
-                    // Use rest symbol if available, otherwise use regular duration symbol
-                    durationElement.textContent = durationSymbols[duration + 'r'] || durationSymbols[duration] || '';
-                    fingeringDisplay.appendChild(durationElement);
-                }
-
-                const emptyFingering = document.createElement('div');
-                emptyFingering.className = 'empty-fingering';
-                emptyFingering.textContent = 'Rest';
-                fingeringDisplay.appendChild(emptyFingering);
-                return;
             } else {
                 chartContainer.classList.remove('rest');
             }
 
-            // Don't auto-replace note until blur
-            // We'll just update the fingering display with the current value
+            // Update the fingering display with the current value
             updateFingeringDisplay(index, note, duration);
         }
 
@@ -641,31 +624,28 @@
 
             // Handle rest
             if (note === '0') {
-                // For rests, just show the rest symbol centered in the display
                 if (duration) {
                     const durationElement = document.createElement('div');
                     durationElement.className = 'note-duration-centered';
 
-                    // Map the duration to the appropriate rest symbol
-                    let restSymbol = '';
-                    if (duration === '1' || duration === '1.') restSymbol = '𝄻'; // Whole rest
-                    else if (duration === '2' || duration === '2.') restSymbol = '𝄼'; // Half rest
-                    else if (duration === '4' || duration === '4.') restSymbol = '𝄽'; // Quarter rest
-                    else if (duration === '8' || duration === '8.') restSymbol = '𝄾'; // Eighth rest
-                    else if (duration === '16' || duration === '16.') restSymbol = '𝄿'; // Sixteenth rest
-                    else restSymbol = durationSymbols[duration] || ''; // Fall back to regular duration symbol
+                    // Get the appropriate rest symbol
+                    let restSymbol;
+                    const baseSymbol = durationSymbols[duration + 'r'] || '?';
+
+                    // Add dot if needed
+                    if (duration.includes('.')) {
+                        restSymbol = baseSymbol + '.';
+                    } else {
+                        restSymbol = baseSymbol;
+                    }
 
                     durationElement.textContent = restSymbol;
                     fingeringDisplay.appendChild(durationElement);
                 }
-
-                const emptyFingering = document.createElement('div');
-                emptyFingering.className = 'empty-fingering';
-                emptyFingering.textContent = 'Rest';
-                fingeringDisplay.appendChild(emptyFingering);
                 return;
             }
 
+            // Handle other cases (not a rest)
             if (!note || !fingeringData[note] && allNotesExtended.includes(note)) {
                 const emptyFingering = document.createElement('div');
                 emptyFingering.className = 'empty-fingering';
@@ -711,10 +691,17 @@
             });
 
             // Add duration symbol in the middle (between hands)
-            if (duration && durationSymbols[duration]) {
+            if (duration) {
                 const durationElement = document.createElement('div');
                 durationElement.className = 'duration-between-hands';
-                durationElement.textContent = durationSymbols[duration];
+
+                // Get basic symbol and add dot if needed
+                let symbol = durationSymbols[duration.replace('.', '')] || '?';
+                if (duration.includes('.')) {
+                    symbol += '.';
+                }
+
+                durationElement.textContent = symbol;
                 fingeringHoles.appendChild(leftHand);
                 fingeringHoles.appendChild(durationElement);
             } else {
