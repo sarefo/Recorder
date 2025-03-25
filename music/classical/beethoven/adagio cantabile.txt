@@ -1,5 +1,6 @@
-B5 B5 A5 D5 C4 B4 D5 G5 A5 D5
-C5 A5 B5 B5 A5 B5 A5 G5 F#5 A5 G5 F#5 A5 G5
+C5:4 Bb4:4 | Eb5:4. Db5:8 | C5:8 Eb5:8 Ab5:8 Bb5:8 |Eb5:4. E5:8 |
+F5:4 Bb4:8. C5:32 Db5:32 | Eb5:4 A4:4 | Db5:4 C5:16 Bb4:16 Ab4:16 G4:16 | Bb4:4 Eb4:16 Ab4:16 C5:16 Eb4:16 Ab4:16 |
+C5:4 Bb4:4 | Eb5:4. Db5:8 | C5:8 Eb5:8 Ab5:8 Bb5:8 | Eb5:4. E5:8 | F5:4 Bb4:8. C5:32 Db5:32 | Eb5:4 A4:4 | Db5:4 C5:16 Bb4:16 Ab4:16 G4:16 | Bb4:4 Ab4:8 0:8 |
 
 transposed + altered:
 D5 C5 F4 E4 D4 F4 A#4 C5 F4
