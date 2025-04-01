@@ -14,13 +14,21 @@
 
         .control-bar {
             position: sticky;
+            display: flex;
+            justify-content: center;
             top: 0;
+            gap: 8px;
             z-index: 101;
             background-color: #f4f4f4;
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
+        }
+
+        .control-bar button {
+            border-radius: 4px;
+            border: 1px solid #ccc;
         }
 
         #abc-notation {
@@ -57,6 +65,52 @@
             border: 1px solid #000;
             margin: 1px 0;
         }
+
+        .abcjs-container.minimized #reference-row {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .minimize-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .minimize-label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        #chart-toggle {
+            padding: 4px 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        #reference-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+            overflow-x: auto;
+        }
+
+        .abcjs-container.minimized #reference-row {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+        }
     </style>
 </head>
 
@@ -64,15 +118,22 @@
     <div class="control-bar">
         <button id="copy-button" title="Copy ABC notation (Ctrl+C)">Copy ABC</button>
         <button id="paste-button" title="Paste ABC notation (Ctrl+V)">Paste ABC</button>
+
         <button id="transpose-up" title="Transpose up">▲</button>
         <button id="transpose-down" title="Transpose down">▼</button>
-        <!-- Add play controls -->
+
         <button id="play-button" title="Play/Stop">▶</button>
         <button id="restart-button" title="Restart">⟳</button>
+
+        <div class="minimize-controls">
+            <span class="minimize-label">Chart</span>
+            <button id="chart-toggle" title="Minimize/Expand reference row">&#x2212;</button>
+        </div>
     </div>
 
     <!-- Add MIDI status display -->
     <div id="midi-status"></div>
+    <div id="reference-row" class="fingering-grid"></div>
     <div id="abc-notation"></div>
     <div id="feedback" class="feedback"></div>
 
@@ -81,29 +142,34 @@
         const abcPlayer = {
 
             renderConfig: {
-                stafftopmargin: 420, // no effect
+                stafftopmargin: 120, // no effect
                 oneSvgPerLine: false, // did not work well when true
-                scale: 1.5,         // Keep your existing scale
+                scale: 1.0,         // Keep your existing scale
             },
 
             // Config settings for fingering diagrams
             fingeringConfig: {
+                showLabels: false,        // Whether to show note name labels
                 scale: 0.75,             // Scale of the entire diagram (was 0.65)
+                verticalOffset: 60,      // Distance above note in pixels
+
                 holeSize: 7,             // Hole diameter in pixels (was 5)
                 holeBorder: 1,           // Hole border width in pixels
                 holeSpacing: 2,          // Vertical space between holes in pixels
                 columnSpacing: 6,        // Space between left and right hand columns
-                backgroundColor: 'rgba(255, 255, 255, 0.9)',
                 borderRadius: 4,         // Diagram border radius
                 fontSizeNote: 10,        // Font size for note name labels
-                verticalOffset: 60,      // Distance above note in pixels
-                showLabels: false,        // Whether to show note name labels
+
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                redColor: 'rgba(255, 0, 0, 0.1)',
+                greenColor: 'rgba(0, 128, 0, 0.1)',
             },
 
             currentAbc: `X:1
 T:Chromatic Scale
 M:4/4
 L:1/4
+Q:1/4=120
 K:C
 C ^C D ^D E F ^F G ^G A ^A B c |`,
             midiPlayer: null,
@@ -146,6 +212,66 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
 
             currentFingeringSystem: 'german',
             showFingering: true,
+
+            populateReferenceRow() {
+                const referenceRow = document.getElementById('reference-row');
+                if (!referenceRow) return;
+
+                // Clear any existing content
+                referenceRow.innerHTML = '';
+
+                // Define reference notes (C4 to A5, similar to the noteUtils.allNotes in your second document)
+                const referenceNotes = [
+                    'C', '^C', 'D', '^D', 'E', 'F', '^F', 'G', '^G', 'A', '^A', 'B',
+                    'c', '^c', 'd', '^d', 'e', 'f', '^f', 'g', '^g', 'a'
+                ];
+
+                // Create a fingering diagram for each reference note
+                referenceNotes.forEach(noteName => {
+                    const fingeringData = this.getFingeringForNote(noteName);
+                    if (!fingeringData) return;
+
+                    const container = document.createElement('div');
+                    container.className = 'chart-container';
+                    container.style.padding = '8px';
+                    container.style.border = '1px solid #ddd';
+                    container.style.borderRadius = '8px';
+                    container.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+
+                    if (noteName.includes('^')) {
+                        container.style.borderWidth = '3px';
+                        container.style.borderColor = '#000';
+                    }
+
+                    const noteLabel = document.createElement('div');
+                    noteLabel.textContent = noteName;
+                    noteLabel.style.textAlign = 'center';
+                    noteLabel.style.marginBottom = '8px';
+                    noteLabel.style.fontWeight = 'bold';
+
+                    const diagram = this.createFingeringDiagram(fingeringData, noteName);
+
+                    container.appendChild(noteLabel);
+                    container.appendChild(diagram);
+                    referenceRow.appendChild(container);
+                });
+
+                // Start with reference row minimized
+                document.querySelector('.abcjs-container').classList.add('minimized');
+            },
+
+            toggleReferenceRow() {
+                const referenceRow = document.getElementById('reference-row');
+
+                // Toggle visibility directly
+                if (referenceRow.style.display === 'none') {
+                    referenceRow.style.display = 'flex';
+                    document.getElementById('chart-toggle').innerHTML = '&#x2212;'; // Minus sign
+                } else {
+                    referenceRow.style.display = 'none';
+                    document.getElementById('chart-toggle').innerHTML = '&#43;'; // Plus sign
+                }
+            },
 
             render() {
                 try {
@@ -220,13 +346,14 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 layer.style.left = '0';
                 layer.style.width = '100%';
                 layer.style.height = '100%';
-                layer.style.pointerEvents = 'none';
+                layer.style.pointerEvents = 'none'; // None for layer, but we'll enable it for diagrams
                 layer.style.zIndex = '10';
 
                 const abcContainer = document.getElementById('abc-notation');
                 abcContainer.style.position = 'relative';
                 abcContainer.appendChild(layer);
 
+                // Rest of the existing function...
                 // Extract notes from ABC notation
                 const allNotes = this.extractNotesFromAbc();
 
@@ -504,6 +631,7 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 // Create container
                 const diagram = document.createElement('div');
                 diagram.className = 'fingering-diagram';
+                diagram.setAttribute('data-state', 'neutral');
                 diagram.style.display = 'flex';
                 diagram.style.flexDirection = 'column';
                 diagram.style.alignItems = 'center';
@@ -511,8 +639,29 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 diagram.style.borderRadius = `${config.borderRadius}px`;
                 diagram.style.padding = '3px';
                 diagram.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.2)';
+                diagram.style.pointerEvents = 'auto'; // Make clickable
 
-                // Add note name label if enabled and showNoteLabels is true
+                // Add click event to cycle through states
+                diagram.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const currentState = diagram.getAttribute('data-state');
+                    let newState;
+
+                    if (currentState === 'neutral') {
+                        newState = 'red';
+                        diagram.style.backgroundColor = config.redColor;
+                    } else if (currentState === 'red') {
+                        newState = 'green';
+                        diagram.style.backgroundColor = config.greenColor;
+                    } else {
+                        newState = 'neutral';
+                        diagram.style.backgroundColor = config.backgroundColor;
+                    }
+
+                    diagram.setAttribute('data-state', newState);
+                });
+
+                // Add note name label if enabled
                 if (config.showLabels && noteName) {
                     const noteLabel = document.createElement('div');
                     noteLabel.textContent = noteName;
@@ -849,7 +998,10 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
         };
 
         document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('reference-row').style.display = 'none';
+            document.getElementById('chart-toggle').innerHTML = '&#43;';
             abcPlayer.render();
+            abcPlayer.populateReferenceRow();
 
             // Add event listeners for playback
             document.getElementById('play-button').addEventListener('click', () => {
@@ -868,14 +1020,6 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 abcPlayer.pasteFromClipboard();
             });
 
-            document.getElementById('transpose-up').addEventListener('click', () => {
-                abcPlayer.transpose('up');
-            });
-
-            document.getElementById('transpose-down').addEventListener('click', () => {
-                abcPlayer.transpose('down');
-            });
-
             document.addEventListener('keydown', (event) => {
                 if (event.ctrlKey && !event.shiftKey && !event.altKey) {
                     if (event.key === 'c' && !window.getSelection().toString()) {
@@ -886,6 +1030,18 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                         abcPlayer.pasteFromClipboard();
                     }
                 }
+            });
+
+            document.getElementById('transpose-up').addEventListener('click', () => {
+                abcPlayer.transpose('up');
+            });
+
+            document.getElementById('transpose-down').addEventListener('click', () => {
+                abcPlayer.transpose('down');
+            });
+
+            document.getElementById('chart-toggle').addEventListener('click', () => {
+                abcPlayer.toggleReferenceRow();
             });
 
             // Add fingering system toggle button
@@ -914,6 +1070,25 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
             controlBar.insertBefore(fingeringDisplayToggle, controlBar.firstChild);
 
         });
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        window.addEventListener('resize', debounce(() => {
+            if (abcPlayer.showFingering) {
+                abcPlayer.clearFingeringDiagrams();
+                abcPlayer.addFingeringDiagrams();
+            }
+        }, 150)); // Debounce to prevent excessive recalculations
+
     </script>
 </body>
 
