@@ -139,494 +139,124 @@
 
     <script src="https://cdn.jsdelivr.net/npm/abcjs@6.0.0/dist/abcjs-basic-min.js"></script>
     <script>
-        const abcPlayer = {
-
-            renderConfig: {
-                stafftopmargin: 120, // no effect
-                oneSvgPerLine: false, // did not work well when true
-                scale: 1.0,         // Keep your existing scale
-            },
-
-            // Config settings for fingering diagrams
-            fingeringConfig: {
-                showLabels: false,        // Whether to show note name labels
-                scale: 0.75,             // Scale of the entire diagram (was 0.65)
-                verticalOffset: 60,      // Distance above note in pixels
-
-                holeSize: 7,             // Hole diameter in pixels (was 5)
-                holeBorder: 1,           // Hole border width in pixels
-                holeSpacing: 2,          // Vertical space between holes in pixels
-                columnSpacing: 6,        // Space between left and right hand columns
-                borderRadius: 4,         // Diagram border radius
-                fontSizeNote: 10,        // Font size for note name labels
-
-                backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                redColor: 'rgba(255, 0, 0, 0.1)',
-                greenColor: 'rgba(0, 128, 0, 0.1)',
-            },
-
-            currentAbc: `X:1
-T:Chromatic Scale
-M:4/4
-L:1/4
-Q:1/4=120
-K:C
-C ^C D ^D E F ^F G ^G A ^A B c |`,
-            midiPlayer: null,
-            isPlaying: false,
-
-            fingeringData: {
-                'C': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'c'] },
-                '^C': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'p'] },
-                'D': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
-                '^D': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'p', 'o'] },
-                'E': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
-                'F': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'c'] },
-                '^F': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'o'] },
-                'G': { left: ['c', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
-                '^G': { left: ['c', 'c', 'c', 'o'], right: ['c', 'c', 'o', 'o'] },
-                'A': { left: ['c', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
-                '^A': { left: ['c', 'c', 'o', 'c'], right: ['c', 'o', 'o', 'o'] },
-                'B': { left: ['c', 'c', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
-                'c': { left: ['c', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
-                '^c': { left: ['o', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
-                'd': { left: ['o', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
-                '^d': { left: ['o', 'o', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
-                'e': { left: ['p', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
-                'f': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'o'] },
-                '^f': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'o'] },
-                'g': { left: ['p', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
-                '^g': { left: ['p', 'c', 'c', 'o'], right: ['c', 'o', 'o', 'o'] },
-                'a': { left: ['p', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] }
-            },
-
-            // German fingering variations
-            fingeringDataGerman: {
-                'F': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
-                '^F': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] },
-                '^c': { left: ['c', 'o', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
-                'f': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
-                '^f': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'c'] },
-                '^g': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] }
-            },
-
-            currentFingeringSystem: 'german',
-            showFingering: true,
-
-            populateReferenceRow() {
-                const referenceRow = document.getElementById('reference-row');
-                if (!referenceRow) return;
-
-                // Clear any existing content
-                referenceRow.innerHTML = '';
-
-                // Define reference notes (C4 to A5, similar to the noteUtils.allNotes in your second document)
-                const referenceNotes = [
-                    'C', '^C', 'D', '^D', 'E', 'F', '^F', 'G', '^G', 'A', '^A', 'B',
-                    'c', '^c', 'd', '^d', 'e', 'f', '^f', 'g', '^g', 'a'
-                ];
-
-                // Create a fingering diagram for each reference note
-                referenceNotes.forEach(noteName => {
-                    const fingeringData = this.getFingeringForNote(noteName);
-                    if (!fingeringData) return;
-
-                    const container = document.createElement('div');
-                    container.className = 'chart-container';
-                    container.style.padding = '8px';
-                    container.style.border = '1px solid #ddd';
-                    container.style.borderRadius = '8px';
-                    container.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
-
-                    if (noteName.includes('^')) {
-                        container.style.borderWidth = '3px';
-                        container.style.borderColor = '#000';
-                    }
-
-                    const noteLabel = document.createElement('div');
-                    noteLabel.textContent = noteName;
-                    noteLabel.style.textAlign = 'center';
-                    noteLabel.style.marginBottom = '8px';
-                    noteLabel.style.fontWeight = 'bold';
-
-                    const diagram = this.createFingeringDiagram(fingeringData, noteName);
-
-                    container.appendChild(noteLabel);
-                    container.appendChild(diagram);
-                    referenceRow.appendChild(container);
-                });
-
-                // Start with reference row minimized
-                document.querySelector('.abcjs-container').classList.add('minimized');
-            },
-
-            toggleReferenceRow() {
-                const referenceRow = document.getElementById('reference-row');
-
-                // Toggle visibility directly
-                if (referenceRow.style.display === 'none') {
-                    referenceRow.style.display = 'flex';
-                    document.getElementById('chart-toggle').innerHTML = '&#x2212;'; // Minus sign
-                } else {
-                    referenceRow.style.display = 'none';
-                    document.getElementById('chart-toggle').innerHTML = '&#43;'; // Plus sign
-                }
-            },
-
-            render() {
-                try {
-                    console.log("Rendering ABC notation...");
-                    this.clearFingeringDiagrams();
-
-                    const visualObj = ABCJS.renderAbc("abc-notation", this.currentAbc, {
-                        responsive: "resize",
-                        add_classes: true,
-                        staffwidth: window.innerWidth - 60,
-                        stafftopmargin: this.renderConfig.stafftopmargin,
-                        oneSvgPerLine: this.renderConfig.oneSvgPerLine,
-                        scale: this.renderConfig.scale,
-                    })[0];
-
-                    // Create MIDI player if not exists
-                    if (!this.midiPlayer) {
-                        console.log("Creating new MIDI synth...");
-                        this.midiPlayer = new ABCJS.synth.CreateSynth();
-
-                        // Add event listener for when playback ends
-                        this.midiPlayer.onEnded = () => {
-                            console.log("Playback ended");
-                            this.isPlaying = false;
-                            document.getElementById('play-button').textContent = '▶';
-                        };
-                    }
-
-                    // First, create the audio context
-                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                    console.log("Audio context created:", audioContext.state);
-
-                    // Initialize MIDI
-                    console.log("Initializing MIDI player...");
-                    this.midiPlayer.init({
-                        visualObj: visualObj,
-                        audioContext: audioContext,
-                        millisecondsPerMeasure: 2000,
-                        options: {
-                            program: 74,
-                            midiTranspose: 0
-                        }
-                    });
-
-                    // Load and prepare the synth
-                    console.log("Loading synth...");
-                    this.midiPlayer.prime();
-
-                    document.getElementById('play-button').disabled = false;
-                    console.log("MIDI player ready!");
-
-                    // Add fingering diagrams after rendering if enabled
-                    if (this.showFingering) {
-                        setTimeout(() => this.addFingeringDiagrams(), 100);
-                    }
-                } catch (error) {
-                    console.error("Error in render:", error);
-                }
-            },
-
-            clearFingeringDiagrams() {
-                const existing = document.getElementById('fingering-layer');
-                if (existing) existing.remove();
-            },
-
-            addFingeringDiagrams() {
-                // Create container for fingering diagrams
-                const layer = document.createElement('div');
-                layer.id = 'fingering-layer';
-                layer.style.position = 'absolute';
-                layer.style.top = '0';
-                layer.style.left = '0';
-                layer.style.width = '100%';
-                layer.style.height = '100%';
-                layer.style.pointerEvents = 'none'; // None for layer, but we'll enable it for diagrams
-                layer.style.zIndex = '10';
-
-                const abcContainer = document.getElementById('abc-notation');
-                abcContainer.style.position = 'relative';
-                abcContainer.appendChild(layer);
-
-                // Rest of the existing function...
-                // Extract notes from ABC notation
-                const allNotes = this.extractNotesFromAbc();
-
-                // Find actual note elements (excluding clefs, key signatures, etc.)
-                const allElements = document.querySelectorAll("#abc-notation .abcjs-note");
-                const noteElements = Array.from(allElements).filter(el => {
-                    // Filter out non-note elements that might have the note class
-                    return !el.classList.contains('abcjs-clef') &&
-                        !el.classList.contains('abcjs-key-signature') &&
-                        !el.classList.contains('abcjs-time-signature') &&
-                        !el.classList.contains('abcjs-tempo');
-                });
-
-                console.log(`Found ${noteElements.length} note elements, ${allNotes.length} ABC notes`);
-
-                if (!noteElements.length) return;
-
-                const containerRect = abcContainer.getBoundingClientRect();
-
-                // Group notes by staff line
-                const staffLines = [];
-                const tolerance = 20; // pixels
-
-                // Create positions map
-                const notePositions = noteElements.map(el => {
-                    const rect = el.getBoundingClientRect();
-                    return {
-                        element: el,
-                        top: rect.top,
-                        left: rect.left,
-                        width: rect.width
+        /**
+         * Utility functions for the application
+         */
+        const Utils = {
+            debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
                     };
-                });
-
-                // Group by vertical position
-                notePositions.forEach(pos => {
-                    let foundStaff = false;
-                    for (const staff of staffLines) {
-                        if (Math.abs(staff.top - pos.top) <= tolerance) {
-                            staff.notes.push(pos);
-                            foundStaff = true;
-                            break;
-                        }
-                    }
-
-                    if (!foundStaff) {
-                        staffLines.push({
-                            top: pos.top,
-                            notes: [pos]
-                        });
-                    }
-                });
-
-                // Sort staff lines by vertical position (top to bottom)
-                staffLines.sort((a, b) => a.top - b.top);
-
-                // Sort notes within each staff line from left to right
-                staffLines.forEach(staff => {
-                    staff.notes.sort((a, b) => a.left - b.left);
-                });
-
-                // Adjust note list if counts don't match
-                let notesToUse = [...allNotes];
-                const totalNoteElements = staffLines.reduce((sum, staff) => sum + staff.notes.length, 0);
-
-                if (totalNoteElements !== notesToUse.length) {
-                    console.log(`Note count mismatch: ${notesToUse.length} ABC notes vs ${totalNoteElements} elements`);
-
-                    // Adjust list length to match element count
-                    if (totalNoteElements < notesToUse.length) {
-                        notesToUse = notesToUse.slice(0, totalNoteElements);
-                    } else {
-                        // Fill with the last note if we have more elements than notes
-                        while (notesToUse.length < totalNoteElements) {
-                            notesToUse.push(notesToUse[notesToUse.length - 1] || "?");
-                        }
-                    }
-                }
-
-                // Add fingering diagrams for each staff line
-                let noteIndex = 0;
-
-                staffLines.forEach(staff => {
-                    const diagramsTopPosition = staff.top - containerRect.top - this.fingeringConfig.verticalOffset;
-
-                    staff.notes.forEach(note => {
-                        if (noteIndex >= notesToUse.length) return;
-
-                        const noteName = notesToUse[noteIndex++];
-
-                        const fingeringData = this.getFingeringForNote(noteName);
-                        if (!fingeringData) {
-                            console.log(`No fingering data for: ${noteName}`);
-                            return;
-                        }
-
-                        // Create diagram with note name for debugging
-                        const diagram = this.createFingeringDiagram(fingeringData, noteName);
-
-                        // Position diagram above note
-                        diagram.style.position = 'absolute';
-                        diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
-                        diagram.style.top = `${diagramsTopPosition}px`;
-                        diagram.style.transform = `translate(-50%, 0) scale(${this.fingeringConfig.scale})`;
-                        diagram.style.transformOrigin = 'center top';
-
-                        layer.appendChild(diagram);
-                    });
-                });
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
             },
 
-            extractNotesFromAbc() {
-                // Extract the music part (after K: line)
-                const parts = this.currentAbc.split(/K:[^\n]+\n/);
-                if (parts.length < 2) return [];
-
-                // Extract the key signature
-                const keyMatch = this.currentAbc.match(/K:([A-G][#b]?m?)/);
-                const key = keyMatch ? keyMatch[1] : 'C';
-
-                // Get key accidentals
-                const keyAccidentals = this.getAccidentalsForKey(key);
-                console.log("Key:", key, "Accidentals:", keyAccidentals);
-
-                // Get just the musical content
-                const musicPart = parts[1]
-                    .replace(/\\\s*\n/g, ' ')  // Handle line continuations
-                    .replace(/V:\d+/g, ' ')    // Remove voice indicators
-                    .replace(/\|/g, ' |')      // Add space after bar lines for easier parsing
-                    .replace(/\s+/g, ' ')      // Normalize whitespace
-                    .trim();
-
-                console.log("Music part:", musicPart);
-
-                // Extract notes with accidentals and octave markers
-                const notes = [];
-                // Match note pattern: optional accidental (^_=), note letter (A-Ga-g), optional octave markers (',)
-                const noteRegex = /([_^=]?)([A-Ga-g])([,']*)/g;
-                let match;
-
-                // Track accidentals that apply within a measure
-                let measureAccidentals = {};
-
-                while ((match = noteRegex.exec(musicPart)) !== null) {
-                    // Skip notes within chord structures
-                    if (musicPart.charAt(match.index - 1) === '[') continue;
-
-                    let [, accidental, noteLetter, octaveMarkers] = match;
-                    const baseNote = noteLetter.toUpperCase();
-
-                    // Check if we've reached a bar line, and reset measure accidentals if so
-                    const textBeforeMatch = musicPart.substring(0, match.index);
-                    const lastBarIndex = textBeforeMatch.lastIndexOf('|');
-                    const lastNoteIndex = textBeforeMatch.search(/[A-Ga-g][']*$/);
-
-                    if (lastBarIndex > lastNoteIndex && lastBarIndex !== -1) {
-                        // We're in a new measure, reset accidentals
-                        measureAccidentals = {};
-                    }
-
-                    // Apply accidentals in this priority: 
-                    // 1. Explicit accidental in the note
-                    // 2. Accidental set earlier in the measure
-                    // 3. Key signature accidental
-                    if (accidental) {
-                        // Store explicit accidental for this note in the current measure
-                        measureAccidentals[baseNote] = accidental;
-                    } else if (measureAccidentals[baseNote]) {
-                        // Use accidental already set in this measure
-                        accidental = measureAccidentals[baseNote];
-                    } else if (keyAccidentals[baseNote]) {
-                        // Use key signature accidental
-                        accidental = keyAccidentals[baseNote];
-                    }
-
-                    const noteName = accidental + noteLetter + octaveMarkers;
-                    notes.push(noteName);
-                }
-
-                console.log("Extracted notes with key signature applied:", notes);
-                return notes;
+            showFeedback(message, duration = 2000) {
+                const feedback = document.getElementById('feedback');
+                feedback.textContent = message;
+                feedback.style.display = 'block';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, duration);
             },
 
-            getAccidentalsForKey(key) {
-                // Standardize key format
-                const normalizedKey = key.replace('#', '♯').replace('b', '♭');
-                const isMinor = normalizedKey.endsWith('m');
-                const baseKey = isMinor ? normalizedKey.slice(0, -1) : normalizedKey;
+            async copyToClipboard(text) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    this.showFeedback('ABC notation copied to clipboard!');
+                    return true;
+                } catch (err) {
+                    console.error('Failed to copy:', err);
+                    alert('Could not copy to clipboard. Please check browser permissions.');
+                    return false;
+                }
+            },
 
-                // Key signature definitions (which notes are affected)
-                const keySignatures = {
-                    // Major keys with sharps
-                    'C': {},  // No accidentals
-                    'G': { 'F': '^' },  // F♯
-                    'D': { 'F': '^', 'C': '^' },  // F♯, C♯
-                    'A': { 'F': '^', 'C': '^', 'G': '^' },  // F♯, C♯, G♯
-                    'E': { 'F': '^', 'C': '^', 'G': '^', 'D': '^' },  // F♯, C♯, G♯, D♯
-                    'B': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^' },  // F♯, C♯, G♯, D♯, A♯
-                    'F♯': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^', 'E': '^' },  // F♯, C♯, G♯, D♯, A♯, E♯
-                    'C♯': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^', 'E': '^', 'B': '^' },  // F♯, C♯, G♯, D♯, A♯, E♯, B♯
+            async readFromClipboard() {
+                try {
+                    return await navigator.clipboard.readText();
+                } catch (err) {
+                    console.error('Failed to paste:', err);
+                    alert('Could not access clipboard. Please check browser permissions.');
+                    return null;
+                }
+            }
+        };
 
-                    // Major keys with flats
-                    'F': { 'B': '_' },  // B♭
-                    'B♭': { 'B': '_', 'E': '_' },  // B♭, E♭
-                    'E♭': { 'B': '_', 'E': '_', 'A': '_' },  // B♭, E♭, A♭
-                    'A♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_' },  // B♭, E♭, A♭, D♭
-                    'D♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_' },  // B♭, E♭, A♭, D♭, G♭
-                    'G♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_', 'C': '_' },  // B♭, E♭, A♭, D♭, G♭, C♭
-                    'C♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_', 'C': '_', 'F': '_' },  // B♭, E♭, A♭, D♭, G♭, C♭, F♭
+        /**
+         * Manages fingering diagrams and their display
+         */
+        class FingeringManager {
+            constructor(config) {
+                this.config = config;
+                this.fingeringData = {
+                    'C': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'c'] },
+                    '^C': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'p'] },
+                    'D': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
+                    '^D': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'p', 'o'] },
+                    'E': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
+                    'F': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'c'] },
+                    '^F': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'o'] },
+                    'G': { left: ['c', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
+                    '^G': { left: ['c', 'c', 'c', 'o'], right: ['c', 'c', 'o', 'o'] },
+                    'A': { left: ['c', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                    '^A': { left: ['c', 'c', 'o', 'c'], right: ['c', 'o', 'o', 'o'] },
+                    'B': { left: ['c', 'c', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+                    'c': { left: ['c', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                    '^c': { left: ['o', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                    'd': { left: ['o', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                    '^d': { left: ['o', 'o', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
+                    'e': { left: ['p', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
+                    'f': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'o'] },
+                    '^f': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'o'] },
+                    'g': { left: ['p', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
+                    '^g': { left: ['p', 'c', 'c', 'o'], right: ['c', 'o', 'o', 'o'] },
+                    'a': { left: ['p', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] }
                 };
 
-                // Map minor keys to their relative major
-                const minorToRelativeMajor = {
-                    'Am': 'C', 'Em': 'G', 'Bm': 'D', 'F♯m': 'A', 'C♯m': 'E', 'G♯m': 'B', 'D♯m': 'F♯', 'A♯m': 'C♯',
-                    'Dm': 'F', 'Gm': 'B♭', 'Cm': 'E♭', 'Fm': 'A♭', 'B♭m': 'D♭', 'E♭m': 'G♭', 'A♭m': 'C♭'
+                // German fingering variations
+                this.fingeringDataGerman = {
+                    'F': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+                    '^F': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] },
+                    '^c': { left: ['c', 'o', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+                    'f': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+                    '^f': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'c'] },
+                    '^g': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] }
                 };
 
-                if (isMinor) {
-                    return keySignatures[minorToRelativeMajor[normalizedKey]] || {};
+                this.currentFingeringSystem = 'german';
+                this.showFingering = true;
+            }
+
+            createHole(state, isFirstLeftHole = false) {
+                const config = this.config;
+
+                const hole = document.createElement('div');
+                hole.style.width = `${config.holeSize}px`;
+                hole.style.height = `${config.holeSize}px`;
+                hole.style.borderRadius = '50%';
+                hole.style.border = `${config.holeBorder}px solid #000`;
+                hole.style.margin = `${config.holeSpacing}px 0`;
+
+                const filledColor = isFirstLeftHole ? '#888' : 'black';
+
+                if (state === 'c') {
+                    hole.style.backgroundColor = filledColor;
+                } else if (state === 'p') {
+                    hole.style.background = `linear-gradient(45deg, ${filledColor} 50%, white 50%)`;
+                } else {
+                    hole.style.backgroundColor = 'white';
                 }
 
-                return keySignatures[baseKey] || {};
-            },
-
-            getFingeringForNote(noteName) {
-                // Debug logging
-                console.log(`Getting fingering for note: ${noteName}`);
-
-                // Direct match first
-                if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[noteName]) {
-                    return this.fingeringDataGerman[noteName];
-                }
-
-                if (this.fingeringData[noteName]) {
-                    return this.fingeringData[noteName];
-                }
-
-                // Try enharmonic equivalents if needed
-                const noteMatch = noteName.match(/([_^=]*)([A-Ga-g])([,']*)/);
-                if (!noteMatch) return null;
-
-                const [, accidental, noteLetter, octaveMarkers] = noteMatch;
-
-                // Map for common enharmonic equivalents
-                const enharmonicMap = {
-                    '_B': '^A', '^A': '_B',
-                    '_E': '^D', '^D': '_E',
-                    '_A': '^G', '^G': '_A',
-                    '_D': '^C', '^C': '_D',
-                    '_G': '^F', '^F': '_G'
-                };
-
-                // Try looking up with an enharmonic equivalent
-                const enharmonicKey = accidental + noteLetter;
-                if (enharmonicMap[enharmonicKey]) {
-                    const enharmonic = enharmonicMap[enharmonicKey] + octaveMarkers;
-                    console.log(`Trying enharmonic: ${noteName} → ${enharmonic}`);
-
-                    if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[enharmonic]) {
-                        return this.fingeringDataGerman[enharmonic];
-                    }
-
-                    if (this.fingeringData[enharmonic]) {
-                        return this.fingeringData[enharmonic];
-                    }
-                }
-
-                console.log(`No fingering found for note: ${noteName}`);
-                return null;
-            },
+                return hole;
+            }
 
             createFingeringDiagram(fingeringData, noteName) {
-                const config = this.fingeringConfig;
+                const config = this.config;
 
                 // Create container
                 const diagram = document.createElement('div');
@@ -702,71 +332,121 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 diagram.appendChild(container);
 
                 return diagram;
-            },
+            }
 
-            createHole(state, isFirstLeftHole = false) {
-                const config = this.fingeringConfig;
-
-                const hole = document.createElement('div');
-                hole.style.width = `${config.holeSize}px`;
-                hole.style.height = `${config.holeSize}px`;
-                hole.style.borderRadius = '50%';
-                hole.style.border = `${config.holeBorder}px solid #000`;
-                hole.style.margin = `${config.holeSpacing}px 0`;
-
-                const filledColor = isFirstLeftHole ? '#888' : 'black';
-
-                if (state === 'c') {
-                    hole.style.backgroundColor = filledColor;
-                } else if (state === 'p') {
-                    hole.style.background = `linear-gradient(45deg, ${filledColor} 50%, white 50%)`;
-                } else {
-                    hole.style.backgroundColor = 'white';
+            getFingeringForNote(noteName) {
+                // Try direct match first
+                if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[noteName]) {
+                    return this.fingeringDataGerman[noteName];
                 }
 
-                return hole;
-            },
+                if (this.fingeringData[noteName]) {
+                    return this.fingeringData[noteName];
+                }
+
+                // Try enharmonic equivalents if needed
+                const noteMatch = noteName.match(/([_^=]*)([A-Ga-g])([,']*)/);
+                if (!noteMatch) return null;
+
+                const [, accidental, noteLetter, octaveMarkers] = noteMatch;
+
+                // Map for common enharmonic equivalents
+                const enharmonicMap = {
+                    '_B': '^A', '^A': '_B',
+                    '_E': '^D', '^D': '_E',
+                    '_A': '^G', '^G': '_A',
+                    '_D': '^C', '^C': '_D',
+                    '_G': '^F', '^F': '_G'
+                };
+
+                // Try looking up with an enharmonic equivalent
+                const enharmonicKey = accidental + noteLetter;
+                if (enharmonicMap[enharmonicKey]) {
+                    const enharmonic = enharmonicMap[enharmonicKey] + octaveMarkers;
+
+                    if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[enharmonic]) {
+                        return this.fingeringDataGerman[enharmonic];
+                    }
+
+                    if (this.fingeringData[enharmonic]) {
+                        return this.fingeringData[enharmonic];
+                    }
+                }
+
+                return null;
+            }
 
             toggleFingeringSystem() {
                 this.currentFingeringSystem = (this.currentFingeringSystem === 'baroque') ? 'german' : 'baroque';
-                this.render();
-            },
+                return this.currentFingeringSystem;
+            }
 
-            toggleFingeringDisplay() {
-                this.showFingering = !this.showFingering;
-                if (this.showFingering) {
-                    this.addFingeringDiagrams();
-                } else {
-                    this.clearFingeringDiagrams();
-                }
-            },
+            clearFingeringDiagrams() {
+                const existing = document.getElementById('fingering-layer');
+                if (existing) existing.remove();
+            }
 
-            showFeedback(message) {
-                const feedback = document.getElementById('feedback');
-                feedback.textContent = message;
-                feedback.style.display = 'block';
-                setTimeout(() => {
-                    feedback.style.display = 'none';
-                }, 2000);
-            },
+            populateReferenceRow() {
+                const referenceRow = document.getElementById('reference-row');
+                if (!referenceRow) return;
 
-            transpose(direction) {
-                const semitoneShift = direction === 'up' ? 1 : -1;
+                // Clear any existing content
+                referenceRow.innerHTML = '';
 
-                // Parse ABC notation
-                const sections = this.parseAbcSections(this.currentAbc);
+                // Define reference notes (C4 to A5)
+                const referenceNotes = [
+                    'C', '^C', 'D', '^D', 'E', 'F', '^F', 'G', '^G', 'A', '^A', 'B',
+                    'c', '^c', 'd', '^d', 'e', 'f', '^f', 'g', '^g', 'a'
+                ];
 
-                // Transpose key if present
-                if (sections.key) {
-                    sections.key = this.transposeKey(sections.key, semitoneShift);
-                }
+                // Create a fingering diagram for each reference note
+                referenceNotes.forEach(noteName => {
+                    const fingeringData = this.getFingeringForNote(noteName);
+                    if (!fingeringData) return;
 
-                // Transpose notes
-                sections.notes = this.transposeNotes(sections.notes, semitoneShift);
+                    const container = document.createElement('div');
+                    container.className = 'chart-container';
+                    container.style.padding = '8px';
+                    container.style.border = '1px solid #ddd';
+                    container.style.borderRadius = '8px';
+                    container.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
 
-                this.currentAbc = this.reconstructAbc(sections);
-                this.render();
-            },
+                    if (noteName.includes('^')) {
+                        container.style.borderWidth = '3px';
+                        container.style.borderColor = '#000';
+                    }
+
+                    const noteLabel = document.createElement('div');
+                    noteLabel.textContent = noteName;
+                    noteLabel.style.textAlign = 'center';
+                    noteLabel.style.marginBottom = '8px';
+                    noteLabel.style.fontWeight = 'bold';
+
+                    const diagram = this.createFingeringDiagram(fingeringData, noteName);
+
+                    container.appendChild(noteLabel);
+                    container.appendChild(diagram);
+                    referenceRow.appendChild(container);
+                });
+
+                // Start with reference row minimized
+                document.querySelector('.abcjs-container').classList.add('minimized');
+            }
+        }
+
+        /**
+         * Handles music notation extraction and processing
+         */
+        class NotationParser {
+            constructor() {
+                this.currentAbc = `X:1
+T:Chromatic Scale
+M:4/4
+L:1/4
+Q:1/4=120
+K:C
+C ^C D ^D E F ^F G ^G A ^A B c |`;
+            }
 
             parseAbcSections(abc) {
                 const sections = {
@@ -790,62 +470,130 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 }
 
                 return sections;
-            },
+            }
 
-            transposeKey(keyLine, semitoneShift) {
-                const keyMatch = keyLine.match(/K:([A-G][#b]?)([m]?)/);
-                if (!keyMatch) return keyLine;
+            reconstructAbc(sections) {
+                return [
+                    ...sections.header,
+                    sections.key,
+                    ...sections.notes
+                ].join('\n');
+            }
 
-                const [, key, mode] = keyMatch;
+            getAccidentalsForKey(key) {
+                // Standardize key format
+                const normalizedKey = key.replace('#', '♯').replace('b', '♭');
+                const isMinor = normalizedKey.endsWith('m');
+                const baseKey = isMinor ? normalizedKey.slice(0, -1) : normalizedKey;
 
-                // Map keys to semitones
-                const keyToSemitone = {
-                    'C': 0, 'C#': 1, 'Db': 1, 'D': 2, 'D#': 3, 'Eb': 3,
-                    'E': 4, 'F': 5, 'F#': 6, 'Gb': 6, 'G': 7, 'G#': 8,
-                    'Ab': 8, 'A': 9, 'A#': 10, 'Bb': 10, 'B': 11
+                // Key signature definitions (which notes are affected)
+                const keySignatures = {
+                    // Major keys with sharps
+                    'C': {},  // No accidentals
+                    'G': { 'F': '^' },  // F♯
+                    'D': { 'F': '^', 'C': '^' },  // F♯, C♯
+                    'A': { 'F': '^', 'C': '^', 'G': '^' },  // F♯, C♯, G♯
+                    'E': { 'F': '^', 'C': '^', 'G': '^', 'D': '^' },  // F♯, C♯, G♯, D♯
+                    'B': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^' },  // F♯, C♯, G♯, D♯, A♯
+                    'F♯': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^', 'E': '^' },  // F♯, C♯, G♯, D♯, A♯, E♯
+                    'C♯': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^', 'E': '^', 'B': '^' },  // F♯, C♯, G♯, D♯, A♯, E♯, B♯
+
+                    // Major keys with flats
+                    'F': { 'B': '_' },  // B♭
+                    'B♭': { 'B': '_', 'E': '_' },  // B♭, E♭
+                    'E♭': { 'B': '_', 'E': '_', 'A': '_' },  // B♭, E♭, A♭
+                    'A♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_' },  // B♭, E♭, A♭, D♭
+                    'D♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_' },  // B♭, E♭, A♭, D♭, G♭
+                    'G♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_', 'C': '_' },  // B♭, E♭, A♭, D♭, G♭, C♭
+                    'C♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_', 'C': '_', 'F': '_' },  // B♭, E♭, A♭, D♭, G♭, C♭, F♭
                 };
 
-                // Map semitones to key names
-                const semitoneToKey = {
-                    0: 'C', 1: 'C#', 2: 'D', 3: 'Eb', 4: 'E', 5: 'F',
-                    6: 'F#', 7: 'G', 8: 'Ab', 9: 'A', 10: 'Bb', 11: 'B'
+                // Map minor keys to their relative major
+                const minorToRelativeMajor = {
+                    'Am': 'C', 'Em': 'G', 'Bm': 'D', 'F♯m': 'A', 'C♯m': 'E', 'G♯m': 'B', 'D♯m': 'F♯', 'A♯m': 'C♯',
+                    'Dm': 'F', 'Gm': 'B♭', 'Cm': 'E♭', 'Fm': 'A♭', 'B♭m': 'D♭', 'E♭m': 'G♭', 'A♭m': 'C♭'
                 };
 
-                let semitone = keyToSemitone[key];
-                if (semitone === undefined) return keyLine;
+                if (isMinor) {
+                    return keySignatures[minorToRelativeMajor[normalizedKey]] || {};
+                }
 
-                semitone = (semitone + semitoneShift + 12) % 12;
-                const newKey = semitoneToKey[semitone];
+                return keySignatures[baseKey] || {};
+            }
 
-                return keyLine.replace(/K:[A-G][#b]?[m]?/, `K:${newKey}${mode}`);
-            },
+            extractNotesFromAbc() {
+                // Extract the music part (after K: line)
+                const parts = this.currentAbc.split(/K:[^\n]+\n/);
+                if (parts.length < 2) return [];
 
-            transposeNotes(noteLines, semitoneShift) {
-                const noteRegex = /([_^=]*)([A-Ga-g])([,']*)([\d/]*)/g;
+                // Extract the key signature
+                const keyMatch = this.currentAbc.match(/K:([A-G][#b]?m?)/);
+                const key = keyMatch ? keyMatch[1] : 'C';
 
-                return noteLines.map(line => {
-                    return line.replace(noteRegex, (match) => {
-                        return this.transposeNote(match, semitoneShift);
-                    });
-                });
-            },
+                // Get key accidentals
+                const keyAccidentals = this.getAccidentalsForKey(key);
 
-            transposeNote(note, semitoneShift) {
-                const match = note.match(/([_^=]*)([A-Ga-g])([,']*)([\d/]*)/);
-                if (!match) return note;
+                // Get just the musical content
+                const musicPart = parts[1]
+                    .replace(/\\\s*\n/g, ' ')  // Handle line continuations
+                    .replace(/V:\d+/g, ' ')    // Remove voice indicators
+                    .replace(/\|/g, ' |')      // Add space after bar lines for easier parsing
+                    .replace(/\s+/g, ' ')      // Normalize whitespace
+                    .trim();
 
-                const [, accidental, noteLetter, octaveMarkers, duration] = match;
+                // Extract notes with accidentals and octave markers
+                const notes = [];
+                // Match note pattern: optional accidental (^_=), note letter (A-Ga-g), optional octave markers (',)
+                const noteRegex = /([_^=]?)([A-Ga-g])([,']*)/g;
+                let match;
 
-                // Convert to semitone value
-                const semitone = this.noteToSemitone(accidental, noteLetter, octaveMarkers);
+                // Track accidentals that apply within a measure
+                let measureAccidentals = {};
 
-                // Apply transposition
-                const newSemitone = semitone + semitoneShift;
+                while ((match = noteRegex.exec(musicPart)) !== null) {
+                    // Skip notes within chord structures
+                    if (musicPart.charAt(match.index - 1) === '[') continue;
 
-                // Convert back to ABC notation
-                return this.semitoneToAbc(newSemitone, duration);
-            },
+                    let [, accidental, noteLetter, octaveMarkers] = match;
+                    const baseNote = noteLetter.toUpperCase();
 
+                    // Check if we've reached a bar line, and reset measure accidentals if so
+                    const textBeforeMatch = musicPart.substring(0, match.index);
+                    const lastBarIndex = textBeforeMatch.lastIndexOf('|');
+                    const lastNoteIndex = textBeforeMatch.search(/[A-Ga-g][']*$/);
+
+                    if (lastBarIndex > lastNoteIndex && lastBarIndex !== -1) {
+                        // We're in a new measure, reset accidentals
+                        measureAccidentals = {};
+                    }
+
+                    // Apply accidentals in this priority: 
+                    // 1. Explicit accidental in the note
+                    // 2. Accidental set earlier in the measure
+                    // 3. Key signature accidental
+                    if (accidental) {
+                        // Store explicit accidental for this note in the current measure
+                        measureAccidentals[baseNote] = accidental;
+                    } else if (measureAccidentals[baseNote]) {
+                        // Use accidental already set in this measure
+                        accidental = measureAccidentals[baseNote];
+                    } else if (keyAccidentals[baseNote]) {
+                        // Use key signature accidental
+                        accidental = keyAccidentals[baseNote];
+                    }
+
+                    const noteName = accidental + noteLetter + octaveMarkers;
+                    notes.push(noteName);
+                }
+
+                return notes;
+            }
+        }
+
+        /**
+         * Handles all note transposition functionality
+         */
+        class TransposeManager {
             noteToSemitone(accidental, noteLetter, octaveMarkers) {
                 // Base values for each note
                 const baseValues = { 'C': 0, 'D': 2, 'E': 4, 'F': 5, 'G': 7, 'A': 9, 'B': 11 };
@@ -874,7 +622,7 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
 
                 // Calculate absolute semitone value
                 return semitone + (octave * 12);
-            },
+            }
 
             semitoneToAbc(semitone, duration) {
                 // Get octave and note value
@@ -920,175 +668,525 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 }
 
                 return accidental + formattedNote + octaveMarkers + duration;
-            },
+            }
 
-            reconstructAbc(sections) {
-                return [
-                    ...sections.header,
-                    sections.key,
-                    ...sections.notes
-                ].join('\n');
-            },
+            transposeKey(keyLine, semitoneShift) {
+                const keyMatch = keyLine.match(/K:([A-G][#b]?)([m]?)/);
+                if (!keyMatch) return keyLine;
 
-            async copyToClipboard() {
+                const [, key, mode] = keyMatch;
+
+                // Map keys to semitones
+                const keyToSemitone = {
+                    'C': 0, 'C#': 1, 'Db': 1, 'D': 2, 'D#': 3, 'Eb': 3,
+                    'E': 4, 'F': 5, 'F#': 6, 'Gb': 6, 'G': 7, 'G#': 8,
+                    'Ab': 8, 'A': 9, 'A#': 10, 'Bb': 10, 'B': 11
+                };
+
+                // Map semitones to key names
+                const semitoneToKey = {
+                    0: 'C', 1: 'C#', 2: 'D', 3: 'Eb', 4: 'E', 5: 'F',
+                    6: 'F#', 7: 'G', 8: 'Ab', 9: 'A', 10: 'Bb', 11: 'B'
+                };
+
+                let semitone = keyToSemitone[key];
+                if (semitone === undefined) return keyLine;
+
+                semitone = (semitone + semitoneShift + 12) % 12;
+                const newKey = semitoneToKey[semitone];
+
+                return keyLine.replace(/K:[A-G][#b]?[m]?/, `K:${newKey}${mode}`);
+            }
+
+            transposeNote(note, semitoneShift) {
+                const match = note.match(/([_^=]*)([A-Ga-g])([,']*)([\d/]*)/);
+                if (!match) return note;
+
+                const [, accidental, noteLetter, octaveMarkers, duration] = match;
+
+                // Convert to semitone value
+                const semitone = this.noteToSemitone(accidental, noteLetter, octaveMarkers);
+
+                // Apply transposition
+                const newSemitone = semitone + semitoneShift;
+
+                // Convert back to ABC notation
+                return this.semitoneToAbc(newSemitone, duration);
+            }
+
+            transposeNotes(noteLines, semitoneShift) {
+                const noteRegex = /([_^=]*)([A-Ga-g])([,']*)([\d/]*)/g;
+
+                return noteLines.map(line => {
+                    return line.replace(noteRegex, (match) => {
+                        return this.transposeNote(match, semitoneShift);
+                    });
+                });
+            }
+        }
+
+        /**
+         * Manages MIDI playback functionality
+         */
+        class MidiPlayer {
+            constructor() {
+                this.midiPlayer = null;
+                this.isPlaying = false;
+            }
+
+            async init(visualObj) {
                 try {
-                    await navigator.clipboard.writeText(this.currentAbc);
-                    this.showFeedback('ABC notation copied to clipboard!');
-                } catch (err) {
-                    console.error('Failed to copy:', err);
-                    alert('Could not copy to clipboard. Please check browser permissions.');
-                }
-            },
+                    // Create MIDI player if not exists
+                    if (!this.midiPlayer) {
+                        this.midiPlayer = new ABCJS.synth.CreateSynth();
 
-            async pasteFromClipboard() {
-                try {
-                    const text = await navigator.clipboard.readText();
-                    if (text.includes('X:') && text.includes('K:')) {
-                        this.currentAbc = text;
-                        this.render();
-                        this.showFeedback('ABC notation pasted successfully!');
-                    } else {
-                        alert('Invalid ABC notation format');
+                        // Add event listener for when playback ends
+                        this.midiPlayer.onEnded = () => {
+                            this.isPlaying = false;
+                            document.getElementById('play-button').textContent = '▶';
+                        };
                     }
-                } catch (err) {
-                    console.error('Failed to paste:', err);
-                    alert('Could not access clipboard. Please check browser permissions.');
+
+                    // Create the audio context
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+                    // Initialize MIDI
+                    await this.midiPlayer.init({
+                        visualObj: visualObj,
+                        audioContext: audioContext,
+                        millisecondsPerMeasure: 2000,
+                        options: {
+                            program: 74,
+                            midiTranspose: 0
+                        }
+                    });
+
+                    // Load and prepare the synth
+                    await this.midiPlayer.prime();
+
+                    document.getElementById('play-button').disabled = false;
+                    return true;
+                } catch (error) {
+                    console.error("Error initializing MIDI player:", error);
+                    return false;
                 }
-            },
+            }
 
             async togglePlay() {
                 try {
                     if (!this.midiPlayer) {
-                        console.error("No MIDI player available");
-                        return;
+                        return false;
                     }
 
                     if (this.isPlaying) {
-                        console.log("Pausing playback...");
                         await this.midiPlayer.pause();
                         document.getElementById('play-button').textContent = '▶';
                     } else {
-                        console.log("Starting/resuming playback...");
                         await this.midiPlayer.start();
                         document.getElementById('play-button').textContent = '⏸';
                     }
                     this.isPlaying = !this.isPlaying;
+                    return true;
                 } catch (error) {
                     console.error("Error in togglePlay:", error);
+                    return false;
                 }
-            },
+            }
 
             async restart() {
                 try {
                     if (!this.midiPlayer) {
-                        console.error("No MIDI player available");
-                        return;
+                        return false;
                     }
-                    console.log("Restarting playback...");
+
                     await this.midiPlayer.stop();
                     this.isPlaying = false;
                     document.getElementById('play-button').textContent = '▶';
+
                     await this.midiPlayer.start();
                     this.isPlaying = true;
                     document.getElementById('play-button').textContent = '⏸';
+                    return true;
                 } catch (error) {
                     console.error("Error in restart:", error);
+                    return false;
                 }
             }
-        };
+        }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('reference-row').style.display = 'none';
-            document.getElementById('chart-toggle').innerHTML = '&#43;';
-            abcPlayer.render();
-            abcPlayer.populateReferenceRow();
+        /**
+         * Manages visual display of the fingering diagrams on the staff
+         */
+        class DiagramRenderer {
+            constructor(fingeringManager, config) {
+                this.fingeringManager = fingeringManager;
+                this.config = config;
+            }
 
-            // Add event listeners for playback
-            document.getElementById('play-button').addEventListener('click', () => {
-                abcPlayer.togglePlay();
-            });
+            addFingeringDiagrams(abcContainer, notesData) {
+                // Create container for fingering diagrams
+                this.clearFingeringDiagrams();
 
-            document.getElementById('restart-button').addEventListener('click', () => {
-                abcPlayer.restart();
-            });
+                const layer = document.createElement('div');
+                layer.id = 'fingering-layer';
+                layer.style.position = 'absolute';
+                layer.style.top = '0';
+                layer.style.left = '0';
+                layer.style.width = '100%';
+                layer.style.height = '100%';
+                layer.style.pointerEvents = 'none'; // None for layer, but we'll enable it for diagrams
+                layer.style.zIndex = '10';
 
-            document.getElementById('copy-button').addEventListener('click', () => {
-                abcPlayer.copyToClipboard();
-            });
+                abcContainer.style.position = 'relative';
+                abcContainer.appendChild(layer);
 
-            document.getElementById('paste-button').addEventListener('click', () => {
-                abcPlayer.pasteFromClipboard();
-            });
+                // Extract notes from notesData
+                const allNotes = notesData;
 
-            document.addEventListener('keydown', (event) => {
-                if (event.ctrlKey && !event.shiftKey && !event.altKey) {
-                    if (event.key === 'c' && !window.getSelection().toString()) {
-                        event.preventDefault();
-                        abcPlayer.copyToClipboard();
-                    } else if (event.key === 'v') {
-                        event.preventDefault();
-                        abcPlayer.pasteFromClipboard();
+                // Find note elements
+                const allElements = document.querySelectorAll("#abc-notation .abcjs-note");
+                const noteElements = Array.from(allElements).filter(el => {
+                    // Filter out non-note elements that might have the note class
+                    return !el.classList.contains('abcjs-clef') &&
+                        !el.classList.contains('abcjs-key-signature') &&
+                        !el.classList.contains('abcjs-time-signature') &&
+                        !el.classList.contains('abcjs-tempo');
+                });
+
+                if (!noteElements.length) return;
+
+                const containerRect = abcContainer.getBoundingClientRect();
+
+                // Group notes by staff line
+                const staffLines = this.groupNotesByStaffLine(noteElements);
+
+                // Adjust note list if counts don't match
+                let notesToUse = [...allNotes];
+                const totalNoteElements = staffLines.reduce((sum, staff) => sum + staff.notes.length, 0);
+
+                if (totalNoteElements !== notesToUse.length) {
+                    // Adjust list length to match element count
+                    if (totalNoteElements < notesToUse.length) {
+                        notesToUse = notesToUse.slice(0, totalNoteElements);
+                    } else {
+                        // Fill with the last note if we have more elements than notes
+                        while (notesToUse.length < totalNoteElements) {
+                            notesToUse.push(notesToUse[notesToUse.length - 1] || "?");
+                        }
                     }
                 }
-            });
 
-            document.getElementById('transpose-up').addEventListener('click', () => {
-                abcPlayer.transpose('up');
-            });
-
-            document.getElementById('transpose-down').addEventListener('click', () => {
-                abcPlayer.transpose('down');
-            });
-
-            document.getElementById('chart-toggle').addEventListener('click', () => {
-                abcPlayer.toggleReferenceRow();
-            });
-
-            // Add fingering system toggle button
-            const systemToggle = document.createElement('button');
-            systemToggle.id = 'system-toggle';
-            systemToggle.title = 'Toggle Baroque/German Fingering';
-            systemToggle.textContent = 'German Fingering';
-            systemToggle.addEventListener('click', () => {
-                abcPlayer.toggleFingeringSystem();
-                systemToggle.textContent = abcPlayer.currentFingeringSystem === 'baroque' ? 'Baroque Fingering' : 'German Fingering';
-            });
-
-            // Add fingering display toggle
-            const fingeringDisplayToggle = document.createElement('button');
-            fingeringDisplayToggle.id = 'show-fingering';
-            fingeringDisplayToggle.textContent = 'Hide Fingering';
-            fingeringDisplayToggle.title = 'Show/hide fingering diagrams';
-            fingeringDisplayToggle.addEventListener('click', () => {
-                abcPlayer.toggleFingeringDisplay();
-                fingeringDisplayToggle.textContent = abcPlayer.showFingering ? 'Hide Fingering' : 'Show Fingering';
-            });
-
-            // Add to control bar
-            const controlBar = document.querySelector('.control-bar');
-            controlBar.insertBefore(systemToggle, controlBar.firstChild);
-            controlBar.insertBefore(fingeringDisplayToggle, controlBar.firstChild);
-
-        });
-
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-        window.addEventListener('resize', debounce(() => {
-            if (abcPlayer.showFingering) {
-                abcPlayer.clearFingeringDiagrams();
-                abcPlayer.addFingeringDiagrams();
+                // Add fingering diagrams for each staff line
+                this.renderDiagramsOnStaff(staffLines, notesToUse, containerRect, layer);
             }
-        }, 150)); // Debounce to prevent excessive recalculations
 
+            groupNotesByStaffLine(noteElements) {
+                const staffLines = [];
+                const tolerance = 20; // pixels
+
+                // Create positions map
+                const notePositions = noteElements.map(el => {
+                    const rect = el.getBoundingClientRect();
+                    return {
+                        element: el,
+                        top: rect.top,
+                        left: rect.left,
+                        width: rect.width
+                    };
+                });
+
+                // Group by vertical position
+                notePositions.forEach(pos => {
+                    let foundStaff = false;
+                    for (const staff of staffLines) {
+                        if (Math.abs(staff.top - pos.top) <= tolerance) {
+                            staff.notes.push(pos);
+                            foundStaff = true;
+                            break;
+                        }
+                    }
+
+                    if (!foundStaff) {
+                        staffLines.push({
+                            top: pos.top,
+                            notes: [pos]
+                        });
+                    }
+                });
+
+                // Sort staff lines by vertical position (top to bottom)
+                staffLines.sort((a, b) => a.top - b.top);
+
+                // Sort notes within each staff line from left to right
+                staffLines.forEach(staff => {
+                    staff.notes.sort((a, b) => a.left - b.left);
+                });
+
+                return staffLines;
+            }
+
+            renderDiagramsOnStaff(staffLines, notesToUse, containerRect, layer) {
+                let noteIndex = 0;
+
+                staffLines.forEach(staff => {
+                    const diagramsTopPosition = staff.top - containerRect.top - this.config.verticalOffset;
+
+                    staff.notes.forEach(note => {
+                        if (noteIndex >= notesToUse.length) return;
+
+                        const noteName = notesToUse[noteIndex++];
+
+                        const fingeringData = this.fingeringManager.getFingeringForNote(noteName);
+                        if (!fingeringData) return;
+
+                        // Create diagram with note name
+                        const diagram = this.fingeringManager.createFingeringDiagram(fingeringData, noteName);
+
+                        // Position diagram above note
+                        diagram.style.position = 'absolute';
+                        diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
+                        diagram.style.top = `${diagramsTopPosition}px`;
+                        diagram.style.transform = `translate(-50%, 0) scale(${this.config.scale})`;
+                        diagram.style.transformOrigin = 'center top';
+
+                        layer.appendChild(diagram);
+                    });
+                });
+            }
+
+            clearFingeringDiagrams() {
+                const existing = document.getElementById('fingering-layer');
+                if (existing) existing.remove();
+            }
+        }
+
+        /**
+         * Main application controller
+         */
+        class AbcPlayer {
+            constructor() {
+                // Configuration for rendering ABC notation
+                this.renderConfig = {
+                    stafftopmargin: 120,
+                    oneSvgPerLine: false,
+                    scale: 1.0,
+                };
+
+                // Config settings for fingering diagrams
+                this.fingeringConfig = {
+                    showLabels: false,
+                    scale: 0.75,
+                    verticalOffset: 60,
+                    holeSize: 7,
+                    holeBorder: 1,
+                    holeSpacing: 2,
+                    columnSpacing: 6,
+                    borderRadius: 4,
+                    fontSizeNote: 10,
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    redColor: 'rgba(255, 0, 0, 0.1)',
+                    greenColor: 'rgba(0, 128, 0, 0.1)',
+                };
+
+                // Initialize sub-modules
+                this.notationParser = new NotationParser();
+                this.fingeringManager = new FingeringManager(this.fingeringConfig);
+                this.transposeManager = new TransposeManager();
+                this.midiPlayer = new MidiPlayer();
+                this.diagramRenderer = new DiagramRenderer(this.fingeringManager, this.fingeringConfig);
+
+                // Initialize UI handlers
+                this.initializeEventListeners();
+            }
+
+            render() {
+                try {
+                    const abcContainer = document.getElementById('abc-notation');
+                    this.diagramRenderer.clearFingeringDiagrams();
+
+                    const visualObj = ABCJS.renderAbc("abc-notation", this.notationParser.currentAbc, {
+                        responsive: "resize",
+                        add_classes: true,
+                        staffwidth: window.innerWidth - 60,
+                        stafftopmargin: this.renderConfig.stafftopmargin,
+                        oneSvgPerLine: this.renderConfig.oneSvgPerLine,
+                        scale: this.renderConfig.scale,
+                    })[0];
+
+                    // Initialize MIDI player
+                    this.midiPlayer.init(visualObj);
+
+                    // Add fingering diagrams after rendering if enabled
+                    if (this.fingeringManager.showFingering) {
+                        setTimeout(() => {
+                            const notes = this.notationParser.extractNotesFromAbc();
+                            this.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
+                        }, 100);
+                    }
+                } catch (error) {
+                    console.error("Error in render:", error);
+                }
+            }
+
+            async copyToClipboard() {
+                return Utils.copyToClipboard(this.notationParser.currentAbc);
+            }
+
+            async pasteFromClipboard() {
+                const text = await Utils.readFromClipboard();
+                if (text && text.includes('X:') && text.includes('K:')) {
+                    this.notationParser.currentAbc = text;
+                    this.render();
+                    Utils.showFeedback('ABC notation pasted successfully!');
+                    return true;
+                } else if (text) {
+                    alert('Invalid ABC notation format');
+                }
+                return false;
+            }
+
+            transpose(direction) {
+                const semitoneShift = direction === 'up' ? 1 : -1;
+
+                // Parse ABC notation
+                const sections = this.notationParser.parseAbcSections(this.notationParser.currentAbc);
+
+                // Transpose key if present
+                if (sections.key) {
+                    sections.key = this.transposeManager.transposeKey(sections.key, semitoneShift);
+                }
+
+                // Transpose notes
+                sections.notes = this.transposeManager.transposeNotes(sections.notes, semitoneShift);
+
+                this.notationParser.currentAbc = this.notationParser.reconstructAbc(sections);
+                this.render();
+            }
+
+            toggleReferenceRow() {
+                const referenceRow = document.getElementById('reference-row');
+
+                // Toggle visibility directly
+                if (referenceRow.style.display === 'none') {
+                    referenceRow.style.display = 'flex';
+                    document.getElementById('chart-toggle').innerHTML = '&#x2212;'; // Minus sign
+                } else {
+                    referenceRow.style.display = 'none';
+                    document.getElementById('chart-toggle').innerHTML = '&#43;'; // Plus sign
+                }
+            }
+
+            toggleFingeringSystem() {
+                const newSystem = this.fingeringManager.toggleFingeringSystem();
+                this.render();
+                // Add this line to update the reference row
+                this.fingeringManager.populateReferenceRow();
+                return newSystem;
+            }
+
+            toggleFingeringDisplay() {
+                this.fingeringManager.showFingering = !this.fingeringManager.showFingering;
+                if (this.fingeringManager.showFingering) {
+                    const notes = this.notationParser.extractNotesFromAbc();
+                    const abcContainer = document.getElementById('abc-notation');
+                    this.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
+                } else {
+                    this.diagramRenderer.clearFingeringDiagrams();
+                }
+                return this.fingeringManager.showFingering;
+            }
+
+            initializeEventListeners() {
+                window.addEventListener('DOMContentLoaded', () => {
+                    document.getElementById('reference-row').style.display = 'none';
+                    document.getElementById('chart-toggle').innerHTML = '&#43;';
+                    this.render();
+                    this.fingeringManager.populateReferenceRow();
+
+                    // Play controls
+                    document.getElementById('play-button').addEventListener('click', () => {
+                        this.midiPlayer.togglePlay();
+                    });
+
+                    document.getElementById('restart-button').addEventListener('click', () => {
+                        this.midiPlayer.restart();
+                    });
+
+                    // Clipboard controls
+                    document.getElementById('copy-button').addEventListener('click', () => {
+                        this.copyToClipboard();
+                    });
+
+                    document.getElementById('paste-button').addEventListener('click', () => {
+                        this.pasteFromClipboard();
+                    });
+
+                    // Keyboard shortcuts
+                    document.addEventListener('keydown', (event) => {
+                        if (event.ctrlKey && !event.shiftKey && !event.altKey) {
+                            if (event.key === 'c' && !window.getSelection().toString()) {
+                                event.preventDefault();
+                                this.copyToClipboard();
+                            } else if (event.key === 'v') {
+                                event.preventDefault();
+                                this.pasteFromClipboard();
+                            }
+                        }
+                    });
+
+                    // Transpose controls
+                    document.getElementById('transpose-up').addEventListener('click', () => {
+                        this.transpose('up');
+                    });
+
+                    document.getElementById('transpose-down').addEventListener('click', () => {
+                        this.transpose('down');
+                    });
+
+                    // Chart toggle
+                    document.getElementById('chart-toggle').addEventListener('click', () => {
+                        this.toggleReferenceRow();
+                    });
+
+                    // Add fingering system toggle button
+                    const systemToggle = document.createElement('button');
+                    systemToggle.id = 'system-toggle';
+                    systemToggle.title = 'Toggle Baroque/German Fingering';
+                    systemToggle.textContent = 'German Fingering';
+                    systemToggle.addEventListener('click', () => {
+                        const newSystem = this.toggleFingeringSystem();
+                        systemToggle.textContent = newSystem === 'baroque' ? 'Baroque Fingering' : 'German Fingering';
+                    });
+
+                    // Add fingering display toggle
+                    const fingeringDisplayToggle = document.createElement('button');
+                    fingeringDisplayToggle.id = 'show-fingering';
+                    fingeringDisplayToggle.textContent = 'Hide Fingering';
+                    fingeringDisplayToggle.title = 'Show/hide fingering diagrams';
+                    fingeringDisplayToggle.addEventListener('click', () => {
+                        const showFingering = this.toggleFingeringDisplay();
+                        fingeringDisplayToggle.textContent = showFingering ? 'Hide Fingering' : 'Show Fingering';
+                    });
+
+                    // Add to control bar
+                    const controlBar = document.querySelector('.control-bar');
+                    controlBar.insertBefore(systemToggle, controlBar.firstChild);
+                    controlBar.insertBefore(fingeringDisplayToggle, controlBar.firstChild);
+
+                    // Handle window resize
+                    window.addEventListener('resize', Utils.debounce(() => {
+                        if (this.fingeringManager.showFingering) {
+                            const notes = this.notationParser.extractNotesFromAbc();
+                            const abcContainer = document.getElementById('abc-notation');
+                            this.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
+                        }
+                    }, 150));
+                });
+            }
+        }
+
+        // Initialize the application
+        const app = new AbcPlayer();
     </script>
 </body>
 
