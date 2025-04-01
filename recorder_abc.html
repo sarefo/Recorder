@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Notation Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .control-bar {
+            position: sticky;
+            top: 0;
+            z-index: 101;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        #abc-notation {
+            margin-top: 20px;
+        }
+
+        .feedback {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="control-bar">
+        <button id="copy-button" title="Copy ABC notation (Ctrl+C)">Copy ABC</button>
+        <button id="paste-button" title="Paste ABC notation (Ctrl+V)">Paste ABC</button>
+        <button id="transpose-up" title="Transpose up">▲</button>
+        <button id="transpose-down" title="Transpose down">▼</button>
+    </div>
+
+    <div id="abc-notation"></div>
+    <div id="feedback" class="feedback"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/abcjs@6.0.0/dist/abcjs-basic.min.js"></script>
+    <script>
+        const abcPlayer = {
+            currentAbc: `X:1
+T:Example
+M:4/4
+L:1/4
+K:C
+C D E F | G A B c |`,
+
+            render() {
+                ABCJS.renderAbc("abc-notation", this.currentAbc, {
+                    responsive: "resize"
+                });
+            },
+
+            showFeedback(message) {
+                const feedback = document.getElementById('feedback');
+                feedback.textContent = message;
+                feedback.style.display = 'block';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 2000);
+            },
+
+            transpose(direction) {
+                const semitoneShift = direction === 'up' ? 1 : -1;
+
+                // Parse ABC notation
+                const sections = this.parseAbcSections(this.currentAbc);
+
+                // Transpose key if present
+                if (sections.key) {
+                    sections.key = this.transposeKey(sections.key, semitoneShift);
+                }
+
+                // Transpose notes
+                sections.notes = this.transposeNotes(sections.notes, semitoneShift);
+
+                this.currentAbc = this.reconstructAbc(sections);
+                this.render();
+            },
+
+            parseAbcSections(abc) {
+                const sections = {
+                    header: [],
+                    key: '',
+                    notes: []
+                };
+
+                const lines = abc.split('\n');
+                let inNotes = false;
+
+                for (const line of lines) {
+                    if (line.trim().startsWith('K:')) {
+                        sections.key = line;
+                        inNotes = true;
+                    } else if (!inNotes) {
+                        sections.header.push(line);
+                    } else {
+                        sections.notes.push(line);
+                    }
+                }
+
+                return sections;
+            },
+
+            transposeKey(keyLine, semitoneShift) {
+                const keyMatch = keyLine.match(/K:([A-G][#b]?)([m]?)/);
+                if (!keyMatch) return keyLine;
+
+                const [, key, mode] = keyMatch;
+
+                // Map keys to semitones
+                const keyToSemitone = {
+                    'C': 0, 'C#': 1, 'Db': 1, 'D': 2, 'D#': 3, 'Eb': 3,
+                    'E': 4, 'F': 5, 'F#': 6, 'Gb': 6, 'G': 7, 'G#': 8,
+                    'Ab': 8, 'A': 9, 'A#': 10, 'Bb': 10, 'B': 11
+                };
+
+                // Map semitones to key names
+                const semitoneToKey = {
+                    0: 'C', 1: 'C#', 2: 'D', 3: 'Eb', 4: 'E', 5: 'F',
+                    6: 'F#', 7: 'G', 8: 'Ab', 9: 'A', 10: 'Bb', 11: 'B'
+                };
+
+                let semitone = keyToSemitone[key];
+                if (semitone === undefined) return keyLine;
+
+                semitone = (semitone + semitoneShift + 12) % 12;
+                const newKey = semitoneToKey[semitone];
+
+                return keyLine.replace(/K:[A-G][#b]?[m]?/, `K:${newKey}${mode}`);
+            },
+
+            transposeNotes(noteLines, semitoneShift) {
+                const noteRegex = /([_^=]*)([A-Ga-g])([,']*)([\d/]*)/g;
+
+                return noteLines.map(line => {
+                    return line.replace(noteRegex, (match) => {
+                        return this.transposeNote(match, semitoneShift);
+                    });
+                });
+            },
+
+            transposeNote(note, semitoneShift) {
+                const match = note.match(/([_^=]*)([A-Ga-g])([,']*)([\d/]*)/);
+                if (!match) return note;
+
+                const [, accidental, noteLetter, octaveMarkers, duration] = match;
+
+                // Convert to semitone value
+                const semitone = this.noteToSemitone(accidental, noteLetter, octaveMarkers);
+
+                // Apply transposition
+                const newSemitone = semitone + semitoneShift;
+
+                // Convert back to ABC notation
+                return this.semitoneToAbc(newSemitone, duration);
+            },
+
+            noteToSemitone(accidental, noteLetter, octaveMarkers) {
+                // Base values for each note
+                const baseValues = { 'C': 0, 'D': 2, 'E': 4, 'F': 5, 'G': 7, 'A': 9, 'B': 11 };
+
+                // Start with base value
+                let semitone = baseValues[noteLetter.toUpperCase()];
+
+                // Apply accidentals
+                if (accidental) {
+                    for (const acc of accidental) {
+                        if (acc === '^') semitone += 1;
+                        else if (acc === '_') semitone -= 1;
+                    }
+                }
+
+                // Set octave (C is middle C = octave 4, c is octave 5)
+                let octave = noteLetter === noteLetter.toUpperCase() ? 4 : 5;
+
+                // Apply octave markers
+                if (octaveMarkers) {
+                    for (const marker of octaveMarkers) {
+                        if (marker === ',') octave -= 1;
+                        else if (marker === "'") octave += 1;
+                    }
+                }
+
+                // Calculate absolute semitone value
+                return semitone + (octave * 12);
+            },
+
+            semitoneToAbc(semitone, duration) {
+                // Get octave and note value
+                const octave = Math.floor(semitone / 12);
+                const noteValue = ((semitone % 12) + 12) % 12;
+
+                // Map semitones to note names with accidentals
+                const noteMap = [
+                    { note: 'C', accidental: '' },
+                    { note: 'C', accidental: '^' },
+                    { note: 'D', accidental: '' },
+                    { note: 'D', accidental: '^' },
+                    { note: 'E', accidental: '' },
+                    { note: 'F', accidental: '' },
+                    { note: 'F', accidental: '^' },
+                    { note: 'G', accidental: '' },
+                    { note: 'G', accidental: '^' },
+                    { note: 'A', accidental: '' },
+                    { note: 'A', accidental: '^' },
+                    { note: 'B', accidental: '' }
+                ];
+
+                // Get note information
+                const { note, accidental } = noteMap[noteValue];
+
+                // Format note based on octave
+                let formattedNote, octaveMarkers = '';
+
+                if (octave < 4) {
+                    // Lower octaves: uppercase with commas
+                    formattedNote = note.toUpperCase();
+                    octaveMarkers = ','.repeat(4 - octave);
+                } else if (octave === 4) {
+                    // Middle octave: uppercase
+                    formattedNote = note.toUpperCase();
+                } else if (octave === 5) {
+                    // One octave up: lowercase
+                    formattedNote = note.toLowerCase();
+                } else {
+                    // Higher octaves: lowercase with apostrophes
+                    formattedNote = note.toLowerCase();
+                    octaveMarkers = "'".repeat(octave - 5);
+                }
+
+                return accidental + formattedNote + octaveMarkers + duration;
+            },
+
+            convertFlatToSharp(note) {
+                // Convert flat notation to sharp notation
+                const flatToSharp = {
+                    '_D': '^C', '_E': '^D', '_G': '^F',
+                    '_A': '^G', '_B': '^A',
+                    // Add octave variants as needed
+                    '_d': '^c', '_e': '^d', '_g': '^f',
+                    '_a': '^g', '_b': '^a'
+                };
+                return flatToSharp[note] || note;
+            },
+
+            reconstructAbc(sections) {
+                return [
+                    ...sections.header,
+                    sections.key,
+                    ...sections.notes
+                ].join('\n');
+            },
+
+            async copyToClipboard() {
+                try {
+                    await navigator.clipboard.writeText(this.currentAbc);
+                    this.showFeedback('ABC notation copied to clipboard!');
+                } catch (err) {
+                    console.error('Failed to copy:', err);
+                    alert('Could not copy to clipboard. Please check browser permissions.');
+                }
+            },
+
+            async pasteFromClipboard() {
+                try {
+                    const text = await navigator.clipboard.readText();
+                    if (text.includes('X:') && text.includes('K:')) {
+                        this.currentAbc = text;
+                        this.render();
+                        this.showFeedback('ABC notation pasted successfully!');
+                    } else {
+                        alert('Invalid ABC notation format');
+                    }
+                } catch (err) {
+                    console.error('Failed to paste:', err);
+                    alert('Could not access clipboard. Please check browser permissions.');
+                }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            abcPlayer.render();
+
+            document.getElementById('copy-button').addEventListener('click', () => {
+                abcPlayer.copyToClipboard();
+            });
+
+            document.getElementById('paste-button').addEventListener('click', () => {
+                abcPlayer.pasteFromClipboard();
+            });
+
+            document.getElementById('transpose-up').addEventListener('click', () => {
+                abcPlayer.transpose('up');
+            });
+
+            document.getElementById('transpose-down').addEventListener('click', () => {
+                abcPlayer.transpose('down');
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.ctrlKey && !event.shiftKey && !event.altKey) {
+                    if (event.key === 'c' && !window.getSelection().toString()) {
+                        event.preventDefault();
+                        abcPlayer.copyToClipboard();
+                    } else if (event.key === 'v') {
+                        event.preventDefault();
+                        abcPlayer.pasteFromClipboard();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
