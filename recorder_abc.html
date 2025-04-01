@@ -120,7 +120,7 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 '^g': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] }
             },
 
-            currentFingeringSystem: 'baroque',
+            currentFingeringSystem: 'german',
             showFingering: true,
 
             render() {
@@ -860,7 +860,7 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
             const systemToggle = document.createElement('button');
             systemToggle.id = 'system-toggle';
             systemToggle.title = 'Toggle Baroque/German Fingering';
-            systemToggle.textContent = 'Baroque Fingering';
+            systemToggle.textContent = 'German Fingering';
             systemToggle.addEventListener('click', () => {
                 abcPlayer.toggleFingeringSystem();
                 systemToggle.textContent = abcPlayer.currentFingeringSystem === 'baroque' ? 'Baroque Fingering' : 'German Fingering';
