@@ -27,6 +27,10 @@
             margin-top: 20px;
         }
 
+        .abcjs-container {
+            padding-top: 200px;
+        }
+
         .feedback {
             position: fixed;
             bottom: 20px;
@@ -72,10 +76,30 @@
     <div id="abc-notation"></div>
     <div id="feedback" class="feedback"></div>
 
-    <!-- Change to full ABCJS library instead of basic -->
     <script src="https://cdn.jsdelivr.net/npm/abcjs@6.0.0/dist/abcjs-basic-min.js"></script>
     <script>
         const abcPlayer = {
+
+            renderConfig: {
+                stafftopmargin: 420, // no effect
+                oneSvgPerLine: false, // did not work well when true
+                scale: 1.5,         // Keep your existing scale
+            },
+
+            // Config settings for fingering diagrams
+            fingeringConfig: {
+                scale: 0.75,             // Scale of the entire diagram (was 0.65)
+                holeSize: 7,             // Hole diameter in pixels (was 5)
+                holeBorder: 1,           // Hole border width in pixels
+                holeSpacing: 2,          // Vertical space between holes in pixels
+                columnSpacing: 6,        // Space between left and right hand columns
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                borderRadius: 4,         // Diagram border radius
+                fontSizeNote: 10,        // Font size for note name labels
+                verticalOffset: 60,      // Distance above note in pixels
+                showLabels: false,        // Whether to show note name labels
+            },
+
             currentAbc: `X:1
 T:Chromatic Scale
 M:4/4
@@ -132,7 +156,9 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                         responsive: "resize",
                         add_classes: true,
                         staffwidth: window.innerWidth - 60,
-                        scale: 1.5
+                        stafftopmargin: this.renderConfig.stafftopmargin,
+                        oneSvgPerLine: this.renderConfig.oneSvgPerLine,
+                        scale: this.renderConfig.scale,
                     })[0];
 
                     // Create MIDI player if not exists
@@ -284,7 +310,7 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 let noteIndex = 0;
 
                 staffLines.forEach(staff => {
-                    const diagramsTopPosition = staff.top - containerRect.top - 40; // Adjusted position
+                    const diagramsTopPosition = staff.top - containerRect.top - this.fingeringConfig.verticalOffset;
 
                     staff.notes.forEach(note => {
                         if (noteIndex >= notesToUse.length) return;
@@ -304,7 +330,7 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                         diagram.style.position = 'absolute';
                         diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
                         diagram.style.top = `${diagramsTopPosition}px`;
-                        diagram.style.transform = 'translate(-50%, 0) scale(0.65)'; // 65% scale
+                        diagram.style.transform = `translate(-50%, 0) scale(${this.fingeringConfig.scale})`;
                         diagram.style.transformOrigin = 'center top';
 
                         layer.appendChild(diagram);
@@ -473,31 +499,33 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
             },
 
             createFingeringDiagram(fingeringData, noteName) {
+                const config = this.fingeringConfig;
+
                 // Create container
                 const diagram = document.createElement('div');
                 diagram.className = 'fingering-diagram';
                 diagram.style.display = 'flex';
                 diagram.style.flexDirection = 'column';
                 diagram.style.alignItems = 'center';
-                diagram.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-                diagram.style.borderRadius = '3px';
-                diagram.style.padding = '1px';
+                diagram.style.backgroundColor = config.backgroundColor;
+                diagram.style.borderRadius = `${config.borderRadius}px`;
+                diagram.style.padding = '3px';
                 diagram.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.2)';
 
-                // Add note name label for debugging
-                if (noteName) {
+                // Add note name label if enabled and showNoteLabels is true
+                if (config.showLabels && noteName) {
                     const noteLabel = document.createElement('div');
                     noteLabel.textContent = noteName;
-                    noteLabel.style.fontSize = '8px';
+                    noteLabel.style.fontSize = `${config.fontSizeNote}px`;
                     noteLabel.style.fontWeight = 'bold';
-                    noteLabel.style.marginBottom = '1px';
+                    noteLabel.style.marginBottom = '2px';
                     diagram.appendChild(noteLabel);
                 }
 
                 // Create two columns for left and right hand
                 const container = document.createElement('div');
                 container.style.display = 'flex';
-                container.style.gap = '5px';
+                container.style.gap = `${config.columnSpacing}px`;
 
                 // Left hand column
                 const leftCol = document.createElement('div');
@@ -512,8 +540,8 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 rightCol.style.alignItems = 'center';
 
                 // Create holes
-                fingeringData.left.forEach(state => {
-                    leftCol.appendChild(this.createHole(state));
+                fingeringData.left.forEach((state, index) => {
+                    leftCol.appendChild(this.createHole(state, index === 0)); // Pass true for first hole
                 });
 
                 fingeringData.right.forEach(state => {
@@ -527,18 +555,22 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 return diagram;
             },
 
-            createHole(state) {
+            createHole(state, isFirstLeftHole = false) {
+                const config = this.fingeringConfig;
+
                 const hole = document.createElement('div');
-                hole.style.width = '5px';  // Medium size for better visibility
-                hole.style.height = '5px';
+                hole.style.width = `${config.holeSize}px`;
+                hole.style.height = `${config.holeSize}px`;
                 hole.style.borderRadius = '50%';
-                hole.style.border = '1px solid #000';
-                hole.style.margin = '1px 0';
+                hole.style.border = `${config.holeBorder}px solid #000`;
+                hole.style.margin = `${config.holeSpacing}px 0`;
+
+                const filledColor = isFirstLeftHole ? '#888' : 'black';
 
                 if (state === 'c') {
-                    hole.style.backgroundColor = 'black';
+                    hole.style.backgroundColor = filledColor;
                 } else if (state === 'p') {
-                    hole.style.background = 'linear-gradient(45deg, black 50%, white 50%)';
+                    hole.style.background = `linear-gradient(45deg, ${filledColor} 50%, white 50%)`;
                 } else {
                     hole.style.backgroundColor = 'white';
                 }
