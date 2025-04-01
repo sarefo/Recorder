@@ -37,6 +37,22 @@
             border-radius: 4px;
             display: none;
         }
+
+        section .fingering-diagram {
+            pointer-events: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 3px;
+            padding: 2px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .fingering-hole {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            margin: 1px 0;
+        }
     </style>
 </head>
 
@@ -69,12 +85,54 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
             midiPlayer: null,
             isPlaying: false,
 
-            async render() {
+            fingeringData: {
+                'C': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'c'] },
+                '^C': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'p'] },
+                'D': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
+                '^D': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'p', 'o'] },
+                'E': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
+                'F': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'c'] },
+                '^F': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'o'] },
+                'G': { left: ['c', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
+                '^G': { left: ['c', 'c', 'c', 'o'], right: ['c', 'c', 'o', 'o'] },
+                'A': { left: ['c', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                '^A': { left: ['c', 'c', 'o', 'c'], right: ['c', 'o', 'o', 'o'] },
+                'B': { left: ['c', 'c', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+                'c': { left: ['c', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                '^c': { left: ['o', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                'd': { left: ['o', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+                '^d': { left: ['o', 'o', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
+                'e': { left: ['p', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
+                'f': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'o'] },
+                '^f': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'o'] },
+                'g': { left: ['p', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
+                '^g': { left: ['p', 'c', 'c', 'o'], right: ['c', 'o', 'o', 'o'] },
+                'a': { left: ['p', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] }
+            },
+
+            // German fingering variations
+            fingeringDataGerman: {
+                'F': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+                '^F': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] },
+                '^c': { left: ['c', 'o', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+                'f': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+                '^f': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'c'] },
+                '^g': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] }
+            },
+
+            currentFingeringSystem: 'baroque',
+            showFingering: true,
+
+            render() {
                 try {
                     console.log("Rendering ABC notation...");
+                    this.clearFingeringDiagrams();
+
                     const visualObj = ABCJS.renderAbc("abc-notation", this.currentAbc, {
                         responsive: "resize",
-                        add_classes: true
+                        add_classes: true,
+                        staffwidth: window.innerWidth - 60,
+                        scale: 1.5
                     })[0];
 
                     // Create MIDI player if not exists
@@ -83,7 +141,6 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                         this.midiPlayer = new ABCJS.synth.CreateSynth();
 
                         // Add event listener for when playback ends
-                        // TODO This does not work
                         this.midiPlayer.onEnded = () => {
                             console.log("Playback ended");
                             this.isPlaying = false;
@@ -97,7 +154,7 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
 
                     // Initialize MIDI
                     console.log("Initializing MIDI player...");
-                    await this.midiPlayer.init({
+                    this.midiPlayer.init({
                         visualObj: visualObj,
                         audioContext: audioContext,
                         millisecondsPerMeasure: 2000,
@@ -109,12 +166,273 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
 
                     // Load and prepare the synth
                     console.log("Loading synth...");
-                    await this.midiPlayer.prime();
+                    this.midiPlayer.prime();
 
                     document.getElementById('play-button').disabled = false;
                     console.log("MIDI player ready!");
+
+                    // Add fingering diagrams after rendering if enabled
+                    if (this.showFingering) {
+                        setTimeout(() => this.addFingeringDiagrams(), 100);
+                    }
                 } catch (error) {
                     console.error("Error in render:", error);
+                }
+            },
+
+            clearFingeringDiagrams() {
+                const existing = document.getElementById('fingering-layer');
+                if (existing) existing.remove();
+            },
+
+            addFingeringDiagrams() {
+                // Create container for fingering diagrams
+                const layer = document.createElement('div');
+                layer.id = 'fingering-layer';
+                layer.style.position = 'absolute';
+                layer.style.top = '0';
+                layer.style.left = '0';
+                layer.style.width = '100%';
+                layer.style.height = '100%';
+                layer.style.pointerEvents = 'none';
+                layer.style.zIndex = '10';
+
+                const abcContainer = document.getElementById('abc-notation');
+                abcContainer.style.position = 'relative';
+                abcContainer.appendChild(layer);
+
+                // Extract all notes from ABC notation
+                const allNotes = this.extractNotesFromAbc();
+                console.log("Extracted notes:", allNotes);
+
+                // Find all note elements
+                const noteElements = document.querySelectorAll("#abc-notation .abcjs-note");
+                console.log("Note elements count:", noteElements.length);
+
+                if (!noteElements.length) return;
+
+                const containerRect = abcContainer.getBoundingClientRect();
+
+                // Group notes by their vertical position (staff line)
+                const staffLines = [];
+
+                // Create a map of note elements to their positions
+                const notePositions = Array.from(noteElements).map(el => {
+                    const rect = el.getBoundingClientRect();
+                    return {
+                        element: el,
+                        top: rect.top,
+                        left: rect.left,
+                        width: rect.width
+                    };
+                });
+
+                // Group notes by staff line
+                const tolerance = 20; // Pixels
+
+                notePositions.forEach(pos => {
+                    // Find if this note belongs to an existing staff line
+                    let foundStaff = false;
+                    for (const staff of staffLines) {
+                        if (Math.abs(staff.top - pos.top) <= tolerance) {
+                            staff.notes.push(pos);
+                            foundStaff = true;
+                            break;
+                        }
+                    }
+
+                    // If not found, create a new staff line
+                    if (!foundStaff) {
+                        staffLines.push({
+                            top: pos.top,
+                            notes: [pos]
+                        });
+                    }
+                });
+
+                // Sort staff lines by vertical position
+                staffLines.sort((a, b) => a.top - b.top);
+
+                // Sort notes within each staff line from left to right
+                staffLines.forEach(staff => {
+                    staff.notes.sort((a, b) => a.left - b.left);
+                });
+
+                console.log("Staff lines:", staffLines.map(s => s.notes.length));
+
+                // Match notes to fingerings
+                if (allNotes.length > 0) {
+                    let noteIndex = 0;
+
+                    // For each staff line (top to bottom)
+                    for (const staff of staffLines) {
+                        const diagramsTopPosition = staff.top - containerRect.top - 43;
+
+                        // For each note in this staff (left to right)
+                        for (const note of staff.notes) {
+                            if (noteIndex >= allNotes.length) break;
+
+                            const noteName = allNotes[noteIndex++];
+                            console.log(`Matching note element at position ${noteIndex - 1} with ABC note: ${noteName}`);
+
+                            const fingeringData = this.getFingeringForNote(noteName);
+                            if (!fingeringData) {
+                                console.log(`No fingering data for: ${noteName}`);
+                                continue;
+                            }
+
+                            // Pass noteName as second parameter to display it
+                            const diagram = this.createFingeringDiagram(fingeringData, noteName);
+
+                            // Position diagram
+                            diagram.style.position = 'absolute';
+                            diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
+                            diagram.style.top = `${diagramsTopPosition}px`;
+                            diagram.style.transform = 'translate(-50%, 0) scale(0.75)';
+                            diagram.style.transformOrigin = 'center top';
+
+                            layer.appendChild(diagram);
+                        }
+                    }
+                }
+            },
+
+            extractNotesFromAbc() {
+                // Extract the music part (after K: line)
+                const parts = this.currentAbc.split(/K:[^\n]+\n/);
+                if (parts.length < 2) return [];
+
+                const musicPart = parts[1];
+                console.log("Original music part:", musicPart);
+
+                // Remove any bars, chord notation and other symbols that aren't notes
+                let processedMusic = musicPart
+                    .replace(/\[[^\]]*\]/g, '') // Remove chord brackets
+                    .replace(/\|/g, ' ')       // Replace bars with spaces
+                    .replace(/:/g, ' ');       // Replace colons with spaces
+
+                console.log("Processed music part:", processedMusic);
+
+                // Match standalone notes with their accidentals and octave markers
+                const noteRegex = /([_^=]?)([A-Ga-g])([,']*)/g;
+                const matches = [];
+                let match;
+
+                while ((match = noteRegex.exec(processedMusic)) !== null) {
+                    const accidental = match[1] || '';
+                    const noteLetter = match[2];
+                    const octaveMarkers = match[3] || '';
+
+                    matches.push(accidental + noteLetter + octaveMarkers);
+                }
+
+                console.log("Extracted notes:", matches);
+                return matches;
+            },
+
+            getFingeringForNote(noteName) {
+                // Debug logging to help diagnose issues
+                console.log(`Getting fingering for note: ${noteName}`);
+
+                // First check if we have German fingering for this note
+                if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[noteName]) {
+                    return this.fingeringDataGerman[noteName];
+                }
+
+                // Then check regular fingering data
+                const fingering = this.fingeringData[noteName];
+                if (!fingering) {
+                    console.log(`No fingering found for note: ${noteName}`);
+                }
+
+                return fingering;
+            },
+
+            createFingeringDiagram(fingeringData, noteName) {
+                // Create container
+                const diagram = document.createElement('div');
+                diagram.className = 'fingering-diagram';
+                diagram.style.display = 'flex';
+                diagram.style.flexDirection = 'column';
+                diagram.style.alignItems = 'center';
+                diagram.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                diagram.style.borderRadius = '3px';
+                diagram.style.padding = '2px';
+                diagram.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.2)';
+
+                // Add note name label at the top
+                if (noteName) {
+                    const noteLabel = document.createElement('div');
+                    noteLabel.textContent = noteName;
+                    noteLabel.style.fontSize = '10px';
+                    noteLabel.style.fontWeight = 'bold';
+                    noteLabel.style.marginBottom = '2px';
+                    diagram.appendChild(noteLabel);
+                }
+
+                // Create two columns for left and right hand
+                const container = document.createElement('div');
+                container.style.display = 'flex';
+                container.style.gap = '6px';
+
+                // Left hand column
+                const leftCol = document.createElement('div');
+                leftCol.style.display = 'flex';
+                leftCol.style.flexDirection = 'column';
+                leftCol.style.alignItems = 'center';
+
+                // Right hand column
+                const rightCol = document.createElement('div');
+                rightCol.style.display = 'flex';
+                rightCol.style.flexDirection = 'column';
+                rightCol.style.alignItems = 'center';
+
+                // Create holes
+                fingeringData.left.forEach(state => {
+                    leftCol.appendChild(this.createHole(state));
+                });
+
+                fingeringData.right.forEach(state => {
+                    rightCol.appendChild(this.createHole(state));
+                });
+
+                container.appendChild(leftCol);
+                container.appendChild(rightCol);
+                diagram.appendChild(container);
+
+                return diagram;
+            },
+
+            createHole(state) {
+                const hole = document.createElement('div');
+                hole.style.width = '6px';  // Increased from 4px
+                hole.style.height = '6px'; // Increased from 4px
+                hole.style.borderRadius = '50%';
+                hole.style.border = '1px solid #000';
+                hole.style.margin = '2px 0';
+
+                if (state === 'c') {
+                    hole.style.backgroundColor = 'black';
+                } else if (state === 'p') {
+                    hole.style.background = 'linear-gradient(45deg, black 50%, white 50%)';
+                } else {
+                    hole.style.backgroundColor = 'white';
+                }
+
+                return hole;
+            },
+
+            toggleFingeringSystem() {
+                this.currentFingeringSystem = (this.currentFingeringSystem === 'baroque') ? 'german' : 'baroque';
+                this.render();
+            },
+
+            toggleFingeringDisplay() {
+                this.showFingering = !this.showFingering;
+                if (this.showFingering) {
+                    this.addFingeringDiagrams();
+                } else {
+                    this.clearFingeringDiagrams();
                 }
             },
 
@@ -299,18 +617,6 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 return accidental + formattedNote + octaveMarkers + duration;
             },
 
-            convertFlatToSharp(note) {
-                // Convert flat notation to sharp notation
-                const flatToSharp = {
-                    '_D': '^C', '_E': '^D', '_G': '^F',
-                    '_A': '^G', '_B': '^A',
-                    // Add octave variants as needed
-                    '_d': '^c', '_e': '^d', '_g': '^f',
-                    '_a': '^g', '_b': '^a'
-                };
-                return flatToSharp[note] || note;
-            },
-
             reconstructAbc(sections) {
                 return [
                     ...sections.header,
@@ -425,6 +731,32 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                     }
                 }
             });
+
+            // Add fingering system toggle button
+            const fingeringToggle = document.createElement('button');
+            fingeringToggle.id = 'fingering-toggle';
+            fingeringToggle.title = 'Show/Hide Fingering';
+            fingeringToggle.textContent = 'Hide Fingering';
+            fingeringToggle.addEventListener('click', () => {
+                abcPlayer.toggleFingeringDisplay();
+                fingeringToggle.textContent = abcPlayer.showFingering ? 'Hide Fingering' : 'Show Fingering';
+            });
+
+            // Add fingering display toggle
+            const fingeringDisplayToggle = document.createElement('button');
+            fingeringDisplayToggle.id = 'show-fingering';
+            fingeringDisplayToggle.textContent = 'Hide Fingering';
+            fingeringDisplayToggle.title = 'Show/hide fingering diagrams';
+            fingeringDisplayToggle.addEventListener('click', () => {
+                abcPlayer.toggleFingeringDisplay();
+                fingeringDisplayToggle.textContent = abcPlayer.showFingering ? 'Hide Fingering' : 'Show Fingering';
+            });
+
+            // Add to control bar
+            const controlBar = document.querySelector('.control-bar');
+            controlBar.insertBefore(fingeringToggle, controlBar.firstChild);
+            controlBar.insertBefore(fingeringDisplayToggle, controlBar.firstChild);
+
         });
     </script>
 </body>
