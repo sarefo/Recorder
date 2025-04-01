@@ -317,11 +317,19 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 const parts = this.currentAbc.split(/K:[^\n]+\n/);
                 if (parts.length < 2) return [];
 
+                // Extract the key signature
+                const keyMatch = this.currentAbc.match(/K:([A-G][#b]?m?)/);
+                const key = keyMatch ? keyMatch[1] : 'C';
+
+                // Get key accidentals
+                const keyAccidentals = this.getAccidentalsForKey(key);
+                console.log("Key:", key, "Accidentals:", keyAccidentals);
+
                 // Get just the musical content
                 const musicPart = parts[1]
                     .replace(/\\\s*\n/g, ' ')  // Handle line continuations
                     .replace(/V:\d+/g, ' ')    // Remove voice indicators
-                    .replace(/\|/g, ' ')       // Replace bar lines with spaces
+                    .replace(/\|/g, ' |')      // Add space after bar lines for easier parsing
                     .replace(/\s+/g, ' ')      // Normalize whitespace
                     .trim();
 
@@ -333,34 +341,135 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 const noteRegex = /([_^=]?)([A-Ga-g])([,']*)/g;
                 let match;
 
+                // Track accidentals that apply within a measure
+                let measureAccidentals = {};
+
                 while ((match = noteRegex.exec(musicPart)) !== null) {
                     // Skip notes within chord structures
                     if (musicPart.charAt(match.index - 1) === '[') continue;
 
-                    const noteName = match[1] + match[2] + match[3];
+                    let [, accidental, noteLetter, octaveMarkers] = match;
+                    const baseNote = noteLetter.toUpperCase();
+
+                    // Check if we've reached a bar line, and reset measure accidentals if so
+                    const textBeforeMatch = musicPart.substring(0, match.index);
+                    const lastBarIndex = textBeforeMatch.lastIndexOf('|');
+                    const lastNoteIndex = textBeforeMatch.search(/[A-Ga-g][']*$/);
+
+                    if (lastBarIndex > lastNoteIndex && lastBarIndex !== -1) {
+                        // We're in a new measure, reset accidentals
+                        measureAccidentals = {};
+                    }
+
+                    // Apply accidentals in this priority: 
+                    // 1. Explicit accidental in the note
+                    // 2. Accidental set earlier in the measure
+                    // 3. Key signature accidental
+                    if (accidental) {
+                        // Store explicit accidental for this note in the current measure
+                        measureAccidentals[baseNote] = accidental;
+                    } else if (measureAccidentals[baseNote]) {
+                        // Use accidental already set in this measure
+                        accidental = measureAccidentals[baseNote];
+                    } else if (keyAccidentals[baseNote]) {
+                        // Use key signature accidental
+                        accidental = keyAccidentals[baseNote];
+                    }
+
+                    const noteName = accidental + noteLetter + octaveMarkers;
                     notes.push(noteName);
                 }
 
-                console.log("Extracted notes:", notes);
+                console.log("Extracted notes with key signature applied:", notes);
                 return notes;
             },
 
+            getAccidentalsForKey(key) {
+                // Standardize key format
+                const normalizedKey = key.replace('#', '♯').replace('b', '♭');
+                const isMinor = normalizedKey.endsWith('m');
+                const baseKey = isMinor ? normalizedKey.slice(0, -1) : normalizedKey;
+
+                // Key signature definitions (which notes are affected)
+                const keySignatures = {
+                    // Major keys with sharps
+                    'C': {},  // No accidentals
+                    'G': { 'F': '^' },  // F♯
+                    'D': { 'F': '^', 'C': '^' },  // F♯, C♯
+                    'A': { 'F': '^', 'C': '^', 'G': '^' },  // F♯, C♯, G♯
+                    'E': { 'F': '^', 'C': '^', 'G': '^', 'D': '^' },  // F♯, C♯, G♯, D♯
+                    'B': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^' },  // F♯, C♯, G♯, D♯, A♯
+                    'F♯': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^', 'E': '^' },  // F♯, C♯, G♯, D♯, A♯, E♯
+                    'C♯': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^', 'E': '^', 'B': '^' },  // F♯, C♯, G♯, D♯, A♯, E♯, B♯
+
+                    // Major keys with flats
+                    'F': { 'B': '_' },  // B♭
+                    'B♭': { 'B': '_', 'E': '_' },  // B♭, E♭
+                    'E♭': { 'B': '_', 'E': '_', 'A': '_' },  // B♭, E♭, A♭
+                    'A♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_' },  // B♭, E♭, A♭, D♭
+                    'D♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_' },  // B♭, E♭, A♭, D♭, G♭
+                    'G♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_', 'C': '_' },  // B♭, E♭, A♭, D♭, G♭, C♭
+                    'C♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_', 'C': '_', 'F': '_' },  // B♭, E♭, A♭, D♭, G♭, C♭, F♭
+                };
+
+                // Map minor keys to their relative major
+                const minorToRelativeMajor = {
+                    'Am': 'C', 'Em': 'G', 'Bm': 'D', 'F♯m': 'A', 'C♯m': 'E', 'G♯m': 'B', 'D♯m': 'F♯', 'A♯m': 'C♯',
+                    'Dm': 'F', 'Gm': 'B♭', 'Cm': 'E♭', 'Fm': 'A♭', 'B♭m': 'D♭', 'E♭m': 'G♭', 'A♭m': 'C♭'
+                };
+
+                if (isMinor) {
+                    return keySignatures[minorToRelativeMajor[normalizedKey]] || {};
+                }
+
+                return keySignatures[baseKey] || {};
+            },
+
             getFingeringForNote(noteName) {
-                // Debug logging to help diagnose issues
+                // Debug logging
                 console.log(`Getting fingering for note: ${noteName}`);
 
-                // First check if we have German fingering for this note
+                // Direct match first
                 if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[noteName]) {
                     return this.fingeringDataGerman[noteName];
                 }
 
-                // Then check regular fingering data
-                const fingering = this.fingeringData[noteName];
-                if (!fingering) {
-                    console.log(`No fingering found for note: ${noteName}`);
+                if (this.fingeringData[noteName]) {
+                    return this.fingeringData[noteName];
                 }
 
-                return fingering;
+                // Try enharmonic equivalents if needed
+                const noteMatch = noteName.match(/([_^=]*)([A-Ga-g])([,']*)/);
+                if (!noteMatch) return null;
+
+                const [, accidental, noteLetter, octaveMarkers] = noteMatch;
+
+                // Map for common enharmonic equivalents
+                const enharmonicMap = {
+                    '_B': '^A', '^A': '_B',
+                    '_E': '^D', '^D': '_E',
+                    '_A': '^G', '^G': '_A',
+                    '_D': '^C', '^C': '_D',
+                    '_G': '^F', '^F': '_G'
+                };
+
+                // Try looking up with an enharmonic equivalent
+                const enharmonicKey = accidental + noteLetter;
+                if (enharmonicMap[enharmonicKey]) {
+                    const enharmonic = enharmonicMap[enharmonicKey] + octaveMarkers;
+                    console.log(`Trying enharmonic: ${noteName} → ${enharmonic}`);
+
+                    if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[enharmonic]) {
+                        return this.fingeringDataGerman[enharmonic];
+                    }
+
+                    if (this.fingeringData[enharmonic]) {
+                        return this.fingeringData[enharmonic];
+                    }
+                }
+
+                console.log(`No fingering found for note: ${noteName}`);
+                return null;
             },
 
             createFingeringDiagram(fingeringData, noteName) {
