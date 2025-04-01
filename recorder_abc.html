@@ -46,25 +46,76 @@
         <button id="paste-button" title="Paste ABC notation (Ctrl+V)">Paste ABC</button>
         <button id="transpose-up" title="Transpose up">▲</button>
         <button id="transpose-down" title="Transpose down">▼</button>
+        <!-- Add play controls -->
+        <button id="play-button" title="Play/Stop">▶</button>
+        <button id="restart-button" title="Restart">⟳</button>
     </div>
 
+    <!-- Add MIDI status display -->
+    <div id="midi-status"></div>
     <div id="abc-notation"></div>
     <div id="feedback" class="feedback"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/abcjs@6.0.0/dist/abcjs-basic.min.js"></script>
+    <!-- Change to full ABCJS library instead of basic -->
+    <script src="https://cdn.jsdelivr.net/npm/abcjs@6.0.0/dist/abcjs-basic-min.js"></script>
     <script>
         const abcPlayer = {
             currentAbc: `X:1
-T:Example
+T:Chromatic Scale
 M:4/4
 L:1/4
 K:C
-C D E F | G A B c |`,
+C ^C D ^D E F ^F G ^G A ^A B c |`,
+            midiPlayer: null,
+            isPlaying: false,
 
-            render() {
-                ABCJS.renderAbc("abc-notation", this.currentAbc, {
-                    responsive: "resize"
-                });
+            async render() {
+                try {
+                    console.log("Rendering ABC notation...");
+                    const visualObj = ABCJS.renderAbc("abc-notation", this.currentAbc, {
+                        responsive: "resize",
+                        add_classes: true
+                    })[0];
+
+                    // Create MIDI player if not exists
+                    if (!this.midiPlayer) {
+                        console.log("Creating new MIDI synth...");
+                        this.midiPlayer = new ABCJS.synth.CreateSynth();
+
+                        // Add event listener for when playback ends
+                        // TODO This does not work
+                        this.midiPlayer.onEnded = () => {
+                            console.log("Playback ended");
+                            this.isPlaying = false;
+                            document.getElementById('play-button').textContent = '▶';
+                        };
+                    }
+
+                    // First, create the audio context
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    console.log("Audio context created:", audioContext.state);
+
+                    // Initialize MIDI
+                    console.log("Initializing MIDI player...");
+                    await this.midiPlayer.init({
+                        visualObj: visualObj,
+                        audioContext: audioContext,
+                        millisecondsPerMeasure: 2000,
+                        options: {
+                            program: 74,
+                            midiTranspose: 0
+                        }
+                    });
+
+                    // Load and prepare the synth
+                    console.log("Loading synth...");
+                    await this.midiPlayer.prime();
+
+                    document.getElementById('play-button').disabled = false;
+                    console.log("MIDI player ready!");
+                } catch (error) {
+                    console.error("Error in render:", error);
+                }
             },
 
             showFeedback(message) {
@@ -292,11 +343,60 @@ C D E F | G A B c |`,
                     console.error('Failed to paste:', err);
                     alert('Could not access clipboard. Please check browser permissions.');
                 }
+            },
+
+            async togglePlay() {
+                try {
+                    if (!this.midiPlayer) {
+                        console.error("No MIDI player available");
+                        return;
+                    }
+
+                    if (this.isPlaying) {
+                        console.log("Pausing playback...");
+                        await this.midiPlayer.pause();
+                        document.getElementById('play-button').textContent = '▶';
+                    } else {
+                        console.log("Starting/resuming playback...");
+                        await this.midiPlayer.start();
+                        document.getElementById('play-button').textContent = '⏸';
+                    }
+                    this.isPlaying = !this.isPlaying;
+                } catch (error) {
+                    console.error("Error in togglePlay:", error);
+                }
+            },
+
+            async restart() {
+                try {
+                    if (!this.midiPlayer) {
+                        console.error("No MIDI player available");
+                        return;
+                    }
+                    console.log("Restarting playback...");
+                    await this.midiPlayer.stop();
+                    this.isPlaying = false;
+                    document.getElementById('play-button').textContent = '▶';
+                    await this.midiPlayer.start();
+                    this.isPlaying = true;
+                    document.getElementById('play-button').textContent = '⏸';
+                } catch (error) {
+                    console.error("Error in restart:", error);
+                }
             }
         };
 
         document.addEventListener('DOMContentLoaded', () => {
             abcPlayer.render();
+
+            // Add event listeners for playback
+            document.getElementById('play-button').addEventListener('click', () => {
+                abcPlayer.togglePlay();
+            });
+
+            document.getElementById('restart-button').addEventListener('click', () => {
+                abcPlayer.restart();
+            });
 
             document.getElementById('copy-button').addEventListener('click', () => {
                 abcPlayer.copyToClipboard();
