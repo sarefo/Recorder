@@ -201,23 +201,31 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 abcContainer.style.position = 'relative';
                 abcContainer.appendChild(layer);
 
-                // Extract all notes from ABC notation
+                // Extract notes from ABC notation
                 const allNotes = this.extractNotesFromAbc();
-                console.log("Extracted notes:", allNotes);
 
-                // Find all note elements
-                const noteElements = document.querySelectorAll("#abc-notation .abcjs-note");
-                console.log("Note elements count:", noteElements.length);
+                // Find actual note elements (excluding clefs, key signatures, etc.)
+                const allElements = document.querySelectorAll("#abc-notation .abcjs-note");
+                const noteElements = Array.from(allElements).filter(el => {
+                    // Filter out non-note elements that might have the note class
+                    return !el.classList.contains('abcjs-clef') &&
+                        !el.classList.contains('abcjs-key-signature') &&
+                        !el.classList.contains('abcjs-time-signature') &&
+                        !el.classList.contains('abcjs-tempo');
+                });
+
+                console.log(`Found ${noteElements.length} note elements, ${allNotes.length} ABC notes`);
 
                 if (!noteElements.length) return;
 
                 const containerRect = abcContainer.getBoundingClientRect();
 
-                // Group notes by their vertical position (staff line)
+                // Group notes by staff line
                 const staffLines = [];
+                const tolerance = 20; // pixels
 
-                // Create a map of note elements to their positions
-                const notePositions = Array.from(noteElements).map(el => {
+                // Create positions map
+                const notePositions = noteElements.map(el => {
                     const rect = el.getBoundingClientRect();
                     return {
                         element: el,
@@ -227,11 +235,8 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                     };
                 });
 
-                // Group notes by staff line
-                const tolerance = 20; // Pixels
-
+                // Group by vertical position
                 notePositions.forEach(pos => {
-                    // Find if this note belongs to an existing staff line
                     let foundStaff = false;
                     for (const staff of staffLines) {
                         if (Math.abs(staff.top - pos.top) <= tolerance) {
@@ -241,7 +246,6 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                         }
                     }
 
-                    // If not found, create a new staff line
                     if (!foundStaff) {
                         staffLines.push({
                             top: pos.top,
@@ -250,7 +254,7 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                     }
                 });
 
-                // Sort staff lines by vertical position
+                // Sort staff lines by vertical position (top to bottom)
                 staffLines.sort((a, b) => a.top - b.top);
 
                 // Sort notes within each staff line from left to right
@@ -258,43 +262,54 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                     staff.notes.sort((a, b) => a.left - b.left);
                 });
 
-                console.log("Staff lines:", staffLines.map(s => s.notes.length));
+                // Adjust note list if counts don't match
+                let notesToUse = [...allNotes];
+                const totalNoteElements = staffLines.reduce((sum, staff) => sum + staff.notes.length, 0);
 
-                // Match notes to fingerings
-                if (allNotes.length > 0) {
-                    let noteIndex = 0;
+                if (totalNoteElements !== notesToUse.length) {
+                    console.log(`Note count mismatch: ${notesToUse.length} ABC notes vs ${totalNoteElements} elements`);
 
-                    // For each staff line (top to bottom)
-                    for (const staff of staffLines) {
-                        const diagramsTopPosition = staff.top - containerRect.top - 43;
-
-                        // For each note in this staff (left to right)
-                        for (const note of staff.notes) {
-                            if (noteIndex >= allNotes.length) break;
-
-                            const noteName = allNotes[noteIndex++];
-                            console.log(`Matching note element at position ${noteIndex - 1} with ABC note: ${noteName}`);
-
-                            const fingeringData = this.getFingeringForNote(noteName);
-                            if (!fingeringData) {
-                                console.log(`No fingering data for: ${noteName}`);
-                                continue;
-                            }
-
-                            // Pass noteName as second parameter to display it
-                            const diagram = this.createFingeringDiagram(fingeringData, noteName);
-
-                            // Position diagram
-                            diagram.style.position = 'absolute';
-                            diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
-                            diagram.style.top = `${diagramsTopPosition}px`;
-                            diagram.style.transform = 'translate(-50%, 0) scale(0.75)';
-                            diagram.style.transformOrigin = 'center top';
-
-                            layer.appendChild(diagram);
+                    // Adjust list length to match element count
+                    if (totalNoteElements < notesToUse.length) {
+                        notesToUse = notesToUse.slice(0, totalNoteElements);
+                    } else {
+                        // Fill with the last note if we have more elements than notes
+                        while (notesToUse.length < totalNoteElements) {
+                            notesToUse.push(notesToUse[notesToUse.length - 1] || "?");
                         }
                     }
                 }
+
+                // Add fingering diagrams for each staff line
+                let noteIndex = 0;
+
+                staffLines.forEach(staff => {
+                    const diagramsTopPosition = staff.top - containerRect.top - 40; // Adjusted position
+
+                    staff.notes.forEach(note => {
+                        if (noteIndex >= notesToUse.length) return;
+
+                        const noteName = notesToUse[noteIndex++];
+
+                        const fingeringData = this.getFingeringForNote(noteName);
+                        if (!fingeringData) {
+                            console.log(`No fingering data for: ${noteName}`);
+                            return;
+                        }
+
+                        // Create diagram with note name for debugging
+                        const diagram = this.createFingeringDiagram(fingeringData, noteName);
+
+                        // Position diagram above note
+                        diagram.style.position = 'absolute';
+                        diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
+                        diagram.style.top = `${diagramsTopPosition}px`;
+                        diagram.style.transform = 'translate(-50%, 0) scale(0.65)'; // 65% scale
+                        diagram.style.transformOrigin = 'center top';
+
+                        layer.appendChild(diagram);
+                    });
+                });
             },
 
             extractNotesFromAbc() {
@@ -302,32 +317,32 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 const parts = this.currentAbc.split(/K:[^\n]+\n/);
                 if (parts.length < 2) return [];
 
-                const musicPart = parts[1];
-                console.log("Original music part:", musicPart);
+                // Get just the musical content
+                const musicPart = parts[1]
+                    .replace(/\\\s*\n/g, ' ')  // Handle line continuations
+                    .replace(/V:\d+/g, ' ')    // Remove voice indicators
+                    .replace(/\|/g, ' ')       // Replace bar lines with spaces
+                    .replace(/\s+/g, ' ')      // Normalize whitespace
+                    .trim();
 
-                // Remove any bars, chord notation and other symbols that aren't notes
-                let processedMusic = musicPart
-                    .replace(/\[[^\]]*\]/g, '') // Remove chord brackets
-                    .replace(/\|/g, ' ')       // Replace bars with spaces
-                    .replace(/:/g, ' ');       // Replace colons with spaces
+                console.log("Music part:", musicPart);
 
-                console.log("Processed music part:", processedMusic);
-
-                // Match standalone notes with their accidentals and octave markers
+                // Extract notes with accidentals and octave markers
+                const notes = [];
+                // Match note pattern: optional accidental (^_=), note letter (A-Ga-g), optional octave markers (',)
                 const noteRegex = /([_^=]?)([A-Ga-g])([,']*)/g;
-                const matches = [];
                 let match;
 
-                while ((match = noteRegex.exec(processedMusic)) !== null) {
-                    const accidental = match[1] || '';
-                    const noteLetter = match[2];
-                    const octaveMarkers = match[3] || '';
+                while ((match = noteRegex.exec(musicPart)) !== null) {
+                    // Skip notes within chord structures
+                    if (musicPart.charAt(match.index - 1) === '[') continue;
 
-                    matches.push(accidental + noteLetter + octaveMarkers);
+                    const noteName = match[1] + match[2] + match[3];
+                    notes.push(noteName);
                 }
 
-                console.log("Extracted notes:", matches);
-                return matches;
+                console.log("Extracted notes:", notes);
+                return notes;
             },
 
             getFingeringForNote(noteName) {
@@ -357,23 +372,23 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
                 diagram.style.alignItems = 'center';
                 diagram.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
                 diagram.style.borderRadius = '3px';
-                diagram.style.padding = '2px';
+                diagram.style.padding = '1px';
                 diagram.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.2)';
 
-                // Add note name label at the top
+                // Add note name label for debugging
                 if (noteName) {
                     const noteLabel = document.createElement('div');
                     noteLabel.textContent = noteName;
-                    noteLabel.style.fontSize = '10px';
+                    noteLabel.style.fontSize = '8px';
                     noteLabel.style.fontWeight = 'bold';
-                    noteLabel.style.marginBottom = '2px';
+                    noteLabel.style.marginBottom = '1px';
                     diagram.appendChild(noteLabel);
                 }
 
                 // Create two columns for left and right hand
                 const container = document.createElement('div');
                 container.style.display = 'flex';
-                container.style.gap = '6px';
+                container.style.gap = '5px';
 
                 // Left hand column
                 const leftCol = document.createElement('div');
@@ -405,11 +420,11 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
 
             createHole(state) {
                 const hole = document.createElement('div');
-                hole.style.width = '6px';  // Increased from 4px
-                hole.style.height = '6px'; // Increased from 4px
+                hole.style.width = '5px';  // Medium size for better visibility
+                hole.style.height = '5px';
                 hole.style.borderRadius = '50%';
                 hole.style.border = '1px solid #000';
-                hole.style.margin = '2px 0';
+                hole.style.margin = '1px 0';
 
                 if (state === 'c') {
                     hole.style.backgroundColor = 'black';
@@ -733,13 +748,13 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
             });
 
             // Add fingering system toggle button
-            const fingeringToggle = document.createElement('button');
-            fingeringToggle.id = 'fingering-toggle';
-            fingeringToggle.title = 'Show/Hide Fingering';
-            fingeringToggle.textContent = 'Hide Fingering';
-            fingeringToggle.addEventListener('click', () => {
-                abcPlayer.toggleFingeringDisplay();
-                fingeringToggle.textContent = abcPlayer.showFingering ? 'Hide Fingering' : 'Show Fingering';
+            const systemToggle = document.createElement('button');
+            systemToggle.id = 'system-toggle';
+            systemToggle.title = 'Toggle Baroque/German Fingering';
+            systemToggle.textContent = 'Baroque Fingering';
+            systemToggle.addEventListener('click', () => {
+                abcPlayer.toggleFingeringSystem();
+                systemToggle.textContent = abcPlayer.currentFingeringSystem === 'baroque' ? 'Baroque Fingering' : 'German Fingering';
             });
 
             // Add fingering display toggle
@@ -754,7 +769,7 @@ C ^C D ^D E F ^F G ^G A ^A B c |`,
 
             // Add to control bar
             const controlBar = document.querySelector('.control-bar');
-            controlBar.insertBefore(fingeringToggle, controlBar.firstChild);
+            controlBar.insertBefore(systemToggle, controlBar.firstChild);
             controlBar.insertBefore(fingeringDisplayToggle, controlBar.firstChild);
 
         });
