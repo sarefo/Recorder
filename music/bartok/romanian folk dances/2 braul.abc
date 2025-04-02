@@ -14,7 +14,7 @@ K:D
 .e.f.g.b | .a.g.f.g | .e2 .e>(B | e4) |]
 
 X:2
-T:1 Joc cu bata
+T:2 Braul
 S:Bela Bartok
 O:Rumania
 N:Transposed
@@ -23,8 +23,9 @@ Q:1/4=134
 M:2/4
 L:1/8
 K:Eb
-|: .F.G.A.B | .c.B.F.B | .c2 .c>(d | c4) | .B.c.d.B | .e2 ((5e/2d/2c/2B/2A/2 |
-.B2) .B>(c | B4 | .B.c.d.B | .e2 e/2d/2c/2B/2 | .A).G.A.B |
-.A.G .F z | .F.G.A.c | .B.A.G.A | F2 F>(C | F4 :|]
+|:.F.G.A.B|.c.B.F.B|.c2 .c>(d|c4)|
+.B.c.d.B|.e2 ((5e/2d/2c/2B/2A/2|.B2) .B>(c|B4|
+.B.c.d.B|.e2 e/2d/2c/2B/2|.A).G.A.B|.A.G .F z|
+.F.G.A.c|.B.A.G.A|F2 F>(C|F4:|]
 
 

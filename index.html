@@ -1281,6 +1281,9 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                             this.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
                         }, 100);
                     }
+                    if (this.shareManager) {
+                        this.shareManager.updateUrlDebounced();
+                    }
                 } catch (error) {
                     console.error("Error in render:", error);
                 }
@@ -1685,6 +1688,24 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         class ShareManager {
             constructor(player) {
                 this.player = player;
+
+                // Add debounced update function to avoid excessive URL updates
+                this.updateUrlDebounced = Utils.debounce(() => {
+                    this.updateUrlWithCurrentContent();
+                }, 1000); // Update URL after 1 second of inactivity
+            }
+
+            updateUrlWithCurrentContent() {
+                // Get current ABC notation and encode it
+                const abcNotation = this.player.notationParser.currentAbc;
+                const encodedAbc = btoa(abcNotation);
+
+                // Create URL with the encoded ABC as a parameter
+                const url = new URL(window.location.href.split('?')[0]);
+                url.searchParams.set('abc', encodedAbc);
+
+                // Update browser URL without reloading the page
+                window.history.replaceState({}, '', url.toString());
             }
 
             loadFromUrlParams() {
@@ -1739,8 +1760,9 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             }
 
             async copyShareUrl() {
-                const shareUrl = this.generateShareUrl();
-                return Utils.copyToClipboard(shareUrl);
+                // Update URL before copying to ensure it's current
+                this.updateUrlWithCurrentContent();
+                return Utils.copyToClipboard(window.location.href);
             }
         }
         // Initialize the application
