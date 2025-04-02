@@ -12,6 +12,11 @@ K:C
 C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     }
 
+    /**
+     * Splits ABC notation into header, key, and notes sections
+     * @param {string} abc - The ABC notation to parse
+     * @returns {object} Sections of the ABC notation
+     */
     parseAbcSections(abc) {
         const sections = {
             header: [],
@@ -36,6 +41,11 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         return sections;
     }
 
+    /**
+     * Reconstructs ABC notation from parsed sections
+     * @param {object} sections - The sections to reconstruct
+     * @returns {string} The reconstructed ABC notation
+     */
     reconstructAbc(sections) {
         return [
             ...sections.header,
@@ -44,6 +54,36 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         ].join('\n');
     }
 
+    /**
+     * Gets the key signature from the ABC notation
+     * @returns {string} The key signature
+     */
+    extractKeySignature() {
+        const keyMatch = this.currentAbc.match(/K:([A-G][#b]?m?)/);
+        return keyMatch ? keyMatch[1] : 'C';
+    }
+
+    /**
+     * Gets the musical content part from the ABC notation (after K: line)
+     * @returns {string} The musical content
+     */
+    extractMusicContent() {
+        const parts = this.currentAbc.split(/K:[^\n]+\n/);
+        if (parts.length < 2) return '';
+
+        return parts[1]
+            .replace(/\\\s*\n/g, ' ')  // Handle line continuations
+            .replace(/V:\d+/g, ' ')    // Remove voice indicators
+            .replace(/\|/g, ' |')      // Add space after bar lines for easier parsing
+            .replace(/\s+/g, ' ')      // Normalize whitespace
+            .trim();
+    }
+
+    /**
+     * Gets accidentals for a key signature
+     * @param {string} key - The key signature
+     * @returns {object} Mapping of notes to accidentals
+     */
     getAccidentalsForKey(key) {
         // Standardize key format
         const normalizedKey = key.replace('#', '♯').replace('b', '♭');
@@ -85,29 +125,65 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         return keySignatures[baseKey] || {};
     }
 
+    /**
+     * Determines if a note is inside a chord structure
+     * @param {string} musicPart - The music content
+     * @param {number} matchIndex - The index of the note match
+     * @returns {boolean} Whether the note is in a chord
+     */
+    isNoteInChord(musicPart, matchIndex) {
+        return musicPart.charAt(matchIndex - 1) === '[';
+    }
+
+    /**
+     * Determines if we've reached a bar line and should reset accidentals
+     * @param {string} musicPart - The music content
+     * @param {number} matchIndex - The index of the current note match
+     * @returns {boolean} Whether accidentals should be reset
+     */
+    shouldResetAccidentals(musicPart, matchIndex) {
+        const textBeforeMatch = musicPart.substring(0, matchIndex);
+        const lastBarIndex = textBeforeMatch.lastIndexOf('|');
+        const lastNoteIndex = textBeforeMatch.search(/[A-Ga-g][']*$/);
+
+        return lastBarIndex > lastNoteIndex && lastBarIndex !== -1;
+    }
+
+    /**
+     * Determines the appropriate accidental for a note based on
+     * explicit marking, measure accidentals, or key signature
+     * @param {string} accidental - Explicit accidental
+     * @param {string} baseNote - The base note letter
+     * @param {object} measureAccidentals - Accidentals set in this measure
+     * @param {object} keyAccidentals - Accidentals from the key signature
+     * @returns {string} The appropriate accidental
+     */
+    determineAccidental(accidental, baseNote, measureAccidentals, keyAccidentals) {
+        if (accidental) {
+            return accidental;
+        } else if (measureAccidentals[baseNote]) {
+            return measureAccidentals[baseNote];
+        } else if (keyAccidentals[baseNote]) {
+            return keyAccidentals[baseNote];
+        }
+        return '';
+    }
+
+    /**
+     * Extracts notes from the ABC notation
+     * @returns {string[]} Array of note names
+     */
     extractNotesFromAbc() {
-        // Extract the music part (after K: line)
-        const parts = this.currentAbc.split(/K:[^\n]+\n/);
-        if (parts.length < 2) return [];
-
-        // Extract the key signature
-        const keyMatch = this.currentAbc.match(/K:([A-G][#b]?m?)/);
-        const key = keyMatch ? keyMatch[1] : 'C';
-
-        // Get key accidentals
+        // Get the key and determine its accidentals
+        const key = this.extractKeySignature();
         const keyAccidentals = this.getAccidentalsForKey(key);
 
-        // Get just the musical content
-        const musicPart = parts[1]
-            .replace(/\\\s*\n/g, ' ')  // Handle line continuations
-            .replace(/V:\d+/g, ' ')    // Remove voice indicators
-            .replace(/\|/g, ' |')      // Add space after bar lines for easier parsing
-            .replace(/\s+/g, ' ')      // Normalize whitespace
-            .trim();
+        // Get the musical content
+        const musicPart = this.extractMusicContent();
+        if (!musicPart) return [];
 
         // Extract notes with accidentals and octave markers
         const notes = [];
-        // Match note pattern: optional accidental (^_=), note letter (A-Ga-g), optional octave markers (',)
         const noteRegex = /([_^=]?)([A-Ga-g])([,']*)/g;
         let match;
 
@@ -116,37 +192,30 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
 
         while ((match = noteRegex.exec(musicPart)) !== null) {
             // Skip notes within chord structures
-            if (musicPart.charAt(match.index - 1) === '[') continue;
+            if (this.isNoteInChord(musicPart, match.index)) continue;
 
             let [, accidental, noteLetter, octaveMarkers] = match;
             const baseNote = noteLetter.toUpperCase();
 
             // Check if we've reached a bar line, and reset measure accidentals if so
-            const textBeforeMatch = musicPart.substring(0, match.index);
-            const lastBarIndex = textBeforeMatch.lastIndexOf('|');
-            const lastNoteIndex = textBeforeMatch.search(/[A-Ga-g][']*$/);
-
-            if (lastBarIndex > lastNoteIndex && lastBarIndex !== -1) {
-                // We're in a new measure, reset accidentals
+            if (this.shouldResetAccidentals(musicPart, match.index)) {
                 measureAccidentals = {};
             }
 
-            // Apply accidentals in this priority: 
-            // 1. Explicit accidental in the note
-            // 2. Accidental set earlier in the measure
-            // 3. Key signature accidental
+            // Determine the appropriate accidental
+            const finalAccidental = this.determineAccidental(
+                accidental,
+                baseNote,
+                measureAccidentals,
+                keyAccidentals
+            );
+
+            // Store explicit accidental for this note in the current measure
             if (accidental) {
-                // Store explicit accidental for this note in the current measure
                 measureAccidentals[baseNote] = accidental;
-            } else if (measureAccidentals[baseNote]) {
-                // Use accidental already set in this measure
-                accidental = measureAccidentals[baseNote];
-            } else if (keyAccidentals[baseNote]) {
-                // Use key signature accidental
-                accidental = keyAccidentals[baseNote];
             }
 
-            const noteName = accidental + noteLetter + octaveMarkers;
+            const noteName = finalAccidental + noteLetter + octaveMarkers;
             notes.push(noteName);
         }
 
