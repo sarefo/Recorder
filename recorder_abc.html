@@ -944,11 +944,8 @@ C _e F`;
                 let noteIndex = 0;
 
                 staffLines.forEach(staff => {
-                    // Change this line to position diagrams below the staff
-                    // Instead of subtracting the vertical offset, add it
-                    // Also we'll want to add the staff height (~40px typically for a staff)
-                    const diagramsTopPosition = staff.top - containerRect.top + this.config.verticalOffset;
 
+                    const diagramsTopPosition = staff.top - containerRect.top + this.config.verticalOffset;
                     staff.notes.forEach(note => {
                         if (noteIndex >= notesToUse.length) return;
 
@@ -969,7 +966,6 @@ C _e F`;
                         diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
                         diagram.style.top = `${diagramsTopPosition}px`;
                         diagram.style.transform = `translate(-50%, 0) scale(${this.config.scale})`;
-                        // Change transform origin to top center
                         diagram.style.transformOrigin = 'center top';
 
                         layer.appendChild(diagram);
@@ -1007,9 +1003,9 @@ C _e F`;
                     columnSpacing: 6,
                     borderRadius: 4,
                     fontSizeNote: 10,
-                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
-                    redColor: 'rgba(255, 0, 0, 0.1)',
-                    greenColor: 'rgba(0, 128, 0, 0.1)',
+                    backgroundColor: 'rgba(220, 220, 220, 0.6)',
+                    redColor: 'rgba(255, 0, 0, 0.6)',
+                    greenColor: 'rgba(0, 128, 0, 0.6)',
                 };
 
                 // Initialize sub-modules
