@@ -352,11 +352,19 @@
 
                 // Map for common enharmonic equivalents
                 const enharmonicMap = {
+                    // Original mappings for C4-B4 octave (uppercase)
                     '_B': '^A', '^A': '_B',
                     '_E': '^D', '^D': '_E',
                     '_A': '^G', '^G': '_A',
                     '_D': '^C', '^C': '_D',
-                    '_G': '^F', '^F': '_G'
+                    '_G': '^F', '^F': '_G',
+
+                    // Additional mappings for C5-B5 octave (lowercase)
+                    '_b': '^a', '^a': '_b',
+                    '_e': '^d', '^d': '_e',
+                    '_a': '^g', '^g': '_a',
+                    '_d': '^c', '^c': '_d',
+                    '_g': '^f', '^f': '_g'
                 };
 
                 // Try looking up with an enharmonic equivalent
@@ -445,7 +453,8 @@ M:4/4
 L:1/4
 Q:1/4=120
 K:C
-C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
+C _e F`;
+                //C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             }
 
             parseAbcSections(abc) {
@@ -935,7 +944,10 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                 let noteIndex = 0;
 
                 staffLines.forEach(staff => {
-                    const diagramsTopPosition = staff.top - containerRect.top - this.config.verticalOffset;
+                    // Change this line to position diagrams below the staff
+                    // Instead of subtracting the vertical offset, add it
+                    // Also we'll want to add the staff height (~40px typically for a staff)
+                    const diagramsTopPosition = staff.top - containerRect.top + this.config.verticalOffset;
 
                     staff.notes.forEach(note => {
                         if (noteIndex >= notesToUse.length) return;
@@ -952,11 +964,12 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                         // Create diagram with note name
                         const diagram = this.fingeringManager.createFingeringDiagram(fingeringData, noteName);
 
-                        // Position diagram above note
+                        // Position diagram below note
                         diagram.style.position = 'absolute';
                         diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
                         diagram.style.top = `${diagramsTopPosition}px`;
                         diagram.style.transform = `translate(-50%, 0) scale(${this.config.scale})`;
+                        // Change transform origin to top center
                         diagram.style.transformOrigin = 'center top';
 
                         layer.appendChild(diagram);
@@ -978,6 +991,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                 // Configuration for rendering ABC notation
                 this.renderConfig = {
                     stafftopmargin: 120,
+                    staffbottommargin: 60,
                     oneSvgPerLine: false,
                     scale: 1.0,
                 };
@@ -986,14 +1000,14 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                 this.fingeringConfig = {
                     showLabels: true,
                     scale: 0.75,
-                    verticalOffset: 60,
+                    verticalOffset: 46,
                     holeSize: 7,
                     holeBorder: 1,
                     holeSpacing: 2,
                     columnSpacing: 6,
                     borderRadius: 4,
                     fontSizeNote: 10,
-                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
                     redColor: 'rgba(255, 0, 0, 0.1)',
                     greenColor: 'rgba(0, 128, 0, 0.1)',
                 };
@@ -1019,6 +1033,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                         add_classes: true,
                         staffwidth: window.innerWidth - 60,
                         stafftopmargin: this.renderConfig.stafftopmargin,
+                        staffbottommargin: this.renderConfig.staffbottommargin,
                         oneSvgPerLine: this.renderConfig.oneSvgPerLine,
                         scale: this.renderConfig.scale,
                     })[0];
