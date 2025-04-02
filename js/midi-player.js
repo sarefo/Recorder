@@ -14,47 +14,94 @@ class MidiPlayer {
         };
     }
 
+    /**
+     * Creates the audio context
+     */
+    createAudioContext() {
+        if (!this.audioContext) {
+            this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        return this.audioContext;
+    }
+
+    /**
+     * Creates the MIDI player instance
+     */
+    createMidiPlayer() {
+        if (!this.midiPlayer) {
+            this.midiPlayer = new ABCJS.synth.CreateSynth();
+
+            // Add event listener for when playback ends
+            this.midiPlayer.onEnded = () => {
+                this.isPlaying = false;
+                this.updatePlayButtonState();
+            };
+        }
+        return this.midiPlayer;
+    }
+
+    /**
+     * Calculates the tempo settings based on visual object metadata
+     * @param {Object} visualObj - The ABC visual object
+     * @returns {Object} Tempo settings including adjusted tempo and milliseconds per measure
+     */
+    calculateTempoSettings(visualObj) {
+        // Get the base tempo from the tune
+        const baseTempo = visualObj.metaText?.tempo?.qpm || 120;
+        const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
+
+        // Calculate milliseconds per measure based on adjusted tempo
+        const timeSignature = visualObj.getMeter();
+        const beatsPerMeasure = timeSignature?.value?.[0].num || 4;
+        const millisecondsPerMeasure = (60000 * beatsPerMeasure) / adjustedTempo;
+
+        return {
+            adjustedTempo,
+            millisecondsPerMeasure
+        };
+    }
+
+    /**
+     * Prepares playback options based on current settings
+     * @returns {Object} MIDI playback options
+     */
+    preparePlaybackOptions() {
+        return {
+            program: 73, // Flute instrument (MIDI program 73)
+            midiTranspose: 0,
+            chordsOff: !this.playbackSettings.chordsOn,
+            voicesOff: !this.playbackSettings.voicesOn,
+            drum: this.playbackSettings.metronomeOn ? "dddd" : "", // Simple metronome pattern
+            drumBars: 1,
+            drumIntro: 1
+        };
+    }
+
+    /**
+     * Initializes the MIDI player with the provided visual object
+     * @param {Object} visualObj - The ABC visual object
+     * @returns {Promise<boolean>} Success state
+     */
     async init(visualObj) {
         try {
-            // Create audio context if it doesn't exist
-            if (!this.audioContext) {
-                this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            }
+            // Ensure audio context exists
+            this.createAudioContext();
 
-            // Create MIDI player if not exists
-            if (!this.midiPlayer) {
-                this.midiPlayer = new ABCJS.synth.CreateSynth();
+            // Create MIDI player if needed
+            this.createMidiPlayer();
 
-                // Add event listener for when playback ends
-                this.midiPlayer.onEnded = () => {
-                    this.isPlaying = false;
-                    this.updatePlayButtonState();
-                };
-            }
+            // Calculate tempo settings
+            const { millisecondsPerMeasure } = this.calculateTempoSettings(visualObj);
 
-            // Get the base tempo from the tune
-            const baseTempo = visualObj.metaText?.tempo?.qpm || 120;
-            const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
-
-            // Calculate milliseconds per measure based on adjusted tempo
-            const timeSignature = visualObj.getMeter();
-            const beatsPerMeasure = timeSignature?.value?.[0].num || 4;
-            const millisecondsPerMeasure = (60000 * beatsPerMeasure) / adjustedTempo;
+            // Get playback options
+            const options = this.preparePlaybackOptions();
 
             // Initialize MIDI with all current settings
             await this.midiPlayer.init({
                 visualObj: visualObj,
                 audioContext: this.audioContext,
                 millisecondsPerMeasure: millisecondsPerMeasure,
-                options: {
-                    program: 73, // Flute instrument (MIDI program 73)
-                    midiTranspose: 0,
-                    chordsOff: !this.playbackSettings.chordsOn,
-                    voicesOff: !this.playbackSettings.voicesOn,
-                    drum: this.playbackSettings.metronomeOn ? "dddd" : "", // Simple metronome pattern
-                    drumBars: 1,
-                    drumIntro: 1
-                }
+                options: options
             });
 
             // Load and prepare the synth
@@ -69,6 +116,10 @@ class MidiPlayer {
         }
     }
 
+    /**
+     * Updates the play button state
+     * @param {boolean} disabled - Whether the button should be disabled
+     */
     updatePlayButtonState(disabled = false) {
         const playButton = document.getElementById('play-button');
         if (playButton) {
@@ -78,6 +129,10 @@ class MidiPlayer {
         }
     }
 
+    /**
+     * Updates the status display with a message
+     * @param {string} message - Message to display
+     */
     updateStatusDisplay(message) {
         const statusEl = document.getElementById('midi-status');
         if (statusEl) {
@@ -91,6 +146,40 @@ class MidiPlayer {
         }
     }
 
+    /**
+     * Pauses the current playback
+     * @returns {Promise<boolean>} Success state
+     */
+    async pausePlayback() {
+        try {
+            await this.midiPlayer.pause();
+            this.updateStatusDisplay("Playback paused");
+            return true;
+        } catch (error) {
+            console.error("Error pausing playback:", error);
+            return false;
+        }
+    }
+
+    /**
+     * Starts or resumes playback
+     * @returns {Promise<boolean>} Success state
+     */
+    async startPlayback() {
+        try {
+            await this.midiPlayer.start();
+            this.updateStatusDisplay("Playing");
+            return true;
+        } catch (error) {
+            console.error("Error starting playback:", error);
+            return false;
+        }
+    }
+
+    /**
+     * Toggles play/pause state
+     * @returns {Promise<boolean>} Success state
+     */
     async togglePlay() {
         try {
             if (!this.midiPlayer) {
@@ -98,17 +187,19 @@ class MidiPlayer {
                 return false;
             }
 
+            let success;
             if (this.isPlaying) {
-                await this.midiPlayer.pause();
-                this.updateStatusDisplay("Playback paused");
+                success = await this.pausePlayback();
             } else {
-                await this.midiPlayer.start();
-                this.updateStatusDisplay("Playing");
+                success = await this.startPlayback();
             }
 
-            this.isPlaying = !this.isPlaying;
-            this.updatePlayButtonState();
-            return true;
+            if (success) {
+                this.isPlaying = !this.isPlaying;
+                this.updatePlayButtonState();
+            }
+
+            return success;
         } catch (error) {
             console.error("Error in togglePlay:", error);
             this.updateStatusDisplay("Error during playback");
@@ -116,6 +207,26 @@ class MidiPlayer {
         }
     }
 
+    /**
+     * Stops current playback
+     * @returns {Promise<boolean>} Success state
+     */
+    async stopPlayback() {
+        try {
+            await this.midiPlayer.stop();
+            this.isPlaying = false;
+            this.updatePlayButtonState();
+            return true;
+        } catch (error) {
+            console.error("Error stopping playback:", error);
+            return false;
+        }
+    }
+
+    /**
+     * Restarts playback from the beginning
+     * @returns {Promise<boolean>} Success state
+     */
     async restart() {
         try {
             if (!this.midiPlayer) {
@@ -123,15 +234,19 @@ class MidiPlayer {
                 return false;
             }
 
-            await this.midiPlayer.stop();
-            this.isPlaying = false;
-            this.updatePlayButtonState();
+            // Stop current playback
+            const stopSuccess = await this.stopPlayback();
+            if (!stopSuccess) return false;
 
-            await this.midiPlayer.start();
-            this.isPlaying = true;
-            this.updatePlayButtonState();
-            this.updateStatusDisplay("Playback restarted");
-            return true;
+            // Start from beginning
+            const startSuccess = await this.startPlayback();
+            if (startSuccess) {
+                this.isPlaying = true;
+                this.updatePlayButtonState();
+                this.updateStatusDisplay("Playback restarted");
+            }
+
+            return startSuccess;
         } catch (error) {
             console.error("Error in restart:", error);
             this.updateStatusDisplay("Error restarting playback");
@@ -139,31 +254,43 @@ class MidiPlayer {
         }
     }
 
+    /**
+     * Updates playback settings and reinitializes if needed
+     * @param {Object} settings - New playback settings
+     * @param {Object} visualObj - The ABC visual object
+     * @returns {Promise<Object>} Updated settings
+     */
     async updatePlaybackSettings(settings, visualObj) {
-        // Update the settings
-        this.playbackSettings = {
-            ...this.playbackSettings,
-            ...settings
-        };
+        try {
+            // Update the settings
+            this.playbackSettings = {
+                ...this.playbackSettings,
+                ...settings
+            };
 
-        // If we're currently playing, stop playback
-        const wasPlaying = this.isPlaying;
-        if (wasPlaying) {
-            await this.midiPlayer.stop();
-            this.isPlaying = false;
-            this.updatePlayButtonState();
+            // Track current playback state
+            const wasPlaying = this.isPlaying;
+
+            // Stop playback if currently playing
+            if (wasPlaying) {
+                await this.stopPlayback();
+            }
+
+            // Re-initialize with new settings
+            await this.init(visualObj);
+
+            // Resume playback if it was playing before
+            if (wasPlaying) {
+                await this.startPlayback();
+                this.isPlaying = true;
+                this.updatePlayButtonState();
+            }
+
+            return this.playbackSettings;
+        } catch (error) {
+            console.error("Error updating playback settings:", error);
+            this.updateStatusDisplay("Error updating playback settings");
+            return this.playbackSettings;
         }
-
-        // Re-initialize with new settings
-        await this.init(visualObj);
-
-        // Resume playback if it was playing before
-        if (wasPlaying) {
-            await this.midiPlayer.start();
-            this.isPlaying = true;
-            this.updatePlayButtonState();
-        }
-
-        return this.playbackSettings;
     }
 }
