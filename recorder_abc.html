@@ -1263,7 +1263,7 @@ C _e F`;
                         staffbottommargin: this.renderConfig.staffbottommargin,
                         oneSvgPerLine: this.renderConfig.oneSvgPerLine,
                         scale: this.renderConfig.scale,
-                        clickListener: clickListener  // Properly define the click listener
+                        clickListener: clickListener
                     })[0];
 
                     // Store the visualObj for later use
@@ -1289,8 +1289,6 @@ C _e F`;
                 if (abcElem.el_type !== "note" || !this.midiPlayer.midiPlayer) {
                     return;
                 }
-
-                console.log("Note clicked:", abcElem);
 
                 // Find the start milliseconds for this note
                 const startMs = abcElem.currentTrackMilliseconds || abcElem.midiStartTime * 1000;
@@ -1364,7 +1362,7 @@ C _e F`;
             toggleFingeringSystem() {
                 const newSystem = this.fingeringManager.toggleFingeringSystem();
                 this.render();
-                // Add this line to update the reference row
+                // Update the reference row
                 this.fingeringManager.populateReferenceRow();
                 return newSystem;
             }
@@ -1383,227 +1381,38 @@ C _e F`;
 
             initializeEventListeners() {
                 window.addEventListener('DOMContentLoaded', () => {
-                    // Create the new unified control bar
-                    const unifiedControlBar = document.createElement('div');
-                    unifiedControlBar.className = 'control-bar';
+                    // Create a main container for controls
+                    const controlContainer = document.createElement('div');
+                    controlContainer.className = 'control-container';
 
-                    // Status display
+                    // Create MIDI status display
                     const midiStatus = document.createElement('div');
                     midiStatus.id = 'midi-status';
 
-                    // Create sections for different control groups
+                    // Create the control bar
+                    const controlBar = document.createElement('div');
+                    controlBar.className = 'control-bar';
 
                     // 1. Fingering Controls Section
-                    const fingeringSection = document.createElement('div');
-                    fingeringSection.className = 'control-section fingering-controls';
+                    const fingeringSection = this.createFingeringControlsSection();
 
-                    // Fingering system toggle
-                    const systemToggle = document.createElement('button');
-                    systemToggle.id = 'system-toggle';
-                    systemToggle.title = 'Toggle Baroque/German Fingering';
-                    systemToggle.textContent = 'German Fingering';
-                    systemToggle.addEventListener('click', () => {
-                        const newSystem = this.toggleFingeringSystem();
-                        systemToggle.textContent = newSystem === 'baroque' ? 'Baroque Fingering' : 'German Fingering';
-                    });
+                    // 2. Notation Controls Section
+                    const notationSection = this.createNotationControlsSection();
 
-                    // Fingering display toggle
-                    const fingeringDisplayToggle = document.createElement('button');
-                    fingeringDisplayToggle.id = 'show-fingering';
-                    fingeringDisplayToggle.textContent = 'Hide Fingering';
-                    fingeringDisplayToggle.title = 'Show/hide fingering diagrams';
-                    fingeringDisplayToggle.addEventListener('click', () => {
-                        const showFingering = this.toggleFingeringDisplay();
-                        fingeringDisplayToggle.textContent = showFingering ? 'Hide Fingering' : 'Show Fingering';
-                    });
+                    // 3. Playback Controls Section
+                    const playbackSection = this.createPlaybackControlsSection();
 
-                    // Chart toggle
-                    const chartToggle = document.createElement('button');
-                    chartToggle.id = 'chart-toggle';
-                    chartToggle.title = 'Show/Hide Reference Chart';
-                    chartToggle.innerHTML = '&#43;'; // Plus sign
-                    chartToggle.addEventListener('click', () => {
-                        this.toggleReferenceRow();
-                    });
+                    // Add sections to control bar
+                    controlBar.appendChild(fingeringSection);
+                    controlBar.appendChild(notationSection);
+                    controlBar.appendChild(playbackSection);
 
-                    const chartLabel = document.createElement('span');
-                    chartLabel.className = 'minimize-label';
-                    chartLabel.textContent = 'Chart';
+                    // Add control elements to the document
+                    controlContainer.appendChild(midiStatus);
+                    controlContainer.appendChild(controlBar);
 
-                    const chartContainer = document.createElement('div');
-                    chartContainer.className = 'minimize-controls';
-                    chartContainer.appendChild(chartLabel);
-                    chartContainer.appendChild(chartToggle);
-
-                    fingeringSection.appendChild(systemToggle);
-                    fingeringSection.appendChild(fingeringDisplayToggle);
-                    fingeringSection.appendChild(chartContainer);
-
-                    // 2. Playback Controls Section
-                    const playbackSection = document.createElement('div');
-                    playbackSection.className = 'control-section playback-controls';
-
-                    // Play and restart buttons
-                    const playButton = document.createElement('button');
-                    playButton.id = 'play-button';
-                    playButton.title = 'Play/Pause';
-                    playButton.textContent = '▶';
-                    playButton.addEventListener('click', () => {
-                        this.midiPlayer.togglePlay();
-                    });
-
-                    const restartButton = document.createElement('button');
-                    restartButton.id = 'restart-button';
-                    restartButton.title = 'Restart';
-                    restartButton.textContent = '⟳';
-                    restartButton.addEventListener('click', () => {
-                        this.midiPlayer.restart();
-                    });
-
-                    // Toggle buttons
-                    const chordsToggle = document.createElement('button');
-                    chordsToggle.id = 'chords-toggle';
-                    chordsToggle.title = 'Toggle Chords';
-                    chordsToggle.textContent = 'Chords';
-                    chordsToggle.classList.add('active');
-                    chordsToggle.addEventListener('click', async () => {
-                        const newSettings = await this.midiPlayer.updatePlaybackSettings(
-                            { chordsOn: !this.midiPlayer.playbackSettings.chordsOn },
-                            this.currentVisualObj
-                        );
-
-                        chordsToggle.classList.toggle('active', newSettings.chordsOn);
-                    });
-
-                    const voicesToggle = document.createElement('button');
-                    voicesToggle.id = 'voices-toggle';
-                    voicesToggle.title = 'Toggle Voices';
-                    voicesToggle.textContent = 'Voices';
-                    voicesToggle.classList.add('active');
-                    voicesToggle.addEventListener('click', async () => {
-                        const newSettings = await this.midiPlayer.updatePlaybackSettings(
-                            { voicesOn: !this.midiPlayer.playbackSettings.voicesOn },
-                            this.currentVisualObj
-                        );
-
-                        voicesToggle.classList.toggle('active', newSettings.voicesOn);
-                    });
-
-                    const metronomeToggle = document.createElement('button');
-                    metronomeToggle.id = 'metronome-toggle';
-                    metronomeToggle.title = 'Toggle Metronome';
-                    metronomeToggle.textContent = 'Metronome';
-                    metronomeToggle.addEventListener('click', async () => {
-                        const newSettings = await this.midiPlayer.updatePlaybackSettings(
-                            { metronomeOn: !this.midiPlayer.playbackSettings.metronomeOn },
-                            this.currentVisualObj
-                        );
-
-                        metronomeToggle.classList.toggle('active', newSettings.metronomeOn);
-                    });
-
-                    // Tempo control
-                    const tempoControl = document.createElement('div');
-                    tempoControl.className = 'tempo-control';
-
-                    const tempoLabel = document.createElement('label');
-                    tempoLabel.textContent = 'Tempo:';
-
-                    const tempoSlider = document.createElement('input');
-                    tempoSlider.type = 'range';
-                    tempoSlider.id = 'tempo-slider';
-                    tempoSlider.min = '50';
-                    tempoSlider.max = '200';
-                    tempoSlider.value = '100';
-                    tempoSlider.title = 'Adjust playback speed';
-
-                    const tempoValue = document.createElement('span');
-                    tempoValue.id = 'tempo-value';
-                    tempoValue.className = 'tempo-value';
-                    tempoValue.textContent = '100%';
-
-                    tempoSlider.addEventListener('input', () => {
-                        const value = tempoSlider.value;
-                        tempoValue.textContent = `${value}%`;
-                    });
-
-                    tempoSlider.addEventListener('change', async () => {
-                        const value = parseInt(tempoSlider.value, 10);
-                        await this.midiPlayer.updatePlaybackSettings(
-                            { tempo: value },
-                            this.currentVisualObj
-                        );
-                    });
-
-                    tempoControl.appendChild(tempoLabel);
-                    tempoControl.appendChild(tempoSlider);
-                    tempoControl.appendChild(tempoValue);
-
-                    playbackSection.appendChild(playButton);
-                    playbackSection.appendChild(restartButton);
-                    playbackSection.appendChild(chordsToggle);
-                    playbackSection.appendChild(voicesToggle);
-                    playbackSection.appendChild(metronomeToggle);
-                    playbackSection.appendChild(tempoControl);
-
-                    // 3. Notation Controls Section
-                    const notationSection = document.createElement('div');
-                    notationSection.className = 'control-section notation-controls';
-
-                    // Clipboard controls
-                    const copyButton = document.createElement('button');
-                    copyButton.id = 'copy-button';
-                    copyButton.title = 'Copy ABC notation (Ctrl+C)';
-                    copyButton.textContent = 'To Clipboard';
-                    copyButton.addEventListener('click', () => {
-                        this.copyToClipboard();
-                    });
-
-                    const pasteButton = document.createElement('button');
-                    pasteButton.id = 'paste-button';
-                    pasteButton.title = 'Paste ABC notation (Ctrl+V)';
-                    pasteButton.textContent = 'From Clipboard';
-                    pasteButton.addEventListener('click', () => {
-                        this.pasteFromClipboard();
-                    });
-
-                    // Transpose controls
-                    const transposeUpButton = document.createElement('button');
-                    transposeUpButton.id = 'transpose-up';
-                    transposeUpButton.title = 'Transpose up';
-                    transposeUpButton.textContent = '▲';
-                    transposeUpButton.addEventListener('click', () => {
-                        this.transpose('up');
-                    });
-
-                    const transposeDownButton = document.createElement('button');
-                    transposeDownButton.id = 'transpose-down';
-                    transposeDownButton.title = 'Transpose down';
-                    transposeDownButton.textContent = '▼';
-                    transposeDownButton.addEventListener('click', () => {
-                        this.transpose('down');
-                    });
-
-                    notationSection.appendChild(copyButton);
-                    notationSection.appendChild(pasteButton);
-                    notationSection.appendChild(transposeUpButton);
-                    notationSection.appendChild(transposeDownButton);
-
-                    // Add all sections to the unified control bar
-                    unifiedControlBar.appendChild(fingeringSection);
-                    unifiedControlBar.appendChild(notationSection);
-                    unifiedControlBar.appendChild(playbackSection);
-
-                    // Replace the existing control bar
-                    const oldControlBar = document.querySelector('.control-bar');
-                    if (oldControlBar) {
-                        oldControlBar.parentNode.insertBefore(midiStatus, oldControlBar);
-                        oldControlBar.parentNode.replaceChild(unifiedControlBar, oldControlBar);
-                    } else {
-                        // If for some reason the old control bar doesn't exist
-                        document.body.insertBefore(midiStatus, document.body.firstChild);
-                        document.body.insertBefore(unifiedControlBar, document.body.firstChild.nextSibling);
-                    }
+                    // Insert at the beginning of the body
+                    document.body.insertBefore(controlContainer, document.body.firstChild);
 
                     // Set initial state of reference row
                     document.getElementById('reference-row').style.display = 'none';
@@ -1612,28 +1421,241 @@ C _e F`;
                     this.render();
                     this.fingeringManager.populateReferenceRow();
 
-                    // Keyboard shortcuts
-                    document.addEventListener('keydown', (event) => {
-                        if (event.ctrlKey && !event.shiftKey && !event.altKey) {
-                            if (event.key === 'c' && !window.getSelection().toString()) {
-                                event.preventDefault();
-                                this.copyToClipboard();
-                            } else if (event.key === 'v') {
-                                event.preventDefault();
-                                this.pasteFromClipboard();
-                            }
-                        }
-                    });
+                    // Set up keyboard shortcuts
+                    this.setupKeyboardShortcuts();
 
                     // Handle window resize
-                    window.addEventListener('resize', Utils.debounce(() => {
-                        if (this.fingeringManager.showFingering) {
-                            const notes = this.notationParser.extractNotesFromAbc();
-                            const abcContainer = document.getElementById('abc-notation');
-                            this.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
-                        }
-                    }, 150));
+                    this.setupWindowResizeHandler();
                 });
+            }
+
+            createFingeringControlsSection() {
+                const fingeringSection = document.createElement('div');
+                fingeringSection.className = 'control-section fingering-controls';
+
+                // Fingering display toggle
+                const fingeringDisplayToggle = document.createElement('button');
+                fingeringDisplayToggle.id = 'show-fingering';
+                fingeringDisplayToggle.textContent = 'Hide Fingering';
+                fingeringDisplayToggle.title = 'Show/hide fingering diagrams';
+                fingeringDisplayToggle.addEventListener('click', () => {
+                    const showFingering = this.toggleFingeringDisplay();
+                    fingeringDisplayToggle.textContent = showFingering ? 'Hide Fingering' : 'Show Fingering';
+                });
+
+                // Fingering system toggle
+                const systemToggle = document.createElement('button');
+                systemToggle.id = 'system-toggle';
+                systemToggle.title = 'Toggle Baroque/German Fingering';
+                systemToggle.textContent = 'German';
+                systemToggle.addEventListener('click', () => {
+                    const newSystem = this.toggleFingeringSystem();
+                    systemToggle.textContent = newSystem === 'baroque' ? 'Baroque' : 'German';
+                });
+
+                // Chart toggle
+                const chartToggle = document.createElement('button');
+                chartToggle.id = 'chart-toggle';
+                chartToggle.title = 'Show/Hide Reference Chart';
+                chartToggle.innerHTML = '&#43;'; // Plus sign
+                chartToggle.addEventListener('click', () => {
+                    this.toggleReferenceRow();
+                });
+
+                const chartLabel = document.createElement('span');
+                chartLabel.className = 'minimize-label';
+                chartLabel.textContent = 'Chart';
+
+                const chartContainer = document.createElement('div');
+                chartContainer.className = 'minimize-controls';
+                chartContainer.appendChild(chartLabel);
+                chartContainer.appendChild(chartToggle);
+
+                fingeringSection.appendChild(fingeringDisplayToggle);
+                fingeringSection.appendChild(systemToggle);
+                fingeringSection.appendChild(chartContainer);
+
+                return fingeringSection;
+            }
+
+            createNotationControlsSection() {
+                const notationSection = document.createElement('div');
+                notationSection.className = 'control-section notation-controls';
+
+                // Clipboard controls
+                const copyButton = document.createElement('button');
+                copyButton.id = 'copy-button';
+                copyButton.title = 'Copy ABC notation (Ctrl+C)';
+                copyButton.textContent = 'To Clipboard';
+                copyButton.addEventListener('click', () => {
+                    this.copyToClipboard();
+                });
+
+                const pasteButton = document.createElement('button');
+                pasteButton.id = 'paste-button';
+                pasteButton.title = 'Paste ABC notation (Ctrl+V)';
+                pasteButton.textContent = 'From Clipboard';
+                pasteButton.addEventListener('click', () => {
+                    this.pasteFromClipboard();
+                });
+
+                // Transpose controls
+                const transposeUpButton = document.createElement('button');
+                transposeUpButton.id = 'transpose-up';
+                transposeUpButton.title = 'Transpose up';
+                transposeUpButton.textContent = '▲';
+                transposeUpButton.addEventListener('click', () => {
+                    this.transpose('up');
+                });
+
+                const transposeDownButton = document.createElement('button');
+                transposeDownButton.id = 'transpose-down';
+                transposeDownButton.title = 'Transpose down';
+                transposeDownButton.textContent = '▼';
+                transposeDownButton.addEventListener('click', () => {
+                    this.transpose('down');
+                });
+
+                notationSection.appendChild(copyButton);
+                notationSection.appendChild(pasteButton);
+                notationSection.appendChild(transposeUpButton);
+                notationSection.appendChild(transposeDownButton);
+
+                return notationSection;
+            }
+
+            createPlaybackControlsSection() {
+                const playbackSection = document.createElement('div');
+                playbackSection.className = 'control-section playback-controls';
+
+                // Play and restart buttons
+                const playButton = document.createElement('button');
+                playButton.id = 'play-button';
+                playButton.title = 'Play/Pause';
+                playButton.textContent = '▶';
+                playButton.addEventListener('click', () => {
+                    this.midiPlayer.togglePlay();
+                });
+
+                const restartButton = document.createElement('button');
+                restartButton.id = 'restart-button';
+                restartButton.title = 'Restart';
+                restartButton.textContent = '⟳';
+                restartButton.addEventListener('click', () => {
+                    this.midiPlayer.restart();
+                });
+
+                // Toggle buttons
+                const chordsToggle = document.createElement('button');
+                chordsToggle.id = 'chords-toggle';
+                chordsToggle.title = 'Toggle Chords';
+                chordsToggle.textContent = 'Chords';
+                chordsToggle.classList.add('active');
+                chordsToggle.addEventListener('click', async () => {
+                    const newSettings = await this.midiPlayer.updatePlaybackSettings(
+                        { chordsOn: !this.midiPlayer.playbackSettings.chordsOn },
+                        this.currentVisualObj
+                    );
+
+                    chordsToggle.classList.toggle('active', newSettings.chordsOn);
+                });
+
+                const voicesToggle = document.createElement('button');
+                voicesToggle.id = 'voices-toggle';
+                voicesToggle.title = 'Toggle Voices';
+                voicesToggle.textContent = 'Voices';
+                voicesToggle.classList.add('active');
+                voicesToggle.addEventListener('click', async () => {
+                    const newSettings = await this.midiPlayer.updatePlaybackSettings(
+                        { voicesOn: !this.midiPlayer.playbackSettings.voicesOn },
+                        this.currentVisualObj
+                    );
+
+                    voicesToggle.classList.toggle('active', newSettings.voicesOn);
+                });
+
+                const metronomeToggle = document.createElement('button');
+                metronomeToggle.id = 'metronome-toggle';
+                metronomeToggle.title = 'Toggle Metronome';
+                metronomeToggle.textContent = 'Metronome';
+                metronomeToggle.addEventListener('click', async () => {
+                    const newSettings = await this.midiPlayer.updatePlaybackSettings(
+                        { metronomeOn: !this.midiPlayer.playbackSettings.metronomeOn },
+                        this.currentVisualObj
+                    );
+
+                    metronomeToggle.classList.toggle('active', newSettings.metronomeOn);
+                });
+
+                // Tempo control
+                const tempoControl = document.createElement('div');
+                tempoControl.className = 'tempo-control';
+
+                const tempoLabel = document.createElement('label');
+                tempoLabel.textContent = 'Tempo:';
+
+                const tempoSlider = document.createElement('input');
+                tempoSlider.type = 'range';
+                tempoSlider.id = 'tempo-slider';
+                tempoSlider.min = '50';
+                tempoSlider.max = '200';
+                tempoSlider.value = '100';
+                tempoSlider.title = 'Adjust playback speed';
+
+                const tempoValue = document.createElement('span');
+                tempoValue.id = 'tempo-value';
+                tempoValue.className = 'tempo-value';
+                tempoValue.textContent = '100%';
+
+                tempoSlider.addEventListener('input', () => {
+                    const value = tempoSlider.value;
+                    tempoValue.textContent = `${value}%`;
+                });
+
+                tempoSlider.addEventListener('change', async () => {
+                    const value = parseInt(tempoSlider.value, 10);
+                    await this.midiPlayer.updatePlaybackSettings(
+                        { tempo: value },
+                        this.currentVisualObj
+                    );
+                });
+
+                tempoControl.appendChild(tempoLabel);
+                tempoControl.appendChild(tempoSlider);
+                tempoControl.appendChild(tempoValue);
+
+                playbackSection.appendChild(playButton);
+                playbackSection.appendChild(restartButton);
+                playbackSection.appendChild(chordsToggle);
+                playbackSection.appendChild(voicesToggle);
+                playbackSection.appendChild(metronomeToggle);
+                playbackSection.appendChild(tempoControl);
+
+                return playbackSection;
+            }
+
+            setupKeyboardShortcuts() {
+                document.addEventListener('keydown', (event) => {
+                    if (event.ctrlKey && !event.shiftKey && !event.altKey) {
+                        if (event.key === 'c' && !window.getSelection().toString()) {
+                            event.preventDefault();
+                            this.copyToClipboard();
+                        } else if (event.key === 'v') {
+                            event.preventDefault();
+                            this.pasteFromClipboard();
+                        }
+                    }
+                });
+            }
+
+            setupWindowResizeHandler() {
+                window.addEventListener('resize', Utils.debounce(() => {
+                    if (this.fingeringManager.showFingering) {
+                        const notes = this.notationParser.extractNotesFromAbc();
+                        const abcContainer = document.getElementById('abc-notation');
+                        this.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
+                    }
+                }, 150));
             }
         }
 
