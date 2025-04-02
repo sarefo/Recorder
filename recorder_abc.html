@@ -445,7 +445,7 @@ M:4/4
 L:1/4
 Q:1/4=120
 K:C
-C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f z2 |`;//^f g |^g a z2 |`;
+C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             }
 
             parseAbcSections(abc) {
@@ -876,13 +876,19 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f z2 |`;//^f g |^g a z2 |`;
                     }
                 }
 
+                // Add this before rendering diagrams
+                const validNotes = notesData.filter(note =>
+                    this.fingeringManager.getFingeringForNote(note) !== null
+                );
+                console.log(`Found ${validNotes.length} valid notes out of ${notesData.length}`);
+
                 // Add fingering diagrams for each staff line
                 this.renderDiagramsOnStaff(staffLines, notesToUse, containerRect, layer);
             }
 
             groupNotesByStaffLine(noteElements) {
                 const staffLines = [];
-                const tolerance = 20; // pixels
+                const tolerance = 30; // pixels
 
                 // Create positions map
                 const notePositions = noteElements.map(el => {
@@ -934,11 +940,14 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f z2 |`;//^f g |^g a z2 |`;
                     staff.notes.forEach(note => {
                         if (noteIndex >= notesToUse.length) return;
 
-                        const noteName = notesToUse[noteIndex];  // Don't increment yet
-                        noteIndex++;  // Always increment the index after getting the note name
-
+                        const noteName = notesToUse[noteIndex];
                         const fingeringData = this.fingeringManager.getFingeringForNote(noteName);
-                        if (!fingeringData) return;  // Now we can safely return without misalignment
+
+                        // Always increment index regardless of whether we render a diagram
+                        noteIndex++;
+
+                        // Skip rendering if no fingering data
+                        if (!fingeringData) return;
 
                         // Create diagram with note name
                         const diagram = this.fingeringManager.createFingeringDiagram(fingeringData, noteName);
