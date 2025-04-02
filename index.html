@@ -1693,7 +1693,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                     const abcParam = urlParams.get('abc');
 
                     if (abcParam) {
-                        // Decode the base64 encoded ABC notation
+                        // Decode the base64 encoded ABC notation (just use atob)
                         const decodedAbc = atob(abcParam);
 
                         // Validate basic ABC structure
@@ -1728,7 +1728,8 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             generateShareUrl() {
                 // Get current ABC notation and encode it as base64
                 const abcNotation = this.player.notationParser.currentAbc;
-                const encodedAbc = btoa(encodeURIComponent(abcNotation));
+                // Use btoa directly without encodeURIComponent
+                const encodedAbc = btoa(abcNotation);
 
                 // Create URL with the encoded ABC as a parameter
                 const url = new URL(window.location.href.split('?')[0]); // Remove existing query params
