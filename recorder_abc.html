@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Notation Player</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/abcjs@6.0.0/abcjs-audio.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -737,10 +738,15 @@ C _e F`;
         /**
          * Manages MIDI playback functionality
          */
+        /**
+         * Manages MIDI playback functionality
+         */
         class MidiPlayer {
             constructor() {
                 this.midiPlayer = null;
                 this.isPlaying = false;
+                this.chordsOn = true;
+                this.voicesOn = true;
             }
 
             async init(visualObj) {
@@ -759,14 +765,16 @@ C _e F`;
                     // Create the audio context
                     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-                    // Initialize MIDI
+                    // Initialize MIDI with voice and chord options
                     await this.midiPlayer.init({
                         visualObj: visualObj,
                         audioContext: audioContext,
                         millisecondsPerMeasure: 2000,
                         options: {
                             program: 0,
-                            midiTranspose: 0
+                            midiTranspose: 0,
+                            chordsOff: !this.chordsOn,
+                            voicesOff: !this.voicesOn
                         }
                     });
 
@@ -820,6 +828,32 @@ C _e F`;
                     console.error("Error in restart:", error);
                     return false;
                 }
+            }
+
+            async toggleChords() {
+                this.chordsOn = !this.chordsOn;
+
+                // Re-initialize with new settings
+                if (this.isPlaying) {
+                    await this.midiPlayer.stop();
+                    this.isPlaying = false;
+                    document.getElementById('play-button').textContent = '▶';
+                }
+
+                return this.chordsOn;
+            }
+
+            async toggleVoices() {
+                this.voicesOn = !this.voicesOn;
+
+                // Re-initialize with new settings
+                if (this.isPlaying) {
+                    await this.midiPlayer.stop();
+                    this.isPlaying = false;
+                    document.getElementById('play-button').textContent = '▶';
+                }
+
+                return this.voicesOn;
             }
         }
 
@@ -1064,6 +1098,11 @@ C _e F`;
                     const abcContainer = document.getElementById('abc-notation');
                     this.diagramRenderer.clearFingeringDiagrams();
 
+                    // Add click handler
+                    const clickListener = (abcElem, tuneNumber, classes) => {
+                        this.handleNoteClick(abcElem);
+                    };
+
                     const visualObj = ABCJS.renderAbc("abc-notation", this.notationParser.currentAbc, {
                         responsive: "resize",
                         add_classes: true,
@@ -1072,7 +1111,11 @@ C _e F`;
                         staffbottommargin: this.renderConfig.staffbottommargin,
                         oneSvgPerLine: this.renderConfig.oneSvgPerLine,
                         scale: this.renderConfig.scale,
+                        clickListener: clickListener  // Properly define the click listener
                     })[0];
+
+                    // Store the visualObj for later use
+                    this.currentVisualObj = visualObj;
 
                     // Initialize MIDI player
                     this.midiPlayer.init(visualObj);
@@ -1087,6 +1130,35 @@ C _e F`;
                 } catch (error) {
                     console.error("Error in render:", error);
                 }
+            }
+
+            handleNoteClick(abcElem) {
+                // Only handle actual notes
+                if (abcElem.el_type !== "note" || !this.midiPlayer.midiPlayer) {
+                    return;
+                }
+
+                console.log("Note clicked:", abcElem);
+
+                // Find the start milliseconds for this note
+                const startMs = abcElem.currentTrackMilliseconds || abcElem.midiStartTime * 1000;
+                if (startMs === undefined) {
+                    console.warn("Could not determine start time for note");
+                    return;
+                }
+
+                // Stop current playback if playing
+                if (this.midiPlayer.isPlaying) {
+                    this.midiPlayer.midiPlayer.stop();
+                }
+
+                // Start from this position
+                setTimeout(() => {
+                    this.midiPlayer.midiPlayer.seek(startMs);
+                    this.midiPlayer.midiPlayer.start();
+                    this.midiPlayer.isPlaying = true;
+                    document.getElementById('play-button').textContent = '⏸';
+                }, 100);
             }
 
             async copyToClipboard() {
@@ -1173,6 +1245,33 @@ C _e F`;
                         this.midiPlayer.restart();
                     });
 
+                    // Add toggle for chords
+                    const chordsToggle = document.createElement('button');
+                    chordsToggle.id = 'chords-toggle';
+                    chordsToggle.title = 'Toggle Chords On/Off';
+                    chordsToggle.textContent = 'Chords: On';
+                    chordsToggle.addEventListener('click', async () => {
+                        const chordsOn = await this.midiPlayer.toggleChords();
+                        chordsToggle.textContent = chordsOn ? 'Chords: On' : 'Chords: Off';
+                        this.render(); // Re-render to apply changes
+                    });
+
+                    // Add toggle for voices
+                    const voicesToggle = document.createElement('button');
+                    voicesToggle.id = 'voices-toggle';
+                    voicesToggle.title = 'Toggle Voices On/Off';
+                    voicesToggle.textContent = 'Voices: On';
+                    voicesToggle.addEventListener('click', async () => {
+                        const voicesOn = await this.midiPlayer.toggleVoices();
+                        voicesToggle.textContent = voicesOn ? 'Voices: On' : 'Voices: Off';
+                        this.render(); // Re-render to apply changes
+                    });
+
+                    // Add the new buttons to the control bar
+                    const controlBar = document.querySelector('.control-bar');
+                    controlBar.insertBefore(chordsToggle, document.getElementById('restart-button').nextSibling);
+                    controlBar.insertBefore(voicesToggle, chordsToggle.nextSibling);
+
                     // Clipboard controls
                     document.getElementById('copy-button').addEventListener('click', () => {
                         this.copyToClipboard();
@@ -1229,8 +1328,6 @@ C _e F`;
                         fingeringDisplayToggle.textContent = showFingering ? 'Hide Fingering' : 'Show Fingering';
                     });
 
-                    // Add to control bar
-                    const controlBar = document.querySelector('.control-bar');
                     controlBar.insertBefore(systemToggle, controlBar.firstChild);
                     controlBar.insertBefore(fingeringDisplayToggle, controlBar.firstChild);
 
