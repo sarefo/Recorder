@@ -1,0 +1,44 @@
+/* Tempo control slider and related elements */
+.tempo-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tempo-control label {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.tempo-control input[type="range"] {
+    width: 100px;
+    height: 6px;
+    background-color: #ddd;
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.tempo-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: #1a73e8;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.tempo-control input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background-color: #1a73e8;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.tempo-value {
+    min-width: 50px;
+    font-size: 14px;
+    text-align: center;
+}

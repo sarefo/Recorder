@@ -1,0 +1,33 @@
+/* Main layout components */
+#abc-notation {
+    margin-top: 20px;
+}
+
+.abcjs-container {
+    padding-top: 200px;
+}
+
+/* Reference row styling */
+#reference-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+    overflow-x: auto;
+}
+
+.abcjs-container.minimized #reference-row {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* General control container */
+.control-container {
+    width: 100%;
+    margin-bottom: 20px;
+}

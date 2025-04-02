@@ -1,0 +1,74 @@
+/* Control bar and button styles */
+.control-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 101;
+}
+
+.control-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.control-bar button {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.control-bar button:hover {
+    background-color: #eee;
+    border-color: #ccc;
+}
+
+.control-bar button.active {
+    background-color: #e7f3ff;
+    border-color: #6cb0f5;
+    color: #1a73e8;
+}
+
+/* Special buttons */
+#chart-toggle {
+    padding: 4px 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#share-button {
+    background-color: #e7f3ff;
+    border-color: #6cb0f5;
+    color: #1a73e8;
+}
+
+#share-button:hover {
+    background-color: #d0e7ff;
+}
+
+/* Control sections grouping */
+.minimize-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

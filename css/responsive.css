@@ -1,0 +1,43 @@
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .control-bar {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .control-section {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .tempo-control {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    #abc-notation {
+        margin-top: 10px;
+    }
+
+    .abcjs-container {
+        padding-top: 100px;
+        /* Reduced for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 10px;
+    }
+
+    .control-bar button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .tempo-control label {
+        display: none;
+        /* Hide label on very small screens */
+    }
+}

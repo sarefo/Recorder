@@ -1,0 +1,31 @@
+/* ABC notation display styling */
+#abc-notation svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Interactive elements within notation */
+.abcjs-note,
+.abcjs-rest {
+    cursor: pointer;
+}
+
+.abcjs-note:hover {
+    fill: #1a73e8;
+}
+
+/* Highlighting for active notes */
+.abcjs-note.highlight {
+    fill: #1a73e8;
+}
+
+/* Layer for fingering diagrams */
+#fingering-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
