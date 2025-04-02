@@ -1,11 +1,3 @@
-import Utils from './utils.js';
-import NotationParser from './notation-parser.js';
-import FingeringManager from './fingering-manager.js';
-import TransposeManager from './transpose-manager.js';
-import MidiPlayer from './midi-player.js';
-import DiagramRenderer from './diagram-renderer.js';
-import ShareManager from './share-manager.js';
-
 /**
  * Main application controller
  */
@@ -482,5 +474,3 @@ class AbcPlayer {
         }, 150));
     }
 }
-
-export default AbcPlayer;

@@ -258,5 +258,3 @@ class FingeringManager {
         document.querySelector('.abcjs-container').classList.add('minimized');
     }
 }
-
-export default FingeringManager;

@@ -1,5 +1,3 @@
-import Utils from './utils.js';
-
 /**
  * Adds URL parameter handling and sharing functionality
  */
@@ -83,5 +81,3 @@ class ShareManager {
         return Utils.copyToClipboard(window.location.href);
     }
 }
-
-export default ShareManager;

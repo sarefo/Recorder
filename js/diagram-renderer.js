@@ -193,6 +193,3 @@ class DiagramRenderer {
         if (existing) existing.remove();
     }
 }
-
-
-export default DiagramRenderer;

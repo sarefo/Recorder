@@ -132,5 +132,3 @@ class TransposeManager {
         });
     }
 }
-
-export default TransposeManager;

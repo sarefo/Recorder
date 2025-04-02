@@ -153,5 +153,3 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         return notes;
     }
 }
-
-export default NotationParser;

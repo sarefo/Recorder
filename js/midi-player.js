@@ -167,5 +167,3 @@ class MidiPlayer {
         return this.playbackSettings;
     }
 }
-
-export default MidiPlayer;
