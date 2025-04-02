@@ -1,0 +1,44 @@
+X: 1
+T: Dos Kelbl
+N: aka "Donna Donna" or "Dona Dona"
+N: original transposition
+M: 4/4
+L: 1/4
+Q:
+K: C
+|: e A B/2c/2 d | e A B/2c/2 d | e A f e/2d/2 | c d e2 |
+e A B/2c/2 d | e A B/2c/2 d | e A f e/2d/2 | c B A2 |
+g g g2/3 f/2 | e/2d/2 c z2 | d/2 d d/2 g f | e3 z |
+g g g2/3 f | e d c d | e d c B | A3 z |
+B/2B/2B/2B/2 d d | c/2d/2 e3 | d/2d/2d/2d/2 g f | e3 z |
+B/2B/2B/2B/2 d d | c/2d/2 e3 | e/2B/2c/2d/2 c B | A3 z :|
+
+X: 2
+T: Dos Kelbl
+N: aka "Donna Donna" or "Dona Dona"
+N: transposition with own app, works although key is "wrong"
+M: 4/4
+L: 1/4
+Q:
+K: C
+|: A D E/2F/2 G | A D E/2F/2 G | A D ^A A/2G/2 | F G A2 |
+A D E/2F/2 G | A D E/2F/2 G | A D ^A A/2G/2 | F E D2 |
+c c c2/3 ^A/2 | A/2G/2 F z2 | G/2 G G/2 c ^A | A3 z |
+c c c2/3 ^A | A G F G | A G F E | D3 z |
+E/2E/2E/2E/2 G G | F/2G/2 A3 | G/2G/2G/2G/2 c ^A | A3 z |
+E/2E/2E/2E/2 G G | F/2G/2 A3 | A/2E/2F/2G/2 F E | D3 z :|
+
+X: 3
+T: Dos Kelbl
+N: aka "Donna Donna" or "Dona Dona"
+N: transposition by paulrosen app
+M: 4/4
+L: 1/4
+Q:
+K: F
+|: A D E/2F/2 G | A D E/2F/2 G | A D _B A/2G/2 | F G A2 |
+A D E/2F/2 G | A D E/2F/2 G | A D _B A/2G/2 | F E D2 |
+c c c2/3 _B/2 | A/2G/2 F z2 | G/2 G G/2 c _B | A3 z |
+c c c2/3 _B | A G F G | A G F E | D3 z |
+E/2E/2E/2E/2 G G | F/2G/2 A3 | G/2G/2G/2G/2 c _B | A3 z |
+E/2E/2E/2E/2 G G | F/2G/2 A3 | A/2E/2F/2G/2 F E | D3 z :|

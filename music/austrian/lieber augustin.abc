@@ -1,0 +1,34 @@
+X: 1
+T: Ach du lieber Augustin
+%R: waltz
+N: aka "Buy a Broom", "Did You Ever See a Lassie", etc.
+B: Jean White "100 Popular Hornpipes, Reels, Jigs and Country Dances", Boston 1880 p.40
+F:  http://www.loc.gov/resource/sm1880.09124.0#seq-1
+Z: 2014 John Chambers <jc:trillian.mit.edu>
+M: 3/4
+L: 1/8
+Q: "Tempo di Valse."
+K: D
+|:\
+a2abag | f2d2d2 | e2A2A2 | f2d2d2 |\
+a2abag | f2d2d2 | e2A2A2 | d6 :|
+|:\
+e2A2A2 | f2d2d2 | e2A2A2 | f2d2d2 |\
+a2abag | f2d2d2 | e2A2A2 | d6 :|
+
+X: 2
+T: Ach du lieber Augustin
+%R: waltz
+N: aka "Buy a Broom", "Did You Ever See a Lassie", etc.
+M: 3/4
+L: 1/8
+Q: "Tempo di Valse."
+K: F
+|:\
+c2cdc_B | A2F2F2 | G2C2C2 | A2F2F2 |\
+c2cdc_B | A2F2F2 | G2C2C2 | F6 :|
+|:\
+G2C2C2 | A2F2F2 | G2C2C2 | A2F2F2 |\
+c2cdc_B | A2F2F2 | G2C2C2 | F6 :|
+
+
