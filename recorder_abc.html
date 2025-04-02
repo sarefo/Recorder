@@ -216,6 +216,16 @@
             margin: 0;
             padding: 0;
         }
+
+        #share-button {
+            background-color: #e7f3ff;
+            border-color: #6cb0f5;
+            color: #1a73e8;
+        }
+
+        #share-button:hover {
+            background-color: #d0e7ff;
+        }
     </style>
 </head>
 
@@ -440,6 +450,12 @@
             }
 
             getFingeringForNote(noteName) {
+                // Handle natural accidentals (=) by treating them as the base note
+                if (noteName.startsWith('=')) {
+                    noteName = noteName.substring(1);
+                }
+
+                // Continue with existing lookup logic
                 // Try direct match first
                 if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[noteName]) {
                     return this.fingeringDataGerman[noteName];
@@ -1083,7 +1099,7 @@ C _e F`;
 
             groupNotesByStaffLine(noteElements) {
                 const staffLines = [];
-                const tolerance = 30; // pixels
+                const tolerance = 40; // pixels
 
                 // Create positions map
                 const notePositions = noteElements.map(el => {
@@ -1243,6 +1259,8 @@ C _e F`;
 
                 // Initialize UI handlers
                 this.initializeEventListeners();
+
+                this.shareManager = new ShareManager(this);
             }
 
             render() {
@@ -1419,6 +1437,9 @@ C _e F`;
 
                     // Initialize the application
                     this.render();
+                    setTimeout(() => {
+                        this.shareManager.loadFromUrlParams();
+                    }, 100);
                     this.fingeringManager.populateReferenceRow();
 
                     // Set up keyboard shortcuts
@@ -1516,10 +1537,25 @@ C _e F`;
                     this.transpose('down');
                 });
 
+                // Share button
+                const shareButton = document.createElement('button');
+                shareButton.id = 'share-button';
+                shareButton.title = 'Create shareable link';
+                shareButton.textContent = 'Share';
+                shareButton.addEventListener('click', () => {
+                    this.shareManager.copyShareUrl()
+                        .then(success => {
+                            if (success) {
+                                Utils.showFeedback('Share link copied to clipboard!');
+                            }
+                        });
+                });
+
                 notationSection.appendChild(copyButton);
                 notationSection.appendChild(pasteButton);
                 notationSection.appendChild(transposeUpButton);
                 notationSection.appendChild(transposeDownButton);
+                notationSection.appendChild(shareButton);
 
                 return notationSection;
             }
@@ -1659,6 +1695,69 @@ C _e F`;
             }
         }
 
+        /**
+ * Adds URL parameter handling and sharing functionality
+ */
+        class ShareManager {
+            constructor(player) {
+                this.player = player;
+            }
+
+            loadFromUrlParams() {
+                try {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const abcParam = urlParams.get('abc');
+
+                    if (abcParam) {
+                        // Decode the base64 encoded ABC notation
+                        const decodedAbc = atob(abcParam);
+
+                        // Validate basic ABC structure
+                        if (decodedAbc.includes('X:') && decodedAbc.includes('K:')) {
+                            this.player.notationParser.currentAbc = decodedAbc;
+                            this.player.render();
+
+                            // Add a small message to indicate successful loading
+                            this.showLoadMessage("ABC notation loaded from URL");
+                            return true;
+                        }
+                    }
+                } catch (e) {
+                    console.error("Error decoding ABC from URL:", e);
+                    this.showLoadMessage("Error loading ABC from URL", true);
+                }
+                return false;
+            }
+
+            showLoadMessage(message, isError = false) {
+                const statusEl = document.getElementById('midi-status');
+                if (statusEl) {
+                    statusEl.textContent = message;
+                    statusEl.style.color = isError ? 'red' : '#666';
+                    setTimeout(() => {
+                        statusEl.textContent = '';
+                        statusEl.style.color = '#666';
+                    }, 3000);
+                }
+            }
+
+            generateShareUrl() {
+                // Get current ABC notation and encode it as base64
+                const abcNotation = this.player.notationParser.currentAbc;
+                const encodedAbc = btoa(encodeURIComponent(abcNotation));
+
+                // Create URL with the encoded ABC as a parameter
+                const url = new URL(window.location.href.split('?')[0]); // Remove existing query params
+                url.searchParams.set('abc', encodedAbc);
+
+                return url.toString();
+            }
+
+            async copyShareUrl() {
+                const shareUrl = this.generateShareUrl();
+                return Utils.copyToClipboard(shareUrl);
+            }
+        }
         // Initialize the application
         const app = new AbcPlayer();
     </script>
