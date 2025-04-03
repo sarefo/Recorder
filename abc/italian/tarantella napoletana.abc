@@ -1,0 +1,42 @@
+X:1
+T:Tarantella Napoletana
+N:Transposed
+C:Traditional Italian
+R:Jig
+Q:3/8=120
+M:6/8
+L:1/8
+K:Dm
+P:A
+|:"Dm"d2dA2A|d2dA2A|"Gm"B2BBcB|"Dm"A2zA2A|
+"A7"G2GGAG|"Dm"F2FFGF| "A7"E2E EFE |1 "Dm"D3z3 :|2 "Dm"D2z ||
+P:B
+|:zDE|"Dm"FEF "A7"GFE|"Dm"FEF "Gm"GFE|"Dm"FED "A7"^CDE|"Dm"D2z zDE|
+"Dm"FEF "A7"GFG|"Dm"AGA "Gm"BAG|"Dm"FED "A7"^CDE|"Dm"D2z:|
+P:C
+|:"C7"CDE|"F"FEF AGA|c2c cdc|"C7"B2B BcB|"F"A2z "C7"CDE|
+"F"FEF AGA|c2c c=Bc|"C7"edc BAG|"F"F2z:|
+P:D
+|:A2B|"F"c=Bc d2c|"C7"B2z G2A|BAB c2B|"F"A2z A2A|
+"Gm"BAG G2G|"Dm"AGF F2G|"A7"A2G F2E|"Dm"D2z:|
+
+X:1
+T:Tarantella Napoletana
+C:Traditional Italian
+R:Jig
+Q:3/8=120
+M:6/8
+L:1/8
+K:Am
+P:A
+|:"Am"a2ae2e|a2ae2e|"Dm"f2ffgf|"Am"e2ze2e|
+"E7"d2dded|"Am"c2ccdc| "E7"B2B BcB |1 "Am"A3z3 :|2 "Am"A2z ||
+P:B
+|:zAB|"Am"cBc "E7"dcB|"Am"cBc "Dm"dcB|"Am"cBA "E7"^GAB|"Am"A2z zAB|
+"Am"cBc "E7"dcd|"Am"ede "Dm"fed|"Am"cBA "E7"^GAB|"Am"A2z:|
+P:C
+|:"G7"GAB|"C"cBc ede|g2g gag|"G7"f2f fgf|"C"e2z "G7"GAB|
+"C"cBc ede|g2g g^fg|"G7"bag fed|"C"c2z:|
+P:D
+|:e2f|"C"g^fg a2g|"G7"f2z d2e|fef g2f|"C"e2z e2e|
+"Dm"fed d2d|"Am"edc c2d|"E7"e2d c2B|"Am"A2z:|

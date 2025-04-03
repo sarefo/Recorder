@@ -13,7 +13,7 @@ class AbcFileList {
                 "category": "austrian"
         },
         {
-                "name": "Es wird scho glei dumpa",
+                "name": "Es wird scho gleich dumpa",
                 "file": "austrian/es wird scho gleich dumpa.abc",
                 "category": "austrian"
         },
@@ -38,11 +38,6 @@ class AbcFileList {
                 "category": "dvorak/new world"
         },
         {
-                "name": "chromatic-scale",
-                "file": "examples/chromatic-scale.abc",
-                "category": "examples"
-        },
-        {
                 "name": "Here's to you",
                 "file": "film/here's to you.abc",
                 "category": "film"
@@ -56,6 +51,11 @@ class AbcFileList {
                 "name": "Reel du r\u00e9prtoire des fr\u00e8res Pigeon",
                 "file": "french/Reel du repertoire des freres pigeon.abc",
                 "category": "french"
+        },
+        {
+                "name": "Tarantella Napoletana",
+                "file": "italian/tarantella napoletana.abc",
+                "category": "italian"
         },
         {
                 "name": "Arirang",
