@@ -163,9 +163,8 @@ class UIControls {
         notationSection.appendChild(this.createCopyButton());
         notationSection.appendChild(this.createPasteButton());
 
-        // Add transpose buttons
-        notationSection.appendChild(this.createTransposeUpButton());
-        notationSection.appendChild(this.createTransposeDownButton());
+        // REMOVE transpose buttons from here
+        // They're now in the playback section
 
         // Add share button
         notationSection.appendChild(this.createShareButton());
@@ -301,6 +300,10 @@ class UIControls {
 
         // Add tempo control
         playbackSection.appendChild(this.createTempoControl());
+
+        // Add transpose buttons - MOVED FROM NOTATION SECTION
+        playbackSection.appendChild(this.createTransposeUpButton());
+        playbackSection.appendChild(this.createTransposeDownButton());
 
         return playbackSection;
     }

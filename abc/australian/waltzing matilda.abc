@@ -1,6 +1,6 @@
 X: 2
 T: Waltzing Matilda
-N: transposition
+N: Transposition
 R: barndance
 M: 4/4
 L: 1/8
@@ -12,6 +12,7 @@ A2 AA G2 G2|FG AF DE F2|C2 FA c2 BA|G2 GG F4|
 
 X: 1
 T: Waltzing Matilda
+N: Original transposition
 R: barndance
 M: 4/4
 L: 1/8
