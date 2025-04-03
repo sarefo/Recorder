@@ -8,9 +8,11 @@ Q:1/4=96
 M:3/4
 L:1/4
 K:F
-C | F F G | A/2 c/2 c>B | A A G | F2 C | F F G | A/2 c/2 c>B |
-A A G | F2 c | c A c | c/2 _B/2 G>_B | A F A | G2 C | F F G |
-A/2 c/2 c>_B | A A G | F2 _B/2 E/2 | F2 G/2 C/2 | F2 F/2 A/2 | c A/2 F/2 G/2 C/2 | F2 |
+C|FFG|A/2c/2c>B|AAG|F2C|
+FFG|A/2c/2c>B|AAG|F2c|
+cAc|c/2_B/2G>_B|AFA|G2C|
+FFG|A/2c/2c>_B|AAG|F2_B/2E/2|
+F2G/2C/2|F2F/2A/2|cA/2F/2G/2C/2|F2|
 
 
 X:1
