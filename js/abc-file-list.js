@@ -58,6 +58,11 @@ class AbcFileList {
                 "category": "italian"
         },
         {
+                "name": "Kojo no Tsuki",
+                "file": "japanese/kojo no tsuki.abc",
+                "category": "japanese"
+        },
+        {
                 "name": "Sakura",
                 "file": "japanese/sakura.abc",
                 "category": "japanese"
