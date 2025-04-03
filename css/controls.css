@@ -119,12 +119,28 @@
     background-color: #1a73e8;
     color: white;
     border: none;
-    border-radius: 50px;
-    padding: 8px 16px;
-    font-size: 14px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hamburger icon */
+.control-toggle span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: white;
+    margin: 2px 0;
+    border-radius: 1px;
+    transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -139,9 +155,5 @@
         padding: 0;
         opacity: 0;
         pointer-events: none;
-    }
-
-    .control-toggle {
-        display: block;
     }
 }

@@ -307,6 +307,12 @@ class AbcPlayer {
     createControlContainer() {
         const container = document.createElement('div');
         container.className = 'control-container';
+
+        // If on mobile, add collapsed class by default
+        if (window.innerWidth <= 768) {
+            container.classList.add('collapsed');
+        }
+
         return container;
     }
 
@@ -774,17 +780,27 @@ class AbcPlayer {
     }
 
     setupMobileControls() {
-        const toggleButton = document.getElementById('control-toggle');
+        // Create the toggle button if it doesn't exist
+        let toggleButton = document.getElementById('control-toggle');
+        if (!toggleButton) {
+            toggleButton = document.createElement('button');
+            toggleButton.id = 'control-toggle';
+            toggleButton.className = 'control-toggle';
+            toggleButton.innerHTML = '<span></span><span></span><span></span>'; // Hamburger icon
+            document.body.appendChild(toggleButton);
+        }
+
         const controlContainer = document.querySelector('.control-container');
 
-        // Only setup mobile controls if we're on a mobile device
+        // Check if we're on mobile based on screen width
         this.isMobile = window.innerWidth <= 768;
 
         // Set initial state - collapsed on mobile, visible on desktop
         this.controlsCollapsed = this.isMobile;
-        if (this.controlsCollapsed) {
+
+        // Apply initial state
+        if (this.controlsCollapsed && controlContainer) {
             controlContainer.classList.add('collapsed');
-            toggleButton.textContent = 'Show Controls';
         }
 
         toggleButton.addEventListener('click', () => {
@@ -792,23 +808,23 @@ class AbcPlayer {
 
             if (this.controlsCollapsed) {
                 controlContainer.classList.add('collapsed');
-                toggleButton.textContent = 'Show Controls';
             } else {
                 controlContainer.classList.remove('collapsed');
-                toggleButton.textContent = 'Hide Controls';
             }
         });
 
-        // Update state on resize
+        // Update on resize
         window.addEventListener('resize', () => {
             const wasMobile = this.isMobile;
             this.isMobile = window.innerWidth <= 768;
+
+            // Show/hide toggle button based on screen size
+            toggleButton.style.display = this.isMobile ? 'block' : 'none';
 
             // If changing from desktop to mobile, collapse controls
             if (!wasMobile && this.isMobile) {
                 this.controlsCollapsed = true;
                 controlContainer.classList.add('collapsed');
-                toggleButton.textContent = 'Show Controls';
             }
 
             // If changing from mobile to desktop, always show controls
@@ -817,5 +833,8 @@ class AbcPlayer {
                 controlContainer.classList.remove('collapsed');
             }
         });
+
+        // Initial toggle button visibility
+        toggleButton.style.display = this.isMobile ? 'block' : 'none';
     }
 }
