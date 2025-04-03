@@ -63,6 +63,114 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         return keyMatch ? keyMatch[1] : 'C';
     }
 
+    extractNotesUsingAbcjs(visualObj) {
+        if (!visualObj || !visualObj.lines) {
+            console.error("Invalid visual object for note extraction");
+            return [];
+        }
+
+        // Extract key signature directly from the visualObj
+        let keySignature = "C"; // Default to C if we can't find it
+
+        // Try to get key signature from the visualObj
+        if (visualObj.getKeySignature) {
+            const keyObj = visualObj.getKeySignature();
+            console.log("abcjs key object:", keyObj);
+            keySignature = keyObj.root + (keyObj.mode === "m" ? "m" : "");
+        } else if (visualObj.key) {
+            keySignature = visualObj.key.root + (visualObj.key.mode === "m" ? "m" : "");
+        } else if (visualObj.lines && visualObj.lines[0] && visualObj.lines[0].staff) {
+            // Try to find key in the first staff
+            const firstStaff = visualObj.lines[0].staff[0];
+            if (firstStaff.key) {
+                keySignature = firstStaff.key.root + (firstStaff.key.mode === "m" ? "m" : "");
+            }
+        }
+
+        console.log("Detected key signature from visualObj:", keySignature);
+
+        // Get accidentals from key signature
+        const keyAccidentals = this.getAccidentalsForKey(keySignature);
+        console.log("Key accidentals:", keyAccidentals);
+
+        const notes = [];
+        let measureAccidentals = {}; // Track accidentals within a measure
+
+        // Navigate through the abcjs structure to find all notes
+        visualObj.lines.forEach(line => {
+            line.staff.forEach(staff => {
+                staff.voices.forEach(voice => {
+                    let currentMeasure = -1;
+
+                    voice.forEach(element => {
+                        // Check if we've entered a new measure
+                        if (element.el_type === "bar") {
+                            // Reset measure accidentals at bar lines
+                            measureAccidentals = {};
+                            currentMeasure++;
+                            return;
+                        }
+
+                        // Only process note elements
+                        if (element.el_type === "note" && !element.rest) {
+                            // Extract each pitch in the note (for chords)
+                            element.pitches.forEach(pitch => {
+                                // Get basic note information
+                                const noteLetter = pitch.name.toUpperCase().charAt(0); // Just the letter part (C, D, E, etc.)
+
+                                // Check if there's an explicit accidental in this note
+                                let accidental = '';
+                                if (pitch.accidental === "sharp") {
+                                    accidental = '^';
+                                    measureAccidentals[noteLetter] = '^';
+                                } else if (pitch.accidental === "flat") {
+                                    accidental = '_';
+                                    measureAccidentals[noteLetter] = '_';
+                                } else if (pitch.accidental === "natural") {
+                                    accidental = '=';
+                                    measureAccidentals[noteLetter] = '=';
+                                } else if (pitch.accidental === "dblsharp") {
+                                    accidental = '^^';
+                                    measureAccidentals[noteLetter] = '^^';
+                                } else if (pitch.accidental === "dblflat") {
+                                    accidental = '__';
+                                    measureAccidentals[noteLetter] = '__';
+                                } else {
+                                    // Check for accidentals in the current measure
+                                    if (measureAccidentals[noteLetter]) {
+                                        accidental = measureAccidentals[noteLetter];
+                                    }
+                                    // No explicit accidental or measure accidental, 
+                                    // check key signature
+                                    else if (keyAccidentals[noteLetter]) {
+                                        accidental = keyAccidentals[noteLetter];
+                                    }
+                                }
+
+                                // Construct the final note name
+                                let noteName = accidental + pitch.name;
+
+                                // Remove any existing commas (octave shift down)
+                                noteName = noteName.replace(/,/g, '');
+
+                                // For B in F major, ensure it's flat
+                                if (keySignature === "F" && noteLetter === "B" && !accidental) {
+                                    noteName = "_" + noteName;
+                                }
+
+                                notes.push(noteName);
+                            });
+                        } else if (element.el_type === "note" && element.rest) {
+                            notes.push("rest");
+                        }
+                    });
+                });
+            });
+        });
+
+        return notes;
+    }
+
     /**
      * Gets the musical content part from the ABC notation (after K: line)
      * @returns {string} The musical content
@@ -256,44 +364,16 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
      */
     extractCleanedNotes() {
         try {
-            // Preprocess: Clean the ABC notation to keep only essential musical content
-            // Remove part indicators (P:A, P:B etc.)
-            const cleanedAbc = this.currentAbc
-                .split('\n')
-                .filter(line => !line.trim().startsWith('w:'))  // Filter out lyrics lines
-                .join('\n')
-                .replace(/P:[A-Za-z0-9]+\s*(\r?\n|\r)/g, '')
-                // Remove chord symbols like "Dm", "G7" etc.
-                .replace(/"[A-Za-z0-9#b+]+"?/g, '');
+            if (window.app && window.app.renderManager && window.app.renderManager.currentVisualObj) {
+                // If we have a valid visual object, use it to extract notes
+                return this.extractNotesUsingAbcjs(window.app.renderManager.currentVisualObj);
+            }
 
-            // Create a temporary div for rendering
-            const tempDiv = document.createElement('div');
-            tempDiv.id = 'abcjs-temp-container';
-            tempDiv.style.display = 'none';
-            document.body.appendChild(tempDiv);
-
-            // Parse the cleaned ABC notation using abcjs
-            ABCJS.renderAbc("abcjs-temp-container", cleanedAbc, {
-                add_classes: true
-            });
-
-            // Temporarily save the original ABC and set the cleaned version
-            const originalAbc = this.currentAbc;
-            this.currentAbc = cleanedAbc;
-
-            // Extract notes using the existing method on the cleaned ABC
-            const notes = this.extractNotesFromAbc();
-
-            // Restore the original ABC
-            this.currentAbc = originalAbc;
-
-            // Clean up temporary div
-            document.body.removeChild(tempDiv);
-
-            return notes;
+            // No visual object available, fall back to the original method
+            console.warn("No visual object available, falling back to regex-based extraction");
+            return this.extractNotesFromAbc();
         } catch (error) {
-            console.error("Error extracting notes using cleaned ABC:", error);
-            // Fall back to the regex-based method if there's an error
+            console.error("Error extracting notes:", error);
             return this.extractNotesFromAbc();
         }
     }

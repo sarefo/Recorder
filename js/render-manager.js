@@ -15,14 +15,20 @@ class RenderManager {
             const abcContainer = document.getElementById('abc-notation');
             this.player.diagramRenderer.clearFingeringDiagrams();
 
-            // Render the ABC notation
+            // Render the ABC notation first to get the visual object
             this.currentVisualObj = this.renderAbcNotation();
 
             // Initialize MIDI player
             this.player.midiPlayer.init(this.currentVisualObj);
 
-            // Add fingering diagrams if enabled
-            this.renderFingeringDiagrams(abcContainer);
+            // Add fingering diagrams AFTER we have the visual object
+            if (this.player.fingeringManager.showFingering) {
+                setTimeout(() => {
+                    const notes = this.player.notationParser.extractNotesUsingAbcjs(this.currentVisualObj);
+                    console.log("Notes extracted with abcjs:", notes);
+                    this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
+                }, 100);
+            }
 
             // Update URL for sharing
             if (this.player.shareManager) {
@@ -65,8 +71,10 @@ class RenderManager {
     renderFingeringDiagrams(abcContainer) {
         if (this.player.fingeringManager.showFingering) {
             setTimeout(() => {
-                // Use abcjs to extract only actual playable notes, avoiding parts and chord symbols
-                const notes = this.player.notationParser.extractCleanedNotes();
+                // Use abcjs visual object to get correctly interpreted notes
+                const notes = this.player.notationParser.extractNotesUsingAbcjs(this.currentVisualObj);
+
+                console.log("Notes adjusted for fingering:", notes);
                 this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
             }, 100);
         }
