@@ -27,24 +27,34 @@ def generate_abc_file_list():
         os.makedirs(abc_dir)
         print(f"Created {abc_dir} directory")
     
-    # Get all .abc files
-    abc_files = [f for f in os.listdir(abc_dir) if f.endswith('.abc')]
-    
-    # Create the file list with names and titles
+    # Get all .abc files including in subfolders
     file_list = []
-    for file in abc_files:
-        filepath = os.path.join(abc_dir, file)
-        title = extract_title(filepath)
-        file_list.append({
-            "name": title,
-            "file": file
-        })
+    for root, dirs, files in os.walk(abc_dir):
+        for file in files:
+            if file.endswith('.abc'):
+                # Get the relative path from the abc directory
+                rel_path = os.path.relpath(os.path.join(root, file), abc_dir)
+                
+                # Extract title
+                full_path = os.path.join(root, file)
+                title = extract_title(full_path)
+                
+                # Get category from folder name
+                category = os.path.dirname(rel_path)
+                if category == '.':
+                    category = 'General'  # Default category for files in root
+                
+                file_list.append({
+                    "name": title,
+                    "file": rel_path.replace('\\', '/'),  # Use forward slashes for URLs
+                    "category": category
+                })
     
-    # Sort alphabetically by name
-    file_list.sort(key=lambda x: x["name"])
+    # Sort alphabetically by category then name
+    file_list.sort(key=lambda x: (x["category"], x["name"]))
     
     # Generate the JavaScript file
-    with open('js/abc-file-list.js', 'w', encoding='utf-8') as js_file:
+    with open('../js/abc-file-list.js', 'w', encoding='utf-8') as js_file:
         js_file.write("// Auto-generated file list - do not edit manually\n")
         js_file.write("class AbcFileList {\n")
         js_file.write("    static getFiles() {\n")
