@@ -83,6 +83,11 @@ class AbcFileList {
                 "category": "peruvian"
         },
         {
+                "name": "Dwa serduszka",
+                "file": "polish/dwa serduszka.abc",
+                "category": "polish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
