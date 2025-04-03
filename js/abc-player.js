@@ -39,6 +39,10 @@ class AbcPlayer {
         this.initializeEventListeners();
 
         this.shareManager = new ShareManager(this);
+
+        // Handle mobile control toggle
+        this.isMobile = window.innerWidth <= 768;
+        this.controlsCollapsed = this.isMobile; // Start collapsed on mobile
     }
 
     /**
@@ -265,6 +269,7 @@ class AbcPlayer {
             this.initializeApplication();
             this.setupKeyboardShortcuts();
             this.setupWindowResizeHandler();
+            this.setupMobileControls();
         });
     }
 
@@ -765,5 +770,41 @@ class AbcPlayer {
                 this.showFingeringDiagrams();
             }
         }, 150));
+    }
+
+    setupMobileControls() {
+        const toggleButton = document.getElementById('control-toggle');
+        const controlContainer = document.querySelector('.control-container');
+
+        // Set initial state
+        if (this.controlsCollapsed) {
+            controlContainer.classList.add('collapsed');
+            toggleButton.textContent = 'Show Controls';
+        }
+
+        toggleButton.addEventListener('click', () => {
+            this.controlsCollapsed = !this.controlsCollapsed;
+
+            if (this.controlsCollapsed) {
+                controlContainer.classList.add('collapsed');
+                toggleButton.textContent = 'Show Controls';
+            } else {
+                controlContainer.classList.remove('collapsed');
+                toggleButton.textContent = 'Hide Controls';
+            }
+        });
+
+        // Update state on resize
+        window.addEventListener('resize', () => {
+            const wasMobile = this.isMobile;
+            this.isMobile = window.innerWidth <= 768;
+
+            // If changing from desktop to mobile, collapse controls
+            if (!wasMobile && this.isMobile) {
+                this.controlsCollapsed = true;
+                controlContainer.classList.add('collapsed');
+                toggleButton.textContent = 'Show Controls';
+            }
+        });
     }
 }

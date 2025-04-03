@@ -1,3 +1,98 @@
+==> Listing of ../js/abc-file-list.js <==
+// Auto-generated file list - do not edit manually
+class AbcFileList {
+    static getFiles() {
+        return [
+        {
+                "name": "Waltzing Matilda",
+                "file": "australian/waltzing matilda.abc",
+                "category": "australian"
+        },
+        {
+                "name": "Ach du lieber Augustin",
+                "file": "austrian/lieber augustin.abc",
+                "category": "austrian"
+        },
+        {
+                "name": "Es wird scho glei dumpa",
+                "file": "austrian/es wird scho gleich dumpa.abc",
+                "category": "austrian"
+        },
+        {
+                "name": "1 Joc cu bata",
+                "file": "bartok/romanian folk dances/1 joc cu bata.abc",
+                "category": "bartok/romanian folk dances"
+        },
+        {
+                "name": "2 Braul",
+                "file": "bartok/romanian folk dances/2 braul.abc",
+                "category": "bartok/romanian folk dances"
+        },
+        {
+                "name": "3 pe loc",
+                "file": "bartok/romanian folk dances/3 pe loc.abc",
+                "category": "bartok/romanian folk dances"
+        },
+        {
+                "name": "Largo From \"The new world\"",
+                "file": "dvorak/new world/going home.abc",
+                "category": "dvorak/new world"
+        },
+        {
+                "name": "chromatic-scale",
+                "file": "examples/chromatic-scale.abc",
+                "category": "examples"
+        },
+        {
+                "name": "Here's to you",
+                "file": "film/here's to you.abc",
+                "category": "film"
+        },
+        {
+                "name": "Ai vist lo lop",
+                "file": "french/ai vist lo lop.abc",
+                "category": "french"
+        },
+        {
+                "name": "Reel du r\u00e9prtoire des fr\u00e8res Pigeon",
+                "file": "french/Reel du repertoire des freres pigeon.abc",
+                "category": "french"
+        },
+        {
+                "name": "Arirang",
+                "file": "korean/arirang.abc",
+                "category": "korean"
+        },
+        {
+                "name": "El Condor Pasa",
+                "file": "peruvian/el condor pasa.abc",
+                "category": "peruvian"
+        },
+        {
+                "name": "Nanita Nana",
+                "file": "spanish/nanita nana.abc",
+                "category": "spanish"
+        },
+        {
+                "name": "Spin the Wheel",
+                "file": "unsorted/spin the wheel.abc",
+                "category": "unsorted"
+        },
+        {
+                "name": "The People United",
+                "file": "unsorted/people united.abc",
+                "category": "unsorted"
+        },
+        {
+                "name": "Dos Kelbl",
+                "file": "yiddish/dos kelbl.abc",
+                "category": "yiddish"
+        }
+];
+    }
+}
+
+
 ==> Listing of ../js/abc-player.js <==
 /**
  * Main application controller
@@ -34,6 +129,7 @@ class AbcPlayer {
         this.transposeManager = new TransposeManager();
         this.midiPlayer = new MidiPlayer();
         this.diagramRenderer = new DiagramRenderer(this.fingeringManager, this.fingeringConfig);
+        this.fileManager = new FileManager(this);
 
         // Initialize UI handlers
         this.initializeEventListeners();
@@ -441,7 +537,21 @@ class AbcPlayer {
         // Add share button
         notationSection.appendChild(this.createShareButton());
 
+        // Add file selector
+        notationSection.appendChild(this.createFileSelector());
+
         return notationSection;
+    }
+
+    createFileSelector() {
+        const fileContainer = document.createElement('div');
+        fileContainer.className = 'file-controls';
+
+        // Create the selector using our hardcoded list
+        const selector = this.fileManager.createFileSelector();
+        fileContainer.appendChild(selector);
+
+        return fileContainer;
     }
 
     /**
@@ -1066,6 +1176,118 @@ class DiagramRenderer {
     }
 }
 
+
+==> Listing of ../js/file-manager.js <==
+/**
+ * Manages loading ABC files
+ */
+class FileManager {
+    constructor(player) {
+        this.player = player;
+        this.fileList = AbcFileList.getFiles();
+        this.categorizedFiles = this.categorizeFiles();
+    }
+
+    /**
+     * Organizes files by category
+     * @returns {Object} Files organized by category
+     */
+    categorizeFiles() {
+        const categories = {};
+
+        this.fileList.forEach(file => {
+            if (!categories[file.category]) {
+                categories[file.category] = [];
+            }
+            categories[file.category].push(file);
+        });
+
+        return categories;
+    }
+
+    /**
+     * Load a specific ABC file by path
+     * @param {string} filePath - Path to the file to load
+     * @returns {Promise<boolean>} Success status
+     */
+    async loadFile(filePath) {
+        try {
+            const response = await fetch(`abc/${filePath}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error ${response.status}`);
+            }
+            const abcContent = await response.text();
+
+            // Make sure it's valid ABC notation
+            if (abcContent.includes('X:') && abcContent.includes('K:')) {
+                // Update the notation and render it
+                this.player.notationParser.currentAbc = abcContent;
+                this.player.render();
+
+                // Extract filename for feedback
+                const filename = filePath.split('/').pop();
+                Utils.showFeedback(`Loaded ${filename}`);
+                return true;
+            } else {
+                throw new Error("Invalid ABC notation format");
+            }
+        } catch (error) {
+            console.error(`Error loading ABC file ${filePath}:`, error);
+            Utils.showFeedback(`Error loading file`, true);
+            return false;
+        }
+    }
+
+    /**
+     * Creates the file selector UI as a grouped dropdown
+     * @returns {HTMLElement} The file selector element
+     */
+    createFileSelector() {
+        const select = document.createElement('select');
+        select.id = 'abc-file-selector';
+        select.className = 'file-selector';
+
+        // Add default option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Load ABC File...';
+        defaultOption.selected = true;
+        select.appendChild(defaultOption);
+
+        // Add options for each category
+        Object.keys(this.categorizedFiles).sort().forEach(category => {
+            const files = this.categorizedFiles[category];
+
+            // Create an optgroup for the category
+            const group = document.createElement('optgroup');
+            group.label = category;
+
+            // Add files within this category
+            files.forEach(file => {
+                const option = document.createElement('option');
+                option.value = file.file;
+                option.textContent = file.name;
+                group.appendChild(option);
+            });
+
+            select.appendChild(group);
+        });
+
+        // Handle selection changes
+        select.addEventListener('change', (e) => {
+            const selectedFile = e.target.value;
+            if (selectedFile) {
+                this.loadFile(selectedFile);
+                // Reset selection to default after loading
+                setTimeout(() => {
+                    select.value = '';
+                }, 100);
+            }
+        });
+
+        return select;
+    }
+}
 
 ==> Listing of ../js/fingering-manager.js <==
 /**
@@ -2410,6 +2632,43 @@ body {
     gap: 10px;
 }
 
+/* File selector styles */
+.file-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.file-label {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.file-selector {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.file-selector:hover {
+    background-color: #eee;
+    border-color: #ccc;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .file-label {
+        display: none;
+    }
+
+    .file-selector {
+        width: 100%;
+    }
+}
+
 ==> Listing of ../css/fingering.css <==
 /* Fingering diagram styles */
 section .fingering-diagram {
@@ -2648,6 +2907,10 @@ section .fingering-diagram {
     <script src="js/midi-player.js"></script>
     <script src="js/diagram-renderer.js"></script>
     <script src="js/share-manager.js"></script>
+
+    <script src="js/abc-file-list.js"></script>
+    <script src="js/file-manager.js"></script>
+
     <script src="js/abc-player.js"></script>
     <script src="js/main.js"></script>
 </body>

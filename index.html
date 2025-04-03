@@ -8,9 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/abcjs@6.0.0/abcjs-audio.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <meta name="theme-color" content="#1a73e8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ABC Player">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
 </head>
 
 <body>
+    <button id="control-toggle" class="control-toggle">Show Controls</button>
     <div id="reference-row" class="fingering-grid"></div>
     <div id="abc-notation"></div>
     <div id="feedback" class="feedback"></div>
@@ -30,6 +38,16 @@
 
     <script src="js/abc-player.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service worker registered'))
+                    .catch(err => console.error('Service worker error:', err));
+            });
+        }
+    </script>
 </body>
 
 </html>
