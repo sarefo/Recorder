@@ -127,24 +127,40 @@ class DiagramRenderer {
     renderDiagramsByStaff(staffMap, noteDataMap, containerRect, layer) {
         // For each staff line
         staffMap.forEach(staff => {
-            if (!staff.bottom || !staff.notes.length) return;
+            if (!staff.notes.length) return;
 
             // Sort notes by horizontal position within each staff
             staff.notes.sort((a, b) => a.left - b.left);
 
-            // Position for diagrams is below the staff
-            const diagramsTopPosition = staff.bottom - containerRect.top + this.config.verticalOffset;
+            // Find the top position of the staff
+            const staffEl = document.querySelector(`.abcjs-staff.abcjs-l${staff.lineNumber}`);
+            if (!staffEl) return;
+
+            const staffRect = staffEl.getBoundingClientRect();
+
+            // CHANGE: Position for diagrams is above the staff
+            const diagramsTopPosition = staffRect.top - containerRect.top - this.config.verticalOffset;
 
             // Add diagrams for each note in this staff
             staff.notes.forEach(note => {
                 // Get the corresponding note data using data-index
                 const noteName = noteDataMap.get(note.dataIndex);
 
-                if (noteName) {
-                    // Skip rests - don't create diagrams for them
-                    if (noteName !== 'rest') {
-                        this.renderDiagramForNote(note, noteName, containerRect, diagramsTopPosition, layer);
-                    }
+                if (noteName && noteName !== 'rest') {
+                    // Create and position the diagram
+                    const fingeringData = this.fingeringManager.getFingeringForNote(noteName);
+                    if (!fingeringData) return;
+
+                    const diagram = this.fingeringManager.createFingeringDiagram(fingeringData, noteName);
+
+                    // Position the diagram
+                    diagram.style.position = 'absolute';
+                    diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
+                    diagram.style.top = `${diagramsTopPosition}px`;
+                    diagram.style.transform = `translate(-50%, -100%) scale(${this.config.scale})`;
+                    diagram.style.transformOrigin = 'center bottom';
+
+                    layer.appendChild(diagram);
                 }
             });
         });

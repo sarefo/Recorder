@@ -103,7 +103,7 @@ class FingeringManager {
         this._addClickBehavior(diagram);
 
         if (this.config.showLabels && noteName) {
-            this._addNoteLabel(diagram, noteName);
+            //this._addNoteLabel(diagram, noteName);
         }
 
         const columnsContainer = this._createColumnsContainer();
@@ -230,7 +230,7 @@ class FingeringManager {
         if (noteName === 'rest') {
             return null;
         }
-        
+
         // Handle natural accidentals (=) by treating them as the base note
         if (noteName.startsWith('=')) {
             noteName = noteName.substring(1);
