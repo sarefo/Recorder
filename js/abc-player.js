@@ -86,38 +86,29 @@ class AbcPlayer {
     transpose(direction) {
         const semitoneShift = direction === 'up' ? 1 : -1;
 
-        // Parse ABC notation
-        const sections = this.notationParser.parseAbcSections(this.notationParser.currentAbc);
-
-        // Extract the current key
-        let key = 'C'; // Default to C major
-        if (sections.key) {
-            const keyMatch = sections.key.match(/K:([A-G][#b]?[m]?)/);
-            if (keyMatch) {
-                key = keyMatch[1];
-            }
+        // We need the current visual object that has been properly parsed by abcjs
+        const visualObj = this.renderManager.currentVisualObj;
+        if (!visualObj) {
+            console.error("No visual object available for transposition");
+            return;
         }
 
-        // Transpose key signature first
-        if (sections.key) {
-            sections.key = this.transposeManager.transposeKey(sections.key, semitoneShift);
+        // Use abcjs's built-in string transposition with the current ABC and visual object
+        try {
+            const transposedAbc = ABCJS.strTranspose(
+                this.notationParser.currentAbc,
+                [visualObj],  // abcjs expects an array of visual objects
+                semitoneShift
+            );
+
+            // Update the stored ABC notation with the transposed string
+            this.notationParser.currentAbc = transposedAbc;
+
+            // Re-render the notation
+            this.render();
+        } catch (error) {
+            console.error("Transposition error:", error);
         }
-
-        // Get the new key for note context
-        let newKey = 'C';
-        if (sections.key) {
-            const keyMatch = sections.key.match(/K:([A-G][#b]?[m]?)/);
-            if (keyMatch) {
-                newKey = keyMatch[1];
-            }
-        }
-
-        // Transpose notes with key context
-        sections.notes = this.transposeManager.transposeNotes(sections.notes, semitoneShift, newKey);
-
-        // Reassemble the ABC notation
-        this.notationParser.currentAbc = this.notationParser.reconstructAbc(sections);
-        this.render();
     }
 
     /**
