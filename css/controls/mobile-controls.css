@@ -1,0 +1,88 @@
+/* Mobile-specific styling */
+.control-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.control-toggle span {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+    left: 12px;
+}
+
+.control-toggle span:nth-child(1) {
+    transform: translateY(-8px);
+}
+
+.control-toggle span:nth-child(3) {
+    transform: translateY(8px);
+}
+
+/* Animation for the open state */
+.control-toggle.open span:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+}
+
+.control-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.control-toggle.open span:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+}
+
+/* Mobile view styles */
+.control-container.mobile-view {
+    position: fixed;
+    top: 70px;
+    left: 5%;
+    width: 90%;
+    z-index: 999;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* Collapsed state */
+.control-container.mobile-view.collapsed {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* Non-mobile view */
+.control-container:not(.mobile-view) {
+    position: static;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* Adjust control bar inside mobile view */
+.control-container.mobile-view .control-bar {
+    margin-bottom: 0;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 8px;
+}
