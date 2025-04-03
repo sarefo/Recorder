@@ -149,7 +149,8 @@ class AbcPlayer {
      * Shows fingering diagrams
      */
     showFingeringDiagrams() {
-        const notes = this.notationParser.extractNotesFromAbc();
+        // Use abcjs to extract only actual playable notes, avoiding parts and chord symbols
+        const notes = this.notationParser.extractNotesUsingAbcjs();
         const abcContainer = document.getElementById('abc-notation');
         this.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
     }
