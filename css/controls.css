@@ -72,3 +72,40 @@
     align-items: center;
     gap: 10px;
 }
+
+/* File selector styles */
+.file-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.file-label {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.file-selector {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.file-selector:hover {
+    background-color: #eee;
+    border-color: #ccc;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .file-label {
+        display: none;
+    }
+
+    .file-selector {
+        width: 100%;
+    }
+}

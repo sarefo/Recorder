@@ -33,6 +33,7 @@ class AbcPlayer {
         this.transposeManager = new TransposeManager();
         this.midiPlayer = new MidiPlayer();
         this.diagramRenderer = new DiagramRenderer(this.fingeringManager, this.fingeringConfig);
+        this.fileManager = new FileManager(this);
 
         // Initialize UI handlers
         this.initializeEventListeners();
@@ -440,7 +441,21 @@ class AbcPlayer {
         // Add share button
         notationSection.appendChild(this.createShareButton());
 
+        // Add file selector
+        notationSection.appendChild(this.createFileSelector());
+
         return notationSection;
+    }
+
+    createFileSelector() {
+        const fileContainer = document.createElement('div');
+        fileContainer.className = 'file-controls';
+
+        // Create the selector using our hardcoded list
+        const selector = this.fileManager.createFileSelector();
+        fileContainer.appendChild(selector);
+
+        return fileContainer;
     }
 
     /**

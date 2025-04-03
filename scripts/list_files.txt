@@ -1,0 +1,2656 @@
+==> Listing of ../js/abc-player.js <==
+/**
+ * Main application controller
+ */
+class AbcPlayer {
+    constructor() {
+        // Configuration for rendering ABC notation
+        this.renderConfig = {
+            stafftopmargin: 120,
+            staffbottommargin: 60,
+            oneSvgPerLine: false,
+            scale: 1.0,
+        };
+
+        // Config settings for fingering diagrams
+        this.fingeringConfig = {
+            showLabels: true,
+            scale: 0.75,
+            verticalOffset: 12,
+            holeSize: 7,
+            holeBorder: 1,
+            holeSpacing: 2,
+            columnSpacing: 6,
+            borderRadius: 4,
+            fontSizeNote: 10,
+            backgroundColor: 'rgba(240, 240, 180, 0.6)',
+            redColor: 'rgba(255, 0, 0, 0.6)',
+            greenColor: 'rgba(0, 128, 0, 0.6)',
+        };
+
+        // Initialize sub-modules
+        this.notationParser = new NotationParser();
+        this.fingeringManager = new FingeringManager(this.fingeringConfig);
+        this.transposeManager = new TransposeManager();
+        this.midiPlayer = new MidiPlayer();
+        this.diagramRenderer = new DiagramRenderer(this.fingeringManager, this.fingeringConfig);
+
+        // Initialize UI handlers
+        this.initializeEventListeners();
+
+        this.shareManager = new ShareManager(this);
+    }
+
+    /**
+     * Renders the ABC notation on the page
+     */
+    render() {
+        try {
+            const abcContainer = document.getElementById('abc-notation');
+            this.diagramRenderer.clearFingeringDiagrams();
+
+            // Render the ABC notation
+            const visualObj = this.renderAbcNotation();
+
+            // Initialize MIDI player
+            this.midiPlayer.init(visualObj);
+
+            // Add fingering diagrams if enabled
+            this.renderFingeringDiagrams(abcContainer);
+
+            // Update URL for sharing
+            if (this.shareManager) {
+                this.shareManager.updateUrlDebounced();
+            }
+        } catch (error) {
+            console.error("Error in render:", error);
+        }
+    }
+
+    /**
+     * Renders the ABC notation to the DOM
+     * @returns {Object} The visual object from abcjs
+     */
+    renderAbcNotation() {
+        // Add click handler
+        const clickListener = (abcElem, tuneNumber, classes) => {
+            this.handleNoteClick(abcElem);
+        };
+
+        return ABCJS.renderAbc("abc-notation", this.notationParser.currentAbc, {
+            responsive: "resize",
+            add_classes: true,
+            staffwidth: window.innerWidth - 60,
+            stafftopmargin: this.renderConfig.stafftopmargin,
+            staffbottommargin: this.renderConfig.staffbottommargin,
+            oneSvgPerLine: this.renderConfig.oneSvgPerLine,
+            scale: this.renderConfig.scale,
+            clickListener: clickListener
+        })[0];
+    }
+
+    /**
+     * Renders fingering diagrams if enabled
+     * @param {HTMLElement} abcContainer - The container element
+     */
+    renderFingeringDiagrams(abcContainer) {
+        if (this.fingeringManager.showFingering) {
+            setTimeout(() => {
+                const notes = this.notationParser.extractNotesFromAbc();
+                this.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
+            }, 100);
+        }
+    }
+
+    /**
+     * Handles click events on notes
+     * @param {Object} abcElem - The ABC element that was clicked
+     */
+    handleNoteClick(abcElem) {
+        // Only handle actual notes
+        if (abcElem.el_type !== "note" || !this.midiPlayer.midiPlayer) {
+            return;
+        }
+
+        // Find the start milliseconds for this note
+        const startMs = this.getNoteStartTime(abcElem);
+        if (startMs === undefined) {
+            console.warn("Could not determine start time for note");
+            return;
+        }
+
+        this.playFromPosition(startMs);
+    }
+
+    /**
+     * Gets the start time for a note in milliseconds
+     * @param {Object} abcElem - The ABC element
+     * @returns {number} The start time in milliseconds
+     */
+    getNoteStartTime(abcElem) {
+        return abcElem.currentTrackMilliseconds || abcElem.midiStartTime * 1000;
+    }
+
+    /**
+     * Plays from a specific position in the music
+     * @param {number} startMs - The start time in milliseconds
+     */
+    playFromPosition(startMs) {
+        // Stop current playback if playing
+        if (this.midiPlayer.isPlaying) {
+            this.midiPlayer.midiPlayer.stop();
+        }
+
+        // Start from this position
+        setTimeout(() => {
+            this.midiPlayer.midiPlayer.seek(startMs);
+            this.midiPlayer.midiPlayer.start();
+            this.midiPlayer.isPlaying = true;
+            document.getElementById('play-button').textContent = '⏸';
+        }, 100);
+    }
+
+    /**
+     * Copies the current ABC notation to the clipboard
+     */
+    async copyToClipboard() {
+        return Utils.copyToClipboard(this.notationParser.currentAbc);
+    }
+
+    /**
+     * Pastes ABC notation from the clipboard
+     * @returns {boolean} Whether the paste was successful
+     */
+    async pasteFromClipboard() {
+        const text = await Utils.readFromClipboard();
+        if (text && text.includes('X:') && text.includes('K:')) {
+            this.notationParser.currentAbc = text;
+            this.render();
+            Utils.showFeedback('ABC notation pasted successfully!');
+            return true;
+        } else if (text) {
+            alert('Invalid ABC notation format');
+        }
+        return false;
+    }
+
+    /**
+     * Transposes the music up or down
+     * @param {string} direction - The direction to transpose ('up' or 'down')
+     */
+    transpose(direction) {
+        const semitoneShift = direction === 'up' ? 1 : -1;
+
+        // Parse ABC notation
+        const sections = this.notationParser.parseAbcSections(this.notationParser.currentAbc);
+
+        // Transpose key if present
+        if (sections.key) {
+            sections.key = this.transposeManager.transposeKey(sections.key, semitoneShift);
+        }
+
+        // Transpose notes
+        sections.notes = this.transposeManager.transposeNotes(sections.notes, semitoneShift);
+
+        this.notationParser.currentAbc = this.notationParser.reconstructAbc(sections);
+        this.render();
+    }
+
+    /**
+     * Toggles the reference row visibility
+     */
+    toggleReferenceRow() {
+        const referenceRow = document.getElementById('reference-row');
+
+        // Toggle visibility directly
+        if (referenceRow.style.display === 'none') {
+            referenceRow.style.display = 'flex';
+            document.getElementById('chart-toggle').innerHTML = '&#x2212;'; // Minus sign
+        } else {
+            referenceRow.style.display = 'none';
+            document.getElementById('chart-toggle').innerHTML = '&#43;'; // Plus sign
+        }
+    }
+
+    /**
+     * Toggles between baroque and German fingering systems
+     * @returns {string} The new fingering system
+     */
+    toggleFingeringSystem() {
+        const newSystem = this.fingeringManager.toggleFingeringSystem();
+        this.render();
+        // Update the reference row
+        this.fingeringManager.populateReferenceRow();
+        return newSystem;
+    }
+
+    /**
+     * Toggles the display of fingering diagrams
+     * @returns {boolean} Whether fingering diagrams are now shown
+     */
+    toggleFingeringDisplay() {
+        this.fingeringManager.showFingering = !this.fingeringManager.showFingering;
+
+        if (this.fingeringManager.showFingering) {
+            this.showFingeringDiagrams();
+        } else {
+            this.hideFingeringDiagrams();
+        }
+
+        return this.fingeringManager.showFingering;
+    }
+
+    /**
+     * Shows fingering diagrams
+     */
+    showFingeringDiagrams() {
+        const notes = this.notationParser.extractNotesFromAbc();
+        const abcContainer = document.getElementById('abc-notation');
+        this.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
+    }
+
+    /**
+     * Hides fingering diagrams
+     */
+    hideFingeringDiagrams() {
+        this.diagramRenderer.clearFingeringDiagrams();
+    }
+
+    /**
+     * Initializes event listeners
+     */
+    initializeEventListeners() {
+        window.addEventListener('DOMContentLoaded', () => {
+            this.createControlElements();
+            this.initializeApplication();
+            this.setupKeyboardShortcuts();
+            this.setupWindowResizeHandler();
+        });
+    }
+
+    /**
+     * Creates control elements in the DOM
+     */
+    createControlElements() {
+        // Create main container for controls
+        const controlContainer = this.createControlContainer();
+
+        // Create MIDI status display
+        const midiStatus = this.createMidiStatusDisplay();
+
+        // Create the control bar
+        const controlBar = this.createControlBar();
+
+        // Add sections to control bar
+        controlBar.appendChild(this.createFingeringControlsSection());
+        controlBar.appendChild(this.createNotationControlsSection());
+        controlBar.appendChild(this.createPlaybackControlsSection());
+
+        // Add control elements to the document
+        controlContainer.appendChild(midiStatus);
+        controlContainer.appendChild(controlBar);
+
+        // Insert at the beginning of the body
+        document.body.insertBefore(controlContainer, document.body.firstChild);
+    }
+
+    /**
+     * Creates the main control container
+     * @returns {HTMLElement} The control container
+     */
+    createControlContainer() {
+        const container = document.createElement('div');
+        container.className = 'control-container';
+        return container;
+    }
+
+    /**
+     * Creates the MIDI status display
+     * @returns {HTMLElement} The MIDI status element
+     */
+    createMidiStatusDisplay() {
+        const midiStatus = document.createElement('div');
+        midiStatus.id = 'midi-status';
+        return midiStatus;
+    }
+
+    /**
+     * Creates the control bar
+     * @returns {HTMLElement} The control bar
+     */
+    createControlBar() {
+        const controlBar = document.createElement('div');
+        controlBar.className = 'control-bar';
+        return controlBar;
+    }
+
+    /**
+     * Initializes the application
+     */
+    initializeApplication() {
+        // Set initial state of reference row
+        document.getElementById('reference-row').style.display = 'none';
+
+        // Initialize the application
+        this.render();
+        setTimeout(() => {
+            this.shareManager.loadFromUrlParams();
+        }, 100);
+        this.fingeringManager.populateReferenceRow();
+    }
+
+    /**
+     * Creates fingering controls section
+     * @returns {HTMLElement} The fingering controls section
+     */
+    createFingeringControlsSection() {
+        const fingeringSection = document.createElement('div');
+        fingeringSection.className = 'control-section fingering-controls';
+
+        // Add fingering toggle button
+        fingeringSection.appendChild(this.createFingeringToggleButton());
+
+        // Add system toggle button
+        fingeringSection.appendChild(this.createSystemToggleButton());
+
+        // Add chart container
+        fingeringSection.appendChild(this.createChartContainer());
+
+        return fingeringSection;
+    }
+
+    /**
+     * Creates fingering toggle button
+     * @returns {HTMLElement} The fingering toggle button
+     */
+    createFingeringToggleButton() {
+        const fingeringDisplayToggle = document.createElement('button');
+        fingeringDisplayToggle.id = 'show-fingering';
+        fingeringDisplayToggle.textContent = 'Hide Fingering';
+        fingeringDisplayToggle.title = 'Show/hide fingering diagrams';
+
+        fingeringDisplayToggle.addEventListener('click', () => {
+            const showFingering = this.toggleFingeringDisplay();
+            fingeringDisplayToggle.textContent = showFingering ? 'Hide Fingering' : 'Show Fingering';
+        });
+
+        return fingeringDisplayToggle;
+    }
+
+    /**
+     * Creates system toggle button
+     * @returns {HTMLElement} The system toggle button
+     */
+    createSystemToggleButton() {
+        const systemToggle = document.createElement('button');
+        systemToggle.id = 'system-toggle';
+        systemToggle.title = 'Toggle Baroque/German Fingering';
+        systemToggle.textContent = 'German';
+
+        systemToggle.addEventListener('click', () => {
+            const newSystem = this.toggleFingeringSystem();
+            systemToggle.textContent = newSystem === 'baroque' ? 'Baroque' : 'German';
+        });
+
+        return systemToggle;
+    }
+
+    /**
+     * Creates chart container with toggle button
+     * @returns {HTMLElement} The chart container
+     */
+    createChartContainer() {
+        const chartContainer = document.createElement('div');
+        chartContainer.className = 'minimize-controls';
+
+        const chartLabel = document.createElement('span');
+        chartLabel.className = 'minimize-label';
+        chartLabel.textContent = 'Chart';
+
+        const chartToggle = document.createElement('button');
+        chartToggle.id = 'chart-toggle';
+        chartToggle.title = 'Show/Hide Reference Chart';
+        chartToggle.innerHTML = '&#43;'; // Plus sign
+
+        chartToggle.addEventListener('click', () => {
+            this.toggleReferenceRow();
+        });
+
+        chartContainer.appendChild(chartLabel);
+        chartContainer.appendChild(chartToggle);
+
+        return chartContainer;
+    }
+
+    /**
+     * Creates notation controls section
+     * @returns {HTMLElement} The notation controls section
+     */
+    createNotationControlsSection() {
+        const notationSection = document.createElement('div');
+        notationSection.className = 'control-section notation-controls';
+
+        // Add clipboard buttons
+        notationSection.appendChild(this.createCopyButton());
+        notationSection.appendChild(this.createPasteButton());
+
+        // Add transpose buttons
+        notationSection.appendChild(this.createTransposeUpButton());
+        notationSection.appendChild(this.createTransposeDownButton());
+
+        // Add share button
+        notationSection.appendChild(this.createShareButton());
+
+        return notationSection;
+    }
+
+    /**
+     * Creates copy button
+     * @returns {HTMLElement} The copy button
+     */
+    createCopyButton() {
+        const copyButton = document.createElement('button');
+        copyButton.id = 'copy-button';
+        copyButton.title = 'Copy ABC notation (Ctrl+C)';
+        copyButton.textContent = 'To Clipboard';
+
+        copyButton.addEventListener('click', () => {
+            this.copyToClipboard();
+        });
+
+        return copyButton;
+    }
+
+    /**
+     * Creates paste button
+     * @returns {HTMLElement} The paste button
+     */
+    createPasteButton() {
+        const pasteButton = document.createElement('button');
+        pasteButton.id = 'paste-button';
+        pasteButton.title = 'Paste ABC notation (Ctrl+V)';
+        pasteButton.textContent = 'From Clipboard';
+
+        pasteButton.addEventListener('click', () => {
+            this.pasteFromClipboard();
+        });
+
+        return pasteButton;
+    }
+
+    /**
+     * Creates transpose up button
+     * @returns {HTMLElement} The transpose up button
+     */
+    createTransposeUpButton() {
+        const transposeUpButton = document.createElement('button');
+        transposeUpButton.id = 'transpose-up';
+        transposeUpButton.title = 'Transpose up';
+        transposeUpButton.textContent = '▲';
+
+        transposeUpButton.addEventListener('click', () => {
+            this.transpose('up');
+        });
+
+        return transposeUpButton;
+    }
+
+    /**
+     * Creates transpose down button
+     * @returns {HTMLElement} The transpose down button
+     */
+    createTransposeDownButton() {
+        const transposeDownButton = document.createElement('button');
+        transposeDownButton.id = 'transpose-down';
+        transposeDownButton.title = 'Transpose down';
+        transposeDownButton.textContent = '▼';
+
+        transposeDownButton.addEventListener('click', () => {
+            this.transpose('down');
+        });
+
+        return transposeDownButton;
+    }
+
+    /**
+     * Creates share button
+     * @returns {HTMLElement} The share button
+     */
+    createShareButton() {
+        const shareButton = document.createElement('button');
+        shareButton.id = 'share-button';
+        shareButton.title = 'Create shareable link';
+        shareButton.textContent = 'Share';
+
+        shareButton.addEventListener('click', () => {
+            this.shareManager.copyShareUrl()
+                .then(success => {
+                    if (success) {
+                        Utils.showFeedback('Share link copied to clipboard!');
+                    }
+                });
+        });
+
+        return shareButton;
+    }
+
+    /**
+     * Creates playback controls section
+     * @returns {HTMLElement} The playback controls section
+     */
+    createPlaybackControlsSection() {
+        const playbackSection = document.createElement('div');
+        playbackSection.className = 'control-section playback-controls';
+
+        // Add play and restart buttons
+        playbackSection.appendChild(this.createPlayButton());
+        playbackSection.appendChild(this.createRestartButton());
+
+        // Add toggle buttons
+        playbackSection.appendChild(this.createChordsToggleButton());
+        playbackSection.appendChild(this.createVoicesToggleButton());
+        playbackSection.appendChild(this.createMetronomeToggleButton());
+
+        // Add tempo control
+        playbackSection.appendChild(this.createTempoControl());
+
+        return playbackSection;
+    }
+
+    /**
+     * Creates play button
+     * @returns {HTMLElement} The play button
+     */
+    createPlayButton() {
+        const playButton = document.createElement('button');
+        playButton.id = 'play-button';
+        playButton.title = 'Play/Pause';
+        playButton.textContent = '▶';
+
+        playButton.addEventListener('click', () => {
+            this.midiPlayer.togglePlay();
+        });
+
+        return playButton;
+    }
+
+    /**
+     * Creates restart button
+     * @returns {HTMLElement} The restart button
+     */
+    createRestartButton() {
+        const restartButton = document.createElement('button');
+        restartButton.id = 'restart-button';
+        restartButton.title = 'Restart';
+        restartButton.textContent = '⟳';
+
+        restartButton.addEventListener('click', () => {
+            this.midiPlayer.restart();
+        });
+
+        return restartButton;
+    }
+
+    /**
+     * Creates chords toggle button
+     * @returns {HTMLElement} The chords toggle button
+     */
+    createChordsToggleButton() {
+        const chordsToggle = document.createElement('button');
+        chordsToggle.id = 'chords-toggle';
+        chordsToggle.title = 'Toggle Chords';
+        chordsToggle.textContent = 'Chords';
+        chordsToggle.classList.add('active');
+
+        chordsToggle.addEventListener('click', async () => {
+            const newSettings = await this.midiPlayer.updatePlaybackSettings(
+                { chordsOn: !this.midiPlayer.playbackSettings.chordsOn },
+                this.currentVisualObj
+            );
+
+            chordsToggle.classList.toggle('active', newSettings.chordsOn);
+        });
+
+        return chordsToggle;
+    }
+
+    /**
+     * Creates voices toggle button
+     * @returns {HTMLElement} The voices toggle button
+     */
+    createVoicesToggleButton() {
+        const voicesToggle = document.createElement('button');
+        voicesToggle.id = 'voices-toggle';
+        voicesToggle.title = 'Toggle Voices';
+        voicesToggle.textContent = 'Voices';
+        voicesToggle.classList.add('active');
+
+        voicesToggle.addEventListener('click', async () => {
+            const newSettings = await this.midiPlayer.updatePlaybackSettings(
+                { voicesOn: !this.midiPlayer.playbackSettings.voicesOn },
+                this.currentVisualObj
+            );
+
+            voicesToggle.classList.toggle('active', newSettings.voicesOn);
+        });
+
+        return voicesToggle;
+    }
+
+    /**
+     * Creates metronome toggle button
+     * @returns {HTMLElement} The metronome toggle button
+     */
+    createMetronomeToggleButton() {
+        const metronomeToggle = document.createElement('button');
+        metronomeToggle.id = 'metronome-toggle';
+        metronomeToggle.title = 'Toggle Metronome';
+        metronomeToggle.textContent = 'Metronome';
+
+        metronomeToggle.addEventListener('click', async () => {
+            const newSettings = await this.midiPlayer.updatePlaybackSettings(
+                { metronomeOn: !this.midiPlayer.playbackSettings.metronomeOn },
+                this.currentVisualObj
+            );
+
+            metronomeToggle.classList.toggle('active', newSettings.metronomeOn);
+        });
+
+        return metronomeToggle;
+    }
+
+    /**
+     * Creates tempo control
+     * @returns {HTMLElement} The tempo control
+     */
+    createTempoControl() {
+        const tempoControl = document.createElement('div');
+        tempoControl.className = 'tempo-control';
+
+        // Create label
+        const tempoLabel = document.createElement('label');
+        tempoLabel.textContent = 'Tempo:';
+        tempoControl.appendChild(tempoLabel);
+
+        // Create slider
+        const tempoSlider = this.createTempoSlider();
+        tempoControl.appendChild(tempoSlider);
+
+        // Create value display
+        const tempoValue = document.createElement('span');
+        tempoValue.id = 'tempo-value';
+        tempoValue.className = 'tempo-value';
+        tempoValue.textContent = '100%';
+        tempoControl.appendChild(tempoValue);
+
+        // Connect slider to value display
+        this.connectTempoSliderEvents(tempoSlider, tempoValue);
+
+        return tempoControl;
+    }
+
+    /**
+     * Creates tempo slider
+     * @returns {HTMLElement} The tempo slider
+     */
+    createTempoSlider() {
+        const tempoSlider = document.createElement('input');
+        tempoSlider.type = 'range';
+        tempoSlider.id = 'tempo-slider';
+        tempoSlider.min = '50';
+        tempoSlider.max = '200';
+        tempoSlider.value = '100';
+        tempoSlider.title = 'Adjust playback speed';
+
+        return tempoSlider;
+    }
+
+    /**
+     * Connects tempo slider events
+     * @param {HTMLElement} tempoSlider - The tempo slider
+     * @param {HTMLElement} tempoValue - The tempo value display
+     */
+    connectTempoSliderEvents(tempoSlider, tempoValue) {
+        tempoSlider.addEventListener('input', () => {
+            const value = tempoSlider.value;
+            tempoValue.textContent = `${value}%`;
+        });
+
+        tempoSlider.addEventListener('change', async () => {
+            const value = parseInt(tempoSlider.value, 10);
+            await this.midiPlayer.updatePlaybackSettings(
+                { tempo: value },
+                this.currentVisualObj
+            );
+        });
+    }
+
+    /**
+     * Sets up keyboard shortcuts
+     */
+    setupKeyboardShortcuts() {
+        document.addEventListener('keydown', (event) => {
+            if (event.ctrlKey && !event.shiftKey && !event.altKey) {
+                if (event.key === 'c' && !window.getSelection().toString()) {
+                    event.preventDefault();
+                    this.copyToClipboard();
+                } else if (event.key === 'v') {
+                    event.preventDefault();
+                    this.pasteFromClipboard();
+                }
+            }
+        });
+    }
+
+    /**
+     * Sets up window resize handler
+     */
+    setupWindowResizeHandler() {
+        window.addEventListener('resize', Utils.debounce(() => {
+            if (this.fingeringManager.showFingering) {
+                this.showFingeringDiagrams();
+            }
+        }, 150));
+    }
+}
+
+==> Listing of ../js/diagram-renderer.js <==
+/**
+ * Manages visual display of the fingering diagrams on the staff
+ */
+class DiagramRenderer {
+    constructor(fingeringManager, config) {
+        this.fingeringManager = fingeringManager;
+        this.config = config;
+    }
+
+    /**
+     * Creates a container for all fingering diagrams
+     * @returns {HTMLElement} The diagram layer container
+     */
+    createDiagramLayer() {
+        const layer = document.createElement('div');
+        layer.id = 'fingering-layer';
+        layer.style.position = 'absolute';
+        layer.style.top = '0';
+        layer.style.left = '0';
+        layer.style.width = '100%';
+        layer.style.height = '100%';
+        layer.style.pointerEvents = 'none'; // None for layer, but we'll enable it for diagrams
+        layer.style.zIndex = '10';
+        return layer;
+    }
+
+    /**
+     * Main method to add fingering diagrams to the notation
+     * @param {HTMLElement} abcContainer - The ABC notation container
+     * @param {Array} notesData - Array of note names
+     */
+    addFingeringDiagrams(abcContainer, notesData) {
+        // Clear any existing diagrams
+        this.clearFingeringDiagrams();
+
+        // Create the layer for fingering diagrams
+        const layer = this.createDiagramLayer();
+        abcContainer.style.position = 'relative';
+        abcContainer.appendChild(layer);
+
+        // Find and filter note elements
+        const noteElements = this.findNoteElements();
+        if (!noteElements.length) return;
+
+        // Get container dimensions
+        const containerRect = abcContainer.getBoundingClientRect();
+
+        // Group notes by staff line
+        const staffLines = this.groupNotesByStaffLine(noteElements);
+
+        // Prepare the note data according to staff layout
+        const notesToUse = this.prepareNoteData(notesData, staffLines);
+
+        // Log info about valid notes (useful for debugging)
+        this.logValidNotesInfo(notesData);
+
+        // Add fingering diagrams for each staff line
+        this.renderDiagramsOnStaff(staffLines, notesToUse, containerRect, layer);
+    }
+
+    /**
+     * Find and filter note elements in the rendered notation
+     * @returns {Array} Filtered array of note elements
+     */
+    findNoteElements() {
+        const allElements = document.querySelectorAll("#abc-notation .abcjs-note");
+        return Array.from(allElements).filter(el => {
+            // Filter out non-note elements that might have the note class
+            return !el.classList.contains('abcjs-clef') &&
+                !el.classList.contains('abcjs-key-signature') &&
+                !el.classList.contains('abcjs-time-signature') &&
+                !el.classList.contains('abcjs-tempo');
+        });
+    }
+
+    /**
+     * Prepare note data to match the staff layout
+     * @param {Array} allNotes - Original note data
+     * @param {Array} staffLines - Grouped staff lines with notes
+     * @returns {Array} Adjusted note array
+     */
+    prepareNoteData(allNotes, staffLines) {
+        let notesToUse = [...allNotes];
+        const totalNoteElements = staffLines.reduce((sum, staff) => sum + staff.notes.length, 0);
+
+        if (totalNoteElements !== notesToUse.length) {
+            // Adjust list length to match element count
+            if (totalNoteElements < notesToUse.length) {
+                notesToUse = notesToUse.slice(0, totalNoteElements);
+            } else {
+                // Fill with the last note if we have more elements than notes
+                while (notesToUse.length < totalNoteElements) {
+                    notesToUse.push(notesToUse[notesToUse.length - 1] || "?");
+                }
+            }
+        }
+        return notesToUse;
+    }
+
+    /**
+     * Log information about valid notes (for debugging)
+     * @param {Array} notesData - Array of note names
+     */
+    logValidNotesInfo(notesData) {
+        const validNotes = notesData.filter(note =>
+            this.fingeringManager.getFingeringForNote(note) !== null
+        );
+        console.log(`Found ${validNotes.length} valid notes out of ${notesData.length}`);
+    }
+
+    /**
+     * Group note elements by their vertical position on staff lines
+     * @param {Array} noteElements - Array of note elements
+     * @returns {Array} Notes grouped by staff line
+     */
+    groupNotesByStaffLine(noteElements) {
+        const staffLines = [];
+        const tolerance = 40; // pixels
+
+        // Create positions map
+        const notePositions = this.createNotePositionsMap(noteElements);
+
+        // Group by vertical position
+        this.groupNotesByVerticalPosition(notePositions, staffLines, tolerance);
+
+        // Sort staff lines by vertical position (top to bottom)
+        staffLines.sort((a, b) => a.top - b.top);
+
+        // Sort notes within each staff line from left to right
+        staffLines.forEach(staff => {
+            staff.notes.sort((a, b) => a.left - b.left);
+        });
+
+        return staffLines;
+    }
+
+    /**
+     * Create a map of note positions from elements
+     * @param {Array} noteElements - Array of note elements
+     * @returns {Array} Array of note position objects
+     */
+    createNotePositionsMap(noteElements) {
+        return noteElements.map(el => {
+            const rect = el.getBoundingClientRect();
+            return {
+                element: el,
+                top: rect.top,
+                left: rect.left,
+                width: rect.width
+            };
+        });
+    }
+
+    /**
+     * Group notes by their vertical position
+     * @param {Array} notePositions - Array of note position objects
+     * @param {Array} staffLines - Array to populate with staff lines
+     * @param {number} tolerance - Vertical tolerance in pixels
+     */
+    groupNotesByVerticalPosition(notePositions, staffLines, tolerance) {
+        notePositions.forEach(pos => {
+            let foundStaff = false;
+            for (const staff of staffLines) {
+                if (Math.abs(staff.top - pos.top) <= tolerance) {
+                    staff.notes.push(pos);
+                    foundStaff = true;
+                    break;
+                }
+            }
+
+            if (!foundStaff) {
+                staffLines.push({
+                    top: pos.top,
+                    notes: [pos]
+                });
+            }
+        });
+    }
+
+    /**
+     * Render fingering diagrams on the staff
+     * @param {Array} staffLines - Notes grouped by staff line
+     * @param {Array} notesToUse - Array of note names
+     * @param {DOMRect} containerRect - Container bounding rectangle
+     * @param {HTMLElement} layer - Container for diagrams
+     */
+    renderDiagramsOnStaff(staffLines, notesToUse, containerRect, layer) {
+        let noteIndex = 0;
+
+        // Create staff element map
+        const staffElementMap = this.createStaffElementMap();
+
+        // Process each staff line
+        staffLines.forEach((staff, staffIndex) => {
+            if (staff.notes.length === 0) return;
+
+            // Get diagram vertical position for this staff
+            const diagramsTopPosition = this.getDiagramVerticalPosition(staff, containerRect, staffElementMap);
+            if (diagramsTopPosition === null) return;
+
+            // Process each note in this staff
+            staff.notes.forEach(note => {
+                if (noteIndex >= notesToUse.length) return;
+
+                this.renderDiagramForNote(note, notesToUse[noteIndex], containerRect, diagramsTopPosition, layer);
+                noteIndex++;
+            });
+        });
+    }
+
+    /**
+     * Create a map of staff elements by their line number
+     * @returns {Map} Map of staff elements by line number
+     */
+    createStaffElementMap() {
+        const staffElementMap = new Map();
+        const staffElements = document.querySelectorAll('.abcjs-staff');
+
+        staffElements.forEach(el => {
+            // Look for the abcjs-lN class to determine line number
+            const lineClassMatch = Array.from(el.classList)
+                .find(cls => cls.match(/abcjs-l\d+/));
+
+            if (lineClassMatch) {
+                const lineNumber = parseInt(lineClassMatch.replace('abcjs-l', ''), 10);
+                staffElementMap.set(lineNumber, el);
+            }
+        });
+
+        return staffElementMap;
+    }
+
+    /**
+     * Get the vertical position for diagrams on a staff
+     * @param {Object} staff - Staff line object
+     * @param {DOMRect} containerRect - Container bounding rectangle
+     * @param {Map} staffElementMap - Map of staff elements
+     * @returns {number|null} Vertical position or null if not found
+     */
+    getDiagramVerticalPosition(staff, containerRect, staffElementMap) {
+        // Find the first note in this staff line and extract its line number from the class
+        const noteElement = staff.notes[0].element;
+        let lineNumber = this.findLineNumberForElement(noteElement);
+
+        // If we found a line number, get the corresponding staff element
+        const staffElement = lineNumber !== null ? staffElementMap.get(lineNumber) : null;
+        if (!staffElement) return null;
+
+        // Get the staff's position
+        const staffRect = staffElement.getBoundingClientRect();
+
+        // Position diagrams a consistent distance below the staff bottom
+        return staffRect.bottom - containerRect.top + this.config.verticalOffset;
+    }
+
+    /**
+     * Find the line number for a note element
+     * @param {HTMLElement} element - Note element
+     * @returns {number|null} Line number or null if not found
+     */
+    findLineNumberForElement(element) {
+        let lineNumber = null;
+        let el = element;
+
+        // Look for the closest element with an abcjs-lN class
+        while (el && lineNumber === null) {
+            const lineClassMatch = Array.from(el.classList)
+                .find(cls => cls.match(/abcjs-l\d+/));
+
+            if (lineClassMatch) {
+                lineNumber = parseInt(lineClassMatch.replace('abcjs-l', ''), 10);
+            }
+            el = el.parentElement;
+        }
+
+        return lineNumber;
+    }
+
+    /**
+     * Render a fingering diagram for a specific note
+     * @param {Object} note - Note position object
+     * @param {string} noteName - ABC notation note name
+     * @param {DOMRect} containerRect - Container bounding rectangle
+     * @param {number} verticalPosition - Vertical position for the diagram
+     * @param {HTMLElement} layer - Container for diagrams
+     */
+    renderDiagramForNote(note, noteName, containerRect, verticalPosition, layer) {
+        const fingeringData = this.fingeringManager.getFingeringForNote(noteName);
+        if (!fingeringData) return;
+
+        const diagram = this.fingeringManager.createFingeringDiagram(fingeringData, noteName);
+
+        // Position horizontally based on note, vertically based on staff
+        diagram.style.position = 'absolute';
+        diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
+        diagram.style.top = `${verticalPosition}px`;
+        diagram.style.transform = `translate(-50%, 0) scale(${this.config.scale})`;
+        diagram.style.transformOrigin = 'center top';
+
+        layer.appendChild(diagram);
+    }
+
+    /**
+     * Remove all fingering diagrams
+     */
+    clearFingeringDiagrams() {
+        const existing = document.getElementById('fingering-layer');
+        if (existing) existing.remove();
+    }
+}
+
+
+==> Listing of ../js/fingering-manager.js <==
+/**
+ * Manages fingering diagrams and their display
+ */
+class FingeringManager {
+    constructor(config) {
+        this.config = config;
+        this.fingeringData = {
+            'C': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'c'] },
+            '^C': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'p'] },
+            'D': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
+            '^D': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'p', 'o'] },
+            'E': { left: ['c', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
+            'F': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'c'] },
+            '^F': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'o'] },
+            'G': { left: ['c', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
+            '^G': { left: ['c', 'c', 'c', 'o'], right: ['c', 'c', 'o', 'o'] },
+            'A': { left: ['c', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+            '^A': { left: ['c', 'c', 'o', 'c'], right: ['c', 'o', 'o', 'o'] },
+            'B': { left: ['c', 'c', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+            'c': { left: ['c', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+            '^c': { left: ['o', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+            'd': { left: ['o', 'o', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+            '^d': { left: ['o', 'o', 'c', 'c'], right: ['c', 'c', 'c', 'o'] },
+            'e': { left: ['p', 'c', 'c', 'c'], right: ['c', 'c', 'o', 'o'] },
+            'f': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'c', 'o'] },
+            '^f': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'o'] },
+            'g': { left: ['p', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
+            '^g': { left: ['p', 'c', 'c', 'o'], right: ['c', 'o', 'o', 'o'] },
+            'a': { left: ['p', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] }
+        };
+
+        // German fingering variations
+        this.fingeringDataGerman = {
+            'F': { left: ['c', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+            '^F': { left: ['c', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] },
+            '^c': { left: ['c', 'o', 'o', 'o'], right: ['o', 'o', 'o', 'o'] },
+            'f': { left: ['p', 'c', 'c', 'c'], right: ['c', 'o', 'o', 'o'] },
+            '^f': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'c'] },
+            '^g': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] }
+        };
+
+        this.currentFingeringSystem = 'german';
+        this.showFingering = true;
+    }
+
+    /**
+     * Creates a hole element for fingering diagrams
+     * @param {string} state - State of the hole ('c' = closed, 'o' = open, 'p' = partially closed)
+     * @param {boolean} isFirstLeftHole - Whether this is the thumb hole
+     * @returns {HTMLElement} - The created hole element
+     */
+    createHole(state, isFirstLeftHole = false) {
+        const config = this.config;
+        const hole = document.createElement('div');
+
+        this._applyHoleStyles(hole, config);
+        this._applyHoleState(hole, state, isFirstLeftHole);
+
+        return hole;
+    }
+
+    /**
+     * Applies base styles to a hole element
+     * @param {HTMLElement} hole - The hole element
+     * @param {Object} config - Configuration object
+     * @private
+     */
+    _applyHoleStyles(hole, config) {
+        hole.style.width = `${config.holeSize}px`;
+        hole.style.height = `${config.holeSize}px`;
+        hole.style.borderRadius = '50%';
+        hole.style.border = `${config.holeBorder}px solid #000`;
+        hole.style.margin = `${config.holeSpacing}px 0`;
+    }
+
+    /**
+     * Applies state-specific styles to a hole element
+     * @param {HTMLElement} hole - The hole element
+     * @param {string} state - State of the hole
+     * @param {boolean} isFirstLeftHole - Whether this is the thumb hole
+     * @private
+     */
+    _applyHoleState(hole, state, isFirstLeftHole) {
+        const filledColor = isFirstLeftHole ? '#888' : 'black';
+
+        if (state === 'c') {
+            hole.style.backgroundColor = filledColor;
+        } else if (state === 'p') {
+            hole.style.background = `linear-gradient(45deg, ${filledColor} 50%, white 50%)`;
+        } else {
+            hole.style.backgroundColor = 'white';
+        }
+    }
+
+    /**
+     * Creates a complete fingering diagram for a note
+     * @param {Object} fingeringData - Fingering data for the note
+     * @param {string} noteName - Name of the note
+     * @returns {HTMLElement} - The created diagram element
+     */
+    createFingeringDiagram(fingeringData, noteName) {
+        const diagram = this._createDiagramContainer();
+        this._addClickBehavior(diagram);
+
+        if (this.config.showLabels && noteName) {
+            this._addNoteLabel(diagram, noteName);
+        }
+
+        const columnsContainer = this._createColumnsContainer();
+        const leftColumn = this._createHandColumn(fingeringData.left, true);
+        const rightColumn = this._createHandColumn(fingeringData.right, false);
+
+        columnsContainer.appendChild(leftColumn);
+        columnsContainer.appendChild(rightColumn);
+        diagram.appendChild(columnsContainer);
+
+        return diagram;
+    }
+
+    /**
+     * Creates the main container for a fingering diagram
+     * @returns {HTMLElement} - The diagram container
+     * @private
+     */
+    _createDiagramContainer() {
+        const config = this.config;
+        const diagram = document.createElement('div');
+
+        diagram.className = 'fingering-diagram';
+        diagram.setAttribute('data-state', 'neutral');
+        diagram.style.display = 'flex';
+        diagram.style.flexDirection = 'column';
+        diagram.style.alignItems = 'center';
+        diagram.style.backgroundColor = config.backgroundColor;
+        diagram.style.borderRadius = `${config.borderRadius}px`;
+        diagram.style.padding = '3px';
+        diagram.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.2)';
+        diagram.style.pointerEvents = 'auto'; // Make clickable
+
+        return diagram;
+    }
+
+    /**
+     * Adds click behavior to cycle through states for a diagram
+     * @param {HTMLElement} diagram - The diagram element
+     * @private
+     */
+    _addClickBehavior(diagram) {
+        const config = this.config;
+
+        diagram.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const currentState = diagram.getAttribute('data-state');
+            let newState;
+
+            if (currentState === 'neutral') {
+                newState = 'red';
+                diagram.style.backgroundColor = config.redColor;
+            } else if (currentState === 'red') {
+                newState = 'green';
+                diagram.style.backgroundColor = config.greenColor;
+            } else {
+                newState = 'neutral';
+                diagram.style.backgroundColor = config.backgroundColor;
+            }
+
+            diagram.setAttribute('data-state', newState);
+        });
+    }
+
+    /**
+     * Adds a note label to a diagram
+     * @param {HTMLElement} diagram - The diagram element
+     * @param {string} noteName - The name of the note
+     * @private
+     */
+    _addNoteLabel(diagram, noteName) {
+        const config = this.config;
+        const noteLabel = document.createElement('div');
+
+        noteLabel.textContent = noteName;
+        noteLabel.style.fontSize = `${config.fontSizeNote}px`;
+        noteLabel.style.fontWeight = 'bold';
+        noteLabel.style.marginBottom = '2px';
+
+        diagram.appendChild(noteLabel);
+    }
+
+    /**
+     * Creates the container for the left and right hand columns
+     * @returns {HTMLElement} - The columns container
+     * @private
+     */
+    _createColumnsContainer() {
+        const container = document.createElement('div');
+        container.style.display = 'flex';
+        container.style.gap = `${this.config.columnSpacing}px`;
+        return container;
+    }
+
+    /**
+     * Creates a column for either left or right hand
+     * @param {Array} states - Array of hole states
+     * @param {boolean} isLeftHand - Whether this is the left hand column
+     * @returns {HTMLElement} - The hand column element
+     * @private
+     */
+    _createHandColumn(states, isLeftHand) {
+        const column = document.createElement('div');
+        column.style.display = 'flex';
+        column.style.flexDirection = 'column';
+        column.style.alignItems = 'center';
+
+        states.forEach((state, index) => {
+            // For left hand, first hole is the thumb hole
+            const isThumbHole = isLeftHand && index === 0;
+            column.appendChild(this.createHole(state, isThumbHole));
+        });
+
+        return column;
+    }
+
+    /**
+     * Gets the fingering data for a specific note
+     * @param {string} noteName - Name of the note
+     * @returns {Object|null} - Fingering data for the note or null if not found
+     */
+    getFingeringForNote(noteName) {
+        // Handle natural accidentals (=) by treating them as the base note
+        if (noteName.startsWith('=')) {
+            noteName = noteName.substring(1);
+        }
+
+        // Try direct match first
+        const fingeringData = this._getDirectFingeringMatch(noteName);
+        if (fingeringData) return fingeringData;
+
+        // Try enharmonic match if direct match failed
+        return this._getEnharmonicFingeringMatch(noteName);
+    }
+
+    /**
+     * Attempts to find a direct match for fingering data
+     * @param {string} noteName - Name of the note
+     * @returns {Object|null} - Fingering data or null if not found
+     * @private
+     */
+    _getDirectFingeringMatch(noteName) {
+        if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[noteName]) {
+            return this.fingeringDataGerman[noteName];
+        }
+
+        if (this.fingeringData[noteName]) {
+            return this.fingeringData[noteName];
+        }
+
+        return null;
+    }
+
+    /**
+     * Attempts to find an enharmonic match for fingering data
+     * @param {string} noteName - Name of the note
+     * @returns {Object|null} - Fingering data or null if not found
+     * @private
+     */
+    _getEnharmonicFingeringMatch(noteName) {
+        const noteMatch = noteName.match(/([_^=]*)([A-Ga-g])([,']*)/);
+        if (!noteMatch) return null;
+
+        const [, accidental, noteLetter, octaveMarkers] = noteMatch;
+
+        // Map for common enharmonic equivalents
+        const enharmonicMap = this._getEnharmonicMap();
+
+        // Try looking up with an enharmonic equivalent
+        const enharmonicKey = accidental + noteLetter;
+        if (enharmonicMap[enharmonicKey]) {
+            const enharmonic = enharmonicMap[enharmonicKey] + octaveMarkers;
+
+            if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[enharmonic]) {
+                return this.fingeringDataGerman[enharmonic];
+            }
+
+            if (this.fingeringData[enharmonic]) {
+                return this.fingeringData[enharmonic];
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Returns a mapping of enharmonic note equivalents
+     * @returns {Object} - Map of enharmonic equivalents
+     * @private
+     */
+    _getEnharmonicMap() {
+        return {
+            // Original mappings for C4-B4 octave (uppercase)
+            '_B': '^A', '^A': '_B',
+            '_E': '^D', '^D': '_E',
+            '_A': '^G', '^G': '_A',
+            '_D': '^C', '^C': '_D',
+            '_G': '^F', '^F': '_G',
+
+            // Additional mappings for C5-B5 octave (lowercase)
+            '_b': '^a', '^a': '_b',
+            '_e': '^d', '^d': '_e',
+            '_a': '^g', '^g': '_a',
+            '_d': '^c', '^c': '_d',
+            '_g': '^f', '^f': '_g'
+        };
+    }
+
+    /**
+     * Toggles between Baroque and German fingering systems
+     * @returns {string} - The new fingering system
+     */
+    toggleFingeringSystem() {
+        this.currentFingeringSystem = (this.currentFingeringSystem === 'baroque') ? 'german' : 'baroque';
+        return this.currentFingeringSystem;
+    }
+
+    /**
+     * Clears all fingering diagrams from the display
+     */
+    clearFingeringDiagrams() {
+        const existing = document.getElementById('fingering-layer');
+        if (existing) existing.remove();
+    }
+
+    /**
+     * Populates the reference row with fingering diagrams for all notes
+     */
+    populateReferenceRow() {
+        const referenceRow = document.getElementById('reference-row');
+        if (!referenceRow) return;
+
+        // Clear any existing content
+        referenceRow.innerHTML = '';
+
+        const referenceNotes = this._getReferenceNotesList();
+        this._populateNoteDiagrams(referenceRow, referenceNotes);
+
+        // Start with reference row minimized
+        document.querySelector('.abcjs-container').classList.add('minimized');
+    }
+
+    /**
+     * Gets the list of reference notes to display
+     * @returns {Array} - List of note names
+     * @private
+     */
+    _getReferenceNotesList() {
+        // Define reference notes (C4 to A5)
+        return [
+            'C', '^C', 'D', '^D', 'E', 'F', '^F', 'G', '^G', 'A', '^A', 'B',
+            'c', '^c', 'd', '^d', 'e', 'f', '^f', 'g', '^g', 'a'
+        ];
+    }
+
+    /**
+     * Creates and adds diagram containers for each note
+     * @param {HTMLElement} referenceRow - The reference row element
+     * @param {Array} referenceNotes - List of note names
+     * @private
+     */
+    _populateNoteDiagrams(referenceRow, referenceNotes) {
+        // Create a fingering diagram for each reference note
+        referenceNotes.forEach(noteName => {
+            const fingeringData = this.getFingeringForNote(noteName);
+            if (!fingeringData) return;
+
+            const container = this._createNoteContainer(noteName);
+            const noteLabel = this._createNoteLabel(noteName);
+            const diagram = this.createFingeringDiagram(fingeringData, noteName);
+
+            container.appendChild(noteLabel);
+            container.appendChild(diagram);
+            referenceRow.appendChild(container);
+        });
+    }
+
+    /**
+     * Creates a container for a note in the reference row
+     * @param {string} noteName - Name of the note
+     * @returns {HTMLElement} - The note container
+     * @private
+     */
+    _createNoteContainer(noteName) {
+        const container = document.createElement('div');
+        container.className = 'chart-container';
+        container.style.padding = '8px';
+        container.style.border = '1px solid #ddd';
+        container.style.borderRadius = '8px';
+        container.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+
+        if (noteName.includes('^')) {
+            container.style.borderWidth = '3px';
+            container.style.borderColor = '#000';
+        }
+
+        return container;
+    }
+
+    /**
+     * Creates a label for a note in the reference row
+     * @param {string} noteName - Name of the note
+     * @returns {HTMLElement} - The note label
+     * @private
+     */
+    _createNoteLabel(noteName) {
+        const noteLabel = document.createElement('div');
+        noteLabel.textContent = noteName;
+        noteLabel.style.textAlign = 'center';
+        noteLabel.style.marginBottom = '8px';
+        noteLabel.style.fontWeight = 'bold';
+        return noteLabel;
+    }
+}
+
+
+==> Listing of ../js/main.js <==
+// Initialize the application when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    window.app = new AbcPlayer();
+});
+
+==> Listing of ../js/midi-player.js <==
+/**
+ * Manages MIDI playback functionality with enhanced controls
+ */
+class MidiPlayer {
+    constructor() {
+        this.midiPlayer = null;
+        this.isPlaying = false;
+        this.audioContext = null;
+        this.playbackSettings = {
+            chordsOn: true,
+            voicesOn: true,
+            metronomeOn: false,
+            tempo: 100 // Default tempo percentage (100%)
+        };
+    }
+
+    /**
+     * Creates the audio context
+     */
+    createAudioContext() {
+        if (!this.audioContext) {
+            this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        return this.audioContext;
+    }
+
+    /**
+     * Creates the MIDI player instance
+     */
+    createMidiPlayer() {
+        if (!this.midiPlayer) {
+            this.midiPlayer = new ABCJS.synth.CreateSynth();
+
+            // Add event listener for when playback ends
+            this.midiPlayer.onEnded = () => {
+                this.isPlaying = false;
+                this.updatePlayButtonState();
+            };
+        }
+        return this.midiPlayer;
+    }
+
+    /**
+     * Calculates the tempo settings based on visual object metadata
+     * @param {Object} visualObj - The ABC visual object
+     * @returns {Object} Tempo settings including adjusted tempo and milliseconds per measure
+     */
+    calculateTempoSettings(visualObj) {
+        // Get the base tempo from the tune
+        const baseTempo = visualObj.metaText?.tempo?.qpm || 120;
+        const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
+
+        // Calculate milliseconds per measure based on adjusted tempo
+        const timeSignature = visualObj.getMeter();
+        const beatsPerMeasure = timeSignature?.value?.[0].num || 4;
+        const millisecondsPerMeasure = (60000 * beatsPerMeasure) / adjustedTempo;
+
+        return {
+            adjustedTempo,
+            millisecondsPerMeasure
+        };
+    }
+
+    /**
+     * Prepares playback options based on current settings
+     * @returns {Object} MIDI playback options
+     */
+    preparePlaybackOptions() {
+        return {
+            program: 73, // Flute instrument (MIDI program 73)
+            midiTranspose: 0,
+            chordsOff: !this.playbackSettings.chordsOn,
+            voicesOff: !this.playbackSettings.voicesOn,
+            drum: this.playbackSettings.metronomeOn ? "dddd" : "", // Simple metronome pattern
+            drumBars: 1,
+            drumIntro: 1
+        };
+    }
+
+    /**
+     * Initializes the MIDI player with the provided visual object
+     * @param {Object} visualObj - The ABC visual object
+     * @returns {Promise<boolean>} Success state
+     */
+    async init(visualObj) {
+        try {
+            // Ensure audio context exists
+            this.createAudioContext();
+
+            // Create MIDI player if needed
+            this.createMidiPlayer();
+
+            // Calculate tempo settings
+            const { millisecondsPerMeasure } = this.calculateTempoSettings(visualObj);
+
+            // Get playback options
+            const options = this.preparePlaybackOptions();
+
+            // Initialize MIDI with all current settings
+            await this.midiPlayer.init({
+                visualObj: visualObj,
+                audioContext: this.audioContext,
+                millisecondsPerMeasure: millisecondsPerMeasure,
+                options: options
+            });
+
+            // Load and prepare the synth
+            await this.midiPlayer.prime();
+
+            this.updatePlayButtonState(false);
+            return true;
+        } catch (error) {
+            console.error("Error initializing MIDI player:", error);
+            this.updateStatusDisplay("Error initializing audio");
+            return false;
+        }
+    }
+
+    /**
+     * Updates the play button state
+     * @param {boolean} disabled - Whether the button should be disabled
+     */
+    updatePlayButtonState(disabled = false) {
+        const playButton = document.getElementById('play-button');
+        if (playButton) {
+            playButton.disabled = disabled;
+            playButton.textContent = this.isPlaying ? '⏸' : '▶';
+            playButton.title = this.isPlaying ? 'Pause' : 'Play';
+        }
+    }
+
+    /**
+     * Updates the status display with a message
+     * @param {string} message - Message to display
+     */
+    updateStatusDisplay(message) {
+        const statusEl = document.getElementById('midi-status');
+        if (statusEl) {
+            statusEl.textContent = message;
+            // Auto-hide after 3 seconds if it's not an error
+            if (!message.toLowerCase().includes('error')) {
+                setTimeout(() => {
+                    statusEl.textContent = '';
+                }, 3000);
+            }
+        }
+    }
+
+    /**
+     * Pauses the current playback
+     * @returns {Promise<boolean>} Success state
+     */
+    async pausePlayback() {
+        try {
+            await this.midiPlayer.pause();
+            this.updateStatusDisplay("Playback paused");
+            return true;
+        } catch (error) {
+            console.error("Error pausing playback:", error);
+            return false;
+        }
+    }
+
+    /**
+     * Starts or resumes playback
+     * @returns {Promise<boolean>} Success state
+     */
+    async startPlayback() {
+        try {
+            await this.midiPlayer.start();
+            this.updateStatusDisplay("Playing");
+            return true;
+        } catch (error) {
+            console.error("Error starting playback:", error);
+            return false;
+        }
+    }
+
+    /**
+     * Toggles play/pause state
+     * @returns {Promise<boolean>} Success state
+     */
+    async togglePlay() {
+        try {
+            if (!this.midiPlayer) {
+                this.updateStatusDisplay("MIDI player not initialized");
+                return false;
+            }
+
+            let success;
+            if (this.isPlaying) {
+                success = await this.pausePlayback();
+            } else {
+                success = await this.startPlayback();
+            }
+
+            if (success) {
+                this.isPlaying = !this.isPlaying;
+                this.updatePlayButtonState();
+            }
+
+            return success;
+        } catch (error) {
+            console.error("Error in togglePlay:", error);
+            this.updateStatusDisplay("Error during playback");
+            return false;
+        }
+    }
+
+    /**
+     * Stops current playback
+     * @returns {Promise<boolean>} Success state
+     */
+    async stopPlayback() {
+        try {
+            await this.midiPlayer.stop();
+            this.isPlaying = false;
+            this.updatePlayButtonState();
+            return true;
+        } catch (error) {
+            console.error("Error stopping playback:", error);
+            return false;
+        }
+    }
+
+    /**
+     * Restarts playback from the beginning
+     * @returns {Promise<boolean>} Success state
+     */
+    async restart() {
+        try {
+            if (!this.midiPlayer) {
+                this.updateStatusDisplay("MIDI player not initialized");
+                return false;
+            }
+
+            // Stop current playback
+            const stopSuccess = await this.stopPlayback();
+            if (!stopSuccess) return false;
+
+            // Start from beginning
+            const startSuccess = await this.startPlayback();
+            if (startSuccess) {
+                this.isPlaying = true;
+                this.updatePlayButtonState();
+                this.updateStatusDisplay("Playback restarted");
+            }
+
+            return startSuccess;
+        } catch (error) {
+            console.error("Error in restart:", error);
+            this.updateStatusDisplay("Error restarting playback");
+            return false;
+        }
+    }
+
+    /**
+     * Updates playback settings and reinitializes if needed
+     * @param {Object} settings - New playback settings
+     * @param {Object} visualObj - The ABC visual object
+     * @returns {Promise<Object>} Updated settings
+     */
+    async updatePlaybackSettings(settings, visualObj) {
+        try {
+            // Update the settings
+            this.playbackSettings = {
+                ...this.playbackSettings,
+                ...settings
+            };
+
+            // Track current playback state
+            const wasPlaying = this.isPlaying;
+
+            // Stop playback if currently playing
+            if (wasPlaying) {
+                await this.stopPlayback();
+            }
+
+            // Re-initialize with new settings
+            await this.init(visualObj);
+
+            // Resume playback if it was playing before
+            if (wasPlaying) {
+                await this.startPlayback();
+                this.isPlaying = true;
+                this.updatePlayButtonState();
+            }
+
+            return this.playbackSettings;
+        } catch (error) {
+            console.error("Error updating playback settings:", error);
+            this.updateStatusDisplay("Error updating playback settings");
+            return this.playbackSettings;
+        }
+    }
+}
+
+
+==> Listing of ../js/notation-parser.js <==
+/**
+ * Handles music notation extraction and processing
+ */
+class NotationParser {
+    constructor() {
+        this.currentAbc = `X:1
+T:Chromatic Scale
+M:4/4
+L:1/4
+Q:1/4=120
+K:C
+C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
+    }
+
+    /**
+     * Splits ABC notation into header, key, and notes sections
+     * @param {string} abc - The ABC notation to parse
+     * @returns {object} Sections of the ABC notation
+     */
+    parseAbcSections(abc) {
+        const sections = {
+            header: [],
+            key: '',
+            notes: []
+        };
+
+        const lines = abc.split('\n');
+        let inNotes = false;
+
+        for (const line of lines) {
+            if (line.trim().startsWith('K:')) {
+                sections.key = line;
+                inNotes = true;
+            } else if (!inNotes) {
+                sections.header.push(line);
+            } else {
+                sections.notes.push(line);
+            }
+        }
+
+        return sections;
+    }
+
+    /**
+     * Reconstructs ABC notation from parsed sections
+     * @param {object} sections - The sections to reconstruct
+     * @returns {string} The reconstructed ABC notation
+     */
+    reconstructAbc(sections) {
+        return [
+            ...sections.header,
+            sections.key,
+            ...sections.notes
+        ].join('\n');
+    }
+
+    /**
+     * Gets the key signature from the ABC notation
+     * @returns {string} The key signature
+     */
+    extractKeySignature() {
+        const keyMatch = this.currentAbc.match(/K:([A-G][#b]?m?)/);
+        return keyMatch ? keyMatch[1] : 'C';
+    }
+
+    /**
+     * Gets the musical content part from the ABC notation (after K: line)
+     * @returns {string} The musical content
+     */
+    extractMusicContent() {
+        const parts = this.currentAbc.split(/K:[^\n]+\n/);
+        if (parts.length < 2) return '';
+
+        return parts[1]
+            .replace(/\\\s*\n/g, ' ')  // Handle line continuations
+            .replace(/V:\d+/g, ' ')    // Remove voice indicators
+            .replace(/\|/g, ' |')      // Add space after bar lines for easier parsing
+            .replace(/\s+/g, ' ')      // Normalize whitespace
+            .trim();
+    }
+
+    /**
+     * Gets accidentals for a key signature
+     * @param {string} key - The key signature
+     * @returns {object} Mapping of notes to accidentals
+     */
+    getAccidentalsForKey(key) {
+        // Standardize key format
+        const normalizedKey = key.replace('#', '♯').replace('b', '♭');
+        const isMinor = normalizedKey.endsWith('m');
+        const baseKey = isMinor ? normalizedKey.slice(0, -1) : normalizedKey;
+
+        // Key signature definitions (which notes are affected)
+        const keySignatures = {
+            // Major keys with sharps
+            'C': {},  // No accidentals
+            'G': { 'F': '^' },  // F♯
+            'D': { 'F': '^', 'C': '^' },  // F♯, C♯
+            'A': { 'F': '^', 'C': '^', 'G': '^' },  // F♯, C♯, G♯
+            'E': { 'F': '^', 'C': '^', 'G': '^', 'D': '^' },  // F♯, C♯, G♯, D♯
+            'B': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^' },  // F♯, C♯, G♯, D♯, A♯
+            'F♯': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^', 'E': '^' },  // F♯, C♯, G♯, D♯, A♯, E♯
+            'C♯': { 'F': '^', 'C': '^', 'G': '^', 'D': '^', 'A': '^', 'E': '^', 'B': '^' },  // F♯, C♯, G♯, D♯, A♯, E♯, B♯
+
+            // Major keys with flats
+            'F': { 'B': '_' },  // B♭
+            'B♭': { 'B': '_', 'E': '_' },  // B♭, E♭
+            'E♭': { 'B': '_', 'E': '_', 'A': '_' },  // B♭, E♭, A♭
+            'A♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_' },  // B♭, E♭, A♭, D♭
+            'D♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_' },  // B♭, E♭, A♭, D♭, G♭
+            'G♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_', 'C': '_' },  // B♭, E♭, A♭, D♭, G♭, C♭
+            'C♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_', 'C': '_', 'F': '_' },  // B♭, E♭, A♭, D♭, G♭, C♭, F♭
+        };
+
+        // Map minor keys to their relative major
+        const minorToRelativeMajor = {
+            'Am': 'C', 'Em': 'G', 'Bm': 'D', 'F♯m': 'A', 'C♯m': 'E', 'G♯m': 'B', 'D♯m': 'F♯', 'A♯m': 'C♯',
+            'Dm': 'F', 'Gm': 'B♭', 'Cm': 'E♭', 'Fm': 'A♭', 'B♭m': 'D♭', 'E♭m': 'G♭', 'A♭m': 'C♭'
+        };
+
+        if (isMinor) {
+            return keySignatures[minorToRelativeMajor[normalizedKey]] || {};
+        }
+
+        return keySignatures[baseKey] || {};
+    }
+
+    /**
+     * Determines if a note is inside a chord structure
+     * @param {string} musicPart - The music content
+     * @param {number} matchIndex - The index of the note match
+     * @returns {boolean} Whether the note is in a chord
+     */
+    isNoteInChord(musicPart, matchIndex) {
+        return musicPart.charAt(matchIndex - 1) === '[';
+    }
+
+    /**
+     * Determines if we've reached a bar line and should reset accidentals
+     * @param {string} musicPart - The music content
+     * @param {number} matchIndex - The index of the current note match
+     * @returns {boolean} Whether accidentals should be reset
+     */
+    shouldResetAccidentals(musicPart, matchIndex) {
+        const textBeforeMatch = musicPart.substring(0, matchIndex);
+        const lastBarIndex = textBeforeMatch.lastIndexOf('|');
+        const lastNoteIndex = textBeforeMatch.search(/[A-Ga-g][']*$/);
+
+        return lastBarIndex > lastNoteIndex && lastBarIndex !== -1;
+    }
+
+    /**
+     * Determines the appropriate accidental for a note based on
+     * explicit marking, measure accidentals, or key signature
+     * @param {string} accidental - Explicit accidental
+     * @param {string} baseNote - The base note letter
+     * @param {object} measureAccidentals - Accidentals set in this measure
+     * @param {object} keyAccidentals - Accidentals from the key signature
+     * @returns {string} The appropriate accidental
+     */
+    determineAccidental(accidental, baseNote, measureAccidentals, keyAccidentals) {
+        if (accidental) {
+            return accidental;
+        } else if (measureAccidentals[baseNote]) {
+            return measureAccidentals[baseNote];
+        } else if (keyAccidentals[baseNote]) {
+            return keyAccidentals[baseNote];
+        }
+        return '';
+    }
+
+    /**
+     * Extracts notes from the ABC notation
+     * @returns {string[]} Array of note names
+     */
+    extractNotesFromAbc() {
+        // Get the key and determine its accidentals
+        const key = this.extractKeySignature();
+        const keyAccidentals = this.getAccidentalsForKey(key);
+
+        // Get the musical content
+        const musicPart = this.extractMusicContent();
+        if (!musicPart) return [];
+
+        // Extract notes with accidentals and octave markers
+        const notes = [];
+        const noteRegex = /([_^=]?)([A-Ga-g])([,']*)/g;
+        let match;
+
+        // Track accidentals that apply within a measure
+        let measureAccidentals = {};
+
+        while ((match = noteRegex.exec(musicPart)) !== null) {
+            // Skip notes within chord structures
+            if (this.isNoteInChord(musicPart, match.index)) continue;
+
+            let [, accidental, noteLetter, octaveMarkers] = match;
+            const baseNote = noteLetter.toUpperCase();
+
+            // Check if we've reached a bar line, and reset measure accidentals if so
+            if (this.shouldResetAccidentals(musicPart, match.index)) {
+                measureAccidentals = {};
+            }
+
+            // Determine the appropriate accidental
+            const finalAccidental = this.determineAccidental(
+                accidental,
+                baseNote,
+                measureAccidentals,
+                keyAccidentals
+            );
+
+            // Store explicit accidental for this note in the current measure
+            if (accidental) {
+                measureAccidentals[baseNote] = accidental;
+            }
+
+            const noteName = finalAccidental + noteLetter + octaveMarkers;
+            notes.push(noteName);
+        }
+
+        return notes;
+    }
+}
+
+
+==> Listing of ../js/share-manager.js <==
+/**
+ * Adds URL parameter handling and sharing functionality
+ */
+class ShareManager {
+    constructor(player) {
+        this.player = player;
+
+        // Add debounced update function to avoid excessive URL updates
+        this.updateUrlDebounced = Utils.debounce(() => {
+            this.updateUrlWithCurrentContent();
+        }, 1000); // Update URL after 1 second of inactivity
+    }
+
+    updateUrlWithCurrentContent() {
+        // Get current ABC notation and encode it
+        const abcNotation = this.player.notationParser.currentAbc;
+        const encodedAbc = btoa(abcNotation);
+
+        // Create URL with the encoded ABC as a parameter
+        const url = new URL(window.location.href.split('?')[0]);
+        url.searchParams.set('abc', encodedAbc);
+
+        // Update browser URL without reloading the page
+        window.history.replaceState({}, '', url.toString());
+    }
+
+    loadFromUrlParams() {
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const abcParam = urlParams.get('abc');
+
+            if (abcParam) {
+                // Decode the base64 encoded ABC notation (just use atob)
+                const decodedAbc = atob(abcParam);
+
+                // Validate basic ABC structure
+                if (decodedAbc.includes('X:') && decodedAbc.includes('K:')) {
+                    this.player.notationParser.currentAbc = decodedAbc;
+                    this.player.render();
+
+                    // Add a small message to indicate successful loading
+                    this.showLoadMessage("ABC notation loaded from URL");
+                    return true;
+                }
+            }
+        } catch (e) {
+            console.error("Error decoding ABC from URL:", e);
+            this.showLoadMessage("Error loading ABC from URL", true);
+        }
+        return false;
+    }
+
+    showLoadMessage(message, isError = false) {
+        const statusEl = document.getElementById('midi-status');
+        if (statusEl) {
+            statusEl.textContent = message;
+            statusEl.style.color = isError ? 'red' : '#666';
+            setTimeout(() => {
+                statusEl.textContent = '';
+                statusEl.style.color = '#666';
+            }, 3000);
+        }
+    }
+
+    generateShareUrl() {
+        // Get current ABC notation and encode it as base64
+        const abcNotation = this.player.notationParser.currentAbc;
+        // Use btoa directly without encodeURIComponent
+        const encodedAbc = btoa(abcNotation);
+
+        // Create URL with the encoded ABC as a parameter
+        const url = new URL(window.location.href.split('?')[0]); // Remove existing query params
+        url.searchParams.set('abc', encodedAbc);
+
+        return url.toString();
+    }
+
+    async copyShareUrl() {
+        // Update URL before copying to ensure it's current
+        this.updateUrlWithCurrentContent();
+        return Utils.copyToClipboard(window.location.href);
+    }
+}
+
+
+==> Listing of ../js/transpose-manager.js <==
+/**
+  * Handles all note transposition functionality
+  */
+class TransposeManager {
+    noteToSemitone(accidental, noteLetter, octaveMarkers) {
+        // Base values for each note
+        const baseValues = { 'C': 0, 'D': 2, 'E': 4, 'F': 5, 'G': 7, 'A': 9, 'B': 11 };
+
+        // Start with base value
+        let semitone = baseValues[noteLetter.toUpperCase()];
+
+        // Apply accidentals
+        if (accidental) {
+            for (const acc of accidental) {
+                if (acc === '^') semitone += 1;
+                else if (acc === '_') semitone -= 1;
+            }
+        }
+
+        // Set octave (C is middle C = octave 4, c is octave 5)
+        let octave = noteLetter === noteLetter.toUpperCase() ? 4 : 5;
+
+        // Apply octave markers
+        if (octaveMarkers) {
+            for (const marker of octaveMarkers) {
+                if (marker === ',') octave -= 1;
+                else if (marker === "'") octave += 1;
+            }
+        }
+
+        // Calculate absolute semitone value
+        return semitone + (octave * 12);
+    }
+
+    semitoneToAbc(semitone, duration) {
+        // Get octave and note value
+        const octave = Math.floor(semitone / 12);
+        const noteValue = ((semitone % 12) + 12) % 12;
+
+        // Map semitones to note names with accidentals
+        const noteMap = [
+            { note: 'C', accidental: '' },
+            { note: 'C', accidental: '^' },
+            { note: 'D', accidental: '' },
+            { note: 'D', accidental: '^' },
+            { note: 'E', accidental: '' },
+            { note: 'F', accidental: '' },
+            { note: 'F', accidental: '^' },
+            { note: 'G', accidental: '' },
+            { note: 'G', accidental: '^' },
+            { note: 'A', accidental: '' },
+            { note: 'A', accidental: '^' },
+            { note: 'B', accidental: '' }
+        ];
+
+        // Get note information
+        const { note, accidental } = noteMap[noteValue];
+
+        // Format note based on octave
+        let formattedNote, octaveMarkers = '';
+
+        if (octave < 4) {
+            // Lower octaves: uppercase with commas
+            formattedNote = note.toUpperCase();
+            octaveMarkers = ','.repeat(4 - octave);
+        } else if (octave === 4) {
+            // Middle octave: uppercase
+            formattedNote = note.toUpperCase();
+        } else if (octave === 5) {
+            // One octave up: lowercase
+            formattedNote = note.toLowerCase();
+        } else {
+            // Higher octaves: lowercase with apostrophes
+            formattedNote = note.toLowerCase();
+            octaveMarkers = "'".repeat(octave - 5);
+        }
+
+        return accidental + formattedNote + octaveMarkers + duration;
+    }
+
+    transposeKey(keyLine, semitoneShift) {
+        const keyMatch = keyLine.match(/K:([A-G][#b]?)([m]?)/);
+        if (!keyMatch) return keyLine;
+
+        const [, key, mode] = keyMatch;
+
+        // Map keys to semitones
+        const keyToSemitone = {
+            'C': 0, 'C#': 1, 'Db': 1, 'D': 2, 'D#': 3, 'Eb': 3,
+            'E': 4, 'F': 5, 'F#': 6, 'Gb': 6, 'G': 7, 'G#': 8,
+            'Ab': 8, 'A': 9, 'A#': 10, 'Bb': 10, 'B': 11
+        };
+
+        // Map semitones to key names
+        const semitoneToKey = {
+            0: 'C', 1: 'C#', 2: 'D', 3: 'Eb', 4: 'E', 5: 'F',
+            6: 'F#', 7: 'G', 8: 'Ab', 9: 'A', 10: 'Bb', 11: 'B'
+        };
+
+        let semitone = keyToSemitone[key];
+        if (semitone === undefined) return keyLine;
+
+        semitone = (semitone + semitoneShift + 12) % 12;
+        const newKey = semitoneToKey[semitone];
+
+        return keyLine.replace(/K:[A-G][#b]?[m]?/, `K:${newKey}${mode}`);
+    }
+
+    transposeNote(note, semitoneShift) {
+        const match = note.match(/([_^=]*)([A-Ga-g])([,']*)([\d/]*)/);
+        if (!match) return note;
+
+        const [, accidental, noteLetter, octaveMarkers, duration] = match;
+
+        // Convert to semitone value
+        const semitone = this.noteToSemitone(accidental, noteLetter, octaveMarkers);
+
+        // Apply transposition
+        const newSemitone = semitone + semitoneShift;
+
+        // Convert back to ABC notation
+        return this.semitoneToAbc(newSemitone, duration);
+    }
+
+    transposeNotes(noteLines, semitoneShift) {
+        const noteRegex = /([_^=]*)([A-Ga-g])([,']*)([\d/]*)/g;
+
+        return noteLines.map(line => {
+            return line.replace(noteRegex, (match) => {
+                return this.transposeNote(match, semitoneShift);
+            });
+        });
+    }
+}
+
+
+==> Listing of ../js/utils.js <==
+/**
+ * Utility functions for the application
+ */
+const Utils = {
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    },
+
+    showFeedback(message, duration = 2000) {
+        const feedback = document.getElementById('feedback');
+        feedback.textContent = message;
+        feedback.style.display = 'block';
+        setTimeout(() => {
+            feedback.style.display = 'none';
+        }, duration);
+    },
+
+    async copyToClipboard(text) {
+        try {
+            await navigator.clipboard.writeText(text);
+            this.showFeedback('ABC notation copied to clipboard!');
+            return true;
+        } catch (err) {
+            console.error('Failed to copy:', err);
+            alert('Could not copy to clipboard. Please check browser permissions.');
+            return false;
+        }
+    },
+
+    async readFromClipboard() {
+        try {
+            return await navigator.clipboard.readText();
+        } catch (err) {
+            console.error('Failed to paste:', err);
+            alert('Could not access clipboard. Please check browser permissions.');
+            return null;
+        }
+    }
+};
+
+
+==> Listing of ../css/base.css <==
+/* Base styles and typography */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.feedback {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: none;
+}
+
+#midi-status {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    height: 20px;
+    margin-bottom: 5px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding: 2px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Global utility classes */
+.minimize-label {
+    font-size: 12px;
+    color: #666;
+}
+
+==> Listing of ../css/controls.css <==
+/* Control bar and button styles */
+.control-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 101;
+}
+
+.control-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.control-bar button {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.control-bar button:hover {
+    background-color: #eee;
+    border-color: #ccc;
+}
+
+.control-bar button.active {
+    background-color: #e7f3ff;
+    border-color: #6cb0f5;
+    color: #1a73e8;
+}
+
+/* Special buttons */
+#chart-toggle {
+    padding: 4px 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#share-button {
+    background-color: #e7f3ff;
+    border-color: #6cb0f5;
+    color: #1a73e8;
+}
+
+#share-button:hover {
+    background-color: #d0e7ff;
+}
+
+/* Control sections grouping */
+.minimize-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+==> Listing of ../css/fingering.css <==
+/* Fingering diagram styles */
+section .fingering-diagram {
+    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 3px;
+    padding: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.fingering-hole {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    margin: 1px 0;
+}
+
+/* Fingering chart containers */
+.chart-container {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* For accidental notes (sharps) */
+.chart-container[data-accidental="sharp"] {
+    border-width: 3px;
+    border-color: #000;
+}
+
+/* Fingering chart note labels */
+.chart-container .note-label {
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+==> Listing of ../css/layout.css <==
+/* Main layout components */
+#abc-notation {
+    margin-top: 20px;
+}
+
+.abcjs-container {
+    padding-top: 200px;
+}
+
+/* Reference row styling */
+#reference-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+    overflow-x: auto;
+}
+
+.abcjs-container.minimized #reference-row {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* General control container */
+.control-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+==> Listing of ../css/main.css <==
+/* Import all CSS modules */
+@import 'base.css';
+@import 'layout.css';
+@import 'controls.css';
+@import 'fingering.css';
+@import 'notation.css';
+@import 'tempo-control.css';
+@import 'responsive.css';
+
+==> Listing of ../css/notation.css <==
+/* ABC notation display styling */
+#abc-notation svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Interactive elements within notation */
+.abcjs-note,
+.abcjs-rest {
+    cursor: pointer;
+}
+
+.abcjs-note:hover {
+    fill: #1a73e8;
+}
+
+/* Highlighting for active notes */
+.abcjs-note.highlight {
+    fill: #1a73e8;
+}
+
+/* Layer for fingering diagrams */
+#fingering-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+==> Listing of ../css/player.css <==
+# This file was automatically created
+
+==> Listing of ../css/responsive.css <==
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .control-bar {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .control-section {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .tempo-control {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    #abc-notation {
+        margin-top: 10px;
+    }
+
+    .abcjs-container {
+        padding-top: 100px;
+        /* Reduced for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 10px;
+    }
+
+    .control-bar button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .tempo-control label {
+        display: none;
+        /* Hide label on very small screens */
+    }
+}
+
+==> Listing of ../css/tempo-control.css <==
+/* Tempo control slider and related elements */
+.tempo-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tempo-control label {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.tempo-control input[type="range"] {
+    width: 100px;
+    height: 6px;
+    background-color: #ddd;
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.tempo-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: #1a73e8;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.tempo-control input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background-color: #1a73e8;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.tempo-value {
+    min-width: 50px;
+    font-size: 14px;
+    text-align: center;
+}
+
+==> Listing of ../index.html <==
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Notation Player</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/abcjs@6.0.0/abcjs-audio.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+
+<body>
+    <div id="reference-row" class="fingering-grid"></div>
+    <div id="abc-notation"></div>
+    <div id="feedback" class="feedback"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/abcjs@6.0.0/dist/abcjs-basic-min.js"></script>
+    <!-- Order matters - load dependencies before they're used -->
+    <script src="js/utils.js"></script>
+    <script src="js/notation-parser.js"></script>
+    <script src="js/fingering-manager.js"></script>
+    <script src="js/transpose-manager.js"></script>
+    <script src="js/midi-player.js"></script>
+    <script src="js/diagram-renderer.js"></script>
+    <script src="js/share-manager.js"></script>
+    <script src="js/abc-player.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
+
