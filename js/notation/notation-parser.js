@@ -63,7 +63,6 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         return keyMatch ? keyMatch[1] : 'C';
     }
 
-    // Add to NotationParser class
     extractNotesUsingAbcjs(visualObj) {
         if (!visualObj || !visualObj.lines) {
             console.error("Invalid visual object for note extraction");
@@ -77,11 +76,8 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         // Normalize the key signature format (handle 'b' as flat)
         keySignature = keySignature.replace('b', '♭').replace('#', '♯');
 
-        //console.log("Detected key signature from ABC:", keySignature);
-
         // Get accidentals from key signature
         const keyAccidentals = this.getAccidentalsForKey(keySignature);
-        //console.log("Key accidentals:", keyAccidentals);
 
         const notes = [];
         let measureAccidentals = {}; // Track accidentals within a measure
@@ -140,6 +136,9 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                                 // Construct the final note name
                                 let noteName = accidental + pitch.name;
 
+                                // Fix for duplicate natural signs (==E)
+                                noteName = noteName.replace(/==+([A-Ga-g])/, "=$1");
+
                                 // Remove any existing commas (octave shift down)
                                 noteName = noteName.replace(/,/g, '');
 
@@ -153,6 +152,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             });
         });
 
+        console.log("Extracted notes:", notes);
         return notes;
     }
 

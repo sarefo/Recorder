@@ -232,8 +232,10 @@ class FingeringManager {
         }
 
         // Handle natural accidentals (=) by treating them as the base note
+        // Fix for duplicate natural signs
         if (noteName.startsWith('=')) {
-            noteName = noteName.substring(1);
+            // Remove all = signs at the start
+            noteName = noteName.replace(/^=+/, "") + "";
         }
 
         // Try direct match first
