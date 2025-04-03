@@ -134,14 +134,9 @@
 
 .control-toggle:hover {
     background-color: #1a73e8;
-    transform: scale(1.05);
 }
 
-.control-toggle:active {
-    transform: scale(0.95);
-}
-
-/* Improve hamburger icon */
+/* Hamburger icon */
 .control-toggle span {
     display: block;
     width: 24px;
@@ -154,7 +149,7 @@
 
 /* Animation for open state */
 .control-toggle.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(5px) rotate(45deg);
 }
 
 .control-toggle.open span:nth-child(2) {
@@ -162,24 +157,45 @@
 }
 
 .control-toggle.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-5px) rotate(-45deg);
 }
 
-/* Add to controls.css */
 @media (max-width: 768px) {
     .control-container {
+        position: fixed;
+        top: 70px;
+        /* Give space below the toggle button */
+        left: 5%;
+        width: 90%;
+        z-index: 999;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
-        max-height: 1000px;
-        /* Set a large value that will contain all content */
-        margin-bottom: 20px;
         opacity: 1;
+        transform: translateY(0);
+        max-height: 80vh;
+        overflow-y: auto;
+        padding: 10px;
     }
 
     .control-container.collapsed {
-        max-height: 0;
-        margin: 0;
         opacity: 0;
-        overflow: hidden;
+        transform: translateY(-20px);
         pointer-events: none;
+        visibility: hidden;
+    }
+
+    /* Adjust the control bar to fit in the floating container */
+    .control-bar {
+        margin-bottom: 0;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 8px;
+    }
+
+    /* Add some space at the bottom of the page to prevent controls from obscuring content */
+    body {
+        padding-bottom: 60px;
     }
 }

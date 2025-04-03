@@ -788,8 +788,8 @@ class AbcPlayer {
         // Get control container element
         const controlContainer = document.querySelector('.control-container');
 
-        // Initialize state
-        this.initializeMobileControlState();
+        // Initialize mobile state
+        this.initializeMobileControlState(controlContainer);
 
         // Add event listeners
         this.setupMobileToggleEvents(controlContainer);
@@ -810,20 +810,29 @@ class AbcPlayer {
         return toggleButton;
     }
 
-    initializeMobileControlState() {
+    initializeMobileControlState(controlContainer) {
         // Check if we're on mobile based on screen width
         this.isMobile = window.innerWidth <= 768;
 
         // Set initial state - collapsed on mobile, visible on desktop
         this.controlsCollapsed = this.isMobile;
+
+        // Apply initial collapsed state to the DOM
+        if (this.controlsCollapsed && controlContainer) {
+            controlContainer.classList.add('collapsed');
+        } else if (controlContainer) {
+            controlContainer.classList.remove('collapsed');
+        }
     }
 
-    setupMobileToggleEvents(controlContainer) {
-        const toggleButton = document.getElementById('control-toggle');
+    setupMobileToggleEvents(toggleButton, controlContainer) {
+        toggleButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent any default behavior
 
-        toggleButton.addEventListener('click', () => {
+            // Toggle collapsed state
             this.controlsCollapsed = !this.controlsCollapsed;
 
+            // Update UI based on new state
             if (this.controlsCollapsed) {
                 controlContainer.classList.add('collapsed');
                 toggleButton.classList.remove('open');
@@ -831,31 +840,30 @@ class AbcPlayer {
                 controlContainer.classList.remove('collapsed');
                 toggleButton.classList.add('open');
             }
+
+            console.log('Toggle clicked, controls collapsed:', this.controlsCollapsed);
         });
 
-        // Initial toggle button visibility
+        // Set initial button visibility
         toggleButton.style.display = this.isMobile ? 'block' : 'none';
     }
 
-    setupMobileResizeHandler(controlContainer) {
-        const toggleButton = document.getElementById('control-toggle');
-
+    setupMobileResizeHandler(toggleButton, controlContainer) {
         window.addEventListener('resize', () => {
             const wasMobile = this.isMobile;
             this.isMobile = window.innerWidth <= 768;
 
-            // Show/hide toggle button based on screen size
+            // Toggle button visibility based on screen size
             toggleButton.style.display = this.isMobile ? 'block' : 'none';
 
-            // If changing from desktop to mobile, collapse controls
+            // Handle transition between desktop and mobile
             if (!wasMobile && this.isMobile) {
+                // Switching from desktop to mobile - collapse controls
                 this.controlsCollapsed = true;
                 controlContainer.classList.add('collapsed');
                 toggleButton.classList.remove('open');
-            }
-
-            // If changing from mobile to desktop, always show controls
-            if (wasMobile && !this.isMobile) {
+            } else if (wasMobile && !this.isMobile) {
+                // Switching from mobile to desktop - show controls
                 this.controlsCollapsed = false;
                 controlContainer.classList.remove('collapsed');
             }
