@@ -1,18 +1,6 @@
 X: 1
 T: Ai vist lo lop
 O: Traditional French
-N: Original transposition
-L: 1/8
-Q: 1/2=80
-M: 4/4
-K: Fmaj
-|: a2 ga f2 ef | g3 g fe d2 | a2 ga f2 ef | .g2 .e2 d4 :|
-|: d2 e2 ffff | f2 g2 e2 c2 | f2 ef d2 dd | e3 e c=B A2 |
-d2 e2 ffff | f2 g2 e2 c2 | f2 ef d2 dd | .e2 .c2 d4 :|
-
-X: 1
-T: Ai vist lo lop
-O: Traditional French
 N: Transposed lower
 L: 1/8
 Q: 1/2=80
@@ -21,3 +9,15 @@ K: A#
 |: d2 cd _B2 A_B | c3 c _BA G2 | d2 cd _B2 A_B | .c2 .A2 G4 :|
 |: G2 A2 _BBBB | _B2 c2 A2 F2 | _B2 A_B G2 GG | A3 A F=E D2 |
 G2 A2 _BBBB | _B2 c2 A2 F2 | _B2 A_B G2 GG | .A2 .F2 G4 :|
+
+X: 1
+T: Ai vist lo lop
+O: Traditional French
+N: Original transposition
+L: 1/8
+Q: 1/2=80
+M: 4/4
+K: Fmaj
+|: a2 ga f2 ef | g3 g fe d2 | a2 ga f2 ef | .g2 .e2 d4 :|
+|: d2 e2 ffff | f2 g2 e2 c2 | f2 ef d2 dd | e3 e c=B A2 |
+d2 e2 ffff | f2 g2 e2 c2 | f2 ef d2 dd | .e2 .c2 d4 :|
