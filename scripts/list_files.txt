@@ -135,6 +135,10 @@ class AbcPlayer {
         this.initializeEventListeners();
 
         this.shareManager = new ShareManager(this);
+
+        // Handle mobile control toggle
+        this.isMobile = window.innerWidth <= 768;
+        this.controlsCollapsed = this.isMobile; // Start collapsed on mobile
     }
 
     /**
@@ -361,6 +365,7 @@ class AbcPlayer {
             this.initializeApplication();
             this.setupKeyboardShortcuts();
             this.setupWindowResizeHandler();
+            this.setupMobileControls();
         });
     }
 
@@ -861,6 +866,42 @@ class AbcPlayer {
                 this.showFingeringDiagrams();
             }
         }, 150));
+    }
+
+    setupMobileControls() {
+        const toggleButton = document.getElementById('control-toggle');
+        const controlContainer = document.querySelector('.control-container');
+
+        // Set initial state
+        if (this.controlsCollapsed) {
+            controlContainer.classList.add('collapsed');
+            toggleButton.textContent = 'Show Controls';
+        }
+
+        toggleButton.addEventListener('click', () => {
+            this.controlsCollapsed = !this.controlsCollapsed;
+
+            if (this.controlsCollapsed) {
+                controlContainer.classList.add('collapsed');
+                toggleButton.textContent = 'Show Controls';
+            } else {
+                controlContainer.classList.remove('collapsed');
+                toggleButton.textContent = 'Hide Controls';
+            }
+        });
+
+        // Update state on resize
+        window.addEventListener('resize', () => {
+            const wasMobile = this.isMobile;
+            this.isMobile = window.innerWidth <= 768;
+
+            // If changing from desktop to mobile, collapse controls
+            if (!wasMobile && this.isMobile) {
+                this.controlsCollapsed = true;
+                controlContainer.classList.add('collapsed');
+                toggleButton.textContent = 'Show Controls';
+            }
+        });
     }
 }
 
@@ -2669,6 +2710,43 @@ body {
     }
 }
 
+/* Mobile control toggle button */
+.control-toggle {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-size: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .control-container {
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+    .control-container.collapsed {
+        max-height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .control-toggle {
+        display: block;
+    }
+}
+
 ==> Listing of ../css/fingering.css <==
 /* Fingering diagram styles */
 section .fingering-diagram {
@@ -2891,9 +2969,13 @@ section .fingering-diagram {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/abcjs@6.0.0/abcjs-audio.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <meta name="theme-color" content="#1a73e8">
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
+    <button id="control-toggle" class="control-toggle">Show Controls</button>
     <div id="reference-row" class="fingering-grid"></div>
     <div id="abc-notation"></div>
     <div id="feedback" class="feedback"></div>
@@ -2913,6 +2995,7 @@ section .fingering-diagram {
 
     <script src="js/abc-player.js"></script>
     <script src="js/main.js"></script>
+
 </body>
 
 </html>

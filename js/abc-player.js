@@ -776,7 +776,11 @@ class AbcPlayer {
         const toggleButton = document.getElementById('control-toggle');
         const controlContainer = document.querySelector('.control-container');
 
-        // Set initial state
+        // Only setup mobile controls if we're on a mobile device
+        this.isMobile = window.innerWidth <= 768;
+
+        // Set initial state - collapsed on mobile, visible on desktop
+        this.controlsCollapsed = this.isMobile;
         if (this.controlsCollapsed) {
             controlContainer.classList.add('collapsed');
             toggleButton.textContent = 'Show Controls';
@@ -804,6 +808,12 @@ class AbcPlayer {
                 this.controlsCollapsed = true;
                 controlContainer.classList.add('collapsed');
                 toggleButton.textContent = 'Show Controls';
+            }
+
+            // If changing from mobile to desktop, always show controls
+            if (wasMobile && !this.isMobile) {
+                this.controlsCollapsed = false;
+                controlContainer.classList.remove('collapsed');
             }
         });
     }

@@ -114,9 +114,8 @@
 .control-toggle {
     display: none;
     position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 15px;
+    right: 15px;
     background-color: #1a73e8;
     color: white;
     border: none;
