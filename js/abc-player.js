@@ -90,7 +90,9 @@ class AbcPlayer {
             oneSvgPerLine: this.renderConfig.oneSvgPerLine,
             scale: this.renderConfig.scale,
             clickListener: clickListener,
-            footer: false
+            footer: false,          // Footer content set to false
+            footerPadding: 0,       // Remove footer padding
+            paddingbottom: 0        // Remove bottom padding
         })[0];
     }
 
