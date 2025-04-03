@@ -5,10 +5,10 @@ N: Transposed lower
 L: 1/8
 Q: 1/2=80
 M: 4/4
-K: A#
-|: d2 cd _B2 A_B | c3 c _BA G2 | d2 cd _B2 A_B | .c2 .A2 G4 :|
-|: G2 A2 _BBBB | _B2 c2 A2 F2 | _B2 A_B G2 GG | A3 A F=E D2 |
-G2 A2 _BBBB | _B2 c2 A2 F2 | _B2 A_B G2 GG | .A2 .F2 G4 :|
+K: Bb
+|: d2 cd B2 AB | c3 c BA G2 | d2 cd B2 AB | .c2 .A2 G4 :|
+|: G2 A2 BBBB | B2 c2 A2 F2 | B2 AB G2 GG | A3 A F=E D2 |
+G2 A2 BBBB | B2 c2 A2 F2 | B2 A_B G2 GG | .A2 .F2 G4 :|
 
 X: 1
 T: Ai vist lo lop
