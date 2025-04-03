@@ -782,31 +782,84 @@ class AbcPlayer {
     }
 
     setupMobileControls() {
-        // Create toggle button
-        this.createMobileToggleButton();
+        // Create the toggle button if it doesn't exist
+        const toggleButton = document.createElement('button');
+        toggleButton.id = 'control-toggle';
+        toggleButton.className = 'control-toggle';
+        toggleButton.innerHTML = '<span></span><span></span><span></span>';
+        toggleButton.style.display = 'none'; // Start hidden
+        document.body.appendChild(toggleButton);
 
-        // Get control container element
+        // Get the control container
         const controlContainer = document.querySelector('.control-container');
 
-        // Initialize mobile state
-        this.initializeMobileControlState(controlContainer);
+        // Determine if we're on mobile
+        this.isMobile = window.innerWidth <= 768;
 
-        // Add event listeners
-        this.setupMobileToggleEvents(controlContainer);
+        // Set initial state
+        this.controlsCollapsed = this.isMobile;
+        if (this.controlsCollapsed) {
+            controlContainer.classList.add('collapsed');
+        }
+
+        // Update toggle button visibility
+        toggleButton.style.display = this.isMobile ? 'block' : 'none';
+
+        // Add click handler with a direct, simple approach
+        toggleButton.onclick = () => {
+            // Toggle state
+            this.controlsCollapsed = !this.controlsCollapsed;
+
+            // Update UI
+            if (this.controlsCollapsed) {
+                controlContainer.classList.add('collapsed');
+                toggleButton.classList.remove('open');
+            } else {
+                controlContainer.classList.remove('collapsed');
+                toggleButton.classList.add('open');
+            }
+        };
 
         // Handle window resize
-        this.setupMobileResizeHandler(controlContainer);
+        window.onresize = () => {
+            const wasMobile = this.isMobile;
+            this.isMobile = window.innerWidth <= 768;
+
+            // Update toggle button visibility
+            toggleButton.style.display = this.isMobile ? 'block' : 'none';
+
+            // Handle desktop/mobile transitions
+            if (!wasMobile && this.isMobile) {
+                // Desktop to mobile - collapse controls
+                this.controlsCollapsed = true;
+                controlContainer.classList.add('collapsed');
+            } else if (wasMobile && !this.isMobile) {
+                // Mobile to desktop - expand controls
+                this.controlsCollapsed = false;
+                controlContainer.classList.remove('collapsed');
+            }
+        };
     }
 
     createMobileToggleButton() {
         let toggleButton = document.getElementById('control-toggle');
+
         if (!toggleButton) {
             toggleButton = document.createElement('button');
             toggleButton.id = 'control-toggle';
             toggleButton.className = 'control-toggle';
             toggleButton.innerHTML = '<span></span><span></span><span></span>'; // Hamburger icon
+
+            // Initially hide the button - we'll show it only if on mobile
+            toggleButton.style.display = 'none';
+
             document.body.appendChild(toggleButton);
         }
+
+        // Immediately set visibility based on screen size
+        this.isMobile = window.innerWidth <= 768;
+        toggleButton.style.display = this.isMobile ? 'block' : 'none';
+
         return toggleButton;
     }
 
