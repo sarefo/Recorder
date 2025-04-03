@@ -134,10 +134,10 @@
 
 .control-toggle span {
     display: block;
-    width: 24px;
+    width: 20px;
     height: 2px;
     background-color: white;
-    margin: 3px 0;
+    margin: 2px 0;
     border-radius: 2px;
     transition: all 0.3s ease;
 }

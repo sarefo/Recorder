@@ -788,6 +788,17 @@ class AbcPlayer {
         // Get control container
         const controlContainer = document.querySelector('.control-container');
 
+        // On mobile: always start with controls collapsed
+        // Update the state tracking
+        if (this.isMobile) {
+            this.controlsCollapsed = true;
+            controlContainer.classList.add('collapsed');
+            toggleButton.classList.remove('open');
+        } else {
+            this.controlsCollapsed = false;
+            controlContainer.classList.remove('collapsed');
+        }
+
         // Set up the initial state (properly connected)
         this.updateMobileState();
 
