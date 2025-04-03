@@ -112,36 +112,60 @@
 
 /* Mobile control toggle button */
 .control-toggle {
-    display: none;
     position: fixed;
     top: 15px;
     right: 15px;
-    background-color: #1a73e8;
+    background-color: #4285f4;
     color: white;
     border: none;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     cursor: pointer;
-    padding: 0;
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0;
 }
 
-/* Hamburger icon */
+.control-toggle:hover {
+    background-color: #1a73e8;
+    transform: scale(1.05);
+}
+
+.control-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Improve hamburger icon */
 .control-toggle span {
     display: block;
     width: 24px;
-    height: 3px;
+    height: 2px;
     background-color: white;
-    margin: 2px 0;
-    border-radius: 1px;
+    margin: 3px 0;
+    border-radius: 2px;
     transition: all 0.3s ease;
 }
+
+/* Animation for open state */
+.control-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.control-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.control-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+;
 
 @media (max-width: 768px) {
     .control-container {
