@@ -2,7 +2,7 @@
     "name": "ABC Notation Player",
     "short_name": "ABC Player",
     "description": "Recorder fingering and ABC notation player",
-    "start_url": "/index.html",
+    "start_url": "index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#1a73e8",
@@ -17,5 +17,6 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ]
+    ],
+    "orientation": "landscape"
 }
