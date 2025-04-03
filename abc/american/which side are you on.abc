@@ -1,5 +1,17 @@
 X:1
 T:Which Side Are You On?
+N:Transposed
+M:2/4
+L:1/8
+K:Bb
+[|:G|cc cG|c2 cB|dc BG|c3 B|
+dc BG|G2 GE|GG FD|C4|
+CC DF| G4|GG FD|C4|
+CC DF|G4|GG FD|C3:|]
+
+X:1
+T:Which Side Are You On?
+N:Original
 M:2/4
 L:1/8
 K:C
