@@ -89,7 +89,8 @@ class AbcPlayer {
             staffbottommargin: this.renderConfig.staffbottommargin,
             oneSvgPerLine: this.renderConfig.oneSvgPerLine,
             scale: this.renderConfig.scale,
-            clickListener: clickListener
+            clickListener: clickListener,
+            footer: false
         })[0];
     }
 
