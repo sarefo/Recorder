@@ -18,7 +18,7 @@ class TuneNavigation {
         const prevButton = document.createElement('button');
         prevButton.id = 'prev-tune';
         prevButton.title = 'Previous tune';
-        prevButton.textContent = '▲';
+        prevButton.textContent = '◀';
         prevButton.addEventListener('click', () => {
             this.player.tuneManager.previousTune();
             this.player.render();
@@ -35,7 +35,7 @@ class TuneNavigation {
         const nextButton = document.createElement('button');
         nextButton.id = 'next-tune';
         nextButton.title = 'Next tune';
-        nextButton.textContent = '▼';
+        nextButton.textContent = '▶';
         nextButton.addEventListener('click', () => {
             this.player.tuneManager.nextTune();
             this.player.render();

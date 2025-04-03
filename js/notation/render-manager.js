@@ -59,6 +59,7 @@ class RenderManager {
         return ABCJS.renderAbc("abc-notation", this.player.notationParser.currentAbc, {
             responsive: "resize",
             add_classes: true,
+            stretchlast: false,
             staffwidth: window.innerWidth - 60,
             stafftopmargin: this.player.renderConfig.stafftopmargin,
             staffbottommargin: this.player.renderConfig.staffbottommargin,

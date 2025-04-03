@@ -39,6 +39,7 @@ class AbcPlayer {
         this.uiControls = new UIControls(this);
         this.renderManager = new RenderManager(this);
         this.mobileUI = new MobileUI(this);
+        this.swipeHandler = new SwipeHandler(this);
 
         // Initialize UI handlers
         this.initializeEventListeners();
@@ -184,6 +185,8 @@ class AbcPlayer {
             this.setupKeyboardShortcuts();
             this.setupWindowResizeHandler();
             this.mobileUI.setupMobileControls();
+            this.swipeHandler.init();
+
         });
     }
 
