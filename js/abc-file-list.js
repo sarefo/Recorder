@@ -58,6 +58,11 @@ class AbcFileList {
                 "category": "italian"
         },
         {
+                "name": "Sakura",
+                "file": "japanese/sakura.abc",
+                "category": "japanese"
+        },
+        {
                 "name": "Arirang",
                 "file": "korean/arirang.abc",
                 "category": "korean"
