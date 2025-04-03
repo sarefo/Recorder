@@ -5,10 +5,14 @@ R: barndance
 M: 4/4
 L: 1/8
 K: F
-FG A2A2 G2G2|FGAF DEF2|C2FA c2cc|c2BA G2FG|
-A2AA G2G2|FG AF DE F2|C2 FA c2 BA|G2GG F4|
-c2cc c2A2|f2 ff e2 d2|c2 cc d2 cc|c2 BA G2 FG|
-A2 AA G2 G2|FG AF DE F2|C2 FA c2 BA|G2 GG F4|
+FG A2A2 G2G2|FGAF DEF2|
+C2FA c2cc|c2BA G2FG|
+A2AA G2G2|FG AF DE F2|
+C2 FA c2 BA|G2GG F4|
+c2cc c2A2|f2 ff e2 d2|
+c2 cc d2 cc|c2 BA G2 FG|
+A2 AA G2 G2|FG AF DE F2|
+C2 FA c2 BA|G2 GG F4|
 
 X: 1
 T: Waltzing Matilda
