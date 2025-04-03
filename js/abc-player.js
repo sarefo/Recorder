@@ -22,7 +22,7 @@ class AbcPlayer {
             columnSpacing: 6,
             borderRadius: 4,
             fontSizeNote: 10,
-            backgroundColor: 'rgba(240, 240, 180, 0.6)',
+            backgroundColor: 'rgba(240, 240, 180, 0.9)',
             redColor: 'rgba(255, 0, 0, 0.6)',
             greenColor: 'rgba(0, 128, 0, 0.6)',
         };
