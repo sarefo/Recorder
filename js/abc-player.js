@@ -782,35 +782,37 @@ class AbcPlayer {
     }
 
     setupMobileControls() {
-        // Create the toggle button if it doesn't exist
+        // Clean up any existing button
+        const existingButton = document.getElementById('control-toggle');
+        if (existingButton) {
+            existingButton.remove();
+        }
+
+        // Create a new toggle button
         const toggleButton = document.createElement('button');
         toggleButton.id = 'control-toggle';
         toggleButton.className = 'control-toggle';
         toggleButton.innerHTML = '<span></span><span></span><span></span>';
-        toggleButton.style.display = 'none'; // Start hidden
         document.body.appendChild(toggleButton);
 
-        // Get the control container
+        // Get control container
         const controlContainer = document.querySelector('.control-container');
 
-        // Determine if we're on mobile
-        this.isMobile = window.innerWidth <= 768;
-
-        // Set initial state
+        // Initialize state with improved mobile detection
+        this.updateMobileState();
         this.controlsCollapsed = this.isMobile;
-        if (this.controlsCollapsed) {
+
+        // Initial UI setup
+        toggleButton.style.display = this.isMobile ? 'block' : 'none';
+        if (this.controlsCollapsed && controlContainer) {
             controlContainer.classList.add('collapsed');
         }
 
-        // Update toggle button visibility
-        toggleButton.style.display = this.isMobile ? 'block' : 'none';
-
-        // Add click handler with a direct, simple approach
+        // Click handler
         toggleButton.onclick = () => {
-            // Toggle state
+            console.log('Toggle clicked');
             this.controlsCollapsed = !this.controlsCollapsed;
 
-            // Update UI
             if (this.controlsCollapsed) {
                 controlContainer.classList.add('collapsed');
                 toggleButton.classList.remove('open');
@@ -820,25 +822,52 @@ class AbcPlayer {
             }
         };
 
-        // Handle window resize
-        window.onresize = () => {
+        // Resize handler with improved mobile detection
+        window.addEventListener('resize', () => {
             const wasMobile = this.isMobile;
-            this.isMobile = window.innerWidth <= 768;
+            this.updateMobileState();
 
-            // Update toggle button visibility
+            // Update toggle visibility
             toggleButton.style.display = this.isMobile ? 'block' : 'none';
 
-            // Handle desktop/mobile transitions
+            // Handle mode transitions
             if (!wasMobile && this.isMobile) {
-                // Desktop to mobile - collapse controls
+                // Desktop to mobile
                 this.controlsCollapsed = true;
                 controlContainer.classList.add('collapsed');
             } else if (wasMobile && !this.isMobile) {
-                // Mobile to desktop - expand controls
+                // Mobile to desktop
                 this.controlsCollapsed = false;
                 controlContainer.classList.remove('collapsed');
             }
-        };
+        });
+
+        // Also check orientation changes specifically
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                this.updateMobileState();
+                toggleButton.style.display = this.isMobile ? 'block' : 'none';
+            }, 100); // Short delay to ensure dimensions are updated
+        });
+    }
+
+    updateMobileState() {
+        // Check if this is a mobile device
+        const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        // Consider both width and device type
+        this.isMobile = isMobileDevice || window.innerWidth <= 900; // Increased threshold for landscape
+
+        // Alternative approach: detect by maximum dimension
+        const smallerDimension = Math.min(window.innerWidth, window.innerHeight);
+        const largerDimension = Math.max(window.innerWidth, window.innerHeight);
+
+        // If it's a phone-sized screen in either dimension, treat as mobile
+        if (smallerDimension <= 600 || (isMobileDevice && largerDimension <= 1000)) {
+            this.isMobile = true;
+        }
+
+        return this.isMobile;
     }
 
     createMobileToggleButton() {
