@@ -2,6 +2,9 @@
  * Handles music notation extraction and processing
  */
 class NotationParser {
+    /**
+     * Creates a new NotationParser instance with default ABC notation
+     */
     constructor() {
         this.currentAbc = `X:1
 T:Chromatic Scale
@@ -55,7 +58,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     }
 
     /**
-     * Gets the key signature from the ABC notation
+     * Gets the key signature from the current ABC notation
      * @returns {string} The key signature
      */
     extractKeySignature() {
@@ -63,97 +66,193 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         return keyMatch ? keyMatch[1] : 'C';
     }
 
+    /**
+     * Extracts notes from a visual object using abcjs
+     * @param {Object} visualObj - The visual object from abcjs
+     * @returns {string[]} Array of note names
+     */
     extractNotesUsingAbcjs(visualObj) {
         if (!visualObj || !visualObj.lines) {
             console.error("Invalid visual object for note extraction");
             return [];
         }
 
-        // Extract key signature directly from the source ABC instead of relying on abcjs
-        const keyDirective = this.currentAbc.match(/K:\s*([A-G][b#♭♯]?m?)/i);
-        let keySignature = keyDirective ? keyDirective[1] : "C";
-
-        // Normalize the key signature format (handle 'b' as flat)
-        keySignature = keySignature.replace('b', '♭').replace('#', '♯');
-
-        // Get accidentals from key signature
+        // Get key signature and its accidentals
+        const keySignature = this._extractKeySignatureFromAbc();
         const keyAccidentals = this.getAccidentalsForKey(keySignature);
 
         const notes = [];
         let measureAccidentals = {}; // Track accidentals within a measure
 
-        // Navigate through the abcjs structure to find all notes
+        // Process all notes in the visual object
+        this._processAllStaffLines(visualObj, notes, measureAccidentals, keyAccidentals);
+
+        return notes;
+    }
+
+    /**
+     * Extracts and normalizes the key signature from ABC notation
+     * @private
+     * @returns {string} Normalized key signature
+     */
+    _extractKeySignatureFromAbc() {
+        const keyDirective = this.currentAbc.match(/K:\s*([A-G][b#♭♯]?m?)/i);
+        let keySignature = keyDirective ? keyDirective[1] : "C";
+        return keySignature.replace('b', '♭').replace('#', '♯');
+    }
+
+    /**
+     * Processes all staff lines in the visual object to extract notes
+     * @private
+     * @param {Object} visualObj - The visual object from abcjs
+     * @param {string[]} notes - Array to collect note names
+     * @param {Object} measureAccidentals - Object to track accidentals within measures
+     * @param {Object} keyAccidentals - Object with key signature accidentals
+     */
+    _processAllStaffLines(visualObj, notes, measureAccidentals, keyAccidentals) {
         visualObj.lines.forEach(line => {
             line.staff.forEach(staff => {
                 staff.voices.forEach(voice => {
                     let currentMeasure = -1;
-
-                    voice.forEach(element => {
-                        // Check if we've entered a new measure
-                        if (element.el_type === "bar") {
-                            // Reset measure accidentals at bar lines
-                            measureAccidentals = {};
-                            currentMeasure++;
-                            return;
-                        }
-
-                        // Only process note elements
-                        if (element.el_type === "note" && !element.rest) {
-                            // Extract each pitch in the note (for chords)
-                            element.pitches.forEach(pitch => {
-                                // Get basic note information
-                                const noteLetter = pitch.name.toUpperCase().charAt(0); // Just the letter part (C, D, E, etc.)
-
-                                // Check if there's an explicit accidental in this note
-                                let accidental = '';
-                                if (pitch.accidental === "sharp") {
-                                    accidental = '^';
-                                    measureAccidentals[noteLetter] = '^';
-                                } else if (pitch.accidental === "flat") {
-                                    accidental = '_';
-                                    measureAccidentals[noteLetter] = '_';
-                                } else if (pitch.accidental === "natural") {
-                                    accidental = '=';
-                                    measureAccidentals[noteLetter] = '=';
-                                } else if (pitch.accidental === "dblsharp") {
-                                    accidental = '^^';
-                                    measureAccidentals[noteLetter] = '^^';
-                                } else if (pitch.accidental === "dblflat") {
-                                    accidental = '__';
-                                    measureAccidentals[noteLetter] = '__';
-                                } else {
-                                    // Check for accidentals in the current measure
-                                    if (measureAccidentals[noteLetter]) {
-                                        accidental = measureAccidentals[noteLetter];
-                                    }
-                                    // No explicit accidental or measure accidental, 
-                                    // check key signature
-                                    else if (keyAccidentals[noteLetter]) {
-                                        accidental = keyAccidentals[noteLetter];
-                                    }
-                                }
-
-                                // Construct the final note name
-                                let noteName = accidental + pitch.name;
-
-                                // Fix for duplicate natural signs (==E)
-                                noteName = noteName.replace(/==+([A-Ga-g])/, "=$1");
-
-                                // Remove any existing commas (octave shift down)
-                                noteName = noteName.replace(/,/g, '');
-
-                                notes.push(noteName);
-                            });
-                        } else if (element.el_type === "note" && element.rest) {
-                            notes.push("rest");
-                        }
-                    });
+                    this._processVoice(voice, notes, measureAccidentals, currentMeasure, keyAccidentals);
                 });
             });
         });
+    }
 
-        console.log("Extracted notes:", notes);
-        return notes;
+    /**
+     * Processes a single voice to extract notes
+     * @private
+     * @param {Object[]} voice - Array of elements in a voice
+     * @param {string[]} notes - Array to collect note names
+     * @param {Object} measureAccidentals - Object to track accidentals within measures
+     * @param {number} currentMeasure - Current measure number
+     * @param {Object} keyAccidentals - Object with key signature accidentals
+     */
+    _processVoice(voice, notes, measureAccidentals, currentMeasure, keyAccidentals) {
+        voice.forEach(element => {
+            if (element.el_type === "bar") {
+                // Reset measure accidentals at bar lines
+                measureAccidentals = {};
+                currentMeasure++;
+                return;
+            }
+
+            if (element.el_type === "note" && !element.rest) {
+                this._processNoteElement(element, notes, measureAccidentals, keyAccidentals);
+            } else if (element.el_type === "note" && element.rest) {
+                notes.push("rest");
+            }
+        });
+    }
+
+    /**
+     * Processes a note element to extract each pitch
+     * @private
+     * @param {Object} element - Note element from abcjs
+     * @param {string[]} notes - Array to collect note names
+     * @param {Object} measureAccidentals - Object to track accidentals within measures
+     * @param {Object} keyAccidentals - Object with key signature accidentals
+     */
+    _processNoteElement(element, notes, measureAccidentals, keyAccidentals) {
+        element.pitches.forEach(pitch => {
+            const noteLetter = pitch.name.toUpperCase().charAt(0);
+            const accidental = this._determineNoteAccidental(pitch, noteLetter, measureAccidentals, keyAccidentals);
+
+            // Create the full note name
+            const noteName = this._createNoteName(accidental, pitch, noteLetter, keyAccidentals);
+
+            notes.push(noteName);
+        });
+    }
+
+    /**
+     * Determines the appropriate accidental for a note
+     * @private
+     * @param {Object} pitch - Pitch object from abcjs
+     * @param {string} noteLetter - Base note letter
+     * @param {Object} measureAccidentals - Object tracking accidentals in the measure
+     * @param {Object} keyAccidentals - Object with key signature accidentals
+     * @returns {string} The appropriate accidental symbol
+     */
+    _determineNoteAccidental(pitch, noteLetter, measureAccidentals, keyAccidentals) {
+        let accidental = '';
+
+        if (pitch.accidental === "sharp") {
+            accidental = '^';
+            measureAccidentals[noteLetter] = '^';
+        } else if (pitch.accidental === "flat") {
+            accidental = '_';
+            measureAccidentals[noteLetter] = '_';
+        } else if (pitch.accidental === "natural") {
+            accidental = '=';
+            measureAccidentals[noteLetter] = '=';
+        } else if (pitch.accidental === "dblsharp") {
+            accidental = '^^';
+            measureAccidentals[noteLetter] = '^^';
+        } else if (pitch.accidental === "dblflat") {
+            accidental = '__';
+            measureAccidentals[noteLetter] = '__';
+        } else {
+            // Check for accidentals in the current measure
+            if (measureAccidentals[noteLetter]) {
+                accidental = measureAccidentals[noteLetter];
+            }
+            // No explicit accidental or measure accidental, check key signature
+            else if (keyAccidentals[noteLetter]) {
+                accidental = keyAccidentals[noteLetter];
+            }
+        }
+
+        return accidental;
+    }
+
+    /**
+     * Creates the full note name with accidental and handles special cases
+     * @private
+     * @param {string} accidental - The accidental symbol
+     * @param {Object} pitch - The pitch object from abcjs
+     * @param {string} noteLetter - The base note letter
+     * @param {Object} keyAccidentals - Object with key signature accidentals
+     * @returns {string} The full note name
+     */
+    _createNoteName(accidental, pitch, noteLetter, keyAccidentals) {
+        let noteName;
+
+        // For natural signs - they override any previous accidentals
+        if (accidental === '=') {
+            noteName = '=' + pitch.name;
+        }
+        // Handle special case with explicit flat in B♭ key
+        else if (accidental === '_' && noteLetter === 'B' && keyAccidentals['B'] === '_') {
+            noteName = '_' + pitch.name;  // Just use a single flat
+        }
+        // All other cases - use accidental as determined
+        else {
+            noteName = accidental + pitch.name;
+        }
+
+        // Remove any existing commas (octave shift down)
+        return noteName.replace(/,/g, '');
+    }
+
+    /**
+     * Normalizes an accidental string to handle duplicate accidentals
+     * @param {string} accidental - The accidental string to normalize
+     * @returns {string} The normalized accidental string
+     */
+    normalizeAccidental(accidental) {
+        // Handle common cases of duplicated accidentals
+        if (accidental === '==') return '=';  // Double natural signs become a single natural
+        if (accidental === '^^') return '^^'; // Keep double sharp
+        if (accidental === '__') return '__'; // Keep double flat
+
+        // Remove any additional repetitions of accidentals beyond what's valid
+        if (accidental.startsWith('=') && accidental.length > 1) return '=';
+        if (accidental.startsWith('^') && accidental.length > 2) return accidental.substring(0, 2);
+        if (accidental.startsWith('_') && accidental.length > 2) return accidental.substring(0, 2);
+
+        return accidental;
     }
 
     /**
@@ -289,9 +388,9 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     }
 
     /**
- * Extracts notes from the ABC notation
- * @returns {string[]} Array of note names
- */
+     * Extracts notes from the ABC notation
+     * @returns {string[]} Array of note names
+     */
     extractNotesFromAbc() {
         // Get the key and determine its accidentals
         const key = this.extractKeySignature();
@@ -382,5 +481,4 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             return this.extractNotesFromAbc();
         }
     }
-
 }

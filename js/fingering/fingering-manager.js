@@ -231,11 +231,17 @@ class FingeringManager {
             return null;
         }
 
+        // Simple normalization of accidental duplications
+        if (noteName.startsWith('==')) {
+            noteName = '=' + noteName.substring(2);
+        }
+        if (noteName.startsWith('__B')) {
+            noteName = '_B'; // Special case handling for Bb
+        }
+
         // Handle natural accidentals (=) by treating them as the base note
-        // Fix for duplicate natural signs
         if (noteName.startsWith('=')) {
-            // Remove all = signs at the start
-            noteName = noteName.replace(/^=+/, "") + "";
+            noteName = noteName.substring(1);
         }
 
         // Try direct match first
