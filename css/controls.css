@@ -165,19 +165,21 @@
     transform: translateY(-8px) rotate(-45deg);
 }
 
-;
-
+/* Add to controls.css */
 @media (max-width: 768px) {
     .control-container {
         transition: all 0.3s ease;
-        overflow: hidden;
+        max-height: 1000px;
+        /* Set a large value that will contain all content */
+        margin-bottom: 20px;
+        opacity: 1;
     }
 
     .control-container.collapsed {
         max-height: 0;
         margin: 0;
-        padding: 0;
         opacity: 0;
+        overflow: hidden;
         pointer-events: none;
     }
 }
