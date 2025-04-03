@@ -71,7 +71,13 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         const parts = this.currentAbc.split(/K:[^\n]+\n/);
         if (parts.length < 2) return '';
 
-        return parts[1]
+        // Filter out lyrics lines before processing
+        const content = parts[1]
+            .split('\n')
+            .filter(line => !line.trim().startsWith('w:'))
+            .join('\n');
+
+        return content
             .replace(/\\\s*\n/g, ' ')  // Handle line continuations
             .replace(/V:\d+/g, ' ')    // Remove voice indicators
             .replace(/\|/g, ' |')      // Add space after bar lines for easier parsing
@@ -170,16 +176,16 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     }
 
     /**
-     * Extracts notes from the ABC notation
-     * @returns {string[]} Array of note names
-     */
+ * Extracts notes from the ABC notation
+ * @returns {string[]} Array of note names
+ */
     extractNotesFromAbc() {
         // Get the key and determine its accidentals
         const key = this.extractKeySignature();
         const keyAccidentals = this.getAccidentalsForKey(key);
 
-        // Get the musical content
-        const musicPart = this.extractMusicContent();
+        // Get the musical content, filtering out lyrics lines
+        const musicPart = this.filterLyricsLines(this.extractMusicContent());
         if (!musicPart) return [];
 
         // Extract notes with accidentals and octave markers, including rests
@@ -229,6 +235,18 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         return notes;
     }
 
+    /**
+     * Filters out lyrics lines from ABC notation
+     * @param {string} abcContent - The ABC notation content
+     * @returns {string} ABC content without lyrics lines
+     */
+    filterLyricsLines(abcContent) {
+        // Split by lines, filter out lyrics lines, and rejoin
+        return abcContent
+            .split('\n')
+            .filter(line => !line.trim().startsWith('w:'))
+            .join('\n');
+    }
 
     /**
      * Extracts notes from the ABC notation using a cleaned version
@@ -241,6 +259,9 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             // Preprocess: Clean the ABC notation to keep only essential musical content
             // Remove part indicators (P:A, P:B etc.)
             const cleanedAbc = this.currentAbc
+                .split('\n')
+                .filter(line => !line.trim().startsWith('w:'))  // Filter out lyrics lines
+                .join('\n')
                 .replace(/P:[A-Za-z0-9]+\s*(\r?\n|\r)/g, '')
                 // Remove chord symbols like "Dm", "G7" etc.
                 .replace(/"[A-Za-z0-9#b+]+"?/g, '');
