@@ -63,31 +63,21 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         return keyMatch ? keyMatch[1] : 'C';
     }
 
+    // Add to NotationParser class
     extractNotesUsingAbcjs(visualObj) {
         if (!visualObj || !visualObj.lines) {
             console.error("Invalid visual object for note extraction");
             return [];
         }
 
-        // Extract key signature directly from the visualObj
-        let keySignature = "C"; // Default to C if we can't find it
+        // Extract key signature directly from the source ABC instead of relying on abcjs
+        const keyDirective = this.currentAbc.match(/K:\s*([A-G][b#♭♯]?m?)/i);
+        let keySignature = keyDirective ? keyDirective[1] : "C";
 
-        // Try to get key signature from the visualObj
-        if (visualObj.getKeySignature) {
-            const keyObj = visualObj.getKeySignature();
-            console.log("abcjs key object:", keyObj);
-            keySignature = keyObj.root + (keyObj.mode === "m" ? "m" : "");
-        } else if (visualObj.key) {
-            keySignature = visualObj.key.root + (visualObj.key.mode === "m" ? "m" : "");
-        } else if (visualObj.lines && visualObj.lines[0] && visualObj.lines[0].staff) {
-            // Try to find key in the first staff
-            const firstStaff = visualObj.lines[0].staff[0];
-            if (firstStaff.key) {
-                keySignature = firstStaff.key.root + (firstStaff.key.mode === "m" ? "m" : "");
-            }
-        }
+        // Normalize the key signature format (handle 'b' as flat)
+        keySignature = keySignature.replace('b', '♭').replace('#', '♯');
 
-        console.log("Detected key signature from visualObj:", keySignature);
+        console.log("Detected key signature from ABC:", keySignature);
 
         // Get accidentals from key signature
         const keyAccidentals = this.getAccidentalsForKey(keySignature);
@@ -152,11 +142,6 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
 
                                 // Remove any existing commas (octave shift down)
                                 noteName = noteName.replace(/,/g, '');
-
-                                // For B in F major, ensure it's flat
-                                if (keySignature === "F" && noteLetter === "B" && !accidental) {
-                                    noteName = "_" + noteName;
-                                }
 
                                 notes.push(noteName);
                             });
@@ -226,6 +211,26 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             'C♭': { 'B': '_', 'E': '_', 'A': '_', 'D': '_', 'G': '_', 'C': '_', 'F': '_' },  // B♭, E♭, A♭, D♭, G♭, C♭, F♭
         };
 
+        // Check for any aliases or alternate formats
+        const keyAliases = {
+            'Bb': 'B♭',
+            'Eb': 'E♭',
+            'Ab': 'A♭',
+            'Db': 'D♭',
+            'Gb': 'G♭',
+            'Cb': 'C♭',
+            'F#': 'F♯',
+            'C#': 'C♯',
+            'G#': 'G♯',
+            'D#': 'D♯',
+            'A#': 'A♯',
+            'E#': 'E♯',
+            'B#': 'B♯'
+        };
+
+        // Try to resolve the key using aliases if needed
+        const resolvedKey = keyAliases[baseKey] || baseKey;
+
         // Map minor keys to their relative major
         const minorToRelativeMajor = {
             'Am': 'C', 'Em': 'G', 'Bm': 'D', 'F♯m': 'A', 'C♯m': 'E', 'G♯m': 'B', 'D♯m': 'F♯', 'A♯m': 'C♯',
@@ -236,7 +241,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             return keySignatures[minorToRelativeMajor[normalizedKey]] || {};
         }
 
-        return keySignatures[baseKey] || {};
+        return keySignatures[resolvedKey] || {};
     }
 
     /**
