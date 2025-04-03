@@ -3,6 +3,11 @@ class AbcFileList {
     static getFiles() {
         return [
         {
+                "name": "Which Side Are You On?",
+                "file": "american/which side are you on.abc",
+                "category": "american"
+        },
+        {
                 "name": "Waltzing Matilda",
                 "file": "australian/waltzing matilda.abc",
                 "category": "australian"
