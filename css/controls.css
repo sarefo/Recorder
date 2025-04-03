@@ -111,6 +111,7 @@
 }
 
 /* Mobile-specific styling */
+/* Fix the hamburger icon centering */
 .control-toggle {
     position: fixed;
     top: 15px;
@@ -121,29 +122,33 @@
     border-radius: 50%;
     width: 48px;
     height: 48px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    cursor: pointer;
-    transition: all 0.3s ease;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0;
 }
 
 .control-toggle span {
-    display: block;
-    width: 20px;
+    position: absolute;
+    width: 24px;
     height: 2px;
     background-color: white;
-    margin: 2px 0;
-    border-radius: 2px;
     transition: all 0.3s ease;
+    left: 12px;
+    /* This centers the lines horizontally */
 }
 
+.control-toggle span:nth-child(1) {
+    transform: translateY(-8px);
+}
+
+.control-toggle span:nth-child(3) {
+    transform: translateY(8px);
+}
+
+/* Maintain the animation for the open state */
 .control-toggle.open span:nth-child(1) {
-    transform: translateY(5px) rotate(45deg);
+    transform: translateY(0) rotate(45deg);
 }
 
 .control-toggle.open span:nth-child(2) {
@@ -151,7 +156,7 @@
 }
 
 .control-toggle.open span:nth-child(3) {
-    transform: translateY(-5px) rotate(-45deg);
+    transform: translateY(0) rotate(-45deg);
 }
 
 /* Mobile view styles - applied whenever in mobile mode */
