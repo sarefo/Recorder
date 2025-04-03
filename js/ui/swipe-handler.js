@@ -10,7 +10,7 @@ class SwipeHandler {
         this.touchEndY = 0;
         this.touchStartTime = 0;
         this.minSwipeDistance = 50; // Minimum distance for a swipe to register
-        this.maxSwipeDuration = 300; // Maximum duration in ms for a gesture to be considered a swipe
+        this.maxSwipeDuration = 100; // Maximum duration in ms for a gesture to be considered a swipe
         this.isInitialized = false;
         this.isSwiping = false;
     }
