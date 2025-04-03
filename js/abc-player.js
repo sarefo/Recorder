@@ -29,11 +29,13 @@ class AbcPlayer {
 
         // Initialize sub-modules
         this.notationParser = new NotationParser();
+        this.tuneManager = new TuneManager(this);
         this.fingeringManager = new FingeringManager(this.fingeringConfig);
         this.transposeManager = new TransposeManager();
         this.midiPlayer = new MidiPlayer();
         this.diagramRenderer = new DiagramRenderer(this.fingeringManager, this.fingeringConfig);
         this.fileManager = new FileManager(this);
+        this.tuneNavigation = new TuneNavigation(this);
         this.uiControls = new UIControls(this);
         this.renderManager = new RenderManager(this);
         this.mobileUI = new MobileUI(this);

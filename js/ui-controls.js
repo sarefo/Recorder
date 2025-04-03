@@ -182,7 +182,12 @@ class UIControls {
 
         // Create the selector using our hardcoded list
         const selector = this.player.fileManager.createFileSelector();
+
+        // Create tune navigation controls
+        const tuneNavigation = this.player.tuneNavigation.createTuneNavigationControls();
+
         fileContainer.appendChild(selector);
+        fileContainer.appendChild(tuneNavigation);
 
         return fileContainer;
     }

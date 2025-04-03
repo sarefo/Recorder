@@ -200,3 +200,30 @@
     box-shadow: none;
     padding: 8px;
 }
+
+/* Tune navigation */
+.tune-navigation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+}
+
+.tune-display {
+    font-size: 14px;
+    min-width: 40px;
+    text-align: center;
+}
+
+#prev-tune,
+#next-tune {
+    padding: 4px 8px;
+    min-width: 30px;
+}
+
+/* Hide tune navigation by default - shown only when multiple tunes are present */
+#prev-tune,
+#next-tune,
+#tune-display {
+    display: none;
+}

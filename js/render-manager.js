@@ -34,6 +34,13 @@ class RenderManager {
             if (this.player.shareManager) {
                 this.player.shareManager.updateUrlDebounced();
             }
+
+            // Update the tune counter display
+            if (this.player.tuneNavigation) {
+                this.player.tuneNavigation.updateTuneCountDisplay();
+                this.player.tuneNavigation.updateTuneTitle();
+            }
+
         } catch (error) {
             console.error("Error in render:", error);
         }
@@ -58,9 +65,10 @@ class RenderManager {
             oneSvgPerLine: this.player.renderConfig.oneSvgPerLine,
             scale: this.player.renderConfig.scale,
             clickListener: clickListener,
-            footer: false,          // Footer content set to false
-            footerPadding: 0,       // Remove footer padding
-            paddingbottom: 0        // Remove bottom padding
+            footer: false,
+            footerPadding: 0,
+            paddingbottom: 0,
+            startingTune: this.player.tuneManager.currentTuneIndex // Use tuneManager here
         })[0];
     }
 

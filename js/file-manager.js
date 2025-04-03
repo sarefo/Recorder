@@ -42,6 +42,7 @@ class FileManager {
             if (abcContent.includes('X:') && abcContent.includes('K:')) {
                 // Update the notation and render it
                 this.player.notationParser.currentAbc = abcContent;
+                this.player.tuneManager.resetToFirstTune();
                 this.player.render();
 
                 // Extract filename for feedback
