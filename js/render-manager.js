@@ -25,7 +25,7 @@ class RenderManager {
             if (this.player.fingeringManager.showFingering) {
                 setTimeout(() => {
                     const notes = this.player.notationParser.extractNotesUsingAbcjs(this.currentVisualObj);
-                    console.log("Notes extracted with abcjs:", notes);
+                    //console.log("Notes extracted with abcjs:", notes);
                     this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
                 }, 100);
             }
@@ -82,7 +82,7 @@ class RenderManager {
                 // Use abcjs visual object to get correctly interpreted notes
                 const notes = this.player.notationParser.extractNotesUsingAbcjs(this.currentVisualObj);
 
-                console.log("Notes adjusted for fingering:", notes);
+                //console.log("Notes adjusted for fingering:", notes);
                 this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
             }, 100);
         }

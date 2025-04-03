@@ -77,11 +77,11 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         // Normalize the key signature format (handle 'b' as flat)
         keySignature = keySignature.replace('b', '♭').replace('#', '♯');
 
-        console.log("Detected key signature from ABC:", keySignature);
+        //console.log("Detected key signature from ABC:", keySignature);
 
         // Get accidentals from key signature
         const keyAccidentals = this.getAccidentalsForKey(keySignature);
-        console.log("Key accidentals:", keyAccidentals);
+        //console.log("Key accidentals:", keyAccidentals);
 
         const notes = [];
         let measureAccidentals = {}; // Track accidentals within a measure
