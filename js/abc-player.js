@@ -782,72 +782,107 @@ class AbcPlayer {
     }
 
     setupMobileControls() {
-        // Clean up any existing button
-        const existingButton = document.getElementById('control-toggle');
-        if (existingButton) {
-            existingButton.remove();
-        }
-
-        // Create a new toggle button
-        const toggleButton = document.createElement('button');
-        toggleButton.id = 'control-toggle';
-        toggleButton.className = 'control-toggle';
-        toggleButton.innerHTML = '<span></span><span></span><span></span>';
-        document.body.appendChild(toggleButton);
+        // Create or get the toggle button
+        const toggleButton = this.createMobileToggleButton();
 
         // Get control container
         const controlContainer = document.querySelector('.control-container');
 
-        // Initialize state with improved mobile detection
+        // Set up the initial state (properly connected)
         this.updateMobileState();
-        this.controlsCollapsed = this.isMobile;
 
-        // Initial UI setup
-        toggleButton.style.display = this.isMobile ? 'block' : 'none';
-        if (this.controlsCollapsed && controlContainer) {
-            controlContainer.classList.add('collapsed');
-        }
+        // Apply the initial state to both the button and controls
+        this.applyMobileState(toggleButton, controlContainer);
 
-        // Click handler
+        // Click handler to toggle controls
         toggleButton.onclick = () => {
-            console.log('Toggle clicked');
             this.controlsCollapsed = !this.controlsCollapsed;
-
-            if (this.controlsCollapsed) {
-                controlContainer.classList.add('collapsed');
-                toggleButton.classList.remove('open');
-            } else {
-                controlContainer.classList.remove('collapsed');
-                toggleButton.classList.add('open');
-            }
+            this.applyMobileState(toggleButton, controlContainer);
         };
 
-        // Resize handler with improved mobile detection
+        // Handle screen size changes
+        this.setupScreenChangeHandlers(toggleButton, controlContainer);
+    }
+
+    // Create the hamburger button
+    createMobileToggleButton() {
+        let toggleButton = document.getElementById('control-toggle');
+        if (!toggleButton) {
+            toggleButton = document.createElement('button');
+            toggleButton.id = 'control-toggle';
+            toggleButton.className = 'control-toggle';
+            toggleButton.innerHTML = '<span></span><span></span><span></span>';
+            document.body.appendChild(toggleButton);
+        }
+        return toggleButton;
+    }
+
+    // Updated mobile detection logic
+    updateMobileState() {
+        // Detect mobile devices
+        const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        // Consider both screen dimensions and device type
+        const smallerDimension = Math.min(window.innerWidth, window.innerHeight);
+
+        // Determine if we should use mobile mode
+        this.isMobile = isMobileDevice || smallerDimension <= 900;
+
+        // Initialize collapsed state (if not already set)
+        if (this.controlsCollapsed === undefined) {
+            this.controlsCollapsed = this.isMobile;
+        }
+
+        return this.isMobile;
+    }
+
+    // Apply the current state to the UI elements
+    applyMobileState(toggleButton, controlContainer) {
+        if (!toggleButton || !controlContainer) return;
+
+        // Always show/hide toggle based on mobile status
+        toggleButton.style.display = this.isMobile ? 'block' : 'none';
+
+        // For desktop: always show controls, never collapsed
+        if (!this.isMobile) {
+            controlContainer.classList.remove('collapsed');
+            controlContainer.classList.remove('mobile-view');
+            return;
+        }
+
+        // For mobile: handle collapsed state and styling
+        controlContainer.classList.add('mobile-view');
+
+        if (this.controlsCollapsed) {
+            controlContainer.classList.add('collapsed');
+            toggleButton.classList.remove('open');
+        } else {
+            controlContainer.classList.remove('collapsed');
+            toggleButton.classList.add('open');
+        }
+    }
+
+    // Set up handlers for screen size/orientation changes
+    setupScreenChangeHandlers(toggleButton, controlContainer) {
+        // Handle window resize
         window.addEventListener('resize', () => {
             const wasMobile = this.isMobile;
             this.updateMobileState();
 
-            // Update toggle visibility
-            toggleButton.style.display = this.isMobile ? 'block' : 'none';
-
-            // Handle mode transitions
-            if (!wasMobile && this.isMobile) {
-                // Desktop to mobile
-                this.controlsCollapsed = true;
-                controlContainer.classList.add('collapsed');
-            } else if (wasMobile && !this.isMobile) {
-                // Mobile to desktop
-                this.controlsCollapsed = false;
-                controlContainer.classList.remove('collapsed');
+            // If transitioning between mobile/desktop, reset collapsed state appropriately
+            if (wasMobile !== this.isMobile) {
+                this.controlsCollapsed = this.isMobile;
             }
+
+            this.applyMobileState(toggleButton, controlContainer);
         });
 
-        // Also check orientation changes specifically
+        // Handle orientation changes specifically
         window.addEventListener('orientationchange', () => {
             setTimeout(() => {
                 this.updateMobileState();
-                toggleButton.style.display = this.isMobile ? 'block' : 'none';
-            }, 100); // Short delay to ensure dimensions are updated
+                this.applyMobileState(toggleButton, controlContainer);
+            }, 100);
         });
     }
 
@@ -872,23 +907,13 @@ class AbcPlayer {
 
     createMobileToggleButton() {
         let toggleButton = document.getElementById('control-toggle');
-
         if (!toggleButton) {
             toggleButton = document.createElement('button');
             toggleButton.id = 'control-toggle';
             toggleButton.className = 'control-toggle';
-            toggleButton.innerHTML = '<span></span><span></span><span></span>'; // Hamburger icon
-
-            // Initially hide the button - we'll show it only if on mobile
-            toggleButton.style.display = 'none';
-
+            toggleButton.innerHTML = '<span></span><span></span><span></span>';
             document.body.appendChild(toggleButton);
         }
-
-        // Immediately set visibility based on screen size
-        this.isMobile = window.innerWidth <= 768;
-        toggleButton.style.display = this.isMobile ? 'block' : 'none';
-
         return toggleButton;
     }
 
