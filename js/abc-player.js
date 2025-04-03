@@ -89,14 +89,33 @@ class AbcPlayer {
         // Parse ABC notation
         const sections = this.notationParser.parseAbcSections(this.notationParser.currentAbc);
 
-        // Transpose key if present
+        // Extract the current key
+        let key = 'C'; // Default to C major
+        if (sections.key) {
+            const keyMatch = sections.key.match(/K:([A-G][#b]?[m]?)/);
+            if (keyMatch) {
+                key = keyMatch[1];
+            }
+        }
+
+        // Transpose key signature first
         if (sections.key) {
             sections.key = this.transposeManager.transposeKey(sections.key, semitoneShift);
         }
 
-        // Transpose notes
-        sections.notes = this.transposeManager.transposeNotes(sections.notes, semitoneShift);
+        // Get the new key for note context
+        let newKey = 'C';
+        if (sections.key) {
+            const keyMatch = sections.key.match(/K:([A-G][#b]?[m]?)/);
+            if (keyMatch) {
+                newKey = keyMatch[1];
+            }
+        }
 
+        // Transpose notes with key context
+        sections.notes = this.transposeManager.transposeNotes(sections.notes, semitoneShift, newKey);
+
+        // Reassemble the ABC notation
         this.notationParser.currentAbc = this.notationParser.reconstructAbc(sections);
         this.render();
     }

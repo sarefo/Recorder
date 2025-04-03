@@ -1,26 +1,81 @@
-/**
-  * Handles all note transposition functionality
-  */
 class TransposeManager {
-    noteToSemitone(accidental, noteLetter, octaveMarkers) {
-        // Base values for each note
-        const baseValues = { 'C': 0, 'D': 2, 'E': 4, 'F': 5, 'G': 7, 'A': 9, 'B': 11 };
+    constructor() {
+        // Initialize music theory data structures
+        this.setupMusicTheoryData();
+    }
 
-        // Start with base value
-        let semitone = baseValues[noteLetter.toUpperCase()];
+    setupMusicTheoryData() {
+        // Base note values and mapping
+        this.noteValues = { 'C': 0, 'D': 2, 'E': 4, 'F': 5, 'G': 7, 'A': 9, 'B': 11 };
 
-        // Apply accidentals
-        if (accidental) {
-            for (const acc of accidental) {
-                if (acc === '^') semitone += 1;
-                else if (acc === '_') semitone -= 1;
+        // Major key signatures (positive = # of sharps, negative = # of flats)
+        this.keySignatures = {
+            'C': 0, 'G': 1, 'D': 2, 'A': 3, 'E': 4, 'B': 5, 'F#': 6, 'C#': 7,
+            'F': -1, 'Bb': -2, 'Eb': -3, 'Ab': -4, 'Db': -5, 'Gb': -6, 'Cb': -7
+        };
+
+        // Order of sharps and flats in key signatures
+        this.sharpOrder = ['F', 'C', 'G', 'D', 'A', 'E', 'B'];
+        this.flatOrder = ['B', 'E', 'A', 'D', 'G', 'C', 'F'];
+
+        // Circle of fifths for key selection
+        this.keysInCircle = [
+            'C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#',
+            'F', 'Bb', 'Eb', 'Ab', 'Db', 'Gb', 'Cb'
+        ];
+    }
+
+    // Get key signature information (which notes have accidentals)
+    getKeySignatureNotes(key) {
+        const keyRoot = key.replace(/m$/, '');
+        const accidentalCount = this.keySignatures[keyRoot] || 0;
+        const affectedNotes = {};
+
+        if (accidentalCount > 0) {
+            // Handle sharp key signatures
+            for (let i = 0; i < accidentalCount; i++) {
+                affectedNotes[this.sharpOrder[i]] = '^';
+            }
+        } else if (accidentalCount < 0) {
+            // Handle flat key signatures
+            for (let i = 0; i < Math.abs(accidentalCount); i++) {
+                affectedNotes[this.flatOrder[i]] = '_';
             }
         }
 
-        // Set octave (C is middle C = octave 4, c is octave 5)
+        return affectedNotes;
+    }
+
+    // Improved note-to-semitone conversion with better accidental handling
+    noteToSemitone(accidental, noteLetter, octaveMarkers) {
+        // Get base semitone value for the note letter
+        let semitone = this.noteValues[noteLetter.toUpperCase()];
+
+        // Apply accidentals with improved handling for double accidentals
+        if (accidental) {
+            for (let i = 0; i < accidental.length; i++) {
+                if (accidental[i] === '^') {
+                    if (i + 1 < accidental.length && accidental[i + 1] === '^') {
+                        semitone += 2; // Double sharp
+                        i++; // Skip next character
+                    } else {
+                        semitone += 1; // Single sharp
+                    }
+                } else if (accidental[i] === '_') {
+                    if (i + 1 < accidental.length && accidental[i + 1] === '_') {
+                        semitone -= 2; // Double flat
+                        i++; // Skip next character
+                    } else {
+                        semitone -= 1; // Single flat
+                    }
+                }
+                // Natural sign (=) doesn't change the semitone value
+            }
+        }
+
+        // Calculate octave
         let octave = noteLetter === noteLetter.toUpperCase() ? 4 : 5;
 
-        // Apply octave markers
         if (octaveMarkers) {
             for (const marker of octaveMarkers) {
                 if (marker === ',') octave -= 1;
@@ -32,29 +87,80 @@ class TransposeManager {
         return semitone + (octave * 12);
     }
 
-    semitoneToAbc(semitone, duration) {
-        // Get octave and note value
+    semitoneToAbc(semitone, duration, key) {
         const octave = Math.floor(semitone / 12);
         const noteValue = ((semitone % 12) + 12) % 12;
 
-        // Map semitones to note names with accidentals
-        const noteMap = [
-            { note: 'C', accidental: '' },
-            { note: 'C', accidental: '^' },
-            { note: 'D', accidental: '' },
-            { note: 'D', accidental: '^' },
-            { note: 'E', accidental: '' },
-            { note: 'F', accidental: '' },
-            { note: 'F', accidental: '^' },
-            { note: 'G', accidental: '' },
-            { note: 'G', accidental: '^' },
-            { note: 'A', accidental: '' },
-            { note: 'A', accidental: '^' },
-            { note: 'B', accidental: '' }
-        ];
+        // Simplified note mapping for C major
+        // This defines the most natural way to represent each semitone in C major
+        const cMajorMap = {
+            0: { note: 'C', accidental: '' },      // C
+            1: { note: 'C', accidental: '^' },     // C#
+            2: { note: 'D', accidental: '' },      // D
+            3: { note: 'E', accidental: '_' },     // Eb
+            4: { note: 'E', accidental: '' },      // E
+            5: { note: 'F', accidental: '' },      // F
+            6: { note: 'F', accidental: '^' },     // F#
+            7: { note: 'G', accidental: '' },      // G
+            8: { note: 'G', accidental: '^' },     // G#
+            9: { note: 'A', accidental: '' },      // A
+            10: { note: 'B', accidental: '_' },    // Bb
+            11: { note: 'B', accidental: '' }      // B
+        };
 
-        // Get note information
-        const { note, accidental } = noteMap[noteValue];
+        // For all keys, use the C major mapping when we're in C major
+        const keyMatch = key.match(/([A-G][#b]?)([m]?)/);
+        const keyRoot = keyMatch ? keyMatch[1] : 'C';
+        const keyMode = keyMatch ? keyMatch[2] : '';
+
+        let noteData;
+
+        // Special handling for C major - always use the C major map
+        if (keyRoot === 'C' && keyMode === '') {
+            noteData = cMajorMap[noteValue];
+        } else {
+            // For other keys, use the original logic
+            const keySignatureValue = this.keySignatures[keyRoot.replace('#', '♯').replace('b', '♭')] || 0;
+            const useSharp = keySignatureValue >= 0;
+
+            if (useSharp) {
+                // Sharp key mapping
+                const sharpMap = [
+                    { note: 'C', accidental: '' },     // 0
+                    { note: 'C', accidental: '^' },    // 1
+                    { note: 'D', accidental: '' },     // 2
+                    { note: 'D', accidental: '^' },    // 3
+                    { note: 'E', accidental: '' },     // 4
+                    { note: 'F', accidental: '' },     // 5
+                    { note: 'F', accidental: '^' },    // 6
+                    { note: 'G', accidental: '' },     // 7
+                    { note: 'G', accidental: '^' },    // 8
+                    { note: 'A', accidental: '' },     // 9
+                    { note: 'A', accidental: '^' },    // 10
+                    { note: 'B', accidental: '' }      // 11
+                ];
+                noteData = sharpMap[noteValue];
+            } else {
+                // Flat key mapping
+                const flatMap = [
+                    { note: 'C', accidental: '' },     // 0
+                    { note: 'D', accidental: '_' },    // 1
+                    { note: 'D', accidental: '' },     // 2
+                    { note: 'E', accidental: '_' },    // 3
+                    { note: 'E', accidental: '' },     // 4
+                    { note: 'F', accidental: '' },     // 5
+                    { note: 'G', accidental: '_' },    // 6
+                    { note: 'G', accidental: '' },     // 7
+                    { note: 'A', accidental: '_' },    // 8
+                    { note: 'A', accidental: '' },     // 9
+                    { note: 'B', accidental: '_' },    // 10
+                    { note: 'B', accidental: '' }      // 11
+                ];
+                noteData = flatMap[noteValue];
+            }
+        }
+
+        const { note, accidental } = noteData;
 
         // Format note based on octave
         let formattedNote, octaveMarkers = '';
@@ -79,7 +185,8 @@ class TransposeManager {
     }
 
     transposeKey(keyLine, semitoneShift) {
-        const keyMatch = keyLine.match(/K:([A-G][#b]?)([m]?)/);
+        // Extract just the key name from the key directive
+        const keyMatch = keyLine.match(/K:\s*([A-G][#b]?)([m]?)/i);
         if (!keyMatch) return keyLine;
 
         const [, key, mode] = keyMatch;
@@ -91,7 +198,7 @@ class TransposeManager {
             'Ab': 8, 'A': 9, 'A#': 10, 'Bb': 10, 'B': 11
         };
 
-        // Map semitones to key names
+        // Map semitones to preferred key names (avoiding theoretical keys)
         const semitoneToKey = {
             0: 'C', 1: 'C#', 2: 'D', 3: 'Eb', 4: 'E', 5: 'F',
             6: 'F#', 7: 'G', 8: 'Ab', 9: 'A', 10: 'Bb', 11: 'B'
@@ -103,10 +210,13 @@ class TransposeManager {
         semitone = (semitone + semitoneShift + 12) % 12;
         const newKey = semitoneToKey[semitone];
 
-        return keyLine.replace(/K:[A-G][#b]?[m]?/, `K:${newKey}${mode}`);
+        // Create new key directive with proper spacing
+        // Find the exact key part in the original line and replace just that part
+        return keyLine.replace(/([K|k]:\s*)([A-G][#b]?[m]?)/, `$1${newKey}${mode}`);
     }
 
-    transposeNote(note, semitoneShift) {
+    // Main note transposition function
+    transposeNote(note, semitoneShift, key) {
         const match = note.match(/([_^=]*)([A-Ga-g])([,']*)([\d/]*)/);
         if (!match) return note;
 
@@ -115,19 +225,26 @@ class TransposeManager {
         // Convert to semitone value
         const semitone = this.noteToSemitone(accidental, noteLetter, octaveMarkers);
 
-        // Apply transposition
-        const newSemitone = semitone + semitoneShift;
+        // Calculate the new key for context-aware notation
+        const keyMatch = key.match(/([A-G][#b]?)([m]?)/);
+        const keyRoot = keyMatch ? keyMatch[1] : 'C';
+        const keyMode = keyMatch ? keyMatch[2] : '';
 
-        // Convert back to ABC notation
-        return this.semitoneToAbc(newSemitone, duration);
+        // Convert key to standard notation
+        const standardKey = keyRoot.replace('#', '♯').replace('b', '♭') + keyMode;
+
+        // Calculate new semitone and convert to ABC with key context
+        const newSemitone = semitone + semitoneShift;
+        return this.semitoneToAbc(newSemitone, duration, standardKey);
     }
 
-    transposeNotes(noteLines, semitoneShift) {
+    // Transpose all notes in an ABC piece
+    transposeNotes(noteLines, semitoneShift, key) {
         const noteRegex = /([_^=]*)([A-Ga-g])([,']*)([\d/]*)/g;
 
         return noteLines.map(line => {
             return line.replace(noteRegex, (match) => {
-                return this.transposeNote(match, semitoneShift);
+                return this.transposeNote(match, semitoneShift, key);
             });
         });
     }
