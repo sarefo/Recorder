@@ -145,6 +145,9 @@
     margin: 3px 0;
     border-radius: 2px;
     transition: all 0.3s ease;
+    position: relative;
+    left: 0;
+    /* Ensure no left offset */
 }
 
 /* Animation for open state */
