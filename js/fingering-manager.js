@@ -226,6 +226,11 @@ class FingeringManager {
      * @returns {Object|null} - Fingering data for the note or null if not found
      */
     getFingeringForNote(noteName) {
+        // Skip processing for rests
+        if (noteName === 'rest') {
+            return null;
+        }
+        
         // Handle natural accidentals (=) by treating them as the base note
         if (noteName.startsWith('=')) {
             noteName = noteName.substring(1);

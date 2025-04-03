@@ -39,24 +39,8 @@ class DiagramRenderer {
         // Get container dimensions
         const containerRect = abcContainer.getBoundingClientRect();
 
-        // Create an array to store the debugging info
-        const noteSequenceDebugInfo = [];
-
         // Add diagrams for each staff line
-        this.renderDiagramsByStaff(staffMap, noteDataMap, containerRect, layer, noteSequenceDebugInfo);
-
-        // Log the note sequence for debugging
-        console.group('Diagram Note Sequence (for debugging)');
-        console.log('Original ABC Notes count:', notesData.length);
-        console.table(noteSequenceDebugInfo);
-
-        // Create a more readable version for comparison
-        const sequenceString = noteSequenceDebugInfo
-            .map(info => `${info.position}. data-index ${info.dataIndex}: ${info.noteName} (staff ${info.staffLine}, measure ${info.measure})`)
-            .join('\n');
-
-        console.log('Notes as rendered (for easy comparison):\n' + sequenceString);
-        console.groupEnd();
+        this.renderDiagramsByStaff(staffMap, noteDataMap, containerRect, layer);
     }
 
     findNoteElements() {
@@ -140,9 +124,7 @@ class DiagramRenderer {
         return -1;
     }
 
-    renderDiagramsByStaff(staffMap, noteDataMap, containerRect, layer, debugInfo) {
-        let position = 0;
-
+    renderDiagramsByStaff(staffMap, noteDataMap, containerRect, layer) {
         // For each staff line
         staffMap.forEach(staff => {
             if (!staff.bottom || !staff.notes.length) return;
@@ -159,19 +141,10 @@ class DiagramRenderer {
                 const noteName = noteDataMap.get(note.dataIndex);
 
                 if (noteName) {
-                    // Add to debug info
-                    debugInfo.push({
-                        position: position++,
-                        dataIndex: note.dataIndex,
-                        noteName: noteName,
-                        staffLine: staff.lineNumber,
-                        measure: note.measure,
-                        left: Math.round(note.left - containerRect.left)
-                    });
-
-                    this.renderDiagramForNote(note, noteName, containerRect, diagramsTopPosition, layer);
-                } else {
-                    console.warn(`No note data found for data-index ${note.dataIndex}`);
+                    // Skip rests - don't create diagrams for them
+                    if (noteName !== 'rest') {
+                        this.renderDiagramForNote(note, noteName, containerRect, diagramsTopPosition, layer);
+                    }
                 }
             });
         });
@@ -183,39 +156,12 @@ class DiagramRenderer {
 
         const diagram = this.fingeringManager.createFingeringDiagram(fingeringData, noteName);
 
-        // Add data-index as a debug label
-        const debugLabel = document.createElement('div');
-        debugLabel.textContent = `${note.dataIndex}`;
-        debugLabel.style.fontSize = '10px';
-        debugLabel.style.fontWeight = 'bold';
-        debugLabel.style.color = 'red';
-        debugLabel.style.position = 'absolute';
-        debugLabel.style.top = '0';
-        debugLabel.style.left = '0';
-
-        // Add measure information
-        const measureLabel = document.createElement('div');
-        measureLabel.textContent = `m:${note.measure}`;
-        measureLabel.style.fontSize = '10px';
-        measureLabel.style.color = 'green';
-        measureLabel.style.position = 'absolute';
-        measureLabel.style.bottom = '0';
-        measureLabel.style.right = '0';
-
         // Position the diagram
         diagram.style.position = 'absolute';
         diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
         diagram.style.top = `${verticalPosition}px`;
         diagram.style.transform = `translate(-50%, 0) scale(${this.config.scale})`;
         diagram.style.transformOrigin = 'center top';
-
-        // Make room for the debug labels
-        diagram.style.paddingTop = '15px';
-        diagram.style.paddingBottom = '15px';
-
-        // Append debug labels
-        diagram.appendChild(debugLabel);
-        diagram.appendChild(measureLabel);
 
         layer.appendChild(diagram);
     }

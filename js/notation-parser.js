@@ -182,9 +182,9 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         const musicPart = this.extractMusicContent();
         if (!musicPart) return [];
 
-        // Extract notes with accidentals and octave markers
+        // Extract notes with accidentals and octave markers, including rests
         const notes = [];
-        const noteRegex = /([_^=]?)([A-Ga-g])([,']*)/g;
+        const noteRegex = /([_^=]?)([A-Ga-gz])([,']*)/g; // Updated to include 'z' (rest)
         let match;
 
         // Track accidentals that apply within a measure
@@ -195,6 +195,13 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             if (this.isNoteInChord(musicPart, match.index)) continue;
 
             let [, accidental, noteLetter, octaveMarkers] = match;
+
+            // Handle rests (z)
+            if (noteLetter === 'z') {
+                notes.push('rest');
+                continue;
+            }
+
             const baseNote = noteLetter.toUpperCase();
 
             // Check if we've reached a bar line, and reset measure accidentals if so
@@ -221,14 +228,15 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
 
         return notes;
     }
-    
+
+
     /**
-     * Extracts notes from the ABC notation using abcjs parser
+     * Extracts notes from the ABC notation using a cleaned version
      * Creates a temporary and cleaner version of the ABC notation to extract only playable notes
      * Filters out parts, chord symbols, and other non-note elements
      * @returns {string[]} Array of note names
      */
-    extractNotesUsingAbcjs() {
+    extractCleanedNotes() {
         try {
             // Preprocess: Clean the ABC notation to keep only essential musical content
             // Remove part indicators (P:A, P:B etc.)
@@ -236,39 +244,37 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                 .replace(/P:[A-Za-z0-9]+\s*(\r?\n|\r)/g, '')
                 // Remove chord symbols like "Dm", "G7" etc.
                 .replace(/"[A-Za-z0-9#b+]+"?/g, '');
-            
+
             // Create a temporary div for rendering
             const tempDiv = document.createElement('div');
             tempDiv.id = 'abcjs-temp-container';
             tempDiv.style.display = 'none';
             document.body.appendChild(tempDiv);
-            
+
             // Parse the cleaned ABC notation using abcjs
             ABCJS.renderAbc("abcjs-temp-container", cleanedAbc, {
                 add_classes: true
             });
-            
+
             // Temporarily save the original ABC and set the cleaned version
             const originalAbc = this.currentAbc;
             this.currentAbc = cleanedAbc;
-            
+
             // Extract notes using the existing method on the cleaned ABC
             const notes = this.extractNotesFromAbc();
-            
+
             // Restore the original ABC
             this.currentAbc = originalAbc;
-            
+
             // Clean up temporary div
             document.body.removeChild(tempDiv);
-            
-            // Debug info about the extraction
-            console.log('Notes extracted using cleaned ABC method:', notes.join(' '));
-            
+
             return notes;
         } catch (error) {
-            console.error("Error extracting notes using abcjs:", error);
+            console.error("Error extracting notes using cleaned ABC:", error);
             // Fall back to the regex-based method if there's an error
             return this.extractNotesFromAbc();
         }
     }
+
 }

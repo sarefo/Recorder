@@ -66,7 +66,7 @@ class RenderManager {
         if (this.player.fingeringManager.showFingering) {
             setTimeout(() => {
                 // Use abcjs to extract only actual playable notes, avoiding parts and chord symbols
-                const notes = this.player.notationParser.extractNotesUsingAbcjs();
+                const notes = this.player.notationParser.extractCleanedNotes();
                 this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
             }, 100);
         }

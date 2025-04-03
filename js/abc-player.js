@@ -150,7 +150,7 @@ class AbcPlayer {
      */
     showFingeringDiagrams() {
         // Use abcjs to extract only actual playable notes, avoiding parts and chord symbols
-        const notes = this.notationParser.extractNotesUsingAbcjs();
+        const notes = this.notationParser.extractCleanedNotes();
         const abcContainer = document.getElementById('abc-notation');
         this.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
     }
