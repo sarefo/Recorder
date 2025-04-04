@@ -89,20 +89,39 @@ class AbcPlayer {
     transpose(direction) {
         const semitoneShift = direction === 'up' ? 1 : -1;
 
-        // We need the current visual object that has been properly parsed by abcjs
-        const visualObj = this.renderManager.currentVisualObj;
-        if (!visualObj) {
-            console.error("No visual object available for transposition");
-            return;
-        }
-
-        // Use abcjs's built-in string transposition with the current ABC and visual object
         try {
-            const transposedAbc = ABCJS.strTranspose(
-                this.notationParser.currentAbc,
-                [visualObj],  // abcjs expects an array of visual objects
+            // Get current ABC and normalize line endings to LF (\n)
+            const currentAbc = this.notationParser.currentAbc.replace(/\r\n/g, '\n');
+            console.log("Current ABC before transposition (normalized):", currentAbc);
+
+            // Create a hidden div for transposition
+            let tempDiv = document.getElementById('transposition-temp');
+            if (!tempDiv) {
+                tempDiv = document.createElement('div');
+                tempDiv.id = 'transposition-temp';
+                tempDiv.style.display = 'none';
+                document.body.appendChild(tempDiv);
+            }
+
+            // Create a fresh visual object with normalized ABC
+            const freshVisualObj = ABCJS.renderAbc(tempDiv.id, currentAbc, {
+                generateDownload: false,
+                generateInline: false
+            });
+
+            // Use the fresh visual object for transposition
+            let transposedAbc = ABCJS.strTranspose(
+                currentAbc,  // Use normalized ABC
+                freshVisualObj,
                 semitoneShift
             );
+
+            console.log("Transposed ABC:", transposedAbc);
+
+            // Ensure a final newline after the key line if needed
+            if (!transposedAbc.match(/K:.*\n/)) {
+                transposedAbc = transposedAbc.replace(/(K:.*?)([A-Ga-g])/, '$1\n$2');
+            }
 
             // Update the stored ABC notation with the transposed string
             this.notationParser.currentAbc = transposedAbc;
