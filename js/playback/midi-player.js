@@ -12,6 +12,11 @@ class MidiPlayer {
             metronomeOn: false,
             tempo: 100 // Default tempo percentage (100%)
         };
+
+        // Add custom metronome
+        this.customMetronome = new CustomMetronome();
+        this.lastTimeSignature = 4; // Default 4/4 time
+        this.lastTempo = 120;       // Default tempo
     }
 
     /**
@@ -62,6 +67,30 @@ class MidiPlayer {
     }
 
     /**
+    * Updates metronome settings based on visual object data
+    * @param {Object} visualObj - The ABC visual object
+    */
+    updateMetronome(visualObj) {
+        // Extract time signature from the visual object
+        const timeSignature = visualObj.getMeter();
+        const numerator = timeSignature?.value?.[0]?.num || 4;
+
+        // Extract tempo from the visual object
+        const baseTempo = visualObj.metaText?.tempo?.qpm || 120;
+        const adjustedTempo = Math.round((baseTempo * this.playbackSettings.tempo) / 100);
+
+        // Update saved values
+        this.lastTimeSignature = numerator;
+        this.lastTempo = adjustedTempo;
+
+        // Update metronome if it's running
+        if (this.customMetronome.isPlaying) {
+            this.customMetronome.setTimeSignature(numerator);
+            this.customMetronome.setTempo(adjustedTempo);
+        }
+    }
+
+    /**
      * Prepares playback options based on current settings
      * @returns {Object} MIDI playback options
      */
@@ -73,7 +102,15 @@ class MidiPlayer {
             voicesOff: !this.playbackSettings.voicesOn,
             drum: this.playbackSettings.metronomeOn ? "dddd" : "", // Simple metronome pattern
             drumBars: 1,
-            drumIntro: 1
+            drumIntro: 1,
+            // Additional metronome settings
+            drumOn: this.playbackSettings.metronomeOn,
+            //soundFontUrl: "https://paulrosen.github.io/midi-js-soundfonts/FluidR3_GM/",
+            // Define specific drum sounds
+            preferredDrum: "hi-hat", // Options: "bass-drum", "snare-drum", "hi-hat", "tambourine", "woodblock"
+            // Set volume levels for different beats
+            staccato: 0.3,
+            beatAccents: [0.75, 0.5, 0.5, 0.5]  // Accent patterns: first beat gets more emphasis
         };
     }
 
@@ -92,6 +129,9 @@ class MidiPlayer {
 
             // Calculate tempo settings
             const { millisecondsPerMeasure } = this.calculateTempoSettings(visualObj);
+
+            // Update metronome settings based on visual object
+            this.updateMetronome(visualObj);
 
             // Get playback options
             const options = this.preparePlaybackOptions();
@@ -190,8 +230,18 @@ class MidiPlayer {
             let success;
             if (this.isPlaying) {
                 success = await this.pausePlayback();
+
+                // Also stop metronome if it's on
+                if (this.playbackSettings.metronomeOn) {
+                    this.customMetronome.stop();
+                }
             } else {
                 success = await this.startPlayback();
+
+                // Start metronome if it's enabled
+                if (this.playbackSettings.metronomeOn) {
+                    this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
+                }
             }
 
             if (success) {
@@ -216,6 +266,10 @@ class MidiPlayer {
             await this.midiPlayer.stop();
             this.isPlaying = false;
             this.updatePlayButtonState();
+
+            // Also stop metronome
+            this.customMetronome.stop();
+
             return true;
         } catch (error) {
             console.error("Error stopping playback:", error);
@@ -238,8 +292,17 @@ class MidiPlayer {
             const stopSuccess = await this.stopPlayback();
             if (!stopSuccess) return false;
 
+            // Stop metronome
+            this.customMetronome.stop();
+
             // Start from beginning
             const startSuccess = await this.startPlayback();
+
+            // Start metronome if enabled
+            if (startSuccess && this.playbackSettings.metronomeOn) {
+                this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
+            }
+
             if (startSuccess) {
                 this.isPlaying = true;
                 this.updatePlayButtonState();
@@ -262,6 +325,8 @@ class MidiPlayer {
      */
     async updatePlaybackSettings(settings, visualObj) {
         try {
+            const previousMetronomeState = this.playbackSettings.metronomeOn;
+
             // Update the settings
             this.playbackSettings = {
                 ...this.playbackSettings,
@@ -274,14 +339,33 @@ class MidiPlayer {
             // Stop playback if currently playing
             if (wasPlaying) {
                 await this.stopPlayback();
+                this.customMetronome.stop();
             }
 
             // Re-initialize with new settings
             await this.init(visualObj);
 
+            // Handle metronome state changes
+            if (previousMetronomeState !== this.playbackSettings.metronomeOn) {
+                if (this.playbackSettings.metronomeOn) {
+                    // Metronome was just turned on
+                    console.log("Metronome turned ON");
+                } else {
+                    // Metronome was just turned off
+                    console.log("Metronome turned OFF");
+                    this.customMetronome.stop();
+                }
+            }
+
             // Resume playback if it was playing before
             if (wasPlaying) {
                 await this.startPlayback();
+
+                // Restart metronome if enabled
+                if (this.playbackSettings.metronomeOn) {
+                    this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
+                }
+
                 this.isPlaying = true;
                 this.updatePlayButtonState();
             }
@@ -293,4 +377,5 @@ class MidiPlayer {
             return this.playbackSettings;
         }
     }
+
 }
