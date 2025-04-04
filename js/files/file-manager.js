@@ -63,10 +63,22 @@ class FileManager {
      * Creates the file selector UI as a grouped dropdown
      * @returns {HTMLElement} The file selector element
      */
+    /**
+     * Creates the file selector UI including a random button
+     * @returns {HTMLElement} The container element with the dropdown and button
+     */
     createFileSelector() {
+        // Create a container div to hold the dropdown and button
+        const container = document.createElement('div');
+        container.className = 'file-selector-container'; // Add a class for potential styling
+        container.style.display = 'flex'; // Use flexbox for easy alignment
+        container.style.alignItems = 'center'; // Align items vertically
+
+        // Create the select dropdown
         const select = document.createElement('select');
         select.id = 'abc-file-selector';
         select.className = 'file-selector';
+        select.style.marginRight = '8px'; // Add some space between dropdown and button
 
         // Add default option
         const defaultOption = document.createElement('option');
@@ -78,23 +90,18 @@ class FileManager {
         // Add options for each category
         Object.keys(this.categorizedFiles).sort().forEach(category => {
             const files = this.categorizedFiles[category];
-
-            // Create an optgroup for the category
             const group = document.createElement('optgroup');
             group.label = category;
-
-            // Add files within this category
             files.forEach(file => {
                 const option = document.createElement('option');
                 option.value = file.file;
                 option.textContent = file.name;
                 group.appendChild(option);
             });
-
             select.appendChild(group);
         });
 
-        // Handle selection changes
+        // Handle selection changes [cite: 76]
         select.addEventListener('change', (e) => {
             const selectedFile = e.target.value;
             if (selectedFile) {
@@ -106,6 +113,43 @@ class FileManager {
             }
         });
 
-        return select;
+        // Append the dropdown to the container
+        container.appendChild(select);
+
+        // Create the "Random" button
+        const randomButton = document.createElement('button');
+        randomButton.id = 'random-abc-button';
+        // Use an icon (e.g., dice) instead of text
+        randomButton.textContent = '🎲'; // Unicode dice character
+        randomButton.title = 'Load a random ABC file'; // Keep the title for accessibility
+
+        // Adjust styling for the icon button
+        randomButton.style.padding = '2px 6px'; // Adjust padding if needed
+        randomButton.style.fontSize = '1.5em'; // Make the icon a bit larger
+        randomButton.style.lineHeight = '1'; // Adjust line height for vertical centering
+        randomButton.style.cursor = 'pointer'; // Ensure cursor indicates it's clickable
+
+        // Add event listener to the random button (same as before)
+        randomButton.addEventListener('click', () => {
+            const allFiles = this.fileList; // Get the full list of files
+            if (allFiles && allFiles.length > 0) {
+                // Select a random file
+                const randomIndex = Math.floor(Math.random() * allFiles.length);
+                const randomFile = allFiles[randomIndex];
+
+                if (randomFile && randomFile.file) {
+                    this.loadFile(randomFile.file); // Load the randomly selected file
+                    Utils.showFeedback(`Loaded random file: ${randomFile.name}`); // Provide feedback
+                }
+            } else {
+                Utils.showFeedback("No files available to choose from.", true); // Error feedback
+            }
+        });
+
+        // Append the random button to the container
+        container.appendChild(randomButton);
+
+        // Return the container instead of just the select element
+        return container;
     }
 }
