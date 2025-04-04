@@ -47,7 +47,7 @@ class MidiPlayer {
      */
     calculateTempoSettings(visualObj) {
         // Get the base tempo from the tune
-        const baseTempo = visualObj.metaText?.tempo?.qpm || 120;
+        const baseTempo = visualObj.getBpm() || 120;
         const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
 
         // Calculate milliseconds per measure based on adjusted tempo
@@ -77,6 +77,9 @@ class MidiPlayer {
         // Update saved values
         this.lastTimeSignature = numerator;
         this.lastTempo = adjustedTempo;
+
+        // Always update the metronome's internal tempo value even if not playing
+        this.customMetronome.tempo = adjustedTempo;
 
         // Update metronome if it's running
         if (this.customMetronome.isPlaying) {
@@ -220,8 +223,24 @@ class MidiPlayer {
 
             // Ensure metronome is started with correct settings if enabled
             if (this.playbackSettings.metronomeOn) {
-                // The metronome should use the current tempo and time signature
-                this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
+                // Get the current visual object
+                const visualObj = window.app.renderManager.currentVisualObj;
+
+                if (visualObj) {
+                    // Calculate tempo directly from visualObj
+                    const directBpm = visualObj.getBpm();
+                    const directTempo = Math.round((directBpm * this.playbackSettings.tempo) / 100);
+
+                    // Update lastTempo for consistency
+                    this.lastTempo = directTempo;
+
+                    // Start with the directly calculated tempo
+                    console.log("Starting metronome with direct tempo:", directTempo);
+                    this.customMetronome.start(directTempo, this.lastTimeSignature);
+                } else {
+                    // Fall back to lastTempo if no visual object
+                    this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
+                }
             }
 
             return true;
@@ -260,7 +279,10 @@ class MidiPlayer {
 
                 // Start metronome if it's enabled
                 if (this.playbackSettings.metronomeOn && success) {
-                    this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
+                    // Make sure we're using the tempo from getBpm()
+                    const currentTempo = this.lastTempo;
+                    console.log("Starting metronome with tempo:", currentTempo);
+                    this.customMetronome.start(currentTempo, this.lastTimeSignature);
                 }
 
                 if (success) {

@@ -473,6 +473,15 @@ class UIControls {
                 { tempo: value },
                 this.player.renderManager.currentVisualObj
             );
+
+            // Force update metronome if it's running
+            if (this.player.midiPlayer.playbackSettings.metronomeOn &&
+                this.player.midiPlayer.customMetronome.isPlaying) {
+
+                this.player.midiPlayer.customMetronome.setTempo(
+                    this.player.midiPlayer.lastTempo
+                );
+            }
         });
     }
 }
