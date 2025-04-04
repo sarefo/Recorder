@@ -1,0 +1,23 @@
+X:1
+T:Tequila
+N: Lower transposed
+L:1/8
+M:4/4
+K:Fmaj
+|:"F".F2.F2 "Cm7"_E2zF-|"F"F.F2F "Cm7"_EE E2|"F".F2.F2 "Cm7"_E2zF-|"F"F"Cm7"_E2E EEEC:|
+|:"F".F2F_E "Cm7"G2EF-|"F"F C2z "Cm7"z2z C|"F".F2F_E "Cm7"GE2F-|F2"Cm"z2z2zC|
+"F"F2F_E "Cm7"G E2F-|"F"FC2z "Cm7"z2zC|"F"F2F_E "Cm7"GE2F-|"F"F2z2z"Cm7"CDF|
+"F°7"_A4-A3F-|"F"F2z2zCDF|"F°7"_A4-A3F-|F2z2"Cm7"zCDF|
+"F°7"_A4-A3F-|"F"F2z2z4|"G"GGGG G2 G2|.C2z2"C7"z4:|
+
+X:2
+T:Tequila
+N: Original transposition
+L:1/8
+M:4/4
+K:Dmaj
+|:"D".d2.d2 "Am7"=c2zd-|"D"d.d2d "Am7"=cc c2|"D".d2.d2 "Am7"=c2zd-|"D"d"Am7"=c2c cccA:|
+|:"D".d2d=c "Am7"e2cd-|"D"d A2z "Am7"z2z A|"D".d2d=c "Am7"ec2d-|d2"Am"z2z2zA|
+"D"d2d=c "Am7"e c2d-|"D"dA2z "Am7"z2zA|"D"d2d=c "Am7"ec2d-|"D"d2z2z"Am7"ABd|
+"Do7"=f4-f3d-|"D"d2z2zABd|"Do7"=f4-f3d-|d2z2"Am7"zABd|
+"Do7"=f4-f3d-|"D"d2z2z4|"E"eeee e2 e2|.A2z2"A7"z4:|
