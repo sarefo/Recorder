@@ -235,7 +235,7 @@ class MidiPlayer {
                     this.lastTempo = directTempo;
 
                     // Start with the directly calculated tempo
-                    console.log("Starting metronome with direct tempo:", directTempo);
+                    //console.log("Starting metronome with direct tempo:", directTempo);
                     this.customMetronome.start(directTempo, this.lastTimeSignature);
                 } else {
                     // Fall back to lastTempo if no visual object
@@ -281,7 +281,7 @@ class MidiPlayer {
                 if (this.playbackSettings.metronomeOn && success) {
                     // Make sure we're using the tempo from getBpm()
                     const currentTempo = this.lastTempo;
-                    console.log("Starting metronome with tempo:", currentTempo);
+                    //console.log("Starting metronome with tempo:", currentTempo);
                     this.customMetronome.start(currentTempo, this.lastTimeSignature);
                 }
 
