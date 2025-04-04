@@ -26,7 +26,12 @@ class FingeringManager {
             '^f': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'o', 'o'] },
             'g': { left: ['p', 'c', 'c', 'c'], right: ['o', 'o', 'o', 'o'] },
             '^g': { left: ['p', 'c', 'c', 'o'], right: ['c', 'o', 'o', 'o'] },
-            'a': { left: ['p', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] }
+            'a': { left: ['p', 'c', 'c', 'o'], right: ['o', 'o', 'o', 'o'] },
+            '^a': { left: ['p', 'c', 'c', 'o'], right: ['c', 'c', 'c', 'o'] },
+            'b': { left: ['p', 'c', 'c', 'o'], right: ['c', 'c', 'o', 'o'] },
+            'c\'': { left: ['p', 'c', 'o', 'o'], right: ['c', 'c', 'o', 'o'] },
+            '^c\'': { left: ['p', 'c', 'p', 'c'], right: ['c', 'o', 'c', 'c'] },
+            'd\'': { left: ['p', 'c', 'o', 'c'], right: ['c', 'o', 'c', 'p'] }
         };
 
         // German fingering variations
@@ -352,7 +357,10 @@ class FingeringManager {
             '_c': 'b', 'b': '_c',
             '_f': 'e', 'e': '_f',
             '^b': 'c', 'c': '_d',
-            '^e': 'f', 'f': '_g'
+            '^e': 'f', 'f': '_g',
+            '_b': '^a', '^a': '_b',
+            '_c\'': 'b', 'b': '_c\'',
+            '_d\'': '^c\'', '^c\'': '_d\''
         };
     }
 
@@ -396,10 +404,11 @@ class FingeringManager {
      * @private
      */
     _getReferenceNotesList() {
-        // Define reference notes (C4 to A5)
+        // Define reference notes (C4 to D6)
         return [
             'C', '^C', 'D', '^D', 'E', 'F', '^F', 'G', '^G', 'A', '^A', 'B',
-            'c', '^c', 'd', '^d', 'e', 'f', '^f', 'g', '^g', 'a'
+            'c', '^c', 'd', '^d', 'e', 'f', '^f', 'g', '^g', 'a', '^a', 'b',
+            'c\'', '^c\'', 'd\''
         ];
     }
 
