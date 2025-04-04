@@ -250,18 +250,23 @@ class MidiPlayer {
                 if (this.playbackSettings.metronomeOn) {
                     this.customMetronome.stop();
                 }
+
+                if (success) {
+                    this.isPlaying = false;
+                    this.updatePlayButtonState();
+                }
             } else {
                 success = await this.startPlayback();
 
                 // Start metronome if it's enabled
-                if (this.playbackSettings.metronomeOn) {
+                if (this.playbackSettings.metronomeOn && success) {
                     this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
                 }
-            }
 
-            if (success) {
-                this.isPlaying = !this.isPlaying;
-                this.updatePlayButtonState();
+                if (success) {
+                    this.isPlaying = true;
+                    this.updatePlayButtonState();
+                }
             }
 
             return success;
@@ -278,12 +283,20 @@ class MidiPlayer {
      */
     async stopPlayback() {
         try {
-            await this.midiPlayer.stop();
+            // Make sure metronome is stopped first
+            this.customMetronome.stop();
+
+            // Ensure we completely stop the MIDI player
+            if (this.midiPlayer) {
+                await this.midiPlayer.stop();
+
+                // Add a small timeout to ensure any lingering audio processes are cleared
+                await new Promise(resolve => setTimeout(resolve, 50));
+            }
+
+            // Update state
             this.isPlaying = false;
             this.updatePlayButtonState();
-
-            // Also stop metronome
-            this.customMetronome.stop();
 
             return true;
         } catch (error) {
@@ -303,24 +316,30 @@ class MidiPlayer {
                 return false;
             }
 
-            // Stop current playback
-            const stopSuccess = await this.stopPlayback();
-            if (!stopSuccess) return false;
+            // First, fully stop current playback
+            await this.stopPlayback();
 
-            // Stop metronome
+            // Ensure everything is reset
+            this.isPlaying = false;
+            this.updatePlayButtonState();
             this.customMetronome.stop();
+
+            // Small delay to ensure complete reset
+            await new Promise(resolve => setTimeout(resolve, 50));
 
             // Start from beginning
             const startSuccess = await this.startPlayback();
 
-            // Start metronome if enabled
-            if (startSuccess && this.playbackSettings.metronomeOn) {
-                this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
-            }
-
             if (startSuccess) {
+                // Update playing state
                 this.isPlaying = true;
                 this.updatePlayButtonState();
+
+                // Restart metronome if enabled
+                if (this.playbackSettings.metronomeOn) {
+                    this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
+                }
+
                 this.updateStatusDisplay("Playback restarted");
             }
 
