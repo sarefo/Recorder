@@ -38,6 +38,11 @@ class AbcFileList {
                 "category": "bartok/romanian folk dances"
         },
         {
+                "name": "Theme from \"Swan Lake\"",
+                "file": "classical/tchaikovsky/swan lake theme.abc",
+                "category": "classical/tchaikovsky"
+        },
+        {
                 "name": "Largo From \"The new world\"",
                 "file": "dvorak/new world/going home.abc",
                 "category": "dvorak/new world"
@@ -88,6 +93,16 @@ class AbcFileList {
                 "category": "polish"
         },
         {
+                "name": "Tequila",
+                "file": "pop/tequila.abc",
+                "category": "pop"
+        },
+        {
+                "name": "Korobeiniki",
+                "file": "russian/korobeiniki.abc",
+                "category": "russian"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
@@ -98,13 +113,33 @@ class AbcFileList {
                 "category": "unsorted"
         },
         {
+                "name": "Test ABC",
+                "file": "unsorted/test.abc",
+                "category": "unsorted"
+        },
+        {
                 "name": "The People United",
                 "file": "unsorted/people united.abc",
                 "category": "unsorted"
         },
         {
+                "name": "alles dur",
+                "file": "unsorted/dota/alles dur.abc",
+                "category": "unsorted/dota"
+        },
+        {
+                "name": "Daloy Politsey",
+                "file": "yiddish/daloy politsey.abc",
+                "category": "yiddish"
+        },
+        {
                 "name": "Dos Kelbl",
                 "file": "yiddish/dos kelbl.abc",
+                "category": "yiddish"
+        },
+        {
+                "name": "In Kamf",
+                "file": "yiddish/in kamf.abc",
                 "category": "yiddish"
         }
 ];

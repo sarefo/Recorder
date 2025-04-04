@@ -54,7 +54,7 @@ def generate_abc_file_list():
     file_list.sort(key=lambda x: (x["category"], x["name"]))
     
     # Generate the JavaScript file
-    with open('../js/abc-file-list.js', 'w', encoding='utf-8') as js_file:
+    with open('../js/data/abc-file-list.js', 'w', encoding='utf-8') as js_file:
         js_file.write("// Auto-generated file list - do not edit manually\n")
         js_file.write("class AbcFileList {\n")
         js_file.write("    static getFiles() {\n")
