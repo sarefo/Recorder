@@ -118,6 +118,16 @@ class AbcFileList {
                 "category": "unsorted"
         },
         {
+                "name": "alles dur",
+                "file": "unsorted/dota/alles dur.abc",
+                "category": "unsorted/dota"
+        },
+        {
+                "name": "Daloy Politsey",
+                "file": "yiddish/daloy politsey.abc",
+                "category": "yiddish"
+        },
+        {
                 "name": "Dos Kelbl",
                 "file": "yiddish/dos kelbl.abc",
                 "category": "yiddish"
