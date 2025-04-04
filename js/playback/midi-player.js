@@ -36,11 +36,6 @@ class MidiPlayer {
         if (!this.midiPlayer) {
             this.midiPlayer = new ABCJS.synth.CreateSynth();
 
-            // Add event listener for when playback ends
-            this.midiPlayer.onEnded = () => {
-                this.isPlaying = false;
-                this.updatePlayButtonState();
-            };
         }
         return this.midiPlayer;
     }
@@ -130,11 +125,21 @@ class MidiPlayer {
             // Calculate tempo settings
             const { millisecondsPerMeasure } = this.calculateTempoSettings(visualObj);
 
-            // Update metronome settings based on visual object
-            this.updateMetronome(visualObj);
-
             // Get playback options
             const options = this.preparePlaybackOptions();
+
+            // Add onEnded to the options to stop both playback and metronome
+            options.onEnded = () => {
+                this.isPlaying = false;
+                this.updatePlayButtonState();
+
+                // Stop the metronome when the song ends
+                if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying) {
+                    this.customMetronome.stop();
+                }
+
+                this.updateStatusDisplay("Playback finished");
+            };
 
             // Initialize MIDI with all current settings
             await this.midiPlayer.init({
@@ -143,6 +148,9 @@ class MidiPlayer {
                 millisecondsPerMeasure: millisecondsPerMeasure,
                 options: options
             });
+
+            // Update metronome with the current time signature and tempo from the visual object
+            this.updateMetronome(visualObj);
 
             // Load and prepare the synth
             await this.midiPlayer.prime();
@@ -209,6 +217,13 @@ class MidiPlayer {
         try {
             await this.midiPlayer.start();
             this.updateStatusDisplay("Playing");
+
+            // Ensure metronome is started with correct settings if enabled
+            if (this.playbackSettings.metronomeOn) {
+                // The metronome should use the current tempo and time signature
+                this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
+            }
+
             return true;
         } catch (error) {
             console.error("Error starting playback:", error);
@@ -325,8 +340,6 @@ class MidiPlayer {
      */
     async updatePlaybackSettings(settings, visualObj) {
         try {
-            const previousMetronomeState = this.playbackSettings.metronomeOn;
-
             // Update the settings
             this.playbackSettings = {
                 ...this.playbackSettings,
@@ -339,20 +352,17 @@ class MidiPlayer {
             // Stop playback if currently playing
             if (wasPlaying) {
                 await this.stopPlayback();
-                this.customMetronome.stop();
             }
 
             // Re-initialize with new settings
             await this.init(visualObj);
 
-            // Handle metronome state changes
-            if (previousMetronomeState !== this.playbackSettings.metronomeOn) {
-                if (this.playbackSettings.metronomeOn) {
-                    // Metronome was just turned on
-                    console.log("Metronome turned ON");
-                } else {
-                    // Metronome was just turned off
-                    console.log("Metronome turned OFF");
+            // Handle metronome toggle if that setting changed
+            if (settings.hasOwnProperty('metronomeOn')) {
+                // If turning metronome on/off while playing, handle appropriately
+                if (wasPlaying && this.playbackSettings.metronomeOn) {
+                    this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
+                } else if (this.customMetronome.isPlaying) {
                     this.customMetronome.stop();
                 }
             }
@@ -360,12 +370,6 @@ class MidiPlayer {
             // Resume playback if it was playing before
             if (wasPlaying) {
                 await this.startPlayback();
-
-                // Restart metronome if enabled
-                if (this.playbackSettings.metronomeOn) {
-                    this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
-                }
-
                 this.isPlaying = true;
                 this.updatePlayButtonState();
             }
