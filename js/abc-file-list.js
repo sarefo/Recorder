@@ -38,6 +38,11 @@ class AbcFileList {
                 "category": "bartok/romanian folk dances"
         },
         {
+                "name": "Theme from \"Swan Lake\"",
+                "file": "classical/tchaikovsky/swan lake theme.abc",
+                "category": "classical/tchaikovsky"
+        },
+        {
                 "name": "Largo From \"The new world\"",
                 "file": "dvorak/new world/going home.abc",
                 "category": "dvorak/new world"
