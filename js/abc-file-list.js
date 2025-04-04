@@ -121,6 +121,11 @@ class AbcFileList {
                 "name": "Dos Kelbl",
                 "file": "yiddish/dos kelbl.abc",
                 "category": "yiddish"
+        },
+        {
+                "name": "In Kamf",
+                "file": "yiddish/in kamf.abc",
+                "category": "yiddish"
         }
 ];
     }
