@@ -231,12 +231,17 @@ class FingeringManager {
             return null;
         }
 
-        // Simple normalization of accidental duplications
+        //console.log('Looking for fingering for note:', noteName);
+
+        // Clean up duplicated accidentals (like ==G becoming =G)
         if (noteName.startsWith('==')) {
             noteName = '=' + noteName.substring(2);
         }
-        if (noteName.startsWith('__B')) {
-            noteName = '_B'; // Special case handling for Bb
+        if (noteName.startsWith('__')) {
+            noteName = '_' + noteName.substring(2);
+        }
+        if (noteName.startsWith('^^')) {
+            noteName = '^' + noteName.substring(2);
         }
 
         // Handle natural accidentals (=) by treating them as the base note
@@ -246,10 +251,20 @@ class FingeringManager {
 
         // Try direct match first
         const fingeringData = this._getDirectFingeringMatch(noteName);
-        if (fingeringData) return fingeringData;
+        if (fingeringData) {
+            //console.log('Found direct match for:', noteName);
+            return fingeringData;
+        }
 
         // Try enharmonic match if direct match failed
-        return this._getEnharmonicFingeringMatch(noteName);
+        const enharmonicMatch = this._getEnharmonicFingeringMatch(noteName);
+        if (enharmonicMatch) {
+            //console.log('Found enharmonic match for:', noteName);
+            return enharmonicMatch;
+        }
+
+        console.warn('No fingering found for:', noteName);
+        return null;
     }
 
     /**
@@ -281,14 +296,18 @@ class FingeringManager {
         if (!noteMatch) return null;
 
         const [, accidental, noteLetter, octaveMarkers] = noteMatch;
+        //console.log('Enharmonic lookup for:', noteName, 'Parsed as:', { accidental, noteLetter, octaveMarkers });
 
         // Map for common enharmonic equivalents
         const enharmonicMap = this._getEnharmonicMap();
 
         // Try looking up with an enharmonic equivalent
         const enharmonicKey = accidental + noteLetter;
+        //console.log('Enharmonic key:', enharmonicKey, 'Map has key:', enharmonicMap[enharmonicKey] ? 'Yes' : 'No');
+
         if (enharmonicMap[enharmonicKey]) {
             const enharmonic = enharmonicMap[enharmonicKey] + octaveMarkers;
+            //console.log('Trying enharmonic equivalent:', enharmonic);
 
             if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[enharmonic]) {
                 return this.fingeringDataGerman[enharmonic];
@@ -316,12 +335,24 @@ class FingeringManager {
             '_D': '^C', '^C': '_D',
             '_G': '^F', '^F': '_G',
 
+            // Add missing enharmonic pairs
+            '_C': 'B', 'B': '_C',
+            '_F': 'E', 'E': '_F',
+            '^B': 'C', 'C': '_D',
+            '^E': 'F', 'F': '_G',
+
             // Additional mappings for C5-B5 octave (lowercase)
             '_b': '^a', '^a': '_b',
             '_e': '^d', '^d': '_e',
             '_a': '^g', '^g': '_a',
             '_d': '^c', '^c': '_d',
-            '_g': '^f', '^f': '_g'
+            '_g': '^f', '^f': '_g',
+
+            // Add missing lowercase enharmonic pairs
+            '_c': 'b', 'b': '_c',
+            '_f': 'e', 'e': '_f',
+            '^b': 'c', 'c': '_d',
+            '^e': 'f', 'f': '_g'
         };
     }
 
