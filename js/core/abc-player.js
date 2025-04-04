@@ -92,7 +92,7 @@ class AbcPlayer {
         try {
             // Get current ABC and normalize line endings to LF (\n)
             const currentAbc = this.notationParser.currentAbc.replace(/\r\n/g, '\n');
-            console.log("Current ABC before transposition (normalized):", currentAbc);
+            //console.log("Current ABC before transposition (normalized):", currentAbc);
 
             // Create a hidden div for transposition
             let tempDiv = document.getElementById('transposition-temp');
@@ -116,7 +116,7 @@ class AbcPlayer {
                 semitoneShift
             );
 
-            console.log("Transposed ABC:", transposedAbc);
+            //console.log("Transposed ABC:", transposedAbc);
 
             // Ensure a final newline after the key line if needed
             if (!transposedAbc.match(/K:.*\n/)) {
