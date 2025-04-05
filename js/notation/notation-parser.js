@@ -111,12 +111,14 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
      */
     _processAllStaffLines(visualObj, notes, measureAccidentals, keyAccidentals) {
         visualObj.lines.forEach(line => {
-            line.staff.forEach(staff => {
-                staff.voices.forEach(voice => {
-                    let currentMeasure = -1;
-                    this._processVoice(voice, notes, measureAccidentals, currentMeasure, keyAccidentals);
+            if (line.staff) {
+                line.staff.forEach(staff => {
+                    staff.voices.forEach(voice => {
+                        let currentMeasure = -1;
+                        this._processVoice(voice, notes, measureAccidentals, currentMeasure, keyAccidentals);
+                    });
                 });
-            });
+            }
         });
     }
 
@@ -132,8 +134,10 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     _processVoice(voice, notes, measureAccidentals, currentMeasure, keyAccidentals) {
         voice.forEach(element => {
             if (element.el_type === "bar") {
-                // Reset measure accidentals at bar lines
-                measureAccidentals = {};
+                Object.keys(measureAccidentals).forEach(key => {
+                    delete measureAccidentals[key];
+                });
+
                 currentMeasure++;
                 return;
             }
@@ -156,7 +160,12 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
      */
     _processNoteElement(element, notes, measureAccidentals, keyAccidentals) {
         element.pitches.forEach(pitch => {
-            const noteLetter = pitch.name.toUpperCase().charAt(0);
+            // FIXED: Properly extract just the letter from the note name
+            // First, remove any accidentals from the beginning
+            const baseName = pitch.name.replace(/^[=^_]+/, '');
+            // Then get the first character (the note letter)
+            const noteLetter = baseName.charAt(0).toUpperCase();
+
             const accidental = this._determineNoteAccidental(pitch, noteLetter, measureAccidentals, keyAccidentals);
 
             // Create the full note name
@@ -180,19 +189,19 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
 
         if (pitch.accidental === "sharp") {
             accidental = '^';
-            measureAccidentals[noteLetter] = '^';
+            measureAccidentals[noteLetter] = '^';  // Store by note letter
         } else if (pitch.accidental === "flat") {
             accidental = '_';
-            measureAccidentals[noteLetter] = '_';
+            measureAccidentals[noteLetter] = '_';  // Store by note letter
         } else if (pitch.accidental === "natural") {
             accidental = '=';
-            measureAccidentals[noteLetter] = '=';
+            measureAccidentals[noteLetter] = '=';  // Store by note letter
         } else if (pitch.accidental === "dblsharp") {
             accidental = '^^';
-            measureAccidentals[noteLetter] = '^^';
+            measureAccidentals[noteLetter] = '^^'; // Store by note letter
         } else if (pitch.accidental === "dblflat") {
             accidental = '__';
-            measureAccidentals[noteLetter] = '__';
+            measureAccidentals[noteLetter] = '__'; // Store by note letter
         } else {
             // Check for accidentals in the current measure
             if (measureAccidentals[noteLetter]) {
@@ -217,23 +226,11 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
      * @returns {string} The full note name
      */
     _createNoteName(accidental, pitch, noteLetter, keyAccidentals) {
-        let noteName;
+        // Remove any existing accidentals from the beginning of the name
+        const baseName = pitch.name.replace(/^[=^_]+/, '');
 
-        // For natural signs - they override any previous accidentals
-        if (accidental === '=') {
-            noteName = '=' + pitch.name;
-        }
-        // Handle special case with explicit flat in B♭ key
-        else if (accidental === '_' && noteLetter === 'B' && keyAccidentals['B'] === '_') {
-            noteName = '_' + pitch.name;  // Just use a single flat
-        }
-        // All other cases - use accidental as determined
-        else {
-            noteName = accidental + pitch.name;
-        }
-
-        // Remove any existing commas (octave shift down)
-        return noteName.replace(/,/g, '');
+        // Create the note name with the correct accidental
+        return accidental + baseName;
     }
 
     /**
@@ -424,7 +421,9 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
 
             // Check if we've reached a bar line, and reset measure accidentals if so
             if (this.shouldResetAccidentals(musicPart, match.index)) {
-                measureAccidentals = {};
+                Object.keys(measureAccidentals).forEach(key => {
+                    delete measureAccidentals[key];
+                });
             }
 
             // Determine the appropriate accidental

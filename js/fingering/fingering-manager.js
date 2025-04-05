@@ -236,8 +236,6 @@ class FingeringManager {
             return null;
         }
 
-        //console.log('Looking for fingering for note:', noteName);
-
         // Clean up duplicated accidentals (like ==G becoming =G)
         if (noteName.startsWith('==')) {
             noteName = '=' + noteName.substring(2);
@@ -249,26 +247,44 @@ class FingeringManager {
             noteName = '^' + noteName.substring(2);
         }
 
-        // Handle natural accidentals (=) by treating them as the base note
+        // PRESERVE ORIGINAL NOTE WITH NATURAL SIGN
+        const originalNoteName = noteName;
+
+        // Create a version without natural sign for fallback
+        let noteWithoutNatural = noteName;
         if (noteName.startsWith('=')) {
-            noteName = noteName.substring(1);
+            noteWithoutNatural = noteName.substring(1);
         }
 
-        // Try direct match first
-        const fingeringData = this._getDirectFingeringMatch(noteName);
+        // First try with the original note (including natural sign)
+        let fingeringData = this._getDirectFingeringMatch(originalNoteName);
         if (fingeringData) {
-            //console.log('Found direct match for:', noteName);
             return fingeringData;
         }
 
-        // Try enharmonic match if direct match failed
-        const enharmonicMatch = this._getEnharmonicFingeringMatch(noteName);
+        // If that fails and we have a natural sign, try with the base note 
+        if (originalNoteName.startsWith('=')) {
+            fingeringData = this._getDirectFingeringMatch(noteWithoutNatural);
+            if (fingeringData) {
+                return fingeringData;
+            }
+        } else {
+            // Use normal lookup path for non-natural notes
+            fingeringData = this._getDirectFingeringMatch(noteName);
+            if (fingeringData) {
+                return fingeringData;
+            }
+        }
+
+        // Try enharmonic match as a last resort
+        const enharmonicMatch = this._getEnharmonicFingeringMatch(
+            noteWithoutNatural // Use version without natural for enharmonic lookup
+        );
         if (enharmonicMatch) {
-            //console.log('Found enharmonic match for:', noteName);
             return enharmonicMatch;
         }
 
-        console.warn('No fingering found for:', noteName);
+        console.warn('No fingering found for:', originalNoteName);
         return null;
     }
 
