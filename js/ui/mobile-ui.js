@@ -43,6 +43,23 @@ class MobileUI {
         this.setupScreenChangeHandlers(toggleButton, controlContainer);
     }
 
+    collapseControls() {
+        if (this.player.isMobile) {
+            const toggleButton = document.getElementById('control-toggle');
+            const controlContainer = document.querySelector('.control-container');
+
+            this.player.controlsCollapsed = true;
+
+            if (controlContainer) {
+                controlContainer.classList.add('collapsed');
+            }
+
+            if (toggleButton) {
+                toggleButton.classList.remove('open');
+            }
+        }
+    }
+
     /**
      * Create the hamburger button
      * @returns {HTMLElement} The mobile toggle button
