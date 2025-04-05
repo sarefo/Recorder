@@ -320,6 +320,16 @@ class UIControls {
 
         playButton.addEventListener('click', () => {
             this.player.midiPlayer.togglePlay();
+
+            // If on mobile and starting playback, collapse controls
+            if (this.player.isMobile && !this.player.midiPlayer.isPlaying) {
+                // We need to wait for togglePlay to update isPlaying
+                setTimeout(() => {
+                    if (this.player.midiPlayer.isPlaying) {
+                        this.player.mobileUI.collapseControls();
+                    }
+                }, 50);
+            }
         });
 
         return playButton;
@@ -484,4 +494,22 @@ class UIControls {
             }
         });
     }
+
+    collapseControls() {
+        if (this.player.isMobile) {
+            const toggleButton = document.getElementById('control-toggle');
+            const controlContainer = document.querySelector('.control-container');
+
+            this.player.controlsCollapsed = true;
+
+            if (controlContainer) {
+                controlContainer.classList.add('collapsed');
+            }
+
+            if (toggleButton) {
+                toggleButton.classList.remove('open');
+            }
+        }
+    }
+
 }
