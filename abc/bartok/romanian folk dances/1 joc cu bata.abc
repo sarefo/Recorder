@@ -2,7 +2,6 @@ X:1
 T:1 Joc cu bata
 S:Bela Bartok
 O:Romania
-Z:
 Q:1/4=104
 M:2/4
 L:1/16
@@ -10,4 +9,4 @@ K:D
 [| z4z2 d2 | (cd) (e4d2) | (ef) (f4^g2) | (^ga) (a4=gf) | (fed2) d2 z2 |
 (cde4 ce) | (d2>>B2) .c2.A2 | B8- | B4>>d4|
 (cd) (e4d2) | (ef) (f4^g2) | (^ga) (a4=gf) (fed2) d2 z2 |
-(cde2) !uppermordent!.e2.c2 | !uppermordent!.d2.B2 !uppermordent!.c2.A2 | B8- | B4>>A4 |
+(cde2) P.e2.c2 | P.d2.B2 P.c2.A2 | B8- | B4>>A4 |

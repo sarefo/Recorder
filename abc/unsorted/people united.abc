@@ -1,10 +1,8 @@
 X:1
 T:The People United
 N:Transposed
-Z:
-S:
-Q:220
 M:4/4
+Q:1/4=100
 L:1/8
 K:Ab
 (C|F.C) z (F A.F) z (A|.c).c.B.A (A.G) z (C|
@@ -19,9 +17,7 @@ B2- (3:2:2 B2 F =E2- (3:2:2 =E2 B|(3:2:2 A2 G (3:2:2 F2 =E F2 (3:2:2 z2 z|
 X:2
 T:The People United
 N:Original
-Z:
-S:
-Q:220
+Q:1/4=100
 M:4/4
 L:1/8
 K:F
