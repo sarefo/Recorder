@@ -38,6 +38,11 @@ class AbcFileList {
                 "category": "bartok/romanian folk dances"
         },
         {
+                "name": "Impromptu",
+                "file": "classical/schubert/impromptus/impromptus 1.abc",
+                "category": "classical/schubert/impromptus"
+        },
+        {
                 "name": "Theme from \"Swan Lake\"",
                 "file": "classical/tchaikovsky/swan lake theme.abc",
                 "category": "classical/tchaikovsky"
@@ -50,6 +55,11 @@ class AbcFileList {
         {
                 "name": "Here's to you",
                 "file": "film/here's to you.abc",
+                "category": "film"
+        },
+        {
+                "name": "cannibal holocaust",
+                "file": "film/cannibal holocaust.abc",
                 "category": "film"
         },
         {
@@ -108,13 +118,13 @@ class AbcFileList {
                 "category": "spanish"
         },
         {
-                "name": "Spin the Wheel",
-                "file": "unsorted/spin the wheel.abc",
+                "name": "Accidental Test Suite",
+                "file": "unsorted/test.abc",
                 "category": "unsorted"
         },
         {
-                "name": "Test ABC",
-                "file": "unsorted/test.abc",
+                "name": "Spin the Wheel",
+                "file": "unsorted/spin the wheel.abc",
                 "category": "unsorted"
         },
         {
@@ -126,6 +136,11 @@ class AbcFileList {
                 "name": "alles dur",
                 "file": "unsorted/dota/alles dur.abc",
                 "category": "unsorted/dota"
+        },
+        {
+                "name": "Chiribim Chiribom",
+                "file": "yiddish/chiribim.abc",
+                "category": "yiddish"
         },
         {
                 "name": "Daloy Politsey",
