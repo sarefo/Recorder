@@ -71,12 +71,12 @@ class FileManager {
         container.style.alignItems = 'center';
         container.style.position = 'relative'; // For positioning the search results
 
-        // Create the select dropdown
+        // Create the select dropdown (kept for compatibility but hidden)
         const select = document.createElement('select');
         select.id = 'abc-file-selector';
         select.className = 'file-selector';
         select.style.marginRight = '8px';
-        select.style.display = 'none'; // Hide initially, will show when not in search mode
+        select.style.display = 'none'; // Hide it as we're using the search input instead
 
         // Create a search input
         const searchInput = document.createElement('input');
@@ -144,7 +144,7 @@ class FileManager {
         // Handle input in the search field
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
-            this._updateSearchResults(searchTerm, searchResults);
+            this.updateSearchResults(searchTerm, searchResults, searchInput);
         });
 
         // Close search results when clicking outside
@@ -157,7 +157,7 @@ class FileManager {
         // Focus event to show results again if there's text
         searchInput.addEventListener('focus', (e) => {
             if (e.target.value.trim() !== '') {
-                this._updateSearchResults(e.target.value.toLowerCase(), searchResults);
+                this.updateSearchResults(e.target.value.toLowerCase(), searchResults, searchInput);
             }
         });
 
@@ -181,6 +181,10 @@ class FileManager {
                 if (randomFile && randomFile.file) {
                     this.loadFile(randomFile.file);
                     Utils.showFeedback(`Loaded random file: ${randomFile.name}`);
+
+                    // Clear the search input when loading a random file
+                    searchInput.value = '';
+                    searchResults.style.display = 'none';
                 }
             } else {
                 Utils.showFeedback("No files available to choose from.", true);
@@ -199,8 +203,9 @@ class FileManager {
      * Updates the search results based on the search term
      * @param {string} searchTerm - The search term to filter by
      * @param {HTMLElement} resultsContainer - The container for search results
+     * @param {HTMLInputElement} searchInput - The search input field
      */
-    _updateSearchResults(searchTerm, resultsContainer) {
+    _updateSearchResults(searchTerm, resultsContainer, searchInput) {
         // Clear previous results
         resultsContainer.innerHTML = '';
 
@@ -269,7 +274,9 @@ class FileManager {
                     resultItem.addEventListener('click', () => {
                         this.loadFile(file.file);
                         resultsContainer.style.display = 'none';
-                        searchInput.value = ''; // Clear search input after selection
+
+                        // Clear search input after selection
+                        searchInput.value = '';
                     });
 
                     // Add hover effect
