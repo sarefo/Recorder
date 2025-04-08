@@ -38,6 +38,11 @@ class AbcFileList {
                 "category": "bartok/romanian folk dances"
         },
         {
+                "name": "Die Forelle",
+                "file": "classical/schubert/forelle.abc",
+                "category": "classical/schubert"
+        },
+        {
                 "name": "Impromptu",
                 "file": "classical/schubert/impromptus/impromptus 1.abc",
                 "category": "classical/schubert/impromptus"
