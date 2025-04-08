@@ -52,7 +52,9 @@ class RenderManager {
      */
     renderAbcNotation() {
         // Add click handler
-        const clickListener = (abcElem, tuneNumber, classes) => {
+        const clickListener = (abcElem, tuneNumber, classes, analysis, drag) => {
+            // Skip if this was part of a drag operation
+            if (drag) return;
             this.handleNoteClick(abcElem);
         };
 
@@ -66,10 +68,12 @@ class RenderManager {
             oneSvgPerLine: this.player.renderConfig.oneSvgPerLine,
             scale: this.player.renderConfig.scale,
             clickListener: clickListener,
+            dragColor: "rgba(0,0,0,0.1)",
+            dragging: true,   // Enable drag detection
             footer: false,
             footerPadding: 0,
             paddingbottom: 0,
-            startingTune: this.player.tuneManager.currentTuneIndex // Use tuneManager here
+            startingTune: this.player.tuneManager.currentTuneIndex
         })[0];
     }
 
@@ -97,6 +101,11 @@ class RenderManager {
         // Only handle actual notes
         if (abcElem.el_type !== "note" || !this.player.midiPlayer.midiPlayer) {
             return;
+        }
+
+        // Check if we're on mobile and this might be a scroll attempt
+        if (this.player.isMobile) {
+            // Additional check could go here if needed
         }
 
         // Find the start milliseconds for this note

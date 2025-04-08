@@ -41,6 +41,14 @@ class SwipeHandler {
      * @param {TouchEvent} event - The touch event
      */
     handleTouchStart(event) {
+        // Don't initiate swipe detection if the user is interacting with a control
+        if (event.target.closest('.control-container') ||
+            event.target.closest('button') ||
+            event.target.closest('input')) {
+            this.isSwiping = false;
+            return;
+        }
+
         this.touchStartX = event.changedTouches[0].screenX;
         this.touchStartY = event.changedTouches[0].screenY;
         this.touchStartTime = new Date().getTime();
