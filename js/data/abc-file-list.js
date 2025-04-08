@@ -118,6 +118,16 @@ class AbcFileList {
                 "category": "spanish"
         },
         {
+                "name": "A-Team Theme",
+                "file": "tv/a-team.abc",
+                "category": "tv"
+        },
+        {
+                "name": "Fraggle Rock Theme",
+                "file": "tv/fraggle rock.abc",
+                "category": "tv"
+        },
+        {
                 "name": "Accidental Test Suite",
                 "file": "unsorted/test.abc",
                 "category": "unsorted"
