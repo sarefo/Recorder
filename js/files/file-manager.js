@@ -60,27 +60,54 @@ class FileManager {
     }
 
     /**
-     * Creates the file selector UI as a grouped dropdown
-     * @returns {HTMLElement} The file selector element
-     */
-    /**
-     * Creates the file selector UI including a random button
+     * Creates the file selector UI including search functionality
      * @returns {HTMLElement} The container element with the dropdown and button
      */
     createFileSelector() {
-        // Create a container div to hold the dropdown and button
+        // Create a container div to hold the dropdown, search input, and button
         const container = document.createElement('div');
-        container.className = 'file-selector-container'; // Add a class for potential styling
-        container.style.display = 'flex'; // Use flexbox for easy alignment
-        container.style.alignItems = 'center'; // Align items vertically
+        container.className = 'file-selector-container';
+        container.style.display = 'flex';
+        container.style.alignItems = 'center';
+        container.style.position = 'relative'; // For positioning the search results
 
         // Create the select dropdown
         const select = document.createElement('select');
         select.id = 'abc-file-selector';
         select.className = 'file-selector';
-        select.style.marginRight = '8px'; // Add some space between dropdown and button
+        select.style.marginRight = '8px';
+        select.style.display = 'none'; // Hide initially, will show when not in search mode
 
-        // Add default option
+        // Create a search input
+        const searchInput = document.createElement('input');
+        searchInput.type = 'text';
+        searchInput.id = 'abc-file-search';
+        searchInput.className = 'file-search';
+        searchInput.placeholder = 'Search for files...';
+        searchInput.style.marginRight = '8px';
+        searchInput.style.padding = '6px 10px';
+        searchInput.style.border = '1px solid #ddd';
+        searchInput.style.borderRadius = '4px';
+        searchInput.style.width = '180px';
+
+        // Create a search results dropdown
+        const searchResults = document.createElement('div');
+        searchResults.id = 'search-results';
+        searchResults.className = 'search-results';
+        searchResults.style.display = 'none';
+        searchResults.style.position = 'absolute';
+        searchResults.style.top = '100%';
+        searchResults.style.left = '0';
+        searchResults.style.zIndex = '1000';
+        searchResults.style.backgroundColor = 'white';
+        searchResults.style.border = '1px solid #ddd';
+        searchResults.style.borderRadius = '4px';
+        searchResults.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+        searchResults.style.maxHeight = '300px';
+        searchResults.style.overflowY = 'auto';
+        searchResults.style.width = '100%';
+
+        // Add default option to the select
         const defaultOption = document.createElement('option');
         defaultOption.value = '';
         defaultOption.textContent = 'Load ABC File...';
@@ -96,12 +123,13 @@ class FileManager {
                 const option = document.createElement('option');
                 option.value = file.file;
                 option.textContent = file.name;
+                option.dataset.category = category;
                 group.appendChild(option);
             });
             select.appendChild(group);
         });
 
-        // Handle selection changes [cite: 76]
+        // Handle selection changes for the select dropdown
         select.addEventListener('change', (e) => {
             const selectedFile = e.target.value;
             if (selectedFile) {
@@ -113,43 +141,151 @@ class FileManager {
             }
         });
 
-        // Append the dropdown to the container
-        container.appendChild(select);
+        // Handle input in the search field
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            this._updateSearchResults(searchTerm, searchResults);
+        });
+
+        // Close search results when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        // Focus event to show results again if there's text
+        searchInput.addEventListener('focus', (e) => {
+            if (e.target.value.trim() !== '') {
+                this._updateSearchResults(e.target.value.toLowerCase(), searchResults);
+            }
+        });
 
         // Create the "Random" button
         const randomButton = document.createElement('button');
         randomButton.id = 'random-abc-button';
-        // Use an icon (e.g., dice) instead of text
-        randomButton.textContent = '🎲'; // Unicode dice character
-        randomButton.title = 'Load a random ABC file'; // Keep the title for accessibility
+        randomButton.textContent = '🎲';
+        randomButton.title = 'Load a random ABC file';
+        randomButton.style.padding = '2px 6px';
+        randomButton.style.fontSize = '1.5em';
+        randomButton.style.lineHeight = '1';
+        randomButton.style.cursor = 'pointer';
 
-        // Adjust styling for the icon button
-        randomButton.style.padding = '2px 6px'; // Adjust padding if needed
-        randomButton.style.fontSize = '1.5em'; // Make the icon a bit larger
-        randomButton.style.lineHeight = '1'; // Adjust line height for vertical centering
-        randomButton.style.cursor = 'pointer'; // Ensure cursor indicates it's clickable
-
-        // Add event listener to the random button (same as before)
+        // Add event listener to the random button
         randomButton.addEventListener('click', () => {
-            const allFiles = this.fileList; // Get the full list of files
+            const allFiles = this.fileList;
             if (allFiles && allFiles.length > 0) {
-                // Select a random file
                 const randomIndex = Math.floor(Math.random() * allFiles.length);
                 const randomFile = allFiles[randomIndex];
 
                 if (randomFile && randomFile.file) {
-                    this.loadFile(randomFile.file); // Load the randomly selected file
-                    Utils.showFeedback(`Loaded random file: ${randomFile.name}`); // Provide feedback
+                    this.loadFile(randomFile.file);
+                    Utils.showFeedback(`Loaded random file: ${randomFile.name}`);
                 }
             } else {
-                Utils.showFeedback("No files available to choose from.", true); // Error feedback
+                Utils.showFeedback("No files available to choose from.", true);
             }
         });
 
-        // Append the random button to the container
+        // Append all elements to the container
+        container.appendChild(searchInput);
+        container.appendChild(searchResults);
         container.appendChild(randomButton);
 
-        // Return the container instead of just the select element
         return container;
+    }
+
+    /**
+     * Updates the search results based on the search term
+     * @param {string} searchTerm - The search term to filter by
+     * @param {HTMLElement} resultsContainer - The container for search results
+     */
+    _updateSearchResults(searchTerm, resultsContainer) {
+        // Clear previous results
+        resultsContainer.innerHTML = '';
+
+        // If search term is empty, hide results
+        if (searchTerm.trim() === '') {
+            resultsContainer.style.display = 'none';
+            return;
+        }
+
+        // Filter files by search term
+        const matchingFiles = this.fileList.filter(file =>
+            file.name.toLowerCase().includes(searchTerm) ||
+            file.category.toLowerCase().includes(searchTerm)
+        );
+
+        // If no results, show a message
+        if (matchingFiles.length === 0) {
+            const noResults = document.createElement('div');
+            noResults.className = 'search-no-results';
+            noResults.textContent = 'No matching files found';
+            noResults.style.padding = '8px 12px';
+            noResults.style.color = '#666';
+            resultsContainer.appendChild(noResults);
+        } else {
+            // Group results by category
+            const groupedResults = {};
+            matchingFiles.forEach(file => {
+                if (!groupedResults[file.category]) {
+                    groupedResults[file.category] = [];
+                }
+                groupedResults[file.category].push(file);
+            });
+
+            // Add results to the container
+            Object.keys(groupedResults).sort().forEach(category => {
+                // Create category header
+                const categoryHeader = document.createElement('div');
+                categoryHeader.className = 'search-category';
+                categoryHeader.textContent = category;
+                categoryHeader.style.padding = '4px 12px';
+                categoryHeader.style.fontWeight = 'bold';
+                categoryHeader.style.backgroundColor = '#f8f8f8';
+                categoryHeader.style.borderBottom = '1px solid #eee';
+                resultsContainer.appendChild(categoryHeader);
+
+                // Add files in this category
+                groupedResults[category].forEach(file => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.textContent = file.name;
+                    resultItem.dataset.file = file.file;
+                    resultItem.style.padding = '8px 12px';
+                    resultItem.style.cursor = 'pointer';
+                    resultItem.style.borderBottom = '1px solid #eee';
+
+                    // Highlight the matching part
+                    if (file.name.toLowerCase().includes(searchTerm)) {
+                        const highlightedText = file.name.replace(
+                            new RegExp(`(${searchTerm})`, 'gi'),
+                            '<span style="background-color: #ffeb3b;">$1</span>'
+                        );
+                        resultItem.innerHTML = highlightedText;
+                    }
+
+                    // Add click handler
+                    resultItem.addEventListener('click', () => {
+                        this.loadFile(file.file);
+                        resultsContainer.style.display = 'none';
+                        searchInput.value = ''; // Clear search input after selection
+                    });
+
+                    // Add hover effect
+                    resultItem.addEventListener('mouseover', () => {
+                        resultItem.style.backgroundColor = '#f0f0f0';
+                    });
+                    resultItem.addEventListener('mouseout', () => {
+                        resultItem.style.backgroundColor = 'white';
+                    });
+
+                    resultsContainer.appendChild(resultItem);
+                });
+            });
+        }
+
+        // Show results
+        resultsContainer.style.display = 'block';
     }
 }
