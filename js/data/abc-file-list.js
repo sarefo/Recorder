@@ -93,6 +93,11 @@ class AbcFileList {
                 "category": "japanese"
         },
         {
+                "name": "All Of Me",
+                "file": "jazz/all of me.abc",
+                "category": "jazz"
+        },
+        {
                 "name": "Arirang",
                 "file": "korean/arirang.abc",
                 "category": "korean"
