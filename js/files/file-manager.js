@@ -147,17 +147,16 @@ class FileManager {
             this.updateSearchResults(searchTerm, searchResults, searchInput);
         });
 
+        // Focus event to show all files when clicking the search input
+        searchInput.addEventListener('focus', (e) => {
+            // Show all files when focusing with empty search
+            this.updateSearchResults(e.target.value.toLowerCase(), searchResults, searchInput);
+        });
+
         // Close search results when clicking outside
         document.addEventListener('click', (e) => {
             if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
                 searchResults.style.display = 'none';
-            }
-        });
-
-        // Focus event to show results again if there's text
-        searchInput.addEventListener('focus', (e) => {
-            if (e.target.value.trim() !== '') {
-                this.updateSearchResults(e.target.value.toLowerCase(), searchResults, searchInput);
             }
         });
 
@@ -205,13 +204,14 @@ class FileManager {
      * @param {HTMLElement} resultsContainer - The container for search results
      * @param {HTMLInputElement} searchInput - The search input field
      */
-    _updateSearchResults(searchTerm, resultsContainer, searchInput) {
+    updateSearchResults(searchTerm, resultsContainer, searchInput) {
         // Clear previous results
         resultsContainer.innerHTML = '';
 
-        // If search term is empty, hide results
+        // Show all files if search term is empty
         if (searchTerm.trim() === '') {
-            resultsContainer.style.display = 'none';
+            this._showAllFiles(resultsContainer, searchInput);
+            resultsContainer.style.display = 'block';
             return;
         }
 
@@ -253,40 +253,7 @@ class FileManager {
 
                 // Add files in this category
                 groupedResults[category].forEach(file => {
-                    const resultItem = document.createElement('div');
-                    resultItem.className = 'search-result-item';
-                    resultItem.textContent = file.name;
-                    resultItem.dataset.file = file.file;
-                    resultItem.style.padding = '8px 12px';
-                    resultItem.style.cursor = 'pointer';
-                    resultItem.style.borderBottom = '1px solid #eee';
-
-                    // Highlight the matching part
-                    if (file.name.toLowerCase().includes(searchTerm)) {
-                        const highlightedText = file.name.replace(
-                            new RegExp(`(${searchTerm})`, 'gi'),
-                            '<span style="background-color: #ffeb3b;">$1</span>'
-                        );
-                        resultItem.innerHTML = highlightedText;
-                    }
-
-                    // Add click handler
-                    resultItem.addEventListener('click', () => {
-                        this.loadFile(file.file);
-                        resultsContainer.style.display = 'none';
-
-                        // Clear search input after selection
-                        searchInput.value = '';
-                    });
-
-                    // Add hover effect
-                    resultItem.addEventListener('mouseover', () => {
-                        resultItem.style.backgroundColor = '#f0f0f0';
-                    });
-                    resultItem.addEventListener('mouseout', () => {
-                        resultItem.style.backgroundColor = 'white';
-                    });
-
+                    const resultItem = this._createResultItem(file, searchTerm, resultsContainer, searchInput);
                     resultsContainer.appendChild(resultItem);
                 });
             });
@@ -294,5 +261,73 @@ class FileManager {
 
         // Show results
         resultsContainer.style.display = 'block';
+    }
+
+    _showAllFiles(resultsContainer, searchInput) {
+        // Group all files by category
+        const groupedFiles = {};
+        this.fileList.forEach(file => {
+            if (!groupedFiles[file.category]) {
+                groupedFiles[file.category] = [];
+            }
+            groupedFiles[file.category].push(file);
+        });
+
+        // Add all files grouped by category
+        Object.keys(groupedFiles).sort().forEach(category => {
+            // Create category header
+            const categoryHeader = document.createElement('div');
+            categoryHeader.className = 'search-category';
+            categoryHeader.textContent = category;
+            categoryHeader.style.padding = '4px 12px';
+            categoryHeader.style.fontWeight = 'bold';
+            categoryHeader.style.backgroundColor = '#f8f8f8';
+            categoryHeader.style.borderBottom = '1px solid #eee';
+            resultsContainer.appendChild(categoryHeader);
+
+            // Add files in this category
+            groupedFiles[category].forEach(file => {
+                const resultItem = this._createResultItem(file, '', resultsContainer, searchInput);
+                resultsContainer.appendChild(resultItem);
+            });
+        });
+    }
+
+    _createResultItem(file, searchTerm, resultsContainer, searchInput) {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'search-result-item';
+        resultItem.textContent = file.name;
+        resultItem.dataset.file = file.file;
+        resultItem.style.padding = '8px 12px';
+        resultItem.style.cursor = 'pointer';
+        resultItem.style.borderBottom = '1px solid #eee';
+
+        // Highlight the matching part if a search term exists
+        if (searchTerm && file.name.toLowerCase().includes(searchTerm)) {
+            const highlightedText = file.name.replace(
+                new RegExp(`(${searchTerm})`, 'gi'),
+                '<span style="background-color: #ffeb3b;">$1</span>'
+            );
+            resultItem.innerHTML = highlightedText;
+        }
+
+        // Add click handler
+        resultItem.addEventListener('click', () => {
+            this.loadFile(file.file);
+            resultsContainer.style.display = 'none';
+
+            // Clear search input after selection
+            searchInput.value = '';
+        });
+
+        // Add hover effect
+        resultItem.addEventListener('mouseover', () => {
+            resultItem.style.backgroundColor = '#f0f0f0';
+        });
+        resultItem.addEventListener('mouseout', () => {
+            resultItem.style.backgroundColor = 'white';
+        });
+
+        return resultItem;
     }
 }
