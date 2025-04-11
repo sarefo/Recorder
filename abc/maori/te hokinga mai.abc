@@ -1,0 +1,47 @@
+X: 1
+T: Te Hokinga Mai
+O: Maori
+N: Transposed
+M: C
+L: 1/8
+Q:1/4=80
+K:Eb
+"Eb"z2 B>B B3 B|"Eb7"G/F/E- E4 FG|"Ab"A A2>A2 A2 C|E6-Ec|
+"Eb"BG2 G/G/ GG- GG|"Bb"AG F2 FE2D|"Ab"E4-E2-EF|"Eb"E8|
+z2 BB B2>B2|"Eb7"G/F/E-E4EG|"Ab"AA3A3C|E8|
+"Eb"BG2 G/G/G3A|"Bb"GF-F2-F2 ED|"Ab"EE3 (3E2E2F2|"Eb"E8|
+|:"Eb"BB2 BB B3|"Ab"c6Bc|"Eb"B/A/G-G6|z8|
+"Eb"BB BB BB B2-|"Ab"Bzc3cBc|"Eb"B/A/G-G6|
+"Eb7"z4GA2B|"Ab"A3E (3A2B2c2|"Bb"B3B (3B2B2B2|
+"Eb"B3B BB GF|"Ab"E4-EE EE|"F"F6F2|
+"F7"=AA3zB-Bc|"Bb"B6cB|"Bb7"d4-de e/e/e-|
+"Eb"e4 e B2 B|"Eb7"GG4-G AB|"Ab"A4-A2 C|
+E6-Ec|"Eb"BG GG3 GA|"Bb"G F2 FF3 C|
+"Ab"E6 EF|[1 E8:|[2 E6 zc:|
+"Eb"BG GG3 GA|"Bb"GF2FF3C|"Ab"E8|
+"Ab"E6E2|"Eb"B2zB BB BB-|B3B BB BB-|
+HB4B2B2|B2HB2z2B2|B8|]
+
+X: 2
+T: Te Hokinga Mai
+O: Maori
+N:Original
+M: C
+L: 1/8
+Q:1/4=80
+K:C
+"C"z2 G>G G3 G|"C7"E/D/C- C4 DE|"F"F F2>F2 F2 A,|C6-CA|
+"C"GE2 E/E/ EE- EE|"G"FE D2 DC2B,|"F"C4-C2-CD|"C"C8|
+z2 GG G2>G2|"C7"E/D/C-C4CE|"F"FF3F3A,|C8|
+"C"GE2 E/E/E3F|"G"ED-D2-D2 CB,|"F"CC3 (3C2C2D2|"C"C8|
+|:"C"GG2 GG G3|"F"A6GA|"C"G/F/E-E6|z8|
+"C"GG GG GG G2-|"F"GzA3AGA|"C"G/F/E-E6|
+"C7"z4EF2G|"F"F3C (3F2G2A2|"G"G3G (3G2G2G2|
+"C"G3G GG ED|"F"C4-CC CC|"D"D6D2|
+"D7"^FF3zG-GA|"G"G6AG|"G7"B4-Bc c/c/c-|
+"C"c4 c G2 G|"C7"EE4-E FG|"F"F4-F2 A,|
+C6-CA|"C"GE EE3 EF|"G"E D2 DD3 A,|
+"F"C6 CD|[1 C8:|[2 C6 zA:|
+"C"GE EE3 EF|"G"ED2DD3A,|"F"C8|
+"F"C6C2|"C"G2zG GG GG-|G3G GG GG-|
+HG4G2G2|G2HG2z2G2|G8|]

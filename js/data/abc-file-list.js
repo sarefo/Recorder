@@ -103,6 +103,11 @@ class AbcFileList {
                 "category": "korean"
         },
         {
+                "name": "Te Hokinga Mai",
+                "file": "maori/te hokinga mai.abc",
+                "category": "maori"
+        },
+        {
                 "name": "El Condor Pasa",
                 "file": "peruvian/el condor pasa.abc",
                 "category": "peruvian"
