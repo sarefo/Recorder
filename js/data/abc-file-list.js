@@ -78,6 +78,11 @@ class AbcFileList {
                 "category": "french"
         },
         {
+                "name": "Gandagana",
+                "file": "georgian/gandagana.abc",
+                "category": "georgian"
+        },
+        {
                 "name": "Tarantella Napoletana",
                 "file": "italian/tarantella napoletana.abc",
                 "category": "italian"
