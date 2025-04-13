@@ -1,6 +1,83 @@
 X: 1
 T: Gandagana
 O: Georgian
+N: Transposed very low
+Z: https://musescore.com/user/72727861/scores/12783094
+M: 6/4
+L: 1/8
+Q:1/4=150
+K:G
+[|B,F2 E>FD E>DE D ^C2|B,E2 B,ED E>DE D ^C2|
+B,F2 E>FD E>DE D^C2|B,E2 B,ED E>DE D^C2|
+B,F2 B,FB, F>ED ED^C|B,F2 B,FB, F>ED E3|
+B,E2 B,ED E>DE D^C2|B,F2 B,FB, F>ED E3|
+z3/ F,/F z F,D z3/ F,/D z G,D|z3/ F,/D z F,D z3/ F,/D z G,D|
+z3/ F,/F z F,D z3/ F,/D z G,D|z3/ F,/D z F,D z3/ F,/D z G,D||
+[K:F]
+z3/ D/ E FF2 GG2 FF2|(G>F G) FF2 (G>D) E D D2|
+z3/ D/ E F F2 G G2 F F2|G3/ (F/G) F F2 (E>D) E D D2|
+z3/ A/A A A2 B B2 A3|B>AG F A2 G G2 A3|
+z3/ A/A A A2 B B2 A3|B>AG F A2 G G2 A3|
+z3/ D/ E F F2 G G2 F3|G3/ (F/E) D F2 E E2 F3|
+z3/ D/ E F F2 G G2 F F2|(G>F) E D F2 E E2 D3|
+z3/ F/G A A2 B B2 A3|B>AG F A2 G G2 A3|
+z3/ F/G A A2 B B2 A3|B>AG F A2 G G2 A3|
+z3/ A/ A A A2 AA2 G(FE)|(F>B,) F F F2 F F2 G G2|
+(F>B,) F F F2 FF2 GG2|F3/ B,/ A A A2 F F2 G3|
+z3/ D/ E F F2 (F>E) F F3|z3/ D/ E F F2 (F>E) F E3|
+B,2 A G G2 F2 G F E2| z3/ D/ E F F2 (F>E) F E3|
+z2 D2 E2 F3 G3| z2 D2 E2 F3 G3|z2 F2 G2 A3 B3|B3 BAB A3 G3|
+z3/ A/ A A (AG) A3/ (G/A) G F2|G2 A B B2 B3/ (A/B) A G2|
+A2 A A A2 B2 A G F2|G2 A B B2 B3/ (A/B) A G2|
+z3/ A/A AAG A>AA G F2|G2 A B B2 B>AB A G2|
+A2 A A A2 B2 A G F2|G2 A B B2 B>AB A G2|
+A,2 A A,AA, A>GA G F2| G2 A B B2 B>AB A G2|
+A2 A A A2 B2 A G F2|G2 A B B2 B>AB A G2|
+z2 A A,AA, A>GA G F2|G2 A B B2 B>AB A G2|
+A2 A A A2 B2 A G F2|G2 A B B2 B>AB A G2|A6- A6|]
+
+X: 2
+T: Gandagana
+O: Georgian
+N: Transposed
+Z: https://musescore.com/user/72727861/scores/12783094
+M: 6/4
+L: 1/8
+Q:1/4=150
+K:D
+[|Fc2 B>cA B>AB A ^G2|FB2 FBA B>AB A ^G2|
+Fc2 B>cA B>AB A^G2|FB2 FBA B>AB A^G2|
+Fc2 FcF c>BA BA^G|Fc2 FcF c>BA B3|
+FB2 FBA B>AB A^G2|Fc2 FcF c>BA B3|
+z3/ C/c z CA z3/ C/A z DA|z3/ C/A z CA z3/ C/A z DA|
+z3/ C/c z CA z3/ C/A z DA|z3/ C/A z CA z3/ C/A z DA||
+[K:C]
+z3/ A/ B cc2 dd2 cc2|(d>c d) cc2 (d>A) B A A2|
+z3/ A/ B c c2 d d2 c c2|d3/ (c/d) c c2 (B>A) B A A2|
+z3/ e/e e e2 f f2 e3|f>ed c e2 d d2 e3|
+z3/ e/e e e2 f f2 e3|f>ed c e2 d d2 e3|
+z3/ A/ B c c2 d d2 c3|d3/ (c/B) A c2 B B2 c3|
+z3/ A/ B c c2 d d2 c c2|(d>c) B A c2 B B2 A3|
+z3/ c/d e e2 f f2 e3|f>ed c e2 d d2 e3|
+z3/ c/d e e2 f f2 e3|f>ed c e2 d d2 e3|
+z3/ e/ e e e2 ee2 d(cB)|(c>F) c c c2 c c2 d d2|
+(c>F) c c c2 cc2 dd2|c3/ F/ e e e2 c c2 d3|
+z3/ A/ B c c2 (c>B) c c3|z3/ A/ B c c2 (c>B) c B3|
+F2 e d d2 c2 d c B2| z3/ A/ B c c2 (c>B) c B3|
+z2 A2 B2 c3 d3| z2 A2 B2 c3 d3|z2 c2 d2 e3 f3|f3 fef e3 d3|
+z3/ e/ e e (ed) e3/ (d/e) d c2|d2 e f f2 f3/ (e/f) e d2|
+e2 e e e2 f2 e d c2|d2 e f f2 f3/ (e/f) e d2|
+z3/ e/e eed e>ee d c2|d2 e f f2 f>ef e d2|
+e2 e e e2 f2 e d c2|d2 e f f2 f>ef e d2|
+E2 e EeE e>de d c2| d2 e f f2 f>ef e d2|
+e2 e e e2 f2 e d c2|d2 e f f2 f>ef e d2|
+z2 e EeE e>de d c2|d2 e f f2 f>ef e d2|
+e2 e e e2 f2 e d c2|d2 e f f2 f>ef e d2|e6- e6|]
+
+
+X: 1
+T: Gandagana
+O: Georgian
 N: Original
 Z: https://musescore.com/user/72727861/scores/12783094
 M: 6/4
@@ -9,24 +86,24 @@ Q:1/4=150
 K:C
 [|EB2 A>BG A>GA G ^F2|EA2 EAG A>GA G ^F2|
 EB2 A>BG A>GA G^F2|EA2 EAG A>GA G^F2|
-EA2 EBE B>AG AG^F|EB2 EBE B>AG A3|
+EB2 EBE B>AG AG^F|EB2 EBE B>AG A3|
 EA2 EAG A>GA G^F2|EB2 EBE B>AG A3|
 z3/ B,/B z B,G z3/ B,/G z CG|z3/ B,/G z B,G z3/ B,/G z CG|
 z3/ B,/B z B,G z3/ B,/G z CG|z3/ B,/G z B,G z3/ B,/G z CG||
 [K:Bb]
-z3/ G/G GG2 cc2 BB2|(c>B c) BB2 (e>G) A G G2|
-z3/ G/A B B2 c c2 B B2|c3/ (B/c) B B2 (A>G) A G G2|
+z3/ G/ A BB2 cc2 BB2|(c>B c) BB2 (c>G) A G G2|
+z3/ G/ A B B2 c c2 B B2|c3/ (B/c) B B2 (A>G) A G G2|
 z3/ d/d d d2 e e2 d3|e>dc B d2 c c2 d3|
 z3/ d/d d d2 e e2 d3|e>dc B d2 c c2 d3|
 z3/ G/ A B B2 c c2 B3|c3/ (B/A) G B2 A A2 B3|
 z3/ G/ A B B2 c c2 B B2|(c>B) A G B2 A A2 G3|
-z3/ B/c d d2 e e2 d3|e>dc B D2 c c2 d3|
-z3/ B/c d d2 e e2 d3|c>dc B d2 c c2 d3|
-z3/ d/d d d2 dd2 c(BA)|(B>E) B B B2 B B2 c c2|
+z3/ B/c d d2 e e2 d3|e>dc B d2 c c2 d3|
+z3/ B/c d d2 e e2 d3|e>dc B d2 c c2 d3|
+z3/ d/ d d d2 dd2 c(BA)|(B>E) B B B2 B B2 c c2|
 (B>E) B B B2 BB2 cc2|B3/ E/ d d d2 B B2 c3|
 z3/ G/ A B B2 (B>A) B B3|z3/ G/ A B B2 (B>A) B A3|
 E2 d c c2 B2 c B A2| z3/ G/ A B B2 (B>A) B A3|
-z2 G A B3 c3| z2 G A B3 c3|z2 B2 c2 d3 e3|e3 ede d3 c3|
+z2 G2 A2 B3 c3| z2 G2 A2 B3 c3|z2 B2 c2 d3 e3|e3 ede d3 c3|
 z3/ d/ d d (dc) d3/ (c/d) c B2|c2 d e e2 e3/ (d/e) d c2|
 d2 d d d2 e2 d c B2|c2 d e e2 e3/ (d/e) d c2|
 z3/ d/d ddc d>dd c B2|c2 d e e2 e>de d c2|
