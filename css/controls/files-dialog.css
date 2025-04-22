@@ -74,7 +74,8 @@
     font-size: 24px;
     cursor: pointer;
     padding: 5px;
-    color: #666;
+    color: red;
+    z-index: 10;
 }
 
 .files-dialog-close:hover {
