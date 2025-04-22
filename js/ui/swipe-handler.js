@@ -98,39 +98,21 @@ class SwipeHandler {
 
         // Only process quick gestures
         if (swipeDuration <= this.maxSwipeDuration) {
-            // Calculate swipe distance and direction
+            // Calculate horizontal distance
             const horizontalDist = this.touchEndX - this.touchStartX;
-            const verticalDist = this.touchEndY - this.touchStartY;
 
-            // Determine if the swipe was primarily horizontal or vertical
-            // Add a bias toward horizontal to make left/right navigation easier
-            if (Math.abs(horizontalDist) > Math.abs(verticalDist) * 0.8) {
-                // Horizontal swipe
-                if (Math.abs(horizontalDist) >= this.minSwipeDistance) {
-                    if (horizontalDist > 0) {
-                        // Right swipe - previous tune
-                        this.player.tuneManager.previousTune();
-                        this.player.render();
-                        this.showFeedback('Previous tune');
-                    } else {
-                        // Left swipe - next tune
-                        this.player.tuneManager.nextTune();
-                        this.player.render();
-                        this.showFeedback('Next tune');
-                    }
-                }
-            } else {
-                // Vertical swipe
-                if (Math.abs(verticalDist) >= this.minSwipeDistance) {
-                    if (verticalDist > 0) {
-                        // Down swipe - transpose down
-                        this.player.transpose('down');
-                        this.showFeedback('Transposed down');
-                    } else {
-                        // Up swipe - transpose up
-                        this.player.transpose('up');
-                        this.showFeedback('Transposed up');
-                    }
+            // Only process horizontal swipes (remove vertical swipe handling)
+            if (Math.abs(horizontalDist) >= this.minSwipeDistance) {
+                if (horizontalDist > 0) {
+                    // Right swipe - previous tune
+                    this.player.tuneManager.previousTune();
+                    this.player.render();
+                    this.showFeedback('Previous tune');
+                } else {
+                    // Left swipe - next tune
+                    this.player.tuneManager.nextTune();
+                    this.player.render();
+                    this.showFeedback('Next tune');
                 }
             }
         }
