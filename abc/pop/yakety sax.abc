@@ -1,0 +1,33 @@
+X: 1
+T: Yakety Sax
+N: Transposed
+Z: https://www.norbeck.nu/abc/display.asp?rhythm=misc&ref=26
+M:C|
+L:1/8
+K:C
+A2 _B2=B2 |: c2c2 AGEE | GEA2 GEDC | C2CE-EGAG | c4 zGAG |
+c2c2 AGEE | GEA2 GEDE | G2GA BdBA | G4 zGAG |
+c2c2 c2c2 | c2c2 AGEC | F2F2 F2F2 | A2cd _ed2e |
+=e=ded eg2d | ege=d cAG2 | a_e2c d2c2 |1 c4 zA_B=B :|2 c4 zd_e=e ||
+K:F
+f2e2 ^dede | =d2c2 =B2c^c | d2=c2 =BcBc | _B2A2 ^G2A2 |
+F2F=G Acdc | f2f2 dcAF | c2cd ege2 | c4 zcdc |
+f2f2 f2f2 | f2f2 dcAG | B2B2 B2B2 | dfgf _af3 |
+F2FA-A2c2 | G2AB-Bcdc | f2f2 dcAG | F2 ||
+
+X: 2
+T: Yakety Sax
+N: Original
+Z: https://www.norbeck.nu/abc/display.asp?rhythm=misc&ref=26
+M:C|
+L:1/8
+K:D
+B2 =c2^c2 |: d2d2 BAFF | AFB2 AFED | D2DF-FABA | d4 zABA |
+d2d2 BAFF | AFB2 AFEF | A2AB cecB | A4 zABA |
+d2d2 d2d2 | d2d2 BAFD | G2G2 G2G2 | B2de =fe2f |
+^f=efe fa2e | faf=e dBA2 | b=f2d e2d2 |1 d4 zB=c^c :|2 d4 ze=f^f ||
+K:G
+g2f2 ^efef | =e2d2 ^c2d^d | e2=d2 ^cdcd | =c2B2 ^A2B2 |
+G2G=A Bded | g2g2 edBG | d2de faf2 | d4 zded |
+g2g2 g2g2 | g2g2 edBA | c2c2 c2c2 | egag _bg3 |
+G2GB-B2d2 | A2Bc-cded | g2g2 edBA | G2 ||

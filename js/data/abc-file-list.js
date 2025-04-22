@@ -123,8 +123,18 @@ class AbcFileList {
                 "category": "polish"
         },
         {
+                "name": "Somebody I Used to Know",
+                "file": "pop/used to know.abc",
+                "category": "pop"
+        },
+        {
                 "name": "Tequila",
                 "file": "pop/tequila.abc",
+                "category": "pop"
+        },
+        {
+                "name": "Yakety Sax",
+                "file": "pop/yakety sax.abc",
                 "category": "pop"
         },
         {
