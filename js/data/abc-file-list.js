@@ -148,6 +148,11 @@ class AbcFileList {
                 "category": "spanish"
         },
         {
+                "name": "Akta dig f\u00f6r flickor",
+                "file": "swedish/akta dig f\u00f6r flickor.abc",
+                "category": "swedish"
+        },
+        {
                 "name": "A-Team Theme",
                 "file": "tv/a-team.abc",
                 "category": "tv"
