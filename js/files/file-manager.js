@@ -179,7 +179,7 @@ class FileManager {
         document.body.appendChild(dialogOverlay);
 
         // Focus search input after a brief delay (for mobile keyboard)
-        setTimeout(() => searchInput.focus(), 100);
+        //setTimeout(() => searchInput.focus(), 100);
     }
 
     populateFilesList(container) {
