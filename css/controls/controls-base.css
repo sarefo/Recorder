@@ -72,3 +72,20 @@
     align-items: center;
     gap: 10px;
 }
+
+.files-button {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.files-button:hover {
+    background-color: #1765cc;
+}

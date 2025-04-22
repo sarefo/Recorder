@@ -64,101 +64,19 @@ class FileManager {
      * @returns {HTMLElement} The container element with the dropdown and button
      */
     createFileSelector() {
-        // Create a container div to hold the dropdown, search input, and button
+        // Create a container for the Files button
         const container = document.createElement('div');
         container.className = 'file-selector-container';
         container.style.display = 'flex';
         container.style.alignItems = 'center';
-        container.style.position = 'relative'; // For positioning the search results
 
-        // Create the select dropdown (kept for compatibility but hidden)
-        const select = document.createElement('select');
-        select.id = 'abc-file-selector';
-        select.className = 'file-selector';
-        select.style.marginRight = '8px';
-        select.style.display = 'none'; // Hide it as we're using the search input instead
-
-        // Create a search input
-        const searchInput = document.createElement('input');
-        searchInput.type = 'text';
-        searchInput.id = 'abc-file-search';
-        searchInput.className = 'file-search';
-        searchInput.placeholder = 'Search for files...';
-        searchInput.style.marginRight = '8px';
-        searchInput.style.padding = '6px 10px';
-        searchInput.style.border = '1px solid #ddd';
-        searchInput.style.borderRadius = '4px';
-        searchInput.style.width = '180px';
-
-        // Create a search results dropdown
-        const searchResults = document.createElement('div');
-        searchResults.id = 'search-results';
-        searchResults.className = 'search-results';
-        searchResults.style.display = 'none';
-        searchResults.style.position = 'absolute';
-        searchResults.style.top = '100%';
-        searchResults.style.left = '0';
-        searchResults.style.zIndex = '1000';
-        searchResults.style.backgroundColor = 'white';
-        searchResults.style.border = '1px solid #ddd';
-        searchResults.style.borderRadius = '4px';
-        searchResults.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
-        searchResults.style.maxHeight = '300px';
-        searchResults.style.overflowY = 'auto';
-        searchResults.style.width = '100%';
-
-        // Add default option to the select
-        const defaultOption = document.createElement('option');
-        defaultOption.value = '';
-        defaultOption.textContent = 'Load ABC File...';
-        defaultOption.selected = true;
-        select.appendChild(defaultOption);
-
-        // Add options for each category
-        Object.keys(this.categorizedFiles).sort().forEach(category => {
-            const files = this.categorizedFiles[category];
-            const group = document.createElement('optgroup');
-            group.label = category;
-            files.forEach(file => {
-                const option = document.createElement('option');
-                option.value = file.file;
-                option.textContent = file.name;
-                option.dataset.category = category;
-                group.appendChild(option);
-            });
-            select.appendChild(group);
-        });
-
-        // Handle selection changes for the select dropdown
-        select.addEventListener('change', (e) => {
-            const selectedFile = e.target.value;
-            if (selectedFile) {
-                this.loadFile(selectedFile);
-                // Reset selection to default after loading
-                setTimeout(() => {
-                    select.value = '';
-                }, 100);
-            }
-        });
-
-        // Handle input in the search field
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            this.updateSearchResults(searchTerm, searchResults, searchInput);
-        });
-
-        // Focus event to show all files when clicking the search input
-        searchInput.addEventListener('focus', (e) => {
-            // Show all files when focusing with empty search
-            this.updateSearchResults(e.target.value.toLowerCase(), searchResults, searchInput);
-        });
-
-        // Close search results when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-                searchResults.style.display = 'none';
-            }
-        });
+        // Create the Files button
+        const filesButton = document.createElement('button');
+        filesButton.id = 'files-button';
+        filesButton.className = 'files-button';
+        filesButton.textContent = 'Files';
+        filesButton.title = 'Browse and select files';
+        filesButton.addEventListener('click', () => this.openFilesDialog());
 
         // Create the "Random" button
         const randomButton = document.createElement('button');
@@ -180,22 +98,186 @@ class FileManager {
                 if (randomFile && randomFile.file) {
                     this.loadFile(randomFile.file);
                     Utils.showFeedback(`Loaded random file: ${randomFile.name}`);
-
-                    // Clear the search input when loading a random file
-                    searchInput.value = '';
-                    searchResults.style.display = 'none';
                 }
             } else {
                 Utils.showFeedback("No files available to choose from.", true);
             }
         });
 
-        // Append all elements to the container
-        container.appendChild(searchInput);
-        container.appendChild(searchResults);
+        // Append buttons to the container
+        container.appendChild(filesButton);
         container.appendChild(randomButton);
 
         return container;
+    }
+
+    openFilesDialog() {
+        // Create dialog overlay
+        const dialogOverlay = document.createElement('div');
+        dialogOverlay.className = 'files-dialog-overlay';
+        dialogOverlay.addEventListener('click', (e) => {
+            if (e.target === dialogOverlay) {
+                document.body.removeChild(dialogOverlay);
+            }
+        });
+
+        // Create dialog container
+        const dialog = document.createElement('div');
+        dialog.className = 'files-dialog';
+
+        // Create dialog header
+        const header = document.createElement('div');
+        header.className = 'files-dialog-header';
+
+        // Create title
+        const title = document.createElement('h2');
+        title.textContent = 'ABC Files';
+        header.appendChild(title);
+
+        // Create search input
+        const searchContainer = document.createElement('div');
+        searchContainer.className = 'files-search-container';
+
+        const searchInput = document.createElement('input');
+        searchInput.type = 'text';
+        searchInput.className = 'files-search-input';
+        searchInput.placeholder = 'Search files...';
+        searchInput.addEventListener('input', (e) => {
+            this.filterFilesList(e.target.value, filesList);
+        });
+
+        const searchIcon = document.createElement('span');
+        searchIcon.className = 'files-search-icon';
+        searchIcon.innerHTML = '🔍';
+
+        searchContainer.appendChild(searchIcon);
+        searchContainer.appendChild(searchInput);
+        header.appendChild(searchContainer);
+
+        // Create close button
+        const closeButton = document.createElement('button');
+        closeButton.className = 'files-dialog-close';
+        closeButton.innerHTML = '×';
+        closeButton.addEventListener('click', () => {
+            document.body.removeChild(dialogOverlay);
+        });
+        header.appendChild(closeButton);
+
+        // Create files list container
+        const filesList = document.createElement('div');
+        filesList.className = 'files-list';
+
+        // Populate files list by category
+        this.populateFilesList(filesList);
+
+        // Assemble dialog
+        dialog.appendChild(header);
+        dialog.appendChild(filesList);
+        dialogOverlay.appendChild(dialog);
+
+        // Add dialog to body
+        document.body.appendChild(dialogOverlay);
+
+        // Focus search input after a brief delay (for mobile keyboard)
+        setTimeout(() => searchInput.focus(), 100);
+    }
+
+    populateFilesList(container) {
+        // Sort categories alphabetically
+        const sortedCategories = Object.keys(this.categorizedFiles).sort();
+
+        // Create column containers
+        const columns = document.createElement('div');
+        columns.className = 'files-columns';
+        container.appendChild(columns);
+
+        // Populate each category
+        sortedCategories.forEach(category => {
+            const categoryContainer = this.createCategoryContainer(category);
+            columns.appendChild(categoryContainer);
+        });
+    }
+
+    createCategoryContainer(category) {
+        const files = this.categorizedFiles[category];
+
+        const categoryContainer = document.createElement('div');
+        categoryContainer.className = 'files-category';
+        categoryContainer.dataset.category = category;
+
+        const categoryHeader = document.createElement('h3');
+        categoryHeader.textContent = category;
+        categoryContainer.appendChild(categoryHeader);
+
+        const fileItems = document.createElement('ul');
+        fileItems.className = 'files-items';
+
+        files.forEach(file => {
+            const fileItem = document.createElement('li');
+            fileItem.className = 'file-item';
+            fileItem.textContent = file.name;
+            fileItem.dataset.file = file.file;
+            fileItem.dataset.name = file.name.toLowerCase();
+            fileItem.dataset.category = category.toLowerCase();
+            fileItem.addEventListener('click', () => {
+                this.loadFile(file.file);
+                // Close dialog
+                const dialog = document.querySelector('.files-dialog-overlay');
+                if (dialog) {
+                    document.body.removeChild(dialog);
+                }
+            });
+            fileItems.appendChild(fileItem);
+        });
+
+        categoryContainer.appendChild(fileItems);
+        return categoryContainer;
+    }
+
+    filterFilesList(searchTerm, container) {
+        const lowerSearchTerm = searchTerm.toLowerCase();
+        const categories = container.querySelectorAll('.files-category');
+
+        let totalVisible = 0;
+
+        categories.forEach(category => {
+            let visibleInCategory = 0;
+            const fileItems = category.querySelectorAll('.file-item');
+
+            fileItems.forEach(item => {
+                const fileName = item.dataset.name;
+                const categoryName = item.dataset.category;
+
+                const matches = fileName.includes(lowerSearchTerm) ||
+                    categoryName.includes(lowerSearchTerm);
+
+                if (matches || lowerSearchTerm === '') {
+                    item.style.display = '';
+                    visibleInCategory++;
+                    totalVisible++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Show/hide category based on whether it has visible items
+            category.style.display = visibleInCategory > 0 ? '' : 'none';
+        });
+
+        // Show a "no results" message if needed
+        let noResults = container.querySelector('.no-results-message');
+
+        if (totalVisible === 0 && searchTerm !== '') {
+            if (!noResults) {
+                noResults = document.createElement('div');
+                noResults.className = 'no-results-message';
+                noResults.textContent = 'No matching files found.';
+                container.appendChild(noResults);
+            }
+            noResults.style.display = 'block';
+        } else if (noResults) {
+            noResults.style.display = 'none';
+        }
     }
 
     /**

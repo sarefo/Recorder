@@ -4,6 +4,7 @@
 @import 'controls/controls-base.css';
 @import 'controls/mobile-controls.css';
 @import 'controls/file-selector.css';
+@import 'controls/files-dialog.css';
 @import 'controls/tune-navigation.css';
 @import 'fingering.css';
 @import 'notation.css';
