@@ -1,7 +1,41 @@
 X: 1
 T: Waltz No.2
 T: from Suite No.2 for Jazz Orchestra
-N: Transposed
+N: Transposed no chords, _B,>D
+C: Dmitri Shostakovich
+R: waltz
+Z: 2020 John Chambers <jc:trillian.mit.edu>
+M: 3/4
+L: 1/4
+K: Fm
+"^A"|:\
+"Fm"c3 | A2G | F3- | FFG | AFA | c2d | c3 | "C7"B3 ||
+B3 | G2F | =E3 | zC=E | G=EG | Bcd | "Fm"=B3 | c3 ||
+"Fm"a3 | g2f | "Bbm"e2d | B3 | "Eb7"g3 | f2e | "Ab"e3 | "Db"z.A.B ||
+"Ab/C".c c/B/ c/d/ | "Bbm/Db".B B/A/ B/c/ | "Fm/C".Az.c | "Db"z.A.B |
+"Ab/C".c c/B/ c/d/ | "Bbm/Db".B B/A/ B/c/ | "Fm".Az.c | "Db"z.f.g ||
+"Fm/C".a a/g/ a/b/ | "C7".g g/f/ "To Coda"g/a/ ||
+[1 "Fm"f3- | f3- | f3- | f3 :|[2 "Fm"[A3-c3-f3-] | [Acf] z "E7"e "^B"||
+"Ab"a3 | a3 | agf | ece | "Eb7"g3 | g3 | "Ab"fec | ABc ||
+"F7"f3 | e3 | "Bbm"edc | B_AB | "Ab"c2e | "Eb7"B2e | "Ab"c2e | a2b ||
+"Ab"c'3 | c'3 | c'ba | geg | "Eb7"b3 | b3 | "Ab"bag | fce ||
+"Ab"a3 | "Ab7/Gb"a3 | "Db/F"a3 | "/Cb"bab | "Ab/Eb"c'2a | "Eb7"efg | "Ab"aba | _gf=e||
+"^C"|:\
+"Db"f'2a- | aga | f'2a- | a_g'f' | "Ab7"f'2e' | =d'2e' | b'2a' | _g'f'e' ||
+"Db"f'2a- | aga | f'2a- | abc' | "Gb"d'2e' | "/C"f'2f' | "Eb7"=g'f'g' |
+[1 "Ab"a'2_g' :|[2 "Ab"a'/b'/ a'/g'/ a'/b'/ | "Caug7"[=e'2^g'2c''2]"G.C. al Coda"^g' !coda!|]
+"Fm"f3 | "C7"zc'2 ||
+"Fm"c'3 | a2g | f3- | fga | afa | c'2d' | "C7/G"c'3 | b3 ||
+"Bbm/G"b3 | "Fm/C"g2f | "C7/G"=e3- | ec=e | g=eg | bc'd' | "Fm"=b3 | c'3 ||
+a3 | g2f | "Bbm/G"e2d | B3 | "Eb/G"g3 | f2e | "Ab"e3 | "Db"z.A.[GB] ||
+"Ab/C".[Ac] c/B/ c/d/ | "Bbm/Db".[GB] B/A/ B/c/ | "Fm/C".[FA]z.[FAc] | "Db"z.[FA].[GB] |
+"Ab/C".[Ac] c/B/ c/d/ | "Db".[GB] B/A/ B/c/ | "Fm/C".[FA]z.[FAc] | "Db".[Af].[Bg] ||
+"Fm/C".[fa] a/g/ a/b/ | "C7".[=eg] g/f/ g/a/ | "Fm"fz "C7".[=ebc'] | "Fm".[faf'] z2 |]
+
+X: 2
+T: Waltz No.2
+T: from Suite No.2 for Jazz Orchestra
+N: Transposed with chords
 C: Dmitri Shostakovich
 R: waltz
 Z: 2020 John Chambers <jc:trillian.mit.edu>
@@ -9,30 +43,30 @@ M: 3/4
 L: 1/4
 K: Gm
 "^A"|:\
-"Gm"d3 | B2A | G3- | GGA | BGB | d2e | d3 | "D7"c3 ||\
+"Gm"d3 | B2A | G3- | GGA | BGB | d2e | d3 | "D7"c3 ||
 c3 | A2G | ^F3 | zC^F | A^FA | cde | "Gm"^c3 | d3 ||
-"Gm"b3 | a2g | "Cm"f2e | c3 | "F7"a3 | g2f | "Bb"f3 | "Eb"z.B.[Ac] ||\
-"Bb/D".[Bd] d/c/ d/e/ | "Cm/Eb".[Ac] c/B/ c/d/ | "Gm/D".[GB]z.[GBd] | "Eb"z.[GB].[Ac] |\
+"Gm"b3 | a2g | "Cm"f2e | c3 | "F7"a3 | g2f | "Bb"f3 | "Eb"z.B.[Ac] ||
+"Bb/D".[Bd] d/c/ d/e/ | "Cm/Eb".[Ac] c/B/ c/d/ | "Gm/D".[GB]z.[GBd] | "Eb"z.[GB].[Ac] |
 "Bb/D".[Bd] d/c/ d/e/ | "Cm/Eb".[Ac] c/B/ c/d/ | "Gm".[GB]z.[GBd] | "Eb"z.[Bg][.[ca] ||
-"Gm/D".[gb] b/a/ b/c'/ | "D7".[^fa] a/g/ "To Coda"a/b/ ||\
-[1 "Gm"g3- | g3- | g3- | g3 :|[2 "Gm"[B3-d3-g3-] | [Bdg] z "Gb7"f "^B"||\
+"Gm/D".[gb] b/a/ b/c'/ | "D7".[^fa] a/g/ "To Coda"a/b/ ||
+[1 "Gm"g3- | g3- | g3- | g3 :|[2 "Gm"[B3-d3-g3-] | [Bdg] z "Gb7"f "^B"||
 "Bb"b3 | b3 | bag | fdf | "F7"a3 | a3 | "Bb"gfd | Bcd ||
-"G7"g3 | f3 | "Cm"fed | c_Bc | "Bb"d2f | "F7"c2f | "Bb"d2f | b2c' ||\
+"G7"g3 | f3 | "Cm"fed | c_Bc | "Bb"d2f | "F7"c2f | "Bb"d2f | b2c' ||
 "Bb"d'3 | d'3 | d'c'b | afa | "F7"c'3 | c'3 | "Bb"c'ba | gdf ||
-"Bb"b3 | "Bb7/Ab"b3 | "Eb/G"b3 | "/Cb"c'bc' | "Bb/F"d'2b | "F7"fga | "Bb"bc'b | _ag^f \
+"Bb"b3 | "Bb7/Ab"b3 | "Eb/G"b3 | "/Cb"c'bc' | "Bb/F"d'2b | "F7"fga | "Bb"bc'b | _ag^f||
 "^C"|:\
 "Eb"g'2b- | bab | g'2b- | b_a'g' | "Bb7"g'2f' | =e'2f' | c''2b' | _a'g'f' ||
-"Eb"g'2b- | bab | g'2b- | bc'd' | "Ab"e'2f' | "/C"g'2g' | "F7"=a'g'a' |\
-[1 "Bb"b'2_a' :|[2 "Bb"b'/c''/ b'/a'/ b'/c''/ | "Daug7"[^f'2^a'2d''2]"A.C. al Coda"^a' !coda!|]\
+"Eb"g'2b- | bab | g'2b- | bc'd' | "Ab"e'2f' | "/C"g'2g' | "F7"=a'g'a' |
+[1 "Bb"b'2_a' :|[2 "Bb"b'/c''/ b'/a'/ b'/c''/ | "Daug7"[^f'2^a'2d''2]"A.C. al Coda"^a' !coda!|]
 "Gm"g3 | "D7"zd'2 ||
-"Gm"d'3 | b2a | g3- | gab | bgb | d'2e' | "D7/A"d'3 | c'3 ||\
+"Gm"d'3 | b2a | g3- | gab | bgb | d'2e' | "D7/A"d'3 | c'3 ||
 "Cm/A"c'3 | "Gm/D"a2g | "D7/A"^f3- | fd^f | a^fa | c'd'e' | "Gm"^c'3 | d'3 ||
-b3 | a2g | "Cm/A"f2e | c3 | "F/A"a3 | g2f | "Bb"f3 | "Eb"z.B.[Ac] ||\
+b3 | a2g | "Cm/A"f2e | c3 | "F/A"a3 | g2f | "Bb"f3 | "Eb"z.B.[Ac] ||
 "Bb/D".[Bd] d/c/ d/e/ | "Cm/Eb".[Ac] c/B/ c/d/ | "Gm/D".[GB]z.[GBd] | "Eb"z.[GB].[Ac] |
-"Bb/D".[Bd] d/c/ d/e/ | "Eb".[Ac] c/B/ c/d/ | "Gm/D".[GB]z.[GBd] | "Eb".[Bg].[ca] ||\
+"Bb/D".[Bd] d/c/ d/e/ | "Eb".[Ac] c/B/ c/d/ | "Gm/D".[GB]z.[GBd] | "Eb".[Bg].[ca] ||
 "Gm/D".[gb] b/a/ b/c'/ | "D7".[^fa] a/g/ a/b/ | "Gm"gz "D7".[^fc'd'] | "Gm".[gbg'] z2 |]
 
-X: 1
+X: 3
 T: Waltz No.2
 T: from Suite No.2 for Jazz Orchestra
 N: Original

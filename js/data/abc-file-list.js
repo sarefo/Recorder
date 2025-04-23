@@ -38,6 +38,11 @@ class AbcFileList {
                 "category": "bartok/romanian folk dances"
         },
         {
+                "name": "10. M. John Langtons Pavan",
+                "file": "classical/dowland/pavane lachrimae.abc",
+                "category": "classical/dowland"
+        },
+        {
                 "name": "Die Forelle",
                 "file": "classical/schubert/forelle.abc",
                 "category": "classical/schubert"
@@ -91,6 +96,11 @@ class AbcFileList {
                 "name": "Tarantella Napoletana",
                 "file": "italian/tarantella napoletana.abc",
                 "category": "italian"
+        },
+        {
+                "name": "Hana   [A]",
+                "file": "japanese/hana.abc",
+                "category": "japanese"
         },
         {
                 "name": "Kojo no Tsuki",
