@@ -48,6 +48,11 @@ class AbcFileList {
                 "category": "classical/schubert/impromptus"
         },
         {
+                "name": "Waltz No.2",
+                "file": "classical/shostakovich/waltz 2.abc",
+                "category": "classical/shostakovich"
+        },
+        {
                 "name": "Theme from \"Swan Lake\"",
                 "file": "classical/tchaikovsky/swan lake theme.abc",
                 "category": "classical/tchaikovsky"
