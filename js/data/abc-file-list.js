@@ -98,7 +98,7 @@ class AbcFileList {
                 "category": "italian"
         },
         {
-                "name": "Hana   [A]",
+                "name": "Hana",
                 "file": "japanese/hana.abc",
                 "category": "japanese"
         },
