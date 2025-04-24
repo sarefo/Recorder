@@ -148,6 +148,11 @@ class AbcFileList {
                 "category": "pop"
         },
         {
+                "name": "Top of the world",
+                "file": "pop/top of the world.abc",
+                "category": "pop"
+        },
+        {
                 "name": "Yakety Sax",
                 "file": "pop/yakety sax.abc",
                 "category": "pop"
