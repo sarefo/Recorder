@@ -158,6 +158,11 @@ class AbcFileList {
                 "category": "pop"
         },
         {
+                "name": "A Swingin' Safari",
+                "file": "pop/bert kaempfert/a swingin safari.abc",
+                "category": "pop/bert kaempfert"
+        },
+        {
                 "name": "Korobeiniki",
                 "file": "russian/korobeiniki.abc",
                 "category": "russian"

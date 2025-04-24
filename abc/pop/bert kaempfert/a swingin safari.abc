@@ -1,0 +1,31 @@
+X:1
+T: A Swingin' Safari
+N: Transposed
+C: Bert Kaempfert
+Z: https://musescore.com/user/39593079/scores/16035121?srsltid=AfmBOopKT_mkheqLk-VldLgQ08bpn-p3F7Zw6aGmr3Z5gjLt9rrRlG6A
+L:1/8
+M:C|
+Q:1/2=120
+K:F
+C|"F"F2 AC "F/A"F2 AD|"Bb"F2 BD "Bb/D"F2 BC|"F"F2 AC "F/A"F2 AC|"C7" EGEC z2 z C|
+"F"F2 AC "F/Eb"F2 AD|"Bb/D"F2 BD "Bb-/Db"F2 BC|"F"F2 AC "C7"BGEG|"F"F6 z E||
+[K:Ab]"Ab"A2 cE A2 cF|"Db"A2 dF A2 dE|"Ab"A2 cE A2 cE|"Eb7"GBGE z2 z E|
+"Ab"A2 cE A2 cF|"Db"A2 dF A2 dE|"Ab"A2 cE "Eb7"dBGA-|"Ab"A6 z E|
+cA z E Aced-|"Db"d4 z A dA|"Ab"cA z =D EAcB-|"Eb7"B4 z2 z e|
+"Ab"cA zE Aced-|"Db"d4 zA dA|"Ab"cA zE "Eb7"_cEBA-|"Ab"A4 z2 zE|]
+
+X:2
+T: A Swingin' Safari
+N: Original
+C: Bert Kaempfert
+Z: https://musescore.com/user/39593079/scores/16035121?srsltid=AfmBOopKT_mkheqLk-VldLgQ08bpn-p3F7Zw6aGmr3Z5gjLt9rrRlG6A
+L:1/8
+M:C|
+Q:1/2=120
+K:C
+G|"C"c2 eG "C/E"c2 eA|"F"c2 fA "F/A"c2 fG|"C"c2 eG "C/E"c2 eG|"G7" BdBG z2 z G|
+"C"c2 eG "C/Bb"c2 eA|"F/A"c2 fA "F-/Ab"c2 fG|"C"c2 eG "G7"fdBd|"C"c6 z B||
+[K:Eb]"Eb"e2 gB e2 gc|"Ab"e2 ac e2 aB|"Eb"e2 gB e2 gB|"Bb7"dfdB z2 z B|
+"Eb"e2 gB e2 gc|"Ab"e2 ac e2 aB|"Eb"e2 gB "Bb7"afde-|"Eb"e6 z B|
+ge z B egba-|"Ab"a4 z e ae|"Eb"ge z =A Begf-|"Bb7"f4 z2 z b|
+"Eb"ge zB egba-|"Ab"a4 ze ae|"Eb"ge zB "Bb7"_gBfe-|"Eb"e4 z2 zB|]
