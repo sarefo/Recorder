@@ -53,6 +53,11 @@ class AbcFileList {
                 "category": "classical/schubert/impromptus"
         },
         {
+                "name": "prelude 11.02",
+                "file": "classical/scriabin/prelude 11.02.abc",
+                "category": "classical/scriabin"
+        },
+        {
                 "name": "Waltz No.2",
                 "file": "classical/shostakovich/waltz 2.abc",
                 "category": "classical/shostakovich"
@@ -160,6 +165,11 @@ class AbcFileList {
         {
                 "name": "A Swingin' Safari",
                 "file": "pop/bert kaempfert/a swingin safari.abc",
+                "category": "pop/bert kaempfert"
+        },
+        {
+                "name": "Tootie Flutie",
+                "file": "pop/bert kaempfert/tootie flutie.abc",
                 "category": "pop/bert kaempfert"
         },
         {
