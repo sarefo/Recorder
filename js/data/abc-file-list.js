@@ -98,6 +98,11 @@ class AbcFileList {
                 "category": "georgian"
         },
         {
+                "name": "Bella Ciao",
+                "file": "italian/bella ciao.abc",
+                "category": "italian"
+        },
+        {
                 "name": "Tarantella Napoletana",
                 "file": "italian/tarantella napoletana.abc",
                 "category": "italian"
