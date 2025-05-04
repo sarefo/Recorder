@@ -178,6 +178,11 @@ class AbcFileList {
                 "category": "pop/bert kaempfert"
         },
         {
+                "name": "Mario Theme",
+                "file": "pop/game/mario theme.abc",
+                "category": "pop/game"
+        },
+        {
                 "name": "Korobeiniki",
                 "file": "russian/korobeiniki.abc",
                 "category": "russian"
