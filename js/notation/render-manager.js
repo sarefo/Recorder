@@ -60,6 +60,7 @@ class RenderManager {
             staffbottommargin: this.player.renderConfig.staffbottommargin,
             oneSvgPerLine: this.player.renderConfig.oneSvgPerLine,
             scale: this.player.renderConfig.scale,
+            selectTypes: false,
             footer: false,
             footerPadding: 0,
             paddingbottom: 0,
