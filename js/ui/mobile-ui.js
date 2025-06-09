@@ -39,6 +39,9 @@ class MobileUI {
             this.applyMobileState(toggleButton, controlContainer);
         };
 
+        // Set up click outside to close functionality
+        this.setupClickOutsideHandler(controlContainer);
+
         // Handle screen size changes
         this.setupScreenChangeHandlers(toggleButton, controlContainer);
     }
@@ -58,6 +61,29 @@ class MobileUI {
                 toggleButton.classList.remove('open');
             }
         }
+    }
+
+    /**
+     * Set up click outside handler to close mobile dialog
+     * @param {HTMLElement} controlContainer - The control container
+     */
+    setupClickOutsideHandler(controlContainer) {
+        // Add click listener to document to handle clicks outside the dialog
+        document.addEventListener('click', (e) => {
+            // Only handle on mobile when controls are expanded
+            if (!this.player.isMobile || this.player.controlsCollapsed) {
+                return;
+            }
+
+            const toggleButton = document.getElementById('control-toggle');
+            
+            // Check if click is outside both the control container and toggle button
+            if (!controlContainer.contains(e.target) && !toggleButton.contains(e.target)) {
+                // Close the dialog
+                this.player.controlsCollapsed = true;
+                this.applyMobileState(toggleButton, controlContainer);
+            }
+        });
     }
 
     /**
