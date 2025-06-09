@@ -51,6 +51,13 @@ class RenderManager {
      * @returns {Object} The visual object from abcjs
      */
     renderAbcNotation() {
+        // Add click handler
+        const clickListener = (abcElem, tuneNumber, classes, analysis, drag) => {
+            // Skip if this was part of a drag operation
+            if (drag) return;
+            this.handleNoteClick(abcElem);
+        };
+
         return ABCJS.renderAbc("abc-notation", this.player.notationParser.currentAbc, {
             responsive: "resize",
             add_classes: true,
@@ -60,6 +67,9 @@ class RenderManager {
             staffbottommargin: this.player.renderConfig.staffbottommargin,
             oneSvgPerLine: this.player.renderConfig.oneSvgPerLine,
             scale: this.player.renderConfig.scale,
+            clickListener: clickListener,
+            dragColor: "rgba(0,0,0,0.1)",
+            dragging: true,   // Enable drag detection
             selectTypes: false,
             footer: false,
             footerPadding: 0,
