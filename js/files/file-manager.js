@@ -67,8 +67,6 @@ class FileManager {
         // Create a container for the Files button
         const container = document.createElement('div');
         container.className = 'file-selector-container';
-        container.style.display = 'flex';
-        container.style.alignItems = 'center';
 
         // Create the Files button
         const filesButton = document.createElement('button');
@@ -83,10 +81,6 @@ class FileManager {
         randomButton.id = 'random-abc-button';
         randomButton.textContent = '🎲';
         randomButton.title = 'Load a random ABC file';
-        randomButton.style.padding = '2px 6px';
-        randomButton.style.fontSize = '1.5em';
-        randomButton.style.lineHeight = '1';
-        randomButton.style.cursor = 'pointer';
 
         // Add event listener to the random button
         randomButton.addEventListener('click', () => {
@@ -252,16 +246,20 @@ class FileManager {
                     categoryName.includes(lowerSearchTerm);
 
                 if (matches || lowerSearchTerm === '') {
-                    item.style.display = '';
+                    item.classList.remove('hidden');
                     visibleInCategory++;
                     totalVisible++;
                 } else {
-                    item.style.display = 'none';
+                    item.classList.add('hidden');
                 }
             });
 
             // Show/hide category based on whether it has visible items
-            category.style.display = visibleInCategory > 0 ? '' : 'none';
+            if (visibleInCategory > 0) {
+                category.classList.remove('hidden');
+            } else {
+                category.classList.add('hidden');
+            }
         });
 
         // Show a "no results" message if needed
@@ -274,9 +272,11 @@ class FileManager {
                 noResults.textContent = 'No matching files found.';
                 container.appendChild(noResults);
             }
-            noResults.style.display = 'block';
+            noResults.classList.remove('hidden');
+            noResults.classList.add('visible');
         } else if (noResults) {
-            noResults.style.display = 'none';
+            noResults.classList.add('hidden');
+            noResults.classList.remove('visible');
         }
     }
 
@@ -293,7 +293,8 @@ class FileManager {
         // Show all files if search term is empty
         if (searchTerm.trim() === '') {
             this._showAllFiles(resultsContainer, searchInput);
-            resultsContainer.style.display = 'block';
+            resultsContainer.classList.remove('hidden');
+            resultsContainer.classList.add('visible');
             return;
         }
 
@@ -308,8 +309,6 @@ class FileManager {
             const noResults = document.createElement('div');
             noResults.className = 'search-no-results';
             noResults.textContent = 'No matching files found';
-            noResults.style.padding = '8px 12px';
-            noResults.style.color = '#666';
             resultsContainer.appendChild(noResults);
         } else {
             // Group results by category
@@ -327,10 +326,6 @@ class FileManager {
                 const categoryHeader = document.createElement('div');
                 categoryHeader.className = 'search-category';
                 categoryHeader.textContent = category;
-                categoryHeader.style.padding = '4px 12px';
-                categoryHeader.style.fontWeight = 'bold';
-                categoryHeader.style.backgroundColor = '#f8f8f8';
-                categoryHeader.style.borderBottom = '1px solid #eee';
                 resultsContainer.appendChild(categoryHeader);
 
                 // Add files in this category
@@ -342,7 +337,8 @@ class FileManager {
         }
 
         // Show results
-        resultsContainer.style.display = 'block';
+        resultsContainer.classList.remove('hidden');
+        resultsContainer.classList.add('visible');
     }
 
     _showAllFiles(resultsContainer, searchInput) {
@@ -361,10 +357,6 @@ class FileManager {
             const categoryHeader = document.createElement('div');
             categoryHeader.className = 'search-category';
             categoryHeader.textContent = category;
-            categoryHeader.style.padding = '4px 12px';
-            categoryHeader.style.fontWeight = 'bold';
-            categoryHeader.style.backgroundColor = '#f8f8f8';
-            categoryHeader.style.borderBottom = '1px solid #eee';
             resultsContainer.appendChild(categoryHeader);
 
             // Add files in this category
@@ -380,15 +372,12 @@ class FileManager {
         resultItem.className = 'search-result-item';
         resultItem.textContent = file.name;
         resultItem.dataset.file = file.file;
-        resultItem.style.padding = '8px 12px';
-        resultItem.style.cursor = 'pointer';
-        resultItem.style.borderBottom = '1px solid #eee';
 
         // Highlight the matching part if a search term exists
         if (searchTerm && file.name.toLowerCase().includes(searchTerm)) {
             const highlightedText = file.name.replace(
                 new RegExp(`(${searchTerm})`, 'gi'),
-                '<span style="background-color: #ffeb3b;">$1</span>'
+                '<span class="search-highlight">$1</span>'
             );
             resultItem.innerHTML = highlightedText;
         }
@@ -396,19 +385,13 @@ class FileManager {
         // Add click handler
         resultItem.addEventListener('click', () => {
             this.loadFile(file.file);
-            resultsContainer.style.display = 'none';
+            resultsContainer.classList.add('hidden');
+            resultsContainer.classList.remove('visible');
 
             // Clear search input after selection
             searchInput.value = '';
         });
 
-        // Add hover effect
-        resultItem.addEventListener('mouseover', () => {
-            resultItem.style.backgroundColor = '#f0f0f0';
-        });
-        resultItem.addEventListener('mouseout', () => {
-            resultItem.style.backgroundColor = 'white';
-        });
 
         return resultItem;
     }

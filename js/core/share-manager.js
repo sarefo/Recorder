@@ -54,10 +54,17 @@ class ShareManager {
         const statusEl = document.getElementById('midi-status');
         if (statusEl) {
             statusEl.textContent = message;
-            statusEl.style.color = isError ? 'red' : '#666';
+            if (isError) {
+                statusEl.classList.add('status-error');
+                statusEl.classList.remove('status-normal');
+            } else {
+                statusEl.classList.add('status-normal');
+                statusEl.classList.remove('status-error');
+            }
             setTimeout(() => {
                 statusEl.textContent = '';
-                statusEl.style.color = '#666';
+                statusEl.classList.remove('status-error');
+                statusEl.classList.add('status-normal');
             }, 3000);
         }
     }

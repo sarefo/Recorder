@@ -15,10 +15,8 @@
 .files-dialog {
     background-color: white;
     border-radius: 8px;
-    width: 90%;
-    max-width: 1000px;
-    height: 90%;
-    max-height: 800px;
+    width: 95%;
+    height: 95%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -180,12 +178,12 @@
         grid-template-columns: 1fr;
         gap: 10px;
     }
-    
+
     .files-items {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: 12px;
     }
-    
+
     .file-item {
         padding: 16px 10px;
         min-height: 48px;
@@ -194,7 +192,7 @@
         border: 1px solid #e9ecef;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-    
+
     .file-item:hover,
     .file-item:active {
         background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);

@@ -7,13 +7,7 @@ class DiagramRenderer {
     createDiagramLayer() {
         const layer = document.createElement('div');
         layer.id = 'fingering-layer';
-        layer.style.position = 'absolute';
-        layer.style.top = '0';
-        layer.style.left = '0';
-        layer.style.width = '100%';
-        layer.style.height = '100%';
-        layer.style.pointerEvents = 'none';
-        layer.style.zIndex = '10';
+        layer.className = 'absolute-positioning';
         return layer;
     }
 
@@ -23,7 +17,9 @@ class DiagramRenderer {
 
         // Create the layer for fingering diagrams
         const layer = this.createDiagramLayer();
-        abcContainer.style.position = 'relative';
+        if (!abcContainer.classList.contains('relative-position')) {
+            abcContainer.style.position = 'relative';
+        }
         abcContainer.appendChild(layer);
 
         // Find note elements

@@ -35,3 +35,17 @@ body {
     font-size: 12px;
     color: #666;
 }
+
+/* Status and feedback styles */
+.status-error {
+    color: red !important;
+}
+
+.status-normal {
+    color: #666 !important;
+}
+
+/* Temporary elements (used for transposition, etc.) */
+.temp-hidden {
+    display: none !important;
+}

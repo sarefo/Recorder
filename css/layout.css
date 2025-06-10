@@ -5,6 +5,7 @@
 
 .abcjs-container {
     padding-top: 200px;
+    position: relative;
 }
 
 /* Reference row styling */
@@ -30,4 +31,28 @@
 .control-container {
     width: 100%;
     margin-bottom: 20px;
+}
+
+/* Utility classes for dynamic display control */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+.visible-flex {
+    display: flex !important;
+}
+
+/* Positioning utility classes */
+.absolute-positioning {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
 }

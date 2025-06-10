@@ -68,13 +68,13 @@ class TuneNavigation {
 
             if (prevButton && nextButton) {
                 if (tuneInfo.total <= 1) {
-                    prevButton.style.display = 'none';
-                    nextButton.style.display = 'none';
-                    tuneDisplay.style.display = 'none';
+                    prevButton.classList.add('hidden');
+                    nextButton.classList.add('hidden');
+                    tuneDisplay.classList.add('hidden');
                 } else {
-                    prevButton.style.display = 'inline-block';
-                    nextButton.style.display = 'inline-block';
-                    tuneDisplay.style.display = 'inline-block';
+                    prevButton.classList.remove('hidden');
+                    nextButton.classList.remove('hidden');
+                    tuneDisplay.classList.remove('hidden');
                 }
             }
         }

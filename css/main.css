@@ -1,12 +1,20 @@
-/* Import all CSS modules */
+/* Import all CSS modules in logical order */
+
+/* Base styles and layout */
 @import 'base.css';
 @import 'layout.css';
+
+/* Controls and UI components */
 @import 'controls/controls-base.css';
 @import 'controls/mobile-controls.css';
 @import 'controls/file-selector.css';
 @import 'controls/files-dialog.css';
 @import 'controls/tune-navigation.css';
-@import 'fingering.css';
-@import 'notation.css';
 @import 'tempo-control.css';
+
+/* Music notation and fingering */
+@import 'notation.css';
+@import 'fingering.css';
+
+/* Responsive design */
 @import 'responsive.css';

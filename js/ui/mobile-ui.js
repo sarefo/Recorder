@@ -134,7 +134,13 @@ class MobileUI {
         if (!toggleButton || !controlContainer) return;
 
         // Always show/hide toggle based on mobile status
-        toggleButton.style.display = this.player.isMobile ? 'block' : 'none';
+        if (this.player.isMobile) {
+            toggleButton.classList.remove('hidden');
+            toggleButton.classList.add('visible');
+        } else {
+            toggleButton.classList.add('hidden');
+            toggleButton.classList.remove('visible');
+        }
 
         // For desktop: always show controls, never collapsed
         if (!this.player.isMobile) {

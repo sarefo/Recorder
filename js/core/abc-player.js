@@ -99,7 +99,7 @@ class AbcPlayer {
             if (!tempDiv) {
                 tempDiv = document.createElement('div');
                 tempDiv.id = 'transposition-temp';
-                tempDiv.style.display = 'none';
+                tempDiv.className = 'temp-hidden';
                 document.body.appendChild(tempDiv);
             }
 
@@ -139,12 +139,14 @@ class AbcPlayer {
     toggleReferenceRow() {
         const referenceRow = document.getElementById('reference-row');
 
-        // Toggle visibility directly
-        if (referenceRow.style.display === 'none') {
-            referenceRow.style.display = 'flex';
+        // Toggle visibility using CSS classes
+        if (referenceRow.classList.contains('hidden')) {
+            referenceRow.classList.remove('hidden');
+            referenceRow.classList.add('visible-flex');
             document.getElementById('chart-toggle').innerHTML = '&#x2212;'; // Minus sign
         } else {
-            referenceRow.style.display = 'none';
+            referenceRow.classList.add('hidden');
+            referenceRow.classList.remove('visible-flex');
             document.getElementById('chart-toggle').innerHTML = '&#43;'; // Plus sign
         }
     }
@@ -213,7 +215,7 @@ class AbcPlayer {
      */
     initializeApplication() {
         // Set initial state of reference row
-        document.getElementById('reference-row').style.display = 'none';
+        document.getElementById('reference-row').classList.add('hidden');
 
         // Initialize the application
         this.render();

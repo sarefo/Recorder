@@ -7,12 +7,74 @@ section .fingering-diagram {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* Fingering diagram positioning */
+.fingering-diagram {
+    position: absolute;
+    transform-origin: top left;
+}
+
+/* Fingering hole styles */
 .fingering-hole {
     width: 6px;
     height: 6px;
     border-radius: 50%;
     border: 1px solid #000;
     margin: 1px 0;
+}
+
+/* Dynamic hole states */
+.fingering-hole.closed {
+    background-color: #000;
+}
+
+.fingering-hole.half-hole {
+    background: linear-gradient(to right, #000 50%, transparent 50%);
+}
+
+/* Fingering diagram container */
+.fingering-diagram-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    padding: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+/* Interactive fingering diagram states */
+.fingering-diagram-container.clickable {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.fingering-diagram-container.clickable:hover {
+    background-color: rgba(240, 248, 255, 0.95);
+}
+
+.fingering-diagram-container.clicked {
+    background-color: rgba(200, 230, 255, 0.95);
+}
+
+/* Note label in diagrams */
+.fingering-note-label {
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+/* Hand columns in diagrams */
+.fingering-hand-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fingering-hands-container {
+    display: flex;
+    gap: 4px;
 }
 
 /* Fingering chart containers */
@@ -33,5 +95,24 @@ section .fingering-diagram {
 .chart-container .note-label {
     text-align: center;
     margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Reference row fingering containers */
+.reference-fingering-container {
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.reference-fingering-container[data-accidental="sharp"] {
+    border-width: 2px;
+    border-color: #000;
+}
+
+.reference-fingering-container .note-label {
+    text-align: center;
+    margin-bottom: 4px;
     font-weight: bold;
 }

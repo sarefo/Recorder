@@ -17,9 +17,11 @@ const Utils = {
     showFeedback(message, duration = 2000) {
         const feedback = document.getElementById('feedback');
         feedback.textContent = message;
-        feedback.style.display = 'block';
+        feedback.classList.remove('hidden');
+        feedback.classList.add('visible');
         setTimeout(() => {
-            feedback.style.display = 'none';
+            feedback.classList.add('hidden');
+            feedback.classList.remove('visible');
         }, duration);
     },
 

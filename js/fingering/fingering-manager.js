@@ -71,11 +71,18 @@ class FingeringManager {
      * @private
      */
     _applyHoleStyles(hole, config) {
-        hole.style.width = `${config.holeSize}px`;
-        hole.style.height = `${config.holeSize}px`;
-        hole.style.borderRadius = '50%';
-        hole.style.border = `${config.holeBorder}px solid #000`;
-        hole.style.margin = `${config.holeSpacing}px 0`;
+        hole.className = 'fingering-hole';
+        // Override default sizes if config specifies different values
+        if (config.holeSize !== 6) {
+            hole.style.width = `${config.holeSize}px`;
+            hole.style.height = `${config.holeSize}px`;
+        }
+        if (config.holeBorder !== 1) {
+            hole.style.borderWidth = `${config.holeBorder}px`;
+        }
+        if (config.holeSpacing !== 1) {
+            hole.style.margin = `${config.holeSpacing}px 0`;
+        }
     }
 
     /**
@@ -86,14 +93,19 @@ class FingeringManager {
      * @private
      */
     _applyHoleState(hole, state, isFirstLeftHole) {
-        const filledColor = isFirstLeftHole ? '#888' : 'black';
-
+        // Remove existing state classes
+        hole.classList.remove('closed', 'half-hole');
+        
         if (state === 'c') {
-            hole.style.backgroundColor = filledColor;
+            hole.classList.add('closed');
+            if (isFirstLeftHole) {
+                hole.style.backgroundColor = '#888';
+            }
         } else if (state === 'p') {
-            hole.style.background = `linear-gradient(45deg, ${filledColor} 50%, white 50%)`;
-        } else {
-            hole.style.backgroundColor = 'white';
+            hole.classList.add('half-hole');
+            if (isFirstLeftHole) {
+                hole.style.background = 'linear-gradient(45deg, #888 50%, white 50%)';
+            }
         }
     }
 
@@ -131,16 +143,16 @@ class FingeringManager {
         const config = this.config;
         const diagram = document.createElement('div');
 
-        diagram.className = 'fingering-diagram';
+        diagram.className = 'fingering-diagram-container clickable';
         diagram.setAttribute('data-state', 'neutral');
-        diagram.style.display = 'flex';
-        diagram.style.flexDirection = 'column';
-        diagram.style.alignItems = 'center';
-        diagram.style.backgroundColor = config.backgroundColor;
-        diagram.style.borderRadius = `${config.borderRadius}px`;
-        diagram.style.padding = '3px';
-        diagram.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.2)';
-        diagram.style.pointerEvents = 'auto'; // Make clickable
+        
+        // Override default styles if config differs
+        if (config.backgroundColor !== 'rgba(255, 255, 255, 0.9)') {
+            diagram.style.backgroundColor = config.backgroundColor;
+        }
+        if (config.borderRadius !== 4) {
+            diagram.style.borderRadius = `${config.borderRadius}px`;
+        }
 
         return diagram;
     }
@@ -158,12 +170,16 @@ class FingeringManager {
             const currentState = diagram.getAttribute('data-state');
             let newState;
 
+            // Remove previous state classes
+            diagram.classList.remove('clicked');
+            
             if (currentState === 'neutral') {
                 newState = 'red';
                 diagram.style.backgroundColor = config.redColor;
             } else if (currentState === 'red') {
                 newState = 'green';
                 diagram.style.backgroundColor = config.greenColor;
+                diagram.classList.add('clicked');
             } else {
                 newState = 'neutral';
                 diagram.style.backgroundColor = config.backgroundColor;
@@ -183,10 +199,13 @@ class FingeringManager {
         const config = this.config;
         const noteLabel = document.createElement('div');
 
+        noteLabel.className = 'fingering-note-label';
         noteLabel.textContent = noteName;
-        noteLabel.style.fontSize = `${config.fontSizeNote}px`;
-        noteLabel.style.fontWeight = 'bold';
-        noteLabel.style.marginBottom = '2px';
+        
+        // Override default font size if config differs
+        if (config.fontSizeNote !== 10) {
+            noteLabel.style.fontSize = `${config.fontSizeNote}px`;
+        }
 
         diagram.appendChild(noteLabel);
     }
@@ -198,8 +217,13 @@ class FingeringManager {
      */
     _createColumnsContainer() {
         const container = document.createElement('div');
-        container.style.display = 'flex';
-        container.style.gap = `${this.config.columnSpacing}px`;
+        container.className = 'fingering-hands-container';
+        
+        // Override default gap if config differs
+        if (this.config.columnSpacing !== 4) {
+            container.style.gap = `${this.config.columnSpacing}px`;
+        }
+        
         return container;
     }
 
@@ -212,9 +236,7 @@ class FingeringManager {
      */
     _createHandColumn(states, isLeftHand) {
         const column = document.createElement('div');
-        column.style.display = 'flex';
-        column.style.flexDirection = 'column';
-        column.style.alignItems = 'center';
+        column.className = 'fingering-hand-column';
 
         states.forEach((state, index) => {
             // For left hand, first hole is the thumb hole
@@ -458,15 +480,10 @@ class FingeringManager {
      */
     _createNoteContainer(noteName) {
         const container = document.createElement('div');
-        container.className = 'chart-container';
-        container.style.padding = '8px';
-        container.style.border = '1px solid #ddd';
-        container.style.borderRadius = '8px';
-        container.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
-
+        container.className = 'reference-fingering-container';
+        
         if (noteName.includes('^')) {
-            container.style.borderWidth = '3px';
-            container.style.borderColor = '#000';
+            container.setAttribute('data-accidental', 'sharp');
         }
 
         return container;
@@ -480,10 +497,8 @@ class FingeringManager {
      */
     _createNoteLabel(noteName) {
         const noteLabel = document.createElement('div');
+        noteLabel.className = 'note-label';
         noteLabel.textContent = noteName;
-        noteLabel.style.textAlign = 'center';
-        noteLabel.style.marginBottom = '8px';
-        noteLabel.style.fontWeight = 'bold';
         return noteLabel;
     }
 }
