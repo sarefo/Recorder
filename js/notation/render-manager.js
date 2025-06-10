@@ -70,7 +70,6 @@ class RenderManager {
             clickListener: clickListener,
             dragColor: "rgba(0,0,0,0.1)",
             dragging: true,   // Enable drag detection
-            selectTypes: false,
             footer: false,
             footerPadding: 0,
             paddingbottom: 0,
