@@ -183,6 +183,11 @@ class AbcFileList {
                 "category": "pop/game"
         },
         {
+                "name": "Chromatic Scale C to d'",
+                "file": "practice/chromatic_scale.abc",
+                "category": "practice"
+        },
+        {
                 "name": "Korobeiniki",
                 "file": "russian/korobeiniki.abc",
                 "category": "russian"
@@ -208,11 +213,6 @@ class AbcFileList {
                 "category": "tv"
         },
         {
-                "name": "Accidental Test Suite",
-                "file": "unsorted/test.abc",
-                "category": "unsorted"
-        },
-        {
                 "name": "Spin the Wheel",
                 "file": "unsorted/spin the wheel.abc",
                 "category": "unsorted"
@@ -220,6 +220,11 @@ class AbcFileList {
         {
                 "name": "The People United",
                 "file": "unsorted/people united.abc",
+                "category": "unsorted"
+        },
+        {
+                "name": "test",
+                "file": "unsorted/test.abc",
                 "category": "unsorted"
         },
         {
