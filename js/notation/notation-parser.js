@@ -69,7 +69,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     /**
      * Extracts notes from a visual object using abcjs
      * @param {Object} visualObj - The visual object from abcjs
-     * @returns {string[]} Array of note names
+     * @returns {Array} Array of objects with note names and tied status
      */
     extractNotesUsingAbcjs(visualObj) {
         if (!visualObj || !visualObj.lines) {
@@ -145,7 +145,12 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             if (element.el_type === "note" && !element.rest) {
                 this._processNoteElement(element, notes, measureAccidentals, keyAccidentals);
             } else if (element.el_type === "note" && element.rest) {
-                notes.push("rest");
+                notes.push({
+                    name: "rest",
+                    suppressDiagram: false,
+                    isTieStart: false,
+                    isTieEnd: false
+                });
             }
         });
     }
@@ -154,7 +159,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
      * Processes a note element to extract each pitch
      * @private
      * @param {Object} element - Note element from abcjs
-     * @param {string[]} notes - Array to collect note names
+     * @param {Array} notes - Array to collect note objects
      * @param {Object} measureAccidentals - Object to track accidentals within measures
      * @param {Object} keyAccidentals - Object with key signature accidentals
      */
@@ -171,8 +176,268 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             // Create the full note name
             const noteName = this._createNoteName(accidental, pitch, noteLetter, keyAccidentals);
 
-            notes.push(noteName);
+            // Check if this note is tied to the next note
+            const isTieStart = element.startTie || element.startSlur;
+            const isTieEnd = element.endTie || element.endSlur;
+            
+            // Debug logging to see what abcjs provides
+            if (element.startTie || element.endTie || element.startSlur || element.endSlur) {
+                console.log(`ABCJS Tie data for ${noteName}:`, {
+                    startTie: element.startTie,
+                    endTie: element.endTie,
+                    startSlur: element.startSlur,
+                    endSlur: element.endSlur,
+                    isTieStart,
+                    isTieEnd
+                });
+            }
+            
+            // Determine if this note should have its fingering diagram suppressed
+            // Suppress diagrams for tied continuation notes (notes that end a tie but aren't the first note)
+            const suppressDiagram = this._shouldSuppressFingeringDiagram(notes, noteName, isTieEnd);
+
+            notes.push({
+                name: noteName,
+                suppressDiagram: suppressDiagram,
+                isTieStart: isTieStart,
+                isTieEnd: isTieEnd
+            });
         });
+    }
+
+    /**
+     * Determines if a fingering diagram should be suppressed for tied notes
+     * @private
+     * @param {Array} notes - Array of previously processed notes
+     * @param {string} currentNoteName - Name of current note
+     * @param {boolean} isTieEnd - Whether this note ends a tie
+     * @returns {boolean} Whether to suppress the fingering diagram
+     */
+    _shouldSuppressFingeringDiagram(notes, currentNoteName, isTieEnd) {
+        // Only suppress if this note ends a tie
+        if (!isTieEnd) return false;
+        
+        // Look back through recent notes to find the matching tie start
+        for (let i = notes.length - 1; i >= 0; i--) {
+            const prevNote = notes[i];
+            
+            // Skip rests
+            if (prevNote.name === 'rest') continue;
+            
+            // If we find a matching note that starts a tie, suppress this diagram
+            if (prevNote.name === currentNoteName && prevNote.isTieStart) {
+                return true;
+            }
+            
+            // If we encounter a different note, stop looking (ties don't span different pitches)
+            if (prevNote.name !== currentNoteName) {
+                break;
+            }
+        }
+        
+        return false;
+    }
+
+    /**
+     * Detects if current note ends a tie in regex-based parsing
+     * @private
+     * @param {Array} notes - Array of previously processed notes
+     * @param {string} currentNoteName - Name of current note
+     * @returns {boolean} Whether this note ends a tie
+     */
+    _detectTieEndInRegex(notes, currentNoteName) {
+        // Look back through recent notes to find a matching tied note
+        for (let i = notes.length - 1; i >= 0; i--) {
+            const prevNote = notes[i];
+            
+            // Skip rests
+            if (prevNote.name === 'rest') continue;
+            
+            // If we find a matching note with a tie start, this is a tie end
+            if (prevNote.name === currentNoteName && prevNote.isTieStart) {
+                return true;
+            }
+            
+            // If we encounter a different note, stop looking
+            if (prevNote.name !== currentNoteName) {
+                break;
+            }
+        }
+        
+        return false;
+    }
+
+    /**
+     * Extracts tie information from ABC notation using regex
+     * @private
+     * @returns {Set} Set of note positions that should be suppressed
+     */
+    extractTieInfoFromAbc() {
+        const musicPart = this.filterLyricsLines(this.extractMusicContent());
+        const suppressSet = new Set();
+        const noteRegex = /([_^=]?)([A-Ga-gz])([,']*[0-9\/]*)([-]?)/g;
+        let match;
+        let noteIndex = 0;
+        let lastTiedNote = null;
+        let lastTiedIndex = -1;
+
+        while ((match = noteRegex.exec(musicPart)) !== null) {
+            if (this.isNoteInChord(musicPart, match.index)) continue;
+
+            let [, accidental, noteLetter, octaveMarkers, tieMarker] = match;
+            
+            if (noteLetter === 'z') {
+                noteIndex++;
+                continue;
+            }
+
+            const cleanOctaveMarkers = octaveMarkers.replace(/[0-9\/]+/g, '');
+            const noteName = accidental + noteLetter + cleanOctaveMarkers;
+            
+            // If this note matches the last tied note, suppress its diagram
+            if (lastTiedNote === noteName && noteIndex === lastTiedIndex + 1) {
+                suppressSet.add(noteIndex);
+                console.log(`Marking note ${noteIndex} (${noteName}) for suppression`);
+            }
+            
+            // If this note has a tie, remember it
+            if (tieMarker === '-') {
+                lastTiedNote = noteName;
+                lastTiedIndex = noteIndex;
+            } else {
+                lastTiedNote = null;
+                lastTiedIndex = -1;
+            }
+            
+            noteIndex++;
+        }
+
+        return suppressSet;
+    }
+
+    /**
+     * Merges tie information with abcjs extracted notes
+     * @private
+     * @param {Array} abcjsNotes - Notes from abcjs extraction
+     * @param {Set} suppressSet - Set of indices to suppress
+     * @returns {Array} Notes with tie information
+     */
+    mergeTieInformation(abcjsNotes, suppressSet) {
+        return abcjsNotes.map((note, index) => {
+            if (typeof note === 'string') {
+                return {
+                    name: note,
+                    suppressDiagram: suppressSet.has(index),
+                    isTieStart: false,
+                    isTieEnd: suppressSet.has(index)
+                };
+            } else {
+                return {
+                    ...note,
+                    suppressDiagram: suppressSet.has(index),
+                    isTieEnd: suppressSet.has(index)
+                };
+            }
+        });
+    }
+
+    /**
+     * Adds tie detection directly to abcjs extracted notes
+     * @private
+     * @param {Array} abcjsNotes - Notes from abcjs extraction
+     * @returns {Array} Notes with tie information
+     */
+    addTieDetectionToAbcjsNotes(abcjsNotes) {
+        const result = abcjsNotes.map((note, index) => {
+            if (typeof note === 'string') {
+                return {
+                    name: note,
+                    suppressDiagram: false,
+                    isTieStart: false,
+                    isTieEnd: false
+                };
+            } else {
+                return {
+                    ...note,
+                    suppressDiagram: false,
+                    isTieStart: false,
+                    isTieEnd: false
+                };
+            }
+        });
+
+        // Now detect ties by looking for consecutive identical notes
+        for (let i = 0; i < result.length - 1; i++) {
+            const currentNote = result[i];
+            const nextNote = result[i + 1];
+            
+            // Skip rests
+            if (currentNote.name === 'rest' || nextNote.name === 'rest') continue;
+            
+            // If current and next notes are the same, check for ties
+            if (currentNote.name === nextNote.name) {
+                console.log(`Found consecutive identical notes: ${currentNote.name} at positions ${i} and ${i + 1}`);
+                // Check if there's a tie in the ABC notation between these positions
+                const hasTie = this.isTieInOriginalAbc(i, i + 1);
+                console.log(`Tie check result: ${hasTie}`);
+                if (hasTie) {
+                    currentNote.isTieStart = true;
+                    nextNote.isTieEnd = true;
+                    nextNote.suppressDiagram = true;
+                    console.log(`Detected tie: ${currentNote.name} -> ${nextNote.name} (suppressing diagram for note ${i + 1})`);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Checks if there's a tie in the original ABC notation between two note positions
+     * @private
+     * @param {number} pos1 - First note position
+     * @param {number} pos2 - Second note position
+     * @returns {boolean} Whether there's a tie
+     */
+    isTieInOriginalAbc(pos1, pos2) {
+        // Extract notes from ABC and check for ties at specific positions
+        const musicPart = this.filterLyricsLines(this.extractMusicContent());
+        console.log(`Checking tie at positions ${pos1}-${pos2} in music: ${musicPart.substring(0, 100)}...`);
+        const noteRegex = /([_^=]?)([A-Ga-gz])([,']*[0-9\/]*)([-]?)/g;
+        let match;
+        let noteIndex = 0;
+        
+        while ((match = noteRegex.exec(musicPart)) !== null) {
+            if (this.isNoteInChord(musicPart, match.index)) continue;
+            
+            let [fullMatch, accidental, noteLetter, octaveMarkers, tieMarker] = match;
+            
+            if (noteLetter === 'z') {
+                if (noteIndex === pos1) {
+                    console.log(`Position ${pos1} is a rest, can't be tied`);
+                    return false;
+                }
+                noteIndex++;
+                continue;
+            }
+            
+            // Debug log for the position we're checking
+            if (noteIndex === pos1) {
+                console.log(`At position ${pos1}: note='${fullMatch}', tieMarker='${tieMarker}'`);
+                if (tieMarker === '-') {
+                    console.log(`Found tie at position ${pos1}!`);
+                    return true;
+                }
+            }
+            
+            noteIndex++;
+            
+            // If we've passed both positions, stop looking
+            if (noteIndex > pos2) break;
+        }
+        
+        console.log(`No tie found at position ${pos1}`);
+        return false;
     }
 
     /**
@@ -385,10 +650,10 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     }
 
     /**
-     * Extracts notes from the ABC notation
-     * @returns {string[]} Array of note names
+     * Extracts notes from ABC notation with proper tie detection
+     * @returns {Array} Array of note objects with names and tied status
      */
-    extractNotesFromAbc() {
+    extractNotesFromAbcWithTies() {
         // Get the key and determine its accidentals
         const key = this.extractKeySignature();
         const keyAccidentals = this.getAccidentalsForKey(key);
@@ -397,23 +662,26 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         const musicPart = this.filterLyricsLines(this.extractMusicContent());
         if (!musicPart) return [];
 
-        // Extract notes with accidentals and octave markers, including rests
+        // Extract notes with proper tie detection
         const notes = [];
-        const noteRegex = /([_^=]?)([A-Ga-gz])([,']*)/g; // Updated to include 'z' (rest)
+        const noteRegex = /([_^=]?)([A-Ga-gz])([,']*[0-9\/]*)([-]?)/g;
         let match;
-
-        // Track accidentals that apply within a measure
         let measureAccidentals = {};
 
         while ((match = noteRegex.exec(musicPart)) !== null) {
             // Skip notes within chord structures
             if (this.isNoteInChord(musicPart, match.index)) continue;
 
-            let [, accidental, noteLetter, octaveMarkers] = match;
+            let [fullMatch, accidental, noteLetter, octaveMarkers, tieMarker] = match;
 
             // Handle rests (z)
             if (noteLetter === 'z') {
-                notes.push('rest');
+                notes.push({
+                    name: 'rest',
+                    suppressDiagram: false,
+                    isTieStart: false,
+                    isTieEnd: false
+                });
                 continue;
             }
 
@@ -439,12 +707,232 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                 measureAccidentals[baseNote] = accidental;
             }
 
-            const noteName = finalAccidental + noteLetter + octaveMarkers;
-            notes.push(noteName);
+            // Remove duration numbers from octave markers to get clean note name
+            const cleanOctaveMarkers = octaveMarkers.replace(/[0-9\/]+/g, '');
+            const noteName = finalAccidental + noteLetter + cleanOctaveMarkers;
+            const isTieStart = tieMarker === '-';
+            
+            // Detect tie end by looking at the previous note
+            const isTieEnd = this._detectTieEndForCurrentNote(notes, noteName);
+            const suppressDiagram = isTieEnd; // Suppress diagram for tied continuation notes
+            
+            // Debug logging for tied notes
+            if (isTieStart || isTieEnd) {
+                console.log(`Tied note detected: ${noteName}, isTieStart: ${isTieStart}, isTieEnd: ${isTieEnd}, suppressDiagram: ${suppressDiagram}`);
+            }
+            
+            notes.push({
+                name: noteName,
+                suppressDiagram: suppressDiagram,
+                isTieStart: isTieStart,
+                isTieEnd: isTieEnd
+            });
         }
 
         return notes;
     }
+
+    /**
+     * Detects if current note ends a tie based on previous notes
+     * @private
+     * @param {Array} notes - Array of previously processed notes
+     * @param {string} currentNoteName - Name of current note
+     * @returns {boolean} Whether this note ends a tie
+     */
+    _detectTieEndForCurrentNote(notes, currentNoteName) {
+        // Check if the immediately previous note is the same and has a tie start
+        if (notes.length === 0) return false;
+        
+        const lastNote = notes[notes.length - 1];
+        
+        // If the last note is the same and starts a tie, this current note ends it
+        return lastNote.name === currentNoteName && lastNote.isTieStart;
+    }
+
+    /**
+     * Extracts tie suppression information from ABC notation
+     * @returns {Array} Array of note names that should be suppressed
+     */
+    extractTieSuppressionInfo() {
+        const musicPart = this.filterLyricsLines(this.extractMusicContent());
+        const suppressions = [];
+        const noteRegex = /([_^=]?)([A-Ga-gz])([,']*[0-9\/]*)([-]?)/g;
+        let match;
+        let lastTiedNote = null;
+
+        while ((match = noteRegex.exec(musicPart)) !== null) {
+            if (this.isNoteInChord(musicPart, match.index)) continue;
+
+            let [, accidental, noteLetter, octaveMarkers, tieMarker] = match;
+            
+            if (noteLetter === 'z') {
+                lastTiedNote = null;
+                continue;
+            }
+
+            const cleanOctaveMarkers = octaveMarkers.replace(/[0-9\/]+/g, '');
+            const noteName = accidental + noteLetter + cleanOctaveMarkers;
+            
+            // If this note matches the last tied note, it should be suppressed
+            if (lastTiedNote === noteName) {
+                suppressions.push(noteName);
+            }
+            
+            // Update last tied note
+            if (tieMarker === '-') {
+                lastTiedNote = noteName;
+            } else {
+                lastTiedNote = null;
+            }
+        }
+
+        return suppressions;
+    }
+
+    /**
+     * Applies tie suppression information to abcjs extracted notes
+     * @param {Array} abcjsNotes - Notes from abcjs
+     * @param {Array} suppressions - Note names to suppress
+     * @returns {Array} Notes with tie information applied
+     */
+    applyTieSuppressions(abcjsNotes, suppressions) {
+        let suppressionIndex = 0;
+        
+        return abcjsNotes.map((note, index) => {
+            const noteName = typeof note === 'string' ? note : note.name;
+            
+            // Normalize note names by removing accidentals for comparison
+            const normalizedNoteName = this.normalizeNoteForComparison(noteName);
+            const normalizedSuppression = suppressionIndex < suppressions.length ? 
+                this.normalizeNoteForComparison(suppressions[suppressionIndex]) : null;
+            
+            // Check if this note should be suppressed
+            let suppressDiagram = false;
+            if (suppressionIndex < suppressions.length && normalizedSuppression === normalizedNoteName) {
+                suppressDiagram = true;
+                suppressionIndex++;
+            }
+            
+            if (typeof note === 'string') {
+                return {
+                    name: note,
+                    suppressDiagram: suppressDiagram,
+                    isTieStart: false,
+                    isTieEnd: suppressDiagram
+                };
+            } else {
+                return {
+                    ...note,
+                    suppressDiagram: suppressDiagram,
+                    isTieEnd: suppressDiagram
+                };
+            }
+        });
+    }
+
+    /**
+     * Normalizes a note name for comparison by removing accidentals
+     * @private
+     * @param {string} noteName - The note name to normalize
+     * @returns {string} Normalized note name
+     */
+    normalizeNoteForComparison(noteName) {
+        if (!noteName || noteName === 'rest') return noteName;
+        // Remove accidentals (^, _, =) from the beginning and duration/octave markers
+        return noteName.replace(/^[_^=]+/, '').replace(/[,']*[0-9\/]*$/, '');
+    }
+
+    /**
+     * Adds tie suppression to abcjs notes using simple pattern matching
+     * @private
+     * @param {Array} abcjsNotes - Notes from abcjs extraction
+     * @returns {Array} Notes with tie information applied
+     */
+    addTieSuppressionToAbcjsNotes(abcjsNotes) {
+        // Detect ties directly from abcjs visual object
+        if (window.app && window.app.renderManager && window.app.renderManager.currentVisualObj) {
+            const tiedIndices = this.detectTiesFromVisualObject(window.app.renderManager.currentVisualObj);
+            
+            return abcjsNotes.map((note, index) => {
+                const noteData = typeof note === 'string' ? 
+                    { name: note, suppressDiagram: false, isTieStart: false, isTieEnd: false } : 
+                    { ...note, suppressDiagram: false, isTieStart: false, isTieEnd: false };
+                    
+                if (tiedIndices.continuationIndices.has(index)) {
+                    noteData.suppressDiagram = true;
+                    noteData.isTieEnd = true;
+                }
+                
+                if (tiedIndices.startIndices.has(index)) {
+                    noteData.isTieStart = true;
+                }
+                
+                return noteData;
+            });
+        }
+        
+        // Fallback: return notes without tie detection
+        return abcjsNotes.map(note => {
+            return typeof note === 'string' ? 
+                { name: note, suppressDiagram: false, isTieStart: false, isTieEnd: false } : 
+                { ...note, suppressDiagram: false, isTieStart: false, isTieEnd: false };
+        });
+    }
+
+    /**
+     * Detect ties directly from abcjs visual object
+     * @param {Object} visualObj - The abcjs visual object
+     * @returns {Object} Object with startIndices and continuationIndices sets
+     */
+    detectTiesFromVisualObject(visualObj) {
+        const startIndices = new Set();
+        const continuationIndices = new Set();
+        
+        if (!visualObj || !visualObj.lines) {
+            return { startIndices, continuationIndices };
+        }
+        
+        // Use EXACTLY the same traversal as extractNotesUsingAbcjs
+        let noteIndex = 0;
+        
+        visualObj.lines.forEach(line => {
+            if (line.staff) {
+                line.staff.forEach(staff => {
+                    staff.voices.forEach(voice => {
+                        voice.forEach(element => {
+                            // Skip bar elements (like extractNotesUsingAbcjs does)
+                            if (element.el_type === "bar") {
+                                return;
+                            }
+                            
+                            if (element.el_type === "note" && !element.rest) {
+                                // Process note element with pitches
+                                if (element.pitches) {
+                                    element.pitches.forEach(pitch => {
+                                        if (element.startTie || pitch.startTie) {
+                                            startIndices.add(noteIndex);
+                                        }
+                                        if (element.endTie || pitch.endTie) {
+                                            continuationIndices.add(noteIndex);
+                                        }
+                                        noteIndex++;
+                                    });
+                                }
+                            } else if (element.el_type === "note" && element.rest) {
+                                // Handle rest notes
+                                noteIndex++;
+                            }
+                        });
+                    });
+                });
+            }
+        });
+        
+        return { startIndices, continuationIndices };
+    }
+
+
+
 
     /**
      * Filters out lyrics lines from ABC notation
@@ -463,21 +951,20 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
      * Extracts notes from the ABC notation using a cleaned version
      * Creates a temporary and cleaner version of the ABC notation to extract only playable notes
      * Filters out parts, chord symbols, and other non-note elements
-     * @returns {string[]} Array of note names
+     * @returns {Array} Array of note objects with names and tied status
      */
     extractCleanedNotes() {
         try {
+            // Use abcjs for clean note extraction, then add tie info using a simple pattern check
             if (window.app && window.app.renderManager && window.app.renderManager.currentVisualObj) {
-                // If we have a valid visual object, use it to extract notes
-                return this.extractNotesUsingAbcjs(window.app.renderManager.currentVisualObj);
+                const abcjsNotes = this.extractNotesUsingAbcjs(window.app.renderManager.currentVisualObj);
+                return this.addTieSuppressionToAbcjsNotes(abcjsNotes);
             }
 
-            // No visual object available, fall back to the original method
-            console.warn("No visual object available, falling back to regex-based extraction");
-            return this.extractNotesFromAbc();
+            // Fallback to regex method
+            return this.extractNotesFromAbcWithTies();
         } catch (error) {
-            console.error("Error extracting notes:", error);
-            return this.extractNotesFromAbc();
+            return this.extractNotesFromAbcWithTies();
         }
     }
 }

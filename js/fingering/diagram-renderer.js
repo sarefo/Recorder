@@ -58,7 +58,10 @@ class DiagramRenderer {
         const noteDataMap = new Map();
 
         notesData.forEach((note, index) => {
-            noteDataMap.set(index, note);
+            // Handle both old string format and new object format
+            const noteData = typeof note === 'string' ? { name: note, suppressDiagram: false } : note;
+            noteDataMap.set(index, noteData);
+            
         });
 
         return noteDataMap;
@@ -140,14 +143,15 @@ class DiagramRenderer {
             // Add diagrams for each note in this staff
             staff.notes.forEach(note => {
                 // Get the corresponding note data using data-index
-                const noteName = noteDataMap.get(note.dataIndex);
+                const noteData = noteDataMap.get(note.dataIndex);
+                
 
-                if (noteName && noteName !== 'rest') {
+                if (noteData && noteData.name !== 'rest' && !noteData.suppressDiagram) {
                     // Create and position the diagram
-                    const fingeringData = this.fingeringManager.getFingeringForNote(noteName);
+                    const fingeringData = this.fingeringManager.getFingeringForNote(noteData.name);
                     if (!fingeringData) return;
 
-                    const diagram = this.fingeringManager.createFingeringDiagram(fingeringData, noteName);
+                    const diagram = this.fingeringManager.createFingeringDiagram(fingeringData, noteData.name);
 
                     // Position the diagram
                     diagram.style.position = 'absolute';
@@ -162,7 +166,13 @@ class DiagramRenderer {
         });
     }
 
-    renderDiagramForNote(note, noteName, containerRect, verticalPosition, layer) {
+    renderDiagramForNote(note, noteData, containerRect, verticalPosition, layer) {
+        // Handle both old string format and new object format
+        const noteName = typeof noteData === 'string' ? noteData : noteData.name;
+        const suppressDiagram = typeof noteData === 'string' ? false : noteData.suppressDiagram;
+        
+        if (suppressDiagram) return;
+        
         const fingeringData = this.fingeringManager.getFingeringForNote(noteName);
         if (!fingeringData) return;
 

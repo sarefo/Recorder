@@ -24,8 +24,7 @@ class RenderManager {
             // Add fingering diagrams AFTER we have the visual object
             if (this.player.fingeringManager.showFingering) {
                 setTimeout(() => {
-                    const notes = this.player.notationParser.extractNotesUsingAbcjs(this.currentVisualObj);
-                    //console.log("Notes extracted with abcjs:", notes);
+                    const notes = this.player.notationParser.extractCleanedNotes();
                     this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
                 }, 100);
             }
@@ -84,10 +83,7 @@ class RenderManager {
     renderFingeringDiagrams(abcContainer) {
         if (this.player.fingeringManager.showFingering) {
             setTimeout(() => {
-                // Use abcjs visual object to get correctly interpreted notes
-                const notes = this.player.notationParser.extractNotesUsingAbcjs(this.currentVisualObj);
-
-                //console.log("Notes adjusted for fingering:", notes);
+                const notes = this.player.notationParser.extractCleanedNotes();
                 this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
             }, 100);
         }
