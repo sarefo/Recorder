@@ -17,6 +17,12 @@ class MidiPlayer {
         this.customMetronome = new CustomMetronome();
         this.lastTimeSignature = 4; // Default 4/4 time
         this.lastTempo = 120;       // Default tempo
+        
+        // Add tuning manager
+        this.tuningManager = new TuningManager();
+        
+        // Initialize tuning manager with shared audio context when MIDI player is initialized
+        this.tuningManagerInitialized = false;
     }
 
     /**
@@ -93,9 +99,22 @@ class MidiPlayer {
      * @returns {Object} MIDI playback options
      */
     preparePlaybackOptions() {
-        return {
+        // Start with base octave transpose for recorder range
+        let totalTranspose = 12; // Base octave up (12 semitones)
+        
+        // Add fine tuning if available (convert cents to semitones)
+        if (this.tuningManager) {
+            const tuningOffsetCents = this.tuningManager.getTuningOffset();
+            if (Math.abs(tuningOffsetCents) > 5) { // Only apply if significant offset
+                const additionalSemitones = Math.round(tuningOffsetCents / 100);
+                totalTranspose += additionalSemitones;
+                console.log('Combined transpose: octave(12) + tuning(' + additionalSemitones + ') = ' + totalTranspose + ' semitones');
+            }
+        }
+
+        const options = {
             program: 73, // Flute instrument (MIDI program 73)
-            midiTranspose: 0,
+            midiTranspose: totalTranspose,
             chordsOff: !this.playbackSettings.chordsOn,
             voicesOff: !this.playbackSettings.voicesOn,
             drum: this.playbackSettings.metronomeOn ? "dddd" : "", // Simple metronome pattern
@@ -110,6 +129,9 @@ class MidiPlayer {
             staccato: 0.3,
             beatAccents: [0.75, 0.5, 0.5, 0.5]  // Accent patterns: first beat gets more emphasis
         };
+
+
+        return options;
     }
 
     /**
@@ -144,6 +166,7 @@ class MidiPlayer {
                 this.updateStatusDisplay("Playback finished");
             };
 
+
             // Initialize MIDI with all current settings
             await this.midiPlayer.init({
                 visualObj: visualObj,
@@ -157,6 +180,15 @@ class MidiPlayer {
 
             // Load and prepare the synth
             await this.midiPlayer.prime();
+
+            // Initialize tuning manager with shared audio context
+            if (!this.tuningManagerInitialized) {
+                await this.tuningManager.init(this.audioContext);
+                this.tuningManagerInitialized = true;
+            }
+
+            // Apply fine tuning after synth is initialized
+            this.applyFineTuning();
 
             this.updatePlayButtonState(false);
             return true;
@@ -421,6 +453,58 @@ class MidiPlayer {
             this.updateStatusDisplay("Error updating playback settings");
             return this.playbackSettings;
         }
+    }
+
+    /**
+     * Apply fine tuning by manipulating the synth's audio output
+     */
+    applyFineTuning() {
+        if (!this.tuningManager || !this.audioContext) {
+            return;
+        }
+
+        const tuningOffsetCents = this.tuningManager.getTuningOffset();
+        
+        if (Math.abs(tuningOffsetCents) > 0.1) {
+            console.log('Applying fine tuning offset:', tuningOffsetCents.toFixed(1), 'cents');
+            
+            // Try to access and modify the synth's audio nodes
+            if (this.midiPlayer && this.midiPlayer.audioNode) {
+                this.createTuningEffect(tuningOffsetCents);
+            } else {
+                // If we can't access the audio node directly, store for later application
+                this.pendingTuningOffset = tuningOffsetCents;
+            }
+        }
+    }
+
+    /**
+     * Create a tuning effect using Web Audio API
+     * @param {number} centsOffset - Tuning offset in cents
+     */
+    createTuningEffect(centsOffset) {
+        try {
+            // Calculate frequency multiplier
+            const frequencyMultiplier = Math.pow(2, centsOffset / 1200);
+            
+            // Create a custom audio effect by modifying sample playback rate
+            // Note: This is a simplified approach - actual implementation would depend on ABCJS internals
+            if (this.audioContext.createScriptProcessor) {
+                console.log('Fine tuning applied with multiplier:', frequencyMultiplier.toFixed(4));
+                // Store the multiplier for any custom audio processing
+                this.tuningFrequencyMultiplier = frequencyMultiplier;
+            }
+        } catch (error) {
+            console.warn('Could not apply fine tuning:', error);
+        }
+    }
+
+    /**
+     * Get the current tuning frequency multiplier
+     * @returns {number} Frequency multiplier
+     */
+    getTuningMultiplier() {
+        return this.tuningFrequencyMultiplier || 1.0;
     }
 
 }

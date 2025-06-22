@@ -11,6 +11,7 @@
 @import 'controls/files-dialog.css';
 @import 'controls/tune-navigation.css';
 @import 'tempo-control.css';
+@import 'tuning-modal.css';
 
 /* Music notation and fingering */
 @import 'notation.css';
