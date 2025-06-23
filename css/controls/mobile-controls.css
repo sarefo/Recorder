@@ -160,12 +160,12 @@
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     align-items: center;
     gap: 6px;
     margin: 0;
-    padding: 8px;
+    padding: 8px 15px;
     width: 100%;
     background-color: transparent;
 }
@@ -212,7 +212,15 @@
     flex: 1 1 auto !important;
     min-width: 150px !important;
     max-width: none !important;
-    margin: 0 10px;
+    margin: 0 5px;
+    width: 100% !important;
+}
+
+.mobile-playback-bar .tempo-control input[type="range"] {
+    flex: 1 1 auto !important;
+    min-width: 80px !important;
+    max-width: none !important;
+    width: 100% !important;
 }
 
 /* Mobile tempo control in collapsed mobile controls */

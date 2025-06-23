@@ -11,16 +11,16 @@ class TuningManager {
         this.tuningOffset = 0; // Cents offset from A880
         this.targetFrequency = 880; // A5 = 880 Hz (recorder's A)
         this.onTuningUpdate = null; // Callback for tuning changes
-        
+
         // Audio analysis settings
         this.bufferSize = 4096;
         this.sampleRate = 44100;
         this.analysisInterval = null;
         this.analysisRate = 50; // Analysis frequency in ms
-        
+
         // Tuning tolerance
         this.tuningTolerance = 5; // ±5 cents considered "in tune"
-        
+
         // Load saved tuning offset
         this.loadTuningOffset();
     }
@@ -45,7 +45,6 @@ class TuningManager {
 
             // Initialize our custom autocorrelation pitch detector
             this.sampleRate = this.audioContext.sampleRate;
-            console.log('Custom autocorrelation pitch detector initialized');
 
             console.log('TuningManager initialized with sample rate:', this.sampleRate);
             return true;
@@ -66,8 +65,6 @@ class TuningManager {
 
             await this.init();
 
-            console.log('Requesting microphone access...');
-            
             // Request microphone access with simpler constraints first
             this.mediaStream = await navigator.mediaDevices.getUserMedia({
                 audio: true
@@ -80,7 +77,7 @@ class TuningManager {
             this.analyser = this.audioContext.createAnalyser();
             this.analyser.fftSize = this.bufferSize;
             this.analyser.smoothingTimeConstant = 0.3; // Less smoothing for better responsiveness
-            
+
             // Connect audio nodes
             source.connect(this.analyser);
 
@@ -154,7 +151,7 @@ class TuningManager {
 
             // Check if we're getting audio input
             const rms = Math.sqrt(buffer.reduce((sum, val) => sum + val * val, 0) / buffer.length);
-            
+
             // Only process if we have significant audio input
             if (rms > 0.001) {
                 // Detect pitch using autocorrelation
@@ -176,40 +173,40 @@ class TuningManager {
     detectPitchAutocorrelation(buffer) {
         const SIZE = buffer.length;
         const rms = Math.sqrt(buffer.reduce((sum, val) => sum + val * val, 0) / buffer.length);
-        
+
         // Need sufficient signal strength
         if (rms < 0.01) return null;
 
         let r1 = 0, r2 = SIZE - 1, thres = 0.2;
         const c = new Array(SIZE).fill(0);
-        
+
         // Autocorrelation
         for (let i = 0; i < SIZE; i++) {
             for (let j = 0; j < SIZE - i; j++) {
                 c[i] = c[i] + buffer[j] * buffer[j + i];
             }
         }
-        
+
         let d = 0;
         while (c[d] > c[d + 1]) d++;
         let maxval = -1, maxpos = -1;
-        
+
         for (let i = d; i < SIZE; i++) {
             if (c[i] > maxval) {
                 maxval = c[i];
                 maxpos = i;
             }
         }
-        
+
         let T0 = maxpos;
-        
+
         // Parabolic interpolation
         const y1 = c[T0 - 1], y2 = c[T0], y3 = c[T0 + 1];
         const a = (y1 - 2 * y2 + y3) / 2;
         const b = (y3 - y1) / 2;
-        
+
         if (a) T0 = T0 - b / (2 * a);
-        
+
         return this.sampleRate / T0;
     }
 
@@ -220,7 +217,7 @@ class TuningManager {
     processPitchDetection(frequency) {
         // Calculate cents offset from target frequency (A440)
         const centsOffset = this.frequencyToCents(frequency, this.targetFrequency);
-        
+
         // Update tuning offset (smooth it slightly to reduce jitter)
         const smoothingFactor = 0.7;
         this.tuningOffset = (this.tuningOffset * smoothingFactor) + (centsOffset * (1 - smoothingFactor));
@@ -261,7 +258,7 @@ class TuningManager {
     applyTuning() {
         // Save the current tuning offset
         this.saveTuningOffset();
-        
+
         // Notify that tuning has been applied
         if (this.onTuningUpdate) {
             this.onTuningUpdate({
@@ -282,7 +279,7 @@ class TuningManager {
     resetTuning() {
         this.tuningOffset = 0;
         this.saveTuningOffset();
-        
+
         if (this.onTuningUpdate) {
             this.onTuningUpdate({
                 frequency: null,

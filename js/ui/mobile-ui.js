@@ -83,7 +83,7 @@ class MobileUI {
             }
 
             const toggleButton = document.getElementById('control-toggle');
-            
+
             // Check if click is outside both the control container and toggle button
             if (!controlContainer.contains(e.target) && !toggleButton.contains(e.target)) {
                 // Close the dialog
@@ -153,7 +153,7 @@ class MobileUI {
         if (!this.player.isMobile) {
             controlContainer.classList.remove('collapsed');
             controlContainer.classList.remove('mobile-view');
-            
+
             // Hide mobile playback bar on desktop
             const playbackBar = document.getElementById('mobile-playback-bar');
             if (playbackBar) {
@@ -216,17 +216,13 @@ class MobileUI {
      * Creates the mobile playback bar container
      */
     createMobilePlaybackBar() {
-        console.log('createMobilePlaybackBar called');
         let playbackBar = document.getElementById('mobile-playback-bar');
-        console.log('Existing playback bar:', playbackBar);
-        
+
         if (!playbackBar) {
-            console.log('Creating new playback bar');
             playbackBar = document.createElement('div');
             playbackBar.id = 'mobile-playback-bar';
             playbackBar.className = 'mobile-playback-bar hidden';
             document.body.appendChild(playbackBar);
-            console.log('Playback bar created and appended');
         }
         return playbackBar;
     }
@@ -236,24 +232,20 @@ class MobileUI {
      * @returns {HTMLElement} The playback toggle container
      */
     createPlaybackToggle() {
-        console.log('Creating playback toggle');
-        
         const toggleSwitch = document.createElement('button');
         toggleSwitch.id = 'playback-toggle';
         toggleSwitch.className = 'toggle-switch';
         toggleSwitch.textContent = 'Playback';
         toggleSwitch.title = 'Show/hide permanent playback controls';
-        
+
         if (this.playbackBarEnabled) {
             toggleSwitch.classList.add('active');
         }
 
         toggleSwitch.addEventListener('click', () => {
-            console.log('Playback toggle clicked');
             this.togglePlaybackBar();
         });
 
-        console.log('Playback toggle created:', toggleSwitch);
         return toggleSwitch;
     }
 
@@ -262,26 +254,20 @@ class MobileUI {
      */
     togglePlaybackBar() {
         this.playbackBarEnabled = !this.playbackBarEnabled;
-        console.log('Toggle playback bar:', this.playbackBarEnabled);
-        
+
         const toggleSwitch = document.getElementById('playback-toggle');
         if (toggleSwitch) {
             toggleSwitch.classList.toggle('active', this.playbackBarEnabled);
         }
 
         let playbackBar = document.getElementById('mobile-playback-bar');
-        console.log('Found existing playback bar:', playbackBar);
-        
+
         // If not found, try to create it
         if (!playbackBar) {
-            console.log('Playback bar not found, creating it now...');
             playbackBar = this.createMobilePlaybackBar();
         }
-        
-        const playbackControls = document.querySelector('.playback-controls');
 
-        console.log('Final playback bar element:', playbackBar);
-        console.log('Playback controls element:', playbackControls);
+        const playbackControls = document.querySelector('.playback-controls');
 
         if (this.playbackBarEnabled) {
             // Show playback bar and move controls there
@@ -289,15 +275,14 @@ class MobileUI {
                 playbackBar.classList.remove('hidden');
                 // Force the bar itself to be visible (this was working before)
                 playbackBar.style.cssText = 'position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; background-color: #f8f8f8 !important; border-top: 1px solid #ddd !important; box-shadow: 0 -2px 8px rgba(0,0,0,0.1) !important; z-index: 1000 !important; height: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; transform: translateY(0) !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; padding: 0 !important;';
-                console.log('Showing playback bar with forced styling');
             }
             if (playbackControls) {
                 // Move to bottom bar and force visibility with aggressive styling
                 playbackBar.appendChild(playbackControls);
-                
+
                 // Force visibility with explicit dimensions (this worked before)
                 playbackControls.style.cssText = 'display: flex !important; visibility: visible !important; opacity: 1 !important; position: relative !important; width: 100% !important; height: auto !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center !important; gap: 6px !important; margin: 0 !important; padding: 8px !important; background-color: transparent !important;';
-                
+
                 // Force visibility on all child elements  
                 const buttons = playbackControls.querySelectorAll('button, div, input, span');
                 buttons.forEach(element => {
@@ -316,21 +301,19 @@ class MobileUI {
                         element.style.cssText += '; display: block !important; visibility: visible !important; opacity: 1 !important;';
                     }
                 });
-                
+
                 // Reapply our custom button styles after mobile UI manipulation
                 setTimeout(() => {
                     if (this.player.uiControls && this.player.uiControls.reapplyAllToggleButtonStyles) {
                         this.player.uiControls.reapplyAllToggleButtonStyles();
                     }
                 }, 150);
-                
-                console.log('Moved controls to bottom bar and forced visibility');
+
             }
         } else {
             // Hide playback bar
             if (playbackBar) {
                 playbackBar.classList.add('hidden');
-                console.log('Hiding playback bar');
             }
             if (playbackControls) {
                 // Move controls back and hide them on mobile
@@ -338,7 +321,6 @@ class MobileUI {
                 if (controlBar) {
                     controlBar.appendChild(playbackControls);
                     playbackControls.style.display = 'none';
-                    console.log('Moved controls back to control bar and hid them');
                 }
             }
         }
@@ -349,7 +331,7 @@ class MobileUI {
      */
     updatePlaybackControlsVisibility() {
         const playbackControls = document.querySelector('.playback-controls');
-        
+
         if (playbackControls) {
             if (this.player.isMobile) {
                 // On mobile: hide in popup only if not in bottom bar
