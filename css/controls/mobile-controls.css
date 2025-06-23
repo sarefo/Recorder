@@ -86,3 +86,171 @@
     box-shadow: none;
     padding: 8px;
 }
+
+/* Mobile playback toggle styles */
+.mobile-controls {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+/* Hide mobile controls on desktop */
+@media (min-width: 1200px) {
+    .mobile-controls {
+        display: none !important;
+    }
+    
+    .playback-toggle-fingering {
+        display: none !important;
+    }
+}
+
+.toggle-switch {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.toggle-switch:hover {
+    background-color: #e8e8e8;
+}
+
+.toggle-switch.active {
+    background-color: #4285f4;
+    color: white;
+    border-color: #4285f4;
+}
+
+/* Mobile playback bar at bottom of screen */
+.mobile-playback-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 0;
+}
+
+.mobile-playback-bar.hidden {
+    transform: translateY(100%);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* Adjust playback controls when in mobile bottom bar */
+.mobile-playback-bar .playback-controls {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 8px;
+    width: 100%;
+    background-color: transparent;
+}
+
+.mobile-playback-bar .playback-controls button {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 6px 10px;
+    font-size: 12px;
+    min-width: auto;
+    background-color: #f8f8f8;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.mobile-playback-bar .playback-controls div,
+.mobile-playback-bar .playback-controls input,
+.mobile-playback-bar .playback-controls span {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.mobile-playback-bar .tempo-control {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    align-items: center;
+    gap: 5px;
+    margin: 0 10px;
+}
+
+.mobile-playback-bar .playback-controls button.active {
+    background-color: #4285f4;
+    color: white;
+    border-color: #4285f4;
+}
+
+.mobile-playback-bar .tempo-control {
+    flex: 1;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.mobile-playback-bar .tempo-control label {
+    font-size: 11px;
+}
+
+.mobile-playback-bar .tempo-value {
+    font-size: 11px;
+}
+
+/* Fingering controls button styling */
+.fingering-controls button {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.fingering-controls button:hover {
+    background-color: #e8e8e8;
+}
+
+.fingering-controls button.active {
+    background-color: #4285f4;
+    color: white;
+    border-color: #4285f4;
+}
+
+/* Exception: German/Baroque toggle stays gray */
+.fingering-controls #system-toggle.active {
+    background-color: #f8f8f8;
+    color: #333;
+    border-color: #ddd;
+}
+
+/* Ensure mobile playback bar doesn't show on desktop */
+@media (min-width: 769px) {
+    .mobile-playback-bar {
+        display: none !important;
+    }
+}

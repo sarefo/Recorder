@@ -22,6 +22,10 @@ class UIControls {
         // Add sections to control bar
         controlBar.appendChild(this.createFingeringControlsSection());
         controlBar.appendChild(this.createNotationControlsSection());
+        
+        // Mobile-specific controls are now in the fingering section
+        
+        // Always add playback controls (they will be moved if mobile playback bar is enabled)
         controlBar.appendChild(this.createPlaybackControlsSection());
 
         // Add control elements to the document
@@ -82,8 +86,11 @@ class UIControls {
         // Add system toggle button
         fingeringSection.appendChild(this.createSystemToggleButton());
 
-        // Add chart container
-        fingeringSection.appendChild(this.createChartContainer());
+        // Add chart toggle button (simplified)
+        fingeringSection.appendChild(this.createChartToggleButton());
+
+        // Add playback toggle button (mobile-only, hidden on desktop via CSS)
+        fingeringSection.appendChild(this.createPlaybackToggleButton());
 
         return fingeringSection;
     }
@@ -95,12 +102,13 @@ class UIControls {
     createFingeringToggleButton() {
         const fingeringDisplayToggle = document.createElement('button');
         fingeringDisplayToggle.id = 'show-fingering';
-        fingeringDisplayToggle.textContent = 'Hide Fingering';
+        fingeringDisplayToggle.textContent = 'Fingering';
         fingeringDisplayToggle.title = 'Show/hide fingering diagrams';
+        fingeringDisplayToggle.classList.add('active'); // Start as active since fingering is shown by default
 
         fingeringDisplayToggle.addEventListener('click', () => {
             const showFingering = this.player.toggleFingeringDisplay();
-            fingeringDisplayToggle.textContent = showFingering ? 'Hide Fingering' : 'Show Fingering';
+            fingeringDisplayToggle.classList.toggle('active', showFingering);
         });
 
         return fingeringDisplayToggle;
@@ -125,30 +133,78 @@ class UIControls {
     }
 
     /**
-     * Creates chart container with toggle button
-     * @returns {HTMLElement} The chart container
+     * Creates chart toggle button (simplified)
+     * @returns {HTMLElement} The chart toggle button
      */
-    createChartContainer() {
-        const chartContainer = document.createElement('div');
-        chartContainer.className = 'minimize-controls';
-
-        const chartLabel = document.createElement('span');
-        chartLabel.className = 'minimize-label';
-        chartLabel.textContent = 'Chart';
-
+    createChartToggleButton() {
         const chartToggle = document.createElement('button');
         chartToggle.id = 'chart-toggle';
         chartToggle.title = 'Show/Hide Reference Chart';
-        chartToggle.innerHTML = '&#43;'; // Plus sign
+        chartToggle.textContent = 'Chart';
 
         chartToggle.addEventListener('click', () => {
-            this.player.toggleReferenceRow();
+            const referenceRow = document.getElementById('reference-row');
+            
+            // Toggle visibility using CSS classes
+            if (referenceRow.classList.contains('hidden')) {
+                referenceRow.classList.remove('hidden');
+                referenceRow.classList.add('visible-flex');
+                chartToggle.classList.add('active');
+            } else {
+                referenceRow.classList.add('hidden');
+                referenceRow.classList.remove('visible-flex');
+                chartToggle.classList.remove('active');
+            }
         });
 
-        chartContainer.appendChild(chartLabel);
-        chartContainer.appendChild(chartToggle);
+        return chartToggle;
+    }
 
-        return chartContainer;
+    /**
+     * Creates playback toggle button for fingering section
+     * @returns {HTMLElement} The playback toggle button
+     */
+    createPlaybackToggleButton() {
+        const playbackToggle = document.createElement('button');
+        playbackToggle.id = 'playback-toggle-fingering';
+        playbackToggle.className = 'playback-toggle-fingering';
+        playbackToggle.title = 'Show/hide permanent playback controls';
+        playbackToggle.textContent = 'Playback';
+
+        playbackToggle.addEventListener('click', () => {
+            if (this.player.mobileUI) {
+                this.player.mobileUI.togglePlaybackBar();
+                playbackToggle.classList.toggle('active', this.player.mobileUI.isPlaybackBarEnabled());
+            }
+        });
+
+        return playbackToggle;
+    }
+
+    /**
+     * Creates mobile-specific controls section
+     * @returns {HTMLElement} The mobile controls section
+     */
+    createMobileControlsSection() {
+        console.log('Creating mobile controls section');
+        const mobileSection = document.createElement('div');
+        mobileSection.className = 'control-section mobile-controls';
+
+        // Add playback toggle
+        const playbackToggle = this.player.mobileUI.createPlaybackToggle();
+        mobileSection.appendChild(playbackToggle);
+
+        console.log('Mobile controls section created:', mobileSection);
+        return mobileSection;
+    }
+
+    /**
+     * Updates mobile playback visibility based on toggle state
+     */
+    updateMobilePlaybackVisibility() {
+        // This method is called when the playback toggle changes
+        // The playback controls are moved by the MobileUI class
+        // We don't need to do anything special here since the controls are moved via DOM manipulation
     }
 
     /**
