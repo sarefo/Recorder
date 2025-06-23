@@ -183,6 +183,13 @@
     border-radius: 4px;
 }
 
+/* Ensure active state works in mobile playback bar */
+.mobile-playback-bar .playback-controls button.active {
+    background-color: #4285f4 !important;
+    color: white !important;
+    border-color: #4285f4 !important;
+}
+
 .mobile-playback-bar .playback-controls div,
 .mobile-playback-bar .playback-controls input,
 .mobile-playback-bar .playback-controls span {
@@ -200,16 +207,22 @@
     margin: 0 10px;
 }
 
-.mobile-playback-bar .playback-controls button.active {
-    background-color: #4285f4;
-    color: white;
-    border-color: #4285f4;
-}
 
 .mobile-playback-bar .tempo-control {
-    flex: 1;
-    min-width: 150px;
-    max-width: 200px;
+    flex: 1 1 auto !important;
+    min-width: 150px !important;
+    max-width: none !important;
+    margin: 0 10px;
+}
+
+/* Mobile tempo control in collapsed mobile controls */
+@media (max-width: 768px) {
+    .control-container:not(.mobile-view) .tempo-control,
+    .control-bar .tempo-control {
+        flex: 1 1 auto !important;
+        min-width: 150px !important;
+        max-width: 300px !important;
+    }
 }
 
 .mobile-playback-bar .tempo-control label {
@@ -220,33 +233,7 @@
     font-size: 11px;
 }
 
-/* Fingering controls button styling */
-.fingering-controls button {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: #333;
-}
-
-.fingering-controls button:hover {
-    background-color: #e8e8e8;
-}
-
-.fingering-controls button.active {
-    background-color: #4285f4;
-    color: white;
-    border-color: #4285f4;
-}
-
-/* Exception: German/Baroque toggle stays gray */
-.fingering-controls #system-toggle.active {
-    background-color: #f8f8f8;
-    color: #333;
-    border-color: #ddd;
-}
+/* Fingering controls now use unified button styles from controls-base.css */
 
 /* Ensure mobile playback bar doesn't show on desktop */
 @media (min-width: 769px) {

@@ -24,7 +24,9 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Unified button styles */
 .control-bar button {
+    background-color: #f8f8f8;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 6px 10px;
@@ -32,29 +34,58 @@
     cursor: pointer;
     transition: all 0.2s;
     white-space: nowrap;
+    color: #333;
 }
 
 .control-bar button:hover {
-    background-color: #50a0e5;
+    background-color: #e8e8e8;
     border-color: #ccc;
 }
 
-.control-bar button.active {
-    background-color: #e7f3ff;
-    border-color: #6cb0f5;
-    color: #1a73e8;
+/* Unified active state for toggle buttons - higher specificity */
+.control-bar button.active,
+.playback-controls button.active,
+.control-section button.active,
+#chords-toggle.active,
+#voices-toggle.active,
+#metronome-toggle.active,
+#show-fingering.active,
+#chart-toggle.active,
+#playback-toggle-fingering.active {
+    background-color: #4285f4 !important;
+    border-color: #4285f4 !important;
+    color: white !important;
 }
 
-/* Special buttons */
+/* Special button overrides */
 
+/* Share button - always uses special styling */
 #share-button {
-    background-color: #e7f3ff;
-    border-color: #6cb0f5;
-    color: #1a73e8;
+    background-color: #e7f3ff !important;
+    border-color: #6cb0f5 !important;
+    color: #1a73e8 !important;
 }
 
 #share-button:hover {
-    background-color: #d0e7ff;
+    background-color: #d0e7ff !important;
+}
+
+/* System toggle (German/Baroque) - doesn't use active styling */
+#system-toggle.active {
+    background-color: #f8f8f8 !important;
+    color: #333 !important;
+    border-color: #ddd !important;
+}
+
+/* Non-toggle buttons that should not use active styling */
+#play-button,
+#restart-button,
+#copy-button,
+#paste-button,
+#tuning-button,
+#transpose-up,
+#transpose-down {
+    /* These buttons don't toggle so they don't get .active class anyway */
 }
 
 /* Control sections grouping */
@@ -62,4 +93,159 @@
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+/* Playback controls layout - allow tempo control to grow */
+.playback-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-width: 0; /* Allow shrinking */
+}
+
+.playback-controls .tempo-control {
+    /* Tempo control gets flex space but respects max-width from tempo-control.css */
+    order: 10; /* Move to end of flex container */
+    flex: 1; /* Ensure it grows */
+    min-width: 200px; /* Minimum width for desktop */
+}
+
+/* Override mobile tempo control styles for desktop */
+@media (min-width: 769px) {
+    .tempo-control {
+        flex: 1 !important;
+        min-width: 200px !important;
+        max-width: 400px !important;
+    }
+}
+
+/* UNIVERSAL BUTTON TOGGLE STYLES - NUCLEAR OPTION - HIGHEST PRIORITY */
+/* These rules override EVERYTHING for consistent behavior */
+
+/* Base state for toggle buttons - ALL CONTEXTS */
+button#chords-toggle,
+button#voices-toggle,
+button#metronome-toggle,
+.control-bar button#chords-toggle,
+.control-bar button#voices-toggle,
+.control-bar button#metronome-toggle,
+.playback-controls button#chords-toggle,
+.playback-controls button#voices-toggle,
+.playback-controls button#metronome-toggle,
+.mobile-playback-bar button#chords-toggle,
+.mobile-playback-bar button#voices-toggle,
+.mobile-playback-bar button#metronome-toggle {
+    background-color: #f8f8f8 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+    color: #333 !important;
+    padding: 6px 10px !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+    box-sizing: border-box !important;
+}
+
+/* Hover state for toggle buttons - ALL CONTEXTS */
+button#chords-toggle:hover,
+button#voices-toggle:hover,
+button#metronome-toggle:hover,
+.control-bar button#chords-toggle:hover,
+.control-bar button#voices-toggle:hover,
+.control-bar button#metronome-toggle:hover,
+.playback-controls button#chords-toggle:hover,
+.playback-controls button#voices-toggle:hover,
+.playback-controls button#metronome-toggle:hover,
+.mobile-playback-bar button#chords-toggle:hover,
+.mobile-playback-bar button#voices-toggle:hover,
+.mobile-playback-bar button#metronome-toggle:hover {
+    background-color: #e8e8e8 !important;
+    border-color: #ccc !important;
+}
+
+/* Active state for toggle buttons - NUCLEAR APPROACH */
+button#chords-toggle.active,
+button#voices-toggle.active,
+button#metronome-toggle.active,
+.control-bar button#chords-toggle.active,
+.control-bar button#voices-toggle.active,
+.control-bar button#metronome-toggle.active,
+.playback-controls button#chords-toggle.active,
+.playback-controls button#voices-toggle.active,
+.playback-controls button#metronome-toggle.active,
+.mobile-playback-bar button#chords-toggle.active,
+.mobile-playback-bar button#voices-toggle.active,
+.mobile-playback-bar button#metronome-toggle.active,
+.mobile-playback-bar .playback-controls button#chords-toggle.active,
+.mobile-playback-bar .playback-controls button#voices-toggle.active,
+.mobile-playback-bar .playback-controls button#metronome-toggle.active {
+    background-color: #4285f4 !important;
+    border-color: #4285f4 !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+/* Mobile font size adjustment */
+@media (max-width: 768px) {
+    button#chords-toggle,
+    button#voices-toggle,
+    button#metronome-toggle,
+    .mobile-playback-bar button#chords-toggle,
+    .mobile-playback-bar button#voices-toggle,
+    .mobile-playback-bar button#metronome-toggle {
+        font-size: 12px !important;
+        padding: 6px 8px !important;
+    }
+}
+
+/* UNIVERSAL TEMPO SLIDER STYLES - NUCLEAR OPTION */
+/* Force tempo slider to grow properly in ALL contexts */
+.tempo-control,
+.control-bar .tempo-control,
+.playback-controls .tempo-control,
+.mobile-playback-bar .tempo-control,
+.mobile-playback-bar .playback-controls .tempo-control {
+    flex: 1 1 auto !important;
+    min-width: 180px !important;
+    max-width: 500px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+}
+
+.tempo-control input[type="range"],
+.control-bar .tempo-control input[type="range"],
+.playback-controls .tempo-control input[type="range"],
+.mobile-playback-bar .tempo-control input[type="range"],
+.mobile-playback-bar .playback-controls .tempo-control input[type="range"] {
+    flex: 1 1 auto !important;
+    min-width: 120px !important;
+    max-width: none !important;
+    width: auto !important;
+}
+
+.tempo-control label,
+.tempo-control .tempo-value {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+}
+
+/* Mobile tempo slider - more space */
+@media (max-width: 768px) {
+    .tempo-control,
+    .mobile-playback-bar .tempo-control,
+    .mobile-playback-bar .playback-controls .tempo-control {
+        flex: 1 1 auto !important;
+        min-width: 200px !important;
+        max-width: none !important;
+    }
+    
+    .tempo-control input[type="range"],
+    .mobile-playback-bar .tempo-control input[type="range"] {
+        min-width: 150px !important;
+    }
 }

@@ -11,10 +11,7 @@
         flex-wrap: wrap;
     }
 
-    .tempo-control {
-        flex: 1;
-        min-width: 200px;
-    }
+    /* Tempo control responsive rules moved to mobile-controls.css for better organization */
 
     #abc-notation {
         margin-top: 10px;

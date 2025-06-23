@@ -3,15 +3,20 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    min-width: 0; /* Allow shrinking */
+    flex: 1; /* Take available space */
+    max-width: 300px; /* Prevent getting too wide */
 }
 
 .tempo-control label {
     font-size: 14px;
     white-space: nowrap;
+    flex-shrink: 0; /* Don't shrink the label */
 }
 
 .tempo-control input[type="range"] {
-    width: 100px;
+    flex: 1; /* Grow to fill available space */
+    min-width: 80px; /* Minimum usable width */
     height: 6px;
     background-color: #ddd;
     border-radius: 3px;
@@ -41,4 +46,5 @@
     min-width: 50px;
     font-size: 12px;
     text-align: left;
+    flex-shrink: 0; /* Don't shrink the value display */
 }

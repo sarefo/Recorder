@@ -302,7 +302,12 @@ class MobileUI {
                 const buttons = playbackControls.querySelectorAll('button, div, input, span');
                 buttons.forEach(element => {
                     if (element.tagName === 'BUTTON') {
-                        element.style.cssText += '; display: inline-block !important; visibility: visible !important; opacity: 1 !important; width: auto !important; height: auto !important; padding: 6px 10px !important; margin: 2px !important; background-color: #f8f8f8 !important; color: #333 !important; border: 1px solid #ddd !important; border-radius: 4px !important; font-size: 12px !important;';
+                        // Don't override our special toggle buttons - just make them visible
+                        if (element.id === 'chords-toggle' || element.id === 'voices-toggle' || element.id === 'metronome-toggle') {
+                            element.style.cssText += '; display: inline-block !important; visibility: visible !important; opacity: 1 !important;';
+                        } else {
+                            element.style.cssText += '; display: inline-block !important; visibility: visible !important; opacity: 1 !important; width: auto !important; height: auto !important; padding: 6px 10px !important; margin: 2px !important; background-color: #f8f8f8 !important; color: #333 !important; border: 1px solid #ddd !important; border-radius: 4px !important; font-size: 12px !important;';
+                        }
                     } else if (element.classList.contains('tempo-control')) {
                         element.style.cssText += '; display: flex !important; visibility: visible !important; opacity: 1 !important; align-items: center !important; gap: 5px !important; margin: 0 10px !important; flex: 1 !important; max-width: 200px !important; min-width: 120px !important;';
                     } else if (element.id === 'tempo-slider') {
@@ -311,6 +316,13 @@ class MobileUI {
                         element.style.cssText += '; display: block !important; visibility: visible !important; opacity: 1 !important;';
                     }
                 });
+                
+                // Reapply our custom button styles after mobile UI manipulation
+                setTimeout(() => {
+                    if (this.player.uiControls && this.player.uiControls.reapplyAllToggleButtonStyles) {
+                        this.player.uiControls.reapplyAllToggleButtonStyles();
+                    }
+                }, 150);
                 
                 console.log('Moved controls to bottom bar and forced visibility');
             }

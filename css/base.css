@@ -14,6 +14,7 @@ body {
     padding: 10px 20px;
     border-radius: 4px;
     display: none;
+    z-index: 1001; /* Above mobile playback bar */
 }
 
 #midi-status {

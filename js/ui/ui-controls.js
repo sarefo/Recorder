@@ -22,9 +22,9 @@ class UIControls {
         // Add sections to control bar
         controlBar.appendChild(this.createFingeringControlsSection());
         controlBar.appendChild(this.createNotationControlsSection());
-        
+
         // Mobile-specific controls are now in the fingering section
-        
+
         // Always add playback controls (they will be moved if mobile playback bar is enabled)
         controlBar.appendChild(this.createPlaybackControlsSection());
 
@@ -144,7 +144,7 @@ class UIControls {
 
         chartToggle.addEventListener('click', () => {
             const referenceRow = document.getElementById('reference-row');
-            
+
             // Toggle visibility using CSS classes
             if (referenceRow.classList.contains('hidden')) {
                 referenceRow.classList.remove('hidden');
@@ -255,7 +255,7 @@ class UIControls {
         const copyButton = document.createElement('button');
         copyButton.id = 'copy-button';
         copyButton.title = 'Copy ABC notation (Ctrl+C)';
-        copyButton.textContent = 'To Clipboard';
+        copyButton.textContent = 'Copy';
 
         copyButton.addEventListener('click', () => {
             this.player.copyToClipboard();
@@ -272,7 +272,7 @@ class UIControls {
         const pasteButton = document.createElement('button');
         pasteButton.id = 'paste-button';
         pasteButton.title = 'Paste ABC notation (Ctrl+V)';
-        pasteButton.textContent = 'From Clipboard';
+        pasteButton.textContent = 'Paste';
 
         pasteButton.addEventListener('click', () => {
             this.player.pasteFromClipboard();
@@ -420,7 +420,9 @@ class UIControls {
         chordsToggle.id = 'chords-toggle';
         chordsToggle.title = 'Toggle Chords';
         chordsToggle.textContent = 'Chords';
-        chordsToggle.classList.add('active');
+        
+        // Set initial active state (chords are ON by default)
+        this.setButtonActiveState(chordsToggle, true);
 
         chordsToggle.addEventListener('click', async () => {
             const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
@@ -428,7 +430,7 @@ class UIControls {
                 this.player.renderManager.currentVisualObj
             );
 
-            chordsToggle.classList.toggle('active', newSettings.chordsOn);
+            this.setButtonActiveState(chordsToggle, newSettings.chordsOn);
         });
 
         return chordsToggle;
@@ -443,7 +445,9 @@ class UIControls {
         voicesToggle.id = 'voices-toggle';
         voicesToggle.title = 'Toggle Voices';
         voicesToggle.textContent = 'Voices';
-        voicesToggle.classList.add('active');
+        
+        // Set initial active state (voices are ON by default)
+        this.setButtonActiveState(voicesToggle, true);
 
         voicesToggle.addEventListener('click', async () => {
             const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
@@ -451,7 +455,7 @@ class UIControls {
                 this.player.renderManager.currentVisualObj
             );
 
-            voicesToggle.classList.toggle('active', newSettings.voicesOn);
+            this.setButtonActiveState(voicesToggle, newSettings.voicesOn);
         });
 
         return voicesToggle;
@@ -466,6 +470,9 @@ class UIControls {
         metronomeToggle.id = 'metronome-toggle';
         metronomeToggle.title = 'Toggle Metronome';
         metronomeToggle.textContent = 'Metronome';
+        
+        // Set initial inactive state (metronome is OFF by default)
+        this.setButtonActiveState(metronomeToggle, false);
 
         metronomeToggle.addEventListener('click', async () => {
             const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
@@ -473,7 +480,7 @@ class UIControls {
                 this.player.renderManager.currentVisualObj
             );
 
-            metronomeToggle.classList.toggle('active', newSettings.metronomeOn);
+            this.setButtonActiveState(metronomeToggle, newSettings.metronomeOn);
         });
 
         return metronomeToggle;
@@ -486,14 +493,30 @@ class UIControls {
     createTempoControl() {
         const tempoControl = document.createElement('div');
         tempoControl.className = 'tempo-control';
+        
+        // Force flex layout with inline styles to override any CSS conflicts
+        tempoControl.style.cssText = `
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            flex: 1 1 auto !important;
+            min-width: 200px !important;
+            max-width: 500px !important;
+        `;
 
         // Create label
         const tempoLabel = document.createElement('label');
         tempoLabel.textContent = 'Tempo:';
+        tempoLabel.style.cssText = 'flex-shrink: 0 !important; white-space: nowrap !important;';
         tempoControl.appendChild(tempoLabel);
 
         // Create slider
         const tempoSlider = this.createTempoSlider();
+        tempoSlider.style.cssText = `
+            flex: 1 1 auto !important;
+            min-width: 120px !important;
+            width: auto !important;
+        `;
         tempoControl.appendChild(tempoSlider);
 
         // Create value display
@@ -501,6 +524,7 @@ class UIControls {
         tempoValue.id = 'tempo-value';
         tempoValue.className = 'tempo-value';
         tempoValue.textContent = '100%';
+        tempoValue.style.cssText = 'flex-shrink: 0 !important; white-space: nowrap !important; min-width: 50px !important;';
         tempoControl.appendChild(tempoValue);
 
         // Connect slider to value display
@@ -590,7 +614,7 @@ class UIControls {
 
         // Show modal
         modal.style.display = 'flex';
-        
+
         // Initialize tuning if not already done
         this.initializeTuning();
     }
@@ -697,7 +721,7 @@ class UIControls {
      */
     initializeTuning() {
         const tuningManager = this.player.midiPlayer.tuningManager;
-        
+
         // Set up tuning update callback
         tuningManager.onTuningUpdate = (data) => {
             this.updateTuningDisplay(data);
@@ -719,12 +743,12 @@ class UIControls {
         try {
             const tuningManager = this.player.midiPlayer.tuningManager;
             await tuningManager.startTuning();
-            
+
             // Update button states
             document.getElementById('start-tuning').disabled = true;
             document.getElementById('stop-tuning').disabled = false;
             document.getElementById('tuning-status').textContent = 'Listening... Play an A note';
-            
+
         } catch (error) {
             document.getElementById('tuning-status').textContent = error.message;
             console.error('Error starting tuning:', error);
@@ -737,7 +761,7 @@ class UIControls {
     stopTuning() {
         const tuningManager = this.player.midiPlayer.tuningManager;
         tuningManager.stopTuning();
-        
+
         // Update button states
         document.getElementById('start-tuning').disabled = false;
         document.getElementById('stop-tuning').disabled = true;
@@ -751,12 +775,12 @@ class UIControls {
     async applyTuning() {
         const tuningManager = this.player.midiPlayer.tuningManager;
         const offset = tuningManager.applyTuning();
-        
+
         // Reinitialize MIDI player with new tuning
         if (this.player.renderManager.currentVisualObj) {
             try {
                 await this.player.midiPlayer.init(this.player.renderManager.currentVisualObj);
-                document.getElementById('tuning-status').textContent = 
+                document.getElementById('tuning-status').textContent =
                     `Tuning applied: ${offset.toFixed(1)} cents - MIDI reinitialized`;
                 Utils.showFeedback(`Tuning applied: ${offset.toFixed(1)} cents`);
             } catch (error) {
@@ -764,7 +788,7 @@ class UIControls {
                 document.getElementById('tuning-status').textContent = 'Error applying tuning';
             }
         } else {
-            document.getElementById('tuning-status').textContent = 
+            document.getElementById('tuning-status').textContent =
                 `Tuning applied: ${offset.toFixed(1)} cents`;
             Utils.showFeedback(`Tuning applied: ${offset.toFixed(1)} cents`);
         }
@@ -776,7 +800,7 @@ class UIControls {
     async resetTuning() {
         const tuningManager = this.player.midiPlayer.tuningManager;
         tuningManager.resetTuning();
-        
+
         // Reinitialize MIDI player with reset tuning
         if (this.player.renderManager.currentVisualObj) {
             try {
@@ -810,12 +834,12 @@ class UIControls {
         if (data.smoothedOffset !== undefined) {
             const offset = data.smoothedOffset;
             centsValue.textContent = `${offset.toFixed(1)} cents`;
-            
+
             // Update needle position (-50 to +50 cents range)
             const needlePosition = Math.max(-50, Math.min(50, offset));
             const needlePercent = ((needlePosition + 50) / 100) * 100;
             needle.style.left = `${needlePercent}%`;
-            
+
             // Update indicator
             if (data.isInTune) {
                 indicator.textContent = '✓ In Tune';
@@ -853,9 +877,77 @@ class UIControls {
             if (tuningManager.isListening) {
                 tuningManager.stopTuning();
             }
-            
+
             modal.style.display = 'none';
         }
+    }
+
+    /**
+     * Sets button active state with inline styles to bypass CSS conflicts
+     * @param {HTMLElement} button - The button element
+     * @param {boolean} isActive - Whether the button should be active
+     */
+    setButtonActiveState(button, isActive) {
+        // Store the active state on the button for later reference
+        button.dataset.isActive = isActive.toString();
+        
+        // Common base styles for all states to ensure consistent sizing
+        const baseStyles = `
+            padding: 6px 10px !important;
+            border-radius: 4px !important;
+            font-size: 14px !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            white-space: nowrap !important;
+            border-width: 1px !important;
+            border-style: solid !important;
+            box-sizing: border-box !important;
+            display: inline-block !important;
+            width: auto !important;
+            height: auto !important;
+            margin: 2px !important;
+        `;
+        
+        if (isActive) {
+            button.style.cssText = baseStyles + `
+                background-color: #4285f4 !important;
+                border-color: #4285f4 !important;
+                color: white !important;
+            `;
+        } else {
+            button.style.cssText = baseStyles + `
+                background-color: #f8f8f8 !important;
+                border-color: #ddd !important;
+                color: #333 !important;
+            `;
+        }
+        
+        // Force reapply styles after a short delay to override mobile UI interference
+        setTimeout(() => this.reapplyButtonStyles(button), 100);
+    }
+
+    /**
+     * Reapplies button styles to ensure they persist after mobile UI manipulation
+     * @param {HTMLElement} button - The button element
+     */
+    reapplyButtonStyles(button) {
+        if (!button.dataset.isActive) return;
+        
+        const isActive = button.dataset.isActive === 'true';
+        this.setButtonActiveState(button, isActive);
+    }
+
+    /**
+     * Ensures all our toggle buttons maintain their styling after mobile UI changes
+     */
+    reapplyAllToggleButtonStyles() {
+        const buttons = ['chords-toggle', 'voices-toggle', 'metronome-toggle'];
+        buttons.forEach(id => {
+            const button = document.getElementById(id);
+            if (button && button.dataset.isActive !== undefined) {
+                this.reapplyButtonStyles(button);
+            }
+        });
     }
 
 }
