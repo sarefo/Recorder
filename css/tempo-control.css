@@ -3,20 +3,20 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    min-width: 0; /* Allow shrinking */
-    flex: 1; /* Take available space */
-    max-width: 300px; /* Prevent getting too wide */
+    flex: 1 1 auto;
+    min-width: 200px;
+    max-width: 500px;
 }
 
 .tempo-control label {
     font-size: 14px;
     white-space: nowrap;
-    flex-shrink: 0; /* Don't shrink the label */
+    flex-shrink: 0;
 }
 
 .tempo-control input[type="range"] {
-    flex: 1; /* Grow to fill available space */
-    min-width: 80px; /* Minimum usable width */
+    flex: 1 1 auto;
+    min-width: 120px;
     height: 6px;
     background-color: #ddd;
     border-radius: 3px;
@@ -46,5 +46,6 @@
     min-width: 50px;
     font-size: 12px;
     text-align: left;
-    flex-shrink: 0; /* Don't shrink the value display */
+    flex-shrink: 0;
+    white-space: nowrap;
 }

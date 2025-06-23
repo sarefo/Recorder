@@ -132,7 +132,7 @@
 /* Mobile playback bar at bottom of screen */
 .mobile-playback-bar {
     position: fixed;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     right: 0;
     background-color: #f8f8f8;
@@ -204,11 +204,6 @@
     opacity: 1 !important;
     align-items: center;
     gap: 5px;
-    margin: 0 10px;
-}
-
-
-.mobile-playback-bar .tempo-control {
     flex: 1 1 auto !important;
     min-width: 150px !important;
     max-width: none !important;
@@ -220,7 +215,6 @@
     flex: 1 1 auto !important;
     min-width: 80px !important;
     max-width: none !important;
-    width: 100% !important;
 }
 
 /* Mobile tempo control in collapsed mobile controls */

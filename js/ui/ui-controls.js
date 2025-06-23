@@ -493,30 +493,14 @@ class UIControls {
     createTempoControl() {
         const tempoControl = document.createElement('div');
         tempoControl.className = 'tempo-control';
-        
-        // Force flex layout with inline styles to override any CSS conflicts
-        tempoControl.style.cssText = `
-            display: flex !important;
-            align-items: center !important;
-            gap: 8px !important;
-            flex: 1 1 auto !important;
-            min-width: 200px !important;
-            max-width: 500px !important;
-        `;
 
         // Create label
         const tempoLabel = document.createElement('label');
         tempoLabel.textContent = 'Tempo:';
-        tempoLabel.style.cssText = 'flex-shrink: 0 !important; white-space: nowrap !important;';
         tempoControl.appendChild(tempoLabel);
 
         // Create slider
         const tempoSlider = this.createTempoSlider();
-        tempoSlider.style.cssText = `
-            flex: 1 1 auto !important;
-            min-width: 120px !important;
-            width: auto !important;
-        `;
         tempoControl.appendChild(tempoSlider);
 
         // Create value display
@@ -524,7 +508,6 @@ class UIControls {
         tempoValue.id = 'tempo-value';
         tempoValue.className = 'tempo-value';
         tempoValue.textContent = '100%';
-        tempoValue.style.cssText = 'flex-shrink: 0 !important; white-space: nowrap !important; min-width: 50px !important;';
         tempoControl.appendChild(tempoValue);
 
         // Connect slider to value display

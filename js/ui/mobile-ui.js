@@ -274,14 +274,14 @@ class MobileUI {
             if (playbackBar) {
                 playbackBar.classList.remove('hidden');
                 // Force the bar itself to be visible (this was working before)
-                playbackBar.style.cssText = 'position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; background-color: #f8f8f8 !important; border-top: 1px solid #ddd !important; box-shadow: 0 -2px 8px rgba(0,0,0,0.1) !important; z-index: 1000 !important; height: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; transform: translateY(0) !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; padding: 0 !important;';
+                playbackBar.style.cssText = 'position: fixed !important; bottom: -1px !important; left: 0 !important; right: 0 !important; background-color: #f8f8f8 !important; border-top: 1px solid #ddd !important; box-shadow: 0 -2px 8px rgba(0,0,0,0.1) !important; z-index: 1000 !important; height: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; transform: translateY(0) !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; padding: 0 !important;';
             }
             if (playbackControls) {
                 // Move to bottom bar and force visibility with aggressive styling
                 playbackBar.appendChild(playbackControls);
 
                 // Force visibility with explicit dimensions (this worked before)
-                playbackControls.style.cssText = 'display: flex !important; visibility: visible !important; opacity: 1 !important; position: relative !important; width: 100% !important; height: auto !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center !important; gap: 6px !important; margin: 0 !important; padding: 8px !important; background-color: transparent !important;';
+                playbackControls.style.cssText = 'display: flex !important; visibility: visible !important; opacity: 1 !important; position: relative !important; width: 100% !important; height: auto !important; flex-wrap: nowrap !important; justify-content: space-between !important; align-items: center !important; gap: 6px !important; margin: 0 !important; padding: 8px 15px !important; background-color: transparent !important;';
 
                 // Force visibility on all child elements  
                 const buttons = playbackControls.querySelectorAll('button, div, input, span');
@@ -294,9 +294,9 @@ class MobileUI {
                             element.style.cssText += '; display: inline-block !important; visibility: visible !important; opacity: 1 !important; width: auto !important; height: auto !important; padding: 6px 10px !important; margin: 2px !important; background-color: #f8f8f8 !important; color: #333 !important; border: 1px solid #ddd !important; border-radius: 4px !important; font-size: 12px !important;';
                         }
                     } else if (element.classList.contains('tempo-control')) {
-                        element.style.cssText += '; display: flex !important; visibility: visible !important; opacity: 1 !important; align-items: center !important; gap: 5px !important; margin: 0 10px !important; flex: 1 !important; max-width: 200px !important; min-width: 120px !important;';
+                        element.style.cssText += '; display: flex !important; visibility: visible !important; opacity: 1 !important; align-items: center !important; gap: 5px !important; margin: 0 5px !important; flex: 1 1 auto !important; min-width: 150px !important;';
                     } else if (element.id === 'tempo-slider') {
-                        element.style.cssText += '; display: block !important; visibility: visible !important; opacity: 1 !important; flex: 1 !important; min-width: 80px !important;';
+                        element.style.cssText += '; display: block !important; visibility: visible !important; opacity: 1 !important; flex: 1 1 auto !important; min-width: 80px !important;';
                     } else {
                         element.style.cssText += '; display: block !important; visibility: visible !important; opacity: 1 !important;';
                     }
