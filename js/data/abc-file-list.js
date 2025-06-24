@@ -28,7 +28,7 @@ class AbcFileList {
                 "category": "bartok/romanian folk dances"
         },
         {
-                "name": "2 Braul!",
+                "name": "2 Braul",
                 "file": "bartok/romanian folk dances/2 braul.abc",
                 "category": "bartok/romanian folk dances"
         },
