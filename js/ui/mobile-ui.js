@@ -20,19 +20,15 @@ class MobileUI {
         // Create playback bar for mobile
         this.createMobilePlaybackBar();
 
-        // On mobile: always start with controls collapsed
-        // Update the state tracking
-        if (this.player.isMobile) {
-            this.player.controlsCollapsed = true;
-            controlContainer.classList.add('collapsed');
-            toggleButton.classList.remove('open');
-        } else {
-            this.player.controlsCollapsed = false;
-            controlContainer.classList.remove('collapsed');
-        }
-
         // Set up the initial state (properly connected)
         this.updateMobileState();
+
+        // On mobile: always start with controls collapsed
+        if (this.player.isMobile) {
+            this.player.controlsCollapsed = true;
+        } else {
+            this.player.controlsCollapsed = false;
+        }
 
         // Apply the initial state to both the button and controls
         this.applyMobileState(toggleButton, controlContainer);

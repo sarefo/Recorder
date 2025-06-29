@@ -11,8 +11,11 @@ class SwipeHandler {
         this.touchStartTime = 0;
         this.minSwipeDistance = 30; // Reduced threshold for easier triggering
         this.maxSwipeDuration = 200; // Increased duration for more reliable detection
+        this.scrollDelay = 300; // Time before allowing continuous scroll
         this.isInitialized = false;
         this.isSwiping = false;
+        this.allowScrolling = false;
+        this.scrollTimer = null;
     }
 
     /**
@@ -53,6 +56,12 @@ class SwipeHandler {
         this.touchStartY = event.changedTouches[0].screenY;
         this.touchStartTime = new Date().getTime();
         this.isSwiping = true;
+        this.allowScrolling = false;
+
+        // Set timer to allow scrolling after delay
+        this.scrollTimer = setTimeout(() => {
+            this.allowScrolling = true;
+        }, this.scrollDelay);
     }
 
     /**
@@ -68,8 +77,8 @@ class SwipeHandler {
         const horizontalDist = currentX - this.touchStartX;
         const verticalDist = currentY - this.touchStartY;
 
-        // Prioritize page scrolling - prevent default scrolling for vertical movements
-        if (Math.abs(verticalDist) > this.minSwipeDistance) {
+        // Prevent default scrolling unless scrolling is explicitly allowed
+        if (!this.allowScrolling && Math.abs(verticalDist) > 5) {
             event.preventDefault();
         }
 
@@ -83,6 +92,7 @@ class SwipeHandler {
 
             // This is likely a very long drag, not a swipe
             this.isSwiping = false;
+            this.clearScrollTimer();
         }
     }
 
@@ -135,6 +145,17 @@ class SwipeHandler {
         }
 
         this.isSwiping = false;
+        this.clearScrollTimer();
+    }
+
+    /**
+     * Clears the scroll timer
+     */
+    clearScrollTimer() {
+        if (this.scrollTimer) {
+            clearTimeout(this.scrollTimer);
+            this.scrollTimer = null;
+        }
     }
 
     /**
