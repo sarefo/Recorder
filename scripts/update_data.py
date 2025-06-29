@@ -3,6 +3,18 @@ import os
 import re
 import json
 
+def is_valid_abc_file(abc_file_path):
+    """Check if ABC file has a valid X: field with a number."""
+    try:
+        with open(abc_file_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+            # Look for X: field - must contain a number
+            x_match = re.search(r'^X:\s*(\d+)', content, re.MULTILINE)
+            return x_match is not None
+    except Exception as e:
+        print(f"Error reading {abc_file_path}: {e}")
+        return False
+
 def extract_title(abc_file_path):
     """Extract the title from an ABC file."""
     try:
@@ -20,7 +32,10 @@ def extract_title(abc_file_path):
 
 def generate_abc_file_list():
     """Scan the abc directory and generate a file list."""
-    abc_dir = '../abc'
+    # Get the directory containing this script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_dir = os.path.dirname(script_dir)
+    abc_dir = os.path.join(project_dir, 'abc')
     
     # Ensure the directory exists
     if not os.path.exists(abc_dir):
@@ -35,8 +50,13 @@ def generate_abc_file_list():
                 # Get the relative path from the abc directory
                 rel_path = os.path.relpath(os.path.join(root, file), abc_dir)
                 
-                # Extract title
+                # Check if ABC file has valid X: field with number
                 full_path = os.path.join(root, file)
+                if not is_valid_abc_file(full_path):
+                    print(f"Skipping {rel_path} - no valid X: field with number")
+                    continue
+                
+                # Extract title
                 title = extract_title(full_path)
                 
                 # Get category from folder name
@@ -54,7 +74,10 @@ def generate_abc_file_list():
     file_list.sort(key=lambda x: (x["category"], x["name"]))
     
     # Generate the JavaScript file
-    with open('../js/data/abc-file-list.js', 'w', encoding='utf-8') as js_file:
+    js_dir = os.path.join(project_dir, 'js', 'data')
+    os.makedirs(js_dir, exist_ok=True)
+    js_file_path = os.path.join(js_dir, 'abc-file-list.js')
+    with open(js_file_path, 'w', encoding='utf-8') as js_file:
         js_file.write("// Auto-generated file list - do not edit manually\n")
         js_file.write("class AbcFileList {\n")
         js_file.write("    static getFiles() {\n")
@@ -81,7 +104,10 @@ def extract_doc_title(md_file_path):
 
 def generate_docs_file_list():
     """Scan the docs directory and generate a file list."""
-    docs_dir = '../docs'
+    # Get the directory containing this script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_dir = os.path.dirname(script_dir)
+    docs_dir = os.path.join(project_dir, 'docs')
     
     # Ensure the directory exists
     if not os.path.exists(docs_dir):
@@ -109,7 +135,10 @@ def generate_docs_file_list():
     file_list.sort(key=lambda x: x["name"])
     
     # Generate the JavaScript file
-    with open('../js/data/docs-file-list.js', 'w', encoding='utf-8') as js_file:
+    js_dir = os.path.join(project_dir, 'js', 'data')
+    os.makedirs(js_dir, exist_ok=True)
+    js_file_path = os.path.join(js_dir, 'docs-file-list.js')
+    with open(js_file_path, 'w', encoding='utf-8') as js_file:
         js_file.write("// Auto-generated docs file list - do not edit manually\n")
         js_file.write("class DocsFileList {\n")
         js_file.write("    static getFiles() {\n")

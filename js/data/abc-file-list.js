@@ -33,11 +33,6 @@ class AbcFileList {
                 "category": "bartok/romanian folk dances"
         },
         {
-                "name": "3 pe loc",
-                "file": "bartok/romanian folk dances/3 pe loc.abc",
-                "category": "bartok/romanian folk dances"
-        },
-        {
                 "name": "10. M. John Langtons Pavan",
                 "file": "classical/dowland/pavane lachrimae.abc",
                 "category": "classical/dowland"
@@ -51,11 +46,6 @@ class AbcFileList {
                 "name": "Impromptu",
                 "file": "classical/schubert/impromptus/impromptus 1.abc",
                 "category": "classical/schubert/impromptus"
-        },
-        {
-                "name": "prelude 11.02",
-                "file": "classical/scriabin/prelude 11.02.abc",
-                "category": "classical/scriabin"
         },
         {
                 "name": "Waltz No.2",
@@ -75,11 +65,6 @@ class AbcFileList {
         {
                 "name": "Here's to you",
                 "file": "film/here's to you.abc",
-                "category": "film"
-        },
-        {
-                "name": "cannibal holocaust",
-                "file": "film/cannibal holocaust.abc",
                 "category": "film"
         },
         {
@@ -221,16 +206,6 @@ class AbcFileList {
                 "name": "The People United",
                 "file": "unsorted/people united.abc",
                 "category": "unsorted"
-        },
-        {
-                "name": "test",
-                "file": "unsorted/test.abc",
-                "category": "unsorted"
-        },
-        {
-                "name": "alles dur",
-                "file": "unsorted/dota/alles dur.abc",
-                "category": "unsorted/dota"
         },
         {
                 "name": "Chiribim Chiribom",
