@@ -98,11 +98,15 @@ class SwipeHandler {
 
         // Only process quick gestures
         if (swipeDuration <= this.maxSwipeDuration) {
-            // Calculate horizontal distance
+            // Calculate distances
             const horizontalDist = this.touchEndX - this.touchStartX;
+            const verticalDist = this.touchEndY - this.touchStartY;
 
-            // Only process horizontal swipes (remove vertical swipe handling)
-            if (Math.abs(horizontalDist) >= this.minSwipeDistance) {
+            // Determine if swipe is more horizontal or vertical
+            const isHorizontal = Math.abs(horizontalDist) > Math.abs(verticalDist);
+
+            if (isHorizontal && Math.abs(horizontalDist) >= this.minSwipeDistance) {
+                // Horizontal swipes for tune navigation
                 if (horizontalDist > 0) {
                     // Right swipe - previous tune
                     this.player.tuneManager.previousTune();
@@ -114,10 +118,53 @@ class SwipeHandler {
                     this.player.render();
                     this.showFeedback('Next tune');
                 }
+            } else if (!isHorizontal && Math.abs(verticalDist) >= this.minSwipeDistance) {
+                // Vertical swipes for page scrolling
+                if (verticalDist > 0) {
+                    // Down swipe - scroll up (show previous page)
+                    this.scrollPage('up');
+                } else {
+                    // Up swipe - scroll down (show next page)
+                    this.scrollPage('down');
+                }
             }
         }
 
         this.isSwiping = false;
+    }
+
+    /**
+     * Scrolls the sheet music page with overlap
+     * @param {string} direction - 'up' or 'down'
+     */
+    scrollPage(direction) {
+        const abcContainer = document.getElementById('abc-notation');
+        if (!abcContainer) return;
+
+        // Get viewport and content dimensions
+        const viewportHeight = window.innerHeight;
+        const scrollableHeight = document.documentElement.scrollHeight - viewportHeight;
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Calculate page size (90% of viewport for overlap)
+        const pageSize = viewportHeight * 0.9;
+        
+        let targetScroll;
+        if (direction === 'down') {
+            // Scrolling down - show next page
+            targetScroll = Math.min(currentScroll + pageSize, scrollableHeight);
+            this.showFeedback('Next page');
+        } else {
+            // Scrolling up - show previous page  
+            targetScroll = Math.max(currentScroll - pageSize, 0);
+            this.showFeedback('Previous page');
+        }
+
+        // Smooth scroll to target position
+        window.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth'
+        });
     }
 
     /**
