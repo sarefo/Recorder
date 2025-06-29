@@ -6,7 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a browser-based web application for displaying and playing ABC music notation for recorder music, including fingering diagrams.
 
 ## Running the Application
-- Run a local development server: `bash scripts/run_server.sh`
+- The development server is usually already running at http://localhost:8001 - check first before starting another
+- If needed, run a local development server: `bash scripts/run_server.sh`
 - Update ABC and docs file lists: `python3 scripts/update_data.py`
 
 ## Code Style Guidelines
