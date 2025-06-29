@@ -9,8 +9,8 @@ class SwipeHandler {
         this.touchEndX = 0;
         this.touchEndY = 0;
         this.touchStartTime = 0;
-        this.minSwipeDistance = 50; // Minimum distance for a swipe to register
-        this.maxSwipeDuration = 100; // Maximum duration in ms for a gesture to be considered a swipe
+        this.minSwipeDistance = 30; // Reduced threshold for easier triggering
+        this.maxSwipeDuration = 200; // Increased duration for more reliable detection
         this.isInitialized = false;
         this.isSwiping = false;
     }
@@ -27,10 +27,10 @@ class SwipeHandler {
         const abcContainer = document.getElementById('abc-notation');
         if (!abcContainer) return;
 
-        // Add touch event listeners
-        abcContainer.addEventListener('touchstart', this.handleTouchStart.bind(this), false);
-        abcContainer.addEventListener('touchmove', this.handleTouchMove.bind(this), false);
-        abcContainer.addEventListener('touchend', this.handleTouchEnd.bind(this), false);
+        // Add touch event listeners with non-passive mode for preventDefault
+        abcContainer.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: false });
+        abcContainer.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
+        abcContainer.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: false });
 
         this.isInitialized = true;
         console.log('Swipe handler initialized for mobile');
@@ -68,16 +68,20 @@ class SwipeHandler {
         const horizontalDist = currentX - this.touchStartX;
         const verticalDist = currentY - this.touchStartY;
 
-        // If the user has moved a significant distance and seems to be scrolling rather than swiping
-        // (For example, if they've moved more than 3x the min swipe distance or held for too long)
+        // Prioritize page scrolling - prevent default scrolling for vertical movements
+        if (Math.abs(verticalDist) > this.minSwipeDistance) {
+            event.preventDefault();
+        }
+
+        // Only cancel swipe detection for very long movements or excessive time
         const currentTime = new Date().getTime();
         const elapsedTime = currentTime - this.touchStartTime;
 
         if (elapsedTime > this.maxSwipeDuration ||
-            Math.abs(horizontalDist) > this.minSwipeDistance * 3 ||
-            Math.abs(verticalDist) > this.minSwipeDistance * 3) {
+            Math.abs(horizontalDist) > this.minSwipeDistance * 5 ||
+            Math.abs(verticalDist) > this.minSwipeDistance * 5) {
 
-            // This is likely a scroll or drag, not a swipe
+            // This is likely a very long drag, not a swipe
             this.isSwiping = false;
         }
     }
