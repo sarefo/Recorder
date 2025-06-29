@@ -98,9 +98,21 @@ class FileManager {
             }
         });
 
+        // Create the "Help" button
+        const helpButton = document.createElement('button');
+        helpButton.id = 'help-button';
+        helpButton.textContent = '❓';
+        helpButton.title = 'Open help documentation';
+
+        // Add event listener to the help button
+        helpButton.addEventListener('click', () => {
+            window.open('docs/index.html', '_blank');
+        });
+
         // Append buttons to the container
         container.appendChild(filesButton);
         container.appendChild(randomButton);
+        container.appendChild(helpButton);
 
         return container;
     }

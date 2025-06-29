@@ -7,7 +7,7 @@ This is a browser-based web application for displaying and playing ABC music not
 
 ## Running the Application
 - Run a local development server: `bash scripts/run_server.sh`
-- Generate ABC file list: `python scripts/generate_abc_file_list.py`
+- Update ABC and docs file lists: `python3 scripts/update_data.py`
 
 ## Code Style Guidelines
 - Use ES6 class-based architecture with clear separation of concerns

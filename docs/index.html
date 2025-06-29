@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Documentation</title>
+    <link rel="stylesheet" href="../css/docs.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+</head>
+<body>
+    <h1>Help Documentation</h1>
+    <p>Available documentation files:</p>
+    
+    <ul id="docs-list" class="doc-list">
+        <!-- Documentation list will be loaded dynamically -->
+    </ul>
+    
+    <div id="markdown-content" class="markdown-content" style="display: none;">
+        <!-- Markdown content will be rendered here -->
+    </div>
+    
+    <a href="../index.html" class="back-link">← Back to ABC Player</a>
+    
+    <!-- Showdown.js for markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    
+    <!-- Load the generated docs file list -->
+    <script src="../js/data/docs-file-list.js"></script>
+    
+    <!-- Load the docs manager -->
+    <script src="../js/docs/docs-manager.js"></script>
+</body>
+</html>
