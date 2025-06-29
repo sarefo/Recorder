@@ -171,8 +171,8 @@ class SwipeHandler {
         const scrollableHeight = document.documentElement.scrollHeight - viewportHeight;
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-        // Calculate page size (90% of viewport for overlap)
-        const pageSize = viewportHeight * 0.9;
+        // Calculate page size (100% of viewport)
+        const pageSize = viewportHeight;
         
         let targetScroll;
         if (direction === 'down') {
