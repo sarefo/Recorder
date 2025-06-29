@@ -1,1 +1,4 @@
+X:1
+T:RoboCop Main Theme
+C:Basil Poledouris
 E4 G4 E4 F#4 A4 | E4 G4 E4 C4 | E4 G4 E4 F#4 A4 D4
