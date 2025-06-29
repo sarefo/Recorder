@@ -211,12 +211,19 @@ class FileManager {
         categoryContainer.className = 'files-category';
         categoryContainer.dataset.category = category;
 
-        const categoryHeader = document.createElement('h3');
-        categoryHeader.textContent = category;
-        categoryContainer.appendChild(categoryHeader);
+        // Create folder button (clickable category header)
+        const categoryButton = document.createElement('button');
+        categoryButton.className = 'folder-button';
+        categoryButton.textContent = category;
+        categoryButton.setAttribute('aria-expanded', 'false');
+        categoryButton.addEventListener('click', () => {
+            this.toggleFolder(categoryContainer, categoryButton);
+        });
+        categoryContainer.appendChild(categoryButton);
 
+        // Create collapsible file items container
         const fileItems = document.createElement('ul');
-        fileItems.className = 'files-items';
+        fileItems.className = 'files-items collapsed';
 
         files.forEach(file => {
             const fileItem = document.createElement('li');
@@ -238,6 +245,21 @@ class FileManager {
 
         categoryContainer.appendChild(fileItems);
         return categoryContainer;
+    }
+
+    toggleFolder(categoryContainer, folderButton) {
+        const fileItems = categoryContainer.querySelector('.files-items');
+        const isExpanded = folderButton.getAttribute('aria-expanded') === 'true';
+
+        if (isExpanded) {
+            // Collapse folder
+            fileItems.classList.add('collapsed');
+            folderButton.setAttribute('aria-expanded', 'false');
+        } else {
+            // Expand folder
+            fileItems.classList.remove('collapsed');
+            folderButton.setAttribute('aria-expanded', 'true');
+        }
     }
 
     filterFilesList(searchTerm, container) {
