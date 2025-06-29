@@ -59,16 +59,8 @@
 
 /* Special button overrides */
 
-/* Share button - always uses special styling */
-#share-button {
-    background-color: #e7f3ff !important;
-    border-color: #6cb0f5 !important;
-    color: #1a73e8 !important;
-}
-
-#share-button:hover {
-    background-color: #d0e7ff !important;
-}
+/* Share button - uses standard button styling */
+/* #share-button styling removed to use default button styles */
 
 /* System toggle (German/Baroque) - doesn't use active styling */
 #system-toggle.active {
