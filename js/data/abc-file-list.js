@@ -188,6 +188,11 @@ class AbcFileList {
                 "category": "scottish"
         },
         {
+                "name": "Balquidder Lasses",
+                "file": "scottish/balquidder_lasses.abc",
+                "category": "scottish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
