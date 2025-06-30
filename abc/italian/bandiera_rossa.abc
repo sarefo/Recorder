@@ -1,5 +1,23 @@
 X:1
 T:Bandiera Rossa
+N: Transposed
+Z:Jack Campin, http://www.campin.me.uk/
+F:Jack Campin's Nine-Note Tunebook
+% last edit 03-02-2013
+M:C
+L:1/8
+Q:1/4=120
+K:F
+P:Verse
+CF>G|A>A A2- A z/G/F>G|A2 A2-A  AB>A   |A2  G2- G z/G/A>G|G2 F2-F
+CF>G|A>A A2- A z/G/F>G|A2 A2-A  AB>A   |A2  G2- G z/A/A>G|F4-   F||
+P:Chorus
+z3|c2 c>c cA-Ac|d2c2 B4|    B2 B>B BG-GB|c2B2 A4|
+   c2 c>c cA-Ac|d2e2 f3  d|cc cc  cc cB|A2G2 F|]
+
+X:2
+T:Bandiera Rossa
+N: Original
 Z:Jack Campin, http://www.campin.me.uk/
 F:Jack Campin's Nine-Note Tunebook
 % last edit 03-02-2013
