@@ -193,6 +193,11 @@ class AbcFileList {
                 "category": "scottish"
         },
         {
+                "name": "Birkhall",
+                "file": "scottish/birkhall.abc",
+                "category": "scottish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
