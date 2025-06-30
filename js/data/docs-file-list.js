@@ -21,6 +21,10 @@ class DocsFileList {
         {
                 "name": "Scales",
                 "file": "scales.md"
+        },
+        {
+                "name": "Sources of music",
+                "file": "music_sources.md"
         }
 ];
     }

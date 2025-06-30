@@ -183,6 +183,11 @@ class AbcFileList {
                 "category": "russian"
         },
         {
+                "name": "Atholl Braes #1",
+                "file": "scottish/atholl_braes_1.abc",
+                "category": "scottish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
