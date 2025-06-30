@@ -83,6 +83,11 @@ class AbcFileList {
                 "category": "georgian"
         },
         {
+                "name": "Bandiera Rossa",
+                "file": "italian/bandiera_rossa.abc",
+                "category": "italian"
+        },
+        {
                 "name": "Bella Ciao",
                 "file": "italian/bella ciao.abc",
                 "category": "italian"

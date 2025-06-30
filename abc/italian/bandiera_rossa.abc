@@ -1,0 +1,19 @@
+X:1
+T:Bandiera Rossa
+Z:Jack Campin, http://www.campin.me.uk/
+F:Jack Campin's Nine-Note Tunebook
+% last edit 03-02-2013
+M:C
+L:1/8
+Q:1/4=120
+K:C
+P:Verse
+G,C>D|E>E E2- E z/D/C>D|E2 E2-E
+ EF>E   |E2  D2- D z/D/E>D|D2 C2-C
+G,C>D|E>E E2- E z/D/C>D|E2 E2-E
+ EF>E   |E2  D2- D z/E/E>D|C4-   C||
+P:Chorus
+z3|G2 G>G GE-EG|A2G2 F4|
+   F2 F>F FD-DF|G2F2 E4|
+   G2 G>G GE-EG|A2B2 c3
+ A|GG GG  GG GF|E2D2 C|]
