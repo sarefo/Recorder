@@ -150,7 +150,7 @@ class MobileUI {
             controlContainer.classList.remove('collapsed');
             controlContainer.classList.remove('mobile-view');
 
-            // Hide mobile playback bar on desktop
+            // Hide mobile top playback bar on desktop
             const playbackBar = document.getElementById('mobile-playback-bar');
             if (playbackBar) {
                 playbackBar.classList.add('hidden');
@@ -174,8 +174,10 @@ class MobileUI {
         if (playbackBar) {
             if (this.playbackBarEnabled) {
                 playbackBar.classList.remove('hidden');
+                controlContainer.classList.add('with-top-playback');
             } else {
                 playbackBar.classList.add('hidden');
+                controlContainer.classList.remove('with-top-playback');
             }
         }
     }
@@ -269,11 +271,11 @@ class MobileUI {
             // Show playback bar and move controls there
             if (playbackBar) {
                 playbackBar.classList.remove('hidden');
-                // Force the bar itself to be visible (this was working before)
-                playbackBar.style.cssText = 'position: fixed !important; bottom: -1px !important; left: 0 !important; right: 0 !important; background-color: #f8f8f8 !important; border-top: 1px solid #ddd !important; box-shadow: 0 -2px 8px rgba(0,0,0,0.1) !important; z-index: 1000 !important; height: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; transform: translateY(0) !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; padding: 0 !important;';
+                // Force the bar itself to be visible at the top
+                playbackBar.style.cssText = 'position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; background-color: #f8f8f8 !important; border-bottom: 1px solid #ddd !important; box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important; z-index: 1000 !important; height: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; transform: translateY(0) !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; padding: 0 !important;';
             }
             if (playbackControls) {
-                // Move to bottom bar and force visibility with aggressive styling
+                // Move to top bar and force visibility with aggressive styling
                 playbackBar.appendChild(playbackControls);
 
                 // Force visibility with explicit dimensions (this worked before)
@@ -307,7 +309,7 @@ class MobileUI {
 
             }
         } else {
-            // Hide playback bar
+            // Hide top playback bar
             if (playbackBar) {
                 playbackBar.classList.add('hidden');
             }

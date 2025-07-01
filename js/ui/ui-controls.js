@@ -80,6 +80,9 @@ class UIControls {
         const fingeringSection = document.createElement('div');
         fingeringSection.className = 'control-section fingering-controls';
 
+        // Add playback toggle button (mobile-only, hidden on desktop via CSS)
+        fingeringSection.appendChild(this.createPlaybackToggleButton());
+
         // Add fingering toggle button
         fingeringSection.appendChild(this.createFingeringToggleButton());
 
@@ -88,9 +91,6 @@ class UIControls {
 
         // Add chart toggle button (simplified)
         fingeringSection.appendChild(this.createChartToggleButton());
-
-        // Add playback toggle button (mobile-only, hidden on desktop via CSS)
-        fingeringSection.appendChild(this.createPlaybackToggleButton());
 
         return fingeringSection;
     }
