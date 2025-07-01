@@ -204,7 +204,7 @@ class AbcFileList {
         },
         {
                 "name": "Caber Feigh",
-                "file": "scottish/caber_feight.abc",
+                "file": "scottish/caber_feigh.abc",
                 "category": "scottish"
         },
         {
