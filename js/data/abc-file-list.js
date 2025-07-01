@@ -203,6 +203,11 @@ class AbcFileList {
                 "category": "scottish"
         },
         {
+                "name": "Caber Feigh",
+                "file": "scottish/caber_feight.abc",
+                "category": "scottish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
