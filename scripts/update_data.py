@@ -53,7 +53,7 @@ def generate_abc_file_list():
                 # Check if ABC file has valid X: field with number
                 full_path = os.path.join(root, file)
                 if not is_valid_abc_file(full_path):
-                    print(f"Skipping {rel_path} - no valid X: field with number")
+                    //print(f"Skipping {rel_path} - no valid X: field with number")
                     continue
                 
                 # Extract title

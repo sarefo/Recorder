@@ -208,6 +208,11 @@ class AbcFileList {
                 "category": "scottish"
         },
         {
+                "name": "Clanranald",
+                "file": "scottish/clanranald.abc",
+                "category": "scottish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
