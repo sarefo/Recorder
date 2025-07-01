@@ -6,6 +6,21 @@ Z: https://www.youtube.com/watch?v=-Yw3ewe5jCI
 M: C
 L: 1/8
 Q: 1/4=160
+K: C
+G2 |\
+"C"G3G c3c | "F"dcBA "G7"G4 | "C"EGcd "Am"e2g2 | "Dm"d4- "G7"d2z2 |
+"C"G3G c3c | "F"dcAB "Cc#"G4 | "Dm"d3d "G7"d2e2 | "C"c4- c2z2 ||
+"C"g3g "Am"g3e | "Dm7"f3f "G7"f3d | "Am"e4 "D7"A2d2 | "G7"G4- G2z2 |
+"C"G3G c3c | "F"dcBA "Cc#"G4 | "Dm"d2d>e "G7"f2d2 | "C"c4- c2 |]
+
+X: 2
+T: Hana
+N: Transposed
+C: Rentaro Taki
+Z: https://www.youtube.com/watch?v=-Yw3ewe5jCI
+M: C
+L: 1/8
+Q: 1/4=160
 K: Bb
 F2 |\
 "Bb"F3F B3B | "Eb"cBAG "F7"F4 | "Bb"DFBc "Gm"d2f2 | "Cm"c4- "F7"c2z2 |
@@ -13,7 +28,7 @@ F2 |\
 "Bb"f3f "Gm"f3d | "Cm7"e3e "F7"e3c | "Gm"d4 "C7"G2c2 | "F7"F4- F2z2 |
 "Bb"F3F B3B | "Eb"cBAG "Bbc#"F4 | "Cm"c2c>d "F7"e2c2 | "Bb"B4- B2 |]
 
-X: 2
+X: 3
 T: Hana
 N: Original
 C: Rentaro Taki
