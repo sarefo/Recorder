@@ -16,18 +16,6 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     }
 
     /**
-     * Preprocesses ABC notation to fix common issues that cause rendering problems
-     * @param {string} abc - The ABC notation to preprocess
-     * @returns {string} The cleaned ABC notation
-     */
-    preprocessAbc(abc) {
-        // Only fix clearly problematic chord symbols, don't touch note octaves
-        let cleaned = abc.replace(/"([A-G])c#"/g, '"$1/c#"'); // Convert "Cc#" to "C/c#"
-        
-        return cleaned;
-    }
-
-    /**
      * Splits ABC notation into header, key, and notes sections
      * @param {string} abc - The ABC notation to parse
      * @returns {object} Sections of the ABC notation
