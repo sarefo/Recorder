@@ -4,7 +4,9 @@
       "Bash(rg:*)",
       "WebFetch(domain:github.com)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)"
     ]
   },
   "enableAllProjectMcpServers": false
