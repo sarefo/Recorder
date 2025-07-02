@@ -75,8 +75,7 @@ class RenderManager {
             oneSvgPerLine: this.player.renderConfig.oneSvgPerLine,
             scale: this.player.renderConfig.scale,
             clickListener: clickListener,
-            dragColor: "rgba(0,0,0,0.1)",
-            dragging: true,   // Enable drag detection
+            dragging: false,   // Disable all drag functionality - notes should never be draggable
             footer: false,
             footerPadding: 0,
             paddingbottom: 0,
