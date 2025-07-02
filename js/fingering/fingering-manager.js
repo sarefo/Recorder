@@ -45,7 +45,7 @@ class FingeringManager {
         };
 
         this.currentFingeringSystem = 'german';
-        this.showFingering = true;
+        this.showFingering = false;
     }
 
     /**
