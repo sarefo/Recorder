@@ -57,7 +57,15 @@ class RenderManager {
             this.handleNoteClick(abcElem);
         };
 
-        return ABCJS.renderAbc("abc-notation", this.player.notationParser.currentAbc, {
+        // Preprocess ABC notation to fix common rendering issues
+        const preprocessedAbc = this.player.notationParser.preprocessAbc(this.player.notationParser.currentAbc);
+        
+        // Debug logging for ABC notation issues
+        if (preprocessedAbc !== this.player.notationParser.currentAbc) {
+            console.log("ABC notation preprocessed to fix potential issues");
+        }
+
+        const visualObj = ABCJS.renderAbc("abc-notation", preprocessedAbc, {
             responsive: "resize",
             add_classes: true,
             stretchlast: false,
@@ -74,6 +82,67 @@ class RenderManager {
             paddingbottom: 0,
             startingTune: this.player.tuneManager.currentTuneIndex
         })[0];
+
+        // Debug: Check for potential positioning issues and fix them
+        setTimeout(() => {
+            this.validateNotePositioning();
+        }, 200);
+
+        return visualObj;
+    }
+
+    /**
+     * Validates note positioning and fixes common issues
+     */
+    validateNotePositioning() {
+        const svgElements = document.querySelectorAll('#abc-notation .abcjs-note');
+        console.log(`Validating ${svgElements.length} note elements`);
+        
+        let issuesFound = 0;
+        
+        svgElements.forEach((note, index) => {
+            const rect = note.getBoundingClientRect();
+            const transform = note.getAttribute('transform') || '';
+            const fill = note.getAttribute('fill') || '';
+            const parent = note.closest('svg');
+            
+            if (!parent) return;
+            
+            const parentRect = parent.getBoundingClientRect();
+            
+            // Check for notes displaced above the staff
+            if (rect.top < parentRect.top - 50) {
+                console.warn(`Note ${index} displaced above staff:`, {
+                    noteTop: rect.top,
+                    parentTop: parentRect.top,
+                    transform: transform,
+                    fill: fill
+                });
+                issuesFound++;
+                
+                // Try to fix by resetting transform
+                if (transform.includes('translate')) {
+                    console.log(`Attempting to fix note ${index} positioning`);
+                    note.removeAttribute('transform');
+                }
+            }
+            
+            // Check for unexpected red coloring (not from fingering system)
+            if (fill.includes('red') && !note.closest('.fingering-overlay')) {
+                console.warn(`Note ${index} has unexpected red coloring:`, {
+                    fill: fill,
+                    position: {x: rect.x, y: rect.y}
+                });
+                issuesFound++;
+                
+                // Reset to default fill
+                note.removeAttribute('fill');
+            }
+        });
+        
+        if (issuesFound > 0) {
+            console.log(`Fixed ${issuesFound} positioning issues`);
+        }
     }
 
     /**

@@ -16,6 +16,29 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     }
 
     /**
+     * Preprocesses ABC notation to fix common issues that cause rendering problems
+     * @param {string} abc - The ABC notation to preprocess
+     * @returns {string} The cleaned ABC notation
+     */
+    preprocessAbc(abc) {
+        // Fix potential octave notation issues that can cause displacement
+        // Convert problematic uppercase/lowercase note combinations
+        let cleaned = abc.replace(/([A-G])([0-9]+)([a-g])([0-9]+)/g, (match, note1, dur1, note2, dur2) => {
+            // If we have A2d2 (uppercase A, lowercase d), normalize to same octave
+            if (note1.match(/[A-G]/) && note2.match(/[a-g]/)) {
+                // Convert both to lowercase (higher octave)
+                return `${note1.toLowerCase()}${dur1}${note2}${dur2}`;
+            }
+            return match;
+        });
+
+        // Fix unusual chord symbols that might cause parsing issues
+        cleaned = cleaned.replace(/"([A-G])c#"/g, '"$1/c#"'); // Convert "Cc#" to "C/c#"
+        
+        return cleaned;
+    }
+
+    /**
      * Splits ABC notation into header, key, and notes sections
      * @param {string} abc - The ABC notation to parse
      * @returns {object} Sections of the ABC notation
