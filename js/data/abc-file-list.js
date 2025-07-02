@@ -213,6 +213,11 @@ class AbcFileList {
                 "category": "scottish"
         },
         {
+                "name": "Fairy Dance, The",
+                "file": "scottish/fairy_dance.abc",
+                "category": "scottish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
