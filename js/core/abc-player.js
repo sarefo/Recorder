@@ -237,6 +237,12 @@ class AbcPlayer {
                     event.preventDefault();
                     this.pasteFromClipboard();
                 }
+            } else if (event.key === ' ' && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+                const target = event.target;
+                if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA' && !target.contentEditable) {
+                    event.preventDefault();
+                    this.midiPlayer.togglePlay();
+                }
             }
         });
     }

@@ -35,7 +35,18 @@
     transition: all 0.2s;
     white-space: nowrap;
     color: #333;
+    min-height: 44px;
+    box-sizing: border-box;
 }
+
+/* Desktop - smaller buttons */
+@media (min-width: 1200px) {
+    .control-bar button {
+        min-height: auto;
+        padding: 6px 10px;
+    }
+}
+
 
 .control-bar button:hover {
     background-color: #e8e8e8;
