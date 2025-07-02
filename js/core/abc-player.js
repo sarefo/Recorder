@@ -228,7 +228,7 @@ class AbcPlayer {
      * Sets up keyboard shortcuts
      */
     setupKeyboardShortcuts() {
-        document.addEventListener('keydown', (event) => {
+        const handleKeyEvent = (event) => {
             if (event.ctrlKey && !event.shiftKey && !event.altKey) {
                 if (event.key === 'c' && !window.getSelection().toString()) {
                     event.preventDefault();
@@ -239,12 +239,23 @@ class AbcPlayer {
                 }
             } else if (event.key === ' ' && !event.ctrlKey && !event.shiftKey && !event.altKey) {
                 const target = event.target;
-                if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA' && !target.contentEditable) {
+                const isInputField = target.tagName === 'INPUT' || 
+                                   target.tagName === 'TEXTAREA' || 
+                                   (target.contentEditable && target.contentEditable !== 'false');
+                
+                if (!isInputField || target.tagName === 'BODY') {
                     event.preventDefault();
-                    this.midiPlayer.togglePlay();
+                    event.stopPropagation();
+                    if (event.type === 'keydown') {
+                        this.midiPlayer.togglePlay();
+                    }
+                    return false;
                 }
             }
-        });
+        };
+
+        document.addEventListener('keydown', handleKeyEvent, true);
+        document.addEventListener('keyup', handleKeyEvent, true);
     }
 
     /**
