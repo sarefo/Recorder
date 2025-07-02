@@ -218,6 +218,11 @@ class AbcFileList {
                 "category": "scottish"
         },
         {
+                "name": "Fang the Fiddlers",
+                "file": "scottish/fang_fiddlers.abc",
+                "category": "scottish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
