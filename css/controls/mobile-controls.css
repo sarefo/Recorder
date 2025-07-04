@@ -250,3 +250,13 @@
     }
 }
 
+/* Adjust body spacing when mobile playback bar is active */
+body.mobile-playback-active {
+    padding-top: 60px !important; /* Adjust based on mobile bar height */
+}
+
+/* Ensure sheet music container doesn't overlap with mobile playback bar */
+body.mobile-playback-active .abcjs-container {
+    padding-top: 60px !important; /* Reduced since body already has padding */
+}
+

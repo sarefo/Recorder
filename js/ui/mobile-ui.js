@@ -164,6 +164,9 @@ class MobileUI {
             if (playbackBar) {
                 playbackBar.classList.add('hidden');
             }
+            
+            // Remove mobile body spacing class when switching to desktop
+            document.body.classList.remove('mobile-playback-active');
             return;
         }
 
@@ -184,9 +187,13 @@ class MobileUI {
             if (this.playbackBarEnabled) {
                 playbackBar.classList.remove('hidden');
                 controlContainer.classList.add('with-top-playback');
+                // Add body class for mobile spacing
+                document.body.classList.add('mobile-playback-active');
             } else {
                 playbackBar.classList.add('hidden');
                 controlContainer.classList.remove('with-top-playback');
+                // Remove body class to restore normal spacing
+                document.body.classList.remove('mobile-playback-active');
             }
         }
     }
@@ -283,6 +290,9 @@ class MobileUI {
                 // Force the bar itself to be visible at the top
                 playbackBar.style.cssText = 'position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; background-color: #f8f8f8 !important; border-bottom: 1px solid #ddd !important; box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important; z-index: 1000 !important; height: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; transform: translateY(0) !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; padding: 0 !important;';
             }
+            
+            // Add class to body to push content down
+            document.body.classList.add('mobile-playback-active');
             if (playbackControls) {
                 // Move to top bar and force visibility with aggressive styling
                 playbackBar.appendChild(playbackControls);
@@ -322,6 +332,9 @@ class MobileUI {
             if (playbackBar) {
                 playbackBar.classList.add('hidden');
             }
+            
+            // Remove class from body to restore original spacing
+            document.body.classList.remove('mobile-playback-active');
             if (playbackControls) {
                 // Move controls back and hide them on mobile
                 const controlBar = document.querySelector('.control-bar');
