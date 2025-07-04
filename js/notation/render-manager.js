@@ -145,4 +145,113 @@ class RenderManager {
             document.getElementById('play-button').textContent = '⏸';
         }, 100);
     }
+
+    /**
+     * Captures current annotation states before re-render
+     * @returns {Object} Object containing annotation states
+     */
+    captureAnnotationStates() {
+        const states = {
+            noteStates: new Map(),
+            fingeringVisibility: this.player.fingeringManager.showFingering,
+            lastWindowWidth: window.innerWidth
+        };
+
+        // Capture red/green note highlighting states from marker zones
+        const markerZones = document.querySelectorAll('.note-marker-zone');
+        markerZones.forEach(zone => {
+            const noteIndex = zone.getAttribute('data-note-index');
+            const dataState = zone.getAttribute('data-state');
+            if (noteIndex && dataState && dataState !== 'neutral') {
+                states.noteStates.set(parseInt(noteIndex), dataState);
+            }
+        });
+
+        // Also capture fingering diagram states as backup
+        const fingeringDiagrams = document.querySelectorAll('.fingering-diagram-container');
+        fingeringDiagrams.forEach(diagram => {
+            const noteIndex = diagram.getAttribute('data-note-index');
+            const dataState = diagram.getAttribute('data-state');
+            if (noteIndex && dataState && dataState !== 'neutral') {
+                states.noteStates.set(parseInt(noteIndex), dataState);
+            }
+        });
+
+        return states;
+    }
+
+    /**
+     * Restores annotation states after re-render
+     * @param {Object} states - Previously captured states
+     */
+    restoreAnnotationStates(states) {
+        // Restore note highlighting and fingering diagram states
+        if (states.noteStates.size > 0) {
+            // Restore marker zone states
+            const markerZones = document.querySelectorAll('.note-marker-zone');
+            markerZones.forEach(zone => {
+                const noteIndex = zone.getAttribute('data-note-index');
+                if (noteIndex) {
+                    const savedState = states.noteStates.get(parseInt(noteIndex));
+                    if (savedState) {
+                        zone.setAttribute('data-state', savedState);
+                    }
+                }
+            });
+
+            // Restore fingering diagram states
+            const fingeringDiagrams = document.querySelectorAll('.fingering-diagram-container');
+            fingeringDiagrams.forEach(diagram => {
+                const noteIndex = diagram.getAttribute('data-note-index');
+                if (noteIndex) {
+                    const savedState = states.noteStates.get(parseInt(noteIndex));
+                    if (savedState) {
+                        diagram.setAttribute('data-state', savedState);
+                        // Apply visual state to the diagram
+                        this.applyFingeringVisualState(diagram, savedState);
+                    }
+                }
+            });
+        }
+
+        // Restore fingering visibility if it was enabled
+        if (states.fingeringVisibility && !this.player.fingeringManager.showFingering) {
+            this.player.fingeringManager.showFingering = true;
+            this.player.showFingeringDiagrams();
+        }
+    }
+
+    /**
+     * Applies visual state to a fingering diagram
+     * @param {Element} diagram - The fingering diagram element
+     * @param {string} state - The state to apply (red, green, or neutral)
+     */
+    applyFingeringVisualState(diagram, state) {
+        // Get the background color based on state
+        let backgroundColor;
+        if (state === 'red') {
+            backgroundColor = this.player.fingeringConfig.redColor;
+            diagram.classList.add('clicked');
+        } else if (state === 'green') {
+            backgroundColor = this.player.fingeringConfig.greenColor;
+            diagram.classList.add('clicked');
+        } else {
+            backgroundColor = this.player.fingeringConfig.backgroundColor;
+            diagram.classList.remove('clicked');
+        }
+        
+        // Apply the background color
+        diagram.style.backgroundColor = backgroundColor;
+    }
+
+    /**
+     * Checks if a significant resize occurred (threshold-based)
+     * @param {number} previousWidth - Previous window width
+     * @param {number} currentWidth - Current window width
+     * @returns {boolean} Whether a significant resize occurred
+     */
+    isSignificantResize(previousWidth, currentWidth) {
+        const threshold = this.player.renderConfig.resizeThreshold;
+        return Math.abs(currentWidth - previousWidth) > threshold;
+    }
 }

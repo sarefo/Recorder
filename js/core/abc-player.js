@@ -9,6 +9,7 @@ class AbcPlayer {
             staffbottommargin: 60,
             oneSvgPerLine: false,
             scale: 1.0,
+            resizeThreshold: 100, // pixels - minimum change to trigger re-render
         };
 
         // Config settings for fingering diagrams
@@ -286,10 +287,31 @@ class AbcPlayer {
      * Sets up window resize handler
      */
     setupWindowResizeHandler() {
+        let lastWidth = window.innerWidth;
+        
         window.addEventListener('resize', Utils.debounce(() => {
-            if (this.fingeringManager.showFingering) {
-                this.showFingeringDiagrams();
+            const currentWidth = window.innerWidth;
+            
+            // Only re-render if this is a significant resize
+            if (this.renderManager.isSignificantResize(lastWidth, currentWidth)) {
+                // Capture current annotation states
+                const savedStates = this.renderManager.captureAnnotationStates();
+                
+                // Trigger full re-render with new dimensions
+                this.render();
+                
+                // Restore annotation states after render completes
+                setTimeout(() => {
+                    this.renderManager.restoreAnnotationStates(savedStates);
+                }, 150);
+                
+                lastWidth = currentWidth;
+            } else {
+                // For minor resizes, just reposition fingering diagrams
+                if (this.fingeringManager.showFingering) {
+                    this.showFingeringDiagrams();
+                }
             }
-        }, 150));
+        }, 300)); // Increased debounce time for full re-render operations
     }
 }
