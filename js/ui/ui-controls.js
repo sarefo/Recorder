@@ -104,7 +104,7 @@ class UIControls {
         fingeringDisplayToggle.id = 'show-fingering';
         fingeringDisplayToggle.textContent = 'Fingering';
         fingeringDisplayToggle.title = 'Show/hide fingering diagrams';
-        fingeringDisplayToggle.classList.add('active'); // Start as active since fingering is shown by default
+        // Start as inactive since fingering is disabled by default
 
         fingeringDisplayToggle.addEventListener('click', () => {
             const showFingering = this.player.toggleFingeringDisplay();
