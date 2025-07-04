@@ -12,6 +12,8 @@ class CustomMetronome {
         this.beatsPerMeasure = 4;
         this.clickSchedulerLookahead = 0.1; // seconds ahead to schedule audio
         this.clickSchedulerInterval = 25;   // how often to call scheduling function (in ms)
+        this.constantMode = false; // whether metronome runs independently of playback
+        this.visualCallback = null; // callback for visual feedback
 
         // Create gain nodes for different accent levels
         this.accentedClickGain = null;
@@ -58,6 +60,14 @@ class CustomMetronome {
         // Schedule the click
         osc.start(time);
         osc.stop(time + 0.05); // Short duration click
+
+        // Schedule visual feedback if callback is set
+        if (this.visualCallback) {
+            const visualDelay = (time - this.audioContext.currentTime) * 1000;
+            setTimeout(() => {
+                this.visualCallback(isAccented);
+            }, Math.max(0, visualDelay));
+        }
     }
 
     /**
@@ -140,5 +150,29 @@ class CustomMetronome {
 
         // Reset beat counter on time signature change
         this.currentBeat = 0;
+    }
+
+    /**
+     * Set the visual feedback callback
+     * @param {function} callback - Function to call for visual feedback (receives isAccented parameter)
+     */
+    setVisualCallback(callback) {
+        this.visualCallback = callback;
+    }
+
+    /**
+     * Set constant mode - whether metronome runs independently of playback
+     * @param {boolean} enabled - Whether to enable constant mode
+     */
+    setConstantMode(enabled) {
+        this.constantMode = enabled;
+    }
+
+    /**
+     * Check if constant mode is enabled
+     * @returns {boolean} Whether constant mode is active
+     */
+    isConstantMode() {
+        return this.constantMode;
     }
 }

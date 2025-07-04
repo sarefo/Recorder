@@ -243,6 +243,9 @@ class AbcPlayer {
             this.shareManager.loadFromUrlParams();
         }, 100);
         this.fingeringManager.populateReferenceRow();
+        
+        // Check initial constant metronome mode
+        this.uiControls.checkConstantMetronomeMode();
     }
 
     /**

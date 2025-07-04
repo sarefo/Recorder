@@ -297,8 +297,8 @@ class MidiPlayer {
             if (this.isPlaying) {
                 success = await this.pausePlayback();
 
-                // Also stop metronome if it's on
-                if (this.playbackSettings.metronomeOn) {
+                // Stop metronome if it's on and not in constant mode
+                if (this.playbackSettings.metronomeOn && !this.customMetronome.isConstantMode()) {
                     this.customMetronome.stop();
                 }
 
@@ -309,8 +309,8 @@ class MidiPlayer {
             } else {
                 success = await this.startPlayback();
 
-                // Start metronome if it's enabled
-                if (this.playbackSettings.metronomeOn && success) {
+                // Start metronome if it's enabled and not already running in constant mode
+                if (this.playbackSettings.metronomeOn && success && !this.customMetronome.isPlaying) {
                     // Make sure we're using the tempo from getBpm()
                     const currentTempo = this.lastTempo;
                     //console.log("Starting metronome with tempo:", currentTempo);
@@ -432,11 +432,16 @@ class MidiPlayer {
 
             // Handle metronome toggle if that setting changed
             if (settings.hasOwnProperty('metronomeOn')) {
-                // If turning metronome on/off while playing, handle appropriately
-                if (wasPlaying && this.playbackSettings.metronomeOn) {
-                    this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
-                } else if (this.customMetronome.isPlaying) {
-                    this.customMetronome.stop();
+                if (this.playbackSettings.metronomeOn) {
+                    // Turning metronome on
+                    if (!this.customMetronome.isPlaying) {
+                        this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
+                    }
+                } else {
+                    // Turning metronome off - always stop, regardless of constant mode
+                    if (this.customMetronome.isPlaying) {
+                        this.customMetronome.stop();
+                    }
                 }
             }
 

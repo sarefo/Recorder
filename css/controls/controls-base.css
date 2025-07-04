@@ -252,3 +252,55 @@ button#metronome-toggle.active,
         min-width: 150px !important;
     }
 }
+
+/* Visual Metronome Feedback Styles */
+
+/* Constant mode indicator */
+button#metronome-toggle.constant-mode,
+.control-bar button#metronome-toggle.constant-mode,
+.playback-controls button#metronome-toggle.constant-mode,
+.mobile-playback-bar button#metronome-toggle.constant-mode {
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3) !important;
+    animation: constant-mode-pulse 2s infinite ease-in-out !important;
+}
+
+@keyframes constant-mode-pulse {
+    0%, 100% { box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3); }
+    50% { box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.6); }
+}
+
+/* Metronome beat visual feedback - regular beats (green) */
+button#metronome-toggle.metronome-beat,
+.control-bar button#metronome-toggle.metronome-beat,
+.playback-controls button#metronome-toggle.metronome-beat,
+.mobile-playback-bar button#metronome-toggle.metronome-beat {
+    background-color: #4caf50 !important;
+    border-color: #4caf50 !important;
+    transform: scale(1.05) !important;
+    transition: all 0.1s ease !important;
+    box-shadow: 0 0 4px rgba(76, 175, 80, 0.4) !important;
+}
+
+/* Metronome accented beat visual feedback - first beat of bar (orange/red) */
+button#metronome-toggle.metronome-beat-accent,
+.control-bar button#metronome-toggle.metronome-beat-accent,
+.playback-controls button#metronome-toggle.metronome-beat-accent,
+.mobile-playback-bar button#metronome-toggle.metronome-beat-accent {
+    background-color: #ff5722 !important;
+    border-color: #ff5722 !important;
+    transform: scale(1.1) !important;
+    transition: all 0.1s ease !important;
+    box-shadow: 0 0 12px rgba(255, 87, 34, 0.7) !important;
+}
+
+/* Ensure beat feedback overrides active state temporarily */
+button#metronome-toggle.metronome-beat.active,
+button#metronome-toggle.metronome-beat-accent.active,
+.control-bar button#metronome-toggle.metronome-beat.active,
+.control-bar button#metronome-toggle.metronome-beat-accent.active,
+.playback-controls button#metronome-toggle.metronome-beat.active,
+.playback-controls button#metronome-toggle.metronome-beat-accent.active,
+.mobile-playback-bar button#metronome-toggle.metronome-beat.active,
+.mobile-playback-bar button#metronome-toggle.metronome-beat-accent.active {
+    color: white !important;
+}

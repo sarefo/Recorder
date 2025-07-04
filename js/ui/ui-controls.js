@@ -432,6 +432,7 @@ class UIControls {
             );
 
             this.setButtonActiveState(chordsToggle, newSettings.chordsOn);
+            this.checkConstantMetronomeMode();
         });
 
         return chordsToggle;
@@ -457,6 +458,7 @@ class UIControls {
             );
 
             this.setButtonActiveState(voicesToggle, newSettings.voicesOn);
+            this.checkConstantMetronomeMode();
         });
 
         return voicesToggle;
@@ -483,6 +485,9 @@ class UIControls {
 
             this.setButtonActiveState(metronomeToggle, newSettings.metronomeOn);
         });
+
+        // Set up visual feedback for metronome
+        this.setupMetronomeVisualFeedback(metronomeToggle);
 
         return metronomeToggle;
     }
@@ -932,6 +937,53 @@ class UIControls {
                 this.reapplyButtonStyles(button);
             }
         });
+    }
+
+    /**
+     * Check if constant metronome mode should be enabled/disabled
+     */
+    checkConstantMetronomeMode() {
+        const settings = this.player.midiPlayer.playbackSettings;
+        const shouldEnableConstantMode = !settings.chordsOn && !settings.voicesOn;
+        
+        // Update metronome constant mode
+        if (this.player.midiPlayer.customMetronome) {
+            this.player.midiPlayer.customMetronome.setConstantMode(shouldEnableConstantMode);
+        }
+
+        // Update visual indicator
+        const metronomeButton = document.getElementById('metronome-toggle');
+        if (metronomeButton) {
+            if (shouldEnableConstantMode && settings.metronomeOn) {
+                metronomeButton.classList.add('constant-mode');
+                metronomeButton.title = 'Metronome (Constant Mode)';
+            } else {
+                metronomeButton.classList.remove('constant-mode');
+                metronomeButton.title = 'Toggle Metronome';
+            }
+        }
+    }
+
+    /**
+     * Set up visual feedback for metronome button
+     * @param {HTMLElement} metronomeButton - The metronome button element
+     */
+    setupMetronomeVisualFeedback(metronomeButton) {
+        // Set up visual callback for metronome
+        if (this.player.midiPlayer.customMetronome) {
+            this.player.midiPlayer.customMetronome.setVisualCallback((isAccented) => {
+                // Only show visual feedback if metronome is active
+                if (this.player.midiPlayer.playbackSettings.metronomeOn) {
+                    // Add visual feedback class
+                    metronomeButton.classList.add(isAccented ? 'metronome-beat-accent' : 'metronome-beat');
+                    
+                    // Remove class after animation
+                    setTimeout(() => {
+                        metronomeButton.classList.remove('metronome-beat-accent', 'metronome-beat');
+                    }, 100);
+                }
+            });
+        }
     }
 
 }
