@@ -13,7 +13,7 @@ class RenderManager {
     render() {
         try {
             const abcContainer = document.getElementById('abc-notation');
-            this.player.diagramRenderer.clearFingeringDiagrams();
+            this.player.diagramRenderer.clearAllDiagrams(); // Clear everything to start fresh
 
             // Render the ABC notation first to get the visual object
             this.currentVisualObj = this.renderAbcNotation();
@@ -21,13 +21,16 @@ class RenderManager {
             // Initialize MIDI player
             this.player.midiPlayer.init(this.currentVisualObj);
 
-            // Add fingering diagrams AFTER we have the visual object
-            if (this.player.fingeringManager.showFingering) {
-                setTimeout(() => {
-                    const notes = this.player.notationParser.extractCleanedNotes();
+            // Always add marker zones AFTER we have the visual object
+            setTimeout(() => {
+                const notes = this.player.notationParser.extractCleanedNotes();
+                this.player.diagramRenderer.addMarkerZones(abcContainer, notes);
+                
+                // Add fingering diagrams if they should be shown
+                if (this.player.fingeringManager.showFingering) {
                     this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
-                }, 100);
-            }
+                }
+            }, 100);
 
             // Update URL for sharing
             if (this.player.shareManager) {

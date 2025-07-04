@@ -15,12 +15,15 @@ class DiagramRenderer {
         // Clear any existing diagrams
         this.clearFingeringDiagrams();
 
-        // Create the layer for fingering diagrams
-        const layer = this.createDiagramLayer();
-        if (!abcContainer.classList.contains('relative-position')) {
-            abcContainer.style.position = 'relative';
+        // Get or create the layer for fingering diagrams
+        let layer = document.getElementById('fingering-layer');
+        if (!layer) {
+            layer = this.createDiagramLayer();
+            if (!abcContainer.classList.contains('relative-position')) {
+                abcContainer.style.position = 'relative';
+            }
+            abcContainer.appendChild(layer);
         }
-        abcContainer.appendChild(layer);
 
         // Find note elements
         const noteElements = this.findNoteElements();
@@ -137,7 +140,7 @@ class DiagramRenderer {
 
             const staffRect = staffEl.getBoundingClientRect();
 
-            // CHANGE: Position for diagrams is above the staff
+            // Position for diagrams is above the staff
             const diagramsTopPosition = staffRect.top - containerRect.top - this.config.verticalOffset;
 
             // Add diagrams for each note in this staff
@@ -153,6 +156,9 @@ class DiagramRenderer {
 
                     const diagram = this.fingeringManager.createFingeringDiagram(fingeringData, noteData.name);
 
+                    // Add note index for coupling with marker zones
+                    diagram.setAttribute('data-note-index', note.dataIndex);
+
                     // Position the diagram
                     diagram.style.position = 'absolute';
                     diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
@@ -163,6 +169,41 @@ class DiagramRenderer {
                     layer.appendChild(diagram);
                 }
             });
+
+        });
+    }
+
+    renderNoteMarkerZones(staff, staffRect, containerRect, layer) {
+        if (!staff.notes.length) return;
+
+        // Calculate the horizontal span for marker zones
+        const leftmostNote = Math.min(...staff.notes.map(n => n.left));
+        const rightmostNote = Math.max(...staff.notes.map(n => n.left + n.width));
+        const totalWidth = rightmostNote - leftmostNote;
+        const zoneWidth = totalWidth / staff.notes.length;
+
+        // Position marker zones to extend from above staff to below staff
+        const markerTopPosition = staffRect.top - containerRect.top - 20;
+
+        // Create marker zones for each note
+        staff.notes.forEach((note, index) => {
+            const markerZone = this.fingeringManager.createNoteMarkerZone(note.dataIndex);
+            
+            // Position the marker zone to align with the note center (same as fingering diagrams)
+            markerZone.style.position = 'absolute';
+            markerZone.style.left = `${note.left - containerRect.left + (note.width / 2) - (zoneWidth / 2)}px`;
+            markerZone.style.top = `${markerTopPosition}px`;
+            markerZone.style.width = `${zoneWidth}px`;
+            markerZone.style.height = `${this.config.noteMarkingHeight}px`;
+            
+            // Set initial z-index based on whether fingering diagrams are shown
+            if (this.fingeringManager.showFingering) {
+                markerZone.style.zIndex = '5'; // Lower when fingering diagrams are visible
+            } else {
+                markerZone.style.zIndex = '15'; // Higher when fingering diagrams are hidden
+            }
+
+            layer.appendChild(markerZone);
         });
     }
 
@@ -188,7 +229,56 @@ class DiagramRenderer {
         layer.appendChild(diagram);
     }
 
+    addMarkerZones(abcContainer, notesData) {
+        // Get or create the layer for marker zones
+        let layer = document.getElementById('fingering-layer');
+        if (!layer) {
+            layer = this.createDiagramLayer();
+            if (!abcContainer.classList.contains('relative-position')) {
+                abcContainer.style.position = 'relative';
+            }
+            abcContainer.appendChild(layer);
+        }
+
+        // Find note elements
+        const noteElements = this.findNoteElements();
+        if (!noteElements.length) return;
+
+        // Create a mapping from data-index to note data
+        const noteDataMap = this.buildNoteDataMapping(notesData);
+
+        // Map notes to staff lines
+        const staffMap = this.mapNotesToStaffLines(noteElements);
+
+        // Get container dimensions
+        const containerRect = abcContainer.getBoundingClientRect();
+
+        // Add marker zones for each staff line
+        staffMap.forEach(staff => {
+            if (!staff.notes.length) return;
+
+            // Sort notes by horizontal position within each staff
+            staff.notes.sort((a, b) => a.left - b.left);
+
+            // Find the top position of the staff
+            const staffEl = document.querySelector(`.abcjs-staff.abcjs-l${staff.lineNumber}`);
+            if (!staffEl) return;
+
+            const staffRect = staffEl.getBoundingClientRect();
+            this.renderNoteMarkerZones(staff, staffRect, containerRect, layer);
+        });
+    }
+
     clearFingeringDiagrams() {
+        const layer = document.getElementById('fingering-layer');
+        if (layer) {
+            // Only remove fingering diagrams, keep marker zones
+            const diagrams = layer.querySelectorAll('.fingering-diagram-container');
+            diagrams.forEach(diagram => diagram.remove());
+        }
+    }
+
+    clearAllDiagrams() {
         const existing = document.getElementById('fingering-layer');
         if (existing) existing.remove();
     }

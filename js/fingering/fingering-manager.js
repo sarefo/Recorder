@@ -163,30 +163,85 @@ class FingeringManager {
      * @private
      */
     _addClickBehavior(diagram) {
-        const config = this.config;
-
         diagram.addEventListener('click', (e) => {
             e.stopPropagation();
-            const currentState = diagram.getAttribute('data-state');
-            let newState;
+            const noteIndex = diagram.getAttribute('data-note-index');
+            this._updateCoupledState(noteIndex, diagram);
+        });
+    }
 
-            // Remove previous state classes
+    /**
+     * Creates a note marker zone for note marking functionality
+     * @param {number} noteIndex - The index of the note this marker represents
+     * @returns {HTMLElement} - The created marker zone element
+     */
+    createNoteMarkerZone(noteIndex) {
+        const markerZone = document.createElement('div');
+        markerZone.className = 'note-marker-zone';
+        markerZone.setAttribute('data-state', 'neutral');
+        markerZone.setAttribute('data-note-index', noteIndex);
+        
+        // Add the same click behavior as fingering diagrams
+        this._addMarkerClickBehavior(markerZone);
+        
+        return markerZone;
+    }
+
+    /**
+     * Adds click behavior to cycle through states for a marker zone
+     * @param {HTMLElement} markerZone - The marker zone element
+     * @private
+     */
+    _addMarkerClickBehavior(markerZone) {
+        markerZone.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const noteIndex = markerZone.getAttribute('data-note-index');
+            this._updateCoupledState(noteIndex, markerZone);
+        });
+    }
+
+    /**
+     * Updates the state of both fingering diagram and marker zone for a note
+     * @param {string} noteIndex - The note index
+     * @param {HTMLElement} clickedElement - The element that was clicked
+     * @private
+     */
+    _updateCoupledState(noteIndex, clickedElement) {
+        // Find both elements for this note
+        const diagram = document.querySelector(`[data-note-index="${noteIndex}"].fingering-diagram-container`);
+        const markerZone = document.querySelector(`[data-note-index="${noteIndex}"].note-marker-zone`);
+
+        // Get current state from the clicked element
+        const currentState = clickedElement.getAttribute('data-state');
+        let newState;
+
+        if (currentState === 'neutral') {
+            newState = 'red';
+        } else if (currentState === 'red') {
+            newState = 'green';
+        } else {
+            newState = 'neutral';
+        }
+
+        // Update diagram state and appearance
+        if (diagram) {
+            diagram.setAttribute('data-state', newState);
             diagram.classList.remove('clicked');
             
-            if (currentState === 'neutral') {
-                newState = 'red';
-                diagram.style.backgroundColor = config.redColor;
-            } else if (currentState === 'red') {
-                newState = 'green';
-                diagram.style.backgroundColor = config.greenColor;
+            if (newState === 'red') {
+                diagram.style.backgroundColor = this.config.redColor;
+            } else if (newState === 'green') {
+                diagram.style.backgroundColor = this.config.greenColor;
                 diagram.classList.add('clicked');
             } else {
-                newState = 'neutral';
-                diagram.style.backgroundColor = config.backgroundColor;
+                diagram.style.backgroundColor = this.config.backgroundColor;
             }
+        }
 
-            diagram.setAttribute('data-state', newState);
-        });
+        // Update marker zone state
+        if (markerZone) {
+            markerZone.setAttribute('data-state', newState);
+        }
     }
 
     /**

@@ -25,6 +25,9 @@ class AbcPlayer {
             backgroundColor: 'rgba(240, 240, 180, 0.9)',
             redColor: 'rgba(255, 0, 0, 0.6)',
             greenColor: 'rgba(0, 128, 0, 0.6)',
+            // Note marking configuration
+            enableNoteMarking: true,
+            noteMarkingHeight: 80,
         };
 
         // Initialize sub-modules
@@ -176,8 +179,26 @@ class AbcPlayer {
             this.hideFingeringDiagrams();
         }
 
+        // Update marker zone z-indexes after toggling
+        this.updateMarkerZoneZIndexes();
+
         return this.fingeringManager.showFingering;
     }
+
+    /**
+     * Updates the z-index of marker zones based on fingering visibility
+     */
+    updateMarkerZoneZIndexes() {
+        const markerZones = document.querySelectorAll('.note-marker-zone');
+        markerZones.forEach(zone => {
+            if (this.fingeringManager.showFingering) {
+                zone.style.zIndex = '5'; // Lower when fingering diagrams are visible
+            } else {
+                zone.style.zIndex = '15'; // Higher when fingering diagrams are hidden
+            }
+        });
+    }
+
 
     /**
      * Shows fingering diagrams

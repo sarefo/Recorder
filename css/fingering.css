@@ -41,6 +41,8 @@ section .fingering-diagram {
     padding: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     pointer-events: none;
+    z-index: 10; /* Higher than note marker zones */
+    position: relative;
 }
 
 /* Interactive fingering diagram states */
@@ -115,4 +117,51 @@ section .fingering-diagram {
     text-align: center;
     margin-bottom: 4px;
     font-weight: bold;
+}
+
+/* Note marker zones - invisible clickable areas for note marking */
+.note-marker-zone {
+    position: absolute;
+    height: 80px;
+    cursor: pointer;
+    background: transparent;
+    pointer-events: auto;
+    z-index: 5; /* Lower than fingering diagrams so they can receive clicks */
+}
+
+.note-marker-zone::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    top: 25%;
+    left: 0;
+    background: transparent;
+    transition: background-color 0.2s ease;
+}
+
+/* Note marker states */
+.note-marker-zone[data-state="red"]::after {
+    background-color: rgba(255, 0, 0, 0.6);
+}
+
+.note-marker-zone[data-state="green"]::after {
+    background-color: rgba(0, 128, 0, 0.6);
+}
+
+.note-marker-zone[data-state="neutral"]::after {
+    background-color: transparent;
+}
+
+/* Hover effect for marker zones */
+.note-marker-zone:hover::after {
+    background-color: rgba(200, 200, 200, 0.3);
+}
+
+.note-marker-zone[data-state="red"]:hover::after {
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+.note-marker-zone[data-state="green"]:hover::after {
+    background-color: rgba(0, 128, 0, 0.8);
 }

@@ -132,6 +132,7 @@ class UIControls {
         return systemToggle;
     }
 
+
     /**
      * Creates chart toggle button (simplified)
      * @returns {HTMLElement} The chart toggle button
