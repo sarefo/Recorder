@@ -7,7 +7,6 @@ This is a browser-based web application for displaying and playing ABC music not
 
 ## Running the Application
 - The development server is usually already running at http://localhost:8001 - check first before starting another
-- If needed, run a local development server: `bash scripts/run_server.sh`
 - Update ABC and docs file lists: `python3 scripts/update_data.py`
 
 ## Code Style Guidelines
