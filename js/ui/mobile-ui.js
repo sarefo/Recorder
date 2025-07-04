@@ -4,7 +4,7 @@
 class MobileUI {
     constructor(player) {
         this.player = player;
-        this.playbackBarEnabled = false; // Default to disabled
+        this.playbackBarEnabled = true; // Default to enabled
     }
 
     /**
@@ -22,6 +22,15 @@ class MobileUI {
 
         // Set up the initial state (properly connected)
         this.updateMobileState();
+        
+        // If playback bar is enabled by default, make sure it's properly set up
+        if (this.playbackBarEnabled) {
+            // Small delay to ensure DOM is ready
+            setTimeout(() => {
+                this.togglePlaybackBar();
+                this.togglePlaybackBar(); // Call twice to end up in enabled state
+            }, 100);
+        }
 
         // On mobile: always start with controls collapsed
         if (this.player.isMobile) {

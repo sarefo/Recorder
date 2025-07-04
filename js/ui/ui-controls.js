@@ -172,6 +172,11 @@ class UIControls {
         playbackToggle.title = 'Show/hide permanent playback controls';
         playbackToggle.textContent = 'Playback';
 
+        // Set initial active state based on mobile UI setting
+        if (this.player.mobileUI && this.player.mobileUI.isPlaybackBarEnabled()) {
+            playbackToggle.classList.add('active');
+        }
+
         playbackToggle.addEventListener('click', () => {
             if (this.player.mobileUI) {
                 this.player.mobileUI.togglePlaybackBar();
@@ -365,6 +370,12 @@ class UIControls {
         playbackSection.appendChild(this.createTransposeUpButton());
         playbackSection.appendChild(this.createTransposeDownButton());
 
+        // Initialize constant metronome mode based on initial settings
+        // Use setTimeout to ensure DOM is fully ready
+        setTimeout(() => {
+            this.checkConstantMetronomeMode();
+        }, 0);
+
         return playbackSection;
     }
 
@@ -422,8 +433,8 @@ class UIControls {
         chordsToggle.title = 'Toggle Chords';
         chordsToggle.textContent = 'Chords';
         
-        // Set initial active state (chords are ON by default)
-        this.setButtonActiveState(chordsToggle, true);
+        // Set initial active state (chords are OFF by default)
+        this.setButtonActiveState(chordsToggle, false);
 
         chordsToggle.addEventListener('click', async () => {
             const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
@@ -448,8 +459,8 @@ class UIControls {
         voicesToggle.title = 'Toggle Voices';
         voicesToggle.textContent = 'Voices';
         
-        // Set initial active state (voices are ON by default)
-        this.setButtonActiveState(voicesToggle, true);
+        // Set initial active state (voices are OFF by default)
+        this.setButtonActiveState(voicesToggle, false);
 
         voicesToggle.addEventListener('click', async () => {
             const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
@@ -474,8 +485,8 @@ class UIControls {
         metronomeToggle.title = 'Toggle Metronome';
         metronomeToggle.textContent = 'Metronome';
         
-        // Set initial inactive state (metronome is OFF by default)
-        this.setButtonActiveState(metronomeToggle, false);
+        // Set initial active state (metronome is ON by default)
+        this.setButtonActiveState(metronomeToggle, true);
 
         metronomeToggle.addEventListener('click', async () => {
             const newSettings = await this.player.midiPlayer.updatePlaybackSettings(

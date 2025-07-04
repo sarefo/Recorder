@@ -7,9 +7,9 @@ class MidiPlayer {
         this.isPlaying = false;
         this.audioContext = null;
         this.playbackSettings = {
-            chordsOn: true,
-            voicesOn: true,
-            metronomeOn: false,
+            chordsOn: false,
+            voicesOn: false,
+            metronomeOn: true,
             tempo: 100 // Default tempo percentage (100%)
         };
 
@@ -76,21 +76,24 @@ class MidiPlayer {
         const timeSignature = visualObj.getMeter();
         const numerator = timeSignature?.value?.[0]?.num || 4;
 
-        // Extract tempo from the visual object
-        const baseTempo = visualObj.metaText?.tempo?.qpm || 120;
-        const adjustedTempo = Math.round((baseTempo * this.playbackSettings.tempo) / 100);
+        // Extract tempo from the visual object (same method as MIDI)
+        const baseTempo = visualObj.getBpm() || 120;
+        const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
 
         // Update saved values
         this.lastTimeSignature = numerator;
         this.lastTempo = adjustedTempo;
 
-        // Always update the metronome's internal tempo value even if not playing
-        this.customMetronome.tempo = adjustedTempo;
-
         // Update metronome if it's running
         if (this.customMetronome.isPlaying) {
             this.customMetronome.setTimeSignature(numerator);
-            this.customMetronome.setTempo(adjustedTempo);
+            // Only update tempo if it's different to avoid unnecessary restarts
+            if (this.customMetronome.tempo !== adjustedTempo) {
+                this.customMetronome.setTempo(adjustedTempo);
+            }
+        } else {
+            // Always update the metronome's internal tempo value when not playing
+            this.customMetronome.tempo = adjustedTempo;
         }
     }
 
@@ -158,8 +161,8 @@ class MidiPlayer {
                 this.isPlaying = false;
                 this.updatePlayButtonState();
 
-                // Stop the metronome when the song ends
-                if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying) {
+                // Stop the metronome when the song ends, unless it's in constant mode
+                if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying && !this.customMetronome.isConstantMode()) {
                     this.customMetronome.stop();
                 }
 
@@ -254,23 +257,26 @@ class MidiPlayer {
             this.updateStatusDisplay("Playing");
 
             // Ensure metronome is started with correct settings if enabled
-            if (this.playbackSettings.metronomeOn) {
-                // Get the current visual object
-                const visualObj = window.app.renderManager.currentVisualObj;
-
+            if (this.playbackSettings.metronomeOn && !this.customMetronome.isPlaying) {
+                // Always get the current visual object to ensure we have the latest tempo
+                const visualObj = window.app?.renderManager?.currentVisualObj;
                 if (visualObj) {
-                    // Calculate tempo directly from visualObj
-                    const directBpm = visualObj.getBpm();
-                    const directTempo = Math.round((directBpm * this.playbackSettings.tempo) / 100);
-
-                    // Update lastTempo for consistency
-                    this.lastTempo = directTempo;
-
-                    // Start with the directly calculated tempo
-                    //console.log("Starting metronome with direct tempo:", directTempo);
-                    this.customMetronome.start(directTempo, this.lastTimeSignature);
+                    // Calculate the correct tempo directly from the current piece
+                    const baseTempo = visualObj.getBpm() || 120;
+                    const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
+                    
+                    // Update our saved tempo values
+                    this.lastTempo = adjustedTempo;
+                    
+                    // Get time signature
+                    const timeSignature = visualObj.getMeter();
+                    const numerator = timeSignature?.value?.[0]?.num || 4;
+                    this.lastTimeSignature = numerator;
+                    
+                    // Start with the correct tempo
+                    this.customMetronome.start(adjustedTempo, numerator);
                 } else {
-                    // Fall back to lastTempo if no visual object
+                    // Fallback to saved values
                     this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
                 }
             }
@@ -297,8 +303,8 @@ class MidiPlayer {
             if (this.isPlaying) {
                 success = await this.pausePlayback();
 
-                // Stop metronome if it's on and not in constant mode
-                if (this.playbackSettings.metronomeOn && !this.customMetronome.isConstantMode()) {
+                // Stop metronome if it's on (always stop when pausing playback)
+                if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying) {
                     this.customMetronome.stop();
                 }
 
@@ -309,13 +315,7 @@ class MidiPlayer {
             } else {
                 success = await this.startPlayback();
 
-                // Start metronome if it's enabled and not already running in constant mode
-                if (this.playbackSettings.metronomeOn && success && !this.customMetronome.isPlaying) {
-                    // Make sure we're using the tempo from getBpm()
-                    const currentTempo = this.lastTempo;
-                    //console.log("Starting metronome with tempo:", currentTempo);
-                    this.customMetronome.start(currentTempo, this.lastTimeSignature);
-                }
+                // Note: Metronome is already started by startPlayback() if needed
 
                 if (success) {
                     this.isPlaying = true;
@@ -432,17 +432,14 @@ class MidiPlayer {
 
             // Handle metronome toggle if that setting changed
             if (settings.hasOwnProperty('metronomeOn')) {
-                if (this.playbackSettings.metronomeOn) {
-                    // Turning metronome on
-                    if (!this.customMetronome.isPlaying) {
-                        this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
-                    }
-                } else {
+                if (!this.playbackSettings.metronomeOn) {
                     // Turning metronome off - always stop, regardless of constant mode
                     if (this.customMetronome.isPlaying) {
                         this.customMetronome.stop();
                     }
                 }
+                // Note: When turning metronome on, we don't auto-start it
+                // It will only start when playback starts
             }
 
             // Resume playback if it was playing before
