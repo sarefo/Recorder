@@ -985,12 +985,18 @@ class UIControls {
             this.player.midiPlayer.customMetronome.setVisualCallback((isAccented) => {
                 // Only show visual feedback if metronome is active
                 if (this.player.midiPlayer.playbackSettings.metronomeOn) {
-                    // Add visual feedback class
+                    // Add visual feedback class to metronome button
                     metronomeButton.classList.add(isAccented ? 'metronome-beat-accent' : 'metronome-beat');
                     
-                    // Remove class after animation
+                    // Add subtle background flash on accented beats only
+                    if (isAccented) {
+                        document.body.classList.add('metronome-beat-accent');
+                    }
+                    
+                    // Remove classes after animation
                     setTimeout(() => {
                         metronomeButton.classList.remove('metronome-beat-accent', 'metronome-beat');
+                        document.body.classList.remove('metronome-beat-accent');
                     }, 100);
                 }
             });

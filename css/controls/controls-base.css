@@ -304,3 +304,9 @@ button#metronome-toggle.metronome-beat-accent.active,
 .mobile-playback-bar button#metronome-toggle.metronome-beat-accent.active {
     color: white !important;
 }
+
+/* Body background flash for metronome beats - subtle effect */
+body.metronome-beat-accent {
+    background-color: rgba(255, 87, 34, 0.03) !important;
+    transition: background-color 0.1s ease !important;
+}
