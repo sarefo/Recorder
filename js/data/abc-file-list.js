@@ -228,6 +228,11 @@ class AbcFileList {
                 "category": "scottish"
         },
         {
+                "name": "Frank's Reel",
+                "file": "scottish/franks_reel.abc",
+                "category": "scottish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
