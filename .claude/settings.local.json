@@ -6,7 +6,10 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(grep:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "mcp__puppeteer__puppeteer_navigate",
+      "mcp__puppeteer__puppeteer_screenshot",
+      "mcp__puppeteer__puppeteer_evaluate"
     ]
   },
   "enableAllProjectMcpServers": false

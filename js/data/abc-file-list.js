@@ -223,6 +223,11 @@ class AbcFileList {
                 "category": "scottish"
         },
         {
+                "name": "Francis T Robertson",
+                "file": "scottish/francis_robertson.abc",
+                "category": "scottish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
