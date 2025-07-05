@@ -10,9 +10,16 @@
         justify-content: center;
         flex-wrap: wrap;
     }
+}
 
-    /* Tempo control responsive rules moved to mobile-controls.css for better organization */
+/* Ensure desktop layout is horizontal */
+@media (min-width: 769px) {
+    .control-bar {
+        flex-direction: row !important;
+    }
+}
 
+@media (min-width: 769px) {
     #abc-notation {
         margin-top: 10px;
     }

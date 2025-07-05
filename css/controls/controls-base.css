@@ -14,6 +14,53 @@
     z-index: 101;
 }
 
+/* Desktop layout - side by side with intelligent wrapping */
+@media (min-width: 769px) {
+    .control-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .control-section {
+        flex-shrink: 1; /* Allow some shrinking but not below content */
+        min-width: fit-content; /* Size to content */
+    }
+    
+    .playback-controls {
+        flex: 0 1 auto; /* Don't grow, allow shrinking */
+        min-width: 300px; /* Minimum space for playback controls */
+        max-width: 800px; /* Prevent excessive expansion */
+    }
+    
+    .fingering-controls,
+    .notation-controls {
+        flex-shrink: 1; /* Allow some shrinking */
+        min-width: fit-content;
+    }
+}
+
+/* For larger screens, try to keep everything on one row */
+@media (min-width: 1200px) {
+    .playback-controls {
+        min-width: 200px; /* Even smaller minimum on large screens */
+    }
+}
+
+/* Ensure consistent styling for all control sections on desktop */
+@media (min-width: 769px) {
+    .control-section.playback-controls {
+        padding: 4px 8px !important;
+        background-color: #fff !important;
+        border-radius: 6px !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+        gap: 8px !important;
+        margin: 0 !important;
+        width: auto !important;
+        justify-content: flex-start !important;
+    }
+}
+
 .control-section {
     display: flex;
     align-items: center;

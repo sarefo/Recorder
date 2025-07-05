@@ -123,7 +123,7 @@ class MobileUI {
         const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
         // Consider both width and device type
-        this.player.isMobile = isMobileDevice || window.innerWidth <= 900; // Increased threshold for landscape
+        this.player.isMobile = isMobileDevice || window.innerWidth <= 768; // Match CSS breakpoint
 
         // Alternative approach: detect by maximum dimension
         const smallerDimension = Math.min(window.innerWidth, window.innerHeight);
@@ -159,6 +159,9 @@ class MobileUI {
             controlContainer.classList.remove('collapsed');
             controlContainer.classList.remove('mobile-view');
 
+            // Force disable mobile playback bar on desktop
+            this.playbackBarEnabled = false;
+            
             // Hide mobile top playback bar on desktop
             const playbackBar = document.getElementById('mobile-playback-bar');
             if (playbackBar) {
@@ -167,6 +170,24 @@ class MobileUI {
             
             // Remove mobile body spacing class when switching to desktop
             document.body.classList.remove('mobile-playback-active');
+            
+            // Ensure playback controls are back in the main control bar on desktop
+            const playbackControls = document.querySelector('.playback-controls');
+            const controlBar = document.querySelector('.control-bar');
+            if (playbackControls && controlBar) {
+                if (!controlBar.contains(playbackControls)) {
+                    controlBar.appendChild(playbackControls);
+                }
+                // Reset all mobile-specific inline styles on desktop
+                playbackControls.style.cssText = 'display: flex;';
+            }
+            
+            // Update the toggle button state if it exists
+            const playbackToggle = document.getElementById('playback-toggle-fingering');
+            if (playbackToggle) {
+                playbackToggle.classList.remove('active');
+            }
+            
             return;
         }
 
@@ -336,11 +357,16 @@ class MobileUI {
             // Remove class from body to restore original spacing
             document.body.classList.remove('mobile-playback-active');
             if (playbackControls) {
-                // Move controls back and hide them on mobile
+                // Move controls back
                 const controlBar = document.querySelector('.control-bar');
                 if (controlBar) {
                     controlBar.appendChild(playbackControls);
-                    playbackControls.style.display = 'none';
+                    // Only hide on mobile, not on desktop
+                    if (this.player.isMobile) {
+                        playbackControls.style.display = 'none';
+                    } else {
+                        playbackControls.style.display = 'flex';
+                    }
                 }
             }
         }
@@ -362,8 +388,8 @@ class MobileUI {
                     playbackControls.style.display = '';
                 }
             } else {
-                // On desktop: always show playback controls in popup
-                playbackControls.style.display = '';
+                // On desktop: always show playback controls
+                playbackControls.style.display = 'flex';
             }
         }
     }
