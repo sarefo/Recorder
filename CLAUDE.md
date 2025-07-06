@@ -20,3 +20,7 @@ This is a browser-based web application for displaying and playing ABC music not
 - Follow existing patterns for event handling and DOM manipulation
 - Maintain compatibility with the abcjs library API
 - Add new music files in the appropriate folders within the /abc directory
+
+## MCP Server Usage
+- Use the Context7 MCP server (mcp__context7__*) when working with external libraries or frameworks to get up-to-date documentation and examples
+- This helps ensure compatibility and follows best practices for third-party dependencies
