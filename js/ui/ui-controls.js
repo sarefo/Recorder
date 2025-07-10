@@ -44,10 +44,7 @@ class UIControls {
         const container = document.createElement('div');
         container.className = 'control-container';
 
-        // If on mobile, add collapsed class by default
-        if (window.innerWidth <= 768) {
-            container.classList.add('collapsed');
-        }
+        // Mobile layout is now handled by MobileUI class
 
         return container;
     }
@@ -80,8 +77,7 @@ class UIControls {
         const fingeringSection = document.createElement('div');
         fingeringSection.className = 'control-section fingering-controls';
 
-        // Add playback toggle button (mobile-only, hidden on desktop via CSS)
-        fingeringSection.appendChild(this.createPlaybackToggleButton());
+        // Playback toggle button removed - mobile UI now handled differently
 
         // Add fingering toggle button
         fingeringSection.appendChild(this.createFingeringToggleButton());
@@ -159,57 +155,8 @@ class UIControls {
         return chartToggle;
     }
 
-    /**
-     * Creates playback toggle button for fingering section
-     * @returns {HTMLElement} The playback toggle button
-     */
-    createPlaybackToggleButton() {
-        const playbackToggle = document.createElement('button');
-        playbackToggle.id = 'playback-toggle-fingering';
-        playbackToggle.className = 'playback-toggle-fingering';
-        playbackToggle.title = 'Show/hide permanent playback controls';
-        playbackToggle.textContent = 'Playback';
 
-        // Set initial active state based on mobile UI setting
-        if (this.player.mobileUI && this.player.mobileUI.isPlaybackBarEnabled()) {
-            playbackToggle.classList.add('active');
-        }
 
-        playbackToggle.addEventListener('click', () => {
-            if (this.player.mobileUI) {
-                this.player.mobileUI.togglePlaybackBar();
-                playbackToggle.classList.toggle('active', this.player.mobileUI.isPlaybackBarEnabled());
-            }
-        });
-
-        return playbackToggle;
-    }
-
-    /**
-     * Creates mobile-specific controls section
-     * @returns {HTMLElement} The mobile controls section
-     */
-    createMobileControlsSection() {
-        console.log('Creating mobile controls section');
-        const mobileSection = document.createElement('div');
-        mobileSection.className = 'control-section mobile-controls';
-
-        // Add playback toggle
-        const playbackToggle = this.player.mobileUI.createPlaybackToggle();
-        mobileSection.appendChild(playbackToggle);
-
-        console.log('Mobile controls section created:', mobileSection);
-        return mobileSection;
-    }
-
-    /**
-     * Updates mobile playback visibility based on toggle state
-     */
-    updateMobilePlaybackVisibility() {
-        // This method is called when the playback toggle changes
-        // The playback controls are moved by the MobileUI class
-        // We don't need to do anything special here since the controls are moved via DOM manipulation
-    }
 
     /**
      * Creates notation controls section
@@ -390,7 +337,7 @@ class UIControls {
         playButton.addEventListener('click', () => {
             this.player.midiPlayer.togglePlay();
 
-            // If on mobile and starting playback, collapse controls
+            // If on mobile and starting playback, collapse additional controls
             if (this.player.isMobile && !this.player.midiPlayer.isPlaying) {
                 // We need to wait for togglePlay to update isPlaying
                 setTimeout(() => {

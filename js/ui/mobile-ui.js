@@ -4,112 +4,71 @@
 class MobileUI {
     constructor(player) {
         this.player = player;
-        this.playbackBarEnabled = true; // Default to enabled
+        this.additionalControlsVisible = false; // Additional controls (fingering + notation)
+        this.playbackControlsMinimized = false; // Playback controls minimize state
     }
 
     /**
      * Sets up mobile controls
      */
     setupMobileControls() {
-        // Create or get the toggle button
-        const toggleButton = this.createMobileToggleButton();
-
         // Get control container
         const controlContainer = document.querySelector('.control-container');
 
-        // Create playback bar for mobile
-        this.createMobilePlaybackBar();
-
-        // Set up the initial state (properly connected)
+        // Set up the initial state
         this.updateMobileState();
-        
-        // If playback bar is enabled by default, make sure it's properly set up
-        if (this.playbackBarEnabled) {
-            // Small delay to ensure DOM is ready
-            setTimeout(() => {
-                this.togglePlaybackBar();
-                this.togglePlaybackBar(); // Call twice to end up in enabled state
-            }, 100);
-        }
 
-        // On mobile: always start with controls collapsed
-        if (this.player.isMobile) {
-            this.player.controlsCollapsed = true;
-        } else {
-            this.player.controlsCollapsed = false;
-        }
-
-        // Apply the initial state to both the button and controls
-        this.applyMobileState(toggleButton, controlContainer);
-
-        // Click handler to toggle controls
-        toggleButton.onclick = () => {
-            this.player.controlsCollapsed = !this.player.controlsCollapsed;
-            this.applyMobileState(toggleButton, controlContainer);
-        };
-
-        // Set up click outside to close functionality
-        this.setupClickOutsideHandler(controlContainer);
+        // Create mobile layout
+        this.createMobileLayout();
 
         // Handle screen size changes
-        this.setupScreenChangeHandlers(toggleButton, controlContainer);
-
-        // Initialize playback controls visibility
-        this.updatePlaybackControlsVisibility();
+        this.setupScreenChangeHandlers();
     }
 
     collapseControls() {
         if (this.player.isMobile) {
-            const toggleButton = document.getElementById('control-toggle');
-            const controlContainer = document.querySelector('.control-container');
-
-            this.player.controlsCollapsed = true;
-
-            if (controlContainer) {
-                controlContainer.classList.add('collapsed');
-            }
-
-            if (toggleButton) {
-                toggleButton.classList.remove('open');
-            }
+            this.additionalControlsVisible = false;
+            this.applyMobileState();
         }
     }
 
     /**
-     * Set up click outside handler to close mobile dialog
-     * @param {HTMLElement} controlContainer - The control container
+     * Creates the mobile layout with playback controls always visible
      */
-    setupClickOutsideHandler(controlContainer) {
-        // Add click listener to document to handle clicks outside the dialog
-        document.addEventListener('click', (e) => {
-            // Only handle on mobile when controls are expanded
-            if (!this.player.isMobile || this.player.controlsCollapsed) {
-                return;
-            }
+    createMobileLayout() {
+        if (!this.player.isMobile) return;
 
-            const toggleButton = document.getElementById('control-toggle');
+        const controlContainer = document.querySelector('.control-container');
+        if (!controlContainer) return;
 
-            // Check if click is outside both the control container and toggle button
-            if (!controlContainer.contains(e.target) && !toggleButton.contains(e.target)) {
-                // Close the dialog
-                this.player.controlsCollapsed = true;
-                this.applyMobileState(toggleButton, controlContainer);
-            }
-        });
+        // Create mobile playback bar (always visible)
+        this.createMobilePlaybackBar();
+
+        // Create additional controls container (toggle-able)
+        this.createAdditionalControlsContainer();
+
+        // Set up initial state
+        this.applyMobileState();
     }
 
     /**
-     * Create the hamburger button
+     * Create the hamburger button attached to playback controls
      * @returns {HTMLElement} The mobile toggle button
      */
     createMobileToggleButton() {
-        let toggleButton = document.getElementById('control-toggle');
+        let toggleButton = document.getElementById('mobile-hamburger');
         if (!toggleButton) {
             toggleButton = document.createElement('button');
-            toggleButton.id = 'control-toggle';
-            toggleButton.className = 'control-toggle';
+            toggleButton.id = 'mobile-hamburger';
+            toggleButton.className = 'mobile-hamburger';
             toggleButton.innerHTML = '<span></span><span></span><span></span>';
-            document.body.appendChild(toggleButton);
+            toggleButton.title = 'Toggle additional controls';
+            
+            // Add click handler
+            toggleButton.onclick = () => {
+                this.additionalControlsVisible = !this.additionalControlsVisible;
+                this.applyMobileState();
+            };
         }
         return toggleButton;
     }
@@ -122,127 +81,135 @@ class MobileUI {
         // Check if this is a mobile device
         const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-        // Consider both width and device type
-        this.player.isMobile = isMobileDevice || window.innerWidth <= 768; // Match CSS breakpoint
-
-        // Alternative approach: detect by maximum dimension
+        // Use smaller dimension to determine mobile (handles landscape orientation)
         const smallerDimension = Math.min(window.innerWidth, window.innerHeight);
         const largerDimension = Math.max(window.innerWidth, window.innerHeight);
 
-        // If it's a phone-sized screen in either dimension, treat as mobile
-        if (smallerDimension <= 600 || (isMobileDevice && largerDimension <= 1000)) {
-            this.player.isMobile = true;
-        }
+        // Mobile if:
+        // 1. It's a mobile device by user agent, OR
+        // 2. Smaller dimension is phone-sized (portrait or landscape), OR  
+        // 3. It's clearly a mobile screen size (under 1024px width)
+        this.player.isMobile = isMobileDevice || 
+                               smallerDimension <= 600 || 
+                               window.innerWidth < 1024;
 
         return this.player.isMobile;
     }
 
     /**
      * Apply the current state to the UI elements
-     * @param {HTMLElement} toggleButton - The mobile toggle button
-     * @param {HTMLElement} controlContainer - The control container
      */
-    applyMobileState(toggleButton, controlContainer) {
-        if (!toggleButton || !controlContainer) return;
-
-        // Always show/hide toggle based on mobile status
-        if (this.player.isMobile) {
-            toggleButton.classList.remove('hidden');
-            toggleButton.classList.add('visible');
-        } else {
-            toggleButton.classList.add('hidden');
-            toggleButton.classList.remove('visible');
-        }
-
-        // For desktop: always show controls, never collapsed, hide mobile playback bar
+    applyMobileState() {
         if (!this.player.isMobile) {
-            controlContainer.classList.remove('collapsed');
-            controlContainer.classList.remove('mobile-view');
-
-            // Force disable mobile playback bar on desktop
-            this.playbackBarEnabled = false;
-            
-            // Hide mobile top playback bar on desktop
-            const playbackBar = document.getElementById('mobile-playback-bar');
-            if (playbackBar) {
-                playbackBar.classList.add('hidden');
-            }
-            
-            // Remove mobile body spacing class when switching to desktop
-            document.body.classList.remove('mobile-playback-active');
-            
-            // Ensure playback controls are back in the main control bar on desktop
-            const playbackControls = document.querySelector('.playback-controls');
-            const controlBar = document.querySelector('.control-bar');
-            if (playbackControls && controlBar) {
-                if (!controlBar.contains(playbackControls)) {
-                    controlBar.appendChild(playbackControls);
-                }
-                // Reset all mobile-specific inline styles on desktop
-                playbackControls.style.cssText = 'display: flex;';
-            }
-            
-            // Update the toggle button state if it exists
-            const playbackToggle = document.getElementById('playback-toggle-fingering');
-            if (playbackToggle) {
-                playbackToggle.classList.remove('active');
-            }
-            
+            this.applyDesktopState();
             return;
         }
 
-        // For mobile: handle collapsed state and styling
-        controlContainer.classList.add('mobile-view');
+        // Apply mobile state
+        const playbackBar = document.getElementById('mobile-playback-bar');
+        const additionalControls = document.getElementById('mobile-additional-controls');
+        const hamburgerButton = document.getElementById('mobile-hamburger');
+        const minimizeButton = document.getElementById('mobile-minimize');
 
-        if (this.player.controlsCollapsed) {
-            controlContainer.classList.add('collapsed');
-            toggleButton.classList.remove('open');
-        } else {
-            controlContainer.classList.remove('collapsed');
-            toggleButton.classList.add('open');
+        // Show/hide additional controls
+        if (additionalControls) {
+            if (this.additionalControlsVisible) {
+                additionalControls.classList.remove('hidden');
+                additionalControls.classList.add('visible');
+            } else {
+                additionalControls.classList.add('hidden');
+                additionalControls.classList.remove('visible');
+            }
         }
 
-        // Update mobile playback bar visibility based on toggle state
-        const playbackBar = document.getElementById('mobile-playback-bar');
+        // Update hamburger button state
+        if (hamburgerButton) {
+            hamburgerButton.classList.toggle('open', this.additionalControlsVisible);
+        }
+
+        // Handle playback controls minimize state
         if (playbackBar) {
-            if (this.playbackBarEnabled) {
-                playbackBar.classList.remove('hidden');
-                controlContainer.classList.add('with-top-playback');
-                // Add body class for mobile spacing
-                document.body.classList.add('mobile-playback-active');
-            } else {
-                playbackBar.classList.add('hidden');
-                controlContainer.classList.remove('with-top-playback');
-                // Remove body class to restore normal spacing
+            if (this.playbackControlsMinimized) {
+                playbackBar.classList.add('minimized');
                 document.body.classList.remove('mobile-playback-active');
+            } else {
+                playbackBar.classList.remove('minimized');
+                document.body.classList.add('mobile-playback-active');
             }
+        }
+
+        // Update minimize button state
+        if (minimizeButton) {
+            minimizeButton.classList.toggle('active', this.playbackControlsMinimized);
+            // Update button text based on minimized state
+            minimizeButton.innerHTML = this.playbackControlsMinimized ? '+' : '−';
         }
     }
 
     /**
-         * Set up handlers for screen size/orientation changes
-         * @param {HTMLElement} toggleButton - The mobile toggle button
-         * @param {HTMLElement} controlContainer - The control container
-         */
-    setupScreenChangeHandlers(toggleButton, controlContainer) {
+     * Apply desktop state
+     */
+    applyDesktopState() {
+        // Hide mobile elements
+        const playbackBar = document.getElementById('mobile-playback-bar');
+        const additionalControls = document.getElementById('mobile-additional-controls');
+        
+        if (playbackBar) {
+            playbackBar.classList.add('hidden');
+        }
+        if (additionalControls) {
+            additionalControls.classList.add('hidden');
+        }
+        
+        // Remove mobile body class
+        document.body.classList.remove('mobile-playback-active');
+        
+        // Ensure controls are in main control bar
+        const controlBar = document.querySelector('.control-bar');
+        const playbackControls = document.querySelector('.playback-controls');
+        const fingeringControls = document.querySelector('.fingering-controls');
+        const notationControls = document.querySelector('.notation-controls');
+        
+        if (controlBar) {
+            if (playbackControls && !controlBar.contains(playbackControls)) {
+                controlBar.appendChild(playbackControls);
+            }
+            if (fingeringControls && !controlBar.contains(fingeringControls)) {
+                controlBar.appendChild(fingeringControls);
+            }
+            if (notationControls && !controlBar.contains(notationControls)) {
+                controlBar.appendChild(notationControls);
+            }
+        }
+        
+        // Reset mobile-specific styles
+        if (playbackControls) {
+            playbackControls.style.cssText = '';
+        }
+    }
+
+    /**
+     * Set up handlers for screen size/orientation changes
+     */
+    setupScreenChangeHandlers() {
         // Handle window resize
         window.addEventListener('resize', () => {
             const wasMobile = this.player.isMobile;
             this.updateMobileState();
 
-            // If transitioning between mobile/desktop, reset collapsed state appropriately
+            // If transitioning between mobile/desktop, recreate layout
             if (wasMobile !== this.player.isMobile) {
-                this.player.controlsCollapsed = this.player.isMobile;
+                this.createMobileLayout();
             }
 
-            this.applyMobileState(toggleButton, controlContainer);
+            this.applyMobileState();
         });
 
         // Handle orientation changes specifically
         window.addEventListener('orientationchange', () => {
             setTimeout(() => {
                 this.updateMobileState();
-                this.applyMobileState(toggleButton, controlContainer);
+                this.applyMobileState();
             }, 100);
         });
     }
@@ -251,156 +218,102 @@ class MobileUI {
      * Creates the mobile playback bar container
      */
     createMobilePlaybackBar() {
+        if (!this.player.isMobile) return;
+
         let playbackBar = document.getElementById('mobile-playback-bar');
 
         if (!playbackBar) {
             playbackBar = document.createElement('div');
             playbackBar.id = 'mobile-playback-bar';
-            playbackBar.className = 'mobile-playback-bar hidden';
+            playbackBar.className = 'mobile-playback-bar';
             document.body.appendChild(playbackBar);
         }
+
+        // Move playback controls to the bar
+        const playbackControls = document.querySelector('.playback-controls');
+        if (playbackControls && !playbackBar.contains(playbackControls)) {
+            playbackBar.appendChild(playbackControls);
+        }
+
+        // Add hamburger button to playback bar
+        const hamburgerButton = this.createMobileToggleButton();
+        if (!playbackBar.contains(hamburgerButton)) {
+            playbackBar.appendChild(hamburgerButton);
+        }
+
+        // Add minimize button to playback bar
+        const minimizeButton = this.createMinimizeButton();
+        if (!playbackBar.contains(minimizeButton)) {
+            playbackBar.appendChild(minimizeButton);
+        }
+
         return playbackBar;
     }
 
     /**
-     * Creates playback toggle for mobile popup
-     * @returns {HTMLElement} The playback toggle container
+     * Creates additional controls container
      */
-    createPlaybackToggle() {
-        const toggleSwitch = document.createElement('button');
-        toggleSwitch.id = 'playback-toggle';
-        toggleSwitch.className = 'toggle-switch';
-        toggleSwitch.textContent = 'Playback';
-        toggleSwitch.title = 'Show/hide permanent playback controls';
+    createAdditionalControlsContainer() {
+        if (!this.player.isMobile) return;
 
-        if (this.playbackBarEnabled) {
-            toggleSwitch.classList.add('active');
+        let additionalControls = document.getElementById('mobile-additional-controls');
+
+        if (!additionalControls) {
+            additionalControls = document.createElement('div');
+            additionalControls.id = 'mobile-additional-controls';
+            additionalControls.className = 'mobile-additional-controls hidden';
+            document.body.appendChild(additionalControls);
         }
 
-        toggleSwitch.addEventListener('click', () => {
-            this.togglePlaybackBar();
-        });
+        // Move fingering and notation controls to additional controls
+        const fingeringControls = document.querySelector('.fingering-controls');
+        const notationControls = document.querySelector('.notation-controls');
 
-        return toggleSwitch;
+        if (fingeringControls && !additionalControls.contains(fingeringControls)) {
+            additionalControls.appendChild(fingeringControls);
+        }
+        if (notationControls && !additionalControls.contains(notationControls)) {
+            additionalControls.appendChild(notationControls);
+        }
+
+        return additionalControls;
     }
 
     /**
-     * Toggles the playback bar visibility and moves controls
+     * Creates minimize button for playback controls
+     * @returns {HTMLElement} The minimize button
      */
-    togglePlaybackBar() {
-        this.playbackBarEnabled = !this.playbackBarEnabled;
-
-        const toggleSwitch = document.getElementById('playback-toggle');
-        if (toggleSwitch) {
-            toggleSwitch.classList.toggle('active', this.playbackBarEnabled);
-        }
-
-        let playbackBar = document.getElementById('mobile-playback-bar');
-
-        // If not found, try to create it
-        if (!playbackBar) {
-            playbackBar = this.createMobilePlaybackBar();
-        }
-
-        const playbackControls = document.querySelector('.playback-controls');
-
-        if (this.playbackBarEnabled) {
-            // Show playback bar and move controls there
-            if (playbackBar) {
-                playbackBar.classList.remove('hidden');
-                // Force the bar itself to be visible at the top
-                playbackBar.style.cssText = 'position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; background-color: #f8f8f8 !important; border-bottom: 1px solid #ddd !important; box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important; z-index: 1000 !important; height: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; transform: translateY(0) !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; padding: 0 !important;';
-            }
+    createMinimizeButton() {
+        let minimizeButton = document.getElementById('mobile-minimize');
+        if (!minimizeButton) {
+            minimizeButton = document.createElement('button');
+            minimizeButton.id = 'mobile-minimize';
+            minimizeButton.className = 'mobile-minimize';
+            minimizeButton.innerHTML = '−';
+            minimizeButton.title = 'Minimize playback controls';
             
-            // Add class to body to push content down
-            document.body.classList.add('mobile-playback-active');
-            if (playbackControls) {
-                // Move to top bar and force visibility with aggressive styling
-                playbackBar.appendChild(playbackControls);
-
-                // Force visibility with explicit dimensions (this worked before)
-                playbackControls.style.cssText = 'display: flex !important; visibility: visible !important; opacity: 1 !important; position: relative !important; width: 100% !important; height: auto !important; flex-wrap: nowrap !important; justify-content: space-between !important; align-items: center !important; gap: 6px !important; margin: 0 !important; padding: 8px 15px !important; background-color: transparent !important;';
-
-                // Force visibility on all child elements  
-                const buttons = playbackControls.querySelectorAll('button, div, input, span');
-                buttons.forEach(element => {
-                    if (element.tagName === 'BUTTON') {
-                        // Don't override our special toggle buttons - just make them visible
-                        if (element.id === 'chords-toggle' || element.id === 'voices-toggle' || element.id === 'metronome-toggle') {
-                            element.style.cssText = (element.style.cssText.split(';').filter(style => 
-                                !style.includes('display') && !style.includes('visibility') && !style.includes('opacity')
-                            ).join(';') + '; display: inline-block !important; visibility: visible !important; opacity: 1 !important;').replace(/^;\s*/, '');
-                        } else {
-                            element.style.cssText = 'display: inline-block !important; visibility: visible !important; opacity: 1 !important; width: auto !important; height: auto !important; padding: 6px 10px !important; margin: 2px !important; background-color: #f8f8f8 !important; color: #333 !important; border: 1px solid #ddd !important; border-radius: 4px !important; font-size: 12px !important;';
-                        }
-                    } else if (element.classList.contains('tempo-control')) {
-                        element.style.cssText = 'display: flex !important; visibility: visible !important; opacity: 1 !important; align-items: center !important; gap: 5px !important; margin: 0 5px !important; flex: 1 1 auto !important; min-width: 150px !important;';
-                    } else if (element.id === 'tempo-slider') {
-                        element.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important; flex: 1 1 auto !important; min-width: 80px !important;';
-                    } else {
-                        element.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important;';
-                    }
-                });
-
-                // Reapply our custom button styles after mobile UI manipulation
-                setTimeout(() => {
-                    if (this.player.uiControls && this.player.uiControls.reapplyAllToggleButtonStyles) {
-                        this.player.uiControls.reapplyAllToggleButtonStyles();
-                    }
-                }, 150);
-
-            }
-        } else {
-            // Hide top playback bar
-            if (playbackBar) {
-                playbackBar.classList.add('hidden');
-            }
-            
-            // Remove class from body to restore original spacing
-            document.body.classList.remove('mobile-playback-active');
-            if (playbackControls) {
-                // Move controls back
-                const controlBar = document.querySelector('.control-bar');
-                if (controlBar) {
-                    controlBar.appendChild(playbackControls);
-                    // Only hide on mobile, not on desktop
-                    if (this.player.isMobile) {
-                        playbackControls.style.display = 'none';
-                    } else {
-                        playbackControls.style.display = 'flex';
-                    }
-                }
-            }
+            // Add click handler
+            minimizeButton.onclick = () => {
+                this.playbackControlsMinimized = !this.playbackControlsMinimized;
+                this.applyMobileState();
+            };
         }
+        return minimizeButton;
     }
 
     /**
-     * Updates playback controls visibility in mobile popup
+     * Gets whether additional controls are visible
+     * @returns {boolean} Whether additional controls are visible
      */
-    updatePlaybackControlsVisibility() {
-        const playbackControls = document.querySelector('.playback-controls');
-
-        if (playbackControls) {
-            if (this.player.isMobile) {
-                // On mobile: hide in popup only if not in bottom bar
-                if (!this.playbackBarEnabled) {
-                    playbackControls.style.display = 'none';
-                } else {
-                    // Show when in bottom bar
-                    playbackControls.style.display = '';
-                }
-            } else {
-                // On desktop: always show playback controls
-                playbackControls.style.display = 'flex';
-            }
-        }
+    areAdditionalControlsVisible() {
+        return this.additionalControlsVisible;
     }
 
     /**
-     * Gets whether playback bar is enabled
-     * @returns {boolean} Whether playback bar is enabled
+     * Gets whether playback controls are minimized
+     * @returns {boolean} Whether playback controls are minimized
      */
-    isPlaybackBarEnabled() {
-        return this.playbackBarEnabled;
+    arePlaybackControlsMinimized() {
+        return this.playbackControlsMinimized;
     }
 }

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a browser-based web application for displaying and playing ABC music notation for recorder music, including fingering diagrams.
 
 ## Running the Application
-- The development server is usually already running at http://localhost:8000/Recorder - check first before starting another
+- The development server is already running at http://localhost:8000/Recorder
 - Update ABC and docs file lists: `python3 scripts/update_data.py`
 
 ## Code Style Guidelines
@@ -24,3 +24,6 @@ This is a browser-based web application for displaying and playing ABC music not
 ## MCP Server Usage
 - Use the Context7 MCP server (mcp__context7__*) when working with external libraries or frameworks to get up-to-date documentation and examples
 - This helps ensure compatibility and follows best practices for third-party dependencies
+
+## Mobile Testing
+- When testing mobile, test for landscape in pixel 7a (915x412) and pixel 4a (393x851)

@@ -53,9 +53,8 @@ class AbcPlayer {
 
         this.shareManager = new ShareManager(this);
 
-        // Handle mobile control toggle
+        // Mobile detection is now handled by MobileUI class
         this.isMobile = window.innerWidth <= 768;
-        this.controlsCollapsed = this.isMobile; // Start collapsed on mobile
     }
 
     /**
