@@ -3,7 +3,10 @@ class SettingsManager {
         this.storageKey = 'abc-player-settings';
         this.defaults = {
             fingeringVisible: true,
-            fingeringStyle: 'baroque'
+            fingeringStyle: 'baroque',
+            voicesOn: true,
+            chordsOn: false,
+            metronomeOn: true
         };
         this.settings = {};
         this.urlParams = {};
@@ -48,6 +51,24 @@ class SettingsManager {
         const style = params.get('style');
         if (style === 'baroque' || style === 'german') {
             this.urlParams.fingeringStyle = style;
+        }
+        
+        // Parse voices setting
+        const voices = params.get('voices');
+        if (voices === 'on' || voices === 'off') {
+            this.urlParams.voicesOn = voices === 'on';
+        }
+        
+        // Parse chords setting
+        const chords = params.get('chords');
+        if (chords === 'on' || chords === 'off') {
+            this.urlParams.chordsOn = chords === 'on';
+        }
+        
+        // Parse metronome setting
+        const metronome = params.get('metronome');
+        if (metronome === 'on' || metronome === 'off') {
+            this.urlParams.metronomeOn = metronome === 'on';
         }
     }
     

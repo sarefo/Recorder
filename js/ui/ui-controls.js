@@ -378,8 +378,8 @@ class UIControls {
         chordsToggle.title = 'Toggle Chords';
         chordsToggle.textContent = 'Chords';
         
-        // Set initial active state (chords are OFF by default)
-        this.setButtonActiveState(chordsToggle, false);
+        // Set initial active state from settings
+        this.setButtonActiveState(chordsToggle, this.player.midiPlayer.playbackSettings.chordsOn);
 
         chordsToggle.addEventListener('click', async () => {
             const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
@@ -387,6 +387,9 @@ class UIControls {
                 this.player.renderManager.currentVisualObj
             );
 
+            // Save to settings manager
+            this.player.settingsManager.set('chordsOn', newSettings.chordsOn);
+            
             this.setButtonActiveState(chordsToggle, newSettings.chordsOn);
             this.checkConstantMetronomeMode();
         });
@@ -404,8 +407,8 @@ class UIControls {
         voicesToggle.title = 'Toggle Voices';
         voicesToggle.textContent = 'Voices';
         
-        // Set initial active state (voices are OFF by default)
-        this.setButtonActiveState(voicesToggle, false);
+        // Set initial active state from settings
+        this.setButtonActiveState(voicesToggle, this.player.midiPlayer.playbackSettings.voicesOn);
 
         voicesToggle.addEventListener('click', async () => {
             const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
@@ -413,6 +416,9 @@ class UIControls {
                 this.player.renderManager.currentVisualObj
             );
 
+            // Save to settings manager
+            this.player.settingsManager.set('voicesOn', newSettings.voicesOn);
+            
             this.setButtonActiveState(voicesToggle, newSettings.voicesOn);
             this.checkConstantMetronomeMode();
         });
@@ -430,8 +436,8 @@ class UIControls {
         metronomeToggle.title = 'Toggle Metronome';
         metronomeToggle.textContent = 'Metronome';
         
-        // Set initial active state (metronome is ON by default)
-        this.setButtonActiveState(metronomeToggle, true);
+        // Set initial active state from settings
+        this.setButtonActiveState(metronomeToggle, this.player.midiPlayer.playbackSettings.metronomeOn);
 
         metronomeToggle.addEventListener('click', async () => {
             const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
@@ -439,6 +445,9 @@ class UIControls {
                 this.player.renderManager.currentVisualObj
             );
 
+            // Save to settings manager
+            this.player.settingsManager.set('metronomeOn', newSettings.metronomeOn);
+            
             this.setButtonActiveState(metronomeToggle, newSettings.metronomeOn);
         });
 
@@ -963,6 +972,29 @@ class UIControls {
         if (systemButton) {
             const currentSystem = this.player.fingeringManager.currentFingeringSystem;
             systemButton.textContent = currentSystem === 'baroque' ? 'Baroque' : 'German';
+        }
+    }
+
+    /**
+     * Updates playback buttons to reflect current settings
+     */
+    updatePlaybackButtons() {
+        // Update chords toggle button
+        const chordsButton = document.getElementById('chords-toggle');
+        if (chordsButton) {
+            this.setButtonActiveState(chordsButton, this.player.midiPlayer.playbackSettings.chordsOn);
+        }
+
+        // Update voices toggle button
+        const voicesButton = document.getElementById('voices-toggle');
+        if (voicesButton) {
+            this.setButtonActiveState(voicesButton, this.player.midiPlayer.playbackSettings.voicesOn);
+        }
+
+        // Update metronome toggle button
+        const metronomeButton = document.getElementById('metronome-toggle');
+        if (metronomeButton) {
+            this.setButtonActiveState(metronomeButton, this.player.midiPlayer.playbackSettings.metronomeOn);
         }
     }
 

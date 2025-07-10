@@ -226,6 +226,8 @@ class AbcPlayer {
      */
     initializeEventListeners() {
         window.addEventListener('DOMContentLoaded', () => {
+            // Apply initial settings first, before creating UI controls
+            this.applyInitialSettings();
             this.uiControls.createControlElements();
             this.initializeApplication();
             this.setupKeyboardShortcuts();
@@ -241,9 +243,6 @@ class AbcPlayer {
     initializeApplication() {
         // Set initial state of reference row
         document.getElementById('reference-row').classList.add('hidden');
-
-        // Apply initial settings
-        this.applyInitialSettings();
 
         // Initialize the application
         this.render();
@@ -333,7 +332,13 @@ class AbcPlayer {
         const fingeringStyle = this.settingsManager.get('fingeringStyle');
         this.fingeringManager.setFingeringSystem(fingeringStyle);
         
+        // Set playback settings
+        this.midiPlayer.playbackSettings.voicesOn = this.settingsManager.get('voicesOn');
+        this.midiPlayer.playbackSettings.chordsOn = this.settingsManager.get('chordsOn');
+        this.midiPlayer.playbackSettings.metronomeOn = this.settingsManager.get('metronomeOn');
+        
         // Update UI to reflect initial settings
         this.uiControls.updateFingeringButtons();
+        this.uiControls.updatePlaybackButtons();
     }
 }
