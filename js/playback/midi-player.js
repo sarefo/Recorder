@@ -71,7 +71,7 @@ class MidiPlayer {
     * Updates metronome settings based on visual object data
     * @param {Object} visualObj - The ABC visual object
     */
-    updateMetronome(visualObj) {
+    async updateMetronome(visualObj) {
         // Extract time signature from the visual object
         const timeSignature = visualObj.getMeter();
         const numerator = timeSignature?.value?.[0]?.num || 4;
@@ -89,7 +89,7 @@ class MidiPlayer {
             this.customMetronome.setTimeSignature(numerator);
             // Only update tempo if it's different to avoid unnecessary restarts
             if (this.customMetronome.tempo !== adjustedTempo) {
-                this.customMetronome.setTempo(adjustedTempo);
+                await this.customMetronome.setTempo(adjustedTempo);
             }
         } else {
             // Always update the metronome's internal tempo value when not playing
@@ -179,7 +179,7 @@ class MidiPlayer {
             });
 
             // Update metronome with the current time signature and tempo from the visual object
-            this.updateMetronome(visualObj);
+            await this.updateMetronome(visualObj);
 
             // Load and prepare the synth
             await this.midiPlayer.prime();
@@ -253,10 +253,7 @@ class MidiPlayer {
      */
     async startPlayback() {
         try {
-            await this.midiPlayer.start();
-            this.updateStatusDisplay("Playing");
-
-            // Ensure metronome is started with correct settings if enabled
+            // Start metronome BEFORE starting MIDI player to ensure synchronization
             if (this.playbackSettings.metronomeOn && !this.customMetronome.isPlaying) {
                 // Always get the current visual object to ensure we have the latest tempo
                 const visualObj = window.app?.renderManager?.currentVisualObj;
@@ -274,12 +271,16 @@ class MidiPlayer {
                     this.lastTimeSignature = numerator;
                     
                     // Start with the correct tempo
-                    this.customMetronome.start(adjustedTempo, numerator);
+                    await this.customMetronome.start(adjustedTempo, numerator);
                 } else {
                     // Fallback to saved values
-                    this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
+                    await this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
                 }
             }
+
+            // Start MIDI player after metronome is synchronized
+            await this.midiPlayer.start();
+            this.updateStatusDisplay("Playing");
 
             return true;
         } catch (error) {
@@ -335,29 +336,36 @@ class MidiPlayer {
                     if (visualObj) {
                         const baseTempo = visualObj.getBpm() || 120;
                         const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
-                        const timeSignature = visualObj.getTimeSignature() || { num: 4, den: 4 };
+                        const timeSignature = visualObj.getMeter();
+                        const numerator = timeSignature?.value?.[0]?.num || 4;
                         
-                        this.customMetronome.start(adjustedTempo, timeSignature.num);
+                        await this.customMetronome.start(adjustedTempo, numerator);
                         this.isPlaying = true;
                         this.updatePlayButtonState();
                         success = true;
                     } else {
                         // Fallback to default tempo if no visual object
-                        this.customMetronome.start(120, 4);
+                        await this.customMetronome.start(120, 4);
                         this.isPlaying = true;
                         this.updatePlayButtonState();
                         success = true;
                     }
                 } else {
-                    // Normal playback mode
-                    success = await this.startPlayback();
-
-                    // Note: Metronome is already started by startPlayback() if needed
-
-                    if (success) {
-                        this.isPlaying = true;
-                        this.updatePlayButtonState();
+                    // Normal playback mode - ensure proper initialization first
+                    // Check if MIDI player needs initialization
+                    const visualObj = window.app?.renderManager?.currentVisualObj;
+                    if (!this.midiPlayer || !visualObj) {
+                        this.updateStatusDisplay("MIDI player not ready");
+                        return false;
                     }
+                    
+                    // Ensure MIDI player is initialized
+                    if (!this.midiPlayer.synth) {
+                        await this.init(visualObj);
+                    }
+                    
+                    // Now use restart logic for reliable sync
+                    success = await this.restart();
                 }
             }
 
@@ -427,11 +435,7 @@ class MidiPlayer {
                 this.isPlaying = true;
                 this.updatePlayButtonState();
 
-                // Restart metronome if enabled
-                if (this.playbackSettings.metronomeOn) {
-                    this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
-                }
-
+                // Note: Metronome is already started by startPlayback() if enabled
                 this.updateStatusDisplay("Playback restarted");
             }
 

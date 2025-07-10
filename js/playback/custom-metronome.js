@@ -96,7 +96,7 @@ class CustomMetronome {
      * @param {number} bpm - Tempo in beats per minute
      * @param {number} timeSignatureNumerator - Top number of time signature (e.g., 4 in 4/4)
      */
-    start(bpm, timeSignatureNumerator = 4) {
+    async start(bpm, timeSignatureNumerator = 4) {
         if (this.isPlaying) return;
 
         this.init();
@@ -105,12 +105,12 @@ class CustomMetronome {
         this.isPlaying = true;
         this.currentBeat = 0;
 
-        // Resume audio context if it was suspended
+        // Resume audio context if it was suspended and wait for it to be ready
         if (this.audioContext.state === 'suspended') {
-            this.audioContext.resume();
+            await this.audioContext.resume();
         }
 
-        // Start scheduling from current time
+        // Start scheduling from current time (after audio context is ready)
         this.nextNoteTime = this.audioContext.currentTime;
 
         // Start scheduler interval
@@ -131,13 +131,13 @@ class CustomMetronome {
      * Set the tempo
      * @param {number} bpm - Tempo in beats per minute
      */
-    setTempo(bpm) {
+    async setTempo(bpm) {
         this.tempo = bpm;
 
         // If already playing, restart with new tempo
         if (this.isPlaying) {
             this.stop();
-            this.start(bpm, this.beatsPerMeasure);
+            await this.start(bpm, this.beatsPerMeasure);
         }
     }
 

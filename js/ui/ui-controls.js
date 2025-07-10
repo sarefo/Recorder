@@ -338,17 +338,12 @@ class UIControls {
         playButton.title = 'Play/Pause';
         playButton.textContent = '▶';
 
-        playButton.addEventListener('click', () => {
-            this.player.midiPlayer.togglePlay();
+        playButton.addEventListener('click', async () => {
+            await this.player.midiPlayer.togglePlay();
 
             // If on mobile and starting playback, collapse additional controls
-            if (this.player.isMobile && !this.player.midiPlayer.isPlaying) {
-                // We need to wait for togglePlay to update isPlaying
-                setTimeout(() => {
-                    if (this.player.midiPlayer.isPlaying) {
-                        this.player.mobileUI.collapseControls();
-                    }
-                }, 50);
+            if (this.player.isMobile && this.player.midiPlayer.isPlaying) {
+                this.player.mobileUI.collapseControls();
             }
         });
 
@@ -557,7 +552,7 @@ class UIControls {
             if (this.player.midiPlayer.playbackSettings.metronomeOn &&
                 this.player.midiPlayer.customMetronome.isPlaying) {
 
-                this.player.midiPlayer.customMetronome.setTempo(
+                await this.player.midiPlayer.customMetronome.setTempo(
                     this.player.midiPlayer.lastTempo
                 );
             }
