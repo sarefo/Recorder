@@ -117,6 +117,10 @@ class UIControls {
         const systemToggle = document.createElement('button');
         systemToggle.id = 'system-toggle';
         systemToggle.title = 'Toggle Baroque/German Fingering';
+        
+        // Set initial text content based on current system
+        const currentSystem = this.player.fingeringManager.currentFingeringSystem;
+        systemToggle.textContent = currentSystem === 'baroque' ? 'Baroque' : 'German';
 
         systemToggle.addEventListener('click', () => {
             const newSystem = this.player.toggleFingeringSystem();
