@@ -467,6 +467,16 @@ class FingeringManager {
     }
 
     /**
+     * Sets the fingering system to a specific type
+     * @param {string} system - The fingering system ('baroque' or 'german')
+     */
+    setFingeringSystem(system) {
+        if (system === 'baroque' || system === 'german') {
+            this.currentFingeringSystem = system;
+        }
+    }
+
+    /**
      * Clears all fingering diagrams from the display
      */
     clearFingeringDiagrams() {

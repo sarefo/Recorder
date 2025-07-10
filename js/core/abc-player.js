@@ -31,6 +31,9 @@ class AbcPlayer {
             noteMarkingHeight: 80,
         };
 
+        // Initialize settings manager first
+        this.settingsManager = new SettingsManager();
+        
         // Initialize sub-modules
         this.notationParser = new NotationParser();
         this.tuneManager = new TuneManager(this);
@@ -161,6 +164,7 @@ class AbcPlayer {
      */
     toggleFingeringSystem() {
         const newSystem = this.fingeringManager.toggleFingeringSystem();
+        this.settingsManager.set('fingeringStyle', newSystem);
         this.render();
         // Update the reference row
         this.fingeringManager.populateReferenceRow();
@@ -173,6 +177,7 @@ class AbcPlayer {
      */
     toggleFingeringDisplay() {
         this.fingeringManager.showFingering = !this.fingeringManager.showFingering;
+        this.settingsManager.set('fingeringVisible', this.fingeringManager.showFingering);
 
         if (this.fingeringManager.showFingering) {
             this.showFingeringDiagrams();
@@ -237,6 +242,9 @@ class AbcPlayer {
     initializeApplication() {
         // Set initial state of reference row
         document.getElementById('reference-row').classList.add('hidden');
+
+        // Apply initial settings
+        this.applyInitialSettings();
 
         // Initialize the application
         this.render();
@@ -313,5 +321,20 @@ class AbcPlayer {
                 }
             }
         }, 300)); // Increased debounce time for full re-render operations
+    }
+
+    /**
+     * Applies initial settings from SettingsManager
+     */
+    applyInitialSettings() {
+        // Set fingering visibility
+        this.fingeringManager.showFingering = this.settingsManager.get('fingeringVisible');
+        
+        // Set fingering style
+        const fingeringStyle = this.settingsManager.get('fingeringStyle');
+        this.fingeringManager.setFingeringSystem(fingeringStyle);
+        
+        // Update UI to reflect initial settings
+        this.uiControls.updateFingeringButtons();
     }
 }

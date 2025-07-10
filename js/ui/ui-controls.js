@@ -104,7 +104,6 @@ class UIControls {
         fingeringDisplayToggle.id = 'show-fingering';
         fingeringDisplayToggle.textContent = 'Fingering';
         fingeringDisplayToggle.title = 'Show/hide fingering diagrams';
-        // Start as inactive since fingering is disabled by default
 
         fingeringDisplayToggle.addEventListener('click', () => {
             const showFingering = this.player.toggleFingeringDisplay();
@@ -122,7 +121,6 @@ class UIControls {
         const systemToggle = document.createElement('button');
         systemToggle.id = 'system-toggle';
         systemToggle.title = 'Toggle Baroque/German Fingering';
-        systemToggle.textContent = 'German';
 
         systemToggle.addEventListener('click', () => {
             const newSystem = this.player.toggleFingeringSystem();
@@ -1000,6 +998,24 @@ class UIControls {
                     }, 100);
                 }
             });
+        }
+    }
+
+    /**
+     * Updates fingering buttons to reflect current settings
+     */
+    updateFingeringButtons() {
+        // Update fingering visibility button
+        const fingeringButton = document.getElementById('show-fingering');
+        if (fingeringButton) {
+            fingeringButton.classList.toggle('active', this.player.fingeringManager.showFingering);
+        }
+
+        // Update fingering system button
+        const systemButton = document.getElementById('system-toggle');
+        if (systemButton) {
+            const currentSystem = this.player.fingeringManager.currentFingeringSystem;
+            systemButton.textContent = currentSystem === 'baroque' ? 'Baroque' : 'German';
         }
     }
 
