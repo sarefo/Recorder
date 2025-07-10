@@ -386,16 +386,30 @@ class UIControls {
         this.setButtonActiveState(chordsToggle, this.player.midiPlayer.playbackSettings.chordsOn);
 
         chordsToggle.addEventListener('click', async () => {
-            const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
-                { chordsOn: !this.player.midiPlayer.playbackSettings.chordsOn },
-                this.player.renderManager.currentVisualObj
-            );
-
-            // Save to settings manager
-            this.player.settingsManager.set('chordsOn', newSettings.chordsOn);
+            // Immediately update button state and settings for responsive UI
+            const newChordsState = !this.player.midiPlayer.playbackSettings.chordsOn;
+            this.player.midiPlayer.playbackSettings.chordsOn = newChordsState;
+            this.setButtonActiveState(chordsToggle, newChordsState);
             
-            this.setButtonActiveState(chordsToggle, newSettings.chordsOn);
-            this.checkConstantMetronomeMode();
+            // Update settings in background
+            try {
+                const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
+                    { chordsOn: newChordsState },
+                    this.player.renderManager.currentVisualObj
+                );
+
+                // Save to settings manager
+                this.player.settingsManager.set('chordsOn', newSettings.chordsOn);
+                
+                // Ensure button state matches final result (in case of error)
+                this.setButtonActiveState(chordsToggle, newSettings.chordsOn);
+                this.checkConstantMetronomeMode();
+            } catch (error) {
+                console.error('Error updating chords setting:', error);
+                // Revert button state and settings on error
+                this.player.midiPlayer.playbackSettings.chordsOn = !newChordsState;
+                this.setButtonActiveState(chordsToggle, !newChordsState);
+            }
         });
 
         return chordsToggle;
@@ -415,16 +429,30 @@ class UIControls {
         this.setButtonActiveState(voicesToggle, this.player.midiPlayer.playbackSettings.voicesOn);
 
         voicesToggle.addEventListener('click', async () => {
-            const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
-                { voicesOn: !this.player.midiPlayer.playbackSettings.voicesOn },
-                this.player.renderManager.currentVisualObj
-            );
-
-            // Save to settings manager
-            this.player.settingsManager.set('voicesOn', newSettings.voicesOn);
+            // Immediately update button state and settings for responsive UI
+            const newVoicesState = !this.player.midiPlayer.playbackSettings.voicesOn;
+            this.player.midiPlayer.playbackSettings.voicesOn = newVoicesState;
+            this.setButtonActiveState(voicesToggle, newVoicesState);
             
-            this.setButtonActiveState(voicesToggle, newSettings.voicesOn);
-            this.checkConstantMetronomeMode();
+            // Update settings in background
+            try {
+                const newSettings = await this.player.midiPlayer.updatePlaybackSettings(
+                    { voicesOn: newVoicesState },
+                    this.player.renderManager.currentVisualObj
+                );
+
+                // Save to settings manager
+                this.player.settingsManager.set('voicesOn', newSettings.voicesOn);
+                
+                // Ensure button state matches final result (in case of error)
+                this.setButtonActiveState(voicesToggle, newSettings.voicesOn);
+                this.checkConstantMetronomeMode();
+            } catch (error) {
+                console.error('Error updating voices setting:', error);
+                // Revert button state and settings on error
+                this.player.midiPlayer.playbackSettings.voicesOn = !newVoicesState;
+                this.setButtonActiveState(voicesToggle, !newVoicesState);
+            }
         });
 
         return voicesToggle;
@@ -849,6 +877,11 @@ class UIControls {
         // Store the active state on the button for later reference
         button.dataset.isActive = isActive.toString();
         
+        // Clear any existing timeout for this button
+        if (button._styleTimeout) {
+            clearTimeout(button._styleTimeout);
+        }
+        
         // Common base styles for all states to ensure consistent sizing
         const baseStyles = `
             padding: 6px 10px !important;
@@ -881,7 +914,7 @@ class UIControls {
         }
         
         // Force reapply styles after a short delay to override mobile UI interference
-        setTimeout(() => this.reapplyButtonStyles(button), 100);
+        button._styleTimeout = setTimeout(() => this.reapplyButtonStyles(button), 100);
     }
 
     /**
@@ -889,7 +922,7 @@ class UIControls {
      * @param {HTMLElement} button - The button element
      */
     reapplyButtonStyles(button) {
-        if (!button.dataset.isActive) return;
+        if (button.dataset.isActive === undefined) return;
         
         const isActive = button.dataset.isActive === 'true';
         this.setButtonActiveState(button, isActive);
