@@ -300,26 +300,64 @@ class MidiPlayer {
             }
 
             let success;
+            
+            // Check if we're in constant metronome mode (only metronome enabled)
+            const isConstantMetronomeMode = this.customMetronome.isConstantMode() && 
+                                           this.playbackSettings.metronomeOn && 
+                                           !this.playbackSettings.chordsOn && 
+                                           !this.playbackSettings.voicesOn;
+            
             if (this.isPlaying) {
-                success = await this.pausePlayback();
-
-                // Stop metronome if it's on (always stop when pausing playback)
-                if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying) {
+                if (isConstantMetronomeMode) {
+                    // In constant mode, only stop the metronome
                     this.customMetronome.stop();
-                }
-
-                if (success) {
                     this.isPlaying = false;
                     this.updatePlayButtonState();
+                    success = true;
+                } else {
+                    // Normal playback mode
+                    success = await this.pausePlayback();
+
+                    // Stop metronome if it's on (always stop when pausing playback)
+                    if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying) {
+                        this.customMetronome.stop();
+                    }
+
+                    if (success) {
+                        this.isPlaying = false;
+                        this.updatePlayButtonState();
+                    }
                 }
             } else {
-                success = await this.startPlayback();
+                if (isConstantMetronomeMode) {
+                    // In constant mode, only start the metronome
+                    const visualObj = window.app?.renderManager?.currentVisualObj;
+                    if (visualObj) {
+                        const baseTempo = visualObj.getBpm() || 120;
+                        const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
+                        const timeSignature = visualObj.getTimeSignature() || { num: 4, den: 4 };
+                        
+                        this.customMetronome.start(adjustedTempo, timeSignature.num);
+                        this.isPlaying = true;
+                        this.updatePlayButtonState();
+                        success = true;
+                    } else {
+                        // Fallback to default tempo if no visual object
+                        this.customMetronome.start(120, 4);
+                        this.isPlaying = true;
+                        this.updatePlayButtonState();
+                        success = true;
+                    }
+                } else {
+                    // Normal playback mode
+                    success = await this.startPlayback();
 
-                // Note: Metronome is already started by startPlayback() if needed
+                    // Note: Metronome is already started by startPlayback() if needed
 
-                if (success) {
-                    this.isPlaying = true;
-                    this.updatePlayButtonState();
+                    if (success) {
+                        this.isPlaying = true;
+                        this.updatePlayButtonState();
+                    }
                 }
             }
 
