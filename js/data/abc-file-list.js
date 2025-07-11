@@ -233,6 +233,11 @@ class AbcFileList {
                 "category": "scottish"
         },
         {
+                "name": "Highland Fling",
+                "file": "scottish/highland_fling.abc",
+                "category": "scottish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
