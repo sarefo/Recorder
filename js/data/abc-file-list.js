@@ -68,6 +68,11 @@ class AbcFileList {
                 "category": "film"
         },
         {
+                "name": "Ievan Polkka",
+                "file": "finnish/levan_polkka.abc",
+                "category": "finnish"
+        },
+        {
                 "name": "Ai vist lo lop",
                 "file": "french/ai vist lo lop.abc",
                 "category": "french"
