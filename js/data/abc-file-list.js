@@ -69,7 +69,7 @@ class AbcFileList {
         },
         {
                 "name": "Ievan Polkka",
-                "file": "finnish/levan_polkka.abc",
+                "file": "finnish/ievan_polkka.abc",
                 "category": "finnish"
         },
         {
