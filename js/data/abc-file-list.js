@@ -33,6 +33,16 @@ class AbcFileList {
                 "category": "bartok/romanian folk dances"
         },
         {
+                "name": "10. Aus tiefer Not schrei ich zu dir",
+                "file": "classical/bach/tiefer_not.abc",
+                "category": "classical/bach"
+        },
+        {
+                "name": "100. Durch Adams Fall ist ganz verderbt",
+                "file": "classical/bach/adams_fall.abc",
+                "category": "classical/bach"
+        },
+        {
                 "name": "10. M. John Langtons Pavan",
                 "file": "classical/dowland/pavane lachrimae.abc",
                 "category": "classical/dowland"
