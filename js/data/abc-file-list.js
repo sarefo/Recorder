@@ -143,6 +143,11 @@ class AbcFileList {
                 "category": "polish"
         },
         {
+                "name": "Popcorn",
+                "file": "pop/popcorn.abc",
+                "category": "pop"
+        },
+        {
                 "name": "Somebody I Used to Know",
                 "file": "pop/used to know.abc",
                 "category": "pop"

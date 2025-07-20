@@ -1,0 +1,33 @@
+X:1
+T:Popcorn
+N: Transposed
+M:4/4
+Q:1/4=220
+L:1/4
+K:D
+"C#m" z2 cB|c^G F<^G|C2 cB|
+c^G F<^G|C2 c^d|"B" e^d e>c|"A"^dc d>B|
+cBcA|c2 cB|"C#m" c^G F<^G|C2 cB|
+c^G F<^G|C2 c^d|"B" e^d e>c|"A" ^dc d>B|
+cBc^d|e2 ^gf|"E" ^ge B<e|^G2 ^gf|
+^ge B<e|^G2 ^g^a|"G#m" b^a b>^g|"F#" ^a^g a>f|"E" ^gfge|
+^g2 gf|^ge B<e|^G2 ^gf|^ge B<e|
+^G2 ^g^a|"G#m" b^a b>^g|"F#" ^a^g a>f|"E" ^gfef|
+^g2 cB:|
+
+X:2
+T:Popcorn
+N: Original
+M:4/4
+Q:1/4=220
+L:1/4
+K:C
+"Bm" z2 BA|B^F E<F|B,2 BA|
+B^F E<F|B,2 B^c|"A" d^c d>B|"G"^cB c>A|
+BABG|B2 BA|"Bm" B^F E<F|B,2 BA|
+B^F E<F|B,2 B^c|"A" d^c d>B|"G" ^cB c>A|
+BAB^c|d2 ^fe|"D" ^fd A<d|^F2 ^fe|
+^fd A<d|^F2 ^f^g|"F#m" a^g a>^f|"E" ^g^f g>e|"D" ^fefd|
+^f2 fe|^fd A<d|^F2 ^fe|^fd A<d|
+^F2 ^f^g|"F#m" a^g a>^f|"E" ^g^f g>e|"D" ^fede|
+^f2 BA:|
