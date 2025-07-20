@@ -4,16 +4,16 @@ N: Transposed
 M:4/4
 Q:1/4=220
 L:1/4
-K:D
-"C#m" z2 cB|c^G F<^G|C2 cB|
-c^G F<^G|C2 c^d|"B" e^d e>c|"A"^dc d>B|
-cBcA|c2 cB|"C#m" c^G F<^G|C2 cB|
-c^G F<^G|C2 c^d|"B" e^d e>c|"A" ^dc d>B|
-cBc^d|e2 ^gf|"E" ^ge B<e|^G2 ^gf|
-^ge B<e|^G2 ^g^a|"G#m" b^a b>^g|"F#" ^a^g a>f|"E" ^gfge|
-^g2 gf|^ge B<e|^G2 ^gf|^ge B<e|
-^G2 ^g^a|"G#m" b^a b>^g|"F#" ^a^g a>f|"E" ^gfef|
-^g2 cB:|
+K:Db
+"Cm" z2 cB|c=G F<=G|C2 cB|
+c=G F<=G|C2 c=d|"Bb" e=d e>c|"Ab"=dc d>B|
+cBcA|c2 cB|"Cm" c=G F<=G|C2 cB|
+c=G F<=G|C2 c=d|"Bb" e=d e>c|"Ab" =dc d>B|
+cBc=d|e2 =gf|"Eb" =ge B<e|=G2 =gf|
+=ge B<e|=G2 =g=a|"Gm" b=a b>=g|"F" =a=g =a>f|"Eb" =gfge|
+=g2 gf|=ge B<e|=G2 =gf|=ge B<e|
+=G2 =g=a|"Gm" b=a b>=g|"F" =a=g =a>f|"Eb" =gfef|
+=g2 cB:|
 
 X:2
 T:Popcorn
