@@ -1,10 +1,11 @@
-X: 1
-T: Invention 1 BWV 772
-N: 
-C: Johann Sebastian Bach
-L: 1/16
-M: C
-Q: 1/4=120
+X:1
+T:Invention 1 BWV 772
+N:https://musescore.com/classicman/scores/190862
+C:Johann Sebastian Bach
+M:C
+L:1/16
+Q:1/4=120
+K:C
 zCDE FDEC G2c2 PB2c2|dGAB cABG d2g2Pf2g2|
 eagf egfa gfed cedf|edcB AcBd cBAG ^FAGB|
 A2D2 Mc2>d2 BAG^F EGFA|GBAc Bdce dB/c/dg PB2AG|
