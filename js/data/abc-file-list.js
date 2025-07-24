@@ -43,6 +43,11 @@ class AbcFileList {
                 "category": "classical/bach"
         },
         {
+                "name": "Invention 1 BWV 772",
+                "file": "classical/bach/inventions/invention 01.abc",
+                "category": "classical/bach/inventions"
+        },
+        {
                 "name": "10. M. John Langtons Pavan",
                 "file": "classical/dowland/pavane lachrimae.abc",
                 "category": "classical/dowland"
