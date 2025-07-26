@@ -173,6 +173,11 @@ class AbcFileList {
                 "category": "pop"
         },
         {
+                "name": "The Final Countdown",
+                "file": "pop/final_countdown.abc",
+                "category": "pop"
+        },
+        {
                 "name": "Top of the world",
                 "file": "pop/top of the world.abc",
                 "category": "pop"
