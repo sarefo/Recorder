@@ -121,9 +121,20 @@ class FileManager {
         // Create dialog overlay
         const dialogOverlay = document.createElement('div');
         dialogOverlay.className = 'files-dialog-overlay';
+        
+        // Add escape key handler to close dialog
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                document.body.removeChild(dialogOverlay);
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+        
         dialogOverlay.addEventListener('click', (e) => {
             if (e.target === dialogOverlay) {
                 document.body.removeChild(dialogOverlay);
+                document.removeEventListener('keydown', handleEscape);
             }
         });
 
@@ -166,6 +177,7 @@ class FileManager {
         closeButton.innerHTML = '×';
         closeButton.addEventListener('click', () => {
             document.body.removeChild(dialogOverlay);
+            document.removeEventListener('keydown', handleEscape);
         });
         header.appendChild(closeButton);
 
@@ -174,7 +186,7 @@ class FileManager {
         filesList.className = 'files-list';
 
         // Populate files list by category
-        this.populateFilesList(filesList);
+        this.populateFilesList(filesList, handleEscape);
 
         // Assemble dialog
         dialog.appendChild(header);
@@ -188,7 +200,7 @@ class FileManager {
         //setTimeout(() => searchInput.focus(), 100);
     }
 
-    populateFilesList(container) {
+    populateFilesList(container, handleEscape) {
         // Sort categories alphabetically
         const sortedCategories = Object.keys(this.categorizedFiles).sort();
 
@@ -199,12 +211,12 @@ class FileManager {
 
         // Populate each category
         sortedCategories.forEach(category => {
-            const categoryContainer = this.createCategoryContainer(category);
+            const categoryContainer = this.createCategoryContainer(category, handleEscape);
             columns.appendChild(categoryContainer);
         });
     }
 
-    createCategoryContainer(category) {
+    createCategoryContainer(category, handleEscape) {
         const files = this.categorizedFiles[category];
 
         const categoryContainer = document.createElement('div');
@@ -238,6 +250,7 @@ class FileManager {
                 const dialog = document.querySelector('.files-dialog-overlay');
                 if (dialog) {
                     document.body.removeChild(dialog);
+                    document.removeEventListener('keydown', handleEscape);
                 }
             });
             fileItems.appendChild(fileItem);
