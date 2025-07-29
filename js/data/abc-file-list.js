@@ -283,9 +283,19 @@ class AbcFileList {
                 "category": "tv"
         },
         {
+                "name": "Detective Conan Theme",
+                "file": "tv/detective_conan.abc",
+                "category": "tv"
+        },
+        {
                 "name": "Fraggle Rock Theme",
                 "file": "tv/fraggle rock.abc",
                 "category": "tv"
+        },
+        {
+                "name": "",
+                "file": "unsorted/test.abc",
+                "category": "unsorted"
         },
         {
                 "name": "Spin the Wheel",
