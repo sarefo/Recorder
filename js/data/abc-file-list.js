@@ -208,6 +208,11 @@ class AbcFileList {
                 "category": "practice"
         },
         {
+                "name": "Kalinka",
+                "file": "russian/kalinka.abc",
+                "category": "russian"
+        },
+        {
                 "name": "Korobeiniki",
                 "file": "russian/korobeiniki.abc",
                 "category": "russian"
