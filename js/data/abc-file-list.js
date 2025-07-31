@@ -88,6 +88,11 @@ class AbcFileList {
                 "category": "film/hisaishi"
         },
         {
+                "name": "Mononoke Hime",
+                "file": "film/hisaishi/mononoke.abc",
+                "category": "film/hisaishi"
+        },
+        {
                 "name": "Summer",
                 "file": "film/hisaishi/summer.abc",
                 "category": "film/hisaishi"
