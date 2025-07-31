@@ -83,6 +83,11 @@ class AbcFileList {
                 "category": "film"
         },
         {
+                "name": "A Town with an Ocean view",
+                "file": "film/hisaishi/kiki_town.abc",
+                "category": "film/hisaishi"
+        },
+        {
                 "name": "Ievan Polkka",
                 "file": "finnish/ievan_polkka.abc",
                 "category": "finnish"
