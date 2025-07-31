@@ -88,6 +88,11 @@ class AbcFileList {
                 "category": "film/hisaishi"
         },
         {
+                "name": "Summer",
+                "file": "film/hisaishi/summer.abc",
+                "category": "film/hisaishi"
+        },
+        {
                 "name": "Ievan Polkka",
                 "file": "finnish/ievan_polkka.abc",
                 "category": "finnish"
