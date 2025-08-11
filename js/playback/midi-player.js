@@ -17,10 +17,10 @@ class MidiPlayer {
         this.customMetronome = new CustomMetronome();
         this.lastTimeSignature = 4; // Default 4/4 time
         this.lastTempo = 120;       // Default tempo
-        
+
         // Add tuning manager
         this.tuningManager = new TuningManager();
-        
+
         // Initialize tuning manager with shared audio context when MIDI player is initialized
         this.tuningManagerInitialized = false;
     }
@@ -104,7 +104,7 @@ class MidiPlayer {
     preparePlaybackOptions() {
         // Start with base octave transpose for recorder range
         let totalTranspose = 12; // Base octave up (12 semitones)
-        
+
         // Add fine tuning if available (convert cents to semitones)
         if (this.tuningManager) {
             const tuningOffsetCents = this.tuningManager.getTuningOffset();
@@ -116,7 +116,8 @@ class MidiPlayer {
         }
 
         const options = {
-            program: 73, // Flute instrument (MIDI program 73)
+            program: 13, // Xylophone
+            // program: 73, // Flute instrument (MIDI program 73)
             midiTranspose: totalTranspose,
             chordsOff: !this.playbackSettings.chordsOn,
             voicesOff: !this.playbackSettings.voicesOn,
@@ -261,15 +262,15 @@ class MidiPlayer {
                     // Calculate the correct tempo directly from the current piece
                     const baseTempo = visualObj.getBpm() || 120;
                     const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
-                    
+
                     // Update our saved tempo values
                     this.lastTempo = adjustedTempo;
-                    
+
                     // Get time signature
                     const timeSignature = visualObj.getMeter();
                     const numerator = timeSignature?.value?.[0]?.num || 4;
                     this.lastTimeSignature = numerator;
-                    
+
                     // Start with the correct tempo
                     await this.customMetronome.start(adjustedTempo, numerator);
                 } else {
@@ -301,13 +302,13 @@ class MidiPlayer {
             }
 
             let success;
-            
+
             // Check if we're in constant metronome mode (only metronome enabled)
-            const isConstantMetronomeMode = this.customMetronome.isConstantMode() && 
-                                           this.playbackSettings.metronomeOn && 
-                                           !this.playbackSettings.chordsOn && 
-                                           !this.playbackSettings.voicesOn;
-            
+            const isConstantMetronomeMode = this.customMetronome.isConstantMode() &&
+                this.playbackSettings.metronomeOn &&
+                !this.playbackSettings.chordsOn &&
+                !this.playbackSettings.voicesOn;
+
             if (this.isPlaying) {
                 if (isConstantMetronomeMode) {
                     // In constant mode, only stop the metronome
@@ -338,7 +339,7 @@ class MidiPlayer {
                         const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
                         const timeSignature = visualObj.getMeter();
                         const numerator = timeSignature?.value?.[0]?.num || 4;
-                        
+
                         await this.customMetronome.start(adjustedTempo, numerator);
                         this.isPlaying = true;
                         this.updatePlayButtonState();
@@ -358,12 +359,12 @@ class MidiPlayer {
                         this.updateStatusDisplay("MIDI player not ready");
                         return false;
                     }
-                    
+
                     // Ensure MIDI player is initialized
                     if (!this.midiPlayer.synth) {
                         await this.init(visualObj);
                     }
-                    
+
                     // Now use restart logic for reliable sync
                     success = await this.restart();
                 }
@@ -508,10 +509,10 @@ class MidiPlayer {
         }
 
         const tuningOffsetCents = this.tuningManager.getTuningOffset();
-        
+
         if (Math.abs(tuningOffsetCents) > 0.1) {
             console.log('Applying fine tuning offset:', tuningOffsetCents.toFixed(1), 'cents');
-            
+
             // Try to access and modify the synth's audio nodes
             if (this.midiPlayer && this.midiPlayer.audioNode) {
                 this.createTuningEffect(tuningOffsetCents);
@@ -530,7 +531,7 @@ class MidiPlayer {
         try {
             // Calculate frequency multiplier
             const frequencyMultiplier = Math.pow(2, centsOffset / 1200);
-            
+
             // Create a custom audio effect by modifying sample playback rate
             // Note: This is a simplified approach - actual implementation would depend on ABCJS internals
             if (this.audioContext.createScriptProcessor) {
