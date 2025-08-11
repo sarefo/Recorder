@@ -41,7 +41,8 @@ section .fingering-diagram {
     padding: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     pointer-events: none;
-    z-index: 10; /* Higher than note marker zones */
+    z-index: 10;
+    /* Higher than note marker zones */
     position: relative;
 }
 
@@ -109,8 +110,9 @@ section .fingering-diagram {
 }
 
 .reference-fingering-container[data-accidental="sharp"] {
-    border-width: 2px;
-    border-color: #000;
+    /*border-width: 2px;
+    border-color: #000;*/
+    background-color: lightgray;
 }
 
 .reference-fingering-container .note-label {
@@ -126,7 +128,8 @@ section .fingering-diagram {
     cursor: pointer;
     background: transparent;
     pointer-events: auto;
-    z-index: 5; /* Lower than fingering diagrams so they can receive clicks */
+    z-index: 5;
+    /* Lower than fingering diagrams so they can receive clicks */
 }
 
 .note-marker-zone::after {
