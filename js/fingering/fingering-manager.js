@@ -527,9 +527,9 @@ class FingeringManager {
             const fingeringData = this.getFingeringForNote(noteName);
             if (!fingeringData) return;
 
-            const container = this._createNoteContainer(noteName);
+            const container = this._createClickableNoteContainer(noteName);
             const noteLabel = this._createNoteLabel(noteName);
-            const diagram = this.createFingeringDiagram(fingeringData, noteName);
+            const diagram = this._createSimpleFingeringDiagram(fingeringData, noteName);
 
             container.appendChild(noteLabel);
             container.appendChild(diagram);
@@ -538,18 +538,74 @@ class FingeringManager {
     }
 
     /**
-     * Creates a container for a note in the reference row
+     * Creates a simple fingering diagram for the reference row (without click handlers)
+     * @param {Object} fingeringData - Fingering data for the note
      * @param {string} noteName - Name of the note
-     * @returns {HTMLElement} - The note container
+     * @returns {HTMLElement} - The created diagram element
+     */
+    _createSimpleFingeringDiagram(fingeringData, noteName) {
+        const diagram = this._createDiagramContainer();
+        diagram.classList.remove('clickable'); // Remove the sheet music clickable behavior
+        diagram.classList.add('reference-diagram');
+        diagram.setAttribute('data-state', 'neutral');
+
+        const columnsContainer = this._createColumnsContainer();
+        const leftColumn = this._createHandColumn(fingeringData.left, true);
+        const rightColumn = this._createHandColumn(fingeringData.right, false);
+
+        columnsContainer.appendChild(leftColumn);
+        columnsContainer.appendChild(rightColumn);
+        diagram.appendChild(columnsContainer);
+
+        return diagram;
+    }
+
+    /**
+     * Toggles the red state for reference row containers
+     * @param {HTMLElement} container - The container element to toggle
      * @private
      */
-    _createNoteContainer(noteName) {
+    _toggleReferenceContainerState(container) {
+        const currentState = container.getAttribute('data-state');
+        const newState = currentState === 'neutral' ? 'red' : 'neutral';
+        
+        container.setAttribute('data-state', newState);
+        
+        // Find the diagram inside this container and update its state too
+        const diagram = container.querySelector('.reference-diagram');
+        if (diagram) {
+            diagram.setAttribute('data-state', newState);
+            
+            if (newState === 'red') {
+                diagram.style.backgroundColor = this.config.redColor;
+                container.style.backgroundColor = this.config.redColor;
+            } else {
+                diagram.style.backgroundColor = this.config.backgroundColor;
+                container.style.backgroundColor = '';
+            }
+        }
+    }
+
+    /**
+     * Creates a clickable container for a note in the reference row
+     * @param {string} noteName - Name of the note
+     * @returns {HTMLElement} - The clickable note container
+     * @private
+     */
+    _createClickableNoteContainer(noteName) {
         const container = document.createElement('div');
-        container.className = 'reference-fingering-container';
+        container.className = 'reference-fingering-container clickable-reference-container';
+        container.setAttribute('data-state', 'neutral');
         
         if (noteName.includes('^')) {
             container.setAttribute('data-accidental', 'sharp');
         }
+
+        // Add click behavior to the entire container
+        container.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this._toggleReferenceContainerState(container);
+        });
 
         return container;
     }

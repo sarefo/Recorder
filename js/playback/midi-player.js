@@ -116,8 +116,11 @@ class MidiPlayer {
         }
 
         const options = {
-            program: 13, // Xylophone
+            // https://en.wikipedia.org/wiki/General_MIDI#Program_change_events
+            program: 13, // Marimba for melody/voices
             // program: 73, // Flute instrument (MIDI program 73)
+            chordprog: 106, // chords: Electric Piano 1 
+            bassprog: 34, // bass notes (first beat): electric bass
             midiTranspose: totalTranspose,
             chordsOff: !this.playbackSettings.chordsOn,
             voicesOff: !this.playbackSettings.voicesOn,

@@ -121,6 +121,22 @@ section .fingering-diagram {
     font-weight: bold;
 }
 
+/* Reference row fingering diagrams - clickable styling */
+.reference-diagram {
+    transition: background-color 0.2s ease;
+}
+
+/* Clickable reference containers */
+.clickable-reference-container {
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.clickable-reference-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 /* Note marker zones - invisible clickable areas for note marking */
 .note-marker-zone {
     position: absolute;

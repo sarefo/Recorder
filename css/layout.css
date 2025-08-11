@@ -19,6 +19,11 @@
     overflow-x: auto;
 }
 
+/* Push reference row below mobile playback bar when mobile controls are active */
+body.mobile-playback-active #reference-row {
+    margin-top: 80px;
+}
+
 .abcjs-container.minimized #reference-row {
     max-height: 0;
     overflow: hidden;

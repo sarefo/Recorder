@@ -17,6 +17,13 @@
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+/* Ensure reference row is positioned below mobile playback bar */
+body.mobile-playback-active #reference-row {
+    margin-top: 80px !important; /* Mobile bar height + small buffer */
+    position: relative;
+    z-index: 1001;
+}
+
 /* Minimized state for playback bar */
 .mobile-playback-bar.minimized {
     width: 40px;

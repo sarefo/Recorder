@@ -24,7 +24,7 @@ class AbcPlayer {
             borderRadius: 4,
             fontSizeNote: 10,
             backgroundColor: 'rgba(240, 240, 180, 0.9)',
-            redColor: 'rgba(255, 0, 0, 0.6)',
+            redColor: 'rgba(255, 200, 150, 0.8)',
             greenColor: 'rgba(0, 128, 0, 0.6)',
             // Note marking configuration
             enableNoteMarking: true,
