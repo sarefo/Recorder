@@ -6,10 +6,11 @@ M: 4/4
 Q: 1/4=80
 L: 1/8
 K: F
-FG A2A2 G2G2 | FGAF DEF2 | C2FA c2cc | c2BA G2FG |
-A2AA G2G2 | FG AF DE F2 | C2 FA c2 BA | G2GG F4 |
-c2cc c2A2 | f2 ff e2 d2 | c2 cc d2 cc | c2 BA G2 FG |
-A2 AA G2 G2 | FG AF DE F2 | C2 FA c2 BA | G2 GG F4 |
+"F" FG A2A2 "C7" G2G2 |"Dm" FGAF "Bb" DEF2 |"F" C2FA c2cc |"Gm" c2BA "C7" G2FG |
+"F" A2AA "C" G2G2 |"Dm" FG AF "Bb" DE F2 |"F" C2 FA "Gm" c2 BA |"C7" G2GG "F" F4 |
+"F" c2cc c2A2 |"Bb" f2 ff e2 d2 |"F" c2 cc d2 cc |"F" c2 BA "C7" G2 FG |
+"F" A2 AA "C7" G2 G2 |"Dm" FG AF "Bb" DE F2 |"F" C2 FA c2 BA |"C7" G2 GG "F" F4 |]
+
 
 X: 1
 T: Waltzing Matilda
