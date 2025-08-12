@@ -2,15 +2,15 @@ X: 3
 T: Dos Kelbl
 N: aka "Donna Donna" or "Dona Dona"
 M: 4/4
-Q: 1/4=90
+Q: 1/4=120
 L: 1/4
 K: F
-|: A D E/2F/2 G | A D E/2F/2 G | A D B A/2G/2 | F G A2 |
-A D E/2F/2 G | A D E/2F/2 G | A D B A/2G/2 | F E D2 |
-c c c2/3 B/2 | A/2G/2 F z2 | G/2 G G/2 c B | A3 z |
-c c c2/3 B | A G F G | A G F E | D3 z |
-E/2E/2E/2E/2 G G | F/2G/2 A3 | G/2G/2G/2G/2 c B | A3 z |
-E/2E/2E/2E/2 G G | F/2G/2 A3 | A/2E/2F/2G/2 F E | D3 z :|
+|: "Dm" A D "A7" E/F/ G |"Dm" A D "A7" E/F/ G |"Dm" A D "Gm" B A/G/ |"Dm" F      G "A7" A2 |
+   "Dm" A D "A7" E/F/ G |"Dm" A D "A7" E/F/ G |"Dm" A D "Gm" B A/G/ |"Dm" F "A7" E "Dm" D2 |
+   "C"  c c c4/3 B/ |"F" A/G/ F z2 |"C"  G/ G G/ c B |"F"  A3 z |
+   "C"  c c c4/3 B/ |"F" A G F G   |"A7" A   G   F E |"Dm" D3 z |
+   "A7" E/E/E/E/ G G |"Dm" F/G/ A3 |"C(7)" G/G/G/G/ c B |"F"  A3 z  |
+   "A7" E/E/E/E/ G G |"Dm" F/G/ A3 |"A7"   A/E/F/G/ F E |"Dm" D3 z :|
 
 X: 1
 T: Dos Kelbl
