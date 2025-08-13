@@ -288,6 +288,21 @@ class AbcFileList {
                 "category": "scottish"
         },
         {
+                "name": "Highland Skip 1",
+                "file": "scottish/highland_skip.abc",
+                "category": "scottish"
+        },
+        {
+                "name": "Irving Steeple",
+                "file": "scottish/irving_steeple.abc",
+                "category": "scottish"
+        },
+        {
+                "name": "Sweet Molly",
+                "file": "scottish/hopetoun_house.abc",
+                "category": "scottish"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
