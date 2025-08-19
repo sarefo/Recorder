@@ -10,7 +10,8 @@ class MidiPlayer {
             chordsOn: false,
             voicesOn: false,
             metronomeOn: true,
-            tempo: 100 // Default tempo percentage (100%)
+            tempo: 100, // Default tempo percentage (100%)
+            loopEnabled: false // Loop playback when song ends
         };
 
         // Add custom metronome
@@ -66,6 +67,7 @@ class MidiPlayer {
             millisecondsPerMeasure
         };
     }
+
 
     /**
     * Updates metronome settings based on visual object data
@@ -160,17 +162,41 @@ class MidiPlayer {
             // Get playback options
             const options = this.preparePlaybackOptions();
 
-            // Add onEnded to the options to stop both playback and metronome
+            // Add onEnded to the options to handle playback completion
             options.onEnded = () => {
+                console.log('onEnded callback triggered, loopEnabled:', this.playbackSettings.loopEnabled);
+                
+                // Prevent rapid-fire callbacks
+                if (this.isPlaying === false) {
+                    console.log('Ignoring duplicate onEnded callback');
+                    return;
+                }
+                
                 this.isPlaying = false;
                 this.updatePlayButtonState();
 
-                // Stop the metronome when the song ends, unless it's in constant mode
-                if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying && !this.customMetronome.isConstantMode()) {
-                    this.customMetronome.stop();
+                // Check if loop is enabled with extra safety
+                if (this.playbackSettings.loopEnabled === true) {
+                    console.log('Loop is enabled, scheduling restart...');
+                    // Auto-restart when loop is enabled
+                    setTimeout(() => {
+                        // Double-check loop is still enabled before restarting
+                        if (this.playbackSettings.loopEnabled === true) {
+                            console.log('Executing loop restart');
+                            this.restart();
+                        } else {
+                            console.log('Loop was disabled during timeout, not restarting');
+                        }
+                    }, 200); // Slightly longer delay for safety
+                    this.updateStatusDisplay("Looping...");
+                } else {
+                    console.log('Loop is disabled, stopping normally');
+                    // Stop the metronome when the song ends, unless it's in constant mode
+                    if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying && !this.customMetronome.isConstantMode()) {
+                        this.customMetronome.stop();
+                    }
+                    this.updateStatusDisplay("Playback finished");
                 }
-
-                this.updateStatusDisplay("Playback finished");
             };
 
 
@@ -501,6 +527,27 @@ class MidiPlayer {
             this.updateStatusDisplay("Error updating playback settings");
             return this.playbackSettings;
         }
+    }
+
+    /**
+     * Toggles loop mode
+     * @param {Object} [player] - The player instance (for saving settings)
+     * @returns {boolean} The new loop state
+     */
+    toggleLoop(player) {
+        this.playbackSettings.loopEnabled = !this.playbackSettings.loopEnabled;
+        
+        // Save to settings manager if player provided
+        if (player && player.settingsManager) {
+            player.settingsManager.set('loopEnabled', this.playbackSettings.loopEnabled);
+        }
+        
+        this.updateStatusDisplay(
+            this.playbackSettings.loopEnabled 
+                ? "Loop: ON" 
+                : "Loop: OFF"
+        );
+        return this.playbackSettings.loopEnabled;
     }
 
     /**

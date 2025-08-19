@@ -351,20 +351,77 @@ class UIControls {
     }
 
     /**
-     * Creates restart button
+     * Creates restart button with loop toggle functionality
      * @returns {HTMLElement} The restart button
      */
     createRestartButton() {
         const restartButton = document.createElement('button');
         restartButton.id = 'restart-button';
-        restartButton.title = 'Restart';
-        restartButton.textContent = '⟳';
+        this.updateRestartButtonAppearance(restartButton, false);
 
-        restartButton.addEventListener('click', () => {
-            this.player.midiPlayer.restart();
-        });
+        let longPressTimer = null;
+        let isLongPress = false;
+        let mousePressed = false;
+
+        // Handle mouse/touch start
+        const startPress = () => {
+            mousePressed = true;
+            isLongPress = false;
+            longPressTimer = setTimeout(() => {
+                isLongPress = true;
+                // Toggle loop mode on long press
+                const loopEnabled = this.player.midiPlayer.toggleLoop(this.player);
+                console.log('Long press toggle - loop enabled:', loopEnabled);
+                this.updateRestartButtonAppearance(restartButton, loopEnabled);
+                console.log('Button updated - text:', restartButton.textContent, 'classes:', restartButton.className);
+                // Provide haptic feedback if available
+                if (navigator.vibrate) {
+                    navigator.vibrate(50);
+                }
+            }, 500); // 500ms for long press
+        };
+
+        // Handle mouse/touch end
+        const endPress = () => {
+            if (longPressTimer) {
+                clearTimeout(longPressTimer);
+                longPressTimer = null;
+            }
+            
+            // Only restart if there was actually a mouse press AND it wasn't a long press
+            if (mousePressed && !isLongPress) {
+                this.player.midiPlayer.restart();
+            }
+            
+            // Reset the pressed state
+            mousePressed = false;
+        };
+
+        // Add event listeners for both mouse and touch
+        restartButton.addEventListener('mousedown', startPress);
+        restartButton.addEventListener('mouseup', endPress);
+        restartButton.addEventListener('mouseleave', endPress); // Cancel if mouse leaves
+        restartButton.addEventListener('touchstart', startPress, { passive: true });
+        restartButton.addEventListener('touchend', endPress, { passive: true });
 
         return restartButton;
+    }
+
+    /**
+     * Updates restart button appearance based on loop state
+     * @param {HTMLElement} button - The restart button
+     * @param {boolean} loopEnabled - Whether loop is enabled
+     */
+    updateRestartButtonAppearance(button, loopEnabled) {
+        if (loopEnabled) {
+            button.textContent = '↻';
+            button.title = 'Restart (Loop: ON)\nHold to toggle loop off';
+            button.classList.add('loop-active');
+        } else {
+            button.textContent = '⟳';
+            button.title = 'Restart\nHold to enable loop';
+            button.classList.remove('loop-active');
+        }
     }
 
     /**
@@ -1027,6 +1084,12 @@ class UIControls {
         const metronomeButton = document.getElementById('metronome-toggle');
         if (metronomeButton) {
             this.setButtonActiveState(metronomeButton, this.player.midiPlayer.playbackSettings.metronomeOn);
+        }
+
+        // Update restart button (loop state)
+        const restartButton = document.getElementById('restart-button');
+        if (restartButton) {
+            this.updateRestartButtonAppearance(restartButton, this.player.midiPlayer.playbackSettings.loopEnabled);
         }
     }
 

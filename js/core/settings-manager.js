@@ -6,7 +6,8 @@ class SettingsManager {
             fingeringStyle: 'baroque',
             voicesOn: true,
             chordsOn: false,
-            metronomeOn: true
+            metronomeOn: true,
+            loopEnabled: false
         };
         this.settings = {};
         this.urlParams = {};

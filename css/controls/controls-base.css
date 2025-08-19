@@ -129,13 +129,25 @@
 
 /* Non-toggle buttons that should not use active styling */
 #play-button,
-#restart-button,
 #copy-button,
 #paste-button,
 #tuning-button,
 #transpose-up,
 #transpose-down {
     /* These buttons don't toggle so they don't get .active class anyway */
+}
+
+/* Loop-enabled state for restart button */
+#restart-button.loop-active {
+    background-color: #ff9800 !important;
+    border-color: #ff9800 !important;
+    color: white !important;
+    box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.3) !important;
+}
+
+#restart-button.loop-active:hover {
+    background-color: #f57c00 !important;
+    border-color: #f57c00 !important;
 }
 
 /* Control sections grouping */
