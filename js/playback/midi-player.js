@@ -24,6 +24,9 @@ class MidiPlayer {
 
         // Initialize tuning manager with shared audio context when MIDI player is initialized
         this.tuningManagerInitialized = false;
+
+        // Track onEnded callback to prevent duplicates
+        this.onEndedCallbackActive = false;
     }
 
     /**
@@ -166,11 +169,20 @@ class MidiPlayer {
             options.onEnded = () => {
                 console.log('onEnded callback triggered, loopEnabled:', this.playbackSettings.loopEnabled);
                 
-                // Prevent rapid-fire callbacks
-                if (this.isPlaying === false) {
-                    console.log('Ignoring duplicate onEnded callback');
+                // Prevent multiple simultaneous callbacks
+                if (this.onEndedCallbackActive) {
+                    console.log('Ignoring duplicate onEnded callback - already processing');
                     return;
                 }
+                
+                // Prevent rapid-fire callbacks
+                if (this.isPlaying === false) {
+                    console.log('Ignoring duplicate onEnded callback - not playing');
+                    return;
+                }
+                
+                // Mark callback as active
+                this.onEndedCallbackActive = true;
                 
                 this.isPlaying = false;
                 this.updatePlayButtonState();
@@ -183,9 +195,13 @@ class MidiPlayer {
                         // Double-check loop is still enabled before restarting
                         if (this.playbackSettings.loopEnabled === true) {
                             console.log('Executing loop restart');
-                            this.restart();
+                            this.restart().finally(() => {
+                                // Reset callback flag after restart completes
+                                this.onEndedCallbackActive = false;
+                            });
                         } else {
                             console.log('Loop was disabled during timeout, not restarting');
+                            this.onEndedCallbackActive = false;
                         }
                     }, 200); // Slightly longer delay for safety
                     this.updateStatusDisplay("Looping...");
@@ -196,6 +212,7 @@ class MidiPlayer {
                         this.customMetronome.stop();
                     }
                     this.updateStatusDisplay("Playback finished");
+                    this.onEndedCallbackActive = false;
                 }
             };
 
@@ -427,6 +444,9 @@ class MidiPlayer {
             // Update state
             this.isPlaying = false;
             this.updatePlayButtonState();
+            
+            // Reset callback flag to prevent it from getting stuck
+            this.onEndedCallbackActive = false;
 
             return true;
         } catch (error) {
