@@ -95,7 +95,7 @@ class FingeringManager {
     _applyHoleState(hole, state, isFirstLeftHole) {
         // Remove existing state classes
         hole.classList.remove('closed', 'half-hole');
-        
+
         if (state === 'c') {
             hole.classList.add('closed');
             if (isFirstLeftHole) {
@@ -145,7 +145,7 @@ class FingeringManager {
 
         diagram.className = 'fingering-diagram-container clickable';
         diagram.setAttribute('data-state', 'neutral');
-        
+
         // Override default styles if config differs
         if (config.backgroundColor !== 'rgba(255, 255, 255, 0.9)') {
             diagram.style.backgroundColor = config.backgroundColor;
@@ -180,10 +180,10 @@ class FingeringManager {
         markerZone.className = 'note-marker-zone';
         markerZone.setAttribute('data-state', 'neutral');
         markerZone.setAttribute('data-note-index', noteIndex);
-        
+
         // Add the same click behavior as fingering diagrams
         this._addMarkerClickBehavior(markerZone);
-        
+
         return markerZone;
     }
 
@@ -227,7 +227,7 @@ class FingeringManager {
         if (diagram) {
             diagram.setAttribute('data-state', newState);
             diagram.classList.remove('clicked');
-            
+
             if (newState === 'red') {
                 diagram.style.backgroundColor = this.config.redColor;
             } else if (newState === 'green') {
@@ -256,7 +256,7 @@ class FingeringManager {
 
         noteLabel.className = 'fingering-note-label';
         noteLabel.textContent = noteName;
-        
+
         // Override default font size if config differs
         if (config.fontSizeNote !== 10) {
             noteLabel.style.fontSize = `${config.fontSizeNote}px`;
@@ -273,12 +273,12 @@ class FingeringManager {
     _createColumnsContainer() {
         const container = document.createElement('div');
         container.className = 'fingering-hands-container';
-        
+
         // Override default gap if config differs
         if (this.config.columnSpacing !== 4) {
             container.style.gap = `${this.config.columnSpacing}px`;
         }
-        
+
         return container;
     }
 
@@ -568,14 +568,14 @@ class FingeringManager {
     _toggleReferenceContainerState(container) {
         const currentState = container.getAttribute('data-state');
         const newState = currentState === 'neutral' ? 'red' : 'neutral';
-        
+
         container.setAttribute('data-state', newState);
-        
+
         // Find the diagram inside this container and update its state too
         const diagram = container.querySelector('.reference-diagram');
         if (diagram) {
             diagram.setAttribute('data-state', newState);
-            
+
             if (newState === 'red') {
                 diagram.style.backgroundColor = this.config.redColor;
                 container.style.backgroundColor = this.config.redColor;
@@ -596,7 +596,7 @@ class FingeringManager {
         const container = document.createElement('div');
         container.className = 'reference-fingering-container clickable-reference-container';
         container.setAttribute('data-state', 'neutral');
-        
+
         if (noteName.includes('^')) {
             container.setAttribute('data-accidental', 'sharp');
         }
@@ -619,7 +619,14 @@ class FingeringManager {
     _createNoteLabel(noteName) {
         const noteLabel = document.createElement('div');
         noteLabel.className = 'note-label';
-        noteLabel.textContent = noteName;
+
+        // Hide note names for sharp notes (black keys)
+        if (noteName.includes('^')) {
+            noteLabel.textContent = '•';
+        } else {
+            noteLabel.textContent = noteName;
+        }
+
         return noteLabel;
     }
 }
