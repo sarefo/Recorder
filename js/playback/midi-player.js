@@ -411,8 +411,13 @@ class MidiPlayer {
                         await this.init(visualObj);
                     }
 
-                    // Now use restart logic for reliable sync
-                    success = await this.restart();
+                    // Use startPlayback for proper resume functionality
+                    success = await this.startPlayback();
+                    
+                    if (success) {
+                        this.isPlaying = true;
+                        this.updatePlayButtonState();
+                    }
                 }
             }
 
