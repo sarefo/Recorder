@@ -51,6 +51,26 @@ class MidiPlayer {
     }
 
     /**
+     * Destroys current MIDI player and creates a new one
+     * This prevents callback conflicts when reinitializing
+     */
+    recreateMidiPlayer() {
+        // Clean up existing player
+        if (this.midiPlayer) {
+            try {
+                // Stop any ongoing playback
+                this.midiPlayer.stop();
+            } catch (e) {
+                // Ignore errors during cleanup
+            }
+        }
+        
+        // Create new player
+        this.midiPlayer = new ABCJS.synth.CreateSynth();
+        return this.midiPlayer;
+    }
+
+    /**
      * Calculates the tempo settings based on visual object metadata
      * @param {Object} visualObj - The ABC visual object
      * @returns {Object} Tempo settings including adjusted tempo and milliseconds per measure
@@ -244,6 +264,104 @@ class MidiPlayer {
             return true;
         } catch (error) {
             console.error("Error initializing MIDI player:", error);
+            this.updateStatusDisplay("Error initializing audio");
+            return false;
+        }
+    }
+
+    /**
+     * Initializes the MIDI player with a fresh player instance to prevent callback conflicts
+     * @param {Object} visualObj - The ABC visual object
+     * @returns {Promise<boolean>} Success state
+     */
+    async initWithNewPlayer(visualObj) {
+        try {
+            // Ensure audio context exists
+            this.createAudioContext();
+
+            // Recreate MIDI player to prevent callback conflicts
+            this.recreateMidiPlayer();
+
+            // Calculate tempo settings
+            const { millisecondsPerMeasure } = this.calculateTempoSettings(visualObj);
+
+            // Get playback options
+            const options = this.preparePlaybackOptions();
+
+            // Add onEnded to the options to handle playback completion
+            options.onEnded = () => {
+                console.log('onEnded callback triggered, loopEnabled:', this.playbackSettings.loopEnabled);
+                
+                // Prevent multiple simultaneous callbacks
+                if (this.onEndedCallbackActive) {
+                    console.log('Ignoring duplicate onEnded callback - already processing');
+                    return;
+                }
+                
+                // Prevent rapid-fire callbacks
+                if (this.isPlaying === false) {
+                    console.log('Ignoring duplicate onEnded callback - not playing');
+                    return;
+                }
+                
+                // Mark callback as active
+                this.onEndedCallbackActive = true;
+                
+                this.isPlaying = false;
+                this.updatePlayButtonState();
+
+                // Check if loop is enabled with extra safety
+                if (this.playbackSettings.loopEnabled === true) {
+                    console.log('Loop is enabled, scheduling restart...');
+                    // Auto-restart when loop is enabled
+                    setTimeout(() => {
+                        // Double-check loop is still enabled before restarting
+                        if (this.playbackSettings.loopEnabled === true) {
+                            console.log('Executing loop restart');
+                            this.restart().finally(() => {
+                                // Reset callback flag after restart completes
+                                this.onEndedCallbackActive = false;
+                            });
+                        } else {
+                            console.log('Loop was disabled during timeout, not restarting');
+                            this.onEndedCallbackActive = false;
+                        }
+                    }, 200); // Slightly longer delay for safety
+                    this.updateStatusDisplay("Looping...");
+                } else {
+                    console.log('Loop is disabled, stopping normally');
+                    this.updateStatusDisplay("Playback complete");
+                    this.onEndedCallbackActive = false;
+                }
+            };
+
+            // Initialize MIDI with all current settings
+            await this.midiPlayer.init({
+                visualObj: visualObj,
+                audioContext: this.audioContext,
+                millisecondsPerMeasure: millisecondsPerMeasure,
+                options: options
+            });
+
+            // Update metronome with the current time signature and tempo from the visual object
+            await this.updateMetronome(visualObj);
+
+            // Load and prepare the synth
+            await this.midiPlayer.prime();
+
+            // Initialize tuning manager with shared audio context
+            if (!this.tuningManagerInitialized) {
+                await this.tuningManager.init(this.audioContext);
+                this.tuningManagerInitialized = true;
+            }
+
+            // Apply fine tuning after synth is initialized
+            this.applyFineTuning();
+
+            this.updatePlayButtonState(false);
+            return true;
+        } catch (error) {
+            console.error("Error initializing MIDI player with new instance:", error);
             this.updateStatusDisplay("Error initializing audio");
             return false;
         }
@@ -518,14 +636,27 @@ class MidiPlayer {
 
             // Track current playback state
             const wasPlaying = this.isPlaying;
+            const wasLooping = this.playbackSettings.loopEnabled;
+
+            // Temporarily disable looping to prevent restart conflicts during update
+            if (wasLooping) {
+                this.playbackSettings.loopEnabled = false;
+            }
 
             // Stop playback if currently playing
             if (wasPlaying) {
                 await this.stopPlayback();
+                // Clear any pending restart attempts
+                this.onEndedCallbackActive = false;
             }
 
-            // Re-initialize with new settings
-            await this.init(visualObj);
+            // Re-initialize with new settings - recreate player to prevent callback conflicts
+            await this.initWithNewPlayer(visualObj);
+
+            // Restore loop setting
+            if (wasLooping) {
+                this.playbackSettings.loopEnabled = true;
+            }
 
             // Handle metronome toggle if that setting changed
             if (settings.hasOwnProperty('metronomeOn')) {
