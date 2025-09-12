@@ -44,6 +44,40 @@ class FingeringManager {
             '^g': { left: ['p', 'c', 'c', 'c'], right: ['o', 'c', 'c', 'c'] }
         };
 
+        // Dizi D fingering data (6 holes total, 3 per hand, no thumb hole)
+        this.fingeringDataDiziD = {
+            'A,': { left: ['c', 'c', 'c'], right: ['c', 'c', 'c'] },
+            '^A,': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'B,': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'C': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            '^C': { left: ['c', 'c', 'c'], right: ['c', 'o', 'o'] },
+            'D': { left: ['c', 'c', 'c'], right: ['o', 'o', 'o'] },
+            '^D': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'E': { left: ['c', 'c', 'o'], right: ['o', 'o', 'o'] },
+            'F': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            '^F': { left: ['c', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'G': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            '^G': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'A': { left: ['c', 'c', 'c'], right: ['c', 'c', 'c'] },
+            '^A': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'B': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'c': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            '^c': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'd': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            '^d': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'e': { left: ['c', 'c', 'o'], right: ['o', 'o', 'o'] },
+            'f': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            '^f': { left: ['c', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'g': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            '^g': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'a': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            '^a': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'b': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'c\'': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            '^c\'': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'd\'': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] }
+        };
+
         this.currentFingeringSystem = 'german';
         this.showFingering = false;
     }
@@ -376,6 +410,10 @@ class FingeringManager {
             return this.fingeringDataGerman[noteName];
         }
 
+        if (this.currentFingeringSystem === 'diziD' && this.fingeringDataDiziD[noteName]) {
+            return this.fingeringDataDiziD[noteName];
+        }
+
         if (this.fingeringData[noteName]) {
             return this.fingeringData[noteName];
         }
@@ -409,6 +447,10 @@ class FingeringManager {
 
             if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[enharmonic]) {
                 return this.fingeringDataGerman[enharmonic];
+            }
+
+            if (this.currentFingeringSystem === 'diziD' && this.fingeringDataDiziD[enharmonic]) {
+                return this.fingeringDataDiziD[enharmonic];
             }
 
             if (this.fingeringData[enharmonic]) {
@@ -458,20 +500,26 @@ class FingeringManager {
     }
 
     /**
-     * Toggles between Baroque and German fingering systems
+     * Toggles between Baroque, German, and Dizi D fingering systems
      * @returns {string} - The new fingering system
      */
     toggleFingeringSystem() {
-        this.currentFingeringSystem = (this.currentFingeringSystem === 'baroque') ? 'german' : 'baroque';
+        if (this.currentFingeringSystem === 'baroque') {
+            this.currentFingeringSystem = 'german';
+        } else if (this.currentFingeringSystem === 'german') {
+            this.currentFingeringSystem = 'diziD';
+        } else {
+            this.currentFingeringSystem = 'baroque';
+        }
         return this.currentFingeringSystem;
     }
 
     /**
      * Sets the fingering system to a specific type
-     * @param {string} system - The fingering system ('baroque' or 'german')
+     * @param {string} system - The fingering system ('baroque', 'german', or 'diziD')
      */
     setFingeringSystem(system) {
-        if (system === 'baroque' || system === 'german') {
+        if (system === 'baroque' || system === 'german' || system === 'diziD') {
             this.currentFingeringSystem = system;
         }
     }

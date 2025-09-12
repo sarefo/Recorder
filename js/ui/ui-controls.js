@@ -116,18 +116,33 @@ class UIControls {
     createSystemToggleButton() {
         const systemToggle = document.createElement('button');
         systemToggle.id = 'system-toggle';
-        systemToggle.title = 'Toggle Baroque/German Fingering';
+        systemToggle.title = 'Toggle Baroque/German/Dizi D Fingering';
         
         // Set initial text content based on current system
         const currentSystem = this.player.fingeringManager.currentFingeringSystem;
-        systemToggle.textContent = currentSystem === 'baroque' ? 'Baroque' : 'German';
+        systemToggle.textContent = this._getSystemDisplayText(currentSystem);
 
         systemToggle.addEventListener('click', () => {
             const newSystem = this.player.toggleFingeringSystem();
-            systemToggle.textContent = newSystem === 'baroque' ? 'Baroque' : 'German';
+            systemToggle.textContent = this._getSystemDisplayText(newSystem);
         });
 
         return systemToggle;
+    }
+
+    /**
+     * Gets display text for fingering system
+     * @param {string} system - The fingering system name
+     * @returns {string} Display text for the system
+     * @private
+     */
+    _getSystemDisplayText(system) {
+        switch (system) {
+            case 'baroque': return 'Baroque';
+            case 'german': return 'German';
+            case 'diziD': return '笛子D';
+            default: return 'Baroque';
+        }
     }
 
 
