@@ -48,7 +48,7 @@ class FingeringManager {
         this.fingeringDataDiziD = {
             'A,': { left: ['c', 'c', 'c'], right: ['c', 'c', 'c'] },
             '^A,': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
-            'B,': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'B,': { left: ['c', 'c', 'c'], right: ['c', 'c', 'o'] },
             'C': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
             '^C': { left: ['c', 'c', 'c'], right: ['c', 'o', 'o'] },
             'D': { left: ['c', 'c', 'c'], right: ['o', 'o', 'o'] },
@@ -56,25 +56,25 @@ class FingeringManager {
             'E': { left: ['c', 'c', 'o'], right: ['o', 'o', 'o'] },
             'F': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
             '^F': { left: ['c', 'o', 'o'], right: ['o', 'o', 'o'] },
-            'G': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'G': { left: ['o', 'c', 'c'], right: ['o', 'o', 'o'] },
             '^G': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
-            'A': { left: ['c', 'c', 'c'], right: ['c', 'c', 'c'] },
+            'A': { left: ['o', 'c', 'c'], right: ['c', 'c', 'c'] },
             '^A': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
-            'B': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'B': { left: ['c', 'c', 'c'], right: ['c', 'c', 'o'] },
             'c': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
-            '^c': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
-            'd': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            '^c': { left: ['c', 'c', 'c'], right: ['c', 'o', 'o'] },
+            'd': { left: ['c', 'c', 'c'], right: ['o', 'o', 'o'] },
             '^d': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
             'e': { left: ['c', 'c', 'o'], right: ['o', 'o', 'o'] },
             'f': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
             '^f': { left: ['c', 'o', 'o'], right: ['o', 'o', 'o'] },
-            'g': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'g': { left: ['o', 'c', 'c'], right: ['c', 'c', 'o'] },
             '^g': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
-            'a': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'a': { left: ['c', 'c', 'o'], right: ['c', 'c', 'o'] },
             '^a': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
-            'b': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            'b': { left: ['o', 'c', 'c'], right: ['o', 'o', 'o'] },
             'c\'': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
-            '^c\'': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] },
+            '^c\'': { left: ['c', 'o', 'c'], right: ['o', 'o', 'c'] },
             'd\'': { left: ['o', 'o', 'o'], right: ['o', 'o', 'o'] }
         };
 
@@ -555,12 +555,22 @@ class FingeringManager {
      * @private
      */
     _getReferenceNotesList() {
-        // Define reference notes (C4 to D6)
-        return [
-            'C', '^C', 'D', '^D', 'E', 'F', '^F', 'G', '^G', 'A', '^A', 'B',
-            'c', '^c', 'd', '^d', 'e', 'f', '^f', 'g', '^g', 'a', '^a', 'b',
-            'c\'', '^c\'', 'd\''
-        ];
+        if (this.currentFingeringSystem === 'diziD') {
+            // Define reference notes for Dizi D (A3 to D6)
+            return [
+                'A,', '^A,', 'B,',
+                'C', '^C', 'D', '^D', 'E', 'F', '^F', 'G', '^G', 'A', '^A', 'B',
+                'c', '^c', 'd', '^d', 'e', 'f', '^f', 'g', '^g', 'a', '^a', 'b',
+                'c\'', '^c\'', 'd\''
+            ];
+        } else {
+            // Define reference notes for Baroque and German (C4 to D6)
+            return [
+                'C', '^C', 'D', '^D', 'E', 'F', '^F', 'G', '^G', 'A', '^A', 'B',
+                'c', '^c', 'd', '^d', 'e', 'f', '^f', 'g', '^g', 'a', '^a', 'b',
+                'c\'', '^c\'', 'd\''
+            ];
+        }
     }
 
     /**

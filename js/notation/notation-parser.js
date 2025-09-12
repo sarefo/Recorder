@@ -12,7 +12,7 @@ M:4/4
 L:1/4
 Q:1/4=120
 K:C
-C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
+z A, ^A, B, |C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     }
 
     /**
@@ -179,7 +179,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             // Check if this note is tied to the next note
             const isTieStart = element.startTie || element.startSlur;
             const isTieEnd = element.endTie || element.endSlur;
-            
+
             // Debug logging to see what abcjs provides
             if (element.startTie || element.endTie || element.startSlur || element.endSlur) {
                 console.log(`ABCJS Tie data for ${noteName}:`, {
@@ -191,7 +191,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                     isTieEnd
                 });
             }
-            
+
             // Determine if this note should have its fingering diagram suppressed
             // Suppress diagrams for tied continuation notes (notes that end a tie but aren't the first note)
             const suppressDiagram = this._shouldSuppressFingeringDiagram(notes, noteName, isTieEnd);
@@ -216,25 +216,25 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     _shouldSuppressFingeringDiagram(notes, currentNoteName, isTieEnd) {
         // Only suppress if this note ends a tie
         if (!isTieEnd) return false;
-        
+
         // Look back through recent notes to find the matching tie start
         for (let i = notes.length - 1; i >= 0; i--) {
             const prevNote = notes[i];
-            
+
             // Skip rests
             if (prevNote.name === 'rest') continue;
-            
+
             // If we find a matching note that starts a tie, suppress this diagram
             if (prevNote.name === currentNoteName && prevNote.isTieStart) {
                 return true;
             }
-            
+
             // If we encounter a different note, stop looking (ties don't span different pitches)
             if (prevNote.name !== currentNoteName) {
                 break;
             }
         }
-        
+
         return false;
     }
 
@@ -249,21 +249,21 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         // Look back through recent notes to find a matching tied note
         for (let i = notes.length - 1; i >= 0; i--) {
             const prevNote = notes[i];
-            
+
             // Skip rests
             if (prevNote.name === 'rest') continue;
-            
+
             // If we find a matching note with a tie start, this is a tie end
             if (prevNote.name === currentNoteName && prevNote.isTieStart) {
                 return true;
             }
-            
+
             // If we encounter a different note, stop looking
             if (prevNote.name !== currentNoteName) {
                 break;
             }
         }
-        
+
         return false;
     }
 
@@ -285,7 +285,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             if (this.isNoteInChord(musicPart, match.index)) continue;
 
             let [, accidental, noteLetter, octaveMarkers, tieMarker] = match;
-            
+
             if (noteLetter === 'z') {
                 noteIndex++;
                 continue;
@@ -293,13 +293,13 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
 
             const cleanOctaveMarkers = octaveMarkers.replace(/[0-9\/]+/g, '');
             const noteName = accidental + noteLetter + cleanOctaveMarkers;
-            
+
             // If this note matches the last tied note, suppress its diagram
             if (lastTiedNote === noteName && noteIndex === lastTiedIndex + 1) {
                 suppressSet.add(noteIndex);
                 console.log(`Marking note ${noteIndex} (${noteName}) for suppression`);
             }
-            
+
             // If this note has a tie, remember it
             if (tieMarker === '-') {
                 lastTiedNote = noteName;
@@ -308,7 +308,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                 lastTiedNote = null;
                 lastTiedIndex = -1;
             }
-            
+
             noteIndex++;
         }
 
@@ -370,10 +370,10 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         for (let i = 0; i < result.length - 1; i++) {
             const currentNote = result[i];
             const nextNote = result[i + 1];
-            
+
             // Skip rests
             if (currentNote.name === 'rest' || nextNote.name === 'rest') continue;
-            
+
             // If current and next notes are the same, check for ties
             if (currentNote.name === nextNote.name) {
                 console.log(`Found consecutive identical notes: ${currentNote.name} at positions ${i} and ${i + 1}`);
@@ -406,12 +406,12 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         const noteRegex = /([_^=]?)([A-Ga-gz])([,']*[0-9\/]*)([-]?)/g;
         let match;
         let noteIndex = 0;
-        
+
         while ((match = noteRegex.exec(musicPart)) !== null) {
             if (this.isNoteInChord(musicPart, match.index)) continue;
-            
+
             let [fullMatch, accidental, noteLetter, octaveMarkers, tieMarker] = match;
-            
+
             if (noteLetter === 'z') {
                 if (noteIndex === pos1) {
                     console.log(`Position ${pos1} is a rest, can't be tied`);
@@ -420,7 +420,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                 noteIndex++;
                 continue;
             }
-            
+
             // Debug log for the position we're checking
             if (noteIndex === pos1) {
                 console.log(`At position ${pos1}: note='${fullMatch}', tieMarker='${tieMarker}'`);
@@ -429,13 +429,13 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                     return true;
                 }
             }
-            
+
             noteIndex++;
-            
+
             // If we've passed both positions, stop looking
             if (noteIndex > pos2) break;
         }
-        
+
         console.log(`No tie found at position ${pos1}`);
         return false;
     }
@@ -711,16 +711,16 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             const cleanOctaveMarkers = octaveMarkers.replace(/[0-9\/]+/g, '');
             const noteName = finalAccidental + noteLetter + cleanOctaveMarkers;
             const isTieStart = tieMarker === '-';
-            
+
             // Detect tie end by looking at the previous note
             const isTieEnd = this._detectTieEndForCurrentNote(notes, noteName);
             const suppressDiagram = isTieEnd; // Suppress diagram for tied continuation notes
-            
+
             // Debug logging for tied notes
             if (isTieStart || isTieEnd) {
                 console.log(`Tied note detected: ${noteName}, isTieStart: ${isTieStart}, isTieEnd: ${isTieEnd}, suppressDiagram: ${suppressDiagram}`);
             }
-            
+
             notes.push({
                 name: noteName,
                 suppressDiagram: suppressDiagram,
@@ -742,9 +742,9 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     _detectTieEndForCurrentNote(notes, currentNoteName) {
         // Check if the immediately previous note is the same and has a tie start
         if (notes.length === 0) return false;
-        
+
         const lastNote = notes[notes.length - 1];
-        
+
         // If the last note is the same and starts a tie, this current note ends it
         return lastNote.name === currentNoteName && lastNote.isTieStart;
     }
@@ -764,7 +764,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             if (this.isNoteInChord(musicPart, match.index)) continue;
 
             let [, accidental, noteLetter, octaveMarkers, tieMarker] = match;
-            
+
             if (noteLetter === 'z') {
                 lastTiedNote = null;
                 continue;
@@ -772,12 +772,12 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
 
             const cleanOctaveMarkers = octaveMarkers.replace(/[0-9\/]+/g, '');
             const noteName = accidental + noteLetter + cleanOctaveMarkers;
-            
+
             // If this note matches the last tied note, it should be suppressed
             if (lastTiedNote === noteName) {
                 suppressions.push(noteName);
             }
-            
+
             // Update last tied note
             if (tieMarker === '-') {
                 lastTiedNote = noteName;
@@ -797,22 +797,22 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
      */
     applyTieSuppressions(abcjsNotes, suppressions) {
         let suppressionIndex = 0;
-        
+
         return abcjsNotes.map((note, index) => {
             const noteName = typeof note === 'string' ? note : note.name;
-            
+
             // Normalize note names by removing accidentals for comparison
             const normalizedNoteName = this.normalizeNoteForComparison(noteName);
-            const normalizedSuppression = suppressionIndex < suppressions.length ? 
+            const normalizedSuppression = suppressionIndex < suppressions.length ?
                 this.normalizeNoteForComparison(suppressions[suppressionIndex]) : null;
-            
+
             // Check if this note should be suppressed
             let suppressDiagram = false;
             if (suppressionIndex < suppressions.length && normalizedSuppression === normalizedNoteName) {
                 suppressDiagram = true;
                 suppressionIndex++;
             }
-            
+
             if (typeof note === 'string') {
                 return {
                     name: note,
@@ -852,29 +852,29 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         // Detect ties directly from abcjs visual object
         if (window.app && window.app.renderManager && window.app.renderManager.currentVisualObj) {
             const tiedIndices = this.detectTiesFromVisualObject(window.app.renderManager.currentVisualObj);
-            
+
             return abcjsNotes.map((note, index) => {
-                const noteData = typeof note === 'string' ? 
-                    { name: note, suppressDiagram: false, isTieStart: false, isTieEnd: false } : 
+                const noteData = typeof note === 'string' ?
+                    { name: note, suppressDiagram: false, isTieStart: false, isTieEnd: false } :
                     { ...note, suppressDiagram: false, isTieStart: false, isTieEnd: false };
-                    
+
                 if (tiedIndices.continuationIndices.has(index)) {
                     noteData.suppressDiagram = true;
                     noteData.isTieEnd = true;
                 }
-                
+
                 if (tiedIndices.startIndices.has(index)) {
                     noteData.isTieStart = true;
                 }
-                
+
                 return noteData;
             });
         }
-        
+
         // Fallback: return notes without tie detection
         return abcjsNotes.map(note => {
-            return typeof note === 'string' ? 
-                { name: note, suppressDiagram: false, isTieStart: false, isTieEnd: false } : 
+            return typeof note === 'string' ?
+                { name: note, suppressDiagram: false, isTieStart: false, isTieEnd: false } :
                 { ...note, suppressDiagram: false, isTieStart: false, isTieEnd: false };
         });
     }
@@ -887,14 +887,14 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     detectTiesFromVisualObject(visualObj) {
         const startIndices = new Set();
         const continuationIndices = new Set();
-        
+
         if (!visualObj || !visualObj.lines) {
             return { startIndices, continuationIndices };
         }
-        
+
         // Use EXACTLY the same traversal as extractNotesUsingAbcjs
         let noteIndex = 0;
-        
+
         visualObj.lines.forEach(line => {
             if (line.staff) {
                 line.staff.forEach(staff => {
@@ -904,7 +904,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                             if (element.el_type === "bar") {
                                 return;
                             }
-                            
+
                             if (element.el_type === "note" && !element.rest) {
                                 // Process note element with pitches
                                 if (element.pitches) {
@@ -927,7 +927,7 @@ C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                 });
             }
         });
-        
+
         return { startIndices, continuationIndices };
     }
 
