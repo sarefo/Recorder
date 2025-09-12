@@ -132,12 +132,14 @@ class FingeringManager {
 
         if (state === 'c') {
             hole.classList.add('closed');
-            if (isFirstLeftHole) {
+            // Only apply gray color for thumb hole in recorder/baroque modes, not dizi
+            if (isFirstLeftHole && this.currentFingeringSystem !== 'diziD') {
                 hole.style.backgroundColor = '#888';
             }
         } else if (state === 'p') {
             hole.classList.add('half-hole');
-            if (isFirstLeftHole) {
+            // Only apply gray gradient for thumb hole in recorder/baroque modes, not dizi
+            if (isFirstLeftHole && this.currentFingeringSystem !== 'diziD') {
                 hole.style.background = 'linear-gradient(45deg, #888 50%, white 50%)';
             }
         }
