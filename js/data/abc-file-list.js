@@ -33,6 +33,11 @@ class AbcFileList {
                 "category": "bartok/romanian folk dances"
         },
         {
+                "name": "Dongjia chimi wo chikang",
+                "file": "chinese/670_songs.abc",
+                "category": "chinese"
+        },
+        {
                 "name": "10. Aus tiefer Not schrei ich zu dir",
                 "file": "classical/bach/tiefer_not.abc",
                 "category": "classical/bach"
