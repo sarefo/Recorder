@@ -18,8 +18,22 @@
 }
 
 /* Hide tune navigation by default - shown only when multiple tunes are present */
+#prev-tune.hidden,
+#next-tune.hidden,
+#tune-display.hidden {
+    display: none !important;
+}
+
+/* Default state: hidden initially until JavaScript determines if they should show */
 #prev-tune,
 #next-tune,
 #tune-display {
     display: none;
+}
+
+/* When not hidden, show the elements */
+#prev-tune:not(.hidden),
+#next-tune:not(.hidden),
+#tune-display:not(.hidden) {
+    display: inline-block;
 }
