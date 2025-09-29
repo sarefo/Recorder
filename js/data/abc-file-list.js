@@ -33,8 +33,18 @@ class AbcFileList {
                 "category": "bartok/romanian folk dances"
         },
         {
-                "name": "Dongjia chimi wo chikang",
+                "name": "AAA Dongjia chimi wo chikang",
                 "file": "chinese/670_songs.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Geming shengli zaixiangfeng",
+                "file": "chinese/geming.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Huang hua cao",
+                "file": "chinese/huang hua cao.abc",
                 "category": "chinese"
         },
         {
@@ -166,6 +176,11 @@ class AbcFileList {
                 "name": "Te Hokinga Mai",
                 "file": "maori/te hokinga mai.abc",
                 "category": "maori"
+        },
+        {
+                "name": "Bortkomne sauen",
+                "file": "norwegian/bortkomne.abc",
+                "category": "norwegian"
         },
         {
                 "name": "El Condor Pasa",
