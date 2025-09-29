@@ -1,0 +1,47 @@
+%Rude Mechanicals tune library: www.rudemex.co.uk
+%Chords and arrangements by the Rude Mechanicals unless otherwise acknowledged
+X:1
+T: Bortkomne sauen
+C: Trad. Norwegian
+K:Fm
+M:4/4     %Meter
+L:1/8     %
+V:1 gchord=down
+C2 |:"Fm"F3 G F2 =E2 |"C"C/=D/=E- =E4 F2 |"C7sus4"G3 F A2 GA/G/ |"Fm"F6 G2 |
+A3 F A2 B2 |"Ab"c6-cB/A/ |"Eb"G3 F A2 B2 |"C7sus4"G6 "C7"G2 |
+"Ab"A3 E A2 B2 |"Fm"c6-cB/A/ |"Eb"G3 F A3/2B/ A2 |"C     A7sus4"G6 C2 |
+"Db"F3 G F2 =E2 |"C"C/=D/=E- =E4 F2 |"C7sus4"G3 F A2 GA/G/ ||1"Db"F/=E/F- "Csus4"F4 C2 :|2"Fm"F/=E/F- F4 |]
+
+%Rude Mechanicals tune library: www.rudemex.co.uk
+%Chords and arrangements by the Rude Mechanicals unless otherwise acknowledged
+X:1
+T: Bortkomne sauen
+C: Trad. Norwegian
+K:Dm
+M:4/4     %Meter
+L:1/8     %
+V:1 gchord=down
+A2 |:"Dm"d3 e d2 ^c2 |"A"A/=B/^c- ^c4 d2 |"A7sus4"e3 d f2 ef/e/ |"Dm"d6 e2 |
+f3 d f2 g2 |"F"a6-ag/f/ |"C"e3 d f2 g2 |"A7sus4"e6 "A7"e2 |
+"F"f3 c f2 g2 |"Dm"a6-ag/f/ |"C"e3 d f3/2g/ f2 |"A     A7sus4"e6 A2 |
+"Bb"d3 e d2 ^c2 |"A"A/=B/^c- ^c4 d2 |"A7sus4"e3 d f2 ef/e/ ||1"Bb"d/^c/d- "Asus4"d4 A2 :|2"Dm"d/^c/d- d4 |]
+
+%Rude Mechanicals tune library: www.rudemex.co.uk
+%Chords and arrangements by the Rude Mechanicals unless otherwise acknowledged
+X:2
+T: Bortkomne sauen
+C: Trad. Norwegian
+K:Dm
+M:4/4     %Meter
+L:1/8     %
+V:1 gchord=down
+A2 |:"Dm"d3 e d2 ^c2 |"A"A/=B/^c- ^c4 d2 |"A7sus4"e3 d f2 ef/e/ |"Dm"d6 e2 |
+f3 d f2 g2 |"F"a6-ag/f/ |"C"e3 d f2 g2 |"A7sus4"e6 "A7"e2 |
+"F"f3 c f2 g2 |"Dm"a6-ag/f/ |"C"e3 d f3/2g/ f2 |"A     A7sus4"e6 A2 |
+"Bb"d3 e d2 ^c2 |"A"A/=B/^c- ^c4 d2 |"A7sus4"e3 d f2 ef/e/ ||1"Bb"d/^c/d- "Asus4"d4 A2 :|2"Dm"d/^c/d- d4 |]
+V:2
+z2 |:F2 G2 A4- |A2 A,2 E4 |A2 B2 ^c3 d |A4 G4 |
+FG A4 B2 |c2 F2 E2 D2 |C4 d2 Bd |^c2 d4 A2- |
+A2 A4 e2 |de f2 e2 d2 |c2 G2 A2 =B/c/d |^c2 d2 c4 |
+B4 B2 FG |A2 G2 E2 F2 |G2 A2 G3 A ||F4 G2 E2 :|D6 |]
+     %End of file

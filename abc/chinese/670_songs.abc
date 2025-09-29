@@ -1,10 +1,10 @@
 
 X:1
-T: Dongjia chimi wo chikang
+T: AAA Dongjia chimi wo chikang
 N: C1501
 O: China, Sichuan, Cangxi
-S: II, 237, 1)]
-R: Shange. Suku]
+S: II, 237, 1)
+R: Shange. Suku
 M: 2/4
 L: 1/16
 K: G
@@ -16,8 +16,8 @@ X:2
 T: Taiyang dang ding zheng dang zhong
 N: C1502
 O: China, Sichuan, Xiushan
-S: II, 238]
-R: Shange]
+S: II, 238
+R: Shange
 M: 2/4
 L: 1/16
 K: Bb
@@ -31,8 +31,8 @@ X:3
 T: Huang hua cao
 N: C1503
 O: China, Sichuan, Xiushan
-S: II, 243]
-R: Xiaodiao]
+S: II, 243
+R: Xiaodiao
 M: 2/4
 L: 1/8
 K: C
@@ -45,8 +45,8 @@ X:4
 T: Chang shou Shange,shi mei xin
 N: C1504
 O: China, Sichuan, Jiulong
-S: II, 249]
-R: Shange. Nann qing]
+S: II, 249
+R: Shange. Nann qing
 M: 2/4
 L: 1/16
 K: G
@@ -59,8 +59,8 @@ X:5
 T: Yao xue la zhu yi tiao xin
 N: C1505
 O: China, Sichuan, Wushan
-S: II, 252]
-R: Xiaodiao, Fengsuge, Zimeige, Pipa yun. Hunjia yishi shang chang]
+S: II, 252
+R: Xiaodiao, Fengsuge, Zimeige, Pipa yun. Hunjia yishi shang chang
 M: 2/4
 L: 1/32
 K: F
@@ -74,8 +74,8 @@ X:6
 T: Xiu hebao
 N: C1506
 O: China, Sichuan, Xichang
-S: II, 253, 1)]
-R: Xiaodiao]
+S: II, 253, 1)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Eb
@@ -86,8 +86,8 @@ X:7
 T: Shan dui shan lai ya dui ya
 N: C1507
 O: China, Sichuan, Huili
-S: II, 253, 2)]
-R: Shange]
+S: II, 253, 2)
+R: Shange
 M: 4/4
 L: 1/32
 K: E
@@ -100,8 +100,8 @@ X:8
 T: Tanger tiao dan song suqin
 N: C1508
 O: China, Sichuan, Dianshan
-S: II, 256]
-R: Shange, Tiange, Haoyangge, Yayiyou]
+S: II, 256
+R: Shange, Tiange, Haoyangge, Yayiyou
 M: none
 L: 1/32
 K: A
@@ -122,8 +122,8 @@ X:9
 T: Changgong ge
 N: C1509
 O: China, Guangdong, Renhua
-S: II, 390]
-R: Xiaodiao, Yuejie ge]
+S: II, 390
+R: Xiaodiao, Yuejie ge
 M: 3/8
 L: 1/16
 K: D
@@ -136,8 +136,8 @@ X:10
 T: Yuba zhen xongcan
 N: C1510
 O: China, Guangdong, Haifeng
-S: II, 392]
-R: Xiaodiao, Yge]
+S: II, 392
+R: Xiaodiao, Yge
 M: 2/4
 L: 1/16
 K: C
@@ -153,8 +153,8 @@ X:11
 T: Qingyuan xiahai jia yuxia
 N: C1511
 O: China, Guangdong, Yaxian
-S: II, 393]
-R: Xiaodiao. Fun ku]
+S: II, 393
+R: Xiaodiao. Fun ku
 M: 2/4
 L: 1/16
 K: A
@@ -171,8 +171,8 @@ X:12
 T: Meihe chuanfu haozi
 N: C1512
 O: China, Guangdong, Dapu
-S: II, 394]
-R: Haozi]
+S: II, 394
+R: Haozi
 M: 2/4
 L: 1/16
 K: C
@@ -187,8 +187,8 @@ X:13
 T: Kang tai haozi
 N: C1513
 O: China, Guangdong, Guangzhou
-S: II, 396]
-R: Haozi]
+S: II, 396
+R: Haozi
 M: 2/4
 L: 1/8
 K: Bb
@@ -207,8 +207,8 @@ X:14
 T: Yizhuan xiangfeng ji duo nan
 N: C1514
 O: China, Guangdong, Lechang
-S: II, 400]
-R: Shange, Guoshanbang diao]
+S: II, 400
+R: Shange, Guoshanbang diao
 M: 2/4
 L: 1/16
 K: A
@@ -221,8 +221,8 @@ X:15
 T: Jia lang yiao jia geng tian lang
 N: C1515
 O: China, Guangdong, Meixian
-S: II, 401]
-R: Shange, Dieban shange]
+S: II, 401
+R: Shange, Dieban shange
 M: 2/4
 L: 1/16
 K: A
@@ -250,8 +250,8 @@ X:16
 T: Haohua xiyin mi lai cai
 N: C1516
 O: China, Guangdong, Danxian
-S: II, 405]
-R: Xiaodiao, Diaosheng]
+S: II, 405
+R: Xiaodiao, Diaosheng
 M: 2/4
 L: 1/16
 K: G
@@ -264,8 +264,8 @@ X:17
 T: Qingshan jian niao bu jin niao
 N: C1517
 O: China, Guangdong, Danxian
-S: II, 406]
-R: Xiaodiao, Diaosheng]
+S: II, 406
+R: Xiaodiao, Diaosheng
 M: 2/4
 L: 1/16
 K: Ab
@@ -278,8 +278,8 @@ X:18
 T: Bayue shiwu yue tuanyuan
 N: C1518
 O: China, Guangdong, Meixian
-S: II, 411]
-R: Shange, Songkou zhengban shange]
+S: II, 411
+R: Shange, Songkou zhengban shange
 M: 4/4
 L: 1/32
 K: D
@@ -302,8 +302,8 @@ X:19
 T: Cai mi ge
 N: C1519
 O: China, Guangdong, meixian
-S: II, 415]
-R: Xiaodiao, Kuilei qiang]
+S: II, 415
+R: Xiaodiao, Kuilei qiang
 M: 2/4
 L: 1/8
 K: C
@@ -321,8 +321,8 @@ X:20
 T: Haidi zhenzhu rongyi wen
 N: C1520
 O: China, Guangdong, Zhongshan
-S: II, 418]
-R: Xiaodiao, Dazengge. Nann qing]
+S: II, 418
+R: Xiaodiao, Dazengge. Nann qing
 M: 2/4
 L: 1/16
 K: A
@@ -334,8 +334,8 @@ X:21
 T: Xiang mei wu zhuo xin wu gan
 N: C1521
 O: China, Guangdong, Huidong
-S: II, 420]
-R: Xiaodiao, Yge, Eiei diao]
+S: II, 420
+R: Xiaodiao, Yge, Eiei diao
 M: 5/8
 L: 1/16
 K: F
@@ -348,8 +348,8 @@ X:22
 T: Yueguang ge
 N: C1522
 O: China, Guangdong, Chaozhou
-S: II, 422]
-R: Xiaodiao, Erge]
+S: II, 422
+R: Xiaodiao, Erge
 M: 2/4
 L: 1/16
 K: G
@@ -362,8 +362,8 @@ X:23
 T: Qiao luo da gu nao yang chun
 N: C1523
 O: China, Guangxi, Lingguei
-S: II, 518]
-R: Xiaodiao, Fengsuge, Wadige]
+S: II, 518
+R: Xiaodiao, Fengsuge, Wadige
 M: 2/4
 L: 1/16
 K: F
@@ -379,8 +379,8 @@ X:24
 T: Tian le di zhu ku le wo
 N: C1524
 O: China, Guangxi, Tiandong
-S: II, 520]
-R: Shange, Zheyuan shange]
+S: II, 520
+R: Shange, Zheyuan shange
 M: 4/8
 L: 1/16
 K: G
@@ -392,8 +392,8 @@ X:25
 T: Chunji zhaicha chaye xin
 N: C1525
 O: China, Guangxi, Yulin
-S: II, 520(2)]
-R: Wuge, Caicha, Zhicha diao]
+S: II, 520(2)
+R: Wuge, Caicha, Zhicha diao
 M: 2/4
 L: 1/16
 K: D
@@ -406,8 +406,8 @@ X:26
 T: Bihai qingtian feilai chuan
 N: C1526
 O: China, Guangxi, Beihai
-S: II, 522]
-R: Xiaodiao, Xianshuige]
+S: II, 522
+R: Xiaodiao, Xianshuige
 M: 2/4
 L: 1/32
 K: Bb
@@ -424,8 +424,8 @@ X:27
 T: Liting ge
 N: C1527
 O: China, Guangxi, Wuzhou
-S: II, 523]
-R: Xiaodiao, Fengsuge, Baihua changtan]
+S: II, 523
+R: Xiaodiao, Fengsuge, Baihua changtan
 M: 2/4
 L: 1/16
 K: C
@@ -455,8 +455,8 @@ X:28
 T: Guijiang shuiji tan you wan
 N: C1528A
 O: China, Guangxi, Wuzhou
-S: II, 526]
-R: Haozi, Chuangong haozi, Pingshui diao]
+S: II, 526
+R: Haozi, Chuangong haozi, Pingshui diao
 M: 2/4
 L: 1/16
 K: A
@@ -474,8 +474,8 @@ X:29
 T: Gueijiang shuiji tan you wan
 N: C1528B
 O: China, Guangxi, Wuzhou
-S: II, 527]
-R: Haozi, Chuangong haozi, Guo qian diao]
+S: II, 527
+R: Haozi, Chuangong haozi, Guo qian diao
 M: 2/4
 L: 1/16
 K: A
@@ -492,8 +492,8 @@ X:30
 T: Guijiang suiji tan you wan
 N: C1528C
 O: China, Guangxi, Wuzhou
-S: II, 528]
-R: Haozi, Chuangong haozi, Shangtan diao]
+S: II, 528
+R: Haozi, Chuangong haozi, Shangtan diao
 M: 2/4
 L: 1/16
 K: A
@@ -510,8 +510,8 @@ X:31
 T: Wolia jiejiao ding bainian
 N: C1529
 O: China, Guangxi, Yishan
-S: II, 543]
-R: Xiaodiao, Qingmaluozi diao. Nann qing]
+S: II, 543
+R: Xiaodiao, Qingmaluozi diao. Nann qing
 M: 2/4
 L: 1/16
 K: D
@@ -524,8 +524,8 @@ X:32
 T: Changgong ge
 N: C1530
 O: China, Fujian, Quanzhou
-S: II, 594]
-R: Xiaodiao. Changgong ku]
+S: II, 594
+R: Xiaodiao. Changgong ku
 M: 2/4
 L: 1/16
 K: E
@@ -538,8 +538,8 @@ X:33
 T: Kan niu ge
 N: C1531
 O: China, Fujian, Ninghua
-S: II, 596]
-R: Xiaodiao. Changgong ku]
+S: II, 596
+R: Xiaodiao. Changgong ku
 M: 2/4
 L: 1/16
 K: Bb
@@ -550,8 +550,8 @@ X:34
 T: Muniu ge
 N: C1532
 O: China, Fujian, Zhangpu
-S: II, 598]
-R: Shange, Fangmu shange]
+S: II, 598
+R: Shange, Fangmu shange
 M: none
 L: 1/16
 K: F
@@ -573,8 +573,8 @@ X:35
 T: Bachuan hozi
 N: C1533
 O: China, Fujian, Ningde
-S: II, 599]
-R: Haozi, Chuangong haozi]
+S: II, 599
+R: Haozi, Chuangong haozi
 M: 2/4
 L: 1/16
 K: G
@@ -601,8 +601,8 @@ X:36
 T: Longchuan ge
 N: C1534
 O: China, Fujian, Yunxiao
-S: II, 603]
-R: Xiaodiao, Fengsuge]
+S: II, 603
+R: Xiaodiao, Fengsuge
 M: 4/4
 L: 1/16
 K: D
@@ -614,8 +614,8 @@ X:37
 T: Suo ge
 N: C1535
 O: China, Fujian, Chongan
-S: II, 605]
-R: Shange. Caimi duichang]
+S: II, 605
+R: Shange. Caimi duichang
 M: 5/8
 L: 1/16
 K: G
@@ -628,8 +628,8 @@ X:38
 T: Tongnian ge
 N: C1536
 O: China, Fujian, Ninghua
-S: II, 608]
-R: Xiaodiao. Nann qing]
+S: II, 608
+R: Xiaodiao. Nann qing
 M: 2/4
 L: 1/16
 K: C
@@ -643,8 +643,8 @@ X:39
 T: Chang dao laomei dui qinglang
 N: C1537
 O: China, Fujian, Ninghua
-S: II, 610]
-R: Shange. Nann qing]
+S: II, 610
+R: Shange. Nann qing
 M: 4/4
 L: 1/16
 K: C
@@ -657,8 +657,8 @@ X:40
 T: Shang le lingzi luo le po
 N: C1538
 O: China, Fujian, Liancheng
-S: II, 616]
-R: Shange. Nann qing]
+S: II, 616
+R: Shange. Nann qing
 M: 2/4
 L: 1/16
 K: C
@@ -671,8 +671,8 @@ X:41
 T: Dayu luolai xiyu ling
 N: C1539
 O: China, Fujian, Changding, Hetian
-S: II, 616]
-R: Shange. Nann qing]
+S: II, 616
+R: Shange. Nann qing
 M: 2/4
 L: 1/8
 K: D
@@ -685,8 +685,8 @@ X:42
 T: Shishu maque
 N: C1540
 O: China, Fujian, Pucheng
-S: II, 617]
-R: Xiaodiao, Erge]
+S: II, 617
+R: Xiaodiao, Erge
 M: 2/4
 L: 1/16
 K: G
@@ -710,8 +710,8 @@ X:43
 T: Nigu sifan
 N: C1541
 O: China, Heilongjiang
-S: III, 51]
-R: Xiaodiao]
+S: III, 51
+R: Xiaodiao
 M: 4/4
 L: 1/16
 K: Bb
@@ -726,8 +726,8 @@ X:44
 T: Zhenzhu dao juan lian
 N: C1542
 O: China, Heilongjiang, Hejiang
-S: III, 55]
-R: Xiaodiao, Shuogu tanjin]
+S: III, 55
+R: Xiaodiao, Shuogu tanjin
 M: 2/4
 L: 1/16
 K: G
@@ -743,8 +743,8 @@ X:45
 T: Molihua
 N: C1543
 O: China, Heilongjiang, Qiqihaer
-S: III, 57]
-R: Xiaodiao, Gailiangdiao]
+S: III, 57
+R: Xiaodiao, Gailiangdiao
 M: 2/4
 L: 1/16
 K: G
@@ -757,8 +757,8 @@ X:46
 T: Jian mianhua
 N: C1544
 O: China, Heilongjiang
-S: III, 58]
-R: Xiaodiao]
+S: III, 58
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: E
@@ -779,8 +779,8 @@ X:47
 T: Shang ci shan
 N: C1545
 O: China, Heilongjiang, Suihua
-S: III, 59]
-R: Xiaodiao. Gan miaohui]
+S: III, 59
+R: Xiaodiao. Gan miaohui
 M: 2/4
 L: 1/16
 K: F
@@ -799,8 +799,8 @@ X:48
 T: Fangfengzheng
 N: C1546
 O: China, Heilongjiang, Zhaodong
-S: III, 61]
-R: Xiaodiao, Jiandianhua diao]
+S: III, 61
+R: Xiaodiao, Jiandianhua diao
 M: 2/4
 L: 1/8
 K: E
@@ -815,8 +815,8 @@ X:49
 T: Fan luosuo wugeng
 N: C1547
 O: China, Heilongjiang, Qiqihaer
-S: III, 64]
-R: Xiaodiao. Nann qing]
+S: III, 64
+R: Xiaodiao. Nann qing
 M: 4/4
 L: 1/16
 K: D
@@ -836,8 +836,8 @@ X:50
 T: Xiuzhenzha
 N: C1548
 O: China, Heilongjiang, Mudanjiang
-S: III, 65]
-R: Xiaodiao. Fun Xiuhua]
+S: III, 65
+R: Xiaodiao. Fun Xiuhua
 M: 2/4
 L: 1/16
 K: E
@@ -859,8 +859,8 @@ X:51
 T: Meikuang haozi
 N: C1549
 O: China, Heilongjiang, Jixiliumao kuang
-S: III, 76]
-R: Haozi, Meikuang haozi, Zhaohuan hao]
+S: III, 76
+R: Haozi, Meikuang haozi, Zhaohuan hao
 M: 2/4
 L: 1/16
 K: D
@@ -872,8 +872,8 @@ X:52
 T: Zhuai da sheng hao(1)
 N: C1550
 O: China, Heilongjiang, Tieli
-S: III, 82]
-R: Haozi, Senglin haozi]
+S: III, 82
+R: Haozi, Senglin haozi
 M: 4/4
 L: 1/16
 K: G
@@ -893,8 +893,8 @@ X:53
 T: Zhuai dasheng hao
 N: C1551
 O: China, Heilongjiang, Yichun
-S: III, 84]
-R: Haozi, Senglin haozi, Guileng haozi]
+S: III, 84
+R: Haozi, Senglin haozi, Guileng haozi
 M: 4/4
 L: 1/16
 K: G
@@ -920,8 +920,8 @@ X:54
 T: Qiongren nan
 N: C1552
 O: China, Jilin, Tonghua
-S: III, 160]
-R: Xiaodiao, Guanggun kuqi]
+S: III, 160
+R: Xiaodiao, Guanggun kuqi
 M: 2/4
 L: 1/16
 K: F
@@ -935,8 +935,8 @@ X:55
 T: Xiu zhanbu
 N: C1553
 O: China, Jilin, Changchun
-S: III, 164]
-R: Xiaodiao. Fun qing]
+S: III, 164
+R: Xiaodiao. Fun qing
 M: 4/4
 L: 1/16
 K: G
@@ -953,8 +953,8 @@ X:56
 T: Qiong yu fu
 N: C1554
 O: China, Liaoning, Chaoyiang
-S: III, 254]
-R: Xiaodiao, Shidiao, Sizhou diao]
+S: III, 254
+R: Xiaodiao, Shidiao, Sizhou diao
 M: 2/4
 L: 1/16
 K: C
@@ -966,8 +966,8 @@ X:57
 T: Changgong hen
 N: C1555
 O: China, Liaoning, Gaixian
-S: III, 255]
-R: Xiaodiao, Chunge shanggong diao]
+S: III, 255
+R: Xiaodiao, Chunge shanggong diao
 M: 2/4
 L: 1/16
 K: G
@@ -979,8 +979,8 @@ X:58
 T: Zhangsheng you si
 N: C1556
 O: China, Liaoning, Shenyang
-S: III, 262]
-R: Xiaodiao. Xixiangji de gushi]
+S: III, 262
+R: Xiaodiao. Xixiangji de gushi
 M: 2/4
 L: 1/16
 K: C
@@ -997,8 +997,8 @@ X:59
 T: Liangzhu xia shan
 N: C1557
 O: China,bei Liaoning, Haicheng
-S: III, 265]
-R: Xiaodiao, Mengjiangn diao, liangshanbo yu zhuyingtai de gushi]
+S: III, 265
+R: Xiaodiao, Mengjiangn diao, liangshanbo yu zhuyingtai de gushi
 M: 2/4
 L: 1/16
 K: F
@@ -1012,8 +1012,8 @@ X:60
 T: Molihua(1)
 N: C1558
 O: China, Liaoning, Haicheng
-S: III, 275]
-R: Xiaodiao, Shidiao, Molihua diao]
+S: III, 275
+R: Xiaodiao, Shidiao, Molihua diao
 M: 2/4
 L: 1/16
 K: A
@@ -1029,8 +1029,8 @@ X:61
 T: Molihua(2)
 N: C1559
 O: China, Liaoning, Changhai
-S: III, 276]
-R: Xiaodiao, Shidiao, Molihua diao]
+S: III, 276
+R: Xiaodiao, Shidiao, Molihua diao
 M: 2/4
 L: 1/32
 K: D
@@ -1046,8 +1046,8 @@ X:62
 T: Qiaodui wugeng
 N: C1560
 O: China, Liaoning, Xinjin
-S: III, 277]
-R: Xiaodiao, Qingge]
+S: III, 277
+R: Xiaodiao, Qingge
 M: 2/4
 L: 1/16
 K: Bb
@@ -1061,8 +1061,8 @@ X:63
 T: Fang fengzheng
 N: C1561
 O: China, Liaoning
-S: III, 287]
-R: Xiaodiao]
+S: III, 287
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -1077,8 +1077,8 @@ X:64
 T: Jiemei jian mianhua
 N: C1562
 O: China, Liaoning, Yingkou
-S: III, 288]
-R: Xiaodiao. Fun shenghuo]
+S: III, 288
+R: Xiaodiao. Fun shenghuo
 M: 2/4
 L: 1/32
 K: C
@@ -1093,8 +1093,8 @@ X:65
 T: Xinshang cishan
 N: C1563
 O: China, Liaoning, Haicheng
-S: III, 289]
-R: Xiaodiao]
+S: III, 289
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -1112,8 +1112,8 @@ X:66
 T: Kan wawa
 N: C1564
 O: China, Liaoning, jinxian
-S: III, 292]
-R: Xiaodiao. Fun shenghuo]
+S: III, 292
+R: Xiaodiao. Fun shenghuo
 M: 2/4
 L: 1/16
 K: F
@@ -1128,8 +1128,8 @@ X:67
 T: Guanggun kuqi
 N: C1565
 O: China, Liaoning, Haicheng
-S: III, 300]
-R: Xiaodiao]
+S: III, 300
+R: Xiaodiao
 M: 4/4
 L: 1/16
 K: F
@@ -1149,8 +1149,8 @@ X:68
 T: Kucaihua
 N: C1566
 O: China, Shandong, Changle
-S: III, 358]
-R: Xiaodiao. Suku]
+S: III, 358
+R: Xiaodiao. Suku
 M: 4/4
 L: 1/16
 K: E
@@ -1162,8 +1162,8 @@ X:69
 T: Fang mianhua
 N: C1567
 O: China, Shandong, Cangshan
-S: III, 360]
-R: Xiaodiao]
+S: III, 360
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -1176,8 +1176,8 @@ X:70
 T: Xia guandong
 N: C1568
 O: China, Shandong, Qingdao
-S: III, 362]
-R: Xiaodiao]
+S: III, 362
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -1194,8 +1194,8 @@ X:71
 T: Dawo hao
 N: C1569
 O: China, Shandong, Lijing
-S: III, 363]
-R: Haozi, Huanghe haozi]
+S: III, 363
+R: Haozi, Huanghe haozi
 M: 2/4
 L: 1/16
 K: F
@@ -1208,8 +1208,8 @@ X:72
 T: Bazhao hao
 N: C1570
 O: China, Shandong, Qingdao
-S: III, 365]
-R: Haozi, Haiyuan haozi]
+S: III, 365
+R: Haozi, Haiyuan haozi
 M: 2/4
 L: 1/16
 K: C
@@ -1225,8 +1225,8 @@ X:73
 T: Wuzhi xiaochuan
 N: C1571
 O: China, Shandong, Yancheng
-S: III, 368]
-R: Xiaodiao]
+S: III, 368
+R: Xiaodiao
 M: 3/4
 L: 1/32
 K: Bb
@@ -1250,8 +1250,8 @@ X:74
 T: Fang fengzheng
 N: C1572
 O: China, Shandong, Dezhou
-S: III, 372]
-R: Xiaodiao]
+S: III, 372
+R: Xiaodiao
 M: 2/4
 L: 1/32
 K: A
@@ -1277,8 +1277,8 @@ X:75
 T: Dui hua
 N: C1573
 O: China, Shandong, Weifang
-S: III, 380]
-R: Xiaodiao. Chang huahui]
+S: III, 380
+R: Xiaodiao. Chang huahui
 M: 2/4
 L: 1/16
 K: F
@@ -1293,8 +1293,8 @@ X:76
 T: Cha hua xie
 N: C1574
 O: China, Shandong, Dezhou
-S: III, 382]
-R: Haozi, Yunhe haozi]
+S: III, 382
+R: Haozi, Yunhe haozi
 M: 2/4
 L: 1/16
 K: Eb
@@ -1318,8 +1318,8 @@ X:77
 T: Taishan jing
 N: C1575
 O: China, Shandong, Xintai
-S: III, 386]
-R: Xiaodiao, Bianguan diao]
+S: III, 386
+R: Xiaodiao, Bianguan diao
 M: 4/4
 L: 1/32
 K: C
@@ -1357,8 +1357,8 @@ X:78
 T: Sipan
 N: C1576A
 O: China, Shandong, Rizhao
-S: III, 392]
-R: Xiaodiao, Manjianghong]
+S: III, 392
+R: Xiaodiao, Manjianghong
 M: 2/4
 L: 1/16
 K: E
@@ -1369,8 +1369,8 @@ X:79
 T: Sipan
 N: C1576B
 O: China, Shandong, Rizhao
-S: III, 393]
-R: Xiaodiao, Dieduanqiao]
+S: III, 393
+R: Xiaodiao, Dieduanqiao
 M: 2/4
 L: 1/16
 K: E
@@ -1385,8 +1385,8 @@ X:80
 T: Sipan
 N: C1576C
 O: China, Shandong, Rizhao
-S: III, 394]
-R: Xiaodiao]
+S: III, 394
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: E
@@ -1402,8 +1402,8 @@ X:81
 T: Sipan
 N: C1576D
 O: China, Shandong, Rizhao
-S: III, 395]
-R: Xiaodiao, Shuluo]
+S: III, 395
+R: Xiaodiao, Shuluo
 M: 2/4
 L: 1/16
 K: E
@@ -1416,8 +1416,8 @@ X:82
 T: Sipan
 N: C1576E
 O: China, Shandong, Rizhao
-S: III, 396]
-R: Xiaodiao, Xiaolang diao]
+S: III, 396
+R: Xiaodiao, Xiaolang diao
 M: 2/4
 L: 1/16
 K: E
@@ -1430,8 +1430,8 @@ X:83
 T: Sipan
 N: C1576F
 O: China, Shandong, Rizhao
-S: III, 397]
-R: Xiaodiao]
+S: III, 397
+R: Xiaodiao
 M: 3/4
 L: 1/16
 K: E
@@ -1453,8 +1453,8 @@ X:84
 T: Pusonglin liqu
 N: C1577
 O: China, Shandong, Rizhao
-S: III, 399]
-R: Xiaodiao, Shuahaier]
+S: III, 399
+R: Xiaodiao, Shuahaier
 M: 4/4
 L: 1/16
 K: A
@@ -1478,8 +1478,8 @@ X:85
 T: Changgong ku
 N: C1578
 O: China, Jiangsu, Nanjing
-S: III, 470]
-R: Xiaodiao]
+S: III, 470
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -1492,8 +1492,8 @@ X:86
 T: Ge haocao
 N: C1579
 O: China, Jiangsu, ?jiang
-S: III, 475]
-R: Haozi, Cheshui haozi, Wujuban]
+S: III, 475
+R: Haozi, Cheshui haozi, Wujuban
 M: 2/4
 L: 1/16
 K: G
@@ -1505,8 +1505,8 @@ X:87
 T: Buda haozi lengle tai
 N: C1580
 O: China, Jiangsu, Taixing
-S: III, 476]
-R: Haozi, Cheshui haozi]
+S: III, 476
+R: Haozi, Cheshui haozi
 M: 2/4
 L: 1/16
 K: G
@@ -1525,8 +1525,8 @@ X:88
 T: Xi de yangmiao xiao kai yan
 N: C1581
 O: China, Jiangsu, Yancheng
-S: III, 478]
-R: Haozi, Cheshui haozi, Langtou diao]
+S: III, 478
+R: Haozi, Cheshui haozi, Langtou diao
 M: 2/4
 L: 1/16
 K: D
@@ -1542,8 +1542,8 @@ X:89
 T: Jinluo yi zhu wo kai yan
 N: C1582
 O: China, Jiangsu, Liuhe
-S: III, 480]
-R: Shange, Tiange, Gedongdai]
+S: III, 480
+R: Shange, Tiange, Gedongdai
 M: 2/4
 L: 1/16
 K: Bb
@@ -1563,8 +1563,8 @@ X:90
 T: Hongling Qian dao ousi gen
 N: C1583
 O: China,nan Jiangsu, Danyang
-S: III, 487]
-R: Shange, Mengjiangn diao. NannÂ qing]
+S: III, 487
+R: Shange, Mengjiangn diao. NannÂ qing
 M: 4/4
 L: 1/16
 K: G
@@ -1577,8 +1577,8 @@ X:91
 T: Da liang peng
 N: C1584
 O: China, Jiangsu, Kunshan
-S: III, 491]
-R: Shange]
+S: III, 491
+R: Shange
 M: 2/4
 L: 1/16
 K: D
@@ -1591,8 +1591,8 @@ X:92
 T: Xiaoxaio liyu fenhong sai
 N: C1585
 O: China, Jiangsu, Subei)
-S: III, 500]
-R: Xiaodiao, Baduan jin]
+S: III, 500
+R: Xiaodiao, Baduan jin
 M: 2/4
 L: 1/16
 K: D
@@ -1609,8 +1609,8 @@ X:93
 T: Nao yuanxiao
 N: C1586
 O: China, Jiangsu, ? ning
-S: III, 501]
-R: Wuge, Lianhualao]
+S: III, 501
+R: Wuge, Lianhualao
 M: 2/4
 L: 1/16
 K: G
@@ -1625,8 +1625,8 @@ X:94
 T: Da qi laozi Ying xinnian
 N: C1587
 O: China, Jiangsu, Peixian
-S: III, 502]
-R: Wuge, Lianhualao]
+S: III, 502
+R: Wuge, Lianhualao
 M: 2/4
 L: 1/16
 K: C
@@ -1640,8 +1640,8 @@ X:95
 T: Yiba zhima sa shang tian
 N: C1588
 O: China, Jiangsu, Changshu
-S: III, 502]
-R: Shange, Baimao shange]
+S: III, 502
+R: Shange, Baimao shange
 M: none
 L: 1/16
 K: Bb
@@ -1654,8 +1654,8 @@ X:96
 T: Longshan gaolai xishan di
 N: C1589
 O: China, Jiangsu, Wuxi
-S: III, 503]
-R: Shange, Dui shange]
+S: III, 503
+R: Shange, Dui shange
 M: 2/4
 L: 1/16
 K: C
@@ -1672,8 +1672,8 @@ X:97
 T: Ni chang Shange,wo da qiang
 N: C1590
 O: China, Jiangsu, Haimen
-S: III, 505]
-R: Shange, Ganjuzi]
+S: III, 505
+R: Shange, Ganjuzi
 M: 2/4
 L: 1/16
 K: F
@@ -1687,8 +1687,8 @@ X:98
 T: Xinda lunchuan xia jianghe
 N: C1591
 O: China, Jiangsu, Nanjing
-S: III, 506]
-R: Shange, Maoyuzishu diao]
+S: III, 506
+R: Shange, Maoyuzishu diao
 M: 2/4
 L: 1/16
 K: G
@@ -1699,8 +1699,8 @@ X:99
 T: Wuyue Zaiyiang
 N: C1592
 O: China, Jiangsu, Gaochun
-S: III, 506]
-R: Shange]
+S: III, 506
+R: Shange
 M: 2/4
 L: 1/16
 K: F
@@ -1711,8 +1711,8 @@ X:100
 T: Jiemei shuangshuang qu you chun
 N: C1593
 O: China, Jiangsu, Yixing
-S: III, 507]
-R: Shange, Tangdao jikou shange]
+S: III, 507
+R: Shange, Tangdao jikou shange
 M: 3/4
 L: 1/16
 K: F
@@ -1728,8 +1728,8 @@ X:101
 T: Dao chun lai
 N: C1594
 O: China, Jiangsu, Taixing
-S: III, 508]
-R: Wuge, Huagu]
+S: III, 508
+R: Wuge, Huagu
 M: 2/4
 L: 1/16
 K: C
@@ -1742,8 +1742,8 @@ X:102
 T: Wugu fengdeng xiyangyang
 N: C1595
 O: China, Jiangsu, Xinghua
-S: III, 509(1)]
-R: Wuge, Qilinchang]
+S: III, 509(1)
+R: Wuge, Qilinchang
 M: 2/4
 L: 1/16
 K: G
@@ -1756,8 +1756,8 @@ X:103
 T: Wu guniang
 N: C1596
 O: China, Jiangsu, Wujiang
-S: III, 509(2)]
-R: Shange, Xiang shange]
+S: III, 509(2)
+R: Shange, Xiang shange
 M: none
 L: 1/16
 K: G
@@ -1770,8 +1770,8 @@ X:104
 T: Daoqing diao
 N: C1597
 O: China, Jiangsu, Sunan)
-S: III, 512]
-R: Xiaodiao, Shuahaier, Daoqing shishou]
+S: III, 512
+R: Xiaodiao, Shuahaier, Daoqing shishou
 M: 2/4
 L: 1/16
 K: D
@@ -1788,8 +1788,8 @@ X:105
 T: Li tian ge
 N: C1599
 O: China, Anhui, Fengyang
-S: III, 560(2)]
-R: Shange]
+S: III, 560(2)
+R: Shange
 M: 2/4
 L: 1/16
 K: Bb
@@ -1802,8 +1802,8 @@ X:106
 T: Yun tian ge
 N: C1600
 O: China, Anhui, Hexian
-S: III, 561]
-R: Shange, Tiange]
+S: III, 561
+R: Shange, Tiange
 M: 2/4
 L: 1/16
 K: F
@@ -1817,8 +1817,8 @@ X:107
 T: Shang chengcheng
 N: C1601
 O: China, Anhui, Jinzhai
-S: III, 564]
-R: Xiaodiao. Chanong shenghuo]
+S: III, 564
+R: Xiaodiao. Chanong shenghuo
 M: 2/4
 L: 1/16
 K: G
@@ -1833,8 +1833,8 @@ X:108
 T: Gusao dui hua
 N: C1602
 O: China, Anhui, Chaoxian
-S: III, 571]
-R: Xiaodiao. Caihuami]
+S: III, 571
+R: Xiaodiao. Caihuami
 M: 2/4
 L: 1/32
 K: Bb
@@ -1853,8 +1853,8 @@ X:109
 T: Xia laoying
 N: C1603
 O: China, Anhui, Chaoxian
-S: III, 574]
-R: Shange, Tiange]
+S: III, 574
+R: Shange, Tiange
 M: 2/4
 L: 1/16
 K: C
@@ -1866,8 +1866,8 @@ X:110
 T: Hao dao ge
 N: C1604
 O: China, Anhui, Hexian
-S: III, 575]
-R: Shange, Tiange]
+S: III, 575
+R: Shange, Tiange
 M: 2/4
 L: 1/16
 K: Eb
@@ -1880,8 +1880,8 @@ X:111
 T: Chashan duichang
 N: C1605
 O: China, Anhui, Shucheng
-S: III, 576]
-R: Shange. Suku]
+S: III, 576
+R: Shange. Suku
 M: 4/4
 L: 1/16
 K: A
@@ -1892,8 +1892,8 @@ X:112
 T: Zhenjing hong
 N: C1606
 O: China, Anhui, Jinzhai
-S: III, 577]
-R: Shange, Zhenjing hong, Guoshanqing]
+S: III, 577
+R: Shange, Zhenjing hong, Guoshanqing
 M: 2/4
 L: 1/32
 K: Eb
@@ -1912,8 +1912,8 @@ X:113
 T: Man gan niu(2)
 N: C1607
 O: China, Anhui, Jinzhai
-S: III, 579]
-R: Shange. Nann qing]
+S: III, 579
+R: Shange. Nann qing
 M: 2/4
 L: 1/16
 K: G
@@ -1930,8 +1930,8 @@ X:114
 T: Man gan niu(3)
 N: C1608
 O: China, Anhui, Huainan
-S: III, 580]
-R: Shange. Nann qing]
+S: III, 580
+R: Shange. Nann qing
 M: 2/4
 L: 1/16
 K: A
@@ -1947,8 +1947,8 @@ X:115
 T: Duikou shange
 N: C1609
 O: China, Anhui, Guichi
-S: III, 581]
-R: Shange. Nann qing]
+S: III, 581
+R: Shange. Nann qing
 M: 2/4
 L: 1/16
 K: E
@@ -1960,8 +1960,8 @@ X:116
 T: Bangchui da zai shitou shang
 N: C1610
 O: China,nan Anhui
-S: III, 582]
-R: Shange, Mengjiangn diao. NannÂ qing]
+S: III, 582
+R: Shange, Mengjiangn diao. NannÂ qing
 M: 2/4
 L: 1/16
 K: G
@@ -1980,8 +1980,8 @@ X:117
 T: Shi er tiao shoujin
 N: C1611
 O: China, Anhui, Anqing
-S: III, 584]
-R: Xiaodiao, Fun qing]
+S: III, 584
+R: Xiaodiao, Fun qing
 M: 4/4
 L: 1/16
 K: A
@@ -1994,8 +1994,8 @@ X:118
 T: Shi er yue shu
 N: C1612
 O: China, Anhui, Liuan
-S: III, 585]
-R: Xiaodiao. Fengturenqing]
+S: III, 585
+R: Xiaodiao. Fengturenqing
 M: 2/4
 L: 1/16
 K: Bb
@@ -2010,8 +2010,8 @@ X:119
 T: Shi xiu xie
 N: C1613
 O: China, Anhui, Wuhu
-S: III, 587]
-R: Xiaodiao]
+S: III, 587
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -2022,8 +2022,8 @@ X:120
 T: Kua gu diao
 N: C1614
 O: China, Anhui, Fengtai
-S: III, 588]
-R: Wuge, Huagudeng]
+S: III, 588
+R: Wuge, Huagudeng
 M: 2/4
 L: 1/16
 K: G
@@ -2036,8 +2036,8 @@ X:121
 T: Sanba diao
 N: C1615
 O: China, Anhui, huaiyuan
-S: III, 589]
-R: Wuge, Huagudeng]
+S: III, 589
+R: Wuge, Huagudeng
 M: 2/4
 L: 1/8
 K: C
@@ -2054,8 +2054,8 @@ X:122
 T: Shantou diao
 N: C1616
 O: China, Anhui, Chuxian
-S: III, 592]
-R: Shange]
+S: III, 592
+R: Shange
 M: 3/8
 L: 1/16
 K: Bb
@@ -2067,8 +2067,8 @@ X:123
 T: Da ta qing
 N: C1617
 O: China, Anhui, Fuyang
-S: III, 593]
-R: Xiaodiao. Chunyou]
+S: III, 593
+R: Xiaodiao. Chunyou
 M: 2/4
 L: 1/16
 K: Eb
@@ -2091,8 +2091,8 @@ X:124
 T: Xiao ta qing
 N: C1618
 O: China, Anhui, Fuyang
-S: III, 594]
-R: Xiaodiao. Chunyou]
+S: III, 594
+R: Xiaodiao. Chunyou
 M: 2/4
 L: 1/16
 K: G
@@ -2106,8 +2106,8 @@ X:125
 T: Linggong ge
 N: C1619
 O: China, Zhejiang, Jiande
-S: III, 626]
-R: Shange. Suku]
+S: III, 626
+R: Shange. Suku
 M: 5/8
 L: 1/32
 K: G
@@ -2122,8 +2122,8 @@ X:126
 T: Changnian shi
 N: C1620
 O: China,nan Zhejiang, Pucheng
-S: III, 627]
-R: Xiaodiao, Mengjiangn diao. Changgong ku]
+S: III, 627
+R: Xiaodiao, Mengjiangn diao. Changgong ku
 M: 2/4
 L: 1/8
 K: G
@@ -2136,8 +2136,8 @@ X:127
 T: Wenzhou huagu
 N: C1621
 O: China, Zhejiang, Wenzhou
-S: III, 628]
-R: Wuge, Dengdiao]
+S: III, 628
+R: Wuge, Dengdiao
 M: 2/4
 L: 1/8
 K: Bb
@@ -2150,8 +2150,8 @@ X:128
 T: Xiaochanggong
 N: C1622
 O: China, Zhejiang, Yuhang
-S: III, 632]
-R: Shange. Suku]
+S: III, 632
+R: Shange. Suku
 M: 2/4
 L: 1/8
 K: G
@@ -2164,8 +2164,8 @@ X:129
 T: Heichengshou
 N: C1623
 O: China, Zhejiang, Zhoushan
-S: III, 633]
-R: Xiaodiao. Ma caizhu]
+S: III, 633
+R: Xiaodiao. Ma caizhu
 M: 2/4
 L: 1/16
 K: F
@@ -2188,8 +2188,8 @@ X:130
 T: Fengbao ge
 N: C1624
 O: China, Zhejiang, Zhoushan
-S: III, 637]
-R: Xiaodiao. Yumin de tianqi yange]
+S: III, 637
+R: Xiaodiao. Yumin de tianqi yange
 M: 2/4
 L: 1/32
 K: G
@@ -2202,8 +2202,8 @@ X:131
 T: Qipeng haozi
 N: C1625
 O: China, Zhejiang, Zhoushan
-S: III, 637(2)]
-R: Haozi, Chuangong haozi]
+S: III, 637(2)
+R: Haozi, Chuangong haozi
 M: 2/4
 L: 1/16
 K: C
@@ -2217,8 +2217,8 @@ X:132
 T: Xiu mudan
 N: C1626
 O: China, Zhejiang, Zhoushan
-S: III, 638]
-R: Xiaodiao]
+S: III, 638
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -2236,8 +2236,8 @@ X:133
 T: Guafeng luoyu bu jiu qing
 N: C1627
 O: China, Zhejiang, Zhoushan
-S: III, 639]
-R: Xiaodiao, Kudiao]
+S: III, 639
+R: Xiaodiao, Kudiao
 M: 2/4
 L: 1/16
 K: C
@@ -2252,8 +2252,8 @@ X:134
 T: Tianshi haochang kou nankai
 N: C1628
 O: China, Zhejiang, Wenzhou
-S: III, 641]
-R: Shange, Tiange, Tianshi]
+S: III, 641
+R: Shange, Tiange, Tianshi
 M: 2/4
 L: 1/16
 K: D
@@ -2270,8 +2270,8 @@ X:135
 T: Duikou shange
 N: C1631
 O: China,nan Zhejiang, Cixi
-S: III, 643(2)]
-R: Shange, Mengjiangn diao. Chang huahui]
+S: III, 643(2)
+R: Shange, Mengjiangn diao. Chang huahui
 M: 2/4
 L: 1/32
 K: A
@@ -2288,8 +2288,8 @@ X:136
 T: Shiliuhua
 N: C1632
 O: China, Zhejiang, Huangyan, Wenling
-S: III, 644]
-R: Xiaodiao, Shieryue huaming diao]
+S: III, 644
+R: Xiaodiao, Shieryue huaming diao
 M: 2/4
 L: 1/16
 K: F
@@ -2303,8 +2303,8 @@ X:137
 T: Hui guannan
 N: C1633
 O: China, Hebei, Zhangbei
-S: IV, 56]
-R: Xiaodiao. Xu zainian]
+S: IV, 56
+R: Xiaodiao. Xu zainian
 M: 4/4
 L: 1/16
 K: Bb
@@ -2317,8 +2317,8 @@ X:138
 T: Taonan
 N: C1634
 O: China, Hebei, Fucheng
-S: IV, 58]
-R: Xiaodiao]
+S: IV, 58
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -2330,8 +2330,8 @@ X:139
 T: Dushan xiaodiao
 N: C1635
 O: China, Hebei, Kuancheng
-S: IV, 59]
-R: Xiaodiao. Qiongren ku]
+S: IV, 59
+R: Xiaodiao. Qiongren ku
 M: 2/4
 L: 1/16
 K: Bb
@@ -2342,8 +2342,8 @@ X:140
 T: Zhi bu
 N: C1636
 O: China, Hebei, Changli
-S: IV, 60]
-R: Xiaodiao]
+S: IV, 60
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -2358,8 +2358,8 @@ X:141
 T: Tongyang xifu ku nan dang
 N: C1637
 O: China,bei Hebei, Qinghe
-S: IV, 61]
-R: Xiaodiao, Mengjiangn diao. FunÂ ku]
+S: IV, 61
+R: Xiaodiao, Mengjiangn diao. FunÂ ku
 M: 2/4
 L: 1/16
 K: Eb
@@ -2373,8 +2373,8 @@ X:142
 T: La mao lu
 N: C1638
 O: China, Hebei, Zhangbei
-S: IV, 62]
-R: Xiaodiao]
+S: IV, 62
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -2386,8 +2386,8 @@ X:143
 T: Daqingshan wulala shantaoshan
 N: C1639
 O: China, Hebei, Guyuan
-S: IV, 68]
-R: Shange, Pashan diao. Nann liqing]
+S: IV, 68
+R: Shange, Pashan diao. Nann liqing
 M: 2/4
 L: 1/16
 K: C
@@ -2398,8 +2398,8 @@ X:144
 T: Xifu zou niangjia
 N: C1640
 O: China, Hebei, Jingxian
-S: IV, 68(2)]
-R: Xiaodiao. Fun shenghuo ]
+S: IV, 68(2)
+R: Xiaodiao. Fun shenghuo 
 M: 2/4
 L: 1/16
 K: D
@@ -2411,9 +2411,9 @@ X:145
 T: Jianjian hua
 N: C1641
 O: China, Hebei, Fuping
-S: IV, 70]
+S: IV, 70
 N: D ZHI, oder) D SHANG, oder) d YU, Kuyin diaoshi
-R: Xiaodiao. Fun shi]
+R: Xiaodiao. Fun shi
 M: 2/4
 L: 1/16
 K: G
@@ -2425,8 +2425,8 @@ X:146
 T: Liangshanbo
 N: C1642
 O: China, Hebei, Fengnan
-S: IV, 75]
-R: Xiaodiao]
+S: IV, 75
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -2443,8 +2443,8 @@ X:147
 T: Xiangsi pu
 N: C1643
 O: China, Hebei, Shijiazhuang
-S: IV, 79(1)]
-R: Wuge, Lahua]
+S: IV, 79(1)
+R: Wuge, Lahua
 M: 2/4
 L: 1/16
 K: E
@@ -2456,8 +2456,8 @@ X:148
 T: Shigezi
 N: C1644
 O: China, Hebei, Nanpi
-S: IV, 84]
-R: Wuge, Hualihu]
+S: IV, 84
+R: Wuge, Hualihu
 M: 2/4
 L: 1/32
 K: Bb
@@ -2482,8 +2482,8 @@ X:149
 T: Maque dashi
 N: C1645
 O: China, Hebei, Jiaohe
-S: IV, 88]
-R: Wuge, Bawangbian]
+S: IV, 88
+R: Wuge, Bawangbian
 M: 2/4
 L: 1/16
 K: D
@@ -2500,8 +2500,8 @@ X:150
 T: Pulianche
 N: C1646
 O: China, Hebei, Yutian
-S: IV, 89]
-R: Xiaodiao. Nann qing]
+S: IV, 89
+R: Xiaodiao. Nann qing
 M: 2/4
 L: 1/32
 K: D
@@ -2524,8 +2524,8 @@ X:151
 T: Xiaoxiao menlou
 N: C1647
 O: China, Hebei, Shanhaigua
-S: IV, 91]
-R: Xiaodiao. Douqu]
+S: IV, 91
+R: Xiaodiao. Douqu
 M: 2/4
 L: 1/32
 K: Bb
@@ -2545,9 +2545,9 @@ X:152
 T: Sha xiao
 N: C1648
 O: China, Hebei, Jiaohe
-S: IV, 93]
+S: IV, 93
 N: ELFTONSKALA  b YU
-R: Wuge, Gaoqiao diao]
+R: Wuge, Gaoqiao diao
 M: 4/4
 L: 1/32
 K: C
@@ -2567,8 +2567,8 @@ X:153
 T: Da guang deng
 N: C1649
 O: China, Hebei, Jingyian
-S: IV, 94]
-R: Wuge, Taipingqiao]
+S: IV, 94
+R: Wuge, Taipingqiao
 M: 2/4
 L: 1/16
 K: G
@@ -2581,8 +2581,8 @@ X:154
 T: Duihua
 N: C1650
 O: China, Hebei, Gaoyi
-S: IV, 95]
-R: Wuge, Shangu]
+S: IV, 95
+R: Wuge, Shangu
 M: 2/4
 L: 1/16
 K: Ab
@@ -2597,8 +2597,8 @@ X:155
 T: Zou xikou
 N: C1651
 O: China, Hebei, Zhangbei
-S: IV, 99]
-R: Xiaodiao. Nann liqing]
+S: IV, 99
+R: Xiaodiao. Nann liqing
 M: 2/4
 L: 1/16
 K: C
@@ -2611,8 +2611,8 @@ X:156
 T: Qiongren xiaodiao
 N: C1652
 O: China, Henan, Xinxian
-S: IV, 137]
-R: Xiaodiao. Suku]
+S: IV, 137
+R: Xiaodiao. Suku
 M: 2/4
 L: 1/16
 K: F
@@ -2636,8 +2636,8 @@ X:157
 T: Qiongpo diao
 N: C1653
 O: China, Henan, Anyang
-S: IV, 139]
-R: Xiaodiao. Qiongfu duibi]
+S: IV, 139
+R: Xiaodiao. Qiongfu duibi
 M: 2/4
 L: 1/16
 K: F
@@ -2650,9 +2650,9 @@ X:158
 T: Sibao kang changgong
 N: C1654
 O: China,bei Henan, Lushi
-S: IV, 140]
+S: IV, 140
 N: F ZHI-D JIAO
-R: Shange, Mengjiangn diao, Tianyang haozi, Lushi haozi]
+R: Shange, Mengjiangn diao, Tianyang haozi, Lushi haozi
 M: 2/4
 L: 1/16
 K: Bb
@@ -2670,8 +2670,8 @@ X:159
 T: Nanguo de yahuan
 N: C1655
 O: China, Henan, Kaifeng
-S: IV, 143]
-R: Wuge, Yangge]
+S: IV, 143
+R: Wuge, Yangge
 M: 2/4
 L: 1/16
 K: F
@@ -2687,7 +2687,7 @@ X:160
 T: Shieryue qiao niang
 N: C1656
 O: China, Henan, Yichuan
-S: IV, 144]
+S: IV, 144
 R: Xiaodiao]2/4
 L: 1/16
 K: Eb
@@ -2698,8 +2698,8 @@ X:161
 T: Dui hua
 N: C1657
 O: China, Henan, Shangcheng
-S: IV, 146]
-R: Xiaodiao. Chang huahui]
+S: IV, 146
+R: Xiaodiao. Chang huahui
 M: 2/4
 L: 1/16
 K: G
@@ -2719,8 +2719,8 @@ X:162
 T: Guan deng
 N: C1658
 O: China, Henan, jiaozuo
-S: IV, 149]
-R: Xiaodiao, Keguazi diao]
+S: IV, 149
+R: Xiaodiao, Keguazi diao
 M: 2/4
 L: 1/16
 K: G
@@ -2734,8 +2734,8 @@ X:163
 T: Shiba shanzi
 N: C1659
 O: China, Henan, Xinxian
-S: IV, 150]
-R: Xiaodiao]
+S: IV, 150
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -2747,8 +2747,8 @@ X:164
 T: Huagu diao
 N: C1660
 O: China, Henan, Kaifeng
-S: IV, 152]
-R: Wuge, Huagu]
+S: IV, 152
+R: Wuge, Huagu
 M: 2/4
 L: 1/16
 K: A
@@ -2770,8 +2770,8 @@ X:165
 T: Dui huadeng, 1)
 N: C1661A
 O: China, Henan, Zhenping
-S: IV, 155]
-R: Wuge, Yayou diao]
+S: IV, 155
+R: Wuge, Yayou diao
 M: 2/4
 L: 1/16
 K: G
@@ -2784,8 +2784,8 @@ X:166
 T: Dui huadeng, 2)
 N: C1661B
 O: China, Henan, Zing
-S: IV, 155]
-R: Wuge]
+S: IV, 155
+R: Wuge
 M: 2/4
 L: 1/16
 K: G
@@ -2797,8 +2797,8 @@ X:167
 T: Dui huadeng, 3)
 N: C1661C
 O: China, Henan, Zhenping
-S: IV, 156]
-R: Wuge]
+S: IV, 156
+R: Wuge
 M: 2/4
 L: 1/16
 K: G
@@ -2810,8 +2810,8 @@ X:168
 T: Dui huadeng, 4)
 N: C1661D
 O: China, Henan, Zhenping
-S: IV, 156]
-R: Wuge, Lianhualao]
+S: IV, 156
+R: Wuge, Lianhualao
 M: 2/4
 L: 1/16
 K: G
@@ -2825,8 +2825,8 @@ X:169
 T: Dui huadeng, 5)
 N: C1661E
 O: China, Henan, Zhenping
-S: IV, 157]
-R: Wuge]
+S: IV, 157
+R: Wuge
 M: 2/4
 L: 1/8
 K: G
@@ -2837,8 +2837,8 @@ X:170
 T: Chan xian ge
 N: C1662
 O: China, Henan, Xinxiang
-S: IV, 159]
-R: Xiaodiao]
+S: IV, 159
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -2860,8 +2860,8 @@ X:171
 T: Laohan fangyang
 N: C1663
 O: China, Henan, Tanghe
-S: IV, 161]
-R: Xiaodiao]
+S: IV, 161
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -2893,8 +2893,8 @@ X:172
 T: Xiaoxiao liyu hongkousai
 N: C1664
 O: China, Henan, Nanyang
-S: IV, 163]
-R: Shange, Tongbai shange]
+S: IV, 163
+R: Shange, Tongbai shange
 M: none
 L: 1/32
 K: C
@@ -2918,8 +2918,8 @@ X:173
 T: Jieer ge
 N: C1665
 O: China, Henan, Lingbao
-S: IV, 164]
-R: Shange. Nann qing]
+S: IV, 164
+R: Shange. Nann qing
 M: 4/4
 L: 1/16
 K: C
@@ -2933,8 +2933,8 @@ X:174
 T: Da dangong
 N: C1666
 O: China, Henan, Lingbao
-S: IV, 165]
-R: Shange. Nann qing]
+S: IV, 165
+R: Shange. Nann qing
 M: 3/4
 L: 1/16
 K: C
@@ -2947,8 +2947,8 @@ c2cAGAG4A2 | d3cGAG6
 T: Damihao
 N: C1667
 O: China, Henan, Lingbao
-S: IV, 166]
-R: Haozi]
+S: IV, 166
+R: Haozi
 M: 2/4
 L: 1/8
 K: Bb
@@ -2959,8 +2959,8 @@ X:176
 T: Niulang Wan huadeng
 N: C1668
 O: China, Henan, Lushi
-S: IV, 167]
-R: Xiaodiao]
+S: IV, 167
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -2971,8 +2971,8 @@ X:177
 T: Caicha
 N: C1669
 O: China, Henan, Lushi
-S: IV, 168]
-R: Wuge, Zhuma]
+S: IV, 168
+R: Wuge, Zhuma
 M: 2/4
 L: 1/16
 K: G
@@ -2981,8 +2981,8 @@ G3Ad2d2 | egB2A2GE | d2d4E2 | G2G:178
 T: Gan niu
 N: C1670
 O: China, Henan, Lushi
-S: IV, 169]
-R: Wuge, Caicha]
+S: IV, 169
+R: Wuge, Caicha
 M: 2/4
 L: 1/16
 K: G
@@ -2996,8 +2996,8 @@ X:179
 T: Xiao ding xiang
 N: C1671
 O: China, Henan, Sanmenxia
-S: IV, 171]
-R: Xiaodiao]
+S: IV, 171
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -3015,8 +3015,8 @@ X:180
 T: Wo da changgong shi jiannan
 N: C1672
 O: China, Jiangxi, Jinxian
-S: IV, 229]
-R: Shange. Suku]
+S: IV, 229
+R: Shange. Suku
 M: 2/4
 L: 1/16
 K: A
@@ -3029,8 +3029,8 @@ X:181
 T: Teng chan shu lai shu chan teng
 N: C1673
 O: China, Jiangxi, Pingxiang
-S: IV, 230]
-R: Shange. Nann qing]
+S: IV, 230
+R: Shange. Nann qing
 M: none
 L: 1/16
 K: G
@@ -3054,8 +3054,8 @@ X:182
 T: Jin keng diao
 N: C1674
 O: China, Jiangxi, Longnan
-S: IV, 232]
-R: Shange. Nann qing]
+S: IV, 232
+R: Shange. Nann qing
 M: 2/4
 L: 1/16
 K: C
@@ -3068,8 +3068,8 @@ X:183
 T: Chan caopi
 N: C1675
 O: China,ngxi, Xinfeng
-S: IV, 232]
-R: Shange]
+S: IV, 232
+R: Shange
 M: 2/4
 L: 1/8
 K: C
@@ -3080,8 +3080,8 @@ X:184
 T: Yiduo xianhua shui di kai
 N: C1676
 O: China, Jiangxi, Ningdu
-S: IV, 233]
-R: Shange, Ningniuzi]
+S: IV, 233
+R: Shange, Ningniuzi
 M: 2/4
 L: 1/16
 K: D
@@ -3094,8 +3094,8 @@ X:185
 T: Zhuowang shan shang
 N: C1677
 O: China, Jiangxi, Yihuang
-S: IV, 234]
-R: Shange. Nann qing]
+S: IV, 234
+R: Shange. Nann qing
 M: 5/8
 L: 1/16
 K: A
@@ -3107,8 +3107,8 @@ X:186
 T: Xi huanggua
 N: C1678
 O: China, Jiangxi, Lean
-S: IV, 234]
-R: Shange]
+S: IV, 234
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -3121,8 +3121,8 @@ X:187
 T: Gaoshan da shi shi luo tan
 N: C1679
 O: China, Jiangxi, Lianhua
-S: IV, 235]
-R: Shange. Nann qing]
+S: IV, 235
+R: Shange. Nann qing
 M: 3/4
 L: 1/8
 K: Bb
@@ -3137,8 +3137,8 @@ X:188
 T: Zhao jingzi
 N: C1680
 O: China, Jiangxi, Ganzhou
-S: IV, 239]
-R: Xiaodiao]
+S: IV, 239
+R: Xiaodiao
 M: 4/4
 L: 1/16
 K: C
@@ -3152,8 +3152,8 @@ X:189
 T: hong xiu xie
 N: C1681
 O: China, Jiangxi, ganzhou
-S: IV, 240]
-R: Wuge, Dengge]
+S: IV, 240
+R: Wuge, Dengge
 M: 2/4
 L: 1/16
 K: C
@@ -3167,8 +3167,8 @@ X:190
 T: Amei jinri ba lu shang
 N: C1682
 O: China, Jiangxi, Ganxian
-S: IV, 244]
-R: Xiaodiao, Chage, Shuzhuang]
+S: IV, 244
+R: Xiaodiao, Chage, Shuzhuang
 M: 2/4
 L: 1/16
 K: C
@@ -3181,8 +3181,8 @@ X:191
 T: Taohua kai lai hong shi hong
 N: C1683
 O: China, Jiangxi, Anyuan
-V, 244]
-R: Xiaodiao, Chage, shuang qianshou]
+V, 244
+R: Xiaodiao, Chage, shuang qianshou
 M: 2/4
 L: 1/16
 K: C
@@ -3204,8 +3204,8 @@ X:192
 T: Cai sang
 N: C1684
 O: China, Jiangxi, Jingdezhen
-S: IV, 246]
-R: Xiaodiao]
+S: IV, 246
+R: Xiaodiao
 M: 4
 L: 1/16
 K: F
@@ -3217,8 +3217,8 @@ X:193
 T: Zhai cha
 N: C1685
 O: China, Jiangxi, Ganxian
-S: IV, 248]
-R: Wuge, Caicha, chunjing tian]
+S: IV, 248
+R: Wuge, Caicha, chunjing tian
 M: 2/4
 L: 1/16
 K: Bb
@@ -3238,8 +3238,8 @@ X:194
 T: Chang qi chage tiao chadeng
 N: C1686
 O: China, Jiangxi, Shangrao
-S: IV, 251]
-R: Wuge, Dengge]
+S: IV, 251
+R: Wuge, Dengge
 M: 2/4
 L: 1/16
 K: G
@@ -3254,8 +3254,8 @@ X:5
 T: Fuqi shuangshuang qu hui men
 N: C1687
 O: China, Jiangxi, Yujiang
-S: IV, 252]
-R: Wuge, Chelideng]
+S: IV, 252
+R: Wuge, Chelideng
 M: 2/4
 L: 1/16
 K: E
@@ -3269,8 +3269,8 @@ X:196
 T: Shui shen zi you bai du ren
 N: C1688
 O: China,nan Jiangxi, Nanchang
-S: IV, 256]
-R: Xiaodiao, Mengjiangn diao, Yifan diao. NannÂ qing]
+S: IV, 256
+R: Xiaodiao, Mengjiangn diao, Yifan diao. NannÂ qing
 M: 2/4
 L: 1/32
 K: C
@@ -3282,8 +3282,8 @@ X:197
 T: Shisong
 N: C1689
 O: China,nan Jiangxi, Lianhua
-S: IV, 257]
-R: Wuge, Dengge, Mengjiangn diao. NannÂ qing]
+S: IV, 257
+R: Wuge, Dengge, Mengjiangn diao. NannÂ qing
 M: 2/4
 L: 1/16
 K: C
@@ -3298,8 +3298,8 @@ X:198
 T: Lingdangling, Suodangsuo
 N: C1690
 O: China, Jiangxi, Gaoan
-S: IV, 259]
-R: Xiaodiao, ]
+S: IV, 259
+R: Xiaodiao, 
 M: 2/4
 L: 1/16
 K: G
@@ -3314,8 +3314,8 @@ X:199
 T: Mai hua diao
 N: C1691
 O: China, Jiangxi, Yongxiu
-S: IV, 260]
-R: Xiaodiao]
+S: IV, 260
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -3328,8 +3328,8 @@ X:200
 T: Guoshu kaihua duoduo xiang
 N: C1692
 O: China, Jiangxi, Jinxian
-S: IV, 261]
-R: Xiaodiao]
+S: IV, 261
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K:2c2c2c2 | c2A2c2c2A2c2 | ccAcd4 |
@@ -3346,8 +3346,8 @@ X:201
 T: Shiyue wanglang
 N: C1693
 O: China, Jiangxi, Pingxiang
-S: IV, 262]
-R: Xiaodiao. Nann qing]
+S: IV, 262
+R: Xiaodiao. Nann qing
 M: 2/4
 L: 1/16
 K: A
@@ -3363,8 +3363,8 @@ X:202
 T: Baobao yao shuijiao
 N: C1694
 O: China, Jiangxi, Buoyang
-S: IV, 264]
-R: Xiaodiao, Yaoerge]
+S: IV, 264
+R: Xiaodiao, Yaoerge
 M: 2/4
 L: 1/16
 K: G
@@ -3383,8 +3383,8 @@ X:203
 T: Shuangqing xiaoyangge
 N: C1695
 O: Cha, Neimeng.Tuoxian
-S: IV, 370]
-R: Wuge, Yangge, Shehuo]
+S: IV, 370
+R: Wuge, Yangge, Shehuo
 M: 2/4
 L: 1/16
 K: C
@@ -3404,8 +3404,8 @@ X:204
 T: Fang niu diao
 N: C1696
 O: China, Taiwan
-S: I22]
-R: Shange, Fangmu shange]
+S: I22
+R: Shange, Fangmu shange
 M: 2/4
 L: 1/16
 K: C
@@ -3419,8 +3419,8 @@ X:205
 T: Li tian ge
 N: C1697
 O: China, Taiwan
-S: IV, 623]
-R: Xiaodiao]
+S: IV, 623
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -3434,8 +3434,8 @@ X:206
 T: Geng nong ge
 N: C1698
 O: China, Taiwan, Hengchun
-S: IV, 625]
-R: Xiaodiao, Taidong diao. Nongmin shenghuo]
+S: IV, 625
+R: Xiaodiao, Taidong diao. Nongmin shenghuo
 M:
 L: 1/16
 K: G
@@ -3448,8 +3448,8 @@ X:207
 T: Liu yue tian shui
 N: C1699
 O: China, Taiwan
-S: IV, 630]
-R: Xiaodiao]
+S: IV, 630
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -3460,8 +3460,8 @@ X:208
 T: Qigai diao
 N: C1700
 O: China, Taiwan
-S: IV, 631]
-R: Xiaodiao]
+S: IV, 631
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -3473,8 +3473,8 @@ X:209
 T: Yizhi niaozai xiaoqouqou
 N: C1701
 O: China, Taiwan, Jiayi
-S: IV, 631(2)]
-R: Xiaodiao]
+S: IV, 631(2)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -3485,8 +3485,8 @@ X:210
 T: Caomeng nong jigong
 N: C1702
 O: China, Taiwan
-S: IV, 632]
-R: Xiaodiao, Erge, Gezai xi]
+S: IV, 632
+R: Xiaodiao, Erge, Gezai xi
 M: 4/4
 L: 1/16
 K: D
@@ -3501,8 +3501,8 @@ X:211
 T: Yao chuan diao
 N: C1703
 O: China, Taiwan, Xinzhu, Miaoli, Taoyuan
-S: IV, 633]
-R: Xiaodiao. Caimi]
+S: IV, 633
+R: Xiaodiao. Caimi
 M: 4/4
 L: 1/16
 K: G
@@ -3517,8 +3517,8 @@ X:212
 T: Yao nuan zai ge
 N: C1704
 O: China, Taiwan
-S: IV, 637]
-R: Xiaodiao]
+S: IV, 637
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -3530,8 +3530,8 @@ X:213
 T: Yao zi ge
 N: C1705
 O: China, Taiwan
-S: IV, 638]
-R: Xiaodiao]
+S: IV, 638
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -3542,8 +3542,8 @@ X:214
 T: Yinyin kun
 N: C1706
 O: China, Taiwan
-S: IV, 638(2)]
-R: Xiaodiao]
+S: IV, 638(2)
+R: Xiaodiao
 M: 2/4
 L: 1/8
 K: G
@@ -3558,8 +3558,8 @@ X:215
 T: Yuanyuan kan mei mei fai
 N: C1707
 O: China, Taiwan, Xinzhu miaoli taoyuan
-S: IV, 639]
-R: Xiaodiao, Pingban diao, Caicha diao]
+S: IV, 639
+R: Xiaodiao, Pingban diao, Caicha diao
 M: 2/4
 L: 1/16
 K: G
@@ -3575,8 +3575,8 @@ X:216
 T: Ritou luo shan yi dian hong
 N: C1708
 O: China, Taiwan, Xinzhu, Zhongli, Taoyuan
-S: IV, 642]
-R: Shange, Shangezai]
+S: IV, 642
+R: Shange, Shangezai
 M: 2/4
 L: 1/16
 K: G
@@ -3589,8 +3589,8 @@ X:217
 T: Ritou luo shan
 N: C1709
 O: China, Taiwan, Xinzhu, Zhongli, Taoyuan
-S: IV, 643]
-R: Xiaodiao, Pingban , Caicha diao]
+S: IV, 643
+R: Xiaodiao, Pingban , Caicha diao
 M: 2/4
 L: 1/16
 K: D
@@ -3606,8 +3606,8 @@ X:218
 T: Bugao buai haorencai
 N: C1710
 O: China, Taiwan, Xinzhu, Zhongli
-S: IV, 644]
-R: Shange, Dashange diao]
+S: IV, 644
+R: Shange, Dashange diao
 M: 2/4
 L: 1/32
 K: G
@@ -3619,8 +3619,8 @@ X:219
 T: Bing nuan ge
 N: C11
 O: China, Taiwan, Xinzhu, Miaoli, Taoyuan
-S: IV, 645]
-R: Xiaodiao]
+S: IV, 645
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: E
@@ -3637,8 +3637,8 @@ X:220
 T: Sanpen Shuixian
 N: C1712
 O: China, Taiwan
-S: IV, 646]
-R: Xiaodiao]
+S: IV, 646
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -3652,9 +3652,9 @@ X:221
 T: Xiashui bannaon haozi
 N: C1713A
 O: China, Sichuan, Chongqing
-S: Hazu minge gailun, 80]
+S: Hazu minge gailun, 80
 N: Nao haozi ist 2/4
-R: Haozi, Chuanjiang chuanfu haozi]
+R: Haozi, Chuanjiang chuanfu haozi
 M: none
 L: 1/32
 K: A
@@ -3669,8 +3669,8 @@ X:222
 T: Xiashui bannao haozi
 N: C1713B
 O: China, Sichuan, Chongqing
-S: Hanzu minge gailun, 81]
-R: Haozi, Chuanjiang chuanfu haozi]
+S: Hanzu minge gailun, 81
+R: Haozi, Chuanjiang chuanfu haozi
 M: 2/41/32
 K: A
 B8(3A2B2A2F4F8
@@ -3685,8 +3685,8 @@ X:223
 T: Xiashui bannao haozi
 N: C1713C
 O: China, Sichuan, Chongqing
-S: Hanzu minge gailun, 81]
-R: Haozi, Chuanjiang chuanfu haozi]
+S: Hanzu minge gailun, 81
+R: Haozi, Chuanjiang chuanfu haozi
 M: none
 L: 1/32
 K: A
@@ -3708,8 +3708,8 @@ X:224
 T: Xiashui bannao haozi
 N: C1713D
 O: China, Sichuan, Chongqing
-S: Hanzu minge gailun, 82]
-R: Haozi, Chuanjiang chuanfu haozi]
+S: Hanzu minge gailun, 82
+R: Haozi, Chuanjiang chuanfu haozi
 M: 2/4
 L: 1/32
 K: A
@@ -3725,8 +3725,8 @@ X:225
 T: Xiashubannao haozi
 N: C1713E
 O: China, Sichuan, chongqing
-S: Hanzu minge gailun, 82(2)]
-R: Haozi, Chuanjiang chuanfu haozi]
+S: Hanzu minge gailun, 82(2)
+R: Haozi, Chuanjiang chuanfu haozi
 M: 2/4
 L: 1/32
 K: A
@@ -3744,8 +3744,8 @@ X:226
 T: Xiashui bannao haozi
 N: C1713F
 O: China, Sichuan, Chongqing
-S: Hanzu minge gailun, 83]
-R: Haozi, Chuanjiang chuanfu haozi]
+S: Hanzu minge gailun, 83
+R: Haozi, Chuanjiang chuanfu haozi
 M: 2/4
 L: 1/32
 K: A
@@ -3764,8 +3764,8 @@ X:227
 T: Xiashui bannao haozi
 N: C1713G
 O: China, Sichuan, Chongqing
-S: Hanzu minge gailun, 83(2)]
-R: Haozi, Chuanjiang chuanfu haozi]
+S: Hanzu minge gailun, 83(2)
+R: Haozi, Chuanjiang chuanfu haozi
 M: 2/4
 L: 1/32
 K: A
@@ -3781,8 +3781,8 @@ X:228
 T: Xiashui bannao haozi 9. Jizhuomi haozi
 N: C1713H
 O: China, Sichuan, Chongqing
-S: Hanzu minge gailun, 84]
-R: Haozi, Chuanjiang chuanfu haozi]
+S: Hanzu minge gailun, 84
+R: Haozi, Chuanjiang chuanfu haozi
 M: 2/4
 L: 1/32
 K: A
@@ -3801,8 +3801,8 @@ X:229
 T: Tan shi sheng
 N: C1714
 O: China, Hebei, Shangyi
-S: Hanzu minge gailun, 222]
-R: Xiaodiao, Mengjiangn diao. Suku]
+S: Hanzu minge gailun, 222
+R: Xiaodiao, Mengjiangn diao. Suku
 M: 2/4
 L: 1/16
 K: F
@@ -3815,8 +3815,8 @@ X:230
 T: Shi bei jiu
 N: C1715
 O: China,bei Shaanxi, Chunhua
-S: Hanzu minge gailun, 223]
-R: Xiaodiao, Mengjiangn diao. NannÂ qing]
+S: Hanzu minge gailun, 223
+R: Xiaodiao, Mengjiangn diao. NannÂ qing
 M: 2/4
 L: 1/16
 K: F
@@ -3830,8 +3830,8 @@ X:231
 T: Yang diao
 N: C1716
 O: China,nan Yunnan
-S: Hanzu minge gailun, 224]
-R: Wuge, Huadeng, Yunndeng, Mengjiangn diao]
+S: Hanzu minge gailun, 224
+R: Wuge, Huadeng, Yunndeng, Mengjiangn diao
 M: 2/4
 L: 1/16
 K: F
@@ -3846,8 +3846,8 @@ X:232
 T: Nigu sifan
 N: C1717
 O: China, Hunan
-S: Zhongguo minge xuan, 246]
-R: Xiaodiao. Nann qing]
+S: Zhongguo minge xuan, 246
+R: Xiaodiao. Nann qing
 M: 2/4
 L: 1/16
 K: E
@@ -3860,8 +3860,8 @@ X:233
 T: Wo wu men qian yi shu tao
 N: C1718
 O: China, Hunan, Hengshan
-S: I, 498]
-R: Shange, Lianhuan shange. Xin minge]
+S: I, 498
+R: Shange, Lianhuan shange. Xin minge
 M: 3/8
 L: 1/16
 K: C
@@ -3881,8 +3881,8 @@ X:234
 T: Noyie jijiehua zaolaidao
 N: C1719
 O: China, Hunan, Zhuzhou
-S: I, 508]
-R: Xiaodiao, Naowugeng, Erge. Xin minge]
+S: I, 508
+R: Xiaodiao, Naowugeng, Erge. Xin minge
 M: 2/4
 L: 1/16
 K: F
@@ -3908,8 +3908,8 @@ X:235
 T: Qongren fanshen da yangsan
 N: C1720
 O: China, Hunanaoshan
-S: I, 516]
-R: Wuge, Dengge. Geming lishi minge]
+S: I, 516
+R: Wuge, Dengge. Geming lishi minge
 M: 2/4
 L: 1/16
 K: C
@@ -3922,8 +3922,8 @@ X:236
 T: Cailian diao
 N: C1721
 O: China, Hunan
-S: Hanzu minge gailun]
-R: Xiaodiao. Fuqi cailian]
+S: Hanzu minge gailun
+R: Xiaodiao. Fuqi cailian
 M: 4/4
 L: 1/16
 K: A
@@ -3938,8 +3938,8 @@ X:237
 T: Maicai
 N: C1722
 O: China, Hunan, Changsha
-S: Hanzu minge gailun, 204]
-R: Xiaodiao, Jiaomai diao]
+S: Hanzu minge gailun, 204
+R: Xiaodiao, Jiaomai diao
 M: 2/4
 L: 1/32
 K: F
@@ -3949,8 +3949,8 @@ X:238
 T: Jiaolaoxiang nishiting
 N: C1731
 O: China, Liaoning Chifeng
-S: III, 220, 1)]
-R: Xiaodiao, Jiujinshan diao]
+S: III, 220, 1)
+R: Xiaodiao, Jiujinshan diao
 M: 2/4
 L: 1/16
 K: F
@@ -3961,8 +3961,8 @@ A2G2F2G2 | F4z4
 X:2: Qixin lai kangzhan
 N: C1732
 O: China, Liaoning lingyuan
-S: III, 220, 2)]
-R: Xiaodiao, Babaicai diao]
+S: III, 220, 2)
+R: Xiaodiao, Babaicai diao
 M: 2/4
 L: 1/16
 K: G
@@ -3978,8 +3978,8 @@ X:240
 T: Renmin de jiefang
 N: C1733
 O: China, Liaoning Chifeng
-S: III, 222]
-R: Xiaodiao]
+S: III, 222
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -3998,8 +3998,8 @@ X:241
 T: Dongbei de jiefang
 N: C1734
 O: China, Liaoning Changhai
-S: III, 223]
-R: Xiaodiao, Shuangwugeng diao]
+S: III, 223
+R: Xiaodiao, Shuangwugeng diao
 M: 2/4
 L: 1/16
 K: F
@@ -4011,8 +4011,8 @@ X:242
 T: Meiheizi ku
 N: C1735
 O: China, Liaoning Fushun
-S: III, 224]
-R: Haozi]
+S: III, 224
+R: Haozi
 M: 4/4
 L: 1/16
 K: F
@@ -4028,8 +4028,8 @@ X:243
 T: Dayuren shieryue
 N: C1736
 O: China, Liaoning Changhai
-S: III, 226]
-R: Xiaodiao, Shieryue diao]
+S: III, 226
+R: Xiaodiao, Shieryue diao
 M: 4/4
 L: 1/16
 K: E
@@ -4043,8 +4043,8 @@ X:244
 T: Yonghu gongchandang
 N: C1737
 O: China, Liaoning Chifeng
-S: III, 230]
-R: Xiaodiao, Shisanyue diao]
+S: III, 230
+R: Xiaodiao, Shisanyue diao
 M: 2/4
 L: 1/16
 K: G
@@ -4057,8 +4057,8 @@ X:245
 T: Tiqi balujun
 N: C1738
 O: China, Liaoning Gaixian
-S: III, 231]
-R: Xiaodiao, Xiubaxian diao]
+S: III, 231
+R: Xiaodiao, Xiubaxian diao
 M: 2/4
 L: 1/16
 K: E
@@ -4072,8 +4072,8 @@ X:246
 T: Zhiyuan qianfang dshengzhang
 N: C1739
 O: China, Liaoning Gaixian
-S: III, 232]
-R: Xiaodiao. Guniang yaopeisong]
+S: III, 232
+R: Xiaodiao. Guniang yaopeisong
 M: 2/4
 L: 1/16
 K: G
@@ -4091,8 +4091,8 @@ X:247
 T: Funu fangshao
 N: C1740
 O: China, Liaoning Gaixian
-S: III, 233]
-R: Xiaodiao, Xiubaxian diao]
+S: III, 233
+R: Xiaodiao, Xiubaxian diao
 M: 2/4
 L: 1/16
 K: F
@@ -4103,8 +4103,8 @@ X:248
 T: Quanfu cn
 N: C1741
 O: China, Liaoning Haicheng
-S: III, 233]
-R: Xiaodiao, Panwugeng diao]
+S: III, 233
+R: Xiaodiao, Panwugeng diao
 M: 2/4
 L: 1/16
 K: A
@@ -4122,10 +4122,10 @@ X:249
 T: Wuduo huaer kai
 N: C1742
 O: China, Liaoning Beipiao
-S: III, 235]
+S: III, 235
 N: neuer Text. Melodie sehr bekannt. In der letzten Strophe wird der vtzte
 N: Takt eine Oktave hoeher gesungen.
-R: Xiaodiao, Jianmianhua diao]
+R: Xiaodiao, Jianmianhua diao
 M: 2/4
 L: 1/16
 K: F
@@ -4138,8 +4138,8 @@ X:250
 T: Xinxie shizi
 N: C1744
 O: China, Liaoning Chifeng
-S: III, 238]
-R: Xiaodiao, Xieshizi diao]
+S: III, 238
+R: Xiaodiao, Xieshizi diao
 M: 2/4
 L: 1/16
 K: Bb
@@ -4166,8 +4166,8 @@ X:251
 T: Xin dongbeifeng
 N: C1746
 O: China, Liaoning
-S: III, 246]
-R: Xiaodiao, Dongbeigeng diao]
+S: III, 246
+R: Xiaodiao, Dongbeigeng diao
 M: 2/4
 L: 1/16
 K: A
@@ -4183,8 +4183,8 @@ X:252
 T: Fengjian meidakai
 N: C1748
 O: China, Liaoning Xinmin
-S: III, 248]
-R: Xiaodiao, Dongyangwugeng diao]
+S: III, 248
+R: Xiaodiao, Dongyangwugeng diao
 M: 2/4
 L: 1/16
 K: G
@@ -4197,8 +4197,8 @@ X:253
 T: Rizi yueguo yuexiangtian
 N: C1749
 O: China, Liaoning Changhai
-S: III, 249]
-R: Xiaodiao, Youya diao]
+S: III, 249
+R: Xiaodiao, Youya diao
 M: 2/4
 L: 1/16
 K: C
@@ -4221,8 +4221,8 @@ X:254
 T: Ganji shang zishan
 N: C1750
 O: China, Liaoning Shenyang
-S: III, 251]
-R: Xiaodiao, Shangzishan diao]
+S: III, 251
+R: Xiaodiao, Shangzishan diao
 M: 2/4
 L: 1/16
 K: F
@@ -4238,8 +4238,8 @@ X:255
 T: Dang de enqing bi hai shen
 N: C1751
 O: China, Shandong Pingdu
-S: III, 316]
-R: Xiaodiao. Xin minge]
+S: III, 316
+R: Xiaodiao. Xin minge
 M: 2/4
 L: 1/16
 K: G
@@ -4256,8 +4256,8 @@ X:256
 T: Xian hua ge
 N: C1753
 O: China, Shandong Yin
-S: III, 318]
-R: Xiaodiao, Wugeng diao]
+S: III, 318
+R: Xiaodiao, Wugeng diao
 M: 2/4
 L: 1/16
 K: Eb
@@ -4270,8 +4270,8 @@ X:257
 T: Mengjian zhouzongli
 N: C1754
 O: China, Shandong Gaomi
-S: III, 319]
-R: Xiaodiao, Xiuhuadeng diao]
+S: III, 319
+R: Xiaodiao, Xiuhuadeng diao
 M: 2/4
 L: 1/16
 K: G
@@ -4285,8 +4285,8 @@ X:258
 T: Shiyuge
 N: C1755
 O: China, Shandong Zibo
-S: III, 320]
-R: Xiaodiao]
+S: III, 320
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -4301,8 +4301,8 @@ X:259
 T: Wangdaniang weiji renren kua
 N: C1756
 O: China, Shandong Dezhou
-S: III, 321]
-R: Xiaodiao]
+S: III, 321
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -4316,8 +4316,8 @@ X:260
 T: Kaihuangge
 N: C1757
 O: China, Shandong Zhucheng
-S: III, 322]
-R: Haozi]
+S: III, 322
+R: Haozi
 M: 2/4
 L: 1/16
 K: A
@@ -4330,8 +4330,8 @@ X:261
 T: Xinnongcun xiaochang
 N: C1758
 O: China, Shandong Linqing
-S: III, 326]
-R: Xiaodiao, Shidiao, Yingxiong diao]
+S: III, 326
+R: Xiaodiao, Shidiao, Yingxiong diao
 M: 2/4
 L: 1/16
 K: C
@@ -4347,8 +4347,8 @@ X:262
 T: Sijige
 N: C1759
 O: China, Shandong Licheng
-S: III, 330]
-R: Xiaodiao, Dieduanqiao diao]
+S: III, 330
+R: Xiaodiao, Dieduanqiao diao
 M: 2/4
 L: 1/16
 K: F
@@ -4360,8 +4360,8 @@ G3AcdcA | G2cAGAGF | DCD4F2 | G3AF2FD | C4DCDF | c8
 X:263
 T: Mianxiang sijige
 N: C1760
-O: China, Shandong Boxin III, 331]
-R: Xiaodiao]
+O: China, Shandong Boxin III, 331
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -4373,8 +4373,8 @@ X:264
 T: Zhaimianhua
 N: C1761
 O: China, Shandong Gaomi
-S: III, 334]
-R: Xiaodiao]
+S: III, 334
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -4389,8 +4389,8 @@ X:265
 T: Taiyang chulai hongdundun
 N: C1762
 O: China, Shandong Rizhao
-S: III, 336]
-R: Xiaodiao, Qiaolang diao]
+S: III, 336
+R: Xiaodiao, Qiaolang diao
 M: 2/4
 L16
 K: D
@@ -4403,9 +4403,9 @@ X:266
 T: He wangdaniang lagua
 N: C1763
 O: China, Shandong Wulian
-S: III, 338]
+S: III, 338
 N: Humorvoll
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -4418,8 +4418,8 @@ X:267
 T: Kuaihao 
 N: C1764
 O: China, Shandong Wenshang
-S: III, 341]
-R: Haozi]
+S: III, 341
+R: Haozi
 M: 2/4
 L: 1/16
 K: E
@@ -4436,8 +4436,8 @@ X:268
 T: Lianhuahao
 N: C1765
 O: China, Shandong Yanggu
-S: III, 342]
-R: Haozi, Huanghe wohao]
+S: III, 342
+R: Haozi, Huanghe wohao
 M: 2/4
 L: 1/16
 K: D
@@ -4454,8 +4454,8 @@ X:269
 T: Yuqi kangqing shierye
 N: C1766
 O: China, Shandong Qixia
-S: III, 344]
-R: Xiaodiao, Xiaoyangge diao]
+S: III, 344
+R: Xiaodiao, Xiaoyangge diao
 M: 2/4
 L: 1/16
 K: C
@@ -4468,8 +4468,8 @@ X:270
 T: Hongxiuquan qiyi
 N: C1767
 O: China, Shandong Huimin
-S: III, 346]
-R: Xiaodiao, Yangge diao]
+S: III, 346
+R: Xiaodiao, Yangge diao
 M: 2/4/16
 K: G
 D2DEG2G2 | d2d2B2A2 | dddeB2A2 | G2EGD4 |
@@ -4482,8 +4482,8 @@ X:271
 T: Songjingshi Zaofan
 N: C1768
 O: China, Shandong Shiping
-S: III, 347]
-R: Xiaodiao, Yangge diao]
+S: III, 347
+R: Xiaodiao, Yangge diao
 M: 2/4
 L: 1/16
 K: G
@@ -4500,8 +4500,8 @@ X:272
 T: Jiawu zhanzheng
 N: C1769
 O: China, Shandong Weihai
-S: III, 349, 1)]
-R: Xiaodiao]
+S: III, 349, 1)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D2F2A2 | d3BB2A2 | F2d2B2A2 | F2E2A4 |
@@ -4514,8 +4514,8 @@ X:273
 T: Kangri xiaochang
 N: C1770
 O: China, Shandong Linyi
-S: III, 349, 2)]
-R: Xiaodiao, Shandong xiaoqu]
+S: III, 349, 2)
+R: Xiaodiao, Shandong xiaoqu
 M: 2/4
 L: 1/16
 K: F
@@ -4531,8 +4531,8 @@ X74
 T: Siji Shengchan
 N: C1771
 O: China, Shandong Huimin
-S: III, 350]
-R: Xiaodiao]
+S: III, 350
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -4546,8 +4546,8 @@ X:275
 T: Siji xiaochang
 N: C1772
 O: China, Shandong Pingdu
-S: III, 351]
-R: Xiaodiao, Siji ge]
+S: III, 351
+R: Xiaodiao, Siji ge
 M: 2/4
 L: 1/16
 K: G
@@ -4566,8 +4566,8 @@ X:276
 T: Taonan Xiaodiao
 N: C1773
 O: China, Shandong Huangxian
-S: III, 353]
-R: Xiaodiao, Wugeng diao]
+S: III, 353
+R: Xiaodiao, Wugeng diao
 M: 2/4
 L: 1/16
 K: D
@@ -4582,8 +4582,8 @@ X:277
 T: Da Jinan
 N: C1774
 O: China, Shandong Zibo
-S: III, 354]
-R: Xiaodiao, Wugeng diao]
+S: III, 354
+R: Xiaodiao, Wugeng diao
 M: 2/4
 L: 1/: Eb
 B2GBG2F2 | GFE4F2 | G2B2c2G2 | B8 |
@@ -4594,8 +4594,8 @@ X:278
 T: Gua hongdeng
 N: C1775
 O: China, Shandong Xintai
-S: III, 355]
-R: Xiaodiao, Yangge diao]
+S: III, 355
+R: Xiaodiao, Yangge diao
 M: 2/4
 L: 1/16
 K: A
@@ -4608,8 +4608,8 @@ X:279
 T: Fang xianxian
 N: C1776
 O: China, Shandong Linqing
-S: III, 356]
-R: Xiaodiao]
+S: III, 356
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -4634,8 +4634,8 @@ X:280
 T: Gaosheng gechang gongchandang
 N: C1777
 O: China, Jiangsu Suqian
-S: I, 426]
-R: Xiaodiao, Huaihong diao]
+S: I, 426
+R: Xiaodiao, Huaihong diao
 M: 2/4
 L: 1/16
 K: F
@@ -4654,8 +4654,8 @@ X:281
 T: Renxin qixiang gongchandang
 N: C1778
 O: China, Jiangsu Rugao
-S: III, 427]
-R: Wuge, Daohualan]
+S: III, 427
+R: Wuge, Daohualan
 M: 2/4
 L: 1/16
 K: G
@@ -4670,8 +4670,8 @@ X:282
 T: Nongmin fanshen bushouqiong
 N: C1779
 O: China, Jiangsu Lishui
-S: III, 428, 1)]
-R: Xiaodiao]
+S: III, 428, 1)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -4684,8 +4684,8 @@ X:283
 T: Daqi huagun xilianlian
 N: C1780
 O: China, Jiangsu Yancheng
-S: III, 428, 2)]
-R: Xiaodiao, Huagun diao]
+S: III, 428, 2)
+R: Xiaodiao, Huagun diao
 M: 2/4
 L: 1/16
 K: C
@@ -4701,8 +4701,8 @@ X:284
 T: Kua si Yuan
 N: C1781
 O: China, Jiangsu Changzhou
-S: III, 429]
-R: Xiaodiao, Daoshilang]
+S: III, 429
+R: Xiaodiao, Daoshilang
 M: 2/4
 L: 1/16
 K: F
@@ -4716,9 +4716,9 @@ X:285
 T: Haimen Shange,jiaoguanduo
 N: C1782
 O: China, Jiangsu Haimen
-S: III, 430]
+S: III, 430
 N: Freely
-R: Shange]
+R: Shange
 M: 2/4
 L: 1/32
 K: F
@@ -4743,9 +4743,9 @@ X:286
 T: Xindian shige haodifang
 N: C1783
 O: China, Jiangsu Rugao
-S: III, 432]
+S: III, 432
 N: Freely
-R: Shange, Haocao shange]
+R: Shange, Haocao shange
 M: 2/4
 L: 1/32
 K: Eb
@@ -4761,9 +4761,9 @@ X:287
 T: Yangchenghuupan yipianhong
 N: C1784
 O: China, Jiangsu Changshu
-S: III, 433]
+S: III, 433
 N: Freely
-R: Shange, Baimao shange]
+R: Shange, Baimao shange
 M: 4/4
 L: 1/16
 K: Bb
@@ -4776,8 +4776,8 @@ X:288
 T: Canjia le gaojishe
 N: C1785
 O: China, Jiangsu Pixian
-S: III, 435]
-R: Xiaodiao, Wugeng diao]
+S: III, 435
+R: Xiaodiao, Wugeng diao
 M: 2/4
 L: 1/16
 K: G
@@ -4789,8 +4789,8 @@ X:289
 T: Yigen miansha bucheng xian
 N: C1786
 O: China, Jiangsu Jiangdu
-S: III: 436]
-R: Xiaodiao, Qiutiange, Geduanduan]
+S: III: 436
+R: Xiaodiao, Qiutiange, Geduanduan
 M: 2/4
 L: 1/16
 K: D
@@ -4806,8 +4806,8 @@ X:290
 T: Xingfuyiang
 N: C1787
 O: China, Jiangsu baoyeng
-S: III, 437]
-R: Xiaodiao, Qiutiange, Chuanshizi]
+S: III, 437
+R: Xiaodiao, Qiutiange, Chuanshizi
 M: 2/4
 L: 1/16
 K: Bb
@@ -4823,9 +4823,9 @@ X:291
 T: Jixiehua you bentou
 N: C1788
 O: China,gsu Suzhou
-S: III, 438]
+S: III, 438
 N: Freely
-R: Shange]
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -4844,8 +4844,8 @@ X:292
 T: Sheyuan gege xiyangyang
 N: C1789
 O: China, Jiangsu Jiangyin
-S: III, 439]
-R: Wuge, Huagu diao]
+S: III, 439
+R: Wuge, Huagu diao
 M: 2/4
 L: 1/16
 K: C
@@ -4861,8 +4861,8 @@ X:293
 T: Sheli meiyou xiaonangua
 N: C1790
 O: China, Jiangsu Jurong
-S: III, 445]
-R: Shange]
+S: III, 445
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -4875,8 +4875,8 @@ X:294
 T: Yaojia menqian yidaoquan
 N: C1791
 O: China, Jiangxi Duchang
-S: IV, 201, 1)]
-R: Shange]
+S: IV, 201, 1)
+R: Shange
 M: 3/4
 L: 1/16
 K: D
@@ -4893,8 +4893,8 @@ X:295
 T: Shanli laobiao changxinge
 N: C1792
 O: China, Jiangxi Duchang
-S: IV, 201]
-R: Shange, Tiange]
+S: IV, 201
+R: Shange, Tiange
 M: 2/4
 L: 1/16
 K: C
@@ -4914,8 +4914,8 @@ X:296
 T: Chashan sanyue haofengguang
 N: C1793
 O: China, Jiangxi Yongxin
-S: IV, 210]
-R: Shange]
+S: IV, 210
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -4928,8 +4928,8 @@ X:297
 T: Yiwang yuxia yiwangliang
 N: C1794
 O: China, Jiangxi Boyang
-S: IV, 211]
-R: Shange, Yge]
+S: IV, 211
+R: Shange, Yge
 M: 2/4
 L: 1/16
 K: Bb
@@ -4942,8 +4942,8 @@ X:298
 T: Niujiexin
 N: C1795
 O: China, Jiangxi Gaoan
-S: IV, 212]
-R: Xiaodiao]
+S: IV, 212
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -4958,8 +4958,8 @@ X:299
 T: Bayiqiyi
 N: C1796
 O: China, Jiangxi Nanchang
-S: IV, 215]
-R: Xiaodiao]
+S: IV, 215
+R: Xiaodiao
 M: 4/4
 L: 1/16
 K: G
@@ -4975,8 +4975,8 @@ X:300
 T: Laogongji
 N: C1797
 O: China, Jiangxi Pingxiang
-S: IV, 216]
-R: Shange]
+S: IV, 216
+R: Shange
 M: 4/4
 L: 1K: E
 ec3e2e2c4e2c2G4
@@ -4992,8 +4992,8 @@ X:301
 T: Geming daolu yaorenqing
 N: C1798
 O: China, Jiangxi Ruijin
-S: IV, 217]
-R: Xiaodiao]
+S: IV, 217
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -5007,8 +5007,8 @@ X:302
 T: Liangtiaobanqiang naogeming
 N: C1799
 O: China, Jiangxi Yiyang
-S: IV, 222]
-R: Xiaodiao]
+S: IV, 222
+R: Xiaodiao
 M: 2/4
 L: 1/16
 
@@ -5025,8 +5025,8 @@ X:303
 T: Shange,yichang zhentianxiang
 N: C1800
 O: China, Jiangsu Qidong
-S: III, 446]
-R: Shange]
+S: III, 446
+R: Shange
 M: 2/4
 L: 1/16
 K: D
@@ -5040,9 +5040,9 @@ X:304
 T: Hongdeng zhaodeming
 N: C1801
 O: China, Gansu Zhenyuan
-S: I, 106, 1)]
+S: I, 106, 1)
 N: Han
-R: Xiao, Wanr huadeng]
+R: Xiao, Wanr huadeng
 M: 2/4
 L: 1/16
 K: F
@@ -5053,8 +5053,8 @@ X:305
 T: Zhai hongling
 N: C1802
 O: China, Jiangsu Liuhe
-S: III, 447]
-R: Xiaodiao]
+S: III, 447
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -5068,8 +5068,8 @@ X:306
 T: Xingfuhe kai xingfuhua
 N: C1803
 O: China, Jiangsu Yancheng
-S: III, 448]
-R: Haozi, Dawo haozi]
+S: III, 448
+R: Haozi, Dawo haozi
 M: 4: 1/16
 K: Bb
 d2f2d2dcB2d2c4
@@ -5085,9 +5085,9 @@ X:307
 T: Gongzhandang bi nianglaozi qin
 N: C1804
 O: China, Gansu Linxia
-S: I, 108]
+S: I, 108
 N: Han Hui 
-R: Shange, Huar, Garjieling]
+R: Shange, Huar, Garjieling
 M: 3/4
 L: 1/16
 K: Bb
@@ -5098,9 +5098,9 @@ X:308
 T: Qiongren douba shenfanle
 N: C1805
 O: China, Gansu Kangle
-S: I, 109]
+S: I, 109
 N: Han Hui
-R: Shange, Huar, Lianhuashanling]
+R: Shange, Huar, Lianhuashanling
 M: 3/4
 L: 1/8
 K: Eb
@@ -5113,9 +5113,9 @@ X:309
 T: Zhouzongli yongyuan huozai women xinzhong
 N: C1806
 O: China, Gansu Yongjing
-S: I, 110]
+S: I, 110
 N: Hui
-R: Xiaodiao, Yanxiqu]
+R: Xiaodiao, Yanxiqu
 M: 4/4
 L: 1/16
 K: Eb
@@ -5128,9 +5128,9 @@ X:310
 T: Dangzongyang ba lantian cajingle
 N: C1807
 O: China, Gansu Linxia
-S: I, 111]
+S: I, 111
 an Hui
-R: Shange, Huar, Nanxiangling]
+R: Shange, Huar, Nanxiangling
 M: 2/4
 L: 1/16
 K: Eb
@@ -5143,8 +5143,8 @@ X:311
 T: Chenjunzhang, qingnin hebei nuomijiu
 N: C1809
 O: China, Jiangsu Rudong
-S: III, 458]
-R: Xiaodiao, Wuge, Huagu diao]
+S: III, 458
+R: Xiaodiao, Wuge, Huagu diao
 M: 2/4
 L: 1/16
 K: Bb
@@ -5158,9 +5158,9 @@ X:312
 T: Sunan caoyuan hao fengguang
 NC1810
 O: China, Gansu Sunan
-S: I, 114, 1)]
+S: I, 114, 1)
 N: Ygu
-R: Shange, Muge]
+R: Shange, Muge
 M: none
 L: 1/16
 K: D
@@ -5171,9 +5171,9 @@ X:313
 T: Wode Muyang
 N: C1811
 O: China, Gansu Sunan
-S: I, 114, 2)]
+S: I, 114, 2)
 N: Ygu
-R: Shange, Naiyanggao dege]
+R: Shange, Naiyanggao dege
 M: 4/4
 L: 1/16
 K: G
@@ -5184,9 +5184,9 @@ X:314
 T: Shizan zhixinren
 N: C1812
 O: China, Gansu Anxi
-S: I, 117, 1)]
+S: I, 117, 1)
 N: Han
-R: Xiaodiao, Shibeijiu]
+R: Xiaodiao, Shibeijiu
 M: 2/4
 L: 1/16
 K: D
@@ -5197,9 +5197,9 @@ X:315
 T: Renmin gongshe shi huayuan
 N: C1813
 O: China, Gansu Linxia
-S: I, 117, 2)]
+S: I, 117, 2)
 N: Han Hui
-R: Shange, Huar, Jindianhualing]
+R: Shange, Huar, Jindianhualing
 M: 2/4
 L: 1/16
 K: Eb
@@ -5211,7 +5211,7 @@ X:316
 T: Gongshe biandi haozhuangjia
 N: C1814
 O: China, Gansu zhangye
-S: I, 119, 1)]
+S: I, 119, 1)
 N: Han
 R: Xiaodiao, Guadifeng]2/4
 L: 1/8
@@ -5225,9 +5225,9 @@ X:317
 T: Heshui yinggei shangleshan
 N: C1815
 O: China, Gansu Linxia
-S: I, 119]
+S: I, 119
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Eb
@@ -5238,9 +5238,9 @@ X:318
 T: Panwang hongjun huihanli
 N: C1816
 O: China, Gansu Minxian
-S: I, 121]
+S: I, 121
 N: Han Hui
-R: Shange, Huar, Zhadaoling]
+R: Shange, Huar, Zhadaoling
 M: 2/4
 L: 1/16
 K: D
@@ -5252,9 +5252,9 @@ X:319
 T: Song Zhangfu
 N: C1817
 O: China, Gansu Qingyang
-S: I, 122]
+S: I, 122
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/8
 K: F
@@ -5267,9 +5267,9 @@ X:320
 T: Jiefangjun daochu shou huanyeng
 N: C1818
 O: China, Gansu Jingchuan
-S: I, 123]
+S: I, 123
 N: Han
-R: Xiaodiao, Yangyanmai]
+R: Xiaodiao, Yangyanmai
 M: 2/4
 L: 1/16
 K: F
@@ -5282,9 +5282,9 @@ X:321
 T: Mabufang chuaide heixingan
 N: C1819
 O: China, Gansu Linxia
-S: I, 124]
+S: I, 124
 N: Hui
-R: Xiaodiao, Yanxiqu]
+R: Xiaodiao, Yanxiqu
 M: 2/4
 L: 1/16
 K: F
@@ -5296,9 +5296,9 @@ X:322
 T: Geming chenglegong
 N: C1821
 O: China, Gansu Ningxian
-S: I, 126]
+S: I, 126
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -5310,9 +5310,9 @@ X:323
 T: Gongchandang Enqing Bihaishen
 N: C1822
 O: China, Ningxia Guyuan
-S: I, 157]
+S: I, 157
 N: Hui
-R: Shange, Huar]
+R: Shange, Huar
 M: 2/4
 L: 1/16
 K: Bb
@@ -5325,9 +5325,9 @@ X:324
 T: Xingfu dalu Gongchandang Kai
 N: C1823
 O: China, Ningxia Jianchi
-S: I, 158, 1)]
+S: I, 158, 1)
 N: Han
-R: Shange, Xintianyou]
+R: Shange, Xintianyou
 M: 2/4
 L: 1/16
 K: G
@@ -5338,9 +5338,9 @@ X:325
 T: Ningxia youle hongtaiyang
 N: C1824
 O: China, Ningxia
-S: I, 158, 2)]
+S: I, 158, 2)
 N: Han Hui
-R: Shange, Danglanglang diao]
+R: Shange, Danglanglang diao
 M: 2/4
 L: 1/16
 K: F
@@ -5353,9 +5353,9 @@ X:326
 T: Chunfeng yichui huakaifang
 N: C1825
 O: China, Ningxia Xiji
-S: I, 159]
+S: I, 159
 N: Hui
-R: Shange, Huar]
+R: Shange, Huar
 M: 3/8
 L: 1/16
 K: Bb
@@ -5367,9 +5367,9 @@ X:327
 T: Shehui zhuyi haoshiguang
 N: C1826
 O: China, Ningxia Guyuan
-S: I, 160, 1)]
+S: I, 160, 1)
 N: Hui
-R: Shange, Huar]
+R: Shange, Huar
 M: 3/8
 L: 1/16
 K: Bb
@@ -5382,9 +5382,9 @@ X:328
 T: Xingfu Huar,biandixiang
 N: C1827
 O: China, Ningxia Yanchi
-S: I, 160, 2)]
+S: I, 160, 2)
 N: Han
-R: Xiaodiao, Chujiamen]
+R: Xiaodiao, Chujiamen
 M: 2/4
 L: 1/16
 K: F
@@ -5396,9 +5396,9 @@ X:329
 T: Gongshe de maiduo xiangshanliang
 N: C1828
 O: China, Ningxia Yanchi
-S: I, 161, 1)]
+S: I, 161, 1)
 N: Han
-R: Shange, Xintianyou]
+R: Shange, Xintianyou
 M: 2/4
 L: 1/16
 K: G
@@ -5409,9 +5409,9 @@ X:330
 T: Jinnian youshige fengshou nian
 N: C1829
 O: China, Ningxia Yanchi
-S: I, 161 ]
+S: I, 161 
 N: Han
-R: Shange, Xintianyou]
+R: Shange, Xintianyou
 M: 2/4
 L: 1/16
 K: D
@@ -5422,9 +5422,9 @@ X:331
 T: Renmin gongshe jiushihao
 N: C1830
 O: China, Ningxia Yenchuan
-162]
+162
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -5437,9 +5437,9 @@ X:332
 T: Gechang ningxiachuang
 N: C1832
 O: China, Ningxia Yenchuan
-S: I, 163, 2)]
+S: I, 163, 2)
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -5450,9 +5450,9 @@ X:333
 T: Chang beishan
 N: C1833
 O: China, Ningxia Xiji
-S: I, 164]
+S: I, 164
 N: Han, Hui
-R: Xiaodiao. Laodong]
+R: Xiaodiao. Laodong
 M:
 L: 1/16
 K: Eb
@@ -5463,9 +5463,9 @@ X:334
 T: Dahang ge
 N: C1835
 O: China, Ningxia Yenchuan
-S: I, 169, 1)]
+S: I, 169, 1)
 N: Han
-R: Haozi. Dahang]
+R: Haozi. Dahang
 M: 3/4
 L: 1/16
 K: F
@@ -5476,9 +5476,9 @@ X:335
 T: Shier yue
 N: C1836
 O: China, Ningxia Haiyuan
-S: I, 169, 2)]
+S: I, 169, 2)
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -5491,9 +5491,9 @@ X:336
 T: Renren xixinjian
 N: C1837
 O: China, Ningxia Yenchuan
-S: I, 171]
+S: I, 171
 N: Hui
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -5508,8 +5508,8 @@ X:337
 T: Huanghe chuanfu haozi
 N: C1838
 O: China, Ningxia Wuchong
-S: I, 172 ]
-R: Haozi. Chuanfu laodong]
+S: I, 172 
+R: Haozi. Chuanfu laodong
 M: 4/4
 L: 1/16
 K: Bb
@@ -5520,9 +5520,9 @@ X:338
 T: Mudan kaihua wanlihong
 N: C1839
 O: China, Ningxia Guyuan
-S: I, 174]
+S: I, 174
 N: Hui
-R: Shange]
+R: Shange
 M: 2/4
 L: 1/16
 K: D
@@ -5534,9 +5534,9 @@ X:339
 T: Hongjun gege shang qianfang
 N: C1840
 O: China, Ningxia Guyuan
-S: I, 175, 1)]
+S: I, 175, 1)
 N: Han
-R: Xiaodiao, Xin minge]
+R: Xiaodiao, Xin minge
 M: 2/4
 L: 1/16
 K: G
@@ -5547,9 +5547,9 @@ X:340
 T: Balujun shi renmin de zidibing
 N: C1841
 O: China, Ningxia Yanchi
-S: I, 175, 2)]
+S: I, 175, 2)
 N: Han
-R: Shange, Xintianyou]
+R: Shange, Xintianyou
 M: 2/4
 L: 1/16
 K: A
@@ -5560,9 +5560,9 @@ X:341
 T: Zuo junxie
 N: C1842
 O: China, Ningxia Yanchi
-S: I, 176]
+S: I, 176
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -5574,9 +5574,9 @@ X:342
 T: Kang babing
 N: C1843
 O: China, Ningxia Yanchi
-S: I, 177]
+S: I, 177
 N: Han
-R: Xiaodiao, gxia diao]
+R: Xiaodiao, gxia diao
 M: 2/4
 L: 1/16
 K: F
@@ -5588,9 +5588,9 @@ X:343
 T: Gongchandang de enqing changbuwan
 N: C1844
 O: China, Qinghai Huangyuan
-S: I, 214]
+S: I, 214
 N: Hui Han
-R: Shange, Bacaoling]
+R: Shange, Bacaoling
 M: 3/8
 L: 1/16
 K: C
@@ -5603,9 +5603,9 @@ X:344
 T: Women you gongchandang geilinglu
 N: C15
 O: China, Qinghai Huzhu
-S: I, 215]
+S: I, 215
 N: Tu
-R: Wuge, Anzhao]
+R: Wuge, Anzhao
 M: 3/8
 L: 1/16
 K: Eb
@@ -5619,9 +5619,9 @@ X:345
 T: Zangzu renmin xizaixin
 N: C1846
 O: China, Qinghai Yushu
-S: I, 216, 1)]
+S: I, 216, 1)
 N: Zang
-R: Shange]
+R: Shange
 M: 3/8
 L: 1/16
 K: C
@@ -5632,8 +5632,8 @@ X:346
 T: Yigen biandan
 N: C1847
 O: China, Anhui Tuxian
-S: III, 555]
-R: Xiaodiao]
+S: III, 555
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -5644,9 +5644,9 @@ X:347
 T: Gungun de huanghe xiangdongfang
 N: C1848
 O: China, Qinghai Xunhua
-S: I, 217, 1)]
+S: I, 217, 1)
 N: Sala
-R: Shange]
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -5658,9 +5658,9 @@ G2GAc2de | c2dcAGAG | G8- | G8
 X:348
 T: Yangguang zhaoliang tuzuren
 N: C18: China, Qinghai Huzu
-S: I, 217, 2)]
+S: I, 217, 2)
 N: Tu
-R: Wuge, Anzhao]
+R: Wuge, Anzhao
 M: 3/4
 L: 1/8
 K: G
@@ -5671,9 +5671,9 @@ X:349
 T: Xiangei lingxiu xiangei dang
 N: C1850
 O: China, Qinghai Haixi
-S: I, 218]
+S: I, 218
 N: Menggu
-R: Shange]
+R: Shange
 M: 2/4
 L: 1/16
 K: D
@@ -5688,9 +5688,9 @@ X:350
 T: Cao shang samanle jinse de yangguang
 N: C1851
 O: China, Qinghai Haixi
-S: I, 219]
+S: I, 219
 N: Menggu
-R: Shange]
+R: Shange
 M: 2/4
 L: 1/16
 K: G
@@ -5703,9 +5703,9 @@ X:351
 T: Hongyanyan de qizhi
 N: C1852
 O: China, Qinghai Minhe Guanding
-S: I, 220]
+S: I, 220
 N: Hui
-R: Xiaodiao, Yanxiqu]
+R: Xiaodiao, Yanxiqu
 M: 3/4
 L: 1/16
 K: D
@@ -5718,9 +5718,9 @@ X:352
 T: Diexin dehua yaodui dang jiang
 N: C1853
 O: China, Qinghai Minhe
-S: I, 221]
+S: I, 221
 N: Hui Han
-R: Shange, Gushanling]
+R: Shange, Gushanling
 M: 2/4
 L: 1/16
 K: A
@@ -5733,9 +5733,9 @@ X:353
 T: Dongfang de taiyang weiwei xiao
 N: C1854
 O: China, Qinghai Yushu
-S: I, 222]
+S: I, 222
 N: Zang
-R: Shange]
+R: Shange
 M: 2/4
 L: 1/16
 K: D
@@ -5748,8 +5748,8 @@ X:354
 T: Zhouzongli jingshen yongshicuen
 N: C1855
 O: China, Qinghai Xuenhua Tongren
-S: I, 223]
-R: Shange, Saladaling]
+S: I, 223
+R: Shange, Saladaling
 M: 2/4
 L: 1/16
 K: Bb
@@ -5766,9 +5766,9 @@ X:355
 T: Renmin hainian zhouzongli
 N: C1856
 O: China, Qinghai Hangyuan
-S: I, 225]
+S: I, 225
 N: Hui Han
-R: Shange, Nanxiangling]
+R: Shange, Nanxiangling
 M: 3/4
 L: 1/16
 K: C
@@ -5781,9 +5781,9 @@ X:356
 T: Dongfang youyike liangmingxing
 N: C1857
 O: China, Qinghai Osten
-S: I, 226]
+S: I, 226
 N: Hui Han
-R: Shange, Labulengling]
+R: Shange, Labulengling
 M: none
 L: 1/16
 K: G
@@ -5795,9 +5795,9 @@ X:357
 T: Zhouzongli zai huazongzhong xiaole
 N: C1858
 O: China, Qinghai Minhe
-S: I, 227]
+S: I, 227
 N: Hui
-R: Xiaodiao, Yanxiqu]
+R: Xiaodiao, Yanxiqu
 M: 2/4
 L: 1/16
 K: A
@@ -5810,9 +5810,9 @@ X:358
 T: Shiyue hongdeng
 N: C1859
 O: China, Qinghai Xiunhua
-S: I, 228]
+S: I, 228
 N: Sala
-R: Shange]
+R: Shange
 M: 2/4
 L: 1/16
 K: G
@@ -5826,8 +5826,8 @@ X:359
 T: Jiangxi chulege Fang Zhimin
 N: C1860
 O: China, Jiangxi Yiyang
-S: IV, 223]
-R: Xiaodiao]
+S: IV, 223
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -5839,9 +5839,9 @@ X:360
 T: Qichelu yaoxiushang yuntian
 N: C1861
 O: China, Qinghai Tongren
-S: I, 229, 2)]
+S: I, 229, 2)
 N: Hui Han
-R: Shange, Huar, Baoanling]
+R: Shange, Huar, Baoanling
 M: 2/4
 L: 1/16
 K: G
@@ -5852,8 +5852,8 @@ X:361
 T: Madaoge
 N: C1862
 O: China, Jiangxi Anfu
-S: IV, 226]
-R: Xiaodiao]
+S: IV, 226
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -5869,8 +5869,8 @@ X:362
 T: Caiquange
 N: C1863
 O: China, Jiangxi Jian
-S: IV, 227]
-R: Xiaodiao]
+S: IV, 227
+R: Xiaodiao
 M: L: 1/16
 K: Bb
 b2b2b2c2 | d2c2d4 | c2b2d2c2 | b8 |
@@ -5886,8 +5886,8 @@ X:363
 T: Menghan renmin qindixiong
 N: C1864
 O: China, Neimeng Wuchuan
-S: IV,283, 1)]
-R: Xiaodiao, Pashan diao]
+S: IV,283, 1)
+R: Xiaodiao, Pashan diao
 M: 2/4
 L: 1/16
 K: D
@@ -5898,8 +5898,8 @@ X:364
 T: Sanshinian panlle gongchandang
 N: C1865
 O: China, Neimeng Wuchuan
-S: IV, 283, 2)]
-R: Xiaodiao]
+S: IV, 283, 2)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -5910,8 +5910,8 @@ X:365
 T: Qiongren panwang laohongjun
 N: C1866
 O: China, Yunnan
-S: II, 43]
-R: Shange]
+S: II, 43
+R: Shange
 M: 2/4
 L: 1/32
 K: G
@@ -5926,8 +5926,8 @@ X:366
 T: Pan hongjun
 N: C1867
 O: China, Yunnan Dongchuan
-S: II,44]
-R: Shange]
+S: II,44
+R: Shange
 M: 3/4
 L: 1/16
 K: G
@@ -5939,8 +5939,8 @@ X:367
 T: Zhude siling daihongjun
 N: C1868
 O: China, Yunnan Yaochuan
-S: II, 44]
-R: Xiaodiao, Lianhualao]
+S: II, 44
+R: Xiaodiao, Lianhualao
 M: 3/4
 L: 1/16
 K: C
@@ -5953,8 +5953,8 @@ X:368
 T: Taiyang chushangang
 N: C1869
 O: China,ou Zunyi
-S: II, 111]
-R: Haozi, Haoyang haozi. Yangtian laodong]
+S: II, 111
+R: Haozi, Haoyang haozi. Yangtian laodong
 M: 2/4
 L: 1/16
 K: F
@@ -5971,8 +5971,8 @@ X:369
 T: Shangchashan
 N: C1870
 O: China, Guizhou Yinjiang
-S: II, 134]
-R: Xiaodiao]
+S: II, 134
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -5986,8 +5986,8 @@ X:370
 T: Hongjun laidao zunyicheng
 N: C1871
 O: China, Guizhou Zunyi
-S: II, 149]
-R: Xiaodiao, Huadeng diao]
+S: II, 149
+R: Xiaodiao, Huadeng diao
 M: 2/4
 L: 1/16
 K: C
@@ -6002,8 +6002,8 @@ X:371
 T: Hongjun kaidao loushanguan
 N: C1872
 O: China, Guizhou Zunyi
-S: II, 150, 1)]
-R: Xiaodiao, Huadeng diao]
+S: II, 150, 1)
+R: Xiaodiao, Huadeng diao
 M: 2/4
 L: 1/16
 K: C
@@ -6017,8 +6017,8 @@ X:372
 T: Renren doushuo hongjunhao
 N: C1873
 O: China, Guizhou Zunyi
-S: II, 150, 2)]
-R: Xiaodiao, Huadeng diao]
+S: II, 150, 2)
+R: Xiaodiao, Huadeng diao
 M: 2/4
 L: 1/16
 K: C
@@ -6031,9 +6031,9 @@ X:373
 T: Wanren changqi fanshenge
 N: C1874
 O: China, Guizhou Zunyi
-S: II, 151]
+S: II, 151
 N: Tuzu
-R: Haozi, Haoyang haozi. Qianghuoqiang]
+R: Haozi, Haoyang haozi. Qianghuoqiang
 M: 2/4
 L: 1/16
 K: G
@@ -6053,8 +6053,8 @@ X:374
 T: Taiyang zhaozai chaqishan
 N: C1875
 O: China, Sichuan Nanjiang
-S: II, 205]
-R: Shange]
+S: II, 205
+R: Shange
 M: 4/4
 L: 1/32
 K: H
@@ -6071,8 +6071,8 @@ X:375
 T: Geming yaokao laobaixing
 N: C1876
 O: China, Hubei
-S: II, 233]
-R: Shange, Pange]
+S: II, 233
+R: Shange, Pange
 M: 2/4
 L: 1/16
 K: C
@@ -6085,8 +6085,8 @@ X:376
 T: Hongjun bujiu yaoguilai
 N: C1878
 O: China, Sichuan Nanjiang
-S: II, 234]
-R: Shange]
+S: II, 234
+R: Shange
 M: 2/4
 L: 1/16
 K: G
@@ -6111,8 +6111,8 @@ X:377
 T: Hongjun laile jiuqiongren
 N: C1879
 O: China, Sichuan Bazhong
-S: II, 235]
-R: Shange]
+S: II, 235
+R: Shange
 M: 2/4
 L: 1/16
 K: D
@@ -6125,8 +6125,8 @@ X:378
 T: Wannian baishu qianniansong
 N: C1880
 O: China, Guangdong Lianxian
-S: II, 347]
-R: Xiaodiao. Madeng diao]
+S: II, 347
+R: Xiaodiao. Madeng diao
 M: 2/4
 L: 1/16
 K: G
@@ -6138,8 +6138,8 @@ X:379
 T: Shanshang wushu chenghuangshan
 N: C1881
 O: China, Guangdong Shunfeng
-S: II, 349, 2)]
-R: Shange, Tangkeng shange]
+S: II, 349, 2)
+R: Shange, Tangkeng shange
 M: 2/4
 L: 1/16
 K: D
@@ -6152,8 +6152,8 @@ X:380
 T: Shengsheng xiangzhe Beijing chang
 N: C1882
 O: China, Guangdong Heyuan
-S: II, 351, 1)]
-R: Shange]
+S: II, 351, 1)
+R: Shange
 M: 2/4
 L: 1/16
 K: Bb
@@ -6166,8 +6166,8 @@ X:381
 T: Quanguo renmiuzhiqi
 N: C1883
 O: China, Guangdong Huiyang
-S: II, 351, 2)]
-R: Xiaodao, Shuochang, Yonghujiege]
+S: II, 351, 2)
+R: Xiaodao, Shuochang, Yonghujiege
 M: 2/4
 L: 1/16
 K: C
@@ -6179,8 +6179,8 @@ X:382
 T: Wangjianglai
 N: C1884
 O: China, Guangdong Xingning
-S: II, 354, 1)]
-R: Xiaodiao, Wujuban]
+S: II, 354, 1)
+R: Xiaodiao, Wujuban
 M: 2/4
 L: 1/16
 K: F
@@ -6194,9 +6194,9 @@ X:383
 T: Tuolaji yikai xizaizanxintao
 N: C1885
 O: China, Xixian
-S: I, 291, 1)]
+S: I, 291, 1)
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: E
@@ -6207,8 +6207,8 @@ X:384
 T: Yiwangyulai yiwangliang
 N: C1886
 O: China, Guangdong Haifeng
-S: II, 355]
-R: Xiaodiao, Yge]
+S: II, 355
+R: Xiaodiao, Yge
 M: 2/4
 L: 1/16
 K: Bb
@@ -6219,8 +6219,8 @@ X:385
 T: Xingfugeer changbuwan
 N: C1887
 O: China, Guangdong Wenchang
-S: II, 356]
-R: Shange]
+S: II, 356
+R: Shange
 M: 3/4
 L: 1/16
 K: G
@@ -6237,8 +6237,8 @@ X:386
 T: Qinjianjieyue haochuduo
 N: C1888
 O: China, Guangdong Wengyuan
-S: II, 357]
-R: Xiaodiao, Yaochuange]
+S: II, 357
+R: Xiaodiao, Yaochuange
 M: 2/4
 L: 1/16
 K: A
@@ -6253,8 +6253,8 @@ X:387
 T: Changzhe geer qu fangyang
 N: C1889
 O: China, Guangdong Yingde
-S: II, 358]
-R: Shange, Paoma diao]
+S: II, 358
+R: Shange, Paoma diao
 M: 2/4
 L: 1/16
 K: Bb
@@ -6268,8 +6268,8 @@ X:388
 T: Meili yucun haofengguang
 N: C1890
 O: China, Guangdong Lingao
-S: II, 359]
-R: Shange, Yge, Lilimei diao]
+S: II, 359
+R: Shange, Yge, Lilimei diao
 M: 2/4
 L: 1/16
 K: A
@@ -6292,8 +6292,8 @@ X:389
 T: Wuzhishanshang yingxiongduo
 N: C1891
 O: China, Guangdong Zhanxian
-S: II, 365, 1)]
-R: Xiaodiao, Diaosheng]
+S: II, 365, 1)
+R: Xiaodiao, Diaosheng
 M: 2/4
 L: 1/16
 K: D
@@ -6309,8 +6309,8 @@ X:390
 T: Moxiao langzai zhushanbian
 N: C1892
 O: China, Guangdong Huaiji
-S: II, 365, 2)]
-R: Shange]
+S: II, 365, 2)
+R: Shange
 M: 2/4
 L: 1/16
 K: D
@@ -6327,8 +6327,8 @@ X:391
 T: Women sheli changxinge
 N: C1893
 O: China, Guangdong Wengyuan
-S: II, 367, 1)]
-R: Shange]
+S: II, 367, 1)
+R: Shange
 M: 2/4
 L: 1/16
 K: D
@@ -6340,8 +6340,8 @@ X:392
 T: Changle zaofan Li Zhengchun
 N: C1894
 O: China, Guangdong Wuhua
-S: II, 371, 1)]
-R: Shange]
+S: II, 371, 1)
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -6354,8 +6354,8 @@ X:393
 anyuanli kangying
 N: C1895
 O: China, Guangdong Guangzhou
-S: II, 371, 2)]
-R: Xiaodiao, Erge, Tongyao]
+S: II, 371, 2)
+R: Xiaodiao, Erge, Tongyao
 M: 2/4
 L: 1/16
 K: G
@@ -6374,8 +6374,8 @@ X:394
 T: Qiyue chusi shangzhandi
 N: C1896
 O: China, Guangdong Leizhou
-S: II, 373, 1)]
-R: Xiaodiao, Leizhouge]
+S: II, 373, 1)
+R: Xiaodiao, Leizhouge
 M: 3/4
 L: 1/16
 K: F
@@ -6391,8 +6391,8 @@ X:395
 T: Wuyi laodongjie
 N: C1897
 O: China, Guangdong Haifeng Lufeng
-S: II, 373, 2)]
-R: Xiaodiao, Chaozhou xiaodiao, Jianjianhua]
+S: II, 373, 2)
+R: Xiaodiao, Chaozhou xiaodiao, Jianjianhua
 M: 2/4
 L: 1/16
 K: C
@@ -6406,8 +6406,8 @@ X:396
 T: Shajicanange
 N: C1898
 O: China, Guangdong Guangzhou
-S: II, 374]
-R: Xiaodiao, Shangyunti]
+S: II, 374
+R: Xiaodiao, Shangyunti
 M: 2/4
 L: 1/16
 K: G
@@ -6423,8 +6423,8 @@ X:397
 T: Beifaqu
 N: C1899
 O: China, Guangdong Guangzhou
-S: II, 375]
-R: Xiaodiao, Yueou]
+S: II, 375
+R: Xiaodiao, Yueou
 M: 2/4
 L: 1/16
 K: G
@@ -6449,8 +6449,8 @@ X:398
 T: Changge sheli hao chashan
 N: C1723
 O: China, Hubei Macheng
-S: I, 374]
-R: Wuge, Dengdiao, Huatiao]
+S: I, 374
+R: Wuge, Dengdiao, Huatiao
 M: 2/4
 L: 1/16
 K: C
@@ -6468,9 +6468,9 @@ X:399
 T: Yuguzu renmin xiyangyang
 N: C2016
 O: China, Gansu Sunan
-S: I, 106, 2)]
+S: I, 106, 2)
 N: Ygu
-R: Shange]
+R: Shange
 4
 L: 1/16
 K: G
@@ -6484,9 +6484,9 @@ X:400
 T: Hongtaiyang zhaoliangle liujiaxia
 N: C2017
 O: China, Gansu Linxia
-S: I, 107]
+S: I, 107
 N: Han Hui
-R: Shange, Huar, Sanlaqiang]
+R: Shange, Huar, Sanlaqiang
 M: 4/4
 L: 1/16
 K: Bb
@@ -6501,9 +6501,9 @@ X:401
 T: Richu dongfang fang hongguang
 N: C18
 O: China, Jiangsu Xinghua
-S: III, 452]
+S: III, 452
 N: Vivid
-R: Haozi, Cheshui haozi]
+R: Haozi, Cheshui haozi
 M: 2/4
 L: 1/16
 K: D
@@ -6524,8 +6524,8 @@ X:402
 T: Renren qixin touyizhuang
 N: C2019
 O: China, Jiangsu Yancheng
-S: III, 453]
-R: Haozi, Yangtiange. Gedangdao]
+S: III, 453
+R: Haozi, Yangtiange. Gedangdao
 M: 2/4
 L: 1/16
 K: F
@@ -6541,9 +6541,9 @@ X:403
 T: Hedong changge hexi ying
 N: C2020
 O: China, Jiangsu haimen
-S: III, 455]
+S: III, 455
 N: Freely
-R: Shange, Dayingtao]
+R: Shange, Dayingtao
 M: 3/4
 L: 1/16
 K: G
@@ -6557,8 +6557,8 @@ X:404
 T: Maoshan laile Chensiling
 N: C2021
 O: China, Jiangsu Zenjiang
-S: III, 456]
-R: Haozi, Maoshan haozi]
+S: III, 456
+R: Haozi, Maoshan haozi
 M: 2/4
 L: 1/16
 K: G
@@ -6576,8 +6576,8 @@ X:405
 T: Subei youge Chenjiangjun
 N: C2022
 O: China, Jiangsu Dongtai
-S: III, 457]
-R: Xiaodiao, Wuge, Huagu diao]
+S: III, 457
+R: Xiaodiao, Wuge, Huagu diao
 M: 2/4
 L: 1/16
 K: F
@@ -6591,9 +6591,9 @@ X:406
 T: Wowei zuguo fangyang qun
 N: C2023
 O: China, Gansu Sunan
-S: I, 113]
+S: I, 113
 N: Ygu
-R: Shange, Yge]
+R: Shange, Yge
 M: 3/4
 L: 1/16
 K: Bb
@@ -6607,8 +6607,8 @@ X:407
 T: Youjidui dadehao
 N: C2025
 O: China, Jiangsu Pixian
-S: III, 461, 1)]
-R: Xiaodiao, Gewu, Gaoqiao diao]
+S: III, 461, 1)
+R: Xiaodiao, Gewu, Gaoqiao diao
 M: 2/4
 L: 1/16
 K: F
@@ -6621,8 +6621,8 @@ X:408
 T: Wuzhuang baojiaxiang
 N: C2026
 O: China, Jiangsu Xinghua
-S: III, 463]
-R: Xiaodiao, Shichao diao]
+S: III, 463
+R: Xiaodiao, Shichao diao
 M: 2/4
 L: 1/16
 K: A
@@ -6634,8 +6634,8 @@ X:409
 T: Kehen zaoyangjun
 N: C2027
 O: China, Jiangsu Funing
-S: III, 464]
-R: Xiaodiao, Ershisizhi hua]
+S: III, 464
+R: Xiaodiao, Ershisizhi hua
 M: 2/4
 L: 1/16
 K: Bb
@@ -6649,8 +6649,8 @@ X:410
 T: Dujiang da chongfeng
 N: C2028
 O: China, Jiangsu Rugao
-S: III, 465, 1)]
-R: Xiaodiao, Mantou diao]
+S: III, 465, 1)
+R: Xiaodiao, Mantou diao
 M: 2/4
 L: 1/16
 K: D
@@ -6663,8 +6663,8 @@ X:411
 T: Xinsijun dongjin guo wozhuang
 N: C2029
 O: China, Jiangsu Dongtai
-S: I465, 2)]
-R: Xiaodiao, Shibuqian diao]
+S: I465, 2)
+R: Xiaodiao, Shibuqian diao
 M: 2/4
 L: 1/16
 K: D
@@ -6679,8 +6679,8 @@ X:412
 T: Zaosong dajun xiajiangnan
 N: C2030
 O: China, Jiangsu Nantong
-S: III, 467]
-R: Haozi, Damai haozi]
+S: III, 467
+R: Haozi, Damai haozi
 M: 2/4
 L: 1/16
 K: Bb
@@ -6702,8 +6702,8 @@ X:413
 T: Canjun baojiaYuan
 N: C2031
 O: China, Jiangsu Yixing
-S: III, 468, 1)]
-R: Xiaodiao]
+S: III, 468, 1)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -6714,8 +6714,8 @@ X:414
 T: Xiaobiandan
 N: C2032
 O: China, Jiangsu Huaizhong
-S: III, 468, 2)]
-R: Xiaodiao]
+S: III, 468, 2)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -6727,8 +6727,8 @@ X:415
 T:zheng dizhuge
 N: C2033
 O: China, Jiangsu Dongtai
-S: III, 469]
-R: Xiaodiao]
+S: III, 469
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -6741,8 +6741,8 @@ X:416
 T: Zhouzongli zuoke daowojia
 N: C2034
 O: China, Anhui Feixi
-S: III, 518, 2)]
-R: Xiaodiao, Zhuanggong diao]
+S: III, 518, 2)
+R: Xiaodiao, Zhuanggong diao
 M: 2/4
 L: 1/16
 K: G
@@ -6755,8 +6755,8 @@ X:417
 T: Zhuzongsiling daoguanting
 N: C2035
 O: ChiAnhui Feixi
-S: III, 519]
-R: Xiaodiao, Yangge]
+S: III, 519
+R: Xiaodiao, Yangge
 M: 2/4
 L: 1/16
 K: G
@@ -6767,8 +6767,8 @@ X:418
 T: Zhihuai xiaodiao
 N: C2036
 O: China, Anhui Bengbu
-S: III, 521]
-R: Xiaodiao]
+S: III, 521
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -6781,8 +6781,8 @@ X:419
 T: Yanjing xiaochang
 N: C2037
 O: China, Anhui Suxian
-S:522]
-R: Xiaodiao]
+S:522
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -6795,8 +6795,8 @@ X:420
 T: Xiuhao huaihe zhuangjia hao
 N: C2038
 O: China, Anhui Auxian
-S: III, 523]
-R: Xiaodiao]
+S: III, 523
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -6811,8 +6811,8 @@ X:421
 T: Jinnian niantou xiyiangayiang
 N: C2039
 O: China, Anhui Chuxian
-S: III, 526]
-R: Xiaodiao, Fengbailiu diao]
+S: III, 526
+R: Xiaodiao, Fengbailiu diao
 M: L: 1/16
 K: E
 F6C2 | B,2C2E2F2 | E8 |
@@ -6830,8 +6830,8 @@ X:422
 T: Chang tiaotang
 N: C2040
 O: China, Anhui Nanling
-S: III, 538]
-R: Xiaodiao]
+S: III, 538
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -6844,8 +6844,8 @@ X:423
 T: Yidui xiaoyiangqe
 N: C2041
 O: China, Anhui Guangde
-S: III, 529]
-R: Haozi]
+S: III, 529
+R: Haozi
 M: 2/4
 L: 1/16
 K: C
@@ -6861,8 +6861,8 @@ X:424
 T: Shannanhaibei dou zhaohong
 N: C2042
 O: China, Anhui Fanchang
-S: III, 518, 2)]
-R: Shange]
+S: III, 518, 2)
+R: Shange
 M: 2/4
 L: 1/16
 K: Bb
@@ -6876,8 +6876,8 @@ X:425
 T: Siji Songhuaibei
 N: C2043
 O: China, Anhui Wuhe
-S: III, 532]
-R: Xiaodiao]
+S: III, 532
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -6891,8 +6891,8 @@ X:426
 T: Biandange
 N: C2044
 O: China, Anhui Shouxian
-S: III, 533]
-R: Shange]
+S: III, 533
+R: Shange
 M: 2/4
 L: 1/16
 K: F
@@ -6905,8 +6905,8 @@ X:427
 T: Liuliu Shange
 N: C2045
 O: China, Anhui
-S: III, 534]
-R: Haozi]
+S: III, 534
+R: Haozi
 M: 2/4
 L: 1/16
 K: F
@@ -6922,8 +6922,8 @@ X:428
 T: Xinniang xiatian ba yangcha
 N: C2046
 O: China, Anhui
-S: III, 535]
-R: Haozi, Chayang]
+S: III, 535
+R: Haozi, Chayang
 M: 2/4
 L: 1/16
 K: A
@@ -6936,8 +6936,8 @@ X:429
 T: Shuiben yangtian fanlanghua
 N: C2047
 O: China, Anhui Fengtai
-S: III, 350, 1)]
-R: Xiaodiao, Huagu diao. Cheshui]
+S: III, 350, 1)
+R: Xiaodiao, Huagu diao. Cheshui
 M: 2/4
 L: 1/16
 K: A
@@ -6952,8 +6952,8 @@ X:430
 T: Daogu fengshou duimancang
 N: C2048
 O: China, Anhui Qimen
-S: III, 538, 2)]
-R: Xiaodiao]
+S: III, 538, 2)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -6967,8 +6967,8 @@ X:431
 T: Kanghan haozi
 N: C2049
 O: China, Anhui Tongling
-S: III, 541]
-R: Xiaodiao. Nongtian laodong]
+S: III, 541
+R: Xiaodiao. Nongtian laodong
 M: 2/4
 L: 1/16
 K: A
@@ -6982,8 +6982,8 @@ X:432
 T: Zai wanyang
 N: C2050
 O: China, Anhui Feidong
-S: III, 542]
-R: Xiaodiao]
+S: III, 542
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -6997,8 +6997,8 @@ X:433
 T: Caicha shange
 N: C2051
 O: China, Anhui Tongcheng
-S: III, 543]
-R: Shange]
+S: III, 543
+R: Shange
 M: 2/4
 L: 1/16
 K: A
@@ -7011,8 +7011,8 @@ X:434
 T: Sanyuelilai haofengguang
 N: C2052
 O: China, Anhui Lujiang
-S: III, 545]
-R: Xiaodiao, Denggezi]
+S: III, 545
+R: Xiaodiao, Denggezi
 M: 2/4
 L: 1/16
 K: A
@@ -7036,8 +7036,8 @@ X:435
 T: Wanjia denghuo fangguangming
 N: C2053
 O: China, Anhui Tongcheng
-S: III, 547]
-R: Xodiao, Paimen diao]
+S: III, 547
+R: Xodiao, Paimen diao
 M: 2/4
 L: 1/16
 K: G
@@ -7053,8 +7053,8 @@ X:436
 T: Lang gan shengchan bi ren qiang
 N: C2054
 O: China, Anhui Dingyuan
-S: III, 549]
-R: Xiaodiao]
+S: III, 549
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -7068,7 +7068,7 @@ X:437
 T: Danianzi qileshou
 N: C2055
 O: China, Anhui Fengyang
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -7081,8 +7081,8 @@ X:438
 T: Hongjun dao jinzhai
 N: C2056
 O: China, Anhui Jinzhai
-S: III, 553, 1)]
-R: Xiaodiao]
+S: III, 553, 1)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -7093,8 +7093,8 @@ X:439
 T: Xinsijun laidao bantajie
 N: C2056
 O: China, Anhui Laian
-S: III, 553, 2)]
-R: Xiaodiao]
+S: III, 553, 2)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -7106,8 +7106,8 @@ X:440
 T: Renma wangxikai
 N: C2057
 O: China, Anhui Haoxian
-S: III, 554]
-R: Xiaodiao]
+S: III, 554
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -7120,8 +7120,8 @@ A2B2c2ec | B2cBA4 | e2c2B2AB | G2F4C2 | E8
 X:44 Mai huangli
 N: C2058
 O: China, Anhui Huoqiu
-S: III, 556]
-R: Xiaodiao]
+S: III, 556
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -7135,8 +7135,8 @@ X:442
 T: Songlang songdao dalushang
 N: C2059
 O: China, Anhui Dangshan
-S: III, 556, 2)]
-R: Xiaodiao, Qingge]
+S: III, 556, 2)
+R: Xiaodiao, Qingge
 M: 2/4
 L: 1/16
 K: A
@@ -7150,7 +7150,7 @@ T: Songlang canjun
 N: C2060
 O: China, Anhui 
 S: III
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -7164,8 +7164,8 @@ X:444
 T: Duihua shange
 N: C2061
 O: China, Zhejiang Xianju
-S: III, 604]
-R: Shange]
+S: III, 604
+R: Shange
 M: 2/4
 L: 1/16
 K: A
@@ -7179,8 +7179,8 @@ X:445
 T: Hongtaiyang Haishangzhao
 N: C2062
 O: China, Zhejiang Zhoushan
-S: III, 605]
-R: Haozi]
+S: III, 605
+R: Haozi
 M: 2/4
 L: 1/16
 K: H
@@ -7194,8 +7194,8 @@ X:446
 T: lilangge
 N: C2063
 O: China, Zhejiang Changhua
-S: III, 606]
-R: Xiaodiao]
+S: III, 606
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -7218,8 +7218,8 @@ X:447
 T: Muma xinli lekaihua
 N: C2064
 O: China, Zhejiang Juxian
-S: III, 608]
-R: Xiaodiao]
+S: III, 608
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -7240,8 +7240,8 @@ X:448
 T: Ajiege
 N: C2066
 O: China, Zhejiang Yuyao
-S: III, 611]
-R: Xiaodiao]
+S: III, 611
+R: Xiaodiao
 M: 3/4
 L: 1/16
 K: C
@@ -7255,8 +7255,8 @@ X:449
 T: Cange
 N: C2067
 O: China, Zhejiang Deqing
-S: III, 611, 2)]
-R: Xiaodiao]
+S: III, 611, 2)
+R: Xiaodiao
 M: 2/4
 L: 1/16F
 A2AGA2c2 | f2d4dc | A2c2d2f2 | cdcGA4 |
@@ -7268,8 +7268,8 @@ X:450
 T: Cange, 2)
 N: C2068
 O: China, Zhejiang Deqing
-S: III, 612]
-R: Xiaodiao]
+S: III, 612
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -7283,8 +7283,8 @@ X:451
 T: Alan he ahua
 N: C2069
 O: China, Zhejiang Dongtou
-II, 613, 1)]
-R: Xiaodiao]
+II, 613, 1)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -7299,8 +7299,8 @@ X:452
 T: Fangzhiminmtongzhi weiwanggao
 N: C2070
 O: China, Zhejiang Changshan
-S: III, 619]
-R: Xiaodiao]
+S: III, 619
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -7313,9 +7313,9 @@ X:453
 T: Gezu renmin tuanjie jin
 N: C2071
 O: China,inghai 
-S: I, 229, 1)]
+S: I, 229, 1)
 N: Hui Han
-R: Shange, Huar]
+R: Shange, Huar
 M: 3/8
 L: 1/16
 K: G
@@ -7326,8 +7326,8 @@ X:454
 T: Hongjun laiguonian
 N: C2072
 O: China, Jiangxi Guixi
-S: IV, 225]
-R: Xiaodiao]
+S: IV, 225
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -7340,9 +7340,9 @@ X:455
 T: Minzu zhengze nuanrenxin
 N: C2073
 O: China, Qinghai Haibei
-S: I, 230]
+S: I, 230
 N: Hui Han
-R: Shange, Huar, Manling]
+R: Shange, Huar, Manling
 M: 2/4
 L: 1/16
 K: A
@@ -7355,9 +7355,9 @@ X:456
 T: Caoyuan jinkao tiananmen
 N: C2074
 O: China, Qinghai Yushu
-S: I, 231]
+S: I, 231
 N: Zang
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -7368,9 +7368,9 @@ X:457
 T: Ridou chuzai jiulongkou
 N: C2075
 O: China, Qinghai Osten
-S: I, 232]
+S: I, 232
 N: Hui Han
-R: Shange, Huar, Raosanraoling]
+R: Shange, Huar, Raosanraoling
 M: 3/4
 L: 1/16
 KG4A4c4 | G4A4c4 | G4A4c4 | d2d6g4 |
@@ -7381,9 +7381,9 @@ X:458
 T: Hezuohua wadiaole qionggen
 N: C2076
 O: China, Qinghai Huzhu
-S: I, 233]
+S: I, 233
 N: Tuzu
-R: Shange, Tuzuling]
+R: Shange, Tuzuling
 M: 3/4
 L: 1/8
 K: Bb
@@ -7395,9 +7395,9 @@ X:459
 T: ChangHuar,yaochang xinlihua
 N: C2077
 O: China, Qinghai Haibei
-S: I, 234 ]
+S: I, 234 
 N: Hui Han
-R: Shange, Shannling]
+R: Shange, Shannling
 M: 3/4
 L: 1/16
 K: Eb
@@ -7411,9 +7411,9 @@ X:460
 T: Zhanzai lengkanshang manhuar
 N: C2078
 O: China, Qinghai Haibei 
-S: I, 235, 1)]
+S: I, 235, 1)
 N: Hui Han
-R: Shange, Yangliujieling]
+R: Shange, Yangliujieling
 M: 2/4
 L: 1/16
 K: A
@@ -7425,9 +7425,9 @@ X:461
 T: Shehui zhuyi jinguangdao
  C2079
 O: China, Qinghai Huzu
-S: I, 235, 2)]
+S: I, 235, 2)
 N: Tuzu
-R: Shange, Honghualing]
+R: Shange, Honghualing
 M: 2/4
 L: 1/16
 K: F
@@ -7440,9 +7440,9 @@ X:462
 T: Yidui gezi xukongli fei
 N: C2080
 O: China, Qinghai Xunhua Hualong
-S: I, 236]
+S: I, 236
 N: Salazu
-R: Shange, Canglanglangling]
+R: Shange, Canglanglangling
 M: 2/4
 L: 1/32
 K: A
@@ -7455,9 +7455,9 @@ X:463
 T: Alima 
 N: C2081
 O: China, Qinghai Xunhua
-S: I, 237]
+S: I, 237
 N: Salazu
-R: Xiaodiao, Qingge]
+R: Xiaodiao, Qingge
 M: 3/8
 L: 1/16
 K: Eb
@@ -7472,9 +7472,9 @@ X:464
 T: Hong mudan kaizai baihuayuan
 N: C2082
 O: China, Qinghai Huzhu
-S: I, 239]
+S: I, 239
 N: Tuzu
-R: Shange, Tuzuling]
+R: Shange, Tuzuling
 M: 3/8
 L: 1/16
 K: Bb| f2g2f2 | d2f2fg | fgbcd2 | c6- | c4
@@ -7485,9 +7485,9 @@ X:465
 T: Gongchandang geilewo yengling de sang
 N: C2083
 O: China, Qinghai Osten
-S: I, 240]
+S: I, 240
 N: Hui Han
-R: Shange, Jingjinghualing]
+R: Shange, Jingjinghualing
 M: 2/4
 L: 1/16
 K: F
@@ -7499,8 +7499,8 @@ c2c2d2df | f2dcA2AG | F2FDc2cA | G2G6 | GAGFD2DF | DCD4
 X:466
 T: HaoHuar,xinwoli changchulai
 N: C2084: China, Qinghai Minhe Mayeng
-S: I, 241]
-R: Shange, Mayengling]
+S: I, 241
+R: Shange, Mayengling
 M: 2/4
 L: 1/16
 K: Ab
@@ -7514,8 +7514,8 @@ X:467
 T: Shounan de huaer jiefang
 N: C2085
 O: China, Qinghai Huzhu
-S: I, 242]
-R: Shange, Tuzuling]
+S: I, 242
+R: Shange, Tuzuling
 M: 3/4
 L: 1/16
 K: C
@@ -7526,9 +7526,9 @@ X:468
 Tzu renmin xinlianxin
 N: C2086
 O: China, Qinghai Huzhu
-S: I, 244]
+S: I, 244
 N: Tuzu
-R: Shange, Tuzuling]
+R: Shange, Tuzuling
 M: 2/4
 L: 1/16
 K: Bb
@@ -7539,8 +7539,8 @@ X:469
 T: Hongjun zaozaolai
 N: C2088
 O: China, Sichuan Bazhong
-S: II, 233]
-R: Shange]
+S: II, 233
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -7554,9 +7554,9 @@ X:470
 T: Tudi huanjia
 N:89
 O: China, Shanxi Zuoquan
-S: I, 278]
+S: I, 278
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -7567,9 +7567,9 @@ X:471
 T: Gechang hezuohua
 N: C2090
 O: China, Shanxi Zuoquan
-S: I, 279]
+S: I, 279
 N: Han
-R: Xiaodiao, Shibazhou]
+R: Xiaodiao, Shibazhou
 M: 2/4
 L: 1/16
 K: G
@@ -7582,7 +7582,7 @@ X:472
 T: Huanle shengchan
 N: C2091
 O: China, Shanxi Xiyang
-S: I, 280]
+S: I, 280
 N: Han
 R: Xiaod: 2/4
 L: 1/16
@@ -7596,8 +7596,8 @@ X:473
 T: Fengshou huakai xiang wanli
 N: C2092
 O: China, Shanxi Qinyuan
-S: I, 286]
-R: Wuge Yangge Shieryuehuadiao]
+S: I, 286
+R: Wuge Yangge Shieryuehuadiao
 M: 2/4
 L: 1/16
 K: C
@@ -7612,9 +7612,9 @@ X:474
 T: Women de shuiku jiushihao
 N: C2093
 O: China, Shanxi Dianxiang
-S: I, 287]
+S: I, 287
 N: Han
-R: Xiaodiao, Shuiguaxibaotou]
+R: Xiaodiao, Shuiguaxibaotou
 M: 2/4
 L: 1/16
 K: Bb
@@ -7627,9 +7627,9 @@ X:475
 T: Yaorang qiannian liushui wei renmin
 N: C2094
 O: China, Shanxi Hequ
-S: I, 288]
+S: I, 288
 N: Han
-R: Xiaodiao, Erentai, Niangaomian]
+R: Xiaodiao, Erentai, Niangaomian
 M: 2/4
 L: 1/16
 K: G
@@ -7642,9 +7642,9 @@ X:476
 T: Jijiehua zhongtian zhenshihao
 N: C2095
 O: China, Shanxi Dingxian
-S: I, 290]
+S: I, 290
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -7658,7 +7658,7 @@ X:477
 T: Chuhai
 N: C2096
 O: China, Guangdong Haifeng
-S: II, 354, 2)]
+S: II, 354, 2)
 R: Xiaodiao, YM: 2/4
 L: 1/16
 K: G
@@ -7670,9 +7670,9 @@ X:478
 T: Chang yihetuan
 N: C2097
 O: China, Shanxi Yangcheng
-S: I, 294]
+S: I, 294
 N: Han
-R: Xiaodiao, shizidiao]
+R: Xiaodiao, shizidiao
 M: 2/4
 L: 1/16
 K: G
@@ -7684,9 +7684,9 @@ X:479
 T: Aihu renmin zidibing
 N: C2098
 O: China, Shanxi Zuoquan
-S: I, 296, 1)]
+S: I, 296, 1)
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -7697,8 +7697,8 @@ X:480
 T: Chishui buwang dajingren
 N: C2099
 O: China, Shanxi Qinyuan
-S: I, 296, 2)]
-R: Wuge, Yangge Maiyengtao]
+S: I, 296, 2)
+R: Wuge, Yangge Maiyengtao
 M: 2/4
 L: 1/16
 K: C
@@ -7712,8 +7712,8 @@ X:481
 T: Fanghua ge
 N: C1900
 O: China, Shanxi Jiaocheng
-S: I, 307]
-R: Xiaodiao]
+S: I, 307
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -7725,8 +7725,8 @@ X:482
 T: Hongjun laishi xileiliu
 N: C1901
 O: China, Zhejiang Taishun
-S: III, 620, 1)]
-R: Shange]
+S: III, 620, 1)
+R: Shange
 M: 3/8
 L: 1/16
 K: D
@@ -7739,8 +7739,8 @@ X:483
 T: Weile renmin bakudan
 N: C1902
 O: China, Zhejiang Taishun
-S: III, 620, 2)]
-R: Xiaodiao]
+S: III, 620, 2)
+R: Xiaodiao
 M: 3/4
 L: 1/16
 K: A
@@ -7752,8 +7752,8 @@ X:484
 T: yyixin canjia xinsijun
 N: C1903
 O: China, Zhejiang Changxing
-S: III, 621, 1)]
-R: Xiaodiao]
+S: III, 621, 1)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -7769,8 +7769,8 @@ X:485
 T: Da yiezhu
 N: C1904
 O: China, Zhejiang Yuyao
-S: III, 621, 2)]
-R: Haozi]
+S: III, 621, 2)
+R: Haozi
 M: 2/4
 L: 1/16
 K: G
@@ -7785,8 +7785,8 @@ X:486
 T: Ding ding luo gege luo
 N: C1905
 O: China, Zhejiang Pingyang
-S: III, 622]
-R: Shange, Mutong shange]
+S: III, 622
+R: Shange, Mutong shange
 M: 2/4
 L: 1/16
 K: F
@@ -7799,8 +7799,8 @@ X:487
 T: Yenghongjunge
 N: C1906
 O: China, Zhejiang Chunan
-S: III, 623]
-R: Xiaodiao]
+S: III, 623
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -7816,8 +7816,8 @@ X:488
 T: Gongda kaihuaxian
 N: C1907
 O: China, Zhejiang Kaihua
-S: III, 624]
-R: Xiaodiao]
+S: III, 624
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -7830,8 +7830,8 @@ X:489
 T: Minguo shijie zhenbuping
 N: C1908
 O: China, Zhejiang Longquan
-S: III, 635]
-R: Shange]
+S: III, 635
+R: Shange
 M: 2/4
 L: 1/16
 K: D
@@ -7844,8 +7844,8 @@ X:490
 T: Gongchandang lingdao zanmen naogeming
 N: C1909
 O: China, Hebei Zhengding
-S: IV, 11]
-R: Xiaodiao, Lianhualao]
+S: IV, 11
+R: Xiaodiao, Lianhualao
 M: 2/4
 L: 1/16
 K: G
@@ -7863,8 +7863,8 @@ X:491
 T: Zhouzongli laidao zanzaiqu
 N: C1910
 O: China, Hebei Xingtai
-S: IV, 13]
-R: Xiaodiao, Shibeijiu]
+S: IV, 13
+R: Xiaodiao, Shibeijiu
 M: 2/4
 L: 1/16
 K: E
@@ -7877,8 +7877,8 @@ X:492
 T: Huainian
 N: C1911
 O: China, Hebei Dingxian
-S: IV, 14]
-R: Xiaodiao, Dongbing]
+S: IV, 14
+R: Xiaodiao, Dongbing
 M: 2/4
 L: 1/16
 K: G2F2 | D4C4 | F4A2E2 | D2C6 |
@@ -7893,8 +7893,8 @@ X:493
 T: Xinjianchuanghua
 N: C1912
 O: China, Hebei Changli
-S: IV, 19]
-R: Xiaodiao, Xiudenglong]
+S: IV, 19
+R: Xiaodiao, Xiudenglong
 M: 4/4
 L: 1/16
 K: F
@@ -7913,8 +7913,8 @@ X:494
 T: Shengchanle
 N: C1913
 O: China, Hebei Jixian
-S: IV, 27]
-R: Xiaodiao]
+S: IV, 27
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -7928,8 +7928,8 @@ X:495
 T: Guangrongbang
 N: C1914
 O: China, Hebei Changli
-V, 28]
-R: Xiaodiao, Xiaokanxi]
+V, 28
+R: Xiaodiao, Xiaokanxi
 M: 2/4
 L: 1/16
 K: G
@@ -7945,8 +7945,8 @@ X:496
 T: Ai erwa
 N: C1915
 O: China, Hebei Guyuan
-S: IV, 30]
-R: Xiaodiao]
+S: IV, 30
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -7958,8 +7958,8 @@ X:497
 T: Lian yihetuan
 N: C1916
 O: China, Hebei Yutian
-S: IV, 33]
-R: Xiaodiao]
+S: IV, 33
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -7973,8 +7973,8 @@ X:498
 T: Moyanggong
 N: C1917
 O: China, Hebei Changli
-S: IV, 34]
-R: Xiaodiao]
+S: IV, 34
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -7989,8 +7989,8 @@ X:499
 T: Gechang baiqiuen
 N: C1918
 O: China, Hebei Laiyuan
-S: IV, 36]
-R: Xiaodiao]
+S: IV, 36
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -8002,8 +8002,8 @@ X:500
 T: Pancha tongxingzheng
 N: C1919
 O: China, Hebei Shenxian
-S: IV, 37]
-R: Xiaodiao, Tiaobin diao]
+S: IV, 37
+R: Xiaodiao, Tiaobin diao
 M: 2/4
 L: 1/16
 K: C
@@ -8018,8 +8018,8 @@ X:501
 T: Fansaodang
 N: C1920
 O: China, Hebei Suning
-S: IV, 38]
-R: Xiaodiao]
+S: IV, 38
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -8032,8 +8032,8 @@ X:502
 T: Maidilei
 N: C1921
 O: China, Hebei Zhuoxian Xiongxian Baoding
-S: IV, 39]
-R: Xiaodiao]
+S: IV, 39
+R: Xiaodiao
 M: 3/4
 L: 1/16
 K: A
@@ -8044,8 +8044,8 @@ X:503
 T: Shanyaodan
 N: C1922
 O: China, Hebei Zhaoxian
-S: IV, 40]
-R: Xiaodiao]
+S: IV, 40
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: E
@@ -8061,8 +8061,8 @@ X:504
 T: Da baoyunchuan
 N: C1923
 O: China, Hebei Anxin
-S: IV, 42]
-R: Xiaodiao]
+S: IV, 42
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: E
@@ -8076,8 +8076,8 @@ X:505
 T: Sanbeijiu
 N: C1924
 O: China, Hebei Yuanshi
-S: IV, 44]
-R: Xiaodiao]
+S: IV, 44
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -8089,8 +8089,8 @@ X:506
 T: Jiaota shuiche kouchang ge
 N: C1925
 O: China, Hubei Zaoyang
-S: I, 393]
-R: Haozi, Tiange, Cheshuiluogu]
+S: I, 393
+R: Haozi, Tiange, Cheshuiluogu
 M: 2/4
 L: 1/16
 K: G
@@ -8108,8 +8108,8 @@ X:507
 T: Lanchanggong
 N: C1926
 O: China, Hebei Zhuolu
-S: IV, 49]
-R: Xiaodiao]
+S: IV, 49
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -8120,8 +8120,8 @@ X:508
 T: Ertongtuan fangshao
 N: C1927
 O: China, Hebei Weixian
-S: IV, 50]
-R: Xiaodiao, Erge]
+S: IV, 50
+R: Xiaodiao, Erge
 M: 2/4
 L: 1/16
 K: F
@@ -8136,8 +8136,8 @@ X:509
 T: Zhuguohuo
 N: C1928
 O: China, Hebei Tangshan
-S: IV, 51]
-R: Xiaodiao]
+S: IV, 51
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -8150,8 +8150,8 @@ X:510
 T: Yaogong shiertan
 N: C1929
 O: China, Hebei Tangshan
-S: IV, 52]
-R: Xiaodiao, Guanggunsiqi]
+S: IV, 52
+R: Xiaodiao, Guanggunsiqi
 M: 2/4
 L: 1/16
 K: F
@@ -8165,8 +8165,8 @@ X:511
 T: Jiezhenguo zhenyingyong
 N: C1930
 O: China, Hebei Tangshan
-S: III, 54]
-R: Xiaodiao]
+S: III, 54
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -8178,8 +8178,8 @@ X:512
 T: Congci renmin danglejia
 N: C1931
 O: China, Henan Tanghe
-S: IV, 107]
-R: Xiaodiao, Hanchuan diao]
+S: IV, 107
+R: Xiaodiao, Hanchuan diao
 M: 2/4
 L: 1/16
 K: A
@@ -8195,8 +8195,8 @@ X:513
 T: Maoweiyuan pailai xueshengjun
 N: C1932
 O: China, Hubei Macheng
-S: I, 403]
-R: Xiaodiao, Qong rendiao]
+S: I, 403
+R: Xiaodiao, Qong rendiao
 M: 2/4
 L: 1/16
 K: A
@@ -8209,8 +8209,8 @@ X:514
 T: Sanba shanzi
 N: C1932
 O: China, Henan Shangcheng
-S: IV, 108]
-R: Xiaodiao]
+S: IV, 108
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -8228,8 +8228,8 @@ X:515
 T: Youchun
 N: C1933
 O: China, Henan Shangcheng
-S: IV, 110, 1)]
-R: Xiaodiao, Kanxi diao]
+S: IV, 110, 1)
+R: Xiaodiao, Kanxi diao
 M: 2/4
 L: 1/16
 K: Bb
@@ -8240,8 +8240,8 @@ X:516
 T: Youchun, 2)
 N: C1934
 O: China, Henan Shangcheng
-S: IV, 110, 2)]
-R: Xiaodiao, Chuiginshan]
+S: IV, 110, 2)
+R: Xiaodiao, Chuiginshan
 M: 2/4
 L: 1/16
 K: Bb
@@ -8257,8 +8257,8 @@ X:517
 T: Shengchan mang
 N: C1935
 O: China, Henan Shangcheng
-S: IV, 111]
-R: Xiao, Sijimang]
+S: IV, 111
+R: Xiao, Sijimang
 M: 2/4
 L: 1/16
 K: D
@@ -8277,8 +8277,8 @@ X:518
 T: Haoyangge
 N: C1936
 O: China, Henan Shangcheng
-S: IV, 113]
-R: Xiaodiao, Dayingtao]
+S: IV, 113
+R: Xiaodiao, Dayingtao
 M: 2/4
 L: 1/16
 K: G
@@ -8292,8 +8292,8 @@ X:519
 T: Sijile
 N: C1937
 O: China, Henan, Shangcheng
-S: IV, 114]
-R: Xiaodiao, Shiyuehuaming]
+S: IV, 114
+R: Xiaodiao, Shiyuehuaming
 M: 2/4
 L: 1/16
 K: F
@@ -8307,8 +8307,8 @@ X:520
 T: Jinri fanqu dabianyang
 N: C1938
 O: China, Henan Xihua
-S: IV, 117]
-R: Xiaodiao, Shiersi]
+S: IV, 117
+R: Xiaodiao, Shiersi
 M: 2/4
 L: 1/16
 K: F
@@ -8321,8 +8321,8 @@ X:521
 T: Yongjun Huagunge
 N: C1939
 O: China, Henan Xiayiluyi
-S: IV, 118]
-R: Xiaodiao, Salajin diao]
+S: IV, 118
+R: Xiaodiao, Salajin diao
 M: 2/4
 L: 1/16
 K: F
@@ -8337,7 +8337,7 @@ X:522
 T: Kuangshan laodonghaozi
 N: C1940
 O: China, Henan Pingdingshan
-S: IV, 119]
+S: IV, 119
 R: Haozi, Lahao, Pindiao, Guopinxiang 2/4
 L: 1/16
 K: G
@@ -8366,8 +8366,8 @@ X:523
 T: Yingchuangwang bunaliang
 N: C1941
 O: China, Henan Wushe
-S: IV, 121]
-R: Xiaodiao]
+S: IV, 121
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -8379,8 +8379,8 @@ X:524
 T: Nianjun dazhan shieryue
 N: C1942
 O: China, Henan Minquan
-S: IV, 122]
-R: Xiaodiao]
+S: IV, 122
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -8393,8 +8393,8 @@ X:525
 T: Yijiuerwunian
 N: C1943
 O: China, Henan Xinxian
-S: IV, 124]
-R: Xiaodiao, Daliuwang diao]
+S: IV, 124
+R: Xiaodiao, Daliuwang diao
 M: 2/4
 L: 1/16
 K: C
@@ -8409,8 +8409,8 @@ X:526
 T: Yijiuerjiunian
 N: C1944
 O: China, Henan Xinxian
-S: IV, 125]
-R: Xiaodiao, Shihen]
+S: IV, 125
+R: Xiaodiao, Shihen
 M: 2/4
 L: 1/16
 K: G
@@ -8424,8 +8424,8 @@ X:527
 T: Mazongzhihui daqueshan
 N: C1945
 O: China, Henan Queshan
-S: IV, 127]
-R: Haozi]
+S: IV, 127
+R: Haozi
 M: 2/4
 L: 1/16
 K: A
@@ -8441,8 +8441,8 @@ X:528
 T: Hongjun nanxia shenglige
 N: C1946
 O: China, Henan Xinxian
-S: IV, 128]
-R: Xiaodiao]
+S: IV, 128
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -8457,8 +8457,8 @@ X:529
 T: Bayueguihua biandikai
 N: C1947
 O: China, Henan Xinxiam
-S: IV, 130]
-R: Xiaodiao, Baduan jin]
+S: IV, 130
+R: Xiaodiao, Baduan jin
 M: 2/4
 L: 1/16
 K: Eb
@@ -8473,8 +8473,8 @@ X:530
 T: Songlang danghongjun
 N: C1948
 O: China, Henan Xinxian
-S: IV, 132]
-R: Xiaodiao, Wanglang diao]
+S: IV, 132
+R: Xiaodiao, Wanglang diao
 M: 2/4
 L: 1/16
 K: Bb
@@ -8487,8 +8487,8 @@ X:531
 T: Balujun shi zijiren
 N: C1949
 O: ChinHenan Hebi
-S: IV, 133]
-R: Xiaodiao, Dadulu diao]
+S: IV, 133
+R: Xiaodiao, Dadulu diao
 M: 2/4
 L: 1/16
 K: Eb
@@ -8502,8 +8502,8 @@ X:532
 T: Shengsi liangxianglian
 N: C1950
 O: China, Henan Queshan
-S: IV, 134]
-R: Xiaodiao]
+S: IV, 134
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -8517,8 +8517,8 @@ X:533
 T: Geming yiding neng chenggong
 N: C1951
 O: China, Henan Xiuwu
-S: IV, 135]
-R: Xiaodiao]
+S: IV, 135
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -8531,8 +8531,8 @@ X:534
 T: Ertongtuan zhangangfangshaoge
 N: C1952
 O: China, Henan Ningling
-S: IV, 136]
-R: Xiaodiao]
+S: IV, 136
+R: Xiaodiao
 M: 4/4
 L: 1/16
 K: D
@@ -8544,7 +8544,7 @@ X:535
 T: Feng xiangcha
 N: C1953
 O: China, Jiangxi Duchang
-S: IV, 191iaodiao, Chage]
+S: IV, 191iaodiao, Chage
 M: 2/4
 L: 1/16
 K: C
@@ -8559,8 +8559,8 @@ X:536
 T: Jinggang xiangcha jibeijing
 N: C1954
 O: China, Jiangxi Suichuan
-S: IV, 192]
-R: Xiaodiao, Chage]
+S: IV, 192
+R: Xiaodiao, Chage
 M: 2/4
 L: 1/16
 K: C
@@ -8573,8 +8573,8 @@ X:537
 T: Zhaicha guniang xinhuanchang
 N: C1955
 O: China, Jxi Ruijin
-S: IV, 193]
-R: Xiaodiao, Chage]
+S: IV, 193
+R: Xiaodiao, Chage
 M: 2/4
 L: 1/16
 K: C
@@ -8589,8 +8589,8 @@ X:538
 T: Xiongmei saichayang
 N: C1956
 O: China, Jiangxi Nanchang
-S: IV, 194]
-R: Xiaodiao, Lanqiao jishui diao]
+S: IV, 194
+R: Xiaodiao, Lanqiao jishui diao
 M: 2/4
 L: 1/16
 K: A
@@ -8604,8 +8604,8 @@ X:539
 T: Yongjunaimin naolianhuan
 N: C1957
 O: China, Jiangxi Ganzhou
-S: IV, 196]
-R: Xiaodiao, Dengge. Xiaobainian]
+S: IV, 196
+R: Xiaodiao, Dengge. Xiaobainian
 M: 2/4
 L: 1/16
 K: D
@@ -8621,8 +8621,8 @@ X:540
 T: Xinniange
 N: C1958
 O: China, Jiangxi Suichuan
-S: IV, 197]
-R: Xiaodiao, Dengge, Tongqiange]
+S: IV, 197
+R: Xiaodiao, Dengge, Tongqiange
 M: 2/4
 L: 1/16
 K: C
@@ -8650,8 +8650,8 @@ X:541
 T: Dabuzou kuaikuaizou
 N: C1959
 O: China, Jiangxi Xinfeng
-S: IV, 199]
-R: Xiaodiao, Dengge, Ludiao]
+S: IV, 199
+R: Xiaodiao, Dengge, Ludiao
 M: 1/4
 L: 1/16
 K: G
@@ -8667,8 +8667,8 @@ X:542
 T: Dakai sangmen changxinjing
 N: C1960
 O: China, Jiangxi Guixi
-S: IV, 200]
-R: Shange]
+S: IV, 200
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -8681,8 +8681,8 @@ X:543
 T: Sheyuan gege mangshouge
 N: C1961
 O: China, Hunan Jiahe
-S: I, 505, 1)]
-R: Xiaodiao, Fensuge, Banjiage]
+S: I, 505, 1)
+R: Xiaodiao, Fensuge, Banjiage
 M: 2/4
 L: 1/16
 K: G
@@ -8694,8 +8694,8 @@ X:544
 T: Sheyuan gege jifei mang
 N: C1962
 O: China, Hunan Jiahe
-S: I, 505, 2)]
-R: Xiaodiao, Banjiage]
+S: I, 505, 2)
+R: Xiaodiao, Banjiage
 M: 2/4
 L: 1/16
 K: C
@@ -8706,8 +8706,8 @@ X:545
 T: Jiangnan chaoyuan yangchengqun
 N: C1963
 O: China, Hunan Chengbu
-S: I, 507]
-R: Shange, Changan]
+S: I, 507
+R: Shange, Changan
 M: 2/4
 L: 1/16
 K: D
@@ -8720,8 +8720,8 @@ X:546
 T: Gongshe siji shi chuntian
 N: C1964
 O: China, Hunan Huitong
-S: I, 509]
-R: Xiaodiao, Bawangbian]
+S: I, 509
+R: Xiaodiao, Bawangbian
 M: 3/4
 L: 1/16
 K: G
@@ -8736,8 +8736,8 @@ X:547
 T: Shierge yue caicha
 N: C1965
 O: China, Hunan Lianyuan
-S: I, 510]
-R: Xiaodiao]
+S: I, 510
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -8749,8 +8749,8 @@ X:548
 T: Datie ge
 N: C1966
 O: China, Hunan Hengdong
-S: I, 511]
-R: Xiaodiao, Dengdiao]
+S: I, 511
+R: Xiaodiao, Dengdiao
 M: 2/4
 L: 1/16
 K: G
@@ -8765,8 +8765,8 @@ X:549
 T: Tianshui xianglian haofengguang
 N: C1967
 O: China, Hunan Lingxiang
-S: I, 513]
-R: Xiaodiao, Yuminge]
+S: I, 513
+R: Xiaodiao, Yuminge
 /4
 L: 1/16
 K: G
@@ -8780,8 +8780,8 @@ X:550
 T: Jiemeimen yaojuewu
 N: C1969
 O: China, Hunan Liuyang
-S: I, 517]
-R: Xiaodiao]
+S: I, 517
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -8796,8 +8796,8 @@ X:1
 T: Pengbai chuzai hailufeng
 N: C1970
 O: China, Guangdong Haifeng
-S: II, 378]
-R: Xiaodiao, Yge]
+S: II, 378
+R: Xiaodiao, Yge
 M: 2/4
 L: 1/16
 K: A
@@ -8809,8 +8809,8 @@ X:552
 T: Denglongge
 N: C1971
 O: China, Guangdong Heifeng
-S: II, 379]
-R: Xiaodiao]
+S: II, 379
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -8822,8 +8822,8 @@ G2E2 | DEG2EDB, A, | D2EG:553
 T: Gongchandanglai haozhuzhang
 N: C1972
 O: China, Guangdong Huidong
-S: II, 381]
-R: Xiaodiao]
+S: II, 381
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -8839,8 +8839,8 @@ X:554
 T: Geming wupa sharendao
 N: C1973
 O: China, Guangdong Qujiang
-S: II, 382]
-R: Shange, Zhangshi shange]
+S: II, 382
+R: Shange, Zhangshi shange
 M: 3/4
 L: 1/16
 K: A
@@ -8855,8 +8855,8 @@ B12 | eX:555
 T: Yitiao dalu quwanwan
 N: C1974
 O: China, Guangdong Fengshun
-S: II, 383]
-R: Shange, Paxiangshan shange]
+S: II, 383
+R: Shange, Paxiangshan shange
 M: 2/4
 L: 1/16
 K: Bb
@@ -8867,8 +8867,8 @@ X:556
 T: Zhengtu gaochang gemingge
 N: C1975
 O: China, Guangdong Xingning
-S: II, 384]
-R: Shange, Luogang shange]
+S: II, 384
+R: Shange, Luogang shange
 M: 3/8
 L: 1/16
 K: D
@@ -8883,8 +8883,8 @@ X:557
 T: Mawangu
 N: 6
 O: China, Hainan
-S: II, 385, 1)]
-R: Xiaodiao]
+S: II, 385, 1)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: E
@@ -8896,8 +8896,8 @@ X:558
 T: Fuchouge
 N: C1977
 O: China, Guangdong Qiongshan
-S: II, 385, 2)]
-R: Xiaodiao]
+S: II, 385, 2)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -8910,8 +8910,8 @@ X:559
 T: Genni bajuncan
 N: C1978
 O: China, Guangdong dapu
-S: II, 387]
-R: Xiaodiao]
+S: II, 387
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -8924,8 +8924,8 @@ X:560
 T: Ritou chulai mantianhong
 N: C1979
 O: China, Guangxi Yulin
-S: II, 452]
-R: Shange, Da shange]
+S: II, 452
+R: Shange, Da shange
 M: 2/4
 L: 1/16
 K: G
@@ -8940,8 +8940,8 @@ X:561
 T: Yingxiong mofan peichengshuang
 N: C1981
 O: China, Guangxi Xingan
-S: II, 473]
-R: Xiaodiao, Helangge]
+S: II, 473
+R: Xiaodiao, Helangge
 M: 4/8
 L: 1/16
 K: A
@@ -8957,8 +8957,8 @@ X:562
 T: Sisifangfang yipanqi
 N: C1982
 O: China, Guangxi Guiping
-S: II, 475]
-R: Shange]
+S: II, 475
+R: Shange
 M: 4/4
 L: 1/16
 K: A
@@ -8975,8 +8975,8 @@ X:563
 T: Sifang xiongdi daojintian
 N: C1983
 O: China, Guangxi Guiping
-S: II, 474]
-R: Shange, Jintian shange]
+S: II, 474
+R: Shange, Jintian shange
 M: 2/4
 L: 1/16
 K: D
@@ -8989,8 +8989,8 @@ X:564
 T: Tianjun dailai taipingchun
 N: C1984
 O: China, Guangxi Guiping
-S: II, 476, 1)]
-R: Shange, Kejia shange]
+S: II, 476, 1)
+R: Shange, Kejia shange
 M: 2/4
 L: 1/16
 K: D
@@ -9001,8 +9001,8 @@ X:565
 T: Shiliuqing
 N: C1985
 O: China, Guanuzhou
-S: II, 489]
-R: Shange]
+S: II, 489
+R: Shange
 M: 2/4
 L: 1/16
 K: Ab
@@ -9015,8 +9015,8 @@ X:566
 T: Yazui nayou jizui jian
 N: C1986
 O: China, Guangxi Quanzhou
-S: II, 490]
-R: Xiaodiao, Niuniuge]
+S: II, 490
+R: Xiaodiao, Niuniuge
 M: 2/4
 L: 1/16
 K: G
@@ -9029,8 +9029,8 @@ X:567
 T: Manshan cuizhu qingyouqing
 N: C1987
 O: ina, Fujian Liancheng
-S: II, 562 ]
-R: Shange, Xinquan shange]
+S: II, 562 
+R: Shange, Xinquan shange
 M: 2/4
 L: 1/16
 K: D
@@ -9043,8 +9043,8 @@ X:568
 T: Yaoshang shanling bupagao
 N: C1988
 O: China, Fujian Shanghang
-S: II, 562, 2)]
-R: Shange, Gutianshange]
+S: II, 562, 2)
+R: Shange, Gutianshange
 M: 2/4
 L: 1/16
 K: E
@@ -9057,8 +9057,8 @@ X:569
 T: Yujia aichang dge
 N: C1989
 O: China, Fujian Lianjiang
-S: II, 563]
-R: Shange, Yge. Dange]
+S: II, 563
+R: Shange, Yge. Dange
 M: 2/4
 L: 1/16
 K: D
@@ -9071,8 +9071,8 @@ X:570
 T: Wulongjiangbian qixiangxin
 N: C1990
 O: China, Fujian, Minhou
-S: II, 564]
-R: Shange]
+S: II, 564
+R: Shange
 M: 4/4
 L: 1/16
 K: C
@@ -9085,8 +9085,8 @@ X:571
 T: Yushan benshi haodifang
 N: C1991
 O: China, Fujian Xiapu
-S: II, 565]
-R: Haozi, Mudanhua diao]
+S: II, 565
+R: Haozi, Mudanhua diao
 M: 2 1/16
 K: G
 d2dBA2d2 | BAG2A3
@@ -9098,8 +9098,8 @@ X:572
 T: Xingfushenghuo yaolaidao
 N: C1992
 O: China, Fujian Jianou
-S: II, 566]
-R: Haozi, Gunjian haozi]
+S: II, 566
+R: Haozi, Gunjian haozi
 M: 2/4
 L: 1/16
 K: G
@@ -9128,8 +9128,8 @@ X:573
 T: Yujia fanshenyao
 N: C1993
 O: China, Fujian Ningde
-S: II, 567]
-R: Xiaodiao, Yge]
+S: II, 567
+R: Xiaodiao, Yge
 M: 4/4
 L: 1/16
 K: C
@@ -9146,8 +9146,8 @@ X:574
 T: Jianshe zuguo haoshanhe
 N: C1994
 O: China, Fujian Shouning
-S: II, 568]
-R: Xiaodiao]
+S: II, 568
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -9163,8 +9163,8 @@ X:575
 T: Yigengen zhudan liangtoujian
 N: C1996
 O: China, Fujian Chongan
-S: II, 572]
-R: Shange, Daohua shange]
+S: II, 572
+R: Shange, Daohua shange
 M: 2/4
 L: 1/16
 K: Bb
@@ -9177,8 +9177,8 @@ X:576
 T: Biandange
 N: C1997
 O: China, Fujian Longyan
-S: II, 573]
-R: Shange]
+S: II, 573
+R: Shange
 M: 4/4
 L: 1/16
 K: D
@@ -9191,8 +9191,8 @@ X:577
 T: Yitiao xizai lililiu
 N: C1998
 O: China, Fujian Zhaoan
-S: II, 574]
-R: Shange, Fangniu ge]
+S: II, 574
+R: Shange, Fangniu ge
 M: 2/4
 L: 1/16
 K: Bb
@@ -9208,8 +9208,8 @@ X:578
 T: Chashan naocongcong
 N: C1999
 O: China, Fujian Yongchun
-S: II, 574, 2)]
-R: Shange, Chage]
+S: II, 574, 2)
+R: Shange, Chage
 M: 6/8
 L: 1/16
 K: A
@@ -9222,8 +9222,8 @@ X:579
 T: Zhuhaiti
 N: C2000
 O: China, Fujian Xiamen
-S: II, 575]
-R: Haozi, Dahangge]
+S: II, 575
+R: Haozi, Dahangge
 M: 2/4
 L: 1/16
 K: E
@@ -9277,9 +9277,9 @@ X:580
 T: Yueliang yueguangguang
 N: C2001
 O: China, Fujian Jinjiang
-S: II, 579]
+S: II, 579
 N: With a transposition
-R: Xiaodiao, Erge, Shishierge]
+R: Xiaodiao, Erge, Shishierge
 M: 2/4
 L: 1/16
 K: F
@@ -9310,8 +9310,8 @@ X:581
 T: Xiangnian hongjun
 N: C2002
 O: China, Fujian Shaowu
-S: II, 581]
-R: Shange]
+S: II, 581
+R: Shange
 M: 5/8
 L: 1/16
 K: G
@@ -9328,8 +9328,8 @@ X:582
 T: Qiongren shui bupan hongjun
 N: C2003
 O: China, Fujian Yongding
-S: 582, 1)]
-R: Shange]
+S: 582, 1)
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -9340,8 +9340,8 @@ X:583
 T: Maoweiyuan laidao sujiapo
 N: C2004
 O: China, Fujian Shanghang
-S: II, 582, 2)]
-R: Shange]
+S: II, 582, 2)
+R: Shange
 M: 3/4
 L: 1/16
 K: D
@@ -9356,8 +9356,8 @@ X:584
 T: Gongnonghongjun daogutian
 N: C2005
 O: China, Fujian Shanghang
-S: II, 584, 1)]
-R: Shange, Gutianshange]
+S: II, 584, 1)
+R: Shange, Gutianshange
 M: 2/4
 L: 1/16
 K: D
@@ -9371,8 +9371,8 @@ X:585
 T: Suqu zhengquan kaihonghua
 N: C2006
 O: China, Fujian Yongding
-S: II, 584]
-R: Xiaodiao]
+S: II, 584
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -9386,8 +9386,8 @@ X:586
 T: Jiandiao bianzi danghongjun
 N: C2007
 O: China, Fujian Taining
-S: II, 585]
-R: Shange]
+S: II, 585
+R: Shange
 M: 2/4
 L: 1/16
 K: Bb
@@ -9398,8 +9398,8 @@ X:587
 T: Bupa baigui laishaolou
 N: C2008
 O: China, Fujian Wuping
-S: II, 587]
-R: Shange]
+S: II, 587
+R: Shange
 M: 2/4
 L: 1/16
 K: G
@@ -9416,8 +9416,8 @@ X:588
 T: Duimian tongzi kaibaihua
 N: C2009
 O: China, Fujian ninghua
-S: II, 589]
-R: Shange]
+S: II, 589
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -9430,8 +9430,8 @@ X:589
 T: Fengchui zhuyie xiangdingdang
 N: C2011
 O: China, Fujian Changting
-S: II, 590, 2)]
-R: Shange]
+S: II, 590, 2)
+R: Shange
 M: 3/4
 L: 1/16
 K: C
@@ -9448,8 +9448,8 @@ X:590
 T: Tiandashiqing meigandang
 N: C2012
 O: China, Fujian Yongding
-S: II, 591]
-R: Shange, Jinsha shange]
+S: II, 591
+R: Shange, Jinsha shange
 M: 2/4
 L: 1/16
 K: C
@@ -9462,8 +9462,8 @@ X:591
 T:qiu jiefang xu geming
 N: C2013
 O: China, Fujian Yongding
-S: II, 592]
-R: Shange, Xiayang shange]
+S: II, 592
+R: Shange, Xiayang shange
 M: 2/4
 L: 1/16
 K: D
@@ -9477,8 +9477,8 @@ X:592
 T: Jianchi yiuji wupaji
 N: C2014
 O: China, Fujian Shanghang
-S: II, 593, 1)]
-R: Shange, Tipa shange]
+S: II, 593, 1)
+R: Shange, Tipa shange
 M: 2/4
 L: 1/16
 K: E
@@ -9492,8 +9492,8 @@ X:593
 T: Wann ritou jiu chutou
 N: C2015
 O: China, Fujian Ninghua
-S: II, 593, 2)]
-R: Shange]
+S: II, 593, 2)
+R: Shange
 M: 2/4
 L: 1/16
 K: D
@@ -9506,8 +9506,8 @@ X:594
 T: Renduo shouduo haozhongtian
 N: C12024
 O: China, Jiangsu Yancheng
-S: III, 459]
-R: Haozi, Cheshui haozi]
+S: III, 459
+R: Haozi, Cheshui haozi
 M: 2/4
 L: 1/16
 K: E
@@ -9527,9 +9527,9 @@ X:595
 T: Songgege canjun
 N: C2100
 O: China, Shanxi Hequ
-S: I, 298]
+S: I, 298
 N: Han
-R: Shange, Shanqu]
+R: Shange, Shanqu
 M: 2/4
 L: 1/16
 K: D
@@ -9540,7 +9540,7 @@ X:596
 T: Song zidibing shangqanxian
 N: C2101
 O: China, Shanxi Xixian
-S: I, 299, 1)]
+S: I, 299, 1)
 N: Han
 R: Xiaodiao]2/4
 L: 1/16
@@ -9552,9 +9552,9 @@ X:597
 T: Huaishu kaihua
 N: C2102
 O: China, Shanxi Xixian
-S: I, 299, 2)]
+S: I, 299, 2)
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Bb
@@ -9567,9 +9567,9 @@ X:598
 T: Zuoquan jiangjun
 N: C2104
 O: China, Shanxi Zuoquan
-S: I, 301]
+S: I, 301
 N: Han
-R: Xiaodiao, Geyoumai]
+R: Xiaodiao, Geyoumai
 M: 4/4
 L: 1/16
 K: A
@@ -9581,9 +9581,9 @@ X:599
 T: Huangyandong da shengli
 N: C2105
 O: China, Shanxi Zuoquan
-S: I, 302]
+S: I, 302
 N: Han
-R: Xiaodiao, Liangxianghao]
+R: Xiaodiao, Liangxianghao
 M: 2/4
 L: 1/16
 K: F
@@ -9596,9 +9596,9 @@ X:600
 T: Weigong pugezhai
 N: C2106
 O: China, Shanxi Xixian
-S: I, 304, 1)]
+S: I, 304, 1)
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -9609,9 +9609,9 @@ X:601
 T: Hongdu paotai
 N: C2107
 O: China, Shanxi Zuoquan
-S: I, 305]
+S: I, 305
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -9622,9 +9622,9 @@ X:602
 T: Zhouxiling zhandao
 N: C2108
 O: China, Shanxi Qinyuan
-S: I, 304, 2)]
+S: I, 304, 2)
 N: Han
-R: Wuge, Yangge, Pingdiao]
+R: Wuge, Yangge, Pingdiao
 M: 4/4
 L: 1/16
 K: C
@@ -9636,8 +9636,8 @@ G2G4A2c2B2A2c2 | d2g2d2A2G8
 X:603
 T: Qiongren nan
 N: C2O: China, Shanxi Xiyang
-S: I, 306]
-R: Xiaodiao, Erhongge]
+S: I, 306
+R: Xiaodiao, Erhongge
 M: 2/4
 L: 1/16
 K: Bb
@@ -9648,9 +9648,9 @@ X:604
 T: Xin nongcun
 N: C2111
 O: China, Shanxi Zuoquan
-S: I, 308, 1)]
+S: I, 308, 1)
 N: Han
-R: Xiaodiao]
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -9661,9 +9661,9 @@ X:605
 T: Jiangnan xinsijun
 N: C2122
 O: China, Shanxi Zuoquan
-S: I, 308, 2)]
+S: I, 308, 2)
 N: Han
-R: Xiaodiao, Huipuojia]
+R: Xiaodiao, Huipuojia
 M: 2/4
 L: 1/16
 K: A
@@ -9674,9 +9674,9 @@ X:606
 T: Yengjie guangming
 N: C2123
 O: China, Shanxi Qinyuan
-S: I, 309]
+S: I, 309
 N: Han
-R: Wuge, Yangge Songxing diao]
+R: Wuge, Yangge Songxing diao
 M: 4/4
 L: 1/16
 K: C
@@ -9689,9 +9689,9 @@ X:607
 T: Liudeng dajun nanxia
 N: C2124
 O: China, Shanxi Zuoquan
-S: I, 310, 1)]
+S: I, 310, 1)
 N: Han; eine falsch plazierte Zeile als 3. eingefgt!
-R: Xiaodiao]
+R: Xiaodiao
 M: 4/4
 L: 1/8
 K: A
@@ -9702,9 +9702,9 @@ X:608
 T: Gechang yingxong liuhulan
 N: C2125
 O: China, Shanxi Wenshui
-S: I, 310, 2)]
+S: I, 310, 2)
 N: Han
-R: Xiaodiao, Kulingding]
+R: Xiaodiao, Kulingding
 M: 2/4
 L: 1/16
 K: Ab
@@ -9718,7 +9718,7 @@ X:609
 T: Xiangyang hua
 N: C2126
 O: China, Hubei
-R: Shange, Chuan haozi]
+R: Shange, Chuan haozi
 M: 4/4
 L: 1/16
 K: C
@@ -9734,8 +9734,8 @@ X:610
 T: Yibeizi wangbuliao maozedong
 N: C2128
 O: China, Hubei Suixian
-S: I, 362]
-R: Xiaodiao]
+S: I, 362
+R: Xiaodiao
 M: 2/4
 L: 1/8
 K: A
@@ -9749,8 +9749,8 @@ X:611
 T: Zhouzongli shicha gongslai
 N: C2129
 O: China, Hubei Macheng
-S: I, 363]
-R: Xiaodiao, Daochunlai diao]
+S: I, 363
+R: Xiaodiao, Daochunlai diao
 M: 2/4
 L: 1/16
 K: C
@@ -9763,8 +9763,8 @@ X:612
 T: Changqi minge xiang zongli
 N: C2130
 O: China, Hubei Tianmen
-S: I, 364]
-R: Xiaodiao, Liuduan chunjing diao]
+S: I, 364
+R: Xiaodiao, Liuduan chunjing diao
 M: 4/4
 L: 1/16
 K: Bb
@@ -9779,8 +9779,8 @@ X:613
 T: Gechang zhude zongsiling
 N: C2131
 O: China, Hubei Dangyang
-S: I, 366]
-R: Xiaodiao. Xin minge]
+S: I, 366
+R: Xiaodiao. Xin minge
 M: 2/4
 L: 1/16
 K: C
@@ -9792,8 +9792,8 @@ X:614
 T: Sheyuan xinli buzhi youji kuaihuo
 N: C2132
 O: China, Hubei Jianli
-S: I, 367]
-R: Shange, Tiange, Zaiyangge Huage]
+S: I, 367
+R: Shange, Tiange, Zaiyangge Huage
 M: none
 L: 1/16
 K: G
@@ -9811,8 +9811,8 @@ X:615
 T: Tieshou kaichuang xinshijie
 N: C2133
 O: China, Hubei Jiayu
-S: I, 368]
-R: Haozi, Tiange, Wujuzi]
+S: I, 368
+R: Haozi, Tiange, Wujuzi
 M: 2/4
 L: 1/16
 K: A
@@ -9826,8 +9826,8 @@ X:616
 T: Shanhua tuyanfenwaixiang
 N: C2134
 O: China, Hubei Yicheng
-S: I, 369]
-R: Haozi, Tiange, Hayangchaoge, Tiandong diao]
+S: I, 369
+R: Haozi, Tiange, Hayangchaoge, Tiandong diao
 M: 2/4
 L: 1/16
 K: F
@@ -9845,8 +9845,8 @@ X:617
 T: Fengyi zushi wanwannian
 N: C2135
 O: Cna, Hubei Xianfeng
-S: I, 371]
-R: Wuge, Dengdiao, Hanlongchuan]
+S: I, 371
+R: Wuge, Dengdiao, Hanlongchuan
 M: 2/4
 L: 1/16
 K: C
@@ -9868,8 +9868,8 @@ X:618
 T: Sanyue shanha faleya
 N: C2136
 O: China, Hubei Xiaogan
-S: I, 376]
-R: Xiaodiao, Dengdiao, Gusao caicha diao, Madeng]
+S: I, 376
+R: Xiaodiao, Dengdiao, Gusao caicha diao, Madeng
 M: 2/4
 L: 1/16
 K: G
@@ -9882,8 +9882,8 @@ X:619
 T: Gundeng gunlai liangtangtang
 N: C2137
 O: China, Hubei Songsi
-S: I, 378]
-R: Xiaodiao, Dengdiao, Fangxiandiao Jiuliandeng]
+S: I, 378
+R: Xiaodiao, Dengdiao, Fangxiandiao Jiuliandeng
 M: 2/4
 L: 1/16
 K: A
@@ -9898,8 +9898,8 @@ X:620
 T: Sheshe duidui qingfengnian
 N: C2138
 O: China, Hubei Badong
-S: I, 379]
-R: Xiaodiao, Dengdiao, Gurche Diqiang]
+S: I, 379
+R: Xiaodiao, Dengdiao, Gurche Diqiang
 M: 2/4
 L: 1/16
 K: G
@@ -9912,8 +9912,8 @@ X:621
 T: Qunian zhenyuejian
 N: C2140
 O: China, Hubei Xunxian
-S: I, 382]
-R: Xiaodiao]
+S: I, 382
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -9926,8 +9926,8 @@ X:622
 T: Zoule yipuo changyipuo
 N: C2141
 O: China, Hubei Enshi
-S: I, 383]
-R: Xiaodiao, Gege qima kanrenjia diao]
+S: I, 383
+R: Xiaodiao, Gege qima kanrenjia diao
 M: 2/4
 L: 1/16
 K: C
@@ -9940,8 +9940,8 @@ X:623
 T: Xiu yige shehuizhuyi haoqiancheng
 N: C2142
 O: China, Hubei Jiangling
-S: I, 386]
-R: Xiaodiao, Xiuhebao diao]
+S: I, 386
+R: Xiaodiao, Xiuhebao diao
 /4
 L: 1/16
 K: G
@@ -9952,8 +9952,8 @@ X:624
 T: Fanshen le
 N: C2143
 O: China, Hubei Huangpuo
-S: I, 387]
-R: Xiaodiao, Sijimang diao]
+S: I, 387
+R: Xiaodiao, Sijimang diao
 M: 2/4
 L: 1/16
 K: C
@@ -9966,8 +9966,8 @@ X:625
 T: Rujin shanqu dabutong
 N: C2144
 O: China, Hubei Zaoyang
-S: I, 392]
-R: Xiaodiao, Tiange, Hayangcaoge]
+S: I, 392
+R: Xiaodiao, Tiange, Hayangcaoge
 M4
 L: 1/16
 K: D
@@ -9980,9 +9980,9 @@ X:626
 T: Tujia changqi jingsaige
 N: C2145
 O: China, Hubei Laifeng
-S: I, 396]
+S: I, 396
 N: Tujia
-R: Shange, Wujuzi]
+R: Shange, Wujuzi
 M: 2/4
 L: 1/16
 K: E
@@ -9995,8 +9995,8 @@ f2ecf2ec | f4e2c2 | B2B2c2B2 | B8
 X:627
 T: Zhiwen Jiangjieshi
 N: C2146
-O: China, Hebei Baxi: IV, 46]
-R: Xiaodiao]
+O: China, Hebei Baxi: IV, 46
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: F
@@ -10011,8 +10011,8 @@ X:628
 T: Wawa shuikeke
 N: C2147
 O: China, Hubei Gongan
-S: I, 398]
-R: Xiaodiao, Erge]
+S: I, 398
+R: Xiaodiao, Erge
 M: 2/4
 L: 1/16
 K: Bb
@@ -10023,8 +10023,8 @@ X:629
 T: Taohuangge
 N: C2150
 O: China, Hubei Tianmen
-S: I,]
-R: Wuge, Dengdiao, Sanbanggu]
+S: I,
+R: Wuge, Dengdiao, Sanbanggu
 M: 2/4
 L: 1/16
 K: G
@@ -10035,8 +10035,8 @@ X:630
 T: Xingjunge
 N: C2151
 O: China, Hubei Dawu
-S: I, 402]
-R: Xiaodiao]
+S: I, 402
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -10047,8 +10047,8 @@ X:631
 T: Damacheng
 N: C2153
 O: China, Hubei Macheng
-S: I, 404, 1)]
-R: Xiaodiao, Erge]
+S: I, 404, 1)
+R: Xiaodiao, Erge
 M: 2/4
 L: 1/16
 K: G
@@ -10062,8 +10062,8 @@ X:632
 T: Hongqi chabian dabieshan
 N: C2154
 O: China, Hubei Macheng
-S: I, 404, 2)]
-R: Xiaodiao]
+S: I, 404, 2)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -10076,8 +10076,8 @@ X:633
 T: Bayue guihua biandikai
 N: C2155
 O: China, Hubei Hongan
-S: I, 405]
-R: Xiaodiao, Baduanjin diao]
+S: I, 405
+R: Xiaodiao, Baduanjin diao
 M: 4/4
 L: 1/16
 K: Eb
@@ -10090,8 +10090,8 @@ X:634
 T: Qingzhu chengli suweiai
 N: C2157
 O: China, Hubei Yangxing
-S: I, 408]
-R: Xiaodiao]
+S: I, 408
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Eb
@@ -10103,8 +10103,8 @@ X:635
 T: Edongnan gemingweiyun hui ge
 N: C2158
 O: China, Hubei Yangxing
-S: I, 409]
-R: Xiaodiao]
+S: I, 409
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -10120,8 +10120,8 @@ X:636
 T: Shida zhenggangge
 N: C2159
 O: China, Hubei Wufeng
-S: I, 414]
-R: Shange]
+S: I, 414
+R: Shange
 M: 4/4
 L: 1/16
 K: C
@@ -10140,8 +10140,8 @@ X:637
 T: Zhujian haojiao xiangdudu
 N: C2160
 O: China, Hubei Wufeng
-S: I, 417]
-R: Xiaodiao, Erge]
+S: I, 417
+R: Xiaodiao, Erge
 M: 2/4
 L: 1/16
 K: C
@@ -10158,8 +10158,8 @@ X:638
 T: Yaodang hongjun bupasha
 N: C2162
 O: China, H Xuanen
-S: I, 419]
-R: Shange]
+S: I, 419
+R: Shange
 M: 4/4
 L: 1/16
 K: F
@@ -10170,8 +10170,8 @@ X:639
 T: Kuangfeng chuibugan honghushui
 N: C2163
 O: China, Hubei Honghu
-S: I, 421]
-R: Xiaodiao]
+S: I, 421
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -10182,8 +10182,8 @@ X:640
 T: Genzhe maoweiyuan naogeming
 N: C2164
 O: China, Hubei Hanchuan
-S: I, 422]
-R: Xiaodiao, Macheng diao]
+S: I, 422
+R: Xiaodiao, Macheng diao
 M: 2/4
 L: 1/16
 K: D
@@ -10194,8 +10194,8 @@ B2A4B2 | d2Bde2d2 | B3dBAF2 | A8
 T: Nian hongjun
 N: C2165
 O: China, Hubei Shishao
-S: I, 423]
-R: Xiaodiao, Heshadiao]
+S: I, 423
+R: Xiaodiao, Heshadiao
 M: 2/4
 L: 1/16
 K: A
@@ -10208,8 +10208,8 @@ X:642
 T: Xiangqi wushi laodage
 N: C2166
 O: China, Hubei Suixian
-S: I, 424]
-R: Xiaodiao]
+S: I, 424
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: D
@@ -10222,8 +10222,8 @@ X:643
 T: Dhan gaoyuogao
 N: C2167
 O: China, Hubei Dawu
-S: I, 425]
-R: Xiaodiao, Dengdiao, Qiacaitaidiao huatiao]
+S: I, 425
+R: Xiaodiao, Dengdiao, Qiacaitaidiao huatiao
 M: 2/4
 L: 1/16
 K: G
@@ -10234,8 +10234,8 @@ X:644
 T: Lianbing ge
 N: C2168
 O: China, Hubei Yunmeng
-S: I, 426]
-R: Xiaodiao]
+S: I, 426
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: A
@@ -10248,7 +10248,7 @@ X:645
 T: Zheshi hongsijun
 N: C2169
 O: China, Hubei Xishui
-S: I, 427, 1)]
+S: I, 427, 1)
 R: Xiaodia4/4
 L: 1/8
 K: F
@@ -10260,8 +10260,8 @@ X:646
 T: Fun fangshao
 N: C2170
 O: China, Hubei Zhushan
-S: I, 427, 2)]
-R: Xiaodiao]
+S: I, 427, 2)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -10272,8 +10272,8 @@ X:647
 T: Liudeng dajun
 N: C2171
 O: China, Hubei Hongan
-S: I, 428]
-R: Xiaodiao]
+S: I, 428
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: C
@@ -10288,8 +10288,8 @@ X:648
 T: Lingxiu jiubie huiguxiang
 N: C2172
 O: China, Hunan Shaoshan
-S: I, 488]
-R: Shange]
+S: I, 488
+R: Shange
 M: 2/4
 L: 1/16
 K: G
@@ -10303,8 +10303,8 @@ X:649
 T: Gechang xingxianfa
 N: C2173
 O: China, Hubei Yueyang
-S: I, 494]
-R: Wuge, Sangubang]
+S: I, 494
+R: Wuge, Sangubang
 M: 2/4
 L: 1/16
 K: C
@@ -10315,8 +10315,8 @@ X:650
 T: Shiyue huarkai
 N: C2174
 O: China, Hunan Qiyang
-S: I, 495]
-R: Xiaodiao, Huarkai]
+S: I, 495
+R: Xiaodiao, Huarkai
 M: 2/4
 L: 1/16
 K: A
@@ -10328,8 +10328,8 @@ X:651
 T: Dongting sijige
 N: C2175
 O: China, Hunan Yueyang
-S: I, 496, 1)]
-R: Xiaodiao]
+S: I, 496, 1)
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: G
@@ -10341,8 +10341,8 @@ X:652
 T: Yangque ti
 N: C2176
 O: China, Huyang
-S: I, 496]
-R: Xiaodiao, Dengdiao]
+S: I, 496
+R: Xiaodiao, Dengdiao
 M: 2/4
 L: 1/16
 K: D
@@ -10356,8 +10356,8 @@ X:653
 T: Xingfu shenghuo lehehe
 N: C2178
 O: China, Hunan Lianyuan
-S: I, 499]
-R: Shange]
+S: I, 499
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -10369,8 +10369,8 @@ X:654
 T: Tujia changqi fengshoe
 N: C2179
 O: China, Hunan Sangzhi
-S: I, 503]
-R: Shange]
+S: I, 503
+R: Shange
 M: 2/4
 L: 1/16
 K: C
@@ -10384,8 +10384,8 @@ X:655
 T: Qingfengnian
 N: C2180
 O: China, Hunan Xiangzhong
-S: I, 504]
-R: Shange]
+S: I, 504
+R: Shange
 M: 4/4
 L: 1/16
 K: D
@@ -10399,8 +10399,8 @@ X:656
 hihenxin
 N: C2182
 O: China, Hunan Lingxian
-S: I, 519]
-R: Xiaodiao]
+S: I, 519
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Eb
@@ -10412,8 +10412,8 @@ X:657
 T: Liu xiu
 N: C2183
 O: China, Hunan Huarong
-S: I, 521]
-R: Xiaodiao, Macheng diao]
+S: I, 521
+R: Xiaodiao, Macheng diao
 M: 2/4
 L: 1/16
 K: C
@@ -10424,8 +10424,8 @@ X:658
 T: Hongjun weifengda
 N: C2184
 O: China, Hunan Dayong
-S: I, 520]
-R: Wuge, Huadeng diao]
+S: I, 520
+R: Wuge, Huadeng diao
 M: 2/4
 L: 1/16
 K: G
@@ -10439,8 +10439,8 @@ X:659
 T: Zhuo yangren
 N: C2185
 O: China, Hunan Yongshun
-S: I, 522]
-R: Xiaodiao, Huadeng diao]
+S: I, 522
+R: Xiaodiao, Huadeng diao
 M: 2/4
 L: 1/16
 K: D
@@ -10455,8 +10455,8 @@ X:660
 T: Ggnong hongjun dashengzhang
 N: C2186
 O: China, Hunan Liuyang
-S: I, 523]
-R: Xiaodiao, Lianhualao]
+S: I, 523
+R: Xiaodiao, Lianhualao
 M: 2/4
 L: 1/16
 K: G
@@ -10467,8 +10467,8 @@ X:661
 T: Menkuo guazhandeng
 N: C2187
 O: China, Hunan Sangzhi  
-S: I, 524, 2)]
-R: Xiaodiao]
+S: I, 524, 2)
+R: Xiaodiao
 M: 4/4
 L: 1/16
 K: F
@@ -10481,7 +10481,7 @@ X:662
 T: Kuoda tiehongjun
 N: C2188
 O: China, Hunan Chaling
-S: I, 524]
+S: I, 524
 R: Xiaodiao, ShiyuM: 2/4
 L: 1/16
 K: A
@@ -10493,8 +10493,8 @@ X:663
 T: Jianli xinshijie
 N: C2189
 O: China, Hunan Liuyang
-S: I, 525]
-R: Xiaodiao, Dieduanqiao]
+S: I, 525
+R: Xiaodiao, Dieduanqiao
 M: 2/4
 L: 1/16
 K: C
@@ -10509,8 +10509,8 @@ X:664
 T: Tuhao lueshen pagongnong
 N: C2190
 O: China, Hunan Chaling
-S: I, 526]
-R: Shange]
+S: I, 526
+R: Shange
 M: 4/4
 L: 1/16
 K: D
@@ -10521,8 +10521,8 @@ X:665
 T: Geming shengli zaixiangfeng
 N: C2191
 O: China, Hunan Chaling
-S: I, 527]
-R: Xiaodiao, Ganzi shushang dabaihua]
+S: I, 527
+R: Xiaodiao, Ganzi shushang dabaihua
 M: 2/4
 L: 1/16
 K: G
@@ -10533,8 +10533,8 @@ A6B2 | A2G2E4 | E2E2G2E2 | D8
 X:666
 T: Songla: C2192
 O: China, Hunan Youxian
-S: I, 529]
-R: Xiaodiao]
+S: I, 529
+R: Xiaodiao
 M: 2/4
 L: 1/16
 K: Ab
@@ -10547,8 +10547,8 @@ X:667
 T: Shange,kaikou jujuzhen
 N: C2193
 O: China, Hunan Lingxian
-S: I, 528]
-R: Shange, Kejia shange]
+S: I, 528
+R: Shange, Kejia shange
 M: 4/4
 L: 1/16
 K: G
@@ -10559,7 +10559,7 @@ X:668
 T: Songlang danghongjun
 N: C2194
 O: China, Hunan Huarong
-S: I, 530]aodiao]
+S: I, 530]aodiao
 M: 4/4
 L: 1/16
 K: A
@@ -10573,8 +10573,8 @@ X:669
 T: Songlang dangbin
 N: C2195
 O: China, Hunan Liuyang
-S: I, 531]
-R: Xiaodiao, Shisong]
+S: I, 531
+R: Xiaodiao, Shisong
 M: 3/4
 L: 1/16
 K: D
@@ -10586,8 +10586,8 @@ X:670
 T: Zhenzhen chunfeng chuiyuxiang
 N: C2196
 O: China, Fujian Fuan
-S: I61]
-R: Shange, Yge]
+S: I61
+R: Shange, Yge
 M: 3/4
 L: 1/16
 K: Bb
