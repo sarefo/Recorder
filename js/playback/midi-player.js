@@ -192,6 +192,20 @@ class MidiPlayer {
      */
     async init(visualObj) {
         try {
+            // Validate visual object before proceeding
+            if (!visualObj || typeof visualObj !== 'object') {
+                console.error('Invalid visual object provided to MIDI player');
+                this.updateStatusDisplay("Error: Invalid music data");
+                return false;
+            }
+
+            // Check if visual object has the required structure for MIDI playback
+            if (!visualObj.lines || !Array.isArray(visualObj.lines) || visualObj.lines.length === 0) {
+                console.warn('Visual object missing required lines array for MIDI playback');
+                this.updateStatusDisplay("No playable content found");
+                return false;
+            }
+
             // Ensure audio context exists
             this.createAudioContext();
 
@@ -257,18 +271,30 @@ class MidiPlayer {
 
 
             // Initialize MIDI with all current settings
-            await this.midiPlayer.init({
-                visualObj: visualObj,
-                audioContext: this.audioContext,
-                millisecondsPerMeasure: millisecondsPerMeasure,
-                options: options
-            });
+            try {
+                await this.midiPlayer.init({
+                    visualObj: visualObj,
+                    audioContext: this.audioContext,
+                    millisecondsPerMeasure: millisecondsPerMeasure,
+                    options: options
+                });
+            } catch (synthError) {
+                console.error('ABCJS synth initialization failed:', synthError);
+                this.updateStatusDisplay("MIDI playback not available for this tune");
+                return false;
+            }
 
             // Update metronome with the current time signature and tempo from the visual object
             await this.updateMetronome(visualObj);
 
             // Load and prepare the synth
-            await this.midiPlayer.prime();
+            try {
+                await this.midiPlayer.prime();
+            } catch (primeError) {
+                console.error('MIDI player prime failed:', primeError);
+                this.updateStatusDisplay("MIDI initialization failed");
+                return false;
+            }
 
             // Initialize tuning manager with shared audio context
             if (!this.tuningManagerInitialized) {
