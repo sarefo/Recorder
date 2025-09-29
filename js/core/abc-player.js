@@ -158,16 +158,84 @@ class AbcPlayer {
     }
 
     /**
-     * Toggles between baroque and German fingering systems
+     * Toggles between baroque, German, and Dizi D fingering systems with automatic transposition
      * @returns {string} The new fingering system
      */
     toggleFingeringSystem() {
+        const previousSystem = this.fingeringManager.currentFingeringSystem;
         const newSystem = this.fingeringManager.toggleFingeringSystem();
+
+        // Apply automatic transposition when switching to/from dizi
+        this.applyAutoTransposition(previousSystem, newSystem);
+
         this.settingsManager.set('fingeringStyle', newSystem);
         this.render();
         // Update the reference row
         this.fingeringManager.populateReferenceRow();
         return newSystem;
+    }
+
+    /**
+     * Applies automatic transposition when switching between fingering systems
+     * @param {string} previousSystem - The previous fingering system
+     * @param {string} newSystem - The new fingering system
+     */
+    applyAutoTransposition(previousSystem, newSystem) {
+        const isDiziToPrevious = previousSystem === 'diziD';
+        const isDiziToNew = newSystem === 'diziD';
+
+        // Skip if no transposition needed (both are non-dizi or both are dizi)
+        if (isDiziToPrevious === isDiziToNew) {
+            return;
+        }
+
+        try {
+            // Determine transposition amount
+            const semitoneShift = isDiziToNew ? -3 : 3; // Down 3 for switch to dizi, up 3 for switch from dizi
+
+            // Get current ABC and normalize line endings
+            const currentAbc = this.notationParser.currentAbc.replace(/\r\n/g, '\n');
+
+            // Create a hidden div for transposition
+            let tempDiv = document.getElementById('transposition-temp');
+            if (!tempDiv) {
+                tempDiv = document.createElement('div');
+                tempDiv.id = 'transposition-temp';
+                tempDiv.className = 'temp-hidden';
+                document.body.appendChild(tempDiv);
+            }
+
+            // Create a fresh visual object with normalized ABC
+            const freshVisualObj = ABCJS.renderAbc(tempDiv.id, currentAbc, {
+                generateDownload: false,
+                generateInline: false
+            });
+
+            // Apply transposition
+            let transposedAbc = ABCJS.strTranspose(
+                currentAbc,
+                freshVisualObj,
+                semitoneShift
+            );
+
+            // Ensure proper line ending after key line
+            if (!transposedAbc.match(/K:.*\n/)) {
+                transposedAbc = transposedAbc.replace(/(K:.*?)([A-Ga-g])/, '$1\n$2');
+            }
+
+            // Update the stored ABC notation
+            this.notationParser.currentAbc = transposedAbc;
+
+            // Clean up temp div
+            if (tempDiv && tempDiv.parentNode) {
+                tempDiv.parentNode.removeChild(tempDiv);
+            }
+
+            console.log(`Auto-transposed ${semitoneShift > 0 ? 'up' : 'down'} ${Math.abs(semitoneShift)} semitones when switching from ${previousSystem} to ${newSystem}`);
+
+        } catch (error) {
+            console.error('Error during auto-transposition:', error);
+        }
     }
 
     /**
