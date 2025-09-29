@@ -12,8 +12,8 @@ class ShareManager {
     }
 
     updateUrlWithCurrentContent() {
-        // Get current ABC notation and encode it
-        const abcNotation = this.player.notationParser.currentAbc;
+        // Get current tune ABC notation instead of entire file
+        const abcNotation = this.player.tuneManager.getCurrentTuneAbc();
         const encodedAbc = btoa(abcNotation);
 
         // Create URL with the encoded ABC as a parameter
@@ -70,8 +70,8 @@ class ShareManager {
     }
 
     generateShareUrl() {
-        // Get current ABC notation and encode it as base64
-        const abcNotation = this.player.notationParser.currentAbc;
+        // Get current tune ABC notation instead of entire file
+        const abcNotation = this.player.tuneManager.getCurrentTuneAbc();
         // Use btoa directly without encodeURIComponent
         const encodedAbc = btoa(abcNotation);
 

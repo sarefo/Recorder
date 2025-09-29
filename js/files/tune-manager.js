@@ -92,4 +92,21 @@ class TuneManager {
 
         return `Tune ${this.currentTuneIndex + 1}`;
     }
+
+    /**
+     * Extract the ABC content of just the current tune
+     * @returns {string} The ABC content for the current tune only
+     */
+    getCurrentTuneAbc() {
+        // Match all tune headers
+        const tuneRegex = /(X:\s*\d+[\s\S]*?)(?=X:\s*\d+|$)/g;
+        const matches = [...this.player.notationParser.currentAbc.matchAll(tuneRegex)];
+
+        if (matches.length > this.currentTuneIndex) {
+            return matches[this.currentTuneIndex][0].trim();
+        }
+
+        // Fallback: return the entire ABC if no matches (single tune file)
+        return this.player.notationParser.currentAbc;
+    }
 }

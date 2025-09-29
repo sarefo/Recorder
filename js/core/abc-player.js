@@ -270,15 +270,39 @@ class AbcPlayer {
                 }
             } else if (event.key === ' ' && !event.ctrlKey && !event.shiftKey && !event.altKey) {
                 const target = event.target;
-                const isInputField = target.tagName === 'INPUT' || 
-                                   target.tagName === 'TEXTAREA' || 
+                const isInputField = target.tagName === 'INPUT' ||
+                                   target.tagName === 'TEXTAREA' ||
                                    (target.contentEditable && target.contentEditable !== 'false');
-                
+
                 if (!isInputField || target.tagName === 'BODY') {
                     event.preventDefault();
                     event.stopPropagation();
                     if (event.type === 'keydown') {
                         this.midiPlayer.togglePlay();
+                    }
+                    return false;
+                }
+            } else if ((event.key === 'ArrowLeft' || event.key === 'ArrowRight') &&
+                       !event.ctrlKey && !event.shiftKey && !event.altKey) {
+                const target = event.target;
+                const isInputField = target.tagName === 'INPUT' ||
+                                   target.tagName === 'TEXTAREA' ||
+                                   (target.contentEditable && target.contentEditable !== 'false');
+
+                if (!isInputField || target.tagName === 'BODY') {
+                    event.preventDefault();
+                    if (event.type === 'keydown') {
+                        if (event.key === 'ArrowLeft') {
+                            // Left arrow - previous tune
+                            this.tuneManager.previousTune();
+                            this.render();
+                            this.tuneNavigation.updateTuneCountDisplay();
+                        } else if (event.key === 'ArrowRight') {
+                            // Right arrow - next tune
+                            this.tuneManager.nextTune();
+                            this.render();
+                            this.tuneNavigation.updateTuneCountDisplay();
+                        }
                     }
                     return false;
                 }

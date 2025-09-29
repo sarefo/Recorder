@@ -76,13 +76,23 @@ class MidiPlayer {
      * @returns {Object} Tempo settings including adjusted tempo and milliseconds per measure
      */
     calculateTempoSettings(visualObj) {
+        // Validate that visualObj has the required methods
+        if (!visualObj || typeof visualObj.getBpm !== 'function') {
+            console.warn('Visual object missing getBpm method, using defaults');
+            const adjustedTempo = (120 * this.playbackSettings.tempo) / 100;
+            return {
+                adjustedTempo,
+                millisecondsPerMeasure: (60000 * 4) / adjustedTempo
+            };
+        }
+
         // Get the base tempo from the tune
         const baseTempo = visualObj.getBpm() || 120;
         const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
 
         // Calculate milliseconds per measure based on adjusted tempo
-        const timeSignature = visualObj.getMeter();
-        const beatsPerMeasure = timeSignature?.value?.[0].num || 4;
+        const timeSignature = visualObj.getMeter?.() || null;
+        const beatsPerMeasure = timeSignature?.value?.[0]?.num || 4;
         const millisecondsPerMeasure = (60000 * beatsPerMeasure) / adjustedTempo;
 
         return {
@@ -97,8 +107,17 @@ class MidiPlayer {
     * @param {Object} visualObj - The ABC visual object
     */
     async updateMetronome(visualObj) {
+        // Validate visual object
+        if (!visualObj || typeof visualObj.getBpm !== 'function') {
+            console.warn('Visual object missing required methods for metronome, using defaults');
+            const adjustedTempo = (120 * this.playbackSettings.tempo) / 100;
+            this.lastTempo = adjustedTempo;
+            this.lastTimeSignature = 4;
+            return;
+        }
+
         // Extract time signature from the visual object
-        const timeSignature = visualObj.getMeter();
+        const timeSignature = visualObj.getMeter?.();
         const numerator = timeSignature?.value?.[0]?.num || 4;
 
         // Extract tempo from the visual object (same method as MIDI)
@@ -422,7 +441,7 @@ class MidiPlayer {
             if (this.playbackSettings.metronomeOn && !this.customMetronome.isPlaying) {
                 // Always get the current visual object to ensure we have the latest tempo
                 const visualObj = window.app?.renderManager?.currentVisualObj;
-                if (visualObj) {
+                if (visualObj && typeof visualObj.getBpm === 'function') {
                     // Calculate the correct tempo directly from the current piece
                     const baseTempo = visualObj.getBpm() || 120;
                     const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
@@ -431,7 +450,7 @@ class MidiPlayer {
                     this.lastTempo = adjustedTempo;
 
                     // Get time signature
-                    const timeSignature = visualObj.getMeter();
+                    const timeSignature = visualObj.getMeter?.();
                     const numerator = timeSignature?.value?.[0]?.num || 4;
                     this.lastTimeSignature = numerator;
 
@@ -498,10 +517,10 @@ class MidiPlayer {
                 if (isConstantMetronomeMode) {
                     // In constant mode, only start the metronome
                     const visualObj = window.app?.renderManager?.currentVisualObj;
-                    if (visualObj) {
+                    if (visualObj && typeof visualObj.getBpm === 'function') {
                         const baseTempo = visualObj.getBpm() || 120;
                         const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
-                        const timeSignature = visualObj.getMeter();
+                        const timeSignature = visualObj.getMeter?.();
                         const numerator = timeSignature?.value?.[0]?.num || 4;
 
                         await this.customMetronome.start(adjustedTempo, numerator);
