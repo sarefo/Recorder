@@ -567,6 +567,8 @@ class UIControls {
         // Create label
         const tempoLabel = document.createElement('label');
         tempoLabel.textContent = 'Tempo:';
+        tempoLabel.title = 'Click to reset tempo to 100%';
+        tempoLabel.style.cursor = 'pointer';
         tempoControl.appendChild(tempoLabel);
 
         // Create slider
@@ -582,6 +584,30 @@ class UIControls {
 
         // Connect slider to value display
         this.connectTempoSliderEvents(tempoSlider, tempoValue);
+
+        // Add click event to label to reset tempo to 100%
+        tempoLabel.addEventListener('click', async () => {
+            // Reset slider value
+            tempoSlider.value = '100';
+
+            // Update display
+            tempoValue.textContent = '100%';
+
+            // Update playback settings
+            await this.player.midiPlayer.updatePlaybackSettings(
+                { tempo: 100 },
+                this.player.renderManager.currentVisualObj
+            );
+
+            // Force update metronome if it's running
+            if (this.player.midiPlayer.playbackSettings.metronomeOn &&
+                this.player.midiPlayer.customMetronome.isPlaying) {
+
+                await this.player.midiPlayer.customMetronome.setTempo(
+                    this.player.midiPlayer.lastTempo
+                );
+            }
+        });
 
         return tempoControl;
     }
