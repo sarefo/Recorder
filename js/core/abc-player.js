@@ -419,26 +419,33 @@ class AbcPlayer {
     applyInitialSettings() {
         // Set fingering visibility
         this.fingeringManager.showFingering = this.settingsManager.get('fingeringVisible');
-        
+
         // Set fingering style
         const fingeringStyle = this.settingsManager.get('fingeringStyle');
         this.fingeringManager.setFingeringSystem(fingeringStyle);
-        
-        // Set playback settings  
+
+        // Apply initial transposition if starting with dizi fingering
+        // This ensures the default ABC notation is transposed down 3 semitones
+        // when the app loads with dizi as the saved fingering system
+        if (fingeringStyle === 'diziD') {
+            this.applyAutoTransposition('baroque', 'diziD');
+        }
+
+        // Set playback settings
         this.midiPlayer.playbackSettings.voicesOn = this.settingsManager.get('voicesOn');
         this.midiPlayer.playbackSettings.chordsOn = this.settingsManager.get('chordsOn');
         this.midiPlayer.playbackSettings.metronomeOn = this.settingsManager.get('metronomeOn');
-        
+
         // TEMP FIX: Force loop to always be false on load to prevent localStorage issues
         this.midiPlayer.playbackSettings.loopEnabled = false;
         console.log('FORCED loopEnabled to false to prevent issues');
-        
+
         console.log('Initial playback settings loaded:');
         console.log('  voicesOn:', this.midiPlayer.playbackSettings.voicesOn);
-        console.log('  chordsOn:', this.midiPlayer.playbackSettings.chordsOn); 
+        console.log('  chordsOn:', this.midiPlayer.playbackSettings.chordsOn);
         console.log('  metronomeOn:', this.midiPlayer.playbackSettings.metronomeOn);
         console.log('  loopEnabled:', this.midiPlayer.playbackSettings.loopEnabled);
-        
+
         // Update UI to reflect initial settings
         this.uiControls.updateFingeringButtons();
         this.uiControls.updatePlaybackButtons();

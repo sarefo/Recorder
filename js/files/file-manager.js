@@ -40,8 +40,17 @@ class FileManager {
 
             // Make sure it's valid ABC notation
             if (abcContent.includes('X:') && abcContent.includes('K:')) {
-                // Update the notation and render it
+                // Update the notation
                 this.player.notationParser.currentAbc = abcContent;
+
+                // Apply transposition if currently in dizi mode
+                // Files are assumed to be written for recorder (baroque/german)
+                // so we need to transpose down when loading in dizi mode
+                const currentSystem = this.player.fingeringManager.currentFingeringSystem;
+                if (currentSystem === 'diziD') {
+                    this.player.applyAutoTransposition('baroque', 'diziD');
+                }
+
                 this.player.tuneManager.resetToFirstTune();
                 this.player.render();
 
