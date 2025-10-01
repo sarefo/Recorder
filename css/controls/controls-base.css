@@ -84,6 +84,10 @@
     color: #333;
     min-height: 44px;
     box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 /* Desktop - smaller buttons */
