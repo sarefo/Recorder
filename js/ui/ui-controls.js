@@ -110,22 +110,66 @@ class UIControls {
     }
 
     /**
-     * Creates system toggle button
+     * Creates system toggle button with long-press for baroque
      * @returns {HTMLElement} The system toggle button
      */
     createSystemToggleButton() {
         const systemToggle = document.createElement('button');
         systemToggle.id = 'system-toggle';
-        systemToggle.title = 'Toggle Baroque/German/Dizi D Fingering';
-        
+        systemToggle.title = 'Toggle German/Dizi D Fingering\nHold for Baroque (when German is active)';
+
         // Set initial text content based on current system
         const currentSystem = this.player.fingeringManager.currentFingeringSystem;
         systemToggle.textContent = this._getSystemDisplayText(currentSystem);
 
-        systemToggle.addEventListener('click', () => {
-            const newSystem = this.player.toggleFingeringSystem();
-            systemToggle.textContent = this._getSystemDisplayText(newSystem);
-        });
+        let longPressTimer = null;
+        let isLongPress = false;
+        let mousePressed = false;
+
+        // Handle mouse/touch start
+        const startPress = () => {
+            mousePressed = true;
+            isLongPress = false;
+            const currentSys = this.player.fingeringManager.currentFingeringSystem;
+
+            // Only allow long press when german or baroque is active
+            if (currentSys === 'german' || currentSys === 'baroque') {
+                longPressTimer = setTimeout(() => {
+                    isLongPress = true;
+                    // Toggle to baroque/german on long press
+                    const newSystem = this.player.toggleBaroqueSystem();
+                    systemToggle.textContent = this._getSystemDisplayText(newSystem);
+                    // Provide haptic feedback if available
+                    if (navigator.vibrate) {
+                        navigator.vibrate(50);
+                    }
+                }, 500); // 500ms for long press
+            }
+        };
+
+        // Handle mouse/touch end
+        const endPress = () => {
+            if (longPressTimer) {
+                clearTimeout(longPressTimer);
+                longPressTimer = null;
+            }
+
+            // Only toggle normally if there was a mouse press AND it wasn't a long press
+            if (mousePressed && !isLongPress) {
+                const newSystem = this.player.toggleFingeringSystem();
+                systemToggle.textContent = this._getSystemDisplayText(newSystem);
+            }
+
+            // Reset the pressed state
+            mousePressed = false;
+        };
+
+        // Add event listeners for both mouse and touch
+        systemToggle.addEventListener('mousedown', startPress);
+        systemToggle.addEventListener('mouseup', endPress);
+        systemToggle.addEventListener('mouseleave', endPress); // Cancel if mouse leaves
+        systemToggle.addEventListener('touchstart', startPress, { passive: true });
+        systemToggle.addEventListener('touchend', endPress, { passive: true });
 
         return systemToggle;
     }

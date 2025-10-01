@@ -502,16 +502,27 @@ class FingeringManager {
     }
 
     /**
-     * Toggles between Baroque, German, and Dizi D fingering systems
+     * Toggles between German and Dizi D fingering systems
      * @returns {string} - The new fingering system
      */
     toggleFingeringSystem() {
-        if (this.currentFingeringSystem === 'baroque') {
-            this.currentFingeringSystem = 'german';
-        } else if (this.currentFingeringSystem === 'german') {
+        if (this.currentFingeringSystem === 'german' || this.currentFingeringSystem === 'baroque') {
             this.currentFingeringSystem = 'diziD';
         } else {
+            this.currentFingeringSystem = 'german';
+        }
+        return this.currentFingeringSystem;
+    }
+
+    /**
+     * Toggles to baroque from german, or back to german from baroque
+     * @returns {string} - The new fingering system
+     */
+    toggleBaroqueSystem() {
+        if (this.currentFingeringSystem === 'german') {
             this.currentFingeringSystem = 'baroque';
+        } else if (this.currentFingeringSystem === 'baroque') {
+            this.currentFingeringSystem = 'german';
         }
         return this.currentFingeringSystem;
     }

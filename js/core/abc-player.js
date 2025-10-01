@@ -158,7 +158,7 @@ class AbcPlayer {
     }
 
     /**
-     * Toggles between baroque, German, and Dizi D fingering systems with automatic transposition
+     * Toggles between German and Dizi D fingering systems with automatic transposition
      * @returns {string} The new fingering system
      */
     toggleFingeringSystem() {
@@ -168,6 +168,19 @@ class AbcPlayer {
         // Apply automatic transposition when switching to/from dizi
         this.applyAutoTransposition(previousSystem, newSystem);
 
+        this.settingsManager.set('fingeringStyle', newSystem);
+        this.render();
+        // Update the reference row
+        this.fingeringManager.populateReferenceRow();
+        return newSystem;
+    }
+
+    /**
+     * Toggles to baroque from german (or back to german from baroque)
+     * @returns {string} The new fingering system
+     */
+    toggleBaroqueSystem() {
+        const newSystem = this.fingeringManager.toggleBaroqueSystem();
         this.settingsManager.set('fingeringStyle', newSystem);
         this.render();
         // Update the reference row
