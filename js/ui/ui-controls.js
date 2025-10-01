@@ -148,7 +148,7 @@ class UIControls {
         };
 
         // Handle mouse/touch end
-        const endPress = () => {
+        const endPress = (e) => {
             if (longPressTimer) {
                 clearTimeout(longPressTimer);
                 longPressTimer = null;
@@ -168,8 +168,14 @@ class UIControls {
         systemToggle.addEventListener('mousedown', startPress);
         systemToggle.addEventListener('mouseup', endPress);
         systemToggle.addEventListener('mouseleave', endPress); // Cancel if mouse leaves
-        systemToggle.addEventListener('touchstart', startPress, { passive: true });
-        systemToggle.addEventListener('touchend', endPress, { passive: true });
+        systemToggle.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent mouse events from firing
+            startPress();
+        });
+        systemToggle.addEventListener('touchend', (e) => {
+            e.preventDefault(); // Prevent mouse events from firing
+            endPress(e);
+        });
 
         return systemToggle;
     }
