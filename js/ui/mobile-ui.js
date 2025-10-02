@@ -164,13 +164,14 @@ class MobileUI {
         // Remove mobile body class
         document.body.classList.remove('mobile-playback-active');
         
-        // Ensure controls are in main control bar
+        // Ensure controls are in main control bar in correct order (playback first)
         const controlBar = document.querySelector('.control-bar');
         const playbackControls = document.querySelector('.playback-controls');
         const fingeringControls = document.querySelector('.fingering-controls');
         const notationControls = document.querySelector('.notation-controls');
-        
+
         if (controlBar) {
+            // Add in correct order: playback, fingering, notation
             if (playbackControls && !controlBar.contains(playbackControls)) {
                 controlBar.appendChild(playbackControls);
             }

@@ -20,13 +20,10 @@ class UIControls {
         const controlBar = this.createControlBar();
 
         // Add sections to control bar
+        // Playback controls first for consistent ordering across all screen sizes
+        controlBar.appendChild(this.createPlaybackControlsSection());
         controlBar.appendChild(this.createFingeringControlsSection());
         controlBar.appendChild(this.createNotationControlsSection());
-
-        // Mobile-specific controls are now in the fingering section
-
-        // Always add playback controls (they will be moved if mobile playback bar is enabled)
-        controlBar.appendChild(this.createPlaybackControlsSection());
 
         // Add control elements to the document
         controlContainer.appendChild(midiStatus);
