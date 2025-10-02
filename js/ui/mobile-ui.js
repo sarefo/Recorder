@@ -220,21 +220,14 @@ class MobileUI {
         this.addFingeringControlsToRow(mainRow, fingeringControls);
         this.addFileControlsToRow(mainRow, notationControls);
 
-        mobileBar.appendChild(mainRow);
-
-        // Create expandable rows for extras
-        const extrasContainer = document.createElement('div');
-        extrasContainer.className = 'mobile-extras-container';
-
-        // Playback extras row
+        // Create expandable rows and add them to main row for inline positioning
         const playbackExtras = this.createPlaybackExtrasRow(playbackControls);
-        extrasContainer.appendChild(playbackExtras);
-
-        // File extras row
         const fileExtras = this.createFileExtrasRow(notationControls);
-        extrasContainer.appendChild(fileExtras);
 
-        mobileBar.appendChild(extrasContainer);
+        mainRow.appendChild(playbackExtras);
+        mainRow.appendChild(fileExtras);
+
+        mobileBar.appendChild(mainRow);
 
         return mobileBar;
     }

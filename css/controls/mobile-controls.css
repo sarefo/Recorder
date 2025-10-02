@@ -22,11 +22,12 @@
 /* Main row - single horizontal scrollable row with all important controls */
 .mobile-main-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 6px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 2px;
+    flex-wrap: wrap;
 }
 
 /* Hide scrollbar but keep functionality */
@@ -44,24 +45,45 @@
     border-radius: 2px;
 }
 
-/* Extras container - holds expandable rows */
+/* Extras container - hidden, not used in new layout */
 .mobile-extras-container {
-    margin-top: 6px;
+    display: none;
 }
 
-/* Extras rows - appear below main row when expanded */
+/* Extras rows - appear inline below their + button */
 .mobile-extras-row {
     display: flex;
     align-items: center;
     gap: 6px;
     flex-wrap: wrap;
-    padding: 6px 0;
-    border-top: 1px solid #e0e0e0;
+    padding: 6px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 6px;
+    width: auto;
     transition: all 0.3s ease;
 }
 
 .mobile-extras-row.hidden {
     display: none;
+}
+
+/* Position playback extras on the left side */
+#mobile-playback-extras {
+    order: 100;
+    flex-basis: 100%;
+    align-self: flex-start;
+    max-width: fit-content;
+}
+
+/* Position file extras on the right side */
+#mobile-file-extras {
+    order: 200;
+    flex-basis: 100%;
+    align-self: flex-end;
+    max-width: fit-content;
+    margin-left: auto;
 }
 
 /* Expand/collapse toggle buttons */
