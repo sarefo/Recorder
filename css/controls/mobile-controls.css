@@ -124,34 +124,8 @@
     border-color: #ff5722 !important;
 }
 
-/* Buttons in mobile main row */
-.mobile-main-row button:not(.mobile-expand-toggle) {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 6px 10px;
-    font-size: 12px;
-    color: #333;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    flex-shrink: 0;
-    min-height: 32px;
-    box-sizing: border-box;
-}
-
-.mobile-main-row button:not(.mobile-expand-toggle):hover {
-    background-color: #e8e8e8;
-    border-color: #ccc;
-}
-
-.mobile-main-row button.active {
-    background-color: #4285f4 !important;
-    border-color: #4285f4 !important;
-    color: white !important;
-}
-
-/* Buttons in extras rows */
+/* Common button styles for mobile main row and extras */
+.mobile-main-row button:not(.mobile-expand-toggle),
 .mobile-extras-row button {
     background-color: #f8f8f8;
     border: 1px solid #ddd;
@@ -167,11 +141,13 @@
     box-sizing: border-box;
 }
 
+.mobile-main-row button:not(.mobile-expand-toggle):hover,
 .mobile-extras-row button:hover {
     background-color: #e8e8e8;
     border-color: #ccc;
 }
 
+.mobile-main-row button.active,
 .mobile-extras-row button.active {
     background-color: #4285f4 !important;
     border-color: #4285f4 !important;
@@ -263,12 +239,9 @@ body.mobile-controls-active .mobile-extras-row:not(.hidden) ~ * {
 
 /* Responsive adjustments for very small screens */
 @media (max-width: 480px) {
-    .mobile-control-bar {
-        padding: 6px 8px;
-    }
-
     .mobile-main-row {
         gap: 4px;
+        padding: 6px 8px;
     }
 
     .mobile-main-row button:not(.mobile-expand-toggle),

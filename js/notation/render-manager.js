@@ -2,6 +2,8 @@
  * Manages rendering of ABC notation and fingering diagrams
  */
 class RenderManager {
+    static RENDER_DELAY = 100;
+
     constructor(player) {
         this.player = player;
         this.currentVisualObj = null;
@@ -25,12 +27,12 @@ class RenderManager {
             setTimeout(() => {
                 const notes = this.player.notationParser.extractCleanedNotes();
                 this.player.diagramRenderer.addMarkerZones(abcContainer, notes);
-                
+
                 // Add fingering diagrams if they should be shown
                 if (this.player.fingeringManager.showFingering) {
                     this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
                 }
-            }, 100);
+            }, RenderManager.RENDER_DELAY);
 
             // Update URL for sharing
             if (this.player.shareManager) {
@@ -89,7 +91,7 @@ class RenderManager {
             setTimeout(() => {
                 const notes = this.player.notationParser.extractCleanedNotes();
                 this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
-            }, 100);
+            }, RenderManager.RENDER_DELAY);
         }
     }
 
@@ -143,7 +145,7 @@ class RenderManager {
             this.player.midiPlayer.midiPlayer.start();
             this.player.midiPlayer.isPlaying = true;
             document.getElementById('play-button').textContent = '⏸';
-        }, 100);
+        }, RenderManager.RENDER_DELAY);
     }
 
     /**

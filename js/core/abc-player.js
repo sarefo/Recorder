@@ -94,48 +94,11 @@ class AbcPlayer {
      */
     transpose(direction) {
         const semitoneShift = direction === 'up' ? 1 : -1;
+        const transposedAbc = this.transposeManager.transpose(this.notationParser.currentAbc, semitoneShift);
 
-        try {
-            // Get current ABC and normalize line endings to LF (\n)
-            const currentAbc = this.notationParser.currentAbc.replace(/\r\n/g, '\n');
-            //console.log("Current ABC before transposition (normalized):", currentAbc);
-
-            // Create a hidden div for transposition
-            let tempDiv = document.getElementById('transposition-temp');
-            if (!tempDiv) {
-                tempDiv = document.createElement('div');
-                tempDiv.id = 'transposition-temp';
-                tempDiv.className = 'temp-hidden';
-                document.body.appendChild(tempDiv);
-            }
-
-            // Create a fresh visual object with normalized ABC
-            const freshVisualObj = ABCJS.renderAbc(tempDiv.id, currentAbc, {
-                generateDownload: false,
-                generateInline: false
-            });
-
-            // Use the fresh visual object for transposition
-            let transposedAbc = ABCJS.strTranspose(
-                currentAbc,  // Use normalized ABC
-                freshVisualObj,
-                semitoneShift
-            );
-
-            //console.log("Transposed ABC:", transposedAbc);
-
-            // Ensure a final newline after the key line if needed
-            if (!transposedAbc.match(/K:.*\n/)) {
-                transposedAbc = transposedAbc.replace(/(K:.*?)([A-Ga-g])/, '$1\n$2');
-            }
-
-            // Update the stored ABC notation with the transposed string
+        if (transposedAbc !== this.notationParser.currentAbc) {
             this.notationParser.currentAbc = transposedAbc;
-
-            // Re-render the notation
             this.render();
-        } catch (error) {
-            console.error("Transposition error:", error);
         }
     }
 
@@ -194,60 +157,17 @@ class AbcPlayer {
      * @param {string} newSystem - The new fingering system
      */
     applyAutoTransposition(previousSystem, newSystem) {
-        const isDiziToPrevious = previousSystem === 'diziD';
-        const isDiziToNew = newSystem === 'diziD';
+        const semitoneShift = this.transposeManager.getFingeringSystemShift(previousSystem, newSystem);
 
-        // Skip if no transposition needed (both are non-dizi or both are dizi)
-        if (isDiziToPrevious === isDiziToNew) {
+        if (semitoneShift === 0) {
             return;
         }
 
-        try {
-            // Determine transposition amount
-            const semitoneShift = isDiziToNew ? -3 : 3; // Down 3 for switch to dizi, up 3 for switch from dizi
+        const transposedAbc = this.transposeManager.transpose(this.notationParser.currentAbc, semitoneShift);
 
-            // Get current ABC and normalize line endings
-            const currentAbc = this.notationParser.currentAbc.replace(/\r\n/g, '\n');
-
-            // Create a hidden div for transposition
-            let tempDiv = document.getElementById('transposition-temp');
-            if (!tempDiv) {
-                tempDiv = document.createElement('div');
-                tempDiv.id = 'transposition-temp';
-                tempDiv.className = 'temp-hidden';
-                document.body.appendChild(tempDiv);
-            }
-
-            // Create a fresh visual object with normalized ABC
-            const freshVisualObj = ABCJS.renderAbc(tempDiv.id, currentAbc, {
-                generateDownload: false,
-                generateInline: false
-            });
-
-            // Apply transposition
-            let transposedAbc = ABCJS.strTranspose(
-                currentAbc,
-                freshVisualObj,
-                semitoneShift
-            );
-
-            // Ensure proper line ending after key line
-            if (!transposedAbc.match(/K:.*\n/)) {
-                transposedAbc = transposedAbc.replace(/(K:.*?)([A-Ga-g])/, '$1\n$2');
-            }
-
-            // Update the stored ABC notation
+        if (transposedAbc !== this.notationParser.currentAbc) {
             this.notationParser.currentAbc = transposedAbc;
-
-            // Clean up temp div
-            if (tempDiv && tempDiv.parentNode) {
-                tempDiv.parentNode.removeChild(tempDiv);
-            }
-
             console.log(`Auto-transposed ${semitoneShift > 0 ? 'up' : 'down'} ${Math.abs(semitoneShift)} semitones when switching from ${previousSystem} to ${newSystem}`);
-
-        } catch (error) {
-            console.error('Error during auto-transposition:', error);
         }
     }
 

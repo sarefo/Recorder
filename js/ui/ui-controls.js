@@ -2,6 +2,11 @@
  * Manages UI control creation and handling
  */
 class UIControls {
+    // Timing constants
+    static LONG_PRESS_DURATION = 500;
+    static STYLE_REAPPLY_DELAY = 100;
+    static METRONOME_FLASH_DURATION = 100;
+
     constructor(player) {
         this.player = player;
     }
@@ -140,7 +145,7 @@ class UIControls {
                     if (navigator.vibrate) {
                         navigator.vibrate(50);
                     }
-                }, 500); // 500ms for long press
+                }, UIControls.LONG_PRESS_DURATION);
             }
         };
 
@@ -433,14 +438,12 @@ class UIControls {
                 isLongPress = true;
                 // Toggle loop mode on long press
                 const loopEnabled = await this.player.midiPlayer.toggleLoop(this.player);
-                console.log('Long press toggle - loop enabled:', loopEnabled);
                 this.updateRestartButtonAppearance(restartButton, loopEnabled);
-                console.log('Button updated - text:', restartButton.textContent, 'classes:', restartButton.className);
                 // Provide haptic feedback if available
                 if (navigator.vibrate) {
                     navigator.vibrate(50);
                 }
-            }, 500); // 500ms for long press
+            }, UIControls.LONG_PRESS_DURATION);
         };
 
         // Handle mouse/touch end
@@ -1009,76 +1012,12 @@ class UIControls {
     }
 
     /**
-     * Sets button active state with inline styles to bypass CSS conflicts
+     * Sets button active state using CSS class
      * @param {HTMLElement} button - The button element
      * @param {boolean} isActive - Whether the button should be active
      */
     setButtonActiveState(button, isActive) {
-        // Store the active state on the button for later reference
-        button.dataset.isActive = isActive.toString();
-        
-        // Clear any existing timeout for this button
-        if (button._styleTimeout) {
-            clearTimeout(button._styleTimeout);
-        }
-        
-        // Common base styles for all states to ensure consistent sizing
-        const baseStyles = `
-            padding: 6px 10px !important;
-            border-radius: 4px !important;
-            font-size: 14px !important;
-            cursor: pointer !important;
-            transition: all 0.2s ease !important;
-            white-space: nowrap !important;
-            border-width: 1px !important;
-            border-style: solid !important;
-            box-sizing: border-box !important;
-            display: inline-block !important;
-            width: auto !important;
-            height: auto !important;
-            margin: 2px !important;
-        `;
-        
-        if (isActive) {
-            button.style.cssText = baseStyles + `
-                background-color: #4285f4 !important;
-                border-color: #4285f4 !important;
-                color: white !important;
-            `;
-        } else {
-            button.style.cssText = baseStyles + `
-                background-color: #f8f8f8 !important;
-                border-color: #ddd !important;
-                color: #333 !important;
-            `;
-        }
-        
-        // Force reapply styles after a short delay to override mobile UI interference
-        button._styleTimeout = setTimeout(() => this.reapplyButtonStyles(button), 100);
-    }
-
-    /**
-     * Reapplies button styles to ensure they persist after mobile UI manipulation
-     * @param {HTMLElement} button - The button element
-     */
-    reapplyButtonStyles(button) {
-        if (button.dataset.isActive === undefined) return;
-        
-        const isActive = button.dataset.isActive === 'true';
-        this.setButtonActiveState(button, isActive);
-    }
-
-    /**
-     * Ensures all our toggle buttons maintain their styling after mobile UI changes
-     */
-    reapplyAllToggleButtonStyles() {
-        const buttons = ['chords-toggle', 'voices-toggle', 'metronome-toggle'];
-        buttons.forEach(id => {
-            const button = document.getElementById(id);
-            if (button && button.dataset.isActive !== undefined) {
-                this.reapplyButtonStyles(button);
-            }
-        });
+        button.classList.toggle('active', isActive);
     }
 
     /**
@@ -1128,7 +1067,7 @@ class UIControls {
                     setTimeout(() => {
                         metronomeButton.classList.remove('metronome-beat-accent', 'metronome-beat');
                         document.body.classList.remove('metronome-beat-accent');
-                    }, 100);
+                    }, UIControls.METRONOME_FLASH_DURATION);
                 }
             });
         }
