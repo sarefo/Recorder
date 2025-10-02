@@ -79,13 +79,15 @@
     display: none;
 }
 
-/* Position playback extras on the left side - below main row */
+/* Position playback extras on the left side */
 #mobile-playback-extras {
     margin-left: 10px;
+    margin-right: auto;
 }
 
-/* Position file extras on the right side - below main row */
+/* Position file extras on the right side */
 #mobile-file-extras {
+    margin-left: auto;
     margin-right: 10px;
 }
 
