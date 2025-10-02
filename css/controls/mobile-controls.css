@@ -1,16 +1,16 @@
 /* Mobile-specific styling with single-row layout */
 
-/* Mobile control bar - fixed at top */
+/* Mobile control bar - fixed at top with relative positioning for extras */
 .mobile-control-bar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    border-bottom: none;
+    box-shadow: none;
     z-index: 1000;
-    padding: 8px 10px;
+    padding: 0;
     transition: all 0.3s ease;
 }
 
@@ -26,9 +26,12 @@
     gap: 6px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 2px;
+    padding: 8px 10px;
     flex-wrap: nowrap;
     position: relative;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Hide scrollbar but keep functionality */
@@ -46,45 +49,44 @@
     border-radius: 2px;
 }
 
-/* Extras container - holds expandable rows below main row */
+/* Extras container - transparent wrapper with no background */
 .mobile-extras-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 8px;
-    margin-top: 6px;
-    position: relative;
+    padding: 0;
+    background-color: transparent;
 }
 
-/* Extras rows - appear below main row, aligned to their side */
+/* Extras rows - compact boxes with their own background */
 .mobile-extras-row {
     display: flex;
     align-items: center;
     gap: 6px;
     flex-wrap: wrap;
-    padding: 6px;
+    padding: 6px 8px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: auto;
+    width: fit-content;
+    margin: 6px 0 0 0;
     transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-extras-row.hidden {
     display: none;
 }
 
-/* Position playback extras on the left side */
+/* Position playback extras on the left side - below main row */
 #mobile-playback-extras {
-    align-self: flex-start;
-    max-width: fit-content;
+    margin-left: 10px;
 }
 
-/* Position file extras on the right side */
+/* Position file extras on the right side - below main row */
 #mobile-file-extras {
-    align-self: flex-end;
-    max-width: fit-content;
-    margin-left: auto;
+    margin-right: 10px;
 }
 
 /* Expand/collapse toggle buttons */
