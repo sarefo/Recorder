@@ -432,10 +432,10 @@ class UIControls {
         const startPress = () => {
             mousePressed = true;
             isLongPress = false;
-            longPressTimer = setTimeout(() => {
+            longPressTimer = setTimeout(async () => {
                 isLongPress = true;
                 // Toggle loop mode on long press
-                const loopEnabled = this.player.midiPlayer.toggleLoop(this.player);
+                const loopEnabled = await this.player.midiPlayer.toggleLoop(this.player);
                 console.log('Long press toggle - loop enabled:', loopEnabled);
                 this.updateRestartButtonAppearance(restartButton, loopEnabled);
                 console.log('Button updated - text:', restartButton.textContent, 'classes:', restartButton.className);

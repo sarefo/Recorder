@@ -170,7 +170,7 @@ class MidiPlayer {
             voicesOff: !this.playbackSettings.voicesOn,
             drum: this.playbackSettings.metronomeOn ? "dddd" : "", // Simple metronome pattern
             drumBars: 1,
-            drumIntro: 1,
+            drumIntro: this.playbackSettings.loopEnabled ? 0 : 1, // No intro when looping
             // Additional metronome settings
             drumOn: this.playbackSettings.metronomeOn,
             //soundFontUrl: "https://paulrosen.github.io/midi-js-soundfonts/FluidR3_GM/",
@@ -256,7 +256,7 @@ class MidiPlayer {
                             console.log('Loop was disabled during timeout, not restarting');
                             this.onEndedCallbackActive = false;
                         }
-                    }, 200); // Slightly longer delay for safety
+                    }, 10); // Minimal delay for seamless looping
                     this.updateStatusDisplay("Looping...");
                 } else {
                     console.log('Loop is disabled, stopping normally');
@@ -371,7 +371,7 @@ class MidiPlayer {
                             console.log('Loop was disabled during timeout, not restarting');
                             this.onEndedCallbackActive = false;
                         }
-                    }, 200); // Slightly longer delay for safety
+                    }, 10); // Minimal delay for seamless looping
                     this.updateStatusDisplay("Looping...");
                 } else {
                     console.log('Loop is disabled, stopping normally');
@@ -642,8 +642,8 @@ class MidiPlayer {
             this.updatePlayButtonState();
             this.customMetronome.stop();
 
-            // Small delay to ensure complete reset
-            await new Promise(resolve => setTimeout(resolve, 50));
+            // Small delay to ensure complete reset (minimal for looping)
+            await new Promise(resolve => setTimeout(resolve, this.playbackSettings.loopEnabled ? 5 : 50));
 
             // Start from beginning
             const startSuccess = await this.startPlayback();
@@ -733,19 +733,35 @@ class MidiPlayer {
     /**
      * Toggles loop mode
      * @param {Object} [player] - The player instance (for saving settings)
-     * @returns {boolean} The new loop state
+     * @returns {Promise<boolean>} The new loop state
      */
-    toggleLoop(player) {
+    async toggleLoop(player) {
+        const wasPlaying = this.isPlaying;
+
         this.playbackSettings.loopEnabled = !this.playbackSettings.loopEnabled;
-        
+
         // Save to settings manager if player provided
         if (player && player.settingsManager) {
             player.settingsManager.set('loopEnabled', this.playbackSettings.loopEnabled);
         }
-        
+
+        // Reinitialize to apply drumIntro change (0 when looping, 1 when not)
+        const visualObj = window.app?.renderManager?.currentVisualObj;
+        if (visualObj) {
+            if (wasPlaying) {
+                await this.stopPlayback();
+            }
+            await this.initWithNewPlayer(visualObj);
+            if (wasPlaying) {
+                await this.startPlayback();
+                this.isPlaying = true;
+                this.updatePlayButtonState();
+            }
+        }
+
         this.updateStatusDisplay(
-            this.playbackSettings.loopEnabled 
-                ? "Loop: ON" 
+            this.playbackSettings.loopEnabled
+                ? "Loop: ON (seamless)"
                 : "Loop: OFF"
         );
         return this.playbackSettings.loopEnabled;
