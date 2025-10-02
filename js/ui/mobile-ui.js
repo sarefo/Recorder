@@ -4,17 +4,14 @@
 class MobileUI {
     constructor(player) {
         this.player = player;
-        this.additionalControlsVisible = false; // Additional controls (fingering + notation)
-        this.playbackControlsMinimized = false; // Playback controls minimize state
+        this.playbackExtrasVisible = false; // Expandable playback controls (chords, voices, etc.)
+        this.fileExtrasVisible = false; // Expandable file controls (copy, paste, share)
     }
 
     /**
      * Sets up mobile controls
      */
     setupMobileControls() {
-        // Get control container
-        const controlContainer = document.querySelector('.control-container');
-
         // Set up the initial state
         this.updateMobileState();
 
@@ -27,50 +24,24 @@ class MobileUI {
 
     collapseControls() {
         if (this.player.isMobile) {
-            this.additionalControlsVisible = false;
+            this.playbackExtrasVisible = false;
+            this.fileExtrasVisible = false;
             this.applyMobileState();
         }
     }
 
     /**
-     * Creates the mobile layout with playback controls always visible
+     * Creates the mobile layout with all important controls visible
+     * and expandable sections for extras
      */
     createMobileLayout() {
         if (!this.player.isMobile) return;
 
-        const controlContainer = document.querySelector('.control-container');
-        if (!controlContainer) return;
-
-        // Create mobile playback bar (always visible)
-        this.createMobilePlaybackBar();
-
-        // Create additional controls container (toggle-able)
-        this.createAdditionalControlsContainer();
+        // Create mobile control bar with all controls
+        this.createMobileControlBar();
 
         // Set up initial state
         this.applyMobileState();
-    }
-
-    /**
-     * Create the hamburger button attached to playback controls
-     * @returns {HTMLElement} The mobile toggle button
-     */
-    createMobileToggleButton() {
-        let toggleButton = document.getElementById('mobile-hamburger');
-        if (!toggleButton) {
-            toggleButton = document.createElement('button');
-            toggleButton.id = 'mobile-hamburger';
-            toggleButton.className = 'mobile-hamburger';
-            toggleButton.innerHTML = '<span></span><span></span><span></span>';
-            toggleButton.title = 'Toggle additional controls';
-            
-            // Add click handler
-            toggleButton.onclick = () => {
-                this.additionalControlsVisible = !this.additionalControlsVisible;
-                this.applyMobileState();
-            };
-        }
-        return toggleButton;
     }
 
     /**
@@ -105,45 +76,44 @@ class MobileUI {
             return;
         }
 
-        // Apply mobile state
-        const playbackBar = document.getElementById('mobile-playback-bar');
-        const additionalControls = document.getElementById('mobile-additional-controls');
-        const hamburgerButton = document.getElementById('mobile-hamburger');
-        const minimizeButton = document.getElementById('mobile-minimize');
+        // Apply mobile state - toggle expandable rows
+        const playbackExtras = document.getElementById('mobile-playback-extras');
+        const fileExtras = document.getElementById('mobile-file-extras');
+        const playbackToggle = document.getElementById('mobile-playback-toggle');
+        const fileToggle = document.getElementById('mobile-file-toggle');
 
-        // Show/hide additional controls
-        if (additionalControls) {
-            if (this.additionalControlsVisible) {
-                additionalControls.classList.remove('hidden');
-                additionalControls.classList.add('visible');
+        // Show/hide playback extras row
+        if (playbackExtras) {
+            if (this.playbackExtrasVisible) {
+                playbackExtras.classList.remove('hidden');
             } else {
-                additionalControls.classList.add('hidden');
-                additionalControls.classList.remove('visible');
+                playbackExtras.classList.add('hidden');
             }
         }
 
-        // Update hamburger button state
-        if (hamburgerButton) {
-            hamburgerButton.classList.toggle('open', this.additionalControlsVisible);
+        // Update playback toggle button
+        if (playbackToggle) {
+            playbackToggle.classList.toggle('expanded', this.playbackExtrasVisible);
+            playbackToggle.textContent = this.playbackExtrasVisible ? '−' : '+';
         }
 
-        // Handle playback controls minimize state
-        if (playbackBar) {
-            if (this.playbackControlsMinimized) {
-                playbackBar.classList.add('minimized');
-                document.body.classList.remove('mobile-playback-active');
+        // Show/hide file extras row
+        if (fileExtras) {
+            if (this.fileExtrasVisible) {
+                fileExtras.classList.remove('hidden');
             } else {
-                playbackBar.classList.remove('minimized');
-                document.body.classList.add('mobile-playback-active');
+                fileExtras.classList.add('hidden');
             }
         }
 
-        // Update minimize button state
-        if (minimizeButton) {
-            minimizeButton.classList.toggle('active', this.playbackControlsMinimized);
-            // Update button text based on minimized state
-            minimizeButton.innerHTML = this.playbackControlsMinimized ? '+' : '−';
+        // Update file toggle button
+        if (fileToggle) {
+            fileToggle.classList.toggle('expanded', this.fileExtrasVisible);
+            fileToggle.textContent = this.fileExtrasVisible ? '−' : '+';
         }
+
+        // Mark body as having mobile controls active
+        document.body.classList.add('mobile-controls-active');
     }
 
     /**
@@ -151,19 +121,15 @@ class MobileUI {
      */
     applyDesktopState() {
         // Hide mobile elements
-        const playbackBar = document.getElementById('mobile-playback-bar');
-        const additionalControls = document.getElementById('mobile-additional-controls');
-        
-        if (playbackBar) {
-            playbackBar.classList.add('hidden');
+        const mobileBar = document.getElementById('mobile-control-bar');
+
+        if (mobileBar) {
+            mobileBar.classList.add('hidden');
         }
-        if (additionalControls) {
-            additionalControls.classList.add('hidden');
-        }
-        
+
         // Remove mobile body class
-        document.body.classList.remove('mobile-playback-active');
-        
+        document.body.classList.remove('mobile-controls-active');
+
         // Ensure controls are in main control bar in correct order (playback first)
         const controlBar = document.querySelector('.control-bar');
         const playbackControls = document.querySelector('.playback-controls');
@@ -182,10 +148,16 @@ class MobileUI {
                 controlBar.appendChild(notationControls);
             }
         }
-        
+
         // Reset mobile-specific styles
         if (playbackControls) {
             playbackControls.style.cssText = '';
+        }
+        if (fingeringControls) {
+            fingeringControls.style.cssText = '';
+        }
+        if (notationControls) {
+            notationControls.style.cssText = '';
         }
     }
 
@@ -216,105 +188,185 @@ class MobileUI {
     }
 
     /**
-     * Creates the mobile playback bar container
+     * Creates the mobile control bar with all important controls in one row
+     * and expandable sections for extras
      */
-    createMobilePlaybackBar() {
+    createMobileControlBar() {
         if (!this.player.isMobile) return;
 
-        let playbackBar = document.getElementById('mobile-playback-bar');
+        let mobileBar = document.getElementById('mobile-control-bar');
 
-        if (!playbackBar) {
-            playbackBar = document.createElement('div');
-            playbackBar.id = 'mobile-playback-bar';
-            playbackBar.className = 'mobile-playback-bar';
-            document.body.appendChild(playbackBar);
+        if (!mobileBar) {
+            mobileBar = document.createElement('div');
+            mobileBar.id = 'mobile-control-bar';
+            mobileBar.className = 'mobile-control-bar';
+            document.body.appendChild(mobileBar);
         }
 
-        // Move playback controls to the bar
+        // Clear existing content
+        mobileBar.innerHTML = '';
+
+        // Create main row with all important controls
+        const mainRow = document.createElement('div');
+        mainRow.className = 'mobile-main-row';
+
+        // Get all control sections
         const playbackControls = document.querySelector('.playback-controls');
-        if (playbackControls && !playbackBar.contains(playbackControls)) {
-            playbackBar.appendChild(playbackControls);
-        }
-
-        // Add hamburger button to playback bar
-        const hamburgerButton = this.createMobileToggleButton();
-        if (!playbackBar.contains(hamburgerButton)) {
-            playbackBar.appendChild(hamburgerButton);
-        }
-
-        // Add minimize button to playback bar
-        const minimizeButton = this.createMinimizeButton();
-        if (!playbackBar.contains(minimizeButton)) {
-            playbackBar.appendChild(minimizeButton);
-        }
-
-        return playbackBar;
-    }
-
-    /**
-     * Creates additional controls container
-     */
-    createAdditionalControlsContainer() {
-        if (!this.player.isMobile) return;
-
-        let additionalControls = document.getElementById('mobile-additional-controls');
-
-        if (!additionalControls) {
-            additionalControls = document.createElement('div');
-            additionalControls.id = 'mobile-additional-controls';
-            additionalControls.className = 'mobile-additional-controls hidden';
-            document.body.appendChild(additionalControls);
-        }
-
-        // Move fingering and notation controls to additional controls
         const fingeringControls = document.querySelector('.fingering-controls');
         const notationControls = document.querySelector('.notation-controls');
 
-        if (fingeringControls && !additionalControls.contains(fingeringControls)) {
-            additionalControls.appendChild(fingeringControls);
-        }
-        if (notationControls && !additionalControls.contains(notationControls)) {
-            additionalControls.appendChild(notationControls);
-        }
+        // Add important controls to main row
+        this.addPlaybackControlsToRow(mainRow, playbackControls);
+        this.addFingeringControlsToRow(mainRow, fingeringControls);
+        this.addFileControlsToRow(mainRow, notationControls);
 
-        return additionalControls;
+        mobileBar.appendChild(mainRow);
+
+        // Create expandable rows for extras
+        const extrasContainer = document.createElement('div');
+        extrasContainer.className = 'mobile-extras-container';
+
+        // Playback extras row
+        const playbackExtras = this.createPlaybackExtrasRow(playbackControls);
+        extrasContainer.appendChild(playbackExtras);
+
+        // File extras row
+        const fileExtras = this.createFileExtrasRow(notationControls);
+        extrasContainer.appendChild(fileExtras);
+
+        mobileBar.appendChild(extrasContainer);
+
+        return mobileBar;
     }
 
     /**
-     * Creates minimize button for playback controls
-     * @returns {HTMLElement} The minimize button
+     * Adds playback controls to the main row
+     * @param {HTMLElement} mainRow - The main row element
+     * @param {HTMLElement} playbackControls - The playback controls element
      */
-    createMinimizeButton() {
-        let minimizeButton = document.getElementById('mobile-minimize');
-        if (!minimizeButton) {
-            minimizeButton = document.createElement('button');
-            minimizeButton.id = 'mobile-minimize';
-            minimizeButton.className = 'mobile-minimize';
-            minimizeButton.innerHTML = '−';
-            minimizeButton.title = 'Minimize playback controls';
-            
-            // Add click handler
-            minimizeButton.onclick = () => {
-                this.playbackControlsMinimized = !this.playbackControlsMinimized;
-                this.applyMobileState();
-            };
-        }
-        return minimizeButton;
+    addPlaybackControlsToRow(mainRow, playbackControls) {
+        if (!playbackControls) return;
+
+        // Get individual buttons
+        const playButton = document.getElementById('play-button');
+        const restartButton = document.getElementById('restart-button');
+        const transposeUp = document.getElementById('transpose-up');
+        const transposeDown = document.getElementById('transpose-down');
+        const tempoControl = document.querySelector('.tempo-control');
+
+        // Add important controls to main row
+        if (playButton) mainRow.appendChild(playButton);
+        if (restartButton) mainRow.appendChild(restartButton);
+        if (transposeUp) mainRow.appendChild(transposeUp);
+        if (transposeDown) mainRow.appendChild(transposeDown);
+        if (tempoControl) mainRow.appendChild(tempoControl);
+
+        // Create toggle button for playback extras
+        const toggleButton = document.createElement('button');
+        toggleButton.id = 'mobile-playback-toggle';
+        toggleButton.className = 'mobile-expand-toggle';
+        toggleButton.textContent = '+';
+        toggleButton.title = 'Show more playback controls';
+        toggleButton.onclick = () => {
+            this.playbackExtrasVisible = !this.playbackExtrasVisible;
+            this.applyMobileState();
+        };
+        mainRow.appendChild(toggleButton);
     }
 
     /**
-     * Gets whether additional controls are visible
-     * @returns {boolean} Whether additional controls are visible
+     * Adds fingering controls to the main row
+     * @param {HTMLElement} mainRow - The main row element
+     * @param {HTMLElement} fingeringControls - The fingering controls element
      */
-    areAdditionalControlsVisible() {
-        return this.additionalControlsVisible;
+    addFingeringControlsToRow(mainRow, fingeringControls) {
+        if (!fingeringControls) return;
+
+        // Get individual buttons
+        const fingeringToggle = document.getElementById('show-fingering');
+        const systemToggle = document.getElementById('system-toggle');
+        const chartToggle = document.getElementById('chart-toggle');
+
+        // Add all fingering controls (all important)
+        if (fingeringToggle) mainRow.appendChild(fingeringToggle);
+        if (systemToggle) mainRow.appendChild(systemToggle);
+        if (chartToggle) mainRow.appendChild(chartToggle);
     }
 
     /**
-     * Gets whether playback controls are minimized
-     * @returns {boolean} Whether playback controls are minimized
+     * Adds file controls to the main row
+     * @param {HTMLElement} mainRow - The main row element
+     * @param {HTMLElement} notationControls - The notation controls element
      */
-    arePlaybackControlsMinimized() {
-        return this.playbackControlsMinimized;
+    addFileControlsToRow(mainRow, notationControls) {
+        if (!notationControls) return;
+
+        // Get file selector
+        const fileControls = notationControls.querySelector('.file-controls');
+
+        // Add file selector to main row
+        if (fileControls) mainRow.appendChild(fileControls);
+
+        // Create toggle button for file extras
+        const toggleButton = document.createElement('button');
+        toggleButton.id = 'mobile-file-toggle';
+        toggleButton.className = 'mobile-expand-toggle';
+        toggleButton.textContent = '+';
+        toggleButton.title = 'Show file operations';
+        toggleButton.onclick = () => {
+            this.fileExtrasVisible = !this.fileExtrasVisible;
+            this.applyMobileState();
+        };
+        mainRow.appendChild(toggleButton);
+    }
+
+    /**
+     * Creates the playback extras row
+     * @param {HTMLElement} playbackControls - The playback controls element
+     * @returns {HTMLElement} The extras row
+     */
+    createPlaybackExtrasRow(playbackControls) {
+        const extrasRow = document.createElement('div');
+        extrasRow.id = 'mobile-playback-extras';
+        extrasRow.className = 'mobile-extras-row hidden';
+
+        if (!playbackControls) return extrasRow;
+
+        // Get extras buttons
+        const chordsToggle = document.getElementById('chords-toggle');
+        const voicesToggle = document.getElementById('voices-toggle');
+        const metronomeToggle = document.getElementById('metronome-toggle');
+        const tuningButton = document.getElementById('tuning-button');
+
+        if (chordsToggle) extrasRow.appendChild(chordsToggle);
+        if (voicesToggle) extrasRow.appendChild(voicesToggle);
+        if (metronomeToggle) extrasRow.appendChild(metronomeToggle);
+        if (tuningButton) extrasRow.appendChild(tuningButton);
+
+        return extrasRow;
+    }
+
+    /**
+     * Creates the file extras row
+     * @param {HTMLElement} notationControls - The notation controls element
+     * @returns {HTMLElement} The extras row
+     */
+    createFileExtrasRow(notationControls) {
+        const extrasRow = document.createElement('div');
+        extrasRow.id = 'mobile-file-extras';
+        extrasRow.className = 'mobile-extras-row hidden';
+
+        if (!notationControls) return extrasRow;
+
+        // Get extras buttons
+        const copyButton = document.getElementById('copy-button');
+        const pasteButton = document.getElementById('paste-button');
+        const shareButton = document.getElementById('share-button');
+
+        if (copyButton) extrasRow.appendChild(copyButton);
+        if (pasteButton) extrasRow.appendChild(pasteButton);
+        if (shareButton) extrasRow.appendChild(shareButton);
+
+        return extrasRow;
     }
 }

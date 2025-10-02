@@ -1,7 +1,7 @@
-/* Mobile-specific styling */
+/* Mobile-specific styling with single-row layout */
 
-/* Mobile playback bar - always visible on mobile */
-.mobile-playback-bar {
+/* Mobile control bar - fixed at top */
+.mobile-control-bar {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,310 +10,215 @@
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 15px;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-/* Ensure reference row is positioned below mobile playback bar */
-body.mobile-playback-active #reference-row {
-    margin-top: 80px !important; /* Mobile bar height + small buffer */
-    position: relative;
-    z-index: 1001;
-}
-
-/* Minimized state for playback bar */
-.mobile-playback-bar.minimized {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    right: 10px;
-    left: auto;
-    top: 10px;
-    padding: 0;
-    justify-content: center;
-    background-color: rgba(66, 133, 244, 0.8);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Hide playback controls when minimized */
-.mobile-playback-bar.minimized .playback-controls {
-    display: none !important;
-}
-
-/* Hide hamburger when minimized */
-.mobile-playback-bar.minimized .mobile-hamburger {
-    display: none !important;
-}
-
-/* Show only minimize button when minimized */
-.mobile-playback-bar.minimized .mobile-minimize {
-    display: flex !important;
-    color: white;
-    font-size: 18px;
-    font-weight: normal;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    border-radius: 50%;
-}
-
-/* Hide additional controls when playback bar is minimized */
-.mobile-playback-bar.minimized ~ .mobile-additional-controls {
-    display: none !important;
-}
-
-/* Hamburger button attached to playback bar */
-.mobile-hamburger {
-    background-color: transparent;
-    border: none;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-    margin-left: 8px;
-}
-
-.mobile-hamburger:hover {
-    background-color: rgba(66, 133, 244, 0.1);
-}
-
-.mobile-hamburger span {
-    position: absolute;
-    width: 18px;
-    height: 2px;
-    background-color: #333;
+    padding: 8px 10px;
     transition: all 0.3s ease;
 }
 
-.mobile-hamburger span:nth-child(1) {
-    transform: translateY(-5px);
+/* Hide mobile control bar on desktop */
+.mobile-control-bar.hidden {
+    display: none;
 }
 
-.mobile-hamburger span:nth-child(3) {
-    transform: translateY(5px);
-}
-
-/* Animation for the open state */
-.mobile-hamburger.open span:nth-child(1) {
-    transform: translateY(0) rotate(45deg);
-}
-
-.mobile-hamburger.open span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-hamburger.open span:nth-child(3) {
-    transform: translateY(0) rotate(-45deg);
-}
-
-/* Minimize button */
-.mobile-minimize {
-    background-color: transparent;
-    border: none;
-    width: 36px;
-    height: 36px;
+/* Main row - single horizontal scrollable row with all important controls */
+.mobile-main-row {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 0;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-    margin-right: 8px;
-    font-size: 18px;
-    color: #333;
-}
-
-.mobile-minimize:hover {
-    background-color: rgba(66, 133, 244, 0.1);
-}
-
-.mobile-minimize.active {
-    background-color: #4285f4;
-    color: white;
-    transform: rotate(180deg);
-}
-
-/* Additional controls container */
-.mobile-additional-controls {
-    position: fixed;
-    top: 60px; /* Just below playback bar */
-    left: 0;
-    right: 0;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    padding: 10px 15px;
-    transition: opacity 0.2s ease;
-    display: grid !important;
-    grid-auto-flow: column !important;
-    grid-auto-columns: max-content !important;
-    gap: 8px;
-    align-items: center;
-    justify-content: center;
+    gap: 6px;
     overflow-x: auto;
-    opacity: 1;
-    visibility: visible;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
 }
 
-/* Hidden state for additional controls */
-.mobile-additional-controls.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+/* Hide scrollbar but keep functionality */
+.mobile-main-row::-webkit-scrollbar {
+    height: 3px;
 }
 
-/* Visible state for additional controls */
-.mobile-additional-controls.visible {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+.mobile-main-row::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 2px;
 }
 
-/* Style control sections within additional controls */
-.mobile-additional-controls .control-section {
-    display: contents; /* Makes children appear as direct children of the flex container */
+.mobile-main-row::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 2px;
 }
 
-/* For small screens, switch to flex with wrapping */
-@media (max-width: 480px) {
-    .mobile-additional-controls {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        grid-auto-flow: unset;
-        grid-auto-columns: unset;
-    }
+/* Extras container - holds expandable rows */
+.mobile-extras-container {
+    margin-top: 6px;
 }
 
-/* Style buttons in additional controls */
-.mobile-additional-controls button {
+/* Extras rows - appear below main row when expanded */
+.mobile-extras-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 6px 0;
+    border-top: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.mobile-extras-row.hidden {
+    display: none;
+}
+
+/* Expand/collapse toggle buttons */
+.mobile-expand-toggle {
+    background-color: #4285f4 !important;
+    border: 1px solid #4285f4 !important;
+    border-radius: 50% !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 0 !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    color: white !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+}
+
+.mobile-expand-toggle:hover {
+    background-color: #3367d6 !important;
+    border-color: #3367d6 !important;
+    transform: scale(1.05);
+}
+
+.mobile-expand-toggle.expanded {
+    background-color: #ff5722 !important;
+    border-color: #ff5722 !important;
+}
+
+/* Buttons in mobile main row */
+.mobile-main-row button:not(.mobile-expand-toggle) {
     background-color: #f8f8f8;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 8px 12px;
-    font-size: 14px;
+    padding: 6px 10px;
+    font-size: 12px;
     color: #333;
     cursor: pointer;
     transition: all 0.2s ease;
     white-space: nowrap;
     flex-shrink: 0;
+    min-height: 32px;
+    box-sizing: border-box;
 }
 
-.mobile-additional-controls button:hover {
+.mobile-main-row button:not(.mobile-expand-toggle):hover {
     background-color: #e8e8e8;
     border-color: #ccc;
 }
 
-.mobile-additional-controls button.active {
-    background-color: #4285f4;
-    border-color: #4285f4;
-    color: white;
+.mobile-main-row button.active {
+    background-color: #4285f4 !important;
+    border-color: #4285f4 !important;
+    color: white !important;
 }
 
-/* File controls container and nested containers */
-.mobile-additional-controls .file-controls {
-    display: contents; /* Flatten this container too */
-}
-
-.mobile-additional-controls .file-selector-container,
-.mobile-additional-controls .tune-navigation {
-    display: contents; /* Flatten all nested containers */
-}
-
-/* Playback controls styling in mobile bar */
-.mobile-playback-bar .playback-controls {
-    display: flex !important;
-    flex: 1;
-    align-items: center;
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-}
-
-.mobile-playback-bar .playback-controls button {
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    padding: 6px 10px;
-    font-size: 12px;
-    min-width: auto;
+/* Buttons in extras rows */
+.mobile-extras-row button {
     background-color: #f8f8f8;
-    color: #333;
     border: 1px solid #ddd;
     border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
     white-space: nowrap;
     flex-shrink: 0;
+    min-height: 32px;
+    box-sizing: border-box;
 }
 
-.mobile-playback-bar .playback-controls button:hover {
+.mobile-extras-row button:hover {
     background-color: #e8e8e8;
+    border-color: #ccc;
 }
 
-.mobile-playback-bar .playback-controls button.active {
+.mobile-extras-row button.active {
     background-color: #4285f4 !important;
-    color: white !important;
     border-color: #4285f4 !important;
+    color: white !important;
 }
 
-.mobile-playback-bar .tempo-control {
+/* Tempo control in mobile main row */
+.mobile-main-row .tempo-control {
     display: flex !important;
     align-items: center;
     gap: 5px;
-    flex: 1;
-    min-width: 120px;
-    max-width: 200px;
+    flex: 0 1 auto;
+    min-width: 150px;
+    max-width: 250px;
 }
 
-.mobile-playback-bar .tempo-control label {
+.mobile-main-row .tempo-control label {
     font-size: 11px;
     white-space: nowrap;
     flex-shrink: 0;
 }
 
-.mobile-playback-bar .tempo-control input[type="range"] {
+.mobile-main-row .tempo-control input[type="range"] {
     flex: 1;
-    min-width: 60px;
+    min-width: 80px;
 }
 
-.mobile-playback-bar .tempo-value {
+.mobile-main-row .tempo-value {
     font-size: 11px;
-    min-width: 30px;
+    min-width: 35px;
     text-align: center;
     flex-shrink: 0;
 }
 
-/* Adjust body spacing when mobile playback bar is active */
-body.mobile-playback-active {
-    padding-top: 60px !important;
+/* File controls in mobile main row */
+.mobile-main-row .file-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
 }
 
-/* Adjust content when additional controls are visible */
-body.mobile-playback-active .mobile-additional-controls.visible ~ .abcjs-container {
-    padding-top: 20px !important;
+.mobile-main-row .file-selector-container {
+    flex-shrink: 0;
 }
 
-/* Hide mobile elements on desktop - use higher breakpoint for landscape phones */
+.mobile-main-row .tune-navigation {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+/* Ensure reference row is positioned below mobile control bar */
+body.mobile-controls-active #reference-row {
+    margin-top: 10px;
+}
+
+/* Adjust body spacing when mobile control bar is active */
+body.mobile-controls-active {
+    padding-top: 50px !important;
+}
+
+/* Adjust for extras being visible */
+body.mobile-controls-active .mobile-extras-row:not(.hidden) ~ * {
+    margin-top: 10px;
+}
+
+/* Hide mobile elements on desktop */
 @media (min-width: 1024px) {
-    .mobile-playback-bar,
-    .mobile-additional-controls {
+    .mobile-control-bar {
         display: none !important;
     }
-    
-    body.mobile-playback-active {
+
+    body.mobile-controls-active {
         padding-top: 0 !important;
     }
 }
@@ -323,38 +228,51 @@ body.mobile-playback-active .mobile-additional-controls.visible ~ .abcjs-contain
     .control-container {
         display: none !important;
     }
-    
+
     #midi-status {
         display: none !important;
     }
 }
 
-/* Responsive adjustments for smaller screens */
+/* Responsive adjustments for very small screens */
 @media (max-width: 480px) {
-    .mobile-playback-bar {
-        padding: 6px 10px;
+    .mobile-control-bar {
+        padding: 6px 8px;
     }
-    
-    .mobile-playback-bar .playback-controls {
+
+    .mobile-main-row {
         gap: 4px;
     }
-    
-    .mobile-playback-bar .playback-controls button {
-        padding: 4px 8px;
+
+    .mobile-main-row button:not(.mobile-expand-toggle),
+    .mobile-extras-row button {
+        padding: 5px 8px;
         font-size: 11px;
+        min-height: 28px;
     }
-    
-    .mobile-hamburger,
-    .mobile-minimize {
-        width: 32px;
-        height: 32px;
+
+    .mobile-expand-toggle {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        min-height: 28px !important;
+        font-size: 16px !important;
     }
-    
-    .mobile-hamburger span {
-        width: 14px;
+
+    .mobile-main-row .tempo-control {
+        min-width: 120px;
+        max-width: 180px;
     }
-    
-    .mobile-additional-controls {
-        padding: 8px 10px;
+}
+
+/* Landscape phone optimization */
+@media (max-width: 915px) and (orientation: landscape) {
+    .mobile-control-bar {
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+
+    body.mobile-controls-active {
+        padding-top: 45px !important;
     }
 }
