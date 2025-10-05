@@ -27,6 +27,10 @@ class MidiPlayer {
 
         // Track onEnded callback to prevent duplicates
         this.onEndedCallbackActive = false;
+
+        // Track whether this is the first play (for count-in bar)
+        // First play always gets count-in, loop repeats don't
+        this.isFirstPlay = true;
     }
 
     /**
@@ -170,7 +174,7 @@ class MidiPlayer {
             voicesOff: !this.playbackSettings.voicesOn,
             drum: this.playbackSettings.metronomeOn ? "dddd" : "", // Simple metronome pattern
             drumBars: 1,
-            drumIntro: this.playbackSettings.loopEnabled ? 0 : 1, // No intro when looping
+            drumIntro: this.isFirstPlay ? 1 : 0, // Count-in on first play only, no intro on loop repeats
             // Additional metronome settings
             drumOn: this.playbackSettings.metronomeOn,
             //soundFontUrl: "https://paulrosen.github.io/midi-js-soundfonts/FluidR3_GM/",
@@ -221,22 +225,22 @@ class MidiPlayer {
             // Add onEnded to the options to handle playback completion
             options.onEnded = () => {
                 console.log('onEnded callback triggered, loopEnabled:', this.playbackSettings.loopEnabled);
-                
+
                 // Prevent multiple simultaneous callbacks
                 if (this.onEndedCallbackActive) {
                     console.log('Ignoring duplicate onEnded callback - already processing');
                     return;
                 }
-                
+
                 // Prevent rapid-fire callbacks
                 if (this.isPlaying === false) {
                     console.log('Ignoring duplicate onEnded callback - not playing');
                     return;
                 }
-                
+
                 // Mark callback as active
                 this.onEndedCallbackActive = true;
-                
+
                 this.isPlaying = false;
                 this.updatePlayButtonState();
 
@@ -244,10 +248,20 @@ class MidiPlayer {
                 if (this.playbackSettings.loopEnabled === true) {
                     console.log('Loop is enabled, scheduling restart...');
                     // Auto-restart when loop is enabled
-                    setTimeout(() => {
+                    setTimeout(async () => {
                         // Double-check loop is still enabled before restarting
                         if (this.playbackSettings.loopEnabled === true) {
-                            console.log('Executing loop restart');
+                            console.log('Executing loop restart (without count-in)');
+                            // Set isFirstPlay to false so subsequent loops have no intro
+                            this.isFirstPlay = false;
+
+                            // Reinitialize to apply new drumIntro setting (0 for loops)
+                            const visualObj = window.app?.renderManager?.currentVisualObj;
+                            if (visualObj) {
+                                await this.initWithNewPlayer(visualObj);
+                            }
+
+                            // Now restart playback
                             this.restart().finally(() => {
                                 // Reset callback flag after restart completes
                                 this.onEndedCallbackActive = false;
@@ -336,22 +350,22 @@ class MidiPlayer {
             // Add onEnded to the options to handle playback completion
             options.onEnded = () => {
                 console.log('onEnded callback triggered, loopEnabled:', this.playbackSettings.loopEnabled);
-                
+
                 // Prevent multiple simultaneous callbacks
                 if (this.onEndedCallbackActive) {
                     console.log('Ignoring duplicate onEnded callback - already processing');
                     return;
                 }
-                
+
                 // Prevent rapid-fire callbacks
                 if (this.isPlaying === false) {
                     console.log('Ignoring duplicate onEnded callback - not playing');
                     return;
                 }
-                
+
                 // Mark callback as active
                 this.onEndedCallbackActive = true;
-                
+
                 this.isPlaying = false;
                 this.updatePlayButtonState();
 
@@ -359,10 +373,20 @@ class MidiPlayer {
                 if (this.playbackSettings.loopEnabled === true) {
                     console.log('Loop is enabled, scheduling restart...');
                     // Auto-restart when loop is enabled
-                    setTimeout(() => {
+                    setTimeout(async () => {
                         // Double-check loop is still enabled before restarting
                         if (this.playbackSettings.loopEnabled === true) {
-                            console.log('Executing loop restart');
+                            console.log('Executing loop restart (without count-in)');
+                            // Set isFirstPlay to false so subsequent loops have no intro
+                            this.isFirstPlay = false;
+
+                            // Reinitialize to apply new drumIntro setting (0 for loops)
+                            const visualObj = window.app?.renderManager?.currentVisualObj;
+                            if (visualObj) {
+                                await this.initWithNewPlayer(visualObj);
+                            }
+
+                            // Now restart playback
                             this.restart().finally(() => {
                                 // Reset callback flag after restart completes
                                 this.onEndedCallbackActive = false;
@@ -612,9 +636,12 @@ class MidiPlayer {
             // Update state
             this.isPlaying = false;
             this.updatePlayButtonState();
-            
+
             // Reset callback flag to prevent it from getting stuck
             this.onEndedCallbackActive = false;
+
+            // Reset isFirstPlay so next playback gets count-in
+            this.isFirstPlay = true;
 
             return true;
         } catch (error) {
@@ -745,7 +772,10 @@ class MidiPlayer {
             player.settingsManager.set('loopEnabled', this.playbackSettings.loopEnabled);
         }
 
-        // Reinitialize to apply drumIntro change (0 when looping, 1 when not)
+        // Reset isFirstPlay when toggling loop mode (next play will have count-in)
+        this.isFirstPlay = true;
+
+        // Reinitialize to apply drumIntro change
         const visualObj = window.app?.renderManager?.currentVisualObj;
         if (visualObj) {
             if (wasPlaying) {
@@ -761,7 +791,7 @@ class MidiPlayer {
 
         this.updateStatusDisplay(
             this.playbackSettings.loopEnabled
-                ? "Loop: ON (seamless)"
+                ? "Loop: ON (count-in on first play)"
                 : "Loop: OFF"
         );
         return this.playbackSettings.loopEnabled;
