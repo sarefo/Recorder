@@ -19,3 +19,6 @@
 
 /* Responsive design */
 @import 'responsive.css';
+
+/* Orientation handling */
+@import 'orientation.css';

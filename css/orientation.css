@@ -1,0 +1,110 @@
+/* Orientation prompt overlay */
+.orientation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.orientation-overlay.hidden {
+    display: none;
+}
+
+.orientation-content {
+    text-align: center;
+    color: white;
+    max-width: 500px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.orientation-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    animation: rotate-bounce 2s ease-in-out infinite;
+}
+
+@keyframes rotate-bounce {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(-10deg) scale(1.1);
+    }
+    75% {
+        transform: rotate(10deg) scale(1.1);
+    }
+}
+
+.orientation-content h2 {
+    font-size: 24px;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.orientation-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #e0e0e0;
+}
+
+.orientation-tip {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffd700 !important;
+}
+
+.orientation-tip strong {
+    color: #ffd700;
+}
+
+.orientation-instructions {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.orientation-instructions li {
+    padding: 10px 15px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.orientation-instructions strong {
+    color: #4CAF50;
+    margin-right: 5px;
+}
+
+.orientation-dismiss {
+    font-size: 14px;
+    color: #b0b0b0 !important;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* Prevent interaction with main app when overlay is shown */
+body.orientation-locked {
+    overflow: hidden;
+}
+
+body.orientation-locked > *:not(#orientation-prompt) {
+    pointer-events: none;
+    user-select: none;
+}
