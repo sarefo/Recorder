@@ -6,7 +6,7 @@ class AutoScrollManager {
         this.player = player;
         this.enabled = true; // On by default
         this.timingCallbacks = null;
-        this.currentNoteElement = null;
+        this.currentElements = []; // Array of currently playing note elements
         this.scrollBehavior = 'smooth';
         this.viewportOffset = 0.4; // Position note at 40% from top (desktop default)
         this.scrollThreshold = 50; // Minimum pixels out of position before scrolling
@@ -45,45 +45,59 @@ class AutoScrollManager {
     handleNoteEvent(ev) {
         if (!this.enabled || !ev) return;
 
-        // Clear previous highlight
-        if (this.currentNoteElement && this.currentNoteElement.classList) {
-            this.currentNoteElement.classList.remove('playing');
+        // Clear previous highlight from all elements
+        if (this.currentElements && this.currentElements.length > 0) {
+            this.currentElements.forEach(el => {
+                if (el && el.classList) {
+                    el.classList.remove('playing');
+                }
+            });
         }
 
-        // Get the DOM element for current note
+        // Get the DOM elements for current note (ev.elements is an array)
         if (ev.elements && ev.elements.length > 0) {
-            const noteElement = ev.elements[0];
+            // Store all elements for this note
+            this.currentElements = ev.elements;
 
-            // Only proceed if element has classList (is a valid DOM element)
-            if (noteElement && noteElement.classList) {
-                this.currentNoteElement = noteElement;
-                noteElement.classList.add('playing');
+            // Add 'playing' class to all elements representing this note
+            ev.elements.forEach(el => {
+                if (el && el.classList) {
+                    el.classList.add('playing');
+                }
+            });
 
-                // Scroll to keep the note visible
-                this.scrollToElement(noteElement);
-            }
+            // Use the position data from the event for scrolling
+            // This is more reliable than getBoundingClientRect
+            this.scrollToPosition(ev.top, ev.height);
         }
     }
 
     /**
-     * Scroll viewport to keep element visible
-     * @param {HTMLElement} element - The element to scroll to
+     * Scroll viewport to keep note at target position using ABCJS position data
+     * @param {number} top - Top position of note in SVG (pixels from top of SVG)
+     * @param {number} height - Height of the note
      */
-    scrollToElement(element) {
-        if (!element) return;
+    scrollToPosition(top, height) {
+        if (top === undefined) return;
 
-        const rect = element.getBoundingClientRect();
+        // Get the SVG element to calculate absolute position
+        const svg = document.querySelector('#abc-notation svg');
+        if (!svg) return;
+
+        const svgRect = svg.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
 
-        // Check if we're on mobile (from player instance)
+        // Calculate absolute position of the note in viewport
+        const absoluteTop = svgRect.top + top;
+
+        // Check if we're on mobile
         const isMobile = this.player?.isMobile || window.innerWidth < 1024;
 
         // On mobile, position note higher (30%) to leave room for controls
         // On desktop, center it more (40%)
         const targetPosition = viewportHeight * (isMobile ? 0.3 : this.viewportOffset);
 
-        const currentPosition = rect.top;
-        const scrollNeeded = currentPosition - targetPosition;
+        const scrollNeeded = absoluteTop - targetPosition;
 
         // Smaller threshold on mobile for tighter tracking
         const threshold = isMobile ? 30 : this.scrollThreshold;
@@ -144,10 +158,14 @@ class AutoScrollManager {
             }
         }
 
-        // Clear highlight from current note
-        if (this.currentNoteElement && this.currentNoteElement.classList) {
-            this.currentNoteElement.classList.remove('playing');
-            this.currentNoteElement = null;
+        // Clear highlight from current note elements
+        if (this.currentElements && this.currentElements.length > 0) {
+            this.currentElements.forEach(el => {
+                if (el && el.classList) {
+                    el.classList.remove('playing');
+                }
+            });
+            this.currentElements = [];
         }
 
         // Reset scroll position
@@ -159,9 +177,13 @@ class AutoScrollManager {
      */
     reset() {
         // Clear highlight
-        if (this.currentNoteElement && this.currentNoteElement.classList) {
-            this.currentNoteElement.classList.remove('playing');
-            this.currentNoteElement = null;
+        if (this.currentElements && this.currentElements.length > 0) {
+            this.currentElements.forEach(el => {
+                if (el && el.classList) {
+                    el.classList.remove('playing');
+                }
+            });
+            this.currentElements = [];
         }
 
         // Reset timing callbacks
@@ -195,9 +217,13 @@ class AutoScrollManager {
         this.enabled = !this.enabled;
 
         // If disabling, clear current highlight
-        if (!this.enabled && this.currentNoteElement && this.currentNoteElement.classList) {
-            this.currentNoteElement.classList.remove('playing');
-            this.currentNoteElement = null;
+        if (!this.enabled && this.currentElements && this.currentElements.length > 0) {
+            this.currentElements.forEach(el => {
+                if (el && el.classList) {
+                    el.classList.remove('playing');
+                }
+            });
+            this.currentElements = [];
         }
 
         return this.enabled;
@@ -211,9 +237,13 @@ class AutoScrollManager {
         this.enabled = enabled;
 
         // If disabling, clear current highlight
-        if (!this.enabled && this.currentNoteElement && this.currentNoteElement.classList) {
-            this.currentNoteElement.classList.remove('playing');
-            this.currentNoteElement = null;
+        if (!this.enabled && this.currentElements && this.currentElements.length > 0) {
+            this.currentElements.forEach(el => {
+                if (el && el.classList) {
+                    el.classList.remove('playing');
+                }
+            });
+            this.currentElements = [];
         }
     }
 
