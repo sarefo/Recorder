@@ -19,6 +19,24 @@
     fill: #1a73e8;
 }
 
+/* Highlighting for currently playing note (auto-scroll) */
+.abcjs-note.playing,
+.abcjs-note.playing path,
+.abcjs-note.playing rect {
+    fill: #ff6b35 !important;
+    stroke: #ff6b35 !important;
+}
+
+/* Smooth transition for note highlighting */
+.abcjs-note {
+    transition: fill 0.1s ease-in-out;
+}
+
+.abcjs-note path,
+.abcjs-note rect {
+    transition: fill 0.1s ease-in-out, stroke 0.1s ease-in-out;
+}
+
 /* Layer for fingering diagrams */
 #fingering-layer {
     position: absolute;

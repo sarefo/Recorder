@@ -62,6 +62,31 @@ class UIControls {
     }
 
     /**
+     * Creates the offline status display
+     * @returns {HTMLElement} The offline status element
+     */
+    createOfflineStatusDisplay() {
+        const offlineStatus = document.createElement('div');
+        offlineStatus.className = 'offline-status';
+
+        // Create indicator dot
+        const indicator = document.createElement('div');
+        indicator.id = 'offline-indicator';
+        indicator.className = 'offline-indicator online';
+        indicator.title = 'Online';
+
+        // Create status text (optional, for desktop)
+        const statusText = document.createElement('span');
+        statusText.id = 'offline-status-text';
+        statusText.textContent = 'Online';
+
+        offlineStatus.appendChild(indicator);
+        offlineStatus.appendChild(statusText);
+
+        return offlineStatus;
+    }
+
+    /**
      * Creates the control bar
      * @returns {HTMLElement} The control bar
      */
@@ -375,6 +400,7 @@ class UIControls {
         playbackSection.appendChild(this.createChordsToggleButton());
         playbackSection.appendChild(this.createVoicesToggleButton());
         playbackSection.appendChild(this.createMetronomeToggleButton());
+        playbackSection.appendChild(this.createAutoScrollToggleButton());
 
         // Add tempo control
         playbackSection.appendChild(this.createTempoControl());
@@ -604,6 +630,29 @@ class UIControls {
         this.setupMetronomeVisualFeedback(metronomeToggle);
 
         return metronomeToggle;
+    }
+
+    /**
+     * Creates auto-scroll toggle button
+     * @returns {HTMLElement} The auto-scroll toggle button
+     */
+    createAutoScrollToggleButton() {
+        const autoScrollToggle = document.createElement('button');
+        autoScrollToggle.id = 'auto-scroll-toggle';
+        autoScrollToggle.title = 'Toggle Auto-Scroll';
+        autoScrollToggle.textContent = 'Scroll';
+
+        // Set initial active state from auto-scroll manager
+        this.setButtonActiveState(autoScrollToggle, this.player.autoScrollManager.isEnabled());
+
+        autoScrollToggle.addEventListener('click', () => {
+            const enabled = this.player.autoScrollManager.toggle();
+            this.player.settingsManager.set('autoScrollEnabled', enabled);
+            this.setButtonActiveState(autoScrollToggle, enabled);
+            Utils.showFeedback(`Auto-scroll: ${enabled ? 'ON' : 'OFF'}`);
+        });
+
+        return autoScrollToggle;
     }
 
     /**

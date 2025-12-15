@@ -7,7 +7,8 @@ class SettingsManager {
             voicesOn: true,
             chordsOn: false,
             metronomeOn: true,
-            loopEnabled: false
+            loopEnabled: false,
+            autoScrollEnabled: true
         };
         this.settings = {};
         this.urlParams = {};

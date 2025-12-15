@@ -5,4 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize main app
     window.app = new AbcPlayer();
+
+    // Initialize offline manager and register service worker
+    window.offlineManager = new OfflineManager();
+    window.offlineManager.registerServiceWorker()
+        .then(registration => {
+            if (registration) {
+                console.log('Service Worker registered, offline mode enabled');
+            } else {
+                console.log('Service Worker not available');
+            }
+        })
+        .catch(error => {
+            console.error('Service Worker registration error:', error);
+        });
 });

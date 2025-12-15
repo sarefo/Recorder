@@ -40,6 +40,8 @@ class AbcPlayer {
         this.fingeringManager = new FingeringManager(this.fingeringConfig);
         this.transposeManager = new TransposeManager();
         this.midiPlayer = new MidiPlayer();
+        this.autoScrollManager = new AutoScrollManager(this);
+        this.midiPlayer.autoScrollManager = this.autoScrollManager;
         this.diagramRenderer = new DiagramRenderer(this.fingeringManager, this.fingeringConfig);
         this.fileManager = new FileManager(this);
         this.tuneNavigation = new TuneNavigation(this);
@@ -372,6 +374,12 @@ class AbcPlayer {
         // TEMP FIX: Force loop to always be false on load to prevent localStorage issues
         this.midiPlayer.playbackSettings.loopEnabled = false;
         console.log('FORCED loopEnabled to false to prevent issues');
+
+        // Set auto-scroll enabled state
+        const autoScrollEnabled = this.settingsManager.get('autoScrollEnabled');
+        if (autoScrollEnabled !== undefined) {
+            this.autoScrollManager.setEnabled(autoScrollEnabled);
+        }
 
         console.log('Initial playback settings loaded:');
         console.log('  voicesOn:', this.midiPlayer.playbackSettings.voicesOn);

@@ -373,3 +373,47 @@ body.metronome-beat-accent {
     background-color: rgba(255, 87, 34, 0.03) !important;
     transition: background-color 0.1s ease !important;
 }
+
+/* Offline Status Indicator */
+.offline-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+}
+
+.offline-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4caf50; /* green = online */
+    transition: background-color 0.3s ease;
+}
+
+.offline-indicator.online {
+    background-color: #4caf50; /* green */
+}
+
+.offline-indicator.offline {
+    background-color: #ff9800; /* orange = offline but cached */
+}
+
+.offline-indicator.no-cache {
+    background-color: #f44336; /* red = offline no cache */
+}
+
+#offline-status-text {
+    font-size: 11px;
+}
+
+/* Hide status text on mobile */
+@media (max-width: 768px) {
+    #offline-status-text {
+        display: none;
+    }
+}

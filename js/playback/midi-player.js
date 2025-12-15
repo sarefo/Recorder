@@ -31,6 +31,9 @@ class MidiPlayer {
         // Track whether this is the first play (for count-in bar)
         // First play always gets count-in, loop repeats don't
         this.isFirstPlay = true;
+
+        // Auto-scroll manager reference (will be set by AbcPlayer)
+        this.autoScrollManager = null;
     }
 
     /**
@@ -310,6 +313,11 @@ class MidiPlayer {
                 return false;
             }
 
+            // Initialize auto-scroll manager if available
+            if (this.autoScrollManager) {
+                this.autoScrollManager.init(visualObj);
+            }
+
             // Initialize tuning manager with shared audio context
             if (!this.tuningManagerInitialized) {
                 await this.tuningManager.init(this.audioContext);
@@ -424,6 +432,11 @@ class MidiPlayer {
                 this.tuningManagerInitialized = true;
             }
 
+            // Initialize auto-scroll manager if available
+            if (this.autoScrollManager) {
+                this.autoScrollManager.init(visualObj);
+            }
+
             // Apply fine tuning after synth is initialized
             this.applyFineTuning();
 
@@ -473,6 +486,12 @@ class MidiPlayer {
     async pausePlayback() {
         try {
             await this.midiPlayer.pause();
+
+            // Pause auto-scroll
+            if (this.autoScrollManager) {
+                this.autoScrollManager.pause();
+            }
+
             this.updateStatusDisplay("Playback paused");
             return true;
         } catch (error) {
@@ -514,6 +533,12 @@ class MidiPlayer {
 
             // Start MIDI player after metronome is synchronized
             await this.midiPlayer.start();
+
+            // Start auto-scroll sync if enabled
+            if (this.autoScrollManager && this.autoScrollManager.enabled) {
+                this.autoScrollManager.start();
+            }
+
             this.updateStatusDisplay("Playing");
 
             return true;
@@ -625,6 +650,11 @@ class MidiPlayer {
             // Make sure metronome is stopped first
             this.customMetronome.stop();
 
+            // Stop auto-scroll
+            if (this.autoScrollManager) {
+                this.autoScrollManager.stop();
+            }
+
             // Ensure we completely stop the MIDI player
             if (this.midiPlayer) {
                 await this.midiPlayer.stop();
@@ -668,6 +698,11 @@ class MidiPlayer {
             this.isPlaying = false;
             this.updatePlayButtonState();
             this.customMetronome.stop();
+
+            // Reset auto-scroll position for loop restart
+            if (this.autoScrollManager) {
+                this.autoScrollManager.reset();
+            }
 
             // Small delay to ensure complete reset (minimal for looping)
             await new Promise(resolve => setTimeout(resolve, this.playbackSettings.loopEnabled ? 5 : 50));
