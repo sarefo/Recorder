@@ -456,9 +456,14 @@ class UIControls {
         let longPressTimer = null;
         let isLongPress = false;
         let mousePressed = false;
+        let lastTouchTime = 0;
 
         // Handle mouse/touch start
-        const startPress = () => {
+        const startPress = (e) => {
+            // Ignore synthetic mouse events after touch events (within 500ms)
+            if (e.type === 'mousedown' && Date.now() - lastTouchTime < 500) {
+                return;
+            }
             mousePressed = true;
             isLongPress = false;
             longPressTimer = setTimeout(() => {
@@ -473,7 +478,11 @@ class UIControls {
         };
 
         // Handle mouse/touch end
-        const endPress = async () => {
+        const endPress = async (e) => {
+            // Ignore synthetic mouse events after touch events (within 500ms)
+            if (e && e.type === 'mouseup' && Date.now() - lastTouchTime < 500) {
+                return;
+            }
             if (longPressTimer) {
                 clearTimeout(longPressTimer);
                 longPressTimer = null;
@@ -489,12 +498,24 @@ class UIControls {
             mousePressed = false;
         };
 
+        // Touch start handler - record time to filter synthetic mouse events
+        const handleTouchStart = (e) => {
+            lastTouchTime = Date.now();
+            startPress(e);
+        };
+
+        // Touch end handler - record time to filter synthetic mouse events
+        const handleTouchEnd = (e) => {
+            lastTouchTime = Date.now();
+            endPress(e);
+        };
+
         // Add event listeners for both mouse and touch
         restartButton.addEventListener('mousedown', startPress);
         restartButton.addEventListener('mouseup', endPress);
         restartButton.addEventListener('mouseleave', endPress); // Cancel if mouse leaves
-        restartButton.addEventListener('touchstart', startPress, { passive: true });
-        restartButton.addEventListener('touchend', endPress, { passive: true });
+        restartButton.addEventListener('touchstart', handleTouchStart, { passive: true });
+        restartButton.addEventListener('touchend', handleTouchEnd, { passive: true });
 
         return restartButton;
     }
