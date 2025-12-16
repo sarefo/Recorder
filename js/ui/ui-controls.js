@@ -461,11 +461,10 @@ class UIControls {
         const startPress = () => {
             mousePressed = true;
             isLongPress = false;
-            longPressTimer = setTimeout(async () => {
+            longPressTimer = setTimeout(() => {
                 isLongPress = true;
-                // Toggle loop mode on long press
-                const loopEnabled = await this.player.midiPlayer.toggleLoop(this.player);
-                this.updateRestartButtonAppearance(restartButton, loopEnabled);
+                // Restart on long press
+                this.player.midiPlayer.restart();
                 // Provide haptic feedback if available
                 if (navigator.vibrate) {
                     navigator.vibrate(50);
@@ -474,17 +473,18 @@ class UIControls {
         };
 
         // Handle mouse/touch end
-        const endPress = () => {
+        const endPress = async () => {
             if (longPressTimer) {
                 clearTimeout(longPressTimer);
                 longPressTimer = null;
             }
-            
-            // Only restart if there was actually a mouse press AND it wasn't a long press
+
+            // Toggle loop mode on normal press (if it wasn't a long press)
             if (mousePressed && !isLongPress) {
-                this.player.midiPlayer.restart();
+                const loopEnabled = await this.player.midiPlayer.toggleLoop(this.player);
+                this.updateRestartButtonAppearance(restartButton, loopEnabled);
             }
-            
+
             // Reset the pressed state
             mousePressed = false;
         };
@@ -507,11 +507,11 @@ class UIControls {
     updateRestartButtonAppearance(button, loopEnabled) {
         if (loopEnabled) {
             button.textContent = '↻';
-            button.title = 'Restart (Loop: ON)\nHold to toggle loop off';
+            button.title = 'Loop: ON (click to toggle off)\nHold to restart';
             button.classList.add('loop-active');
         } else {
             button.textContent = '⟳';
-            button.title = 'Restart\nHold to enable loop';
+            button.title = 'Loop: OFF (click to toggle on)\nHold to restart';
             button.classList.remove('loop-active');
         }
     }
