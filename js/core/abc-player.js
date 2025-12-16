@@ -375,11 +375,7 @@ class AbcPlayer {
         this.midiPlayer.playbackSettings.loopEnabled = false;
         console.log('FORCED loopEnabled to false to prevent issues');
 
-        // Set auto-scroll enabled state
-        const autoScrollEnabled = this.settingsManager.get('autoScrollEnabled');
-        if (autoScrollEnabled !== undefined) {
-            this.autoScrollManager.setEnabled(autoScrollEnabled);
-        }
+        // Auto-scroll is now automatic based on screen size (no need to load from settings)
 
         console.log('Initial playback settings loaded:');
         console.log('  voicesOn:', this.midiPlayer.playbackSettings.voicesOn);

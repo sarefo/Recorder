@@ -400,7 +400,7 @@ class UIControls {
         playbackSection.appendChild(this.createChordsToggleButton());
         playbackSection.appendChild(this.createVoicesToggleButton());
         playbackSection.appendChild(this.createMetronomeToggleButton());
-        playbackSection.appendChild(this.createAutoScrollToggleButton());
+        // Auto-scroll toggle removed - now automatic based on screen size
 
         // Add tempo control
         playbackSection.appendChild(this.createTempoControl());
@@ -633,27 +633,9 @@ class UIControls {
     }
 
     /**
-     * Creates auto-scroll toggle button
-     * @returns {HTMLElement} The auto-scroll toggle button
+     * Auto-scroll toggle button removed - auto-scroll is now automatic based on screen size
+     * (ON for mobile, OFF for desktop)
      */
-    createAutoScrollToggleButton() {
-        const autoScrollToggle = document.createElement('button');
-        autoScrollToggle.id = 'auto-scroll-toggle';
-        autoScrollToggle.title = 'Toggle Auto-Scroll';
-        autoScrollToggle.textContent = 'Scroll';
-
-        // Set initial active state from auto-scroll manager
-        this.setButtonActiveState(autoScrollToggle, this.player.autoScrollManager.isEnabled());
-
-        autoScrollToggle.addEventListener('click', () => {
-            const enabled = this.player.autoScrollManager.toggle();
-            this.player.settingsManager.set('autoScrollEnabled', enabled);
-            this.setButtonActiveState(autoScrollToggle, enabled);
-            Utils.showFeedback(`Auto-scroll: ${enabled ? 'ON' : 'OFF'}`);
-        });
-
-        return autoScrollToggle;
-    }
 
     /**
      * Creates tempo control

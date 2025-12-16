@@ -315,7 +315,11 @@ class MidiPlayer {
 
             // Initialize auto-scroll manager if available
             if (this.autoScrollManager) {
-                this.autoScrollManager.init(visualObj);
+                // Pass the adjusted tempo so auto-scroll timing matches playback
+                const baseTempo = visualObj.getBpm ? visualObj.getBpm() : 120;
+                const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
+                // Pass hasCountIn info so auto-scroll waits for count-in bar on first play
+                this.autoScrollManager.init(visualObj, adjustedTempo, this.isFirstPlay);
             }
 
             // Initialize tuning manager with shared audio context
@@ -434,7 +438,11 @@ class MidiPlayer {
 
             // Initialize auto-scroll manager if available
             if (this.autoScrollManager) {
-                this.autoScrollManager.init(visualObj);
+                // Pass the adjusted tempo so auto-scroll timing matches playback
+                const baseTempo = visualObj.getBpm ? visualObj.getBpm() : 120;
+                const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
+                // Pass hasCountIn info so auto-scroll waits for count-in bar on first play
+                this.autoScrollManager.init(visualObj, adjustedTempo, this.isFirstPlay);
             }
 
             // Apply fine tuning after synth is initialized

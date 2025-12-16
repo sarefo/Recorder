@@ -4,19 +4,41 @@
 class AutoScrollManager {
     constructor(player) {
         this.player = player;
-        this.enabled = true; // On by default
+        this.enabled = true; // Will be set based on screen size
         this.timingCallbacks = null;
         this.currentElements = []; // Array of currently playing note elements
         this.scrollBehavior = 'smooth';
         this.viewportOffset = 0.4; // Position note at 40% from top (desktop default)
         this.scrollThreshold = 50; // Minimum pixels out of position before scrolling
+
+        // Update enabled state based on screen size
+        this.updateEnabledBasedOnScreenSize();
+
+        // Set up listener for screen size changes
+        window.addEventListener('resize', () => this.updateEnabledBasedOnScreenSize());
+    }
+
+    /**
+     * Updates enabled state based on screen size
+     * Auto-scroll is ON for small screens (mobile) and OFF for large screens (desktop)
+     */
+    updateEnabledBasedOnScreenSize() {
+        // Use same mobile detection logic as MobileUI
+        const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const smallerDimension = Math.min(window.innerWidth, window.innerHeight);
+        const isMobile = isMobileDevice || smallerDimension <= 600 || window.innerWidth < 1024;
+
+        // Auto-scroll ON for mobile, OFF for desktop
+        this.enabled = isMobile;
     }
 
     /**
      * Initialize timing callbacks for the current visual object
      * @param {Object} visualObj - The ABC visual object from ABCJS
+     * @param {number} adjustedTempo - Optional adjusted tempo (BPM) for playback
+     * @param {boolean} hasCountIn - Whether there's a count-in bar at the start
      */
-    init(visualObj) {
+    init(visualObj, adjustedTempo, hasCountIn) {
         if (!visualObj) {
             console.warn('AutoScrollManager: Cannot initialize without visual object');
             return;
@@ -28,8 +50,17 @@ class AutoScrollManager {
         }
 
         try {
+            // Get the base tempo from visual object if not provided
+            const baseTempo = visualObj.getBpm ? visualObj.getBpm() : 120;
+            const qpm = adjustedTempo || baseTempo;
+
+            console.log('AutoScrollManager: Initializing with tempo:', qpm, 'BPM, count-in:', hasCountIn);
+
             // Create new timing callbacks with ABCJS
+            // If there's a count-in bar, add extraMeasuresAtBeginning so scrolling waits
             this.timingCallbacks = new ABCJS.TimingCallbacks(visualObj, {
+                qpm: qpm, // Use adjusted tempo for correct timing
+                extraMeasuresAtBeginning: hasCountIn ? 1 : 0, // Wait for count-in bar if present
                 eventCallback: (ev) => this.handleNoteEvent(ev),
                 lineEndCallback: (info) => this.handleLineEnd(info)
             });
@@ -210,42 +241,9 @@ class AutoScrollManager {
     }
 
     /**
-     * Toggle auto-scroll on/off
-     * @returns {boolean} New enabled state
+     * toggle() and setEnabled() methods removed - auto-scroll is now automatic based on screen size
+     * The enabled state is managed by updateEnabledBasedOnScreenSize()
      */
-    toggle() {
-        this.enabled = !this.enabled;
-
-        // If disabling, clear current highlight
-        if (!this.enabled && this.currentElements && this.currentElements.length > 0) {
-            this.currentElements.forEach(el => {
-                if (el && el.classList) {
-                    el.classList.remove('playing');
-                }
-            });
-            this.currentElements = [];
-        }
-
-        return this.enabled;
-    }
-
-    /**
-     * Set enabled state
-     * @param {boolean} enabled - Whether auto-scroll should be enabled
-     */
-    setEnabled(enabled) {
-        this.enabled = enabled;
-
-        // If disabling, clear current highlight
-        if (!this.enabled && this.currentElements && this.currentElements.length > 0) {
-            this.currentElements.forEach(el => {
-                if (el && el.classList) {
-                    el.classList.remove('playing');
-                }
-            });
-            this.currentElements = [];
-        }
-    }
 
     /**
      * Check if auto-scroll is currently enabled
