@@ -180,18 +180,6 @@ z A, ^A, B, |C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             const isTieStart = element.startTie || element.startSlur;
             const isTieEnd = element.endTie || element.endSlur;
 
-            // Debug logging to see what abcjs provides
-            if (element.startTie || element.endTie || element.startSlur || element.endSlur) {
-                console.log(`ABCJS Tie data for ${noteName}:`, {
-                    startTie: element.startTie,
-                    endTie: element.endTie,
-                    startSlur: element.startSlur,
-                    endSlur: element.endSlur,
-                    isTieStart,
-                    isTieEnd
-                });
-            }
-
             // Determine if this note should have its fingering diagram suppressed
             // Suppress diagrams for tied continuation notes (notes that end a tie but aren't the first note)
             const suppressDiagram = this._shouldSuppressFingeringDiagram(notes, noteName, isTieEnd);
@@ -297,7 +285,6 @@ z A, ^A, B, |C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             // If this note matches the last tied note, suppress its diagram
             if (lastTiedNote === noteName && noteIndex === lastTiedIndex + 1) {
                 suppressSet.add(noteIndex);
-                console.log(`Marking note ${noteIndex} (${noteName}) for suppression`);
             }
 
             // If this note has a tie, remember it
@@ -376,15 +363,12 @@ z A, ^A, B, |C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
 
             // If current and next notes are the same, check for ties
             if (currentNote.name === nextNote.name) {
-                console.log(`Found consecutive identical notes: ${currentNote.name} at positions ${i} and ${i + 1}`);
                 // Check if there's a tie in the ABC notation between these positions
                 const hasTie = this.isTieInOriginalAbc(i, i + 1);
-                console.log(`Tie check result: ${hasTie}`);
                 if (hasTie) {
                     currentNote.isTieStart = true;
                     nextNote.isTieEnd = true;
                     nextNote.suppressDiagram = true;
-                    console.log(`Detected tie: ${currentNote.name} -> ${nextNote.name} (suppressing diagram for note ${i + 1})`);
                 }
             }
         }
@@ -402,7 +386,6 @@ z A, ^A, B, |C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
     isTieInOriginalAbc(pos1, pos2) {
         // Extract notes from ABC and check for ties at specific positions
         const musicPart = this.filterLyricsLines(this.extractMusicContent());
-        console.log(`Checking tie at positions ${pos1}-${pos2} in music: ${musicPart.substring(0, 100)}...`);
         const noteRegex = /([_^=]?)([A-Ga-gz])([,']*[0-9\/]*)([-]?)/g;
         let match;
         let noteIndex = 0;
@@ -410,24 +393,18 @@ z A, ^A, B, |C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         while ((match = noteRegex.exec(musicPart)) !== null) {
             if (this.isNoteInChord(musicPart, match.index)) continue;
 
-            let [fullMatch, accidental, noteLetter, octaveMarkers, tieMarker] = match;
+            let [, , noteLetter, , tieMarker] = match;
 
             if (noteLetter === 'z') {
                 if (noteIndex === pos1) {
-                    console.log(`Position ${pos1} is a rest, can't be tied`);
                     return false;
                 }
                 noteIndex++;
                 continue;
             }
 
-            // Debug log for the position we're checking
-            if (noteIndex === pos1) {
-                console.log(`At position ${pos1}: note='${fullMatch}', tieMarker='${tieMarker}'`);
-                if (tieMarker === '-') {
-                    console.log(`Found tie at position ${pos1}!`);
-                    return true;
-                }
+            if (noteIndex === pos1 && tieMarker === '-') {
+                return true;
             }
 
             noteIndex++;
@@ -436,7 +413,6 @@ z A, ^A, B, |C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             if (noteIndex > pos2) break;
         }
 
-        console.log(`No tie found at position ${pos1}`);
         return false;
     }
 
@@ -715,11 +691,6 @@ z A, ^A, B, |C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
             // Detect tie end by looking at the previous note
             const isTieEnd = this._detectTieEndForCurrentNote(notes, noteName);
             const suppressDiagram = isTieEnd; // Suppress diagram for tied continuation notes
-
-            // Debug logging for tied notes
-            if (isTieStart || isTieEnd) {
-                console.log(`Tied note detected: ${noteName}, isTieStart: ${isTieStart}, isTieEnd: ${isTieEnd}, suppressDiagram: ${suppressDiagram}`);
-            }
 
             notes.push({
                 name: noteName,

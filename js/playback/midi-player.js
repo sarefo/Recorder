@@ -162,7 +162,6 @@ class MidiPlayer {
             if (Math.abs(tuningOffsetCents) > 5) { // Only apply if significant offset
                 const additionalSemitones = Math.round(tuningOffsetCents / 100);
                 totalTranspose += additionalSemitones;
-                console.log('Combined transpose: octave(12) + tuning(' + additionalSemitones + ') = ' + totalTranspose + ' semitones');
             }
         }
 
@@ -225,66 +224,8 @@ class MidiPlayer {
             // Get playback options
             const options = this.preparePlaybackOptions();
 
-            // Add onEnded to the options to handle playback completion
-            options.onEnded = () => {
-                console.log('onEnded callback triggered, loopEnabled:', this.playbackSettings.loopEnabled);
-
-                // Prevent multiple simultaneous callbacks
-                if (this.onEndedCallbackActive) {
-                    console.log('Ignoring duplicate onEnded callback - already processing');
-                    return;
-                }
-
-                // Prevent rapid-fire callbacks
-                if (this.isPlaying === false) {
-                    console.log('Ignoring duplicate onEnded callback - not playing');
-                    return;
-                }
-
-                // Mark callback as active
-                this.onEndedCallbackActive = true;
-
-                this.isPlaying = false;
-                this.updatePlayButtonState();
-
-                // Check if loop is enabled with extra safety
-                if (this.playbackSettings.loopEnabled === true) {
-                    console.log('Loop is enabled, scheduling restart...');
-                    // Auto-restart when loop is enabled
-                    setTimeout(async () => {
-                        // Double-check loop is still enabled before restarting
-                        if (this.playbackSettings.loopEnabled === true) {
-                            console.log('Executing loop restart (without count-in)');
-                            // Set isFirstPlay to false so subsequent loops have no intro
-                            this.isFirstPlay = false;
-
-                            // Reinitialize to apply new drumIntro setting (0 for loops)
-                            const visualObj = window.app?.renderManager?.currentVisualObj;
-                            if (visualObj) {
-                                await this.initWithNewPlayer(visualObj);
-                            }
-
-                            // Now restart playback
-                            this.restart().finally(() => {
-                                // Reset callback flag after restart completes
-                                this.onEndedCallbackActive = false;
-                            });
-                        } else {
-                            console.log('Loop was disabled during timeout, not restarting');
-                            this.onEndedCallbackActive = false;
-                        }
-                    }, 10); // Minimal delay for seamless looping
-                    this.updateStatusDisplay("Looping...");
-                } else {
-                    console.log('Loop is disabled, stopping normally');
-                    // Stop the metronome when the song ends, unless it's in constant mode
-                    if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying && !this.customMetronome.isConstantMode()) {
-                        this.customMetronome.stop();
-                    }
-                    this.updateStatusDisplay("Playback finished");
-                    this.onEndedCallbackActive = false;
-                }
-            };
+            // Add onEnded callback to handle playback completion
+            options.onEnded = () => this._handlePlaybackEnded();
 
 
             // Initialize MIDI with all current settings
@@ -359,62 +300,8 @@ class MidiPlayer {
             // Get playback options
             const options = this.preparePlaybackOptions();
 
-            // Add onEnded to the options to handle playback completion
-            options.onEnded = () => {
-                console.log('onEnded callback triggered, loopEnabled:', this.playbackSettings.loopEnabled);
-
-                // Prevent multiple simultaneous callbacks
-                if (this.onEndedCallbackActive) {
-                    console.log('Ignoring duplicate onEnded callback - already processing');
-                    return;
-                }
-
-                // Prevent rapid-fire callbacks
-                if (this.isPlaying === false) {
-                    console.log('Ignoring duplicate onEnded callback - not playing');
-                    return;
-                }
-
-                // Mark callback as active
-                this.onEndedCallbackActive = true;
-
-                this.isPlaying = false;
-                this.updatePlayButtonState();
-
-                // Check if loop is enabled with extra safety
-                if (this.playbackSettings.loopEnabled === true) {
-                    console.log('Loop is enabled, scheduling restart...');
-                    // Auto-restart when loop is enabled
-                    setTimeout(async () => {
-                        // Double-check loop is still enabled before restarting
-                        if (this.playbackSettings.loopEnabled === true) {
-                            console.log('Executing loop restart (without count-in)');
-                            // Set isFirstPlay to false so subsequent loops have no intro
-                            this.isFirstPlay = false;
-
-                            // Reinitialize to apply new drumIntro setting (0 for loops)
-                            const visualObj = window.app?.renderManager?.currentVisualObj;
-                            if (visualObj) {
-                                await this.initWithNewPlayer(visualObj);
-                            }
-
-                            // Now restart playback
-                            this.restart().finally(() => {
-                                // Reset callback flag after restart completes
-                                this.onEndedCallbackActive = false;
-                            });
-                        } else {
-                            console.log('Loop was disabled during timeout, not restarting');
-                            this.onEndedCallbackActive = false;
-                        }
-                    }, 10); // Minimal delay for seamless looping
-                    this.updateStatusDisplay("Looping...");
-                } else {
-                    console.log('Loop is disabled, stopping normally');
-                    this.updateStatusDisplay("Playback complete");
-                    this.onEndedCallbackActive = false;
-                }
-            };
+            // Add onEnded callback to handle playback completion
+            options.onEnded = () => this._handlePlaybackEnded();
 
             // Initialize MIDI with all current settings
             await this.midiPlayer.init({
@@ -736,6 +623,47 @@ class MidiPlayer {
     }
 
     /**
+     * Handles playback ended event (shared callback for loop/stop logic)
+     * @private
+     */
+    _handlePlaybackEnded() {
+        // Prevent multiple simultaneous callbacks
+        if (this.onEndedCallbackActive || !this.isPlaying) {
+            return;
+        }
+
+        this.onEndedCallbackActive = true;
+        this.isPlaying = false;
+        this.updatePlayButtonState();
+
+        if (this.playbackSettings.loopEnabled === true) {
+            // Auto-restart when loop is enabled
+            setTimeout(async () => {
+                if (this.playbackSettings.loopEnabled === true) {
+                    this.isFirstPlay = false;
+                    const visualObj = window.app?.renderManager?.currentVisualObj;
+                    if (visualObj) {
+                        await this.initWithNewPlayer(visualObj);
+                    }
+                    this.restart().finally(() => {
+                        this.onEndedCallbackActive = false;
+                    });
+                } else {
+                    this.onEndedCallbackActive = false;
+                }
+            }, 10);
+            this.updateStatusDisplay("Looping...");
+        } else {
+            // Stop the metronome when the song ends, unless it's in constant mode
+            if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying && !this.customMetronome.isConstantMode()) {
+                this.customMetronome.stop();
+            }
+            this.updateStatusDisplay("Playback finished");
+            this.onEndedCallbackActive = false;
+        }
+    }
+
+    /**
      * Updates playback settings and reinitializes if needed
      * @param {Object} settings - New playback settings
      * @param {Object} visualObj - The ABC visual object
@@ -851,8 +779,6 @@ class MidiPlayer {
         const tuningOffsetCents = this.tuningManager.getTuningOffset();
 
         if (Math.abs(tuningOffsetCents) > 0.1) {
-            console.log('Applying fine tuning offset:', tuningOffsetCents.toFixed(1), 'cents');
-
             // Try to access and modify the synth's audio nodes
             if (this.midiPlayer && this.midiPlayer.audioNode) {
                 this.createTuningEffect(tuningOffsetCents);
@@ -875,7 +801,6 @@ class MidiPlayer {
             // Create a custom audio effect by modifying sample playback rate
             // Note: This is a simplified approach - actual implementation would depend on ABCJS internals
             if (this.audioContext.createScriptProcessor) {
-                console.log('Fine tuning applied with multiplier:', frequencyMultiplier.toFixed(4));
                 // Store the multiplier for any custom audio processing
                 this.tuningFrequencyMultiplier = frequencyMultiplier;
             }

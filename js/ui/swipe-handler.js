@@ -36,7 +36,6 @@ class SwipeHandler {
         abcContainer.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: false });
 
         this.isInitialized = true;
-        console.log('Swipe handler initialized for mobile');
     }
 
     /**
@@ -173,8 +172,7 @@ class SwipeHandler {
 
         // Calculate page size (94% of viewport)
         const pageSize = viewportHeight * 0.94;
-	console.log("viewport height 94");
-        
+
         let targetScroll;
         if (direction === 'down') {
             // Scrolling down - show next page

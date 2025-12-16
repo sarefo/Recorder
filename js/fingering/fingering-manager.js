@@ -155,10 +155,6 @@ class FingeringManager {
         const diagram = this._createDiagramContainer();
         this._addClickBehavior(diagram);
 
-        if (this.config.showLabels && noteName) {
-            //this._addNoteLabel(diagram, noteName);
-        }
-
         const columnsContainer = this._createColumnsContainer();
         const leftColumn = this._createHandColumn(fingeringData.left, true);
         const rightColumn = this._createHandColumn(fingeringData.right, false);
@@ -278,27 +274,6 @@ class FingeringManager {
         if (markerZone) {
             markerZone.setAttribute('data-state', newState);
         }
-    }
-
-    /**
-     * Adds a note label to a diagram
-     * @param {HTMLElement} diagram - The diagram element
-     * @param {string} noteName - The name of the note
-     * @private
-     */
-    _addNoteLabel(diagram, noteName) {
-        const config = this.config;
-        const noteLabel = document.createElement('div');
-
-        noteLabel.className = 'fingering-note-label';
-        noteLabel.textContent = noteName;
-
-        // Override default font size if config differs
-        if (config.fontSizeNote !== 10) {
-            noteLabel.style.fontSize = `${config.fontSizeNote}px`;
-        }
-
-        diagram.appendChild(noteLabel);
     }
 
     /**
@@ -434,18 +409,15 @@ class FingeringManager {
         if (!noteMatch) return null;
 
         const [, accidental, noteLetter, octaveMarkers] = noteMatch;
-        //console.log('Enharmonic lookup for:', noteName, 'Parsed as:', { accidental, noteLetter, octaveMarkers });
 
         // Map for common enharmonic equivalents
         const enharmonicMap = this._getEnharmonicMap();
 
         // Try looking up with an enharmonic equivalent
         const enharmonicKey = accidental + noteLetter;
-        //console.log('Enharmonic key:', enharmonicKey, 'Map has key:', enharmonicMap[enharmonicKey] ? 'Yes' : 'No');
 
         if (enharmonicMap[enharmonicKey]) {
             const enharmonic = enharmonicMap[enharmonicKey] + octaveMarkers;
-            //console.log('Trying enharmonic equivalent:', enharmonic);
 
             if (this.currentFingeringSystem === 'german' && this.fingeringDataGerman[enharmonic]) {
                 return this.fingeringDataGerman[enharmonic];

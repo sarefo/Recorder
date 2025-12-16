@@ -169,7 +169,6 @@ class AbcPlayer {
 
         if (transposedAbc !== this.notationParser.currentAbc) {
             this.notationParser.currentAbc = transposedAbc;
-            console.log(`Auto-transposed ${semitoneShift > 0 ? 'up' : 'down'} ${Math.abs(semitoneShift)} semitones when switching from ${previousSystem} to ${newSystem}`);
         }
     }
 
@@ -371,17 +370,8 @@ class AbcPlayer {
         this.midiPlayer.playbackSettings.chordsOn = this.settingsManager.get('chordsOn');
         this.midiPlayer.playbackSettings.metronomeOn = this.settingsManager.get('metronomeOn');
 
-        // TEMP FIX: Force loop to always be false on load to prevent localStorage issues
+        // Force loop to always be false on load to prevent localStorage issues
         this.midiPlayer.playbackSettings.loopEnabled = false;
-        console.log('FORCED loopEnabled to false to prevent issues');
-
-        // Auto-scroll is now automatic based on screen size (no need to load from settings)
-
-        console.log('Initial playback settings loaded:');
-        console.log('  voicesOn:', this.midiPlayer.playbackSettings.voicesOn);
-        console.log('  chordsOn:', this.midiPlayer.playbackSettings.chordsOn);
-        console.log('  metronomeOn:', this.midiPlayer.playbackSettings.metronomeOn);
-        console.log('  loopEnabled:', this.midiPlayer.playbackSettings.loopEnabled);
 
         // Update UI to reflect initial settings
         this.uiControls.updateFingeringButtons();

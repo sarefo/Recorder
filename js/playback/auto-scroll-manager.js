@@ -54,8 +54,6 @@ class AutoScrollManager {
             const baseTempo = visualObj.getBpm ? visualObj.getBpm() : 120;
             const qpm = adjustedTempo || baseTempo;
 
-            console.log('AutoScrollManager: Initializing with tempo:', qpm, 'BPM, count-in:', hasCountIn);
-
             // Create new timing callbacks with ABCJS
             // If there's a count-in bar, add extraMeasuresAtBeginning so scrolling waits
             this.timingCallbacks = new ABCJS.TimingCallbacks(visualObj, {

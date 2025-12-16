@@ -207,28 +207,6 @@ class DiagramRenderer {
         });
     }
 
-    renderDiagramForNote(note, noteData, containerRect, verticalPosition, layer) {
-        // Handle both old string format and new object format
-        const noteName = typeof noteData === 'string' ? noteData : noteData.name;
-        const suppressDiagram = typeof noteData === 'string' ? false : noteData.suppressDiagram;
-        
-        if (suppressDiagram) return;
-        
-        const fingeringData = this.fingeringManager.getFingeringForNote(noteName);
-        if (!fingeringData) return;
-
-        const diagram = this.fingeringManager.createFingeringDiagram(fingeringData, noteName);
-
-        // Position the diagram
-        diagram.style.position = 'absolute';
-        diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;
-        diagram.style.top = `${verticalPosition}px`;
-        diagram.style.transform = `translate(-50%, 0) scale(${this.config.scale})`;
-        diagram.style.transformOrigin = 'center top';
-
-        layer.appendChild(diagram);
-    }
-
     addMarkerZones(abcContainer, notesData) {
         // Get or create the layer for marker zones
         let layer = document.getElementById('fingering-layer');

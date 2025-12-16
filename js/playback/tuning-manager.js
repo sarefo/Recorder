@@ -45,8 +45,6 @@ class TuningManager {
 
             // Initialize our custom autocorrelation pitch detector
             this.sampleRate = this.audioContext.sampleRate;
-
-            console.log('TuningManager initialized with sample rate:', this.sampleRate);
             return true;
         } catch (error) {
             console.error('Error initializing tuning manager:', error);
@@ -70,8 +68,6 @@ class TuningManager {
                 audio: true
             });
 
-            console.log('Microphone access granted, stream tracks:', this.mediaStream.getTracks().length);
-
             // Create audio analysis nodes
             const source = this.audioContext.createMediaStreamSource(this.mediaStream);
             this.analyser = this.audioContext.createAnalyser();
@@ -80,8 +76,6 @@ class TuningManager {
 
             // Connect audio nodes
             source.connect(this.analyser);
-
-            console.log('Audio nodes connected, analyser configured with fftSize:', this.analyser.fftSize);
 
             this.isListening = true;
 
@@ -138,8 +132,6 @@ class TuningManager {
             return;
         }
 
-        console.log('Starting pitch analysis with', this.analysisRate, 'ms interval');
-
         this.analysisInterval = setInterval(() => {
             if (!this.isListening || !this.analyser) {
                 return;
@@ -158,7 +150,6 @@ class TuningManager {
                 const frequency = this.detectPitchAutocorrelation(buffer);
 
                 if (frequency && frequency > 0 && frequency > 200 && frequency < 1500) {
-                    console.log('Detected frequency:', frequency.toFixed(2), 'Hz, RMS:', rms.toFixed(4));
                     this.processPitchDetection(frequency);
                 }
             }
