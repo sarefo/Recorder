@@ -173,6 +173,11 @@ class AbcFileList {
                 "category": "korean"
         },
         {
+                "name": "Villoldo Que Haces Chamberguito",
+                "file": "latino/chamberguito.abc",
+                "category": "latino"
+        },
+        {
                 "name": "Te Hokinga Mai",
                 "file": "maori/te hokinga mai.abc",
                 "category": "maori"

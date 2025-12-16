@@ -1,0 +1,93 @@
+X:1
+T:Villoldo Que Haces Chamberguito
+%%score 1 2
+L:1/4
+Q:1/4=80
+M:2/4
+K:C
+%%stretchlast true
+X:1
+T:Villoldo Que Haces Chamberguito
+%%score 1 2
+L:1/4
+Q:1/4=80
+M:2/4
+K:A
+%%stretchlast true
+ z/ c/4d/4 ^d/4e/4f/4c/4 | e/4=d/4 z/4 B/4 G/4 z/4 E/4 z/4 | z/ e/ ^d/=d/ | c/ z/ e |
+ z/ c/4d/4 ^d/4e/4f/4c/4 | e/4=d/4 z/4 B/4 G/4 z/4 E/4 z/4 | z/ e/ ^d/=d/ | c/ z/ e |
+ z/ c/4d/4 ^d/4e/4f/4e/4 | =g/4f/4 z/4 e/4 c/4 z/4 ^A/4 z/4 | z/ f/ c/e/ | d/ z/ f |
+ z/ F/4^E/4 F/4G/4A/4B/4 | c/4A/4 z/4 =E/4 e | z/4 E/4^D/4E/4 F/4E/4G/4E/4 | A/ z/ a/ z/ |
+ z/4 c/4=c/4^c/4 a/4c/4g/4c/4 | f/4c/4 z/4 A/4 F | z/4 C/4=C/4^C/4 D/4C/4=C/4^C/4 | A/4G/4 z/4 =G/4 ^G |
+ z/4 c/4=c/4^c/4 b/4c/4a/4c/4 | g/4^e/4 z/4 c/4 B | z/4 C/4=C/4^C/4 D/4^D/4=E/4^E/4 | G/4F/4 z/4 ^E/4 F |
+ z/4 c/4=c/4^c/4 a/4c/4g/4c/4 | f/4c/4 z/4 A/4 F | z/4 C/4=C/4^C/4 D/4C/4=C/4^C/4 | A/4G/4 z/4 =G/4 ^G |
+ z/4 c/4=c/4^c/4 b/4c/4a/4c/4 | g/4^e/4 z/4 c/4 B | z/4 C/4=C/4^C/4 D/4^D/4=E/4^E/4 | F/ z/ (3:2:2f/ z |
+ (3:2:2z/ [ef]/4e/4^d/4 e/ z/4 ^e/4 | f/4 (12:7:2z ^e/4 f | z/4 =e/4d/4B/4 ^A/4B/4 z/4 =c/4 | ^c/4 (12:7:2z =c/4 (6:5:2^c z/4 |
+ (3:2:2z/ [AB]/4A/ G/ z/4 F/4 | D/4G/D/4 A/G/ | (3:2:2z/ [GA]/4G/ F/ z/4 E/4 | C/4G/C/4 F/E/ |
+ (3:2:2z/ [ef]/4e/4^d/4 e/ z/4 ^e/4 | f/4 (12:7:2z ^e/4 f | z/4 =e/4d/4B/4 ^A/4B/4 z/4 =c/4 | ^c/4 (12:7:2z =c/4 (6:5:2^c z/4 |
+ (3:2:2z/ [AB]/4A/ G/ z/4 F/4 | E/ z/ e/ z/ | z/4 d/4B/4G/4 c/4 z/4 B/4 z/4 | A/ z3/2 |
+ z/4 c/4=c/4^c/4 a/4c/4g/4c/4 | f/4c/4 z/4 A/4 F | z/4 C/4=C/4^C/4 D/4C/4=C/4^C/4 | A/4G/4 z/4 =G/4 ^G |
+ z/4 c/4=c/4^c/4 b/4c/4a/4c/4 | g/4^e/4 z/4 c/4 B | z/4 C/4=C/4^C/4 D/4^D/4=E/4^E/4 | G/4F/4 z/4 ^E/4 F |
+ z/4 c/4=c/4^c/4 a/4c/4g/4c/4 | f/4c/4 z/4 A/4 F | z/4 C/4=C/4^C/4 D/4C/4=C/4^C/4 | A/4G/4 z/4 =G/4 ^G |
+ z/4 c/4=c/4^c/4 b/4c/4a/4c/4 | g/4^e/4 z/4 c/4 B | z/4 C/4=C/4^C/4 D/4^D/4=E/4^E/4 | F/ z/ f/ z/ |
+ z/ c/4d/4 ^d/4e/4f/4c/4 | e/4=d/4 z/4 B/4 G/4 z/4 E/4 z/4 | z/ e/ ^d/=d/ | c/ z/ e |
+ z/ c/4d/4 ^d/4e/4f/4c/4 | e/4=d/4 z/4 B/4 G/4 z/4 E/4 z/4 | z/ e/ ^d/=d/ | c/ z/ e |
+ z/ c/4d/4 ^d/4e/4f/4e/4 | =g/4f/4 z/4 e/4 c/4 z/4 ^A/4 z/4 | z/ f/ c/e/ | d/ z/ f |
+ z/ F/4^E/4 F/4G/4A/4B/4 | c/4A/4 z/4 =E/4 e | z/4 E/4^D/4E/4 F/4E/4G/4E/4 | A/ z/ a/ z/ |]
+
+
+X:2
+T:Villoldo Que Haces Chamberguito
+%%score 1 2
+L:1/4
+Q:1/4=80
+M:2/4
+K:C
+%%stretchlast true
+% V:1 treble nm="Flute" snm="Fl"
+% %%MIDI program 73
+% V:2 treble nm="Acoustic Guitar" snm="Ac Gtr"
+% %%MIDI program 24
+V:1
+ z/ e/4f/4 ^f/4g/4a/4e/4 | g/4=f/4 z/4 d/4 B/4 z/4 G/4 z/4 | z/ g/ ^f/=f/ | e/ z/ g |
+ z/ e/4f/4 ^f/4g/4a/4e/4 | g/4=f/4 z/4 d/4 B/4 z/4 G/4 z/4 | z/ g/ ^f/=f/ | e/ z/ g |
+ z/ e/4f/4 ^f/4g/4a/4g/4 | _b/4a/4 z/4 g/4 e/4 z/4 ^c/4 z/4 | z/ a/ e/g/ | f/ z/ a |
+ z/ A/4^G/4 A/4B/4c/4d/4 | e/4c/4 z/4 =G/4 g | z/4 G/4^F/4G/4 A/4G/4B/4G/4 | c/ z/ c'/ z/ |
+ z/4 e/4_e/4=e/4 c'/4e/4b/4e/4 | a/4e/4 z/4 c/4 A | z/4 E/4_E/4=E/4 F/4E/4_E/4=E/4 | c/4B/4 z/4 _B/4 =B |
+ z/4 e/4_e/4=e/4 d'/4e/4c'/4e/4 | b/4^g/4 z/4 e/4 d | z/4 E/4_E/4=E/4 F/4^F/4=G/4^G/4 | B/4A/4 z/4 ^G/4 A |
+ z/4 e/4_e/4=e/4 c'/4e/4b/4e/4 | a/4e/4 z/4 c/4 A | z/4 E/4_E/4=E/4 F/4E/4_E/4=E/4 | c/4B/4 z/4 _B/4 =B |
+ z/4 e/4_e/4=e/4 d'/4e/4c'/4e/4 | b/4^g/4 z/4 e/4 d | z/4 E/4_E/4=E/4 F/4^F/4=G/4^G/4 | A/ z/ (3:2:2a/ z |
+ (3:2:2z/ [ga]/4g/4^f/4 g/ z/4 ^g/4 | a/4 (12:7:2z ^g/4 a | z/4 =g/4f/4d/4 ^c/4d/4 z/4 _e/4 | =e/4 (12:7:2z _e/4 (6:5:2=e z/4 |
+ (3:2:2z/ [cd]/4c/ B/ z/4 A/4 | F/4B/F/4 c/B/ | (3:2:2z/ [Bc]/4B/ A/ z/4 G/4 | E/4B/E/4 A/G/ |
+ (3:2:2z/ [ga]/4g/4^f/4 g/ z/4 ^g/4 | a/4 (12:7:2z ^g/4 a | z/4 =g/4f/4d/4 ^c/4d/4 z/4 _e/4 | =e/4 (12:7:2z _e/4 (6:5:2=e z/4 |
+ (3:2:2z/ [cd]/4c/ B/ z/4 A/4 | G/ z/ g/ z/ | z/4 f/4d/4B/4 e/4 z/4 d/4 z/4 | c/ z3/2 |
+ z/4 e/4_e/4=e/4 c'/4e/4b/4e/4 | a/4e/4 z/4 c/4 A | z/4 E/4_E/4=E/4 F/4E/4_E/4=E/4 | c/4B/4 z/4 _B/4 =B |
+ z/4 e/4_e/4=e/4 d'/4e/4c'/4e/4 | b/4^g/4 z/4 e/4 d | z/4 E/4_E/4=E/4 F/4^F/4=G/4^G/4 | B/4A/4 z/4 ^G/4 A |
+ z/4 e/4_e/4=e/4 c'/4e/4b/4e/4 | a/4e/4 z/4 c/4 A | z/4 E/4_E/4=E/4 F/4E/4_E/4=E/4 | c/4B/4 z/4 _B/4 =B |
+ z/4 e/4_e/4=e/4 d'/4e/4c'/4e/4 | b/4^g/4 z/4 e/4 d | z/4 E/4_E/4=E/4 F/4^F/4=G/4^G/4 | A/ z/ a/ z/ |
+ z/ e/4f/4 ^f/4g/4a/4e/4 | g/4=f/4 z/4 d/4 B/4 z/4 G/4 z/4 | z/ g/ ^f/=f/ | e/ z/ g |
+ z/ e/4f/4 ^f/4g/4a/4e/4 | g/4=f/4 z/4 d/4 B/4 z/4 G/4 z/4 | z/ g/ ^f/=f/ | e/ z/ g |
+ z/ e/4f/4 ^f/4g/4a/4g/4 | _b/4a/4 z/4 g/4 e/4 z/4 ^c/4 z/4 | z/ a/ e/g/ | f/ z/ a |
+ z/ A/4^G/4 A/4B/4c/4d/4 | e/4c/4 z/4 =G/4 g | z/4 G/4^F/4G/4 A/4G/4B/4G/4 | c/ z/ c'/ z/ |]
+
+% V:2
+%  C/>[EGc]/ [EGc]/[GcE]/ | D/>[FGB]/ [FGB]/[FGB]/ | G,/[BGF]/ D/[FGB]/ | C/ [EGc] G,/ |
+%  C/>[EGc]/ [EcG]/[EGc]/ | D/>[FGB]/ [FGB]/[BGF]/ | G,/[FGB]/ D/[FGB]/ | C/ [EGc] G,/ |
+%  C/ z3/2 | ^C/>[EGA]/ [EGA]/A,/ | ^C/[EGA]/ A,/[AEG]/ | D/ [FA] A,/ |
+%  D/ z3/2 | [C,C] [EGc] | G,/>D/ [GB]/D/ | C/ z/ [C,C]/ z/ |
+%  [A,,A,]/>E/ [Ac]/E,/ | [A,A,,]/>E/ [Ac] | A,/>E/ [Ac]/E/ | B,/>E/ [^Gd] |
+%  [EE,]/>E/ [^Gd]/E/ | [^G,^G]/>E/ [^GB] | [E,E]/>E/ [d^G]/E/ | [A,A]/>E/ C/B,/ |
+%  A,/ z E,/ | [A,,A,]/>E/ [Ac] | A,/>E/ [Ac]/E/ | B,/>E/ [^Gd] |
+%  [E,E]/>E/ [^Gd]/E/ | [^G^G,]/>E/ [^GB] | [^G,^G]/>E/ [^Gd]/E/ | [Ac]/ z/ [EAA,]/ z/ |
+%  z2 | G,/>D/ [GB]/D/ | [G,G]/[^G,^G]/ [A,A]/[BB,]/ | [Cc]/>E/ [=Gc]/D/ |
+%  [C,C]/ z3/2 | D/>[FGB]/ [GBF]/G,/ | D/[FGB]/ G,/[FGB]/ | C/>[cGE]/ [EGc]/[G,E]/ |
+%  [C,C]/ z3/2 | G,/>D/ [GB]/D/ | [GG,]/[^G,^G]/ [A,A]/[B,B]/ | [Cc]/>E/ [=Gc]/E/ |
+%  [cC]/ z3/2 | G,/ z/ [G,B,DG]/ z/ | G,/>D/ [GB]/G,/ | [C,C]/[EE,]/ [^F,^F]/[^G,^G]/ |
+%  [A,A]/ z3/2 | [A,,A,]/>E/ [Ac] | A,/>E/ [Ac]/E/ | B,/>E/ [^Gd] |
+%  [E,E]/>E/ [^Gd]/E/ | [^G,^G]/>E/ [^GB] | [E,E]/>E/ [^Gd]/E/ | [A,A]/>E/ C/B,/ |
+%  A,/ z E,/ | [A,,A,]/>E/ [Ac] | A,/>E/ [Ac]/E/ | B,/>E/ [^Gd] |
+%  [E,E]/>E/ [^Gd]/E/ | [^G,^G]/>E/ [^GB] | [^G,^G]/>E/ [^Gd]/E/ | [Ac]/ z/ [A,EA]/ z/ |
+%  C/>[cGE]/ [EGc]/[EGc]/ | D/>[FGB]/ [FGB]/[BFG]/ | G,/[FGB]/ D/[FGB]/ | C/ [EGc] G,/ |
+%  C/>[EGc]/ [EGc]/[EGc]/ | D/>[BGF]/ [FGB]/[FGB]/ | G,/[FGB]/ D/[GBF]/ | C/ [EGc] G,/ |
+%  C/ z3/2 | ^C/>[EGA]/ [AEG]/A,/ | ^C/[EGA]/ A,/[EGA]/ | D/ [FA] A,/ |
+%  D/ z3/2 | [C,C] [EGc] | G,/>D/ [GB]/D/ | C/ z/ [C,C]/ z/ |]
