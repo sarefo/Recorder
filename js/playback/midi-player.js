@@ -429,8 +429,8 @@ class MidiPlayer {
             // Start MIDI player after metronome is synchronized
             await this.midiPlayer.start();
 
-            // Start auto-scroll sync if enabled
-            if (this.autoScrollManager && this.autoScrollManager.enabled) {
+            // Start timing callbacks for note highlighting (always) and auto-scroll (mobile only)
+            if (this.autoScrollManager) {
                 this.autoScrollManager.start();
             }
 

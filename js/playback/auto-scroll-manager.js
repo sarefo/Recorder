@@ -69,12 +69,13 @@ class AutoScrollManager {
 
     /**
      * Handle note event from ABCJS timing callbacks
+     * Highlighting always happens; scrolling only when enabled (mobile)
      * @param {Object} ev - Event object containing note elements and position
      */
     handleNoteEvent(ev) {
-        if (!this.enabled || !ev) return;
+        if (!ev) return;
 
-        // Clear previous highlight from all elements
+        // Always clear previous highlight from all elements
         if (this.currentElements && this.currentElements.length > 0) {
             this.currentElements.forEach(el => {
                 if (el && el.classList) {
@@ -83,21 +84,28 @@ class AutoScrollManager {
             });
         }
 
-        // Get the DOM elements for current note (ev.elements is an array)
+        // Get the DOM elements for current note (ev.elements is an array of arrays)
         if (ev.elements && ev.elements.length > 0) {
-            // Store all elements for this note
-            this.currentElements = ev.elements;
+            // Store all elements for this note (flatten the array structure)
+            this.currentElements = [];
 
-            // Add 'playing' class to all elements representing this note
-            ev.elements.forEach(el => {
-                if (el && el.classList) {
-                    el.classList.add('playing');
+            // Always add 'playing' class to all elements representing this note
+            // ev.elements is an array of arrays (for chords, multiple notes, etc.)
+            ev.elements.forEach(noteArray => {
+                if (Array.isArray(noteArray)) {
+                    noteArray.forEach(el => {
+                        if (el && el.classList) {
+                            el.classList.add('playing');
+                            this.currentElements.push(el);
+                        }
+                    });
                 }
             });
 
-            // Use the position data from the event for scrolling
-            // This is more reliable than getBoundingClientRect
-            this.scrollToPosition(ev.top, ev.height);
+            // Only scroll when auto-scroll is enabled (mobile)
+            if (this.enabled) {
+                this.scrollToPosition(ev.top, ev.height);
+            }
         }
     }
 
@@ -150,10 +158,10 @@ class AutoScrollManager {
     }
 
     /**
-     * Start auto-scroll sync with playback
+     * Start timing callbacks for note highlighting (always) and auto-scroll (mobile only)
      */
     start() {
-        if (this.timingCallbacks && this.enabled) {
+        if (this.timingCallbacks) {
             try {
                 this.timingCallbacks.start();
             } catch (error) {

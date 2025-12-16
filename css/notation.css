@@ -25,6 +25,7 @@
 .abcjs-note.playing rect {
     fill: #ff6b35 !important;
     stroke: #ff6b35 !important;
+    transition: none !important; /* Instant highlight, no animation */
 }
 
 /* Smooth transition for note highlighting */
