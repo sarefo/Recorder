@@ -849,13 +849,15 @@ class UIControls {
 
         // Handle touch end
         const handleTouchEnd = async (e) => {
+            const wasShowingOverlay = overlay && overlay.classList.contains('active');
+
             if (pressTimer) {
                 clearTimeout(pressTimer);
                 pressTimer = null;
             }
 
-            if (overlay && overlay.classList.contains('active')) {
-                // Apply tempo change
+            if (wasShowingOverlay) {
+                // Apply tempo change from overlay
                 overlay.classList.remove('active');
                 button.textContent = `${currentTempo}%`;
 
@@ -870,6 +872,28 @@ class UIControls {
                     await this.player.midiPlayer.customMetronome.setTempo(
                         this.player.midiPlayer.lastTempo
                     );
+                }
+            } else {
+                // Quick tap without overlay showing - reset to 100%
+                currentTempo = 100;
+                button.textContent = '100%';
+
+                await this.player.midiPlayer.updatePlaybackSettings(
+                    { tempo: 100 },
+                    this.player.renderManager.currentVisualObj
+                );
+
+                // Force update metronome if it's running
+                if (this.player.midiPlayer.playbackSettings.metronomeOn &&
+                    this.player.midiPlayer.customMetronome.isPlaying) {
+                    await this.player.midiPlayer.customMetronome.setTempo(
+                        this.player.midiPlayer.lastTempo
+                    );
+                }
+
+                // Haptic feedback for reset
+                if (navigator.vibrate) {
+                    navigator.vibrate(30);
                 }
             }
         };
