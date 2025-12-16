@@ -32,6 +32,10 @@ class MidiPlayer {
         // First play always gets count-in, loop repeats don't
         this.isFirstPlay = true;
 
+        // Track whether the current synth was initialized with count-in
+        // Used for gapless looping - need to reinitialize once to remove count-in
+        this.synthHasCountIn = false;
+
         // Auto-scroll manager reference (will be set by AbcPlayer)
         this.autoScrollManager = null;
     }
@@ -236,6 +240,8 @@ class MidiPlayer {
                     millisecondsPerMeasure: millisecondsPerMeasure,
                     options: options
                 });
+                // Track whether this synth has count-in baked in (for gapless looping)
+                this.synthHasCountIn = this.isFirstPlay;
             } catch (synthError) {
                 console.error('ABCJS synth initialization failed:', synthError);
                 this.updateStatusDisplay("MIDI playback not available for this tune");
@@ -310,6 +316,8 @@ class MidiPlayer {
                 millisecondsPerMeasure: millisecondsPerMeasure,
                 options: options
             });
+            // Track whether this synth has count-in baked in (for gapless looping)
+            this.synthHasCountIn = this.isFirstPlay;
 
             // Update metronome with the current time signature and tempo from the visual object
             await this.updateMetronome(visualObj);
@@ -637,22 +645,55 @@ class MidiPlayer {
         this.updatePlayButtonState();
 
         if (this.playbackSettings.loopEnabled === true) {
-            // Auto-restart when loop is enabled
-            setTimeout(async () => {
-                if (this.playbackSettings.loopEnabled === true) {
-                    this.isFirstPlay = false;
-                    const visualObj = window.app?.renderManager?.currentVisualObj;
-                    if (visualObj) {
-                        await this.initWithNewPlayer(visualObj);
-                    }
-                    this.restart().finally(() => {
+            this.isFirstPlay = false;
+
+            // Check if synth was initialized with count-in bar
+            // If so, we need to reinitialize once to remove it for gapless looping
+            if (this.synthHasCountIn) {
+                // First loop iteration: reinitialize synth WITHOUT count-in
+                // This has a small delay, but subsequent loops will be gapless
+                const visualObj = window.app?.renderManager?.currentVisualObj;
+                if (visualObj) {
+                    this.initWithNewPlayer(visualObj).then(() => {
+                        // Reset and start auto-scroll
+                        if (this.autoScrollManager) {
+                            this.autoScrollManager.reset();
+                            this.autoScrollManager.start();
+                        }
+                        // Start playback
+                        this.midiPlayer.start();
+                        this.isPlaying = true;
+                        this.updatePlayButtonState();
                         this.onEndedCallbackActive = false;
                     });
-                } else {
-                    this.onEndedCallbackActive = false;
                 }
-            }, 10);
-            this.updateStatusDisplay("Looping...");
+            } else {
+                // Gapless looping: synth has no count-in, just stop and start
+                // Reset auto-scroll position for loop restart
+                if (this.autoScrollManager) {
+                    this.autoScrollManager.reset();
+                    const visualObj = window.app?.renderManager?.currentVisualObj;
+                    if (visualObj) {
+                        const baseTempo = visualObj.getBpm ? visualObj.getBpm() : 120;
+                        const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
+                        this.autoScrollManager.init(visualObj, adjustedTempo, false);
+                    }
+                }
+
+                // Simply stop (resets to beginning) and start again - no re-priming needed
+                this.midiPlayer.stop();
+                this.midiPlayer.start();
+
+                // Restart auto-scroll timing
+                if (this.autoScrollManager) {
+                    this.autoScrollManager.start();
+                }
+
+                this.isPlaying = true;
+                this.updatePlayButtonState();
+                this.onEndedCallbackActive = false;
+            }
+            // Note: Metronome continues running - don't stop/restart it for seamless rhythm
         } else {
             // Stop the metronome when the song ends, unless it's in constant mode
             if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying && !this.customMetronome.isConstantMode()) {
