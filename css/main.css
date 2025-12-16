@@ -22,3 +22,6 @@
 
 /* Orientation handling */
 @import 'orientation.css';
+
+/* Mobile tempo (must be last to override other styles) */
+@import 'mobile-tempo.css';

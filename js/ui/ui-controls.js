@@ -403,8 +403,11 @@ class UIControls {
         playbackSection.appendChild(this.createMetronomeToggleButton());
         // Auto-scroll toggle removed - now automatic based on screen size
 
-        // Add tempo control
+        // Add tempo control (desktop slider)
         playbackSection.appendChild(this.createTempoControl());
+
+        // Add mobile tempo button (hidden on desktop, shown on mobile)
+        playbackSection.appendChild(this.createMobileTempoButton());
 
         // Add tuning control
         playbackSection.appendChild(this.createTuningButton());
@@ -758,6 +761,126 @@ class UIControls {
                 );
             }
         });
+    }
+
+    /**
+     * Creates mobile tempo button with full-screen overlay slider
+     * @returns {HTMLElement} The mobile tempo button
+     */
+    createMobileTempoButton() {
+        const button = document.createElement('button');
+        button.id = 'mobile-tempo-button';
+        button.className = 'mobile-tempo-button';
+        button.textContent = `${this.player.midiPlayer.playbackSettings.tempo}%`;
+        button.title = 'Hold to adjust tempo';
+
+        let pressTimer = null;
+        let overlay = null;
+        let currentTempo = this.player.midiPlayer.playbackSettings.tempo;
+
+        // Create overlay (hidden by default)
+        const createOverlay = () => {
+            overlay = document.createElement('div');
+            overlay.className = 'tempo-overlay';
+            overlay.innerHTML = `
+                <div class="tempo-overlay-content">
+                    <div class="tempo-overlay-label">Tempo</div>
+                    <div class="tempo-overlay-value">${currentTempo}%</div>
+                    <div class="tempo-overlay-track">
+                        <div class="tempo-overlay-fill" style="width: ${(currentTempo - 50) / 1.5}%"></div>
+                        <div class="tempo-overlay-thumb" style="left: ${(currentTempo - 50) / 1.5}%"></div>
+                    </div>
+                    <div class="tempo-overlay-markers">
+                        <span>50%</span>
+                        <span>100%</span>
+                        <span>200%</span>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+            return overlay;
+        };
+
+        // Update overlay display
+        const updateOverlay = (tempo) => {
+            if (!overlay) return;
+            const percentage = (tempo - 50) / 1.5;
+            overlay.querySelector('.tempo-overlay-value').textContent = `${tempo}%`;
+            overlay.querySelector('.tempo-overlay-fill').style.width = `${percentage}%`;
+            overlay.querySelector('.tempo-overlay-thumb').style.left = `${percentage}%`;
+        };
+
+        // Calculate tempo from touch position
+        const getTempoFromTouch = (touchX) => {
+            const overlayContent = overlay.querySelector('.tempo-overlay-track');
+            const rect = overlayContent.getBoundingClientRect();
+            const percentage = Math.max(0, Math.min(100, ((touchX - rect.left) / rect.width) * 100));
+            return Math.round(50 + (percentage * 1.5));
+        };
+
+        // Handle touch start
+        const handleTouchStart = (e) => {
+            pressTimer = setTimeout(() => {
+                // Long press - show overlay
+                if (!overlay) {
+                    createOverlay();
+                }
+                overlay.classList.add('active');
+                currentTempo = this.player.midiPlayer.playbackSettings.tempo;
+                updateOverlay(currentTempo);
+
+                // Haptic feedback
+                if (navigator.vibrate) {
+                    navigator.vibrate(50);
+                }
+            }, 200); // 200ms for long press detection
+        };
+
+        // Handle touch move (while overlay is active)
+        const handleTouchMove = (e) => {
+            if (!overlay || !overlay.classList.contains('active')) {
+                return;
+            }
+            e.preventDefault();
+            const touch = e.touches[0];
+            currentTempo = getTempoFromTouch(touch.clientX);
+            updateOverlay(currentTempo);
+        };
+
+        // Handle touch end
+        const handleTouchEnd = async (e) => {
+            if (pressTimer) {
+                clearTimeout(pressTimer);
+                pressTimer = null;
+            }
+
+            if (overlay && overlay.classList.contains('active')) {
+                // Apply tempo change
+                overlay.classList.remove('active');
+                button.textContent = `${currentTempo}%`;
+
+                await this.player.midiPlayer.updatePlaybackSettings(
+                    { tempo: currentTempo },
+                    this.player.renderManager.currentVisualObj
+                );
+
+                // Force update metronome if it's running
+                if (this.player.midiPlayer.playbackSettings.metronomeOn &&
+                    this.player.midiPlayer.customMetronome.isPlaying) {
+                    await this.player.midiPlayer.customMetronome.setTempo(
+                        this.player.midiPlayer.lastTempo
+                    );
+                }
+            }
+        };
+
+        // Add event listeners
+        button.addEventListener('touchstart', handleTouchStart, { passive: true });
+        button.addEventListener('touchmove', handleTouchMove, { passive: false });
+        button.addEventListener('touchend', handleTouchEnd);
+        button.addEventListener('touchcancel', handleTouchEnd);
+
+        return button;
     }
 
     /**

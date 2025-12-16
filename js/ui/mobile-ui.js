@@ -251,6 +251,7 @@ class MobileUI {
         const restartButton = document.getElementById('restart-button');
         const transposeUp = document.getElementById('transpose-up');
         const transposeDown = document.getElementById('transpose-down');
+        const mobileTempoButton = document.getElementById('mobile-tempo-button');
         const tempoControl = document.querySelector('.tempo-control');
 
         // Add important controls to main row
@@ -258,7 +259,12 @@ class MobileUI {
         if (restartButton) mainRow.appendChild(restartButton);
         if (transposeUp) mainRow.appendChild(transposeUp);
         if (transposeDown) mainRow.appendChild(transposeDown);
-        if (tempoControl) mainRow.appendChild(tempoControl);
+        // Use mobile tempo button on mobile, regular tempo control on desktop
+        if (mobileTempoButton) {
+            mainRow.appendChild(mobileTempoButton);
+        } else if (tempoControl) {
+            mainRow.appendChild(tempoControl);
+        }
 
         // Create toggle button for playback extras
         const toggleButton = document.createElement('button');

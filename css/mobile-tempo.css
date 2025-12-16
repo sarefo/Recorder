@@ -1,0 +1,143 @@
+/* Mobile Tempo Button and Overlay */
+
+/* Default: Show mobile button, hide slider (mobile-first approach) */
+.mobile-tempo-button,
+.control-bar .mobile-tempo-button,
+.playback-controls .mobile-tempo-button,
+.mobile-playback-bar .mobile-tempo-button,
+.mobile-main-row .mobile-tempo-button {
+    display: inline-block !important;
+    padding: 8px 16px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.mobile-tempo-button:active {
+    background-color: #1557b0;
+}
+
+/* On desktop (large screens), hide mobile button and show slider */
+@media (min-width: 769px) and (min-height: 601px) {
+    .mobile-tempo-button {
+        display: none !important;
+    }
+
+    /* Ensure tempo slider is shown on desktop */
+    .tempo-control {
+        display: flex !important;
+    }
+}
+
+/* On mobile (portrait or landscape), hide slider and show button */
+@media (max-width: 768px), (max-height: 600px) {
+    .tempo-control,
+    .control-bar .tempo-control,
+    .playback-controls .tempo-control,
+    .mobile-playback-bar .tempo-control,
+    .mobile-playback-bar .playback-controls .tempo-control,
+    .mobile-main-row .tempo-control {
+        display: none !important;
+    }
+}
+
+/* Full-screen tempo overlay */
+.tempo-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    touch-action: none;
+}
+
+.tempo-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.tempo-overlay-content {
+    width: 90%;
+    max-width: 800px;
+    color: white;
+    touch-action: none;
+}
+
+.tempo-overlay-label {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #aaa;
+}
+
+.tempo-overlay-value {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.tempo-overlay-track {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.tempo-overlay-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #1a73e8;
+    border-radius: 4px;
+    transition: width 0.05s ease;
+}
+
+.tempo-overlay-thumb {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: left 0.05s ease;
+}
+
+.tempo-overlay-markers {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #888;
+    padding: 0 12px;
+}
+
+.tempo-overlay-markers span {
+    position: relative;
+}
+
+.tempo-overlay-markers span:nth-child(2) {
+    font-weight: 500;
+    color: #aaa;
+}
