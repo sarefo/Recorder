@@ -117,7 +117,7 @@ class OfflineManager {
                 this.isCacheComplete = true;
                 this.cacheProgress = cached;
                 this.totalFiles = total;
-                console.log(`Cache complete: ${cached}/${total} files cached`);
+                //console.log(`Cache complete: ${cached}/${total} files cached`);
                 this.updateStatusDisplay();
                 this.showCacheCompleteNotification(cached, total);
                 break;
@@ -134,7 +134,7 @@ class OfflineManager {
      */
     updateCacheProgress(cached, total) {
         const percentage = Math.round((cached / total) * 100);
-        console.log(`Cache progress: ${cached}/${total} (${percentage}%)`);
+        // console.log(`Cache progress: ${cached}/${total} (${percentage}%)`);
 
         // Update UI if status display exists
         const statusElement = document.getElementById('offline-status-text');
