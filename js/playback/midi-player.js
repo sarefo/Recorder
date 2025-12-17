@@ -506,8 +506,11 @@ class MidiPlayer {
 
             if (this.isPlaying) {
                 if (isConstantMetronomeMode) {
-                    // In constant mode, only stop the metronome
+                    // In constant mode, stop the metronome and auto-scroll manager
                     this.customMetronome.stop();
+                    if (this.autoScrollManager) {
+                        this.autoScrollManager.stop();
+                    }
                     this.isPlaying = false;
                     this.updatePlayButtonState();
                     success = true;
@@ -546,13 +549,19 @@ class MidiPlayer {
                 this.preparationTimeout = null;
 
                 if (isConstantMetronomeMode) {
-                    // In constant mode, only start the metronome
+                    // In constant mode, start metronome and note highlighter
                     const visualObj = window.app?.renderManager?.currentVisualObj;
                     if (visualObj && typeof visualObj.getBpm === 'function') {
                         const baseTempo = visualObj.getBpm() || 120;
                         const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
                         const timeSignature = visualObj.getMeter?.();
                         const numerator = timeSignature?.value?.[0]?.num || 4;
+
+                        // Initialize and start auto-scroll manager for note highlighting and completion detection
+                        if (this.autoScrollManager) {
+                            this.autoScrollManager.init(visualObj, adjustedTempo, this.isFirstPlay);
+                            this.autoScrollManager.start();
+                        }
 
                         await this.customMetronome.start(adjustedTempo, numerator);
                         this.isPlaying = true;

@@ -10,6 +10,8 @@ class AutoScrollManager {
         this.scrollBehavior = 'smooth';
         this.viewportOffset = 0.4; // Position note at 40% from top (desktop default)
         this.scrollThreshold = 50; // Minimum pixels out of position before scrolling
+        this.onFinishedCallback = null; // Callback to fire when playback completes
+        this.finishTimer = null; // Timer to detect playback completion
 
         // Update enabled state based on screen size
         this.updateEnabledBasedOnScreenSize();
@@ -44,15 +46,33 @@ class AutoScrollManager {
             return;
         }
 
-        // Stop any existing timing callbacks
+        // Stop any existing timing callbacks and finish timer
         if (this.timingCallbacks) {
             this.timingCallbacks.stop();
+        }
+        if (this.finishTimer) {
+            clearTimeout(this.finishTimer);
+            this.finishTimer = null;
         }
 
         try {
             // Get the base tempo from visual object if not provided
             const baseTempo = visualObj.getBpm ? visualObj.getBpm() : 120;
             const qpm = adjustedTempo || baseTempo;
+
+            // Calculate total duration of the piece for completion detection
+            // getTotalTime() returns duration in seconds at the base tempo
+            // Adjust for the current playback tempo
+            let durationMs = 0;
+            if (visualObj.getTotalTime && typeof visualObj.getTotalTime === 'function') {
+                const baseDurationSeconds = visualObj.getTotalTime();
+                // Adjust duration based on tempo: faster tempo = shorter duration
+                // baseDurationMs * (baseTempo / adjustedTempo)
+                durationMs = (baseDurationSeconds * 1000) * (baseTempo / qpm);
+            }
+
+            // Store duration for use when starting playback
+            this.totalDurationMs = durationMs;
 
             // Create new timing callbacks with ABCJS
             // If there's a count-in bar, add extraMeasuresAtBeginning so scrolling waits
@@ -164,6 +184,16 @@ class AutoScrollManager {
         if (this.timingCallbacks) {
             try {
                 this.timingCallbacks.start();
+
+                // Set up completion timer if we have a duration and callback
+                if (this.totalDurationMs && this.onFinishedCallback) {
+                    // Add a small buffer (100ms) to ensure the last note event has fired
+                    this.finishTimer = setTimeout(() => {
+                        if (this.onFinishedCallback) {
+                            this.onFinishedCallback();
+                        }
+                    }, this.totalDurationMs + 100);
+                }
             } catch (error) {
                 console.error('AutoScrollManager: Error starting timing callbacks:', error);
             }
@@ -174,6 +204,12 @@ class AutoScrollManager {
      * Pause auto-scroll
      */
     pause() {
+        // Clear the finish timer when pausing
+        if (this.finishTimer) {
+            clearTimeout(this.finishTimer);
+            this.finishTimer = null;
+        }
+
         if (this.timingCallbacks) {
             try {
                 this.timingCallbacks.pause();
@@ -187,6 +223,12 @@ class AutoScrollManager {
      * Stop and reset auto-scroll
      */
     stop() {
+        // Clear the finish timer when stopping
+        if (this.finishTimer) {
+            clearTimeout(this.finishTimer);
+            this.finishTimer = null;
+        }
+
         if (this.timingCallbacks) {
             try {
                 this.timingCallbacks.stop();
@@ -213,6 +255,12 @@ class AutoScrollManager {
      * Reset scroll position for loop restart
      */
     reset() {
+        // Clear the finish timer when resetting
+        if (this.finishTimer) {
+            clearTimeout(this.finishTimer);
+            this.finishTimer = null;
+        }
+
         // Clear highlight
         if (this.currentElements && this.currentElements.length > 0) {
             this.currentElements.forEach(el => {
@@ -257,5 +305,13 @@ class AutoScrollManager {
      */
     isEnabled() {
         return this.enabled;
+    }
+
+    /**
+     * Set a callback to fire when playback completes
+     * @param {Function} callback - Function to call when playback finishes
+     */
+    setOnFinishedCallback(callback) {
+        this.onFinishedCallback = callback;
     }
 }

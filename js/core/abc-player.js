@@ -42,6 +42,23 @@ class AbcPlayer {
         this.midiPlayer = new MidiPlayer();
         this.autoScrollManager = new AutoScrollManager(this);
         this.midiPlayer.autoScrollManager = this.autoScrollManager;
+
+        // Set up callback to handle playback completion when only metronome is playing
+        this.autoScrollManager.setOnFinishedCallback(() => {
+            // Only handle this if we're in constant metronome mode (no MIDI playback)
+            // Check if metronome is playing and MIDI player is not playing
+            if (this.midiPlayer.customMetronome.isPlaying &&
+                !this.midiPlayer.isPlaying &&
+                this.midiPlayer.customMetronome.isConstantMode()) {
+                // Stop the metronome
+                this.midiPlayer.customMetronome.stop();
+                // Update UI state
+                this.midiPlayer.isPlaying = false;
+                this.midiPlayer.updatePlayButtonState();
+                this.midiPlayer.updateStatusDisplay("Playback finished");
+            }
+        });
+
         this.diagramRenderer = new DiagramRenderer(this.fingeringManager, this.fingeringConfig);
         this.fileManager = new FileManager(this);
         this.tuneNavigation = new TuneNavigation(this);
