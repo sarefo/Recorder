@@ -50,33 +50,25 @@ class AutoScrollManager {
         }
 
         try {
-            // Get the base tempo from visual object if not provided
-            const baseTempo = visualObj.getBpm ? visualObj.getBpm() : 120;
-            let qpm = adjustedTempo || baseTempo;
-
-            // Fix for compound time signatures (like 6/8, 9/8, 12/8)
-            // ABCJS.getBpm() returns doubled tempo for compound time with dotted quarter beat
-            // but TimingCallbacks expects the actual beat tempo, not the converted qpm
-            const meter = visualObj.getMeter?.();
-            if (meter && meter.value && meter.value[0]) {
-                const numerator = parseInt(meter.value[0].num);
-                const denominator = parseInt(meter.value[0].den);
-
-                // Check for compound time: numerator divisible by 3, denominator is 8
-                if (numerator % 3 === 0 && denominator === 8 && numerator > 3) {
-                    // Halve the tempo for TimingCallbacks to match audio playback
-                    qpm = qpm / 2;
-                }
-            }
-
-            // Create new timing callbacks with ABCJS
-            // If there's a count-in bar, add extraMeasuresAtBeginning so scrolling waits
-            this.timingCallbacks = new ABCJS.TimingCallbacks(visualObj, {
-                qpm: qpm, // Use adjusted tempo for correct timing
+            // For compound time signatures, let ABCJS.TimingCallbacks read tempo from visualObj directly
+            // This avoids tempo interpretation mismatches between synth and highlighting
+            const options = {
                 extraMeasuresAtBeginning: hasCountIn ? 1 : 0, // Wait for count-in bar if present
                 eventCallback: (ev) => this.handleNoteEvent(ev),
                 lineEndCallback: (info) => this.handleLineEnd(info)
-            });
+            };
+
+            // Only pass qpm if tempo is adjusted (not at 100%)
+            // When omitted, TimingCallbacks reads tempo directly from visualObj like the synth does
+            const baseTempo = visualObj.getBpm ? visualObj.getBpm() : 120;
+            const hasTempoAdjustment = adjustedTempo && Math.abs(adjustedTempo - baseTempo) > 0.1;
+
+            if (hasTempoAdjustment) {
+                options.qpm = adjustedTempo;
+            }
+
+            // Create new timing callbacks with ABCJS
+            this.timingCallbacks = new ABCJS.TimingCallbacks(visualObj, options);
         } catch (error) {
             console.error('AutoScrollManager: Error initializing timing callbacks:', error);
         }
