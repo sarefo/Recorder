@@ -108,7 +108,18 @@ class MidiPlayer {
 
         // Calculate milliseconds per measure based on adjusted tempo
         const timeSignature = visualObj.getMeter?.() || null;
-        const beatsPerMeasure = timeSignature?.value?.[0]?.num || 4;
+        let beatsPerMeasure = timeSignature?.value?.[0]?.num || 4;
+
+        // For compound time (6/8, 9/8, 12/8), the beat is the dotted quarter (3 eighths),
+        // not individual eighth notes, so divide by 3 to get actual beats per measure
+        if (timeSignature?.value?.[0]) {
+            const numerator = parseInt(timeSignature.value[0].num);
+            const denominator = parseInt(timeSignature.value[0].den);
+            if (numerator % 3 === 0 && denominator === 8 && numerator > 3) {
+                beatsPerMeasure = numerator / 3; // e.g., 6/8 → 2 beats, 9/8 → 3 beats
+            }
+        }
+
         const millisecondsPerMeasure = (60000 * beatsPerMeasure) / adjustedTempo;
 
         return {

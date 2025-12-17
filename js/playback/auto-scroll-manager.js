@@ -52,23 +52,7 @@ class AutoScrollManager {
         try {
             // Get the base tempo from visual object if not provided
             const baseTempo = visualObj.getBpm ? visualObj.getBpm() : 120;
-            let qpm = adjustedTempo || baseTempo;
-
-            // Fix for compound time signatures (like 6/8, 9/8, 12/8)
-            // ABCJS.getBpm() returns tempo in quarter notes, but for compound time with
-            // dotted quarter beat notation (Q:3/4=X), TimingCallbacks needs adjustment
-            const meter = visualObj.getMeter?.();
-            if (meter && meter.value && meter.value[0]) {
-                const numerator = parseInt(meter.value[0].num);
-                const denominator = parseInt(meter.value[0].den);
-
-                // Check for compound time: numerator divisible by 3, denominator is 8
-                if (numerator % 3 === 0 && denominator === 8 && numerator > 3) {
-                    // Divide by 4 to match audio playback timing
-                    // (getBpm returns 4x the correct tempo for TimingCallbacks in this case)
-                    qpm = qpm / 4;
-                }
-            }
+            const qpm = adjustedTempo || baseTempo;
 
             // Create new timing callbacks with ABCJS
             // If there's a count-in bar, add extraMeasuresAtBeginning so scrolling waits
