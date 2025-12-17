@@ -38,6 +38,11 @@ class MidiPlayer {
 
         // Auto-scroll manager reference (will be set by AbcPlayer)
         this.autoScrollManager = null;
+
+        // Track preparation delay state and timeout
+        this.isPreparingToPlay = false;
+        this.preparationTimeout = null;
+        this.preparationDelayMs = 2000; // 2-second delay before playback starts
     }
 
     /**
@@ -360,8 +365,13 @@ class MidiPlayer {
         const playButton = document.getElementById('play-button');
         if (playButton) {
             playButton.disabled = disabled;
-            playButton.textContent = this.isPlaying ? '⏸' : '▶';
-            playButton.title = this.isPlaying ? 'Pause' : 'Play';
+            if (this.isPreparingToPlay) {
+                playButton.textContent = '⏱';
+                playButton.title = 'Preparing to play...';
+            } else {
+                playButton.textContent = this.isPlaying ? '⏸' : '▶';
+                playButton.title = this.isPlaying ? 'Pause' : 'Play';
+            }
         }
     }
 
@@ -470,6 +480,19 @@ class MidiPlayer {
                 !this.playbackSettings.chordsOn &&
                 !this.playbackSettings.voicesOn;
 
+            // Handle canceling preparation if button is pressed during delay
+            if (this.isPreparingToPlay) {
+                // Cancel the preparation timeout
+                if (this.preparationTimeout) {
+                    clearTimeout(this.preparationTimeout);
+                    this.preparationTimeout = null;
+                }
+                this.isPreparingToPlay = false;
+                this.updatePlayButtonState();
+                this.updateStatusDisplay("Playback canceled");
+                return true;
+            }
+
             if (this.isPlaying) {
                 if (isConstantMetronomeMode) {
                     // In constant mode, only stop the metronome
@@ -492,6 +515,25 @@ class MidiPlayer {
                     }
                 }
             } else {
+                // Set preparing state and update UI
+                this.isPreparingToPlay = true;
+                this.updatePlayButtonState();
+                this.updateStatusDisplay("Preparing to play...");
+
+                // Wait for 2 seconds before starting playback
+                await new Promise((resolve) => {
+                    this.preparationTimeout = setTimeout(resolve, this.preparationDelayMs);
+                });
+
+                // Check if preparation was canceled during the delay
+                if (!this.isPreparingToPlay) {
+                    return false;
+                }
+
+                // Clear preparation state
+                this.isPreparingToPlay = false;
+                this.preparationTimeout = null;
+
                 if (isConstantMetronomeMode) {
                     // In constant mode, only start the metronome
                     const visualObj = window.app?.renderManager?.currentVisualObj;
@@ -528,7 +570,7 @@ class MidiPlayer {
 
                     // Use startPlayback for proper resume functionality
                     success = await this.startPlayback();
-                    
+
                     if (success) {
                         this.isPlaying = true;
                         this.updatePlayButtonState();
@@ -540,6 +582,13 @@ class MidiPlayer {
         } catch (error) {
             console.error("Error in togglePlay:", error);
             this.updateStatusDisplay("Error during playback");
+            // Reset preparation state on error
+            this.isPreparingToPlay = false;
+            if (this.preparationTimeout) {
+                clearTimeout(this.preparationTimeout);
+                this.preparationTimeout = null;
+            }
+            this.updatePlayButtonState();
             return false;
         }
     }
@@ -550,6 +599,15 @@ class MidiPlayer {
      */
     async stopPlayback() {
         try {
+            // Cancel any pending preparation
+            if (this.isPreparingToPlay) {
+                if (this.preparationTimeout) {
+                    clearTimeout(this.preparationTimeout);
+                    this.preparationTimeout = null;
+                }
+                this.isPreparingToPlay = false;
+            }
+
             // Make sure metronome is stopped first
             this.customMetronome.stop();
 
