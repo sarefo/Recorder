@@ -3,6 +3,7 @@
  */
 
 import { midiToNoteName, getConfidenceColor } from '../core/utils.js';
+import { Spectrogram } from './spectrogram.js';
 
 export class PianoRoll {
     constructor(app, containerId) {
@@ -11,11 +12,13 @@ export class PianoRoll {
         this.container = null;
         this.canvas = null;
         this.ctx = null;
+        this.spectrogramCanvas = null;
+        this.spectrogram = null;
         this.notes = [];
         this.selectedNoteId = null;
         this.duration = 0;
         this.pixelsPerSecond = 100;
-        this.noteHeight = 10;
+        this.noteHeight = 14;
 
         // Piano key setup - will be adjusted based on notes
         this.midiMin = 60;  // C4 (middle C) - default
@@ -38,9 +41,26 @@ export class PianoRoll {
         this.container = document.getElementById(this.containerId);
         if (!this.container) return;
 
-        // Create canvas
+        // Make container position relative for layering
+        this.container.style.position = 'relative';
+
+        // Create spectrogram canvas (background layer)
+        this.spectrogramCanvas = document.createElement('canvas');
+        this.spectrogramCanvas.className = 'piano-roll-spectrogram';
+        this.spectrogramCanvas.style.position = 'absolute';
+        this.spectrogramCanvas.style.top = '0';
+        this.spectrogramCanvas.style.left = '0';
+        this.spectrogramCanvas.style.pointerEvents = 'none'; // Allow clicks through
+        this.container.appendChild(this.spectrogramCanvas);
+
+        // Initialize spectrogram
+        this.spectrogram = new Spectrogram();
+        this.spectrogram.init(this.spectrogramCanvas);
+
+        // Create main canvas (foreground layer)
         this.canvas = document.createElement('canvas');
         this.canvas.className = 'piano-roll-canvas';
+        this.canvas.style.position = 'relative';
         this.container.appendChild(this.canvas);
         this.ctx = this.canvas.getContext('2d');
 
@@ -71,6 +91,14 @@ export class PianoRoll {
         this.canvas.height = height;
         this.canvas.style.width = rect.width + 'px';
         this.canvas.style.height = height + 'px';
+
+        // Also resize spectrogram canvas
+        if (this.spectrogramCanvas) {
+            this.spectrogramCanvas.width = rect.width;
+            this.spectrogramCanvas.height = height;
+            this.spectrogramCanvas.style.width = rect.width + 'px';
+            this.spectrogramCanvas.style.height = height + 'px';
+        }
 
         this.render();
     }
@@ -108,9 +136,41 @@ export class PianoRoll {
         const availableWidth = this.canvas.width - this.keyWidth - 20;
         this.pixelsPerSecond = Math.max(50, availableWidth / duration);
 
+        // Update spectrogram display parameters
+        if (this.spectrogram) {
+            this.spectrogram.setDisplayParams({
+                midiMin: this.midiMin,
+                midiMax: this.midiMax,
+                pixelsPerSecond: this.pixelsPerSecond,
+                noteHeight: this.noteHeight,
+                keyWidth: this.keyWidth
+            });
+        }
+
         // Resize canvas height based on MIDI range
         this._resize();
         this.render();
+
+        // Compute spectrogram if we have audio
+        this._computeSpectrogram();
+    }
+
+    /**
+     * Compute and render spectrogram from app's audio buffer
+     * @private
+     */
+    async _computeSpectrogram() {
+        if (!this.spectrogram || !this.app.audioBuffer) {
+            console.log('Cannot compute spectrogram: missing spectrogram or audioBuffer');
+            return;
+        }
+
+        try {
+            console.log('Computing spectrogram...');
+            await this.spectrogram.compute(this.app.audioBuffer, this.duration);
+        } catch (error) {
+            console.error('Failed to compute spectrogram:', error);
+        }
     }
 
     /**
@@ -123,11 +183,13 @@ export class PianoRoll {
         const width = this.canvas.width;
         const height = this.canvas.height;
 
-        // Clear canvas
-        ctx.fillStyle = '#f5f5f5';
+        // Clear canvas with semi-transparent background
+        // This allows the spectrogram to show through
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = 'rgba(245, 245, 245, 0.7)';
         ctx.fillRect(0, 0, width, height);
 
-        // Draw piano keys on the left
+        // Draw piano keys on the left (opaque)
         this._drawPianoKeys();
 
         // Draw grid lines
@@ -516,7 +578,12 @@ export class PianoRoll {
             this.canvas.remove();
             this.canvas = null;
         }
+        if (this.spectrogramCanvas) {
+            this.spectrogramCanvas.remove();
+            this.spectrogramCanvas = null;
+        }
         this.ctx = null;
+        this.spectrogram = null;
         this.notes = [];
     }
 }

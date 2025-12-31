@@ -36,15 +36,37 @@ export class NoteEditor {
             addBtn.addEventListener('click', () => this.toggleAddMode());
         }
 
-        // Play all button - now plays parsed notes via synth
-        const playAllBtn = document.getElementById('btn-play-all');
+        // Playback buttons
+        const playParsedBtn = document.getElementById('btn-play-parsed');
+        const playOriginalBtn = document.getElementById('btn-play-original');
         const stopAllBtn = document.getElementById('btn-stop-all');
-        if (playAllBtn && stopAllBtn) {
-            playAllBtn.addEventListener('click', () => {
-                console.log('Play All clicked - playing via synth');
-                this.playAllNotes();
-            });
+        const playBothChk = document.getElementById('chk-play-both');
 
+        if (playParsedBtn) {
+            playParsedBtn.addEventListener('click', () => {
+                console.log('Play Parsed clicked');
+                const playBoth = playBothChk && playBothChk.checked;
+                if (playBoth) {
+                    this.playBoth();
+                } else {
+                    this.playAllNotes();
+                }
+            });
+        }
+
+        if (playOriginalBtn) {
+            playOriginalBtn.addEventListener('click', () => {
+                console.log('Play Original clicked');
+                const playBoth = playBothChk && playBothChk.checked;
+                if (playBoth) {
+                    this.playBoth();
+                } else {
+                    this.playOriginal();
+                }
+            });
+        }
+
+        if (stopAllBtn) {
             stopAllBtn.addEventListener('click', () => {
                 console.log('Stop clicked');
                 this.stopPlayback();
@@ -617,11 +639,7 @@ export class NoteEditor {
     playAllNotes() {
         if (!this.app.synth || this.app.correctedNotes.length === 0) return;
 
-        const playAllBtn = document.getElementById('btn-play-all');
-        const stopAllBtn = document.getElementById('btn-stop-all');
-
-        if (playAllBtn) playAllBtn.disabled = true;
-        if (stopAllBtn) stopAllBtn.disabled = false;
+        this._setPlaybackState(true);
 
         this.app.synth.playNotes(
             this.app.correctedNotes,
@@ -632,22 +650,78 @@ export class NoteEditor {
             },
             // On complete
             () => {
-                if (playAllBtn) playAllBtn.disabled = false;
-                if (stopAllBtn) stopAllBtn.disabled = true;
+                this._setPlaybackState(false);
             }
         );
     }
 
     /**
-     * Stop synth playback
+     * Play original audio
+     */
+    playOriginal() {
+        if (!this.app.waveformManager.editorWavesurfer) return;
+
+        this._setPlaybackState(true);
+        this.app.waveformManager.playEditor();
+
+        // Listen for finish
+        this.app.waveformManager.editorWavesurfer.once('finish', () => {
+            this._setPlaybackState(false);
+        });
+    }
+
+    /**
+     * Play both original and parsed together (A/B comparison)
+     */
+    playBoth() {
+        if (!this.app.synth || this.app.correctedNotes.length === 0) return;
+        if (!this.app.waveformManager.editorWavesurfer) return;
+
+        this._setPlaybackState(true);
+
+        // Start both at same time
+        this.app.waveformManager.playEditor();
+        this.app.synth.playNotes(
+            this.app.correctedNotes,
+            0,
+            (note) => {
+                this.selectNote(note.id);
+            },
+            () => {
+                // Synth finished - original might still be playing
+            }
+        );
+
+        // Listen for original to finish
+        this.app.waveformManager.editorWavesurfer.once('finish', () => {
+            this._setPlaybackState(false);
+        });
+    }
+
+    /**
+     * Stop all playback
      */
     stopPlayback() {
         if (this.app.synth) {
             this.app.synth.stop();
         }
-        const playAllBtn = document.getElementById('btn-play-all');
+        if (this.app.waveformManager.editorWavesurfer) {
+            this.app.waveformManager.stopEditor();
+        }
+        this._setPlaybackState(false);
+    }
+
+    /**
+     * Update playback button states
+     * @private
+     */
+    _setPlaybackState(isPlaying) {
+        const playParsedBtn = document.getElementById('btn-play-parsed');
+        const playOriginalBtn = document.getElementById('btn-play-original');
         const stopAllBtn = document.getElementById('btn-stop-all');
-        if (playAllBtn) playAllBtn.disabled = false;
-        if (stopAllBtn) stopAllBtn.disabled = true;
+
+        if (playParsedBtn) playParsedBtn.disabled = isPlaying;
+        if (playOriginalBtn) playOriginalBtn.disabled = isPlaying;
+        if (stopAllBtn) stopAllBtn.disabled = !isPlaying;
     }
 }

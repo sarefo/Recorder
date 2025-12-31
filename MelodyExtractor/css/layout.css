@@ -387,7 +387,7 @@
 /* Review Layout */
 .review-layout {
     display: grid;
-    grid-template-columns: 1fr 260px;
+    grid-template-columns: 1fr 220px;
     grid-template-rows: auto auto;
     gap: var(--spacing-md);
 }
@@ -398,8 +398,6 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    max-height: calc(100vh - 250px);
-    overflow-y: auto;
 }
 
 .editor-sidebar {
@@ -407,9 +405,7 @@
     grid-row: 1;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
-    max-height: calc(100vh - 250px);
-    overflow-y: auto;
+    gap: var(--spacing-xs);
 }
 
 .review-layout .panel-actions {
@@ -420,9 +416,9 @@
 /* Note Details Panel */
 .note-details {
     background: var(--bg-color);
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     border-radius: var(--border-radius-sm);
-    min-height: 150px;
+    min-height: 120px;
 }
 
 .note-details .placeholder-text {
@@ -465,36 +461,38 @@
 /* Editor Tools */
 .editor-tools {
     background: var(--bg-color);
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     border-radius: var(--border-radius-sm);
 }
 
 .editor-tools h4 {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.85rem;
 }
 
 /* Confidence Legend */
 .confidence-legend {
     background: var(--bg-color);
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     border-radius: var(--border-radius-sm);
 }
 
 .confidence-legend h4 {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.85rem;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    font-size: 0.85rem;
-    margin-bottom: var(--spacing-xs);
+    gap: var(--spacing-xs);
+    font-size: 0.75rem;
+    margin-bottom: 2px;
 }
 
 .legend-color {
-    width: 20px;
-    height: 16px;
+    width: 16px;
+    height: 12px;
     border-radius: 2px;
     border: 1px solid rgba(0,0,0,0.1);
 }
@@ -504,26 +502,67 @@
 .legend-color.low { background: var(--confidence-low); }
 .legend-color.user { background: rgba(0, 123, 255, 0.7); }
 
+/* Compact legend row */
+.legend-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    align-items: center;
+    font-size: 0.7rem;
+}
+
+.legend-row .legend-color {
+    width: 12px;
+    height: 10px;
+}
+
+/* Playback row */
+.playback-row {
+    display: flex;
+    gap: 4px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.btn-sm {
+    padding: 4px 8px !important;
+    font-size: 0.75rem !important;
+}
+
+/* Checkbox row */
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.checkbox-row input[type="checkbox"] {
+    margin: 0;
+}
+
 /* How to Edit Section */
 .how-to-edit {
     background: var(--bg-color);
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     border-radius: var(--border-radius-sm);
 }
 
 .how-to-edit h4 {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.85rem;
 }
 
 .edit-hints {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .edit-hints li {
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 2px;
     color: var(--text-muted);
 }
 

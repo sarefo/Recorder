@@ -180,28 +180,66 @@ export class UIControls {
             }
         });
 
-        // Play original button
-        const playOriginal = document.getElementById('btn-play-original');
-        if (playOriginal) {
-            playOriginal.addEventListener('click', () => {
-                if (playOriginal.classList.contains('active')) {
-                    this.app.stopOriginal();
-                    playOriginal.textContent = 'Play Original';
-                    playOriginal.classList.remove('active');
+        // Export playback controls
+        const playParsedBtn = document.getElementById('btn-export-play-parsed');
+        const playOriginalBtn = document.getElementById('btn-export-play-original');
+        const stopBtn = document.getElementById('btn-export-stop');
+        const playBothChk = document.getElementById('chk-export-play-both');
+
+        const setExportPlaybackState = (isPlaying) => {
+            if (playParsedBtn) playParsedBtn.disabled = isPlaying;
+            if (playOriginalBtn) playOriginalBtn.disabled = isPlaying;
+            if (stopBtn) stopBtn.disabled = !isPlaying;
+        };
+
+        if (playParsedBtn) {
+            playParsedBtn.addEventListener('click', () => {
+                const playBoth = playBothChk && playBothChk.checked;
+                setExportPlaybackState(true);
+
+                if (playBoth && this.app.waveformManager.editorWavesurfer) {
+                    // Play both
+                    this.app.waveformManager.playEditor();
+                    this.app.synth.playNotes(this.app.correctedNotes, 0, null, () => {});
+                    this.app.waveformManager.editorWavesurfer.once('finish', () => {
+                        setExportPlaybackState(false);
+                    });
                 } else {
-                    this.app.playOriginal();
-                    playOriginal.textContent = 'Stop Original';
-                    playOriginal.classList.add('active');
+                    // Play parsed only
+                    this.app.synth.playNotes(this.app.correctedNotes, 0, null, () => {
+                        setExportPlaybackState(false);
+                    });
                 }
             });
         }
 
-        // Play ABC button
-        const playAbc = document.getElementById('btn-play-abc');
-        if (playAbc) {
-            playAbc.addEventListener('click', () => {
-                const abc = document.getElementById('abc-text').value;
-                this.app.abcPreview.toggle(abc);
+        if (playOriginalBtn) {
+            playOriginalBtn.addEventListener('click', () => {
+                const playBoth = playBothChk && playBothChk.checked;
+                setExportPlaybackState(true);
+
+                if (playBoth) {
+                    // Play both
+                    this.app.waveformManager.playEditor();
+                    this.app.synth.playNotes(this.app.correctedNotes, 0, null, () => {});
+                    this.app.waveformManager.editorWavesurfer.once('finish', () => {
+                        setExportPlaybackState(false);
+                    });
+                } else {
+                    // Play original only
+                    this.app.waveformManager.playEditor();
+                    this.app.waveformManager.editorWavesurfer.once('finish', () => {
+                        setExportPlaybackState(false);
+                    });
+                }
+            });
+        }
+
+        if (stopBtn) {
+            stopBtn.addEventListener('click', () => {
+                this.app.synth.stop();
+                this.app.waveformManager.stopEditor();
+                setExportPlaybackState(false);
             });
         }
 

@@ -152,45 +152,39 @@
                 </div>
                 <div class="editor-sidebar">
                     <div id="note-details" class="note-details">
-                        <p class="placeholder-text">Click a note in the piano roll or waveform to select and edit it</p>
+                        <p class="placeholder-text">Click a note to edit</p>
                     </div>
                     <div class="editor-tools">
                         <h4>Playback</h4>
-                        <button id="btn-play-all" class="btn btn-tool">▶ Play All</button>
-                        <button id="btn-stop-all" class="btn btn-tool" disabled>⏸ Stop</button>
+                        <div class="playback-row">
+                            <button id="btn-play-parsed" class="btn btn-tool btn-sm">▶ Parsed</button>
+                            <button id="btn-play-original" class="btn btn-tool btn-sm">▶ Original</button>
+                            <button id="btn-stop-all" class="btn btn-tool btn-sm" disabled>⏹</button>
+                        </div>
+                        <label class="checkbox-row">
+                            <input type="checkbox" id="chk-play-both"> Play both together
+                        </label>
                     </div>
                     <div class="editor-tools">
                         <h4>Tools</h4>
-                        <button id="btn-add-note" class="btn btn-tool">Add Note</button>
+                        <button id="btn-add-note" class="btn btn-tool btn-sm">+ Add Note</button>
                     </div>
                     <div class="how-to-edit">
-                        <h4>How to Edit</h4>
+                        <h4>Shortcuts</h4>
                         <ul class="edit-hints">
-                            <li><strong>Click</strong> a note to select &amp; hear it</li>
-                            <li><strong>Drag</strong> notes in piano roll to move</li>
-                            <li><strong>Drag edges</strong> to resize duration</li>
-                            <li><strong>Arrow keys</strong> ↑↓ change pitch</li>
-                            <li><strong>Delete</strong> key removes note</li>
-                            <li><strong>Space</strong> plays all audio</li>
+                            <li><strong>Click</strong> note to select</li>
+                            <li><strong>Drag</strong> to move/resize</li>
+                            <li><strong>↑↓</strong> change pitch</li>
+                            <li><strong>Del</strong> remove note</li>
                         </ul>
                     </div>
                     <div class="confidence-legend">
-                        <h4>Confidence Colors</h4>
-                        <div class="legend-item">
-                            <span class="legend-color high"></span>
-                            <span>High (≥80%)</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-color medium"></span>
-                            <span>Medium (60-80%)</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-color low"></span>
-                            <span>Low (&lt;60%)</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-color user"></span>
-                            <span>User edited</span>
+                        <h4>Colors</h4>
+                        <div class="legend-row">
+                            <span class="legend-color high"></span><span>High</span>
+                            <span class="legend-color medium"></span><span>Med</span>
+                            <span class="legend-color low"></span><span>Low</span>
+                            <span class="legend-color user"></span><span>Edit</span>
                         </div>
                     </div>
                 </div>
@@ -244,9 +238,12 @@
                     <h3>Preview</h3>
                     <div id="abc-notation-preview"></div>
                     <div class="playback-controls">
-                        <button id="btn-play-original" class="btn btn-tool">Play Original</button>
-                        <button id="btn-play-abc" class="btn btn-tool">Play ABC</button>
-                        <span class="ab-label">A/B Compare</span>
+                        <button id="btn-export-play-parsed" class="btn btn-tool btn-sm">▶ Parsed</button>
+                        <button id="btn-export-play-original" class="btn btn-tool btn-sm">▶ Original</button>
+                        <button id="btn-export-stop" class="btn btn-tool btn-sm" disabled>⏹</button>
+                        <label class="checkbox-row">
+                            <input type="checkbox" id="chk-export-play-both"> Both
+                        </label>
                     </div>
                 </div>
                 <div class="abc-output">
