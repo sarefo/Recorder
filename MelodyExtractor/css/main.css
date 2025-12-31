@@ -1,0 +1,7 @@
+/* Main CSS - imports all modules in order */
+@import 'base.css';
+@import 'layout.css';
+@import 'waveform.css';
+@import 'editor.css';
+@import 'controls.css';
+@import 'responsive.css';

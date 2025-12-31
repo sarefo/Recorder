@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melody Extractor - Audio to ABC Notation</title>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- ABCJS for ABC rendering and playback -->
+    <script src="https://cdn.jsdelivr.net/npm/abcjs@6.4.4/dist/abcjs-basic-min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header id="header">
+            <h1>Melody Extractor</h1>
+            <p class="subtitle">Extract melody from audio and convert to ABC notation</p>
+        </header>
+
+        <!-- Step Indicator -->
+        <nav id="step-indicator">
+            <div class="step active" data-step="load">
+                <span class="step-number">1</span>
+                <span class="step-label">Load & Detect</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step" data-step="review">
+                <span class="step-number">2</span>
+                <span class="step-label">Review & Correct</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step" data-step="export">
+                <span class="step-number">3</span>
+                <span class="step-label">Export ABC</span>
+            </div>
+        </nav>
+
+        <!-- Step 1: Load Audio -->
+        <section id="panel-load" class="step-panel">
+            <div class="panel-content">
+                <div class="audio-source-tabs">
+                    <button id="tab-upload" class="tab-btn">Upload File</button>
+                    <button id="tab-record" class="tab-btn active">Record Audio</button>
+                </div>
+
+                <div id="upload-section" class="source-section hidden">
+                    <div id="drop-zone" class="drop-zone">
+                        <div class="drop-zone-content">
+                            <svg class="upload-icon" viewBox="0 0 24 24" width="48" height="48">
+                                <path fill="currentColor" d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/>
+                            </svg>
+                            <p>Drag & drop an audio file here</p>
+                            <p class="drop-zone-hint">or click to select</p>
+                            <input type="file" id="file-input" accept="audio/*" hidden>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="record-section" class="source-section">
+                    <div class="record-controls">
+                        <button id="btn-record" class="btn btn-primary">
+                            <span class="record-icon">●</span> Start Recording
+                        </button>
+                        <p class="record-hint">Click to record, then play your melody</p>
+                        <div id="recording-timer" class="recording-timer hidden">
+                            <span class="recording-indicator">●</span>
+                            <span id="timer-display">0:00</span>
+                            <div id="tap-indicator" class="tap-indicator">TAP</div>
+                        </div>
+                        <p class="tap-hint hidden" id="tap-hint">
+                            Press <kbd>Right Ctrl</kbd> each time a new note starts
+                        </p>
+                        <div id="tap-count" class="tap-count hidden">
+                            Taps: <span id="tap-count-value">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="audio-info" class="audio-info hidden">
+                    <div class="info-row">
+                        <span class="info-label">File:</span>
+                        <span id="file-name" class="info-value">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Duration:</span>
+                        <span id="audio-duration" class="info-value">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Sample Rate:</span>
+                        <span id="sample-rate" class="info-value">-</span>
+                    </div>
+                </div>
+                <div id="waveform-preview" class="waveform-container hidden"></div>
+
+                <!-- Detection Settings (moved from old Step 2) -->
+                <div class="settings-group">
+                    <h3>Detection Settings</h3>
+                    <div class="setting-row">
+                        <label for="confidence-threshold">Confidence Threshold</label>
+                        <input type="range" id="confidence-threshold" min="0.3" max="0.9" step="0.05" value="0.7">
+                        <span id="confidence-value">0.7</span>
+                    </div>
+                    <div class="setting-row">
+                        <label for="min-duration">Minimum Note Duration (ms)</label>
+                        <input type="range" id="min-duration" min="20" max="200" step="10" value="50">
+                        <span id="duration-value">50</span>
+                    </div>
+                </div>
+
+                <!-- Detection Progress -->
+                <div id="detection-progress" class="progress-container hidden">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <p id="progress-text">Analyzing audio...</p>
+                </div>
+
+                <!-- Detection Results -->
+                <div id="detection-results" class="detection-results hidden">
+                    <div class="result-card">
+                        <span class="result-value" id="note-count">0</span>
+                        <span class="result-label">Notes Detected</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-value" id="avg-confidence">0%</span>
+                        <span class="result-label">Avg Confidence</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-value" id="low-confidence-count">0</span>
+                        <span class="result-label">Need Review</span>
+                    </div>
+                    <div id="detected-notes-preview" class="detected-notes-preview">
+                        <!-- Will be populated with detected notes -->
+                    </div>
+                </div>
+
+                <div class="panel-actions">
+                    <button id="btn-run-detection" class="btn btn-primary" disabled>
+                        Detect Pitches <span class="arrow">→</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: Review & Correct -->
+        <section id="panel-review" class="step-panel hidden">
+            <div class="panel-content review-layout">
+                <div class="visualization-area">
+                    <div class="viz-label">Piano Roll (drag to edit notes)</div>
+                    <div id="piano-roll" class="piano-roll-container"></div>
+                    <div class="viz-label">Waveform</div>
+                    <div id="waveform-editor" class="waveform-container"></div>
+                </div>
+                <div class="editor-sidebar">
+                    <div id="note-details" class="note-details">
+                        <p class="placeholder-text">Click a note in the piano roll or waveform to select and edit it</p>
+                    </div>
+                    <div class="editor-tools">
+                        <h4>Playback</h4>
+                        <button id="btn-play-all" class="btn btn-tool">▶ Play All</button>
+                        <button id="btn-stop-all" class="btn btn-tool" disabled>⏸ Stop</button>
+                    </div>
+                    <div class="editor-tools">
+                        <h4>Tools</h4>
+                        <button id="btn-add-note" class="btn btn-tool">Add Note</button>
+                    </div>
+                    <div class="how-to-edit">
+                        <h4>How to Edit</h4>
+                        <ul class="edit-hints">
+                            <li><strong>Click</strong> a note to select &amp; hear it</li>
+                            <li><strong>Drag</strong> notes in piano roll to move</li>
+                            <li><strong>Drag edges</strong> to resize duration</li>
+                            <li><strong>Arrow keys</strong> ↑↓ change pitch</li>
+                            <li><strong>Delete</strong> key removes note</li>
+                            <li><strong>Space</strong> plays all audio</li>
+                        </ul>
+                    </div>
+                    <div class="confidence-legend">
+                        <h4>Confidence Colors</h4>
+                        <div class="legend-item">
+                            <span class="legend-color high"></span>
+                            <span>High (≥80%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color medium"></span>
+                            <span>Medium (60-80%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color low"></span>
+                            <span>Low (&lt;60%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color user"></span>
+                            <span>User edited</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-actions full-width">
+                    <button id="btn-back-to-load" class="btn btn-secondary">
+                        <span class="arrow">←</span> Back
+                    </button>
+                    <button id="btn-to-export" class="btn btn-primary">
+                        Generate ABC <span class="arrow">→</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: Export -->
+        <section id="panel-export" class="step-panel hidden">
+            <div class="panel-content export-layout">
+                <div class="abc-settings">
+                    <h3>ABC Settings</h3>
+                    <div class="setting-row">
+                        <label for="abc-title">Title</label>
+                        <input type="text" id="abc-title" value="Extracted Melody">
+                    </div>
+                    <div class="setting-row">
+                        <label for="abc-tempo">Tempo (BPM)</label>
+                        <input type="number" id="abc-tempo" value="120" min="40" max="240">
+                    </div>
+                    <div class="setting-row">
+                        <label for="abc-meter">Time Signature</label>
+                        <select id="abc-meter">
+                            <option value="4/4">4/4</option>
+                            <option value="3/4">3/4</option>
+                            <option value="2/4">2/4</option>
+                            <option value="6/8">6/8</option>
+                        </select>
+                    </div>
+                    <div class="setting-row">
+                        <label for="abc-key">Key</label>
+                        <select id="abc-key">
+                            <option value="C">C Major</option>
+                            <option value="G">G Major</option>
+                            <option value="D">D Major</option>
+                            <option value="F">F Major</option>
+                            <option value="Am">A Minor</option>
+                            <option value="Em">E Minor</option>
+                            <option value="Dm">D Minor</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="abc-preview-area">
+                    <h3>Preview</h3>
+                    <div id="abc-notation-preview"></div>
+                    <div class="playback-controls">
+                        <button id="btn-play-original" class="btn btn-tool">Play Original</button>
+                        <button id="btn-play-abc" class="btn btn-tool">Play ABC</button>
+                        <span class="ab-label">A/B Compare</span>
+                    </div>
+                </div>
+                <div class="abc-output">
+                    <h3>ABC Notation</h3>
+                    <textarea id="abc-text" readonly></textarea>
+                </div>
+                <div class="panel-actions full-width">
+                    <button id="btn-back-to-review" class="btn btn-secondary">
+                        <span class="arrow">←</span> Back
+                    </button>
+                    <button id="btn-copy-abc" class="btn btn-primary">Copy to Clipboard</button>
+                    <button id="btn-download-abc" class="btn btn-primary">Download .abc</button>
+                    <button id="btn-open-recorder" class="btn btn-secondary">Open in Recorder</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback Toast -->
+        <div id="feedback" class="feedback"></div>
+    </div>
+
+    <!-- Scripts loaded as ES modules -->
+    <script type="module" src="js/core/main.js"></script>
+</body>
+</html>

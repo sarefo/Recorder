@@ -1,0 +1,212 @@
+/* Waveform and spectrogram styling */
+
+.waveform-container {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    overflow: hidden;
+    position: relative;
+}
+
+#waveform-preview {
+    min-height: 100px;
+    width: 100%;
+}
+
+#waveform-editor {
+    min-height: 150px;
+    height: 150px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Piano Roll Container */
+.piano-roll-container {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-xs);
+    min-height: 150px;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.piano-roll-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.piano-roll-container .label {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: #999;
+    z-index: 1;
+}
+
+/* Spectrogram Container */
+.spectrogram-container {
+    background: #1a1a2e;
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    min-height: 150px;
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.spectrogram-container canvas {
+    display: block !important;
+    max-width: 100%;
+    height: auto !important;
+}
+
+.spectrogram-container .label {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    z-index: 1;
+}
+
+/* Visualization labels */
+.viz-label {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: var(--spacing-sm);
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+.viz-label:first-child {
+    margin-top: 0;
+}
+
+/* Wavesurfer region styling overrides */
+.wavesurfer-region {
+    border-radius: 2px;
+    transition: background-color var(--transition-fast);
+}
+
+.wavesurfer-region:hover {
+    filter: brightness(1.2);
+}
+
+.wavesurfer-region.selected {
+    border: 2px solid white;
+}
+
+/* Timeline styling */
+.wavesurfer-timeline {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+}
+
+/* Cursor styling */
+.wavesurfer-cursor {
+    background: #ff4444 !important;
+    width: 2px !important;
+}
+
+/* Playhead position indicator */
+.playhead-indicator {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #ff4444;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Region handles */
+.wavesurfer-handle {
+    background: rgba(255, 255, 255, 0.8) !important;
+    width: 4px !important;
+}
+
+.wavesurfer-handle:hover {
+    background: white !important;
+}
+
+/* Note labels on regions */
+.region-label {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-size: 0.7rem;
+    font-family: var(--font-mono);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* Spectrogram labels */
+.spectrogram-labels {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Piano roll overlay (optional) */
+.piano-roll-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.piano-roll-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Zoom controls */
+.zoom-controls {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-sm);
+}
+
+.zoom-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background var(--transition-fast);
+}
+
+.zoom-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Prevent wavesurfer resize loops */
+#waveform-editor > div,
+#waveform-preview > div {
+    width: 100% !important;
+}
+
+#spectrogram-container > div,
+#spectrogram-container canvas {
+    max-width: 100%;
+}

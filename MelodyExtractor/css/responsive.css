@@ -1,0 +1,323 @@
+/* Responsive styles for mobile devices */
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+    #app {
+        padding: var(--spacing-md);
+    }
+
+    .review-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .visualization-area {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .editor-sidebar {
+        grid-column: 1;
+        grid-row: 2;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .editor-sidebar > * {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .review-layout .panel-actions {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .export-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .abc-settings {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .abc-preview-area {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .abc-output {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .export-layout .panel-actions {
+        grid-column: 1;
+        grid-row: 4;
+    }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+    :root {
+        font-size: 14px;
+    }
+
+    #app {
+        padding: var(--spacing-sm);
+    }
+
+    #header {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    #header h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Simplify step indicator for mobile */
+    #step-indicator {
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+    }
+
+    .step-connector {
+        display: none;
+    }
+
+    .step {
+        flex-direction: row;
+        gap: var(--spacing-xs);
+    }
+
+    .step-number {
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+    }
+
+    .step-label {
+        font-size: 0.75rem;
+    }
+
+    /* Panel adjustments */
+    .panel-content {
+        padding: var(--spacing-md);
+    }
+
+    .panel-actions {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .panel-actions .btn {
+        width: 100%;
+    }
+
+    /* Settings */
+    .setting-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-xs);
+    }
+
+    .setting-row label {
+        min-width: auto;
+    }
+
+    .setting-row input[type="range"] {
+        max-width: none;
+    }
+
+    .setting-row input[type="text"],
+    .setting-row input[type="number"],
+    .setting-row select {
+        max-width: none;
+    }
+
+    /* Detection results */
+    .detection-results {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .result-card {
+        min-width: auto;
+    }
+
+    /* Editor sidebar */
+    .editor-sidebar {
+        flex-direction: column;
+    }
+
+    .editor-sidebar > * {
+        min-width: auto;
+    }
+
+    /* Note details */
+    .note-info {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .note-info label {
+        min-width: auto;
+    }
+
+    .note-actions {
+        flex-wrap: wrap;
+    }
+
+    /* Waveform containers */
+    #waveform-preview,
+    #waveform-editor {
+        min-height: 80px;
+    }
+
+    .spectrogram-container {
+        min-height: 150px;
+    }
+
+    /* Playback controls */
+    .playback-controls {
+        flex-wrap: wrap;
+    }
+
+    .ab-label {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-top: var(--spacing-sm);
+    }
+
+    /* ABC output */
+    #abc-text {
+        height: 120px;
+        font-size: 0.8rem;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+    }
+
+    .btn-tool {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.8rem;
+    }
+
+    /* Drop zone */
+    .drop-zone {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .upload-icon {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    #header .subtitle {
+        display: none;
+    }
+
+    .step-label {
+        display: none;
+    }
+
+    .step-number {
+        width: 28px;
+        height: 28px;
+    }
+
+    .settings-group {
+        padding: var(--spacing-md);
+    }
+
+    .result-value {
+        font-size: 1.5rem;
+    }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    #header {
+        display: none;
+    }
+
+    #step-indicator {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .panel-content {
+        padding: var(--spacing-sm);
+    }
+
+    #waveform-preview,
+    #waveform-editor {
+        min-height: 60px;
+    }
+
+    .spectrogram-container {
+        min-height: 100px;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --color-primary: #0000cc;
+        --border-color: #000000;
+        --text-muted: #333333;
+    }
+
+    .btn {
+        border-width: 2px;
+    }
+
+    .wavesurfer-region {
+        border: 2px solid black;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    #step-indicator,
+    .panel-actions,
+    .editor-sidebar,
+    .playback-controls,
+    .drop-zone,
+    .settings-group,
+    .detection-progress {
+        display: none !important;
+    }
+
+    .step-panel {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+
+    #abc-notation-preview {
+        border: 1px solid #000;
+    }
+
+    #abc-text {
+        height: auto;
+        border: 1px solid #000;
+    }
+}

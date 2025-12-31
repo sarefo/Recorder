@@ -1,0 +1,196 @@
+/* Note editor and correction interface styling */
+
+/* Note detail form within sidebar */
+.note-details h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.note-details .note-info select {
+    background: white;
+}
+
+.note-details .note-info input[type="number"] {
+    width: 80px;
+}
+
+/* Confidence indicator */
+.confidence {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.confidence.high {
+    background: var(--confidence-high);
+    color: #155724;
+}
+
+.confidence.medium {
+    background: var(--confidence-medium);
+    color: #856404;
+}
+
+.confidence.low {
+    background: var(--confidence-low);
+    color: #721c24;
+}
+
+/* Note action buttons */
+.note-actions button {
+    flex: 1;
+    font-size: 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+#delete-note {
+    background: var(--color-danger);
+    color: white;
+    border: none;
+}
+
+#delete-note:hover {
+    background: #c82333;
+}
+
+/* Add note mode */
+.add-note-mode .waveform-container {
+    cursor: crosshair;
+}
+
+.add-note-mode #btn-add-note {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* Selection highlight */
+.note-selected {
+    box-shadow: 0 0 0 3px var(--color-primary);
+}
+
+/* Keyboard shortcut hints */
+.shortcut-hint {
+    display: inline-block;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    margin-left: var(--spacing-xs);
+}
+
+/* Pitch selector dropdown */
+#pitch-selector {
+    min-width: 100px;
+}
+
+#pitch-selector option {
+    font-family: var(--font-mono);
+}
+
+/* Time inputs */
+.time-input-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.time-input-group input {
+    width: 70px;
+    text-align: right;
+}
+
+.time-input-group span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Quick pitch adjustment buttons */
+.pitch-adjust-buttons {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.pitch-adjust-btn {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.pitch-adjust-btn:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* Batch operations */
+.batch-operations {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+}
+
+.batch-operations h4 {
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.batch-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.85rem;
+}
+
+/* Playback indicator during note audition */
+.note-playing {
+    animation: pulse-border 0.5s ease infinite;
+}
+
+@keyframes pulse-border {
+    0%, 100% { box-shadow: 0 0 0 2px rgba(79, 74, 133, 0.5); }
+    50% { box-shadow: 0 0 0 4px rgba(79, 74, 133, 0.8); }
+}
+
+/* Note count badge */
+.note-count-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0 var(--spacing-sm);
+}
+
+/* Empty state for note list */
+.no-notes-message {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--text-muted);
+}
+
+.no-notes-message svg {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.5;
+}
