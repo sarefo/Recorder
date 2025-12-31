@@ -197,6 +197,11 @@ export class NoteEditor {
             this.app.pianoRoll.setSelectedNote(noteId);
         }
 
+        // Highlight in ABC preview
+        if (this.app.highlightAbcNote) {
+            this.app.highlightAbcNote(noteId);
+        }
+
         // Show note details
         this._showNoteDetails(note);
 
@@ -215,6 +220,10 @@ export class NoteEditor {
         this.app.regionManager.deselectAll();
         if (this.app.pianoRoll) {
             this.app.pianoRoll.setSelectedNote(null);
+        }
+        // Clear ABC highlight
+        if (this.app.highlightAbcNote) {
+            this.app.highlightAbcNote(null);
         }
         this._clearNoteDetails();
     }

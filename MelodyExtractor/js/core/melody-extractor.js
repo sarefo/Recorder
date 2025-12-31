@@ -337,8 +337,9 @@ export class MelodyExtractor {
 
     /**
      * Update the live ABC preview in the review tab
+     * @param {string} selectedNoteId - Optional ID of currently selected note
      */
-    updateAbcPreview() {
+    updateAbcPreview(selectedNoteId = null) {
         const container = document.getElementById('abc-review-preview');
         if (!container || !window.ABCJS) return;
 
@@ -367,8 +368,49 @@ export class MelodyExtractor {
                 paddingtop: 0,
                 paddingbottom: 0
             });
+
+            // Highlight selected note if any
+            if (selectedNoteId) {
+                this._highlightAbcNote(container, selectedNoteId);
+            }
         } catch (error) {
             console.error('Failed to render ABC preview:', error);
+        }
+    }
+
+    /**
+     * Highlight a note in the ABC preview (public method for selection without re-render)
+     * @param {string} noteId - Note ID to highlight (null to clear)
+     */
+    highlightAbcNote(noteId) {
+        const container = document.getElementById('abc-review-preview');
+        if (!container) return;
+        this._highlightAbcNote(container, noteId);
+    }
+
+    /**
+     * Highlight a note in the ABC preview
+     * @private
+     */
+    _highlightAbcNote(container, noteId) {
+        // Remove any existing highlights
+        container.querySelectorAll('.highlighted').forEach(el => {
+            el.classList.remove('highlighted');
+        });
+
+        if (!noteId) return;
+
+        // Find the index of the selected note
+        const noteIndex = this.correctedNotes.findIndex(n => n.id === noteId);
+        if (noteIndex === -1) return;
+
+        // ABCJS adds class abcjs-n{index} to each note
+        const noteElement = container.querySelector(`.abcjs-n${noteIndex}`);
+        if (noteElement) {
+            noteElement.classList.add('highlighted');
+
+            // Scroll into view if needed
+            noteElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
     }
 
