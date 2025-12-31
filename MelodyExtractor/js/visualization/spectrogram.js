@@ -4,6 +4,8 @@
  * Uses Web Audio API's AnalyserNode for fast FFT computation
  */
 
+import { midiToFrequency } from '../core/utils.js';
+
 export class Spectrogram {
     constructor() {
         this.canvas = null;
@@ -217,8 +219,8 @@ export class Spectrogram {
         ctx.clearRect(0, 0, width, height);
 
         // Frequency range corresponding to MIDI range
-        const minFreq = this._midiToFreq(this.midiMin);
-        const maxFreq = this._midiToFreq(this.midiMax);
+        const minFreq = midiToFrequency(this.midiMin);
+        const maxFreq = midiToFrequency(this.midiMax);
         const freqPerBin = sampleRate / this.fftSize;
 
         // Calculate bin range
@@ -252,7 +254,7 @@ export class Spectrogram {
                 if (midi < this.midiMin || midi > this.midiMax) continue;
 
                 // Map MIDI to frequency
-                const freq = this._midiToFreq(midi);
+                const freq = midiToFrequency(midi);
                 const bin = freq / freqPerBin;
 
                 // Interpolate between bins
@@ -283,14 +285,6 @@ export class Spectrogram {
 
         ctx.putImageData(imageData, 0, 0);
         console.log('Spectrogram rendered');
-    }
-
-    /**
-     * Convert MIDI note to frequency
-     * @private
-     */
-    _midiToFreq(midi) {
-        return 440 * Math.pow(2, (midi - 69) / 12);
     }
 
     /**

@@ -16,6 +16,12 @@ export class NoteEditor {
         this.selectedNoteId = null;
         this.addMode = false;
         this.addStartTime = null;
+
+        // Re-time mode state
+        this.retimeMode = false;
+        this.retimeStartTime = null;
+        this.retimeTaps = [];
+        this.retimeKeyHandler = null;
     }
 
     /**
@@ -73,6 +79,18 @@ export class NoteEditor {
             });
         }
 
+        // Re-time button
+        const retimeBtn = document.getElementById('btn-retime');
+        if (retimeBtn) {
+            retimeBtn.addEventListener('click', () => {
+                if (this.retimeMode) {
+                    this.stopRetime();
+                } else {
+                    this.startRetime();
+                }
+            });
+        }
+
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => this._handleKeyboard(e));
     }
@@ -81,14 +99,10 @@ export class NoteEditor {
      * Attach finish event listener to wavesurfer (call after wavesurfer is ready)
      */
     attachWavesurferEvents() {
-        const playAllBtn = document.getElementById('btn-play-all');
-        const stopAllBtn = document.getElementById('btn-stop-all');
-
-        if (this.app.waveformManager.editorWavesurfer && playAllBtn && stopAllBtn) {
+        if (this.app.waveformManager.editorWavesurfer) {
             this.app.waveformManager.editorWavesurfer.on('finish', () => {
                 console.log('Audio playback finished');
-                playAllBtn.disabled = false;
-                stopAllBtn.disabled = true;
+                this._setPlaybackState(false);
             });
         }
     }
@@ -146,16 +160,12 @@ export class NoteEditor {
 
             case 'KeyP':
             case 'Space':
+                e.preventDefault();
                 if (note) {
-                    e.preventDefault();
                     this.playSelectedNote();
                 } else {
                     // Play all if no note selected
-                    e.preventDefault();
-                    const playAllBtn = document.getElementById('btn-play-all');
-                    if (playAllBtn && !playAllBtn.disabled) {
-                        playAllBtn.click();
-                    }
+                    this.playAllNotes();
                 }
                 break;
 
@@ -391,6 +401,11 @@ export class NoteEditor {
             this.app.pianoRoll.refresh();
         }
 
+        // Update ABC preview
+        if (this.app.updateAbcPreview) {
+            this.app.updateAbcPreview();
+        }
+
         // Update details panel
         this._showNoteDetails(note);
     }
@@ -463,6 +478,11 @@ export class NoteEditor {
             this.app.pianoRoll.refresh();
         }
 
+        // Update ABC preview
+        if (this.app.updateAbcPreview) {
+            this.app.updateAbcPreview();
+        }
+
         showFeedback('Note deleted');
     }
 
@@ -485,6 +505,9 @@ export class NoteEditor {
         this.app.regionManager.refresh();
         if (this.app.pianoRoll) {
             this.app.pianoRoll.refresh();
+        }
+        if (this.app.updateAbcPreview) {
+            this.app.updateAbcPreview();
         }
         this.selectNote(splitNotes[0].id);
 
@@ -509,6 +532,9 @@ export class NoteEditor {
         this.app.regionManager.refresh();
         if (this.app.pianoRoll) {
             this.app.pianoRoll.refresh();
+        }
+        if (this.app.updateAbcPreview) {
+            this.app.updateAbcPreview();
         }
         this.selectNote(merged.id);
 
@@ -613,6 +639,9 @@ export class NoteEditor {
         this.app.regionManager.refresh();
         if (this.app.pianoRoll) {
             this.app.pianoRoll.refresh();
+        }
+        if (this.app.updateAbcPreview) {
+            this.app.updateAbcPreview();
         }
 
         this.selectNote(newNote.id);
@@ -723,5 +752,171 @@ export class NoteEditor {
         if (playParsedBtn) playParsedBtn.disabled = isPlaying;
         if (playOriginalBtn) playOriginalBtn.disabled = isPlaying;
         if (stopAllBtn) stopAllBtn.disabled = !isPlaying;
+    }
+
+    /**
+     * Start re-time mode - play audio and capture tap timestamps
+     */
+    startRetime() {
+        if (this.app.correctedNotes.length === 0) {
+            showFeedback('No notes to re-time');
+            return;
+        }
+
+        if (!this.app.waveformManager.editorWavesurfer) {
+            showFeedback('Audio not loaded');
+            return;
+        }
+
+        this.retimeMode = true;
+        this.retimeTaps = [];
+
+        // Update UI
+        const retimeBtn = document.getElementById('btn-retime');
+        const retimeStatus = document.getElementById('retime-status');
+        const tapCount = document.getElementById('retime-tap-count');
+        const noteCount = document.getElementById('retime-note-count');
+
+        if (retimeBtn) {
+            retimeBtn.textContent = '⏹ Stop';
+            retimeBtn.classList.add('active');
+        }
+        if (retimeStatus) retimeStatus.classList.remove('hidden');
+        if (tapCount) tapCount.textContent = '0';
+        if (noteCount) noteCount.textContent = this.app.correctedNotes.length;
+
+        // Setup keydown handler for Right Ctrl
+        this.retimeKeyHandler = (e) => {
+            if (e.code === 'ControlRight' && this.retimeMode) {
+                e.preventDefault();
+                const currentTime = this.app.waveformManager.editorWavesurfer.getCurrentTime();
+                this.retimeTaps.push(currentTime);
+
+                // Visual feedback
+                if (tapCount) tapCount.textContent = this.retimeTaps.length;
+
+                // Flash indicator
+                const indicator = retimeStatus?.querySelector('.recording-indicator');
+                if (indicator) {
+                    indicator.style.transform = 'scale(1.3)';
+                    setTimeout(() => {
+                        indicator.style.transform = 'scale(1)';
+                    }, 100);
+                }
+
+                console.log(`Re-time tap ${this.retimeTaps.length}: ${currentTime.toFixed(3)}s`);
+            }
+        };
+        document.addEventListener('keydown', this.retimeKeyHandler);
+
+        // Start playback from beginning
+        this.app.waveformManager.editorWavesurfer.setTime(0);
+        this.app.waveformManager.playEditor();
+        this.retimeStartTime = performance.now();
+
+        // Listen for playback to finish
+        this.app.waveformManager.editorWavesurfer.once('finish', () => {
+            if (this.retimeMode) {
+                this.stopRetime();
+            }
+        });
+
+        showFeedback('Re-time started - tap Right Ctrl for each note');
+    }
+
+    /**
+     * Stop re-time mode and apply new timing to notes
+     */
+    stopRetime() {
+        if (!this.retimeMode) return;
+
+        this.retimeMode = false;
+
+        // Stop playback
+        this.app.waveformManager.stopEditor();
+
+        // Remove keydown handler
+        if (this.retimeKeyHandler) {
+            document.removeEventListener('keydown', this.retimeKeyHandler);
+            this.retimeKeyHandler = null;
+        }
+
+        // Update UI
+        const retimeBtn = document.getElementById('btn-retime');
+        const retimeStatus = document.getElementById('retime-status');
+
+        if (retimeBtn) {
+            retimeBtn.textContent = '⏱ Re-time';
+            retimeBtn.classList.remove('active');
+        }
+        if (retimeStatus) retimeStatus.classList.add('hidden');
+
+        // Apply timing if we have taps
+        if (this.retimeTaps.length > 0) {
+            this._applyRetiming();
+        } else {
+            showFeedback('No taps recorded');
+        }
+    }
+
+    /**
+     * Apply re-timing to notes based on captured taps
+     * @private
+     */
+    _applyRetiming() {
+        const notes = this.app.correctedNotes;
+        const taps = this.retimeTaps;
+        const audioDuration = this.app.waveformManager.editorWavesurfer.getDuration();
+
+        console.log(`Applying ${taps.length} taps to ${notes.length} notes`);
+
+        // Sort notes by start time
+        notes.sort((a, b) => a.startTime - b.startTime);
+
+        // Match taps to notes
+        const numToProcess = Math.min(taps.length, notes.length);
+
+        for (let i = 0; i < numToProcess; i++) {
+            const note = notes[i];
+            const tapTime = taps[i];
+
+            // Calculate new end time
+            let newEndTime;
+            if (i < taps.length - 1) {
+                // End at next tap (with small gap)
+                newEndTime = taps[i + 1] - 0.02;
+            } else if (i < notes.length - 1) {
+                // Keep relative duration for remaining notes
+                const oldDuration = note.duration;
+                newEndTime = tapTime + oldDuration;
+            } else {
+                // Last note - extend to end or keep duration
+                newEndTime = Math.min(tapTime + note.duration, audioDuration);
+            }
+
+            // Update note timing
+            note.startTime = tapTime;
+            note.endTime = Math.max(newEndTime, tapTime + 0.05); // Min 50ms duration
+            note.duration = note.endTime - note.startTime;
+            note.userCorrected = true;
+        }
+
+        // Handle extra taps (more taps than notes) - could add notes here
+        if (taps.length > notes.length) {
+            showFeedback(`Re-timed ${notes.length} notes (${taps.length - notes.length} extra taps ignored)`);
+        } else if (taps.length < notes.length) {
+            showFeedback(`Re-timed ${taps.length} of ${notes.length} notes`);
+        } else {
+            showFeedback(`Re-timed all ${notes.length} notes`);
+        }
+
+        // Refresh displays
+        this.app.regionManager.refresh();
+        if (this.app.pianoRoll) {
+            this.app.pianoRoll.refresh();
+        }
+        if (this.app.updateAbcPreview) {
+            this.app.updateAbcPreview();
+        }
     }
 }

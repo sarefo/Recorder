@@ -184,8 +184,7 @@ export class MelodyExtractor {
             // Debug: Log detected notes with frequencies and MIDI
             console.log('\n=== DETECTED NOTES DEBUG ===');
             this.detectedNotes.forEach((note, i) => {
-                // Calculate frequency from MIDI: f = 440 * 2^((m-69)/12)
-                const frequency = 440 * Math.pow(2, (note.midi - 69) / 12);
+                const frequency = Utils.midiToFrequency(note.midi);
                 console.log(`Note ${i + 1}: ${note.noteName} (MIDI ${note.midi}, ${frequency.toFixed(1)} Hz) ` +
                     `@ ${note.startTime.toFixed(2)}s for ${note.duration.toFixed(2)}s, ` +
                     `confidence: ${(note.confidence * 100).toFixed(0)}%`);
@@ -301,6 +300,9 @@ export class MelodyExtractor {
             // Attach wavesurfer events after it's ready
             this.noteEditor.attachWavesurferEvents();
 
+            // Render initial ABC preview
+            this.updateAbcPreview();
+
             console.log('Review mode ready');
 
         } catch (error) {
@@ -331,6 +333,43 @@ export class MelodyExtractor {
         this.abcPreview.render(abc);
 
         return abc;
+    }
+
+    /**
+     * Update the live ABC preview in the review tab
+     */
+    updateAbcPreview() {
+        const container = document.getElementById('abc-review-preview');
+        if (!container || !window.ABCJS) return;
+
+        // Get tempo from grid settings if available, otherwise use default
+        const gridTempo = document.getElementById('grid-tempo');
+        const tempo = gridTempo ? parseInt(gridTempo.value) || 120 : 120;
+
+        // Generate simple ABC for preview
+        const options = {
+            title: '',
+            tempo: tempo,
+            meter: '4/4',
+            key: 'C'
+        };
+
+        const abc = this.abcGenerator.generate(this.correctedNotes, options);
+
+        try {
+            container.innerHTML = '';
+            ABCJS.renderAbc(container, abc, {
+                responsive: 'resize',
+                add_classes: true,
+                staffwidth: container.clientWidth - 20,
+                paddingleft: 0,
+                paddingright: 0,
+                paddingtop: 0,
+                paddingbottom: 0
+            });
+        } catch (error) {
+            console.error('Failed to render ABC preview:', error);
+        }
     }
 
     /**

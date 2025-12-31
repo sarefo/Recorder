@@ -147,8 +147,10 @@
                 <div class="visualization-area">
                     <div class="viz-label">Piano Roll (drag to edit notes)</div>
                     <div id="piano-roll" class="piano-roll-container"></div>
-                    <div class="viz-label">Waveform</div>
-                    <div id="waveform-editor" class="waveform-container"></div>
+                    <div class="viz-label">Notation Preview</div>
+                    <div id="abc-review-preview" class="abc-review-container"></div>
+                    <!-- Hidden waveform for audio playback -->
+                    <div id="waveform-editor" class="waveform-container" style="display: none;"></div>
                 </div>
                 <div class="editor-sidebar">
                     <div id="note-details" class="note-details">
@@ -168,6 +170,30 @@
                     <div class="editor-tools">
                         <h4>Tools</h4>
                         <button id="btn-add-note" class="btn btn-tool btn-sm">+ Add Note</button>
+                        <button id="btn-retime" class="btn btn-tool btn-sm">⏱ Re-time</button>
+                        <div id="retime-status" class="retime-status hidden">
+                            <span class="recording-indicator">●</span>
+                            Tap <kbd>Right Ctrl</kbd> for each note
+                            <div>Taps: <span id="retime-tap-count">0</span> / <span id="retime-note-count">0</span></div>
+                        </div>
+                    </div>
+                    <div class="editor-tools">
+                        <h4>Grid</h4>
+                        <label class="checkbox-row">
+                            <input type="checkbox" id="chk-snap-grid"> Snap to grid
+                        </label>
+                        <div class="grid-options">
+                            <label>Tempo:</label>
+                            <input type="number" id="grid-tempo" value="120" min="40" max="240" class="input-sm">
+                            <label>Div:</label>
+                            <select id="grid-division" class="input-sm">
+                                <option value="1">1 (whole)</option>
+                                <option value="2">2 (half)</option>
+                                <option value="4" selected>4 (quarter)</option>
+                                <option value="8">8 (eighth)</option>
+                                <option value="16">16 (16th)</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="how-to-edit">
                         <h4>Shortcuts</h4>

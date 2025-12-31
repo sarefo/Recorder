@@ -32,6 +32,11 @@ export class PianoRoll {
         this.dragStartX = 0;
         this.dragStartY = 0;
         this.originalNote = null;
+
+        // Grid settings
+        this.snapEnabled = false;
+        this.gridTempo = 120;
+        this.gridDivision = 4; // beats per bar
     }
 
     /**
@@ -74,6 +79,40 @@ export class PianoRoll {
         // Handle resize
         this._resize();
         window.addEventListener('resize', () => this._resize());
+
+        // Setup grid controls
+        this._setupGridControls();
+    }
+
+    /**
+     * Setup grid control event listeners
+     * @private
+     */
+    _setupGridControls() {
+        const snapCheckbox = document.getElementById('chk-snap-grid');
+        const tempoInput = document.getElementById('grid-tempo');
+        const divisionSelect = document.getElementById('grid-division');
+
+        if (snapCheckbox) {
+            snapCheckbox.addEventListener('change', () => {
+                this.snapEnabled = snapCheckbox.checked;
+                this.render();
+            });
+        }
+
+        if (tempoInput) {
+            tempoInput.addEventListener('change', () => {
+                this.gridTempo = parseInt(tempoInput.value) || 120;
+                this.render();
+            });
+        }
+
+        if (divisionSelect) {
+            divisionSelect.addEventListener('change', () => {
+                this.gridDivision = parseInt(divisionSelect.value) || 4;
+                this.render();
+            });
+        }
     }
 
     /**
@@ -238,6 +277,7 @@ export class PianoRoll {
     _drawGrid() {
         const ctx = this.ctx;
         const width = this.canvas.width;
+        const height = this.canvas.height;
 
         // Horizontal lines for each pitch
         ctx.strokeStyle = '#e0e0e0';
@@ -251,26 +291,87 @@ export class PianoRoll {
             ctx.stroke();
         }
 
-        // Vertical lines for time (every 0.5 seconds)
-        ctx.strokeStyle = '#d0d0d0';
-        for (let t = 0; t <= this.duration; t += 0.5) {
-            const x = this._timeToX(t);
-            ctx.beginPath();
-            ctx.moveTo(x, 0);
-            ctx.lineTo(x, this.canvas.height);
-            ctx.stroke();
-        }
+        // Calculate beat timing
+        const beatDuration = 60 / this.gridTempo; // seconds per beat
+        const divisionDuration = beatDuration / (this.gridDivision / 4); // seconds per grid line
 
-        // Stronger lines every second
-        ctx.strokeStyle = '#bbb';
-        ctx.lineWidth = 1;
-        for (let t = 0; t <= this.duration; t += 1) {
-            const x = this._timeToX(t);
-            ctx.beginPath();
-            ctx.moveTo(x, 0);
-            ctx.lineTo(x, this.canvas.height);
-            ctx.stroke();
+        if (this.snapEnabled) {
+            // Draw beat grid lines
+            let gridTime = 0;
+            let beatCount = 0;
+
+            while (gridTime <= this.duration) {
+                const x = this._timeToX(gridTime);
+                const isMeasureLine = beatCount % 4 === 0;
+                const isBeatLine = beatCount % 1 === 0;
+
+                if (isMeasureLine) {
+                    // Measure lines (every 4 beats in 4/4) - thick purple
+                    ctx.strokeStyle = 'rgba(79, 74, 133, 0.6)';
+                    ctx.lineWidth = 2;
+                } else if (Number.isInteger(beatCount)) {
+                    // Beat lines - medium purple
+                    ctx.strokeStyle = 'rgba(79, 74, 133, 0.4)';
+                    ctx.lineWidth = 1;
+                } else {
+                    // Subdivision lines - light purple
+                    ctx.strokeStyle = 'rgba(79, 74, 133, 0.2)';
+                    ctx.lineWidth = 0.5;
+                }
+
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+
+                gridTime += divisionDuration;
+                beatCount += 1 / (this.gridDivision / 4);
+            }
+        } else {
+            // Original time-based grid (when snap is disabled)
+            // Vertical lines for time (every 0.5 seconds)
+            ctx.strokeStyle = '#d0d0d0';
+            ctx.lineWidth = 0.5;
+            for (let t = 0; t <= this.duration; t += 0.5) {
+                const x = this._timeToX(t);
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+
+            // Stronger lines every second
+            ctx.strokeStyle = '#bbb';
+            ctx.lineWidth = 1;
+            for (let t = 0; t <= this.duration; t += 1) {
+                const x = this._timeToX(t);
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
         }
+    }
+
+    /**
+     * Get the grid interval in seconds
+     * @returns {number} Grid interval in seconds
+     */
+    _getGridInterval() {
+        const beatDuration = 60 / this.gridTempo;
+        return beatDuration / (this.gridDivision / 4);
+    }
+
+    /**
+     * Snap a time value to the nearest grid line
+     * @param {number} time - Time in seconds
+     * @returns {number} Snapped time
+     */
+    _snapToGrid(time) {
+        if (!this.snapEnabled) return time;
+
+        const interval = this._getGridInterval();
+        return Math.round(time / interval) * interval;
     }
 
     /**
@@ -479,19 +580,39 @@ export class PianoRoll {
         switch (this.dragType) {
             case 'move':
                 // Move both start and end time
-                noteToUpdate.startTime = Math.max(0, this.originalNote.startTime + deltaTime);
-                noteToUpdate.endTime = this.originalNote.endTime + deltaTime;
+                let newStart = Math.max(0, this.originalNote.startTime + deltaTime);
+                let newEnd = this.originalNote.endTime + deltaTime;
+
+                // Apply snap to grid
+                if (this.snapEnabled) {
+                    const snappedStart = this._snapToGrid(newStart);
+                    const offset = snappedStart - newStart;
+                    newStart = snappedStart;
+                    newEnd = newEnd + offset;
+                }
+
+                noteToUpdate.startTime = newStart;
+                noteToUpdate.endTime = newEnd;
+                noteToUpdate.duration = newEnd - newStart;
                 noteToUpdate.midi = Math.max(this.midiMin, Math.min(this.midiMax, this.originalNote.midi + deltaMidi));
                 noteToUpdate.noteName = midiToNoteName(noteToUpdate.midi);
                 break;
 
             case 'resize-left':
-                noteToUpdate.startTime = Math.max(0, Math.min(noteToUpdate.endTime - 0.05, this.originalNote.startTime + deltaTime));
+                let resizeLeftStart = Math.max(0, this.originalNote.startTime + deltaTime);
+                if (this.snapEnabled) {
+                    resizeLeftStart = this._snapToGrid(resizeLeftStart);
+                }
+                noteToUpdate.startTime = Math.min(noteToUpdate.endTime - 0.05, resizeLeftStart);
                 noteToUpdate.duration = noteToUpdate.endTime - noteToUpdate.startTime;
                 break;
 
             case 'resize-right':
-                noteToUpdate.endTime = Math.max(noteToUpdate.startTime + 0.05, this.originalNote.endTime + deltaTime);
+                let resizeRightEnd = this.originalNote.endTime + deltaTime;
+                if (this.snapEnabled) {
+                    resizeRightEnd = this._snapToGrid(resizeRightEnd);
+                }
+                noteToUpdate.endTime = Math.max(noteToUpdate.startTime + 0.05, resizeRightEnd);
                 noteToUpdate.duration = noteToUpdate.endTime - noteToUpdate.startTime;
                 break;
         }
@@ -520,6 +641,11 @@ export class PianoRoll {
         if (this.isDragging && this.dragNote) {
             // Refresh regions to ensure sync
             this.app.regionManager.refresh();
+
+            // Update ABC preview
+            if (this.app.updateAbcPreview) {
+                this.app.updateAbcPreview();
+            }
         }
 
         this.isDragging = false;

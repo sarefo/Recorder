@@ -2,6 +2,8 @@
  * Synth - Simple Web Audio API synthesizer for playing MIDI notes
  */
 
+import { midiToFrequency } from '../core/utils.js';
+
 export class Synth {
     constructor() {
         this.audioContext = null;
@@ -29,15 +31,6 @@ export class Synth {
     }
 
     /**
-     * Convert MIDI note number to frequency in Hz
-     * @param {number} midi - MIDI note number (0-127)
-     * @returns {number} Frequency in Hz
-     */
-    midiToFrequency(midi) {
-        return 440 * Math.pow(2, (midi - 69) / 12);
-    }
-
-    /**
      * Play a single MIDI note
      * @param {number} midi - MIDI note number
      * @param {number} duration - Duration in seconds
@@ -47,7 +40,7 @@ export class Synth {
     playNote(midi, duration = 0.5, startTime = null) {
         this.init();
 
-        const frequency = this.midiToFrequency(midi);
+        const frequency = midiToFrequency(midi);
         const now = startTime !== null ? startTime : this.audioContext.currentTime;
 
         // Create oscillator

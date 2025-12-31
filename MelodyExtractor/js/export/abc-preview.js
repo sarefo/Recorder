@@ -118,9 +118,8 @@ export class AbcPreview {
             // Prime the audio
             await this.synth.prime();
 
-            // Update button state
+            // Update state
             this.isPlaying = true;
-            this._updatePlayButton(true);
             cursorControl.onStart();
 
             // Start playback
@@ -131,7 +130,6 @@ export class AbcPreview {
             console.error('Failed to play ABC:', error);
             showFeedback('Playback failed: ' + error.message);
             this.isPlaying = false;
-            this._updatePlayButton(false);
         }
     }
 
@@ -142,7 +140,6 @@ export class AbcPreview {
         if (this.synth && this.isPlaying) {
             this.synth.stop();
             this.isPlaying = false;
-            this._updatePlayButton(false);
         }
     }
 
@@ -155,18 +152,6 @@ export class AbcPreview {
             this.stop();
         } else {
             await this.play(abc);
-        }
-    }
-
-    /**
-     * Update play button appearance
-     * @private
-     */
-    _updatePlayButton(isPlaying) {
-        const btn = document.getElementById('btn-play-abc');
-        if (btn) {
-            btn.textContent = isPlaying ? 'Stop ABC' : 'Play ABC';
-            btn.classList.toggle('active', isPlaying);
         }
     }
 
