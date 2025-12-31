@@ -404,9 +404,10 @@ export class MelodyExtractor {
         const noteIndex = this.correctedNotes.findIndex(n => n.id === noteId);
         if (noteIndex === -1) return;
 
-        // ABCJS adds class abcjs-n{index} to each note
-        const noteElement = container.querySelector(`.abcjs-n${noteIndex}`);
-        if (noteElement) {
+        // Get all actual note elements (not rests) - ABCJS marks notes with abcjs-note class
+        const noteElements = container.querySelectorAll('.abcjs-note');
+        if (noteIndex < noteElements.length) {
+            const noteElement = noteElements[noteIndex];
             noteElement.classList.add('highlighted');
 
             // Scroll into view if needed

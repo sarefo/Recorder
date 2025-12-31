@@ -423,10 +423,6 @@
     stroke: #ff6b6b !important;
 }
 
-.abc-review-container .highlighted {
-    filter: drop-shadow(0 0 3px rgba(255, 107, 107, 0.6));
-}
-
 .editor-sidebar {
     grid-column: 2;
     grid-row: 1;
