@@ -3,13 +3,25 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
+
 This is a browser-based web application for displaying and playing ABC music notation for recorder music, including fingering diagrams.
 
+**Related project:** See `/MelodyExtractor/CLAUDE.md` for the melody extraction tool that transcribes audio to ABC notation.
+
 ## Running the Application
-- The development server is already running at http://localhost:8000/Recorder
+
+- Development server: http://localhost:8000/Recorder
 - Update ABC and docs file lists: `python3 scripts/update_data.py`
 
+## Key Files
+
+- `index.html` - Main app entry point
+- `js/core/abc-player.js` - Main controller
+- `js/notation/` - ABC parsing and rendering
+- `js/playback/` - ABCJS synth integration
+
 ## Code Style Guidelines
+
 - Use ES6 class-based architecture with clear separation of concerns
 - Follow camelCase naming for methods and properties
 - Use JSDoc comments for method documentation
@@ -22,8 +34,9 @@ This is a browser-based web application for displaying and playing ABC music not
 - Add new music files in the appropriate folders within the /abc directory
 
 ## MCP Server Usage
+
 - Use the Context7 MCP server (mcp__context7__*) when working with external libraries or frameworks to get up-to-date documentation and examples
-- This helps ensure compatibility and follows best practices for third-party dependencies
 
 ## Mobile Testing
-- When testing mobile, test for landscape in pixel 7a (915x412) and pixel 4a (393x851)
+
+- Test for landscape in Pixel 7a (915x412) and Pixel 4a (393x851)
