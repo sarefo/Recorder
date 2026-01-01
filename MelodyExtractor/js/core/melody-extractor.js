@@ -12,6 +12,7 @@ import { RegionManager } from '../visualization/region-manager.js';
 import { PianoRoll } from '../visualization/piano-roll.js';
 import { NoteEditor } from '../editor/note-editor.js';
 import { AbcGenerator } from '../export/abc-generator.js';
+import { AbcParser } from '../export/abc-parser.js';
 import { AbcPreview } from '../export/abc-preview.js';
 import { WorkflowManager } from '../ui/workflow-manager.js';
 import { UIControls } from '../ui/ui-controls.js';
@@ -49,6 +50,7 @@ export class MelodyExtractor {
         this.pianoRoll = new PianoRoll(this, 'piano-roll');
         this.noteEditor = new NoteEditor(this);
         this.abcGenerator = new AbcGenerator();
+        this.abcParser = new AbcParser();
         this.abcPreview = new AbcPreview(this);
         this.workflowManager = new WorkflowManager(this);
         this.uiControls = new UIControls(this);
@@ -460,6 +462,101 @@ export class MelodyExtractor {
         const filename = title.toLowerCase().replace(/\s+/g, '_') + '.abc';
         Utils.downloadFile(abc, filename, 'text/vnd.abc');
         Utils.showFeedback('Downloaded ' + filename);
+    }
+
+    /**
+     * Parse ABC notation from text field and update notes
+     */
+    parseAbc() {
+        try {
+            const abcText = document.getElementById('abc-text').value;
+
+            if (!abcText || !abcText.trim()) {
+                Utils.showFeedback('ABC text is empty');
+                return;
+            }
+
+            // Validate ABC before parsing
+            if (!this.abcParser.isValid(abcText)) {
+                Utils.showFeedback('Invalid ABC notation');
+                return;
+            }
+
+            // Check if G Recorder transpose is currently enabled
+            const gRecorderCheckbox = document.getElementById('chk-g-recorder');
+            const wasTransposed = gRecorderCheckbox && gRecorderCheckbox.checked;
+
+            // Parse ABC
+            const parsed = this.abcParser.parse(abcText);
+
+            if (!parsed.notes || parsed.notes.length === 0) {
+                Utils.showFeedback('No notes found in ABC');
+                return;
+            }
+
+            // If G Recorder was enabled, the current ABC is already transposed down by 12
+            // So we need to transpose UP by 12 to get the original pitches
+            if (wasTransposed) {
+                parsed.notes.forEach(note => {
+                    note.midi += 12;
+                    note.noteName = Utils.midiToNoteName(note.midi);
+                });
+            }
+
+            // Update corrected notes
+            this.correctedNotes = parsed.notes;
+
+            // Update metadata in UI if available
+            if (parsed.metadata) {
+                if (parsed.metadata.title) {
+                    const titleInput = document.getElementById('abc-title');
+                    if (titleInput) titleInput.value = parsed.metadata.title;
+                }
+                if (parsed.metadata.tempo) {
+                    const tempoInput = document.getElementById('abc-tempo');
+                    if (tempoInput) tempoInput.value = parsed.metadata.tempo;
+                }
+                if (parsed.metadata.meter) {
+                    const meterSelect = document.getElementById('abc-meter');
+                    if (meterSelect) {
+                        // Handle meter as array or string
+                        const meterValue = Array.isArray(parsed.metadata.meter)
+                            ? parsed.metadata.meter[0]?.num + '/' + parsed.metadata.meter[0]?.den
+                            : parsed.metadata.meter;
+                        meterSelect.value = meterValue;
+                    }
+                }
+                if (parsed.metadata.key) {
+                    const keySelect = document.getElementById('abc-key');
+                    if (keySelect) {
+                        // Try to find matching key option
+                        const options = Array.from(keySelect.options);
+                        const match = options.find(opt => opt.value === parsed.metadata.key);
+                        if (match) keySelect.value = parsed.metadata.key;
+                    }
+                }
+            }
+
+            // Clear existing regions and update with new notes
+            this.regionManager.clearAll();
+            this.regionManager.displayNotes(this.correctedNotes);
+
+            // Update piano roll visualization with new notes
+            const duration = this.audioBuffer ? this.audioBuffer.duration : 10; // fallback duration
+            this.pianoRoll.setNotes(this.correctedNotes, duration);
+
+            // Clear note selection
+            this.noteEditor.deselectNote();
+
+            // Update ABC preview
+            this.updateAbcPreview();
+
+            Utils.showFeedback(`Parsed ${parsed.notes.length} notes from ABC`);
+
+        } catch (error) {
+            console.error('Failed to parse ABC:', error);
+            Utils.showFeedback('Failed to parse ABC: ' + error.message);
+        }
     }
 
     /**

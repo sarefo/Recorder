@@ -61,7 +61,11 @@
                         <div class="recording-settings">
                             <div class="setting-row">
                                 <label for="record-tempo">Tempo (BPM)</label>
-                                <input type="number" id="record-tempo" value="120" min="40" max="240" class="input-sm">
+                                <div class="tempo-control">
+                                    <button id="record-tempo-down" class="btn-tempo" title="Decrease by 10">-</button>
+                                    <input type="number" id="record-tempo" value="120" min="40" max="240" class="input-sm">
+                                    <button id="record-tempo-up" class="btn-tempo" title="Increase by 10">+</button>
+                                </div>
                             </div>
                             <div class="setting-row">
                                 <label for="record-meter">Meter</label>
@@ -160,14 +164,21 @@
                     <div class="abc-text-section">
                         <div class="viz-label">
                             ABC Notation
-                            <button id="btn-copy-abc" class="btn-copy-icon" title="Copy to clipboard">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                </svg>
-                            </button>
+                            <div style="display: inline-flex; gap: 8px;">
+                                <button id="btn-parse-abc" class="btn-copy-icon" title="Parse ABC to update piano roll">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 12h18M12 3l9 9-9 9"></path>
+                                    </svg>
+                                </button>
+                                <button id="btn-copy-abc" class="btn-copy-icon" title="Copy to clipboard">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
-                        <textarea id="abc-text" class="abc-output-text" readonly rows="4"></textarea>
+                        <textarea id="abc-text" class="abc-output-text" rows="4" placeholder="Edit ABC notation here and click the arrow button to parse..."></textarea>
                     </div>
 
                     <!-- Hidden waveform for audio playback -->
@@ -183,7 +194,11 @@
                         </div>
                         <div class="setting-row">
                             <label for="abc-tempo">Tempo (BPM)</label>
-                            <input type="number" id="abc-tempo" value="120" min="40" max="240" class="input-sm">
+                            <div class="tempo-control">
+                                <button id="abc-tempo-down" class="btn-tempo" title="Decrease by 10">-</button>
+                                <input type="number" id="abc-tempo" value="120" min="40" max="240" class="input-sm">
+                                <button id="abc-tempo-up" class="btn-tempo" title="Increase by 10">+</button>
+                            </div>
                         </div>
                         <div class="setting-row">
                             <label for="abc-meter">Meter</label>

@@ -17,6 +17,7 @@ export class UIControls {
         this._setupNavigationButtons();
         this._setupExportControls();
         this._setupRecordingSettings();
+        this._setupTempoControls();
     }
 
     /**
@@ -146,6 +147,54 @@ export class UIControls {
     }
 
     /**
+     * Setup tempo up/down controls
+     * @private
+     */
+    _setupTempoControls() {
+        // Recording tempo controls
+        const recordTempo = document.getElementById('record-tempo');
+        const recordTempoUp = document.getElementById('record-tempo-up');
+        const recordTempoDown = document.getElementById('record-tempo-down');
+
+        if (recordTempo && recordTempoUp && recordTempoDown) {
+            recordTempoUp.addEventListener('click', () => {
+                const currentValue = parseInt(recordTempo.value) || 120;
+                const newValue = Math.min(240, currentValue + 10);
+                recordTempo.value = newValue;
+            });
+
+            recordTempoDown.addEventListener('click', () => {
+                const currentValue = parseInt(recordTempo.value) || 120;
+                const newValue = Math.max(40, currentValue - 10);
+                recordTempo.value = newValue;
+            });
+        }
+
+        // ABC tempo controls
+        const abcTempo = document.getElementById('abc-tempo');
+        const abcTempoUp = document.getElementById('abc-tempo-up');
+        const abcTempoDown = document.getElementById('abc-tempo-down');
+
+        if (abcTempo && abcTempoUp && abcTempoDown) {
+            abcTempoUp.addEventListener('click', () => {
+                const currentValue = parseInt(abcTempo.value) || 120;
+                const newValue = Math.min(240, currentValue + 10);
+                abcTempo.value = newValue;
+                // Trigger change event to update ABC
+                abcTempo.dispatchEvent(new Event('change'));
+            });
+
+            abcTempoDown.addEventListener('click', () => {
+                const currentValue = parseInt(abcTempo.value) || 120;
+                const newValue = Math.max(40, currentValue - 10);
+                abcTempo.value = newValue;
+                // Trigger change event to update ABC
+                abcTempo.dispatchEvent(new Event('change'));
+            });
+        }
+    }
+
+    /**
      * Setup export controls
      * @private
      */
@@ -163,6 +212,14 @@ export class UIControls {
                 });
             }
         });
+
+        // Parse ABC
+        const parseBtn = document.getElementById('btn-parse-abc');
+        if (parseBtn) {
+            parseBtn.addEventListener('click', () => {
+                this.app.parseAbc();
+            });
+        }
 
         // Copy to clipboard
         const copyBtn = document.getElementById('btn-copy-abc');

@@ -248,3 +248,45 @@ kbd {
     border-radius: 3px;
     box-shadow: 0 1px 0 var(--border-color);
 }
+
+/* Tempo control buttons */
+.tempo-control {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-tempo {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    background: white;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.btn-tempo:hover:not(:disabled) {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.btn-tempo:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.btn-tempo:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.tempo-control input[type="number"] {
+    flex: 1;
+    min-width: 60px;
+}
