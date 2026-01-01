@@ -281,6 +281,12 @@ class FileManager {
             // Expand folder
             fileItems.classList.remove('collapsed');
             folderButton.setAttribute('aria-expanded', 'true');
+
+            // Scroll folder button into view so the file names are visible
+            folderButton.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
     }
 
