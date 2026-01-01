@@ -194,11 +194,11 @@ class MidiPlayer {
             midiTranspose: totalTranspose,
             chordsOff: !this.playbackSettings.chordsOn,
             voicesOff: !this.playbackSettings.voicesOn,
-            drum: this.playbackSettings.metronomeOn ? "dddd" : "", // Simple metronome pattern
+            drum: "", // Disable ABCJS drum - using CustomMetronome instead
             drumBars: 1,
-            drumIntro: this.isFirstPlay ? 1 : 0, // Count-in on first play only, no intro on loop repeats
+            drumIntro: 0, // No ABCJS drum intro - CustomMetronome handles count-in
             // Additional metronome settings
-            drumOn: this.playbackSettings.metronomeOn,
+            drumOn: false, // Disable ABCJS drum - using CustomMetronome instead
             //soundFontUrl: "https://paulrosen.github.io/midi-js-soundfonts/FluidR3_GM/",
             // Define specific drum sounds
             preferredDrum: "hi-hat", // Options: "bass-drum", "snare-drum", "hi-hat", "tambourine", "woodblock"
@@ -256,8 +256,8 @@ class MidiPlayer {
                     millisecondsPerMeasure: millisecondsPerMeasure,
                     options: options
                 });
-                // Track whether this synth has count-in baked in (for gapless looping)
-                this.synthHasCountIn = this.isFirstPlay;
+                // Synth no longer has count-in (handled by CustomMetronome externally)
+                this.synthHasCountIn = false;
             } catch (synthError) {
                 console.error('ABCJS synth initialization failed:', synthError);
                 this.updateStatusDisplay("MIDI playback not available for this tune");
@@ -281,8 +281,8 @@ class MidiPlayer {
                 // Pass the adjusted tempo so auto-scroll timing matches playback
                 const baseTempo = visualObj.getBpm ? visualObj.getBpm() : 120;
                 const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
-                // Pass hasCountIn info so auto-scroll waits for count-in bar on first play
-                this.autoScrollManager.init(visualObj, adjustedTempo, this.isFirstPlay);
+                // No count-in in MIDI synth (handled externally by CustomMetronome)
+                this.autoScrollManager.init(visualObj, adjustedTempo, false);
             }
 
             // Initialize tuning manager with shared audio context
@@ -332,8 +332,8 @@ class MidiPlayer {
                 millisecondsPerMeasure: millisecondsPerMeasure,
                 options: options
             });
-            // Track whether this synth has count-in baked in (for gapless looping)
-            this.synthHasCountIn = this.isFirstPlay;
+            // Synth no longer has count-in (handled by CustomMetronome externally)
+            this.synthHasCountIn = false;
 
             // Update metronome with the current time signature and tempo from the visual object
             await this.updateMetronome(visualObj);
@@ -352,8 +352,8 @@ class MidiPlayer {
                 // Pass the adjusted tempo so auto-scroll timing matches playback
                 const baseTempo = visualObj.getBpm ? visualObj.getBpm() : 120;
                 const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
-                // Pass hasCountIn info so auto-scroll waits for count-in bar on first play
-                this.autoScrollManager.init(visualObj, adjustedTempo, this.isFirstPlay);
+                // No count-in in MIDI synth (handled externally by CustomMetronome)
+                this.autoScrollManager.init(visualObj, adjustedTempo, false);
             }
 
             // Apply fine tuning after synth is initialized
@@ -430,32 +430,47 @@ class MidiPlayer {
      */
     async startPlayback() {
         try {
-            // Start metronome BEFORE starting MIDI player to ensure synchronization
-            if (this.playbackSettings.metronomeOn && !this.customMetronome.isPlaying) {
-                // Always get the current visual object to ensure we have the latest tempo
-                const visualObj = window.app?.renderManager?.currentVisualObj;
-                if (visualObj && typeof visualObj.getBpm === 'function') {
-                    // Calculate the correct tempo directly from the current piece
-                    const baseTempo = visualObj.getBpm() || 120;
-                    const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
+            // Get the current visual object to calculate tempo and time signature
+            const visualObj = window.app?.renderManager?.currentVisualObj;
+            let adjustedTempo = this.lastTempo;
+            let numerator = this.lastTimeSignature;
 
-                    // Update our saved tempo values
-                    this.lastTempo = adjustedTempo;
+            if (visualObj && typeof visualObj.getBpm === 'function') {
+                // Calculate the correct tempo directly from the current piece
+                const baseTempo = visualObj.getBpm() || 120;
+                adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
 
-                    // Get time signature
-                    const timeSignature = visualObj.getMeter?.();
-                    const numerator = timeSignature?.value?.[0]?.num || 4;
-                    this.lastTimeSignature = numerator;
+                // Update our saved tempo values
+                this.lastTempo = adjustedTempo;
 
-                    // Start with the correct tempo
-                    await this.customMetronome.start(adjustedTempo, numerator);
-                } else {
-                    // Fallback to saved values
-                    await this.customMetronome.start(this.lastTempo, this.lastTimeSignature);
-                }
+                // Get time signature
+                const timeSignature = visualObj.getMeter?.();
+                numerator = timeSignature?.value?.[0]?.num || 4;
+                this.lastTimeSignature = numerator;
             }
 
-            // Start MIDI player after metronome is synchronized
+            // ALWAYS start metronome for count-in bar (even if metronomeOn is false)
+            if (!this.customMetronome.isPlaying && this.isFirstPlay) {
+                await this.customMetronome.start(adjustedTempo, numerator);
+
+                // Calculate duration of one measure for count-in
+                const secondsPerBeat = 60.0 / adjustedTempo;
+                const countInDuration = secondsPerBeat * numerator * 1000; // Convert to milliseconds
+
+                // Wait for count-in bar to complete
+                await new Promise(resolve => setTimeout(resolve, countInDuration));
+
+                // After count-in, stop metronome if metronomeOn is false
+                if (!this.playbackSettings.metronomeOn) {
+                    this.customMetronome.stop();
+                }
+                // If metronomeOn is true, CustomMetronome keeps running
+            } else if (this.playbackSettings.metronomeOn && !this.customMetronome.isPlaying) {
+                // Resume case: start metronome if it should be on
+                await this.customMetronome.start(adjustedTempo, numerator);
+            }
+
+            // Start MIDI player after count-in
             await this.midiPlayer.start();
 
             // Start timing callbacks for note highlighting (always) and auto-scroll (mobile only)
@@ -559,7 +574,7 @@ class MidiPlayer {
 
                         // Initialize and start auto-scroll manager for note highlighting and completion detection
                         if (this.autoScrollManager) {
-                            this.autoScrollManager.init(visualObj, adjustedTempo, this.isFirstPlay);
+                            this.autoScrollManager.init(visualObj, adjustedTempo, false);
                             this.autoScrollManager.start();
                         }
 
