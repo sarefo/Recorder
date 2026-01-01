@@ -119,22 +119,6 @@ export class UIControls {
                 this.app.workflowManager.showStep('load');
             });
         }
-
-        // Step 2 → Step 3
-        const toExport = document.getElementById('btn-to-export');
-        if (toExport) {
-            toExport.addEventListener('click', () => {
-                this.app.workflowManager.showStep('export');
-            });
-        }
-
-        // Step 3 → Step 2
-        const backToReview = document.getElementById('btn-back-to-review');
-        if (backToReview) {
-            backToReview.addEventListener('click', () => {
-                this.app.workflowManager.showStep('review');
-            });
-        }
     }
 
     /**
@@ -142,7 +126,7 @@ export class UIControls {
      * @private
      */
     _setupExportControls() {
-        // ABC settings changes → regenerate
+        // ABC settings changes → regenerate both preview and output
         const settingsInputs = [
             'abc-title', 'abc-tempo', 'abc-meter', 'abc-key'
         ];
@@ -150,73 +134,11 @@ export class UIControls {
             const input = document.getElementById(id);
             if (input) {
                 input.addEventListener('change', () => {
-                    this.app.generateAbc();
+                    this.app.updateAbcPreview(); // Update inline preview
+                    this.app.generateAbc();      // Update text output
                 });
             }
         });
-
-        // Export playback controls
-        const playParsedBtn = document.getElementById('btn-export-play-parsed');
-        const playOriginalBtn = document.getElementById('btn-export-play-original');
-        const stopBtn = document.getElementById('btn-export-stop');
-        const playBothChk = document.getElementById('chk-export-play-both');
-
-        const setExportPlaybackState = (isPlaying) => {
-            if (playParsedBtn) playParsedBtn.disabled = isPlaying;
-            if (playOriginalBtn) playOriginalBtn.disabled = isPlaying;
-            if (stopBtn) stopBtn.disabled = !isPlaying;
-        };
-
-        if (playParsedBtn) {
-            playParsedBtn.addEventListener('click', () => {
-                const playBoth = playBothChk && playBothChk.checked;
-                setExportPlaybackState(true);
-
-                if (playBoth && this.app.waveformManager.editorWavesurfer) {
-                    // Play both
-                    this.app.waveformManager.playEditor();
-                    this.app.synth.playNotes(this.app.correctedNotes, 0, null, () => {});
-                    this.app.waveformManager.editorWavesurfer.once('finish', () => {
-                        setExportPlaybackState(false);
-                    });
-                } else {
-                    // Play parsed only
-                    this.app.synth.playNotes(this.app.correctedNotes, 0, null, () => {
-                        setExportPlaybackState(false);
-                    });
-                }
-            });
-        }
-
-        if (playOriginalBtn) {
-            playOriginalBtn.addEventListener('click', () => {
-                const playBoth = playBothChk && playBothChk.checked;
-                setExportPlaybackState(true);
-
-                if (playBoth) {
-                    // Play both
-                    this.app.waveformManager.playEditor();
-                    this.app.synth.playNotes(this.app.correctedNotes, 0, null, () => {});
-                    this.app.waveformManager.editorWavesurfer.once('finish', () => {
-                        setExportPlaybackState(false);
-                    });
-                } else {
-                    // Play original only
-                    this.app.waveformManager.playEditor();
-                    this.app.waveformManager.editorWavesurfer.once('finish', () => {
-                        setExportPlaybackState(false);
-                    });
-                }
-            });
-        }
-
-        if (stopBtn) {
-            stopBtn.addEventListener('click', () => {
-                this.app.synth.stop();
-                this.app.waveformManager.stopEditor();
-                setExportPlaybackState(false);
-            });
-        }
 
         // Copy to clipboard
         const copyBtn = document.getElementById('btn-copy-abc');

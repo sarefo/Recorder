@@ -90,8 +90,8 @@ export class PianoRoll {
      */
     _setupGridControls() {
         const snapCheckbox = document.getElementById('chk-snap-grid');
-        const tempoInput = document.getElementById('grid-tempo');
-        const meterSelect = document.getElementById('grid-meter');
+        const tempoInput = document.getElementById('abc-tempo');
+        const meterSelect = document.getElementById('abc-meter');
         const divisionSelect = document.getElementById('grid-division');
 
         if (snapCheckbox) {

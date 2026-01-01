@@ -25,12 +25,7 @@
             <div class="step-connector"></div>
             <div class="step" data-step="review">
                 <span class="step-number">2</span>
-                <span class="step-label">Review & Correct</span>
-            </div>
-            <div class="step-connector"></div>
-            <div class="step" data-step="export">
-                <span class="step-number">3</span>
-                <span class="step-label">Export ABC</span>
+                <span class="step-label">Edit & Export</span>
             </div>
         </nav>
 
@@ -61,6 +56,29 @@
                             <span class="record-icon">●</span> Start Recording
                         </button>
                         <p class="record-hint">Click to record, then play your melody</p>
+
+                        <!-- Recording Settings -->
+                        <div class="recording-settings">
+                            <div class="setting-row">
+                                <label for="record-tempo">Tempo (BPM)</label>
+                                <input type="number" id="record-tempo" value="120" min="40" max="240" class="input-sm">
+                            </div>
+                            <div class="setting-row">
+                                <label for="record-meter">Meter</label>
+                                <select id="record-meter" class="input-sm">
+                                    <option value="4/4" selected>4/4</option>
+                                    <option value="3/4">3/4</option>
+                                    <option value="2/4">2/4</option>
+                                    <option value="6/8">6/8</option>
+                                    <option value="7/8">7/8</option>
+                                    <option value="5/4">5/4</option>
+                                </select>
+                            </div>
+                            <p class="record-hint" style="margin-top: 8px; font-size: 0.85rem;">
+                                Metronome will play until first <kbd>Right Ctrl</kbd> tap
+                            </p>
+                        </div>
+
                         <div id="recording-timer" class="recording-timer hidden">
                             <span class="recording-indicator">●</span>
                             <span id="timer-display">0:00</span>
@@ -126,7 +144,7 @@
             </div>
         </section>
 
-        <!-- Step 2: Review & Correct -->
+        <!-- Step 2: Edit & Export -->
         <section id="panel-review" class="step-panel hidden">
             <div class="panel-content review-layout">
                 <div class="visualization-area">
@@ -138,9 +156,61 @@
                     <div id="waveform-editor" class="waveform-container" style="display: none;"></div>
                 </div>
                 <div class="editor-sidebar">
+                    <!-- Music Settings Section (unified settings) -->
+                    <div class="editor-tools">
+                        <h4>Music Settings</h4>
+                        <div class="setting-row">
+                            <label for="abc-title">Title</label>
+                            <input type="text" id="abc-title" value="Extracted Melody" class="input-sm">
+                        </div>
+                        <div class="setting-row">
+                            <label for="abc-tempo">Tempo (BPM)</label>
+                            <input type="number" id="abc-tempo" value="120" min="40" max="240" class="input-sm">
+                        </div>
+                        <div class="setting-row">
+                            <label for="abc-meter">Meter</label>
+                            <select id="abc-meter" class="input-sm">
+                                <option value="4/4" selected>4/4</option>
+                                <option value="3/4">3/4</option>
+                                <option value="2/4">2/4</option>
+                                <option value="6/8">6/8</option>
+                                <option value="7/8">7/8</option>
+                                <option value="5/4">5/4</option>
+                            </select>
+                        </div>
+                        <div class="setting-row">
+                            <label for="abc-key">Key</label>
+                            <select id="abc-key" class="input-sm">
+                                <option value="C">C Major</option>
+                                <option value="G">G Major</option>
+                                <option value="D">D Major</option>
+                                <option value="F">F Major</option>
+                                <option value="Am">A Minor</option>
+                                <option value="Em">E Minor</option>
+                                <option value="Dm">D Minor</option>
+                            </select>
+                        </div>
+                        <div class="setting-row">
+                            <label for="grid-division">Grid Div</label>
+                            <select id="grid-division" class="input-sm">
+                                <option value="1">1 (whole)</option>
+                                <option value="2">2 (half)</option>
+                                <option value="4" selected>4 (quarter)</option>
+                                <option value="8">8 (eighth)</option>
+                                <option value="16">16 (16th)</option>
+                            </select>
+                        </div>
+                        <label class="checkbox-row">
+                            <input type="checkbox" id="chk-snap-grid" checked> Snap to grid
+                        </label>
+                    </div>
+
+                    <!-- Note Details Section -->
                     <div id="note-details" class="note-details">
                         <p class="placeholder-text">Click a note to edit</p>
                     </div>
+
+                    <!-- Playback Section -->
                     <div class="editor-tools">
                         <h4>Playback</h4>
                         <div class="playback-row">
@@ -152,6 +222,8 @@
                             <input type="checkbox" id="chk-play-both"> Play both together
                         </label>
                     </div>
+
+                    <!-- Tools Section -->
                     <div class="editor-tools">
                         <h4>Tools</h4>
                         <button id="btn-add-note" class="btn btn-tool btn-sm">+ Add Note</button>
@@ -166,33 +238,14 @@
                             <button id="btn-transpose-down" class="btn btn-tool btn-sm">↓ Transpose All</button>
                         </div>
                     </div>
+
+                    <!-- ABC Output Section -->
                     <div class="editor-tools">
-                        <h4>Grid</h4>
-                        <label class="checkbox-row">
-                            <input type="checkbox" id="chk-snap-grid" checked> Snap to grid
-                        </label>
-                        <div class="grid-options">
-                            <label>Tempo:</label>
-                            <input type="number" id="grid-tempo" value="120" min="40" max="240" class="input-sm">
-                            <label>Meter:</label>
-                            <select id="grid-meter" class="input-sm">
-                                <option value="4/4" selected>4/4</option>
-                                <option value="3/4">3/4</option>
-                                <option value="2/4">2/4</option>
-                                <option value="6/8">6/8</option>
-                                <option value="7/8">7/8</option>
-                                <option value="5/4">5/4</option>
-                            </select>
-                            <label>Div:</label>
-                            <select id="grid-division" class="input-sm">
-                                <option value="1">1 (whole)</option>
-                                <option value="2">2 (half)</option>
-                                <option value="4" selected>4 (quarter)</option>
-                                <option value="8">8 (eighth)</option>
-                                <option value="16">16 (16th)</option>
-                            </select>
-                        </div>
+                        <h4>ABC Notation</h4>
+                        <textarea id="abc-text" class="abc-output-text" readonly rows="6"></textarea>
                     </div>
+
+                    <!-- Shortcuts and Legend -->
                     <div class="how-to-edit">
                         <h4>Shortcuts</h4>
                         <ul class="edit-hints">
@@ -216,74 +269,13 @@
                     <button id="btn-back-to-load" class="btn btn-secondary">
                         <span class="arrow">←</span> Back
                     </button>
-                    <button id="btn-to-export" class="btn btn-primary">
-                        Generate ABC <span class="arrow">→</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Step 3: Export -->
-        <section id="panel-export" class="step-panel hidden">
-            <div class="panel-content export-layout">
-                <div class="abc-settings">
-                    <h3>ABC Settings</h3>
-                    <div class="setting-row">
-                        <label for="abc-title">Title</label>
-                        <input type="text" id="abc-title" value="Extracted Melody">
-                    </div>
-                    <div class="setting-row">
-                        <label for="abc-tempo">Tempo (BPM)</label>
-                        <input type="number" id="abc-tempo" value="120" min="40" max="240">
-                    </div>
-                    <div class="setting-row">
-                        <label for="abc-meter">Time Signature</label>
-                        <select id="abc-meter">
-                            <option value="4/4">4/4</option>
-                            <option value="3/4">3/4</option>
-                            <option value="2/4">2/4</option>
-                            <option value="6/8">6/8</option>
-                        </select>
-                    </div>
-                    <div class="setting-row">
-                        <label for="abc-key">Key</label>
-                        <select id="abc-key">
-                            <option value="C">C Major</option>
-                            <option value="G">G Major</option>
-                            <option value="D">D Major</option>
-                            <option value="F">F Major</option>
-                            <option value="Am">A Minor</option>
-                            <option value="Em">E Minor</option>
-                            <option value="Dm">D Minor</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="abc-preview-area">
-                    <h3>Preview</h3>
-                    <div id="abc-notation-preview"></div>
-                    <div class="playback-controls">
-                        <button id="btn-export-play-parsed" class="btn btn-tool btn-sm">▶ Parsed</button>
-                        <button id="btn-export-play-original" class="btn btn-tool btn-sm">▶ Original</button>
-                        <button id="btn-export-stop" class="btn btn-tool btn-sm" disabled>⏹</button>
-                        <label class="checkbox-row">
-                            <input type="checkbox" id="chk-export-play-both"> Both
-                        </label>
-                    </div>
-                </div>
-                <div class="abc-output">
-                    <h3>ABC Notation</h3>
-                    <textarea id="abc-text" readonly></textarea>
-                </div>
-                <div class="panel-actions full-width">
-                    <button id="btn-back-to-review" class="btn btn-secondary">
-                        <span class="arrow">←</span> Back
-                    </button>
-                    <button id="btn-copy-abc" class="btn btn-primary">Copy to Clipboard</button>
+                    <button id="btn-copy-abc" class="btn btn-primary">Copy ABC</button>
                     <button id="btn-download-abc" class="btn btn-primary">Download .abc</button>
                     <button id="btn-open-recorder" class="btn btn-secondary">Open in Recorder</button>
                 </div>
             </div>
         </section>
+
 
         <!-- Feedback Toast -->
         <div id="feedback" class="feedback"></div>

@@ -5,7 +5,7 @@
 export class WorkflowManager {
     constructor(app) {
         this.app = app;
-        this.steps = ['load', 'review', 'export'];  // Simplified to 3 steps
+        this.steps = ['load', 'review'];  // 2-step workflow: load, then edit & export
         this.currentStep = 'load';
     }
 
@@ -51,8 +51,6 @@ export class WorkflowManager {
         switch (stepName) {
             case 'review':
                 return this.app.detectedNotes.length > 0;
-            case 'export':
-                return this.app.correctedNotes.length > 0;
             default:
                 return false;
         }
@@ -102,13 +100,8 @@ export class WorkflowManager {
                 break;
 
             case 'review':
-                // Initialize editor waveform
+                // Initialize editor waveform and generate ABC
                 await this.app.enterReviewMode();
-                break;
-
-            case 'export':
-                // Generate ABC
-                this.app.generateAbc();
                 break;
         }
     }

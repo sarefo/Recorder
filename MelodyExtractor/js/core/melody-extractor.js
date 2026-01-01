@@ -263,6 +263,24 @@ export class MelodyExtractor {
     }
 
     /**
+     * Copy recording settings to music settings
+     * @private
+     */
+    _copyRecordingSettings() {
+        const recordTempo = document.getElementById('record-tempo');
+        const recordMeter = document.getElementById('record-meter');
+        const abcTempo = document.getElementById('abc-tempo');
+        const abcMeter = document.getElementById('abc-meter');
+
+        if (recordTempo && abcTempo) {
+            abcTempo.value = recordTempo.value;
+        }
+        if (recordMeter && abcMeter) {
+            abcMeter.value = recordMeter.value;
+        }
+    }
+
+    /**
      * Enter review mode - setup editor waveform and regions
      */
     async enterReviewMode() {
@@ -294,8 +312,12 @@ export class MelodyExtractor {
             // Attach wavesurfer events after it's ready
             this.noteEditor.attachWavesurferEvents();
 
-            // Render initial ABC preview
+            // Copy recording settings to music settings (if they exist)
+            this._copyRecordingSettings();
+
+            // Render initial ABC preview and generate output text
             this.updateAbcPreview();
+            this.generateAbc();
 
             console.log('Review mode ready');
 
@@ -323,8 +345,7 @@ export class MelodyExtractor {
         // Display in textarea
         document.getElementById('abc-text').value = abc;
 
-        // Render preview
-        this.abcPreview.render(abc);
+        // Note: Preview is rendered via updateAbcPreview() in the unified layout
 
         return abc;
     }
@@ -337,16 +358,18 @@ export class MelodyExtractor {
         const container = document.getElementById('abc-review-preview');
         if (!container || !window.ABCJS) return;
 
-        // Get tempo from grid settings if available, otherwise use default
-        const gridTempo = document.getElementById('grid-tempo');
-        const tempo = gridTempo ? parseInt(gridTempo.value) || 120 : 120;
+        // Get settings from unified controls
+        const titleInput = document.getElementById('abc-title');
+        const tempoInput = document.getElementById('abc-tempo');
+        const meterSelect = document.getElementById('abc-meter');
+        const keySelect = document.getElementById('abc-key');
 
-        // Generate simple ABC for preview
+        // Generate ABC preview with current settings
         const options = {
-            title: '',
-            tempo: tempo,
-            meter: '4/4',
-            key: 'C'
+            title: titleInput ? titleInput.value : 'Extracted Melody',
+            tempo: tempoInput ? parseInt(tempoInput.value) || 120 : 120,
+            meter: meterSelect ? meterSelect.value : '4/4',
+            key: keySelect ? keySelect.value : 'C'
         };
 
         const abc = this.abcGenerator.generate(this.correctedNotes, options);

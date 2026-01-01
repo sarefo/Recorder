@@ -837,9 +837,9 @@ export class NoteEditor {
         this.retimeTaps = [];
         this.retimeRecordingStarted = false;
 
-        // Get tempo and meter from grid settings
-        const tempoInput = document.getElementById('grid-tempo');
-        const meterSelect = document.getElementById('grid-meter');
+        // Get tempo and meter from unified settings
+        const tempoInput = document.getElementById('abc-tempo');
+        const meterSelect = document.getElementById('abc-meter');
         const tempo = tempoInput ? parseInt(tempoInput.value) || 120 : 120;
         const meter = meterSelect ? meterSelect.value : '4/4';
 
@@ -995,7 +995,7 @@ export class NoteEditor {
         notes.sort((a, b) => a.startTime - b.startTime);
 
         // Get tempo for calculating default durations
-        const tempoInput = document.getElementById('grid-tempo');
+        const tempoInput = document.getElementById('abc-tempo');
         const tempo = tempoInput ? parseInt(tempoInput.value) || 120 : 120;
         const quarterNoteDuration = 60 / tempo;
 

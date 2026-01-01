@@ -20,6 +20,10 @@ export class AudioLoader {
         // Latency compensation for MediaRecorder startup delay
         // Typical latency is 100-300ms. This offset is ADDED to tap times.
         this.tapLatencyOffset = 0;
+
+        // Metronome for recording
+        this.metronomeInterval = null;
+        this.metronomeAudioContext = null;
     }
 
     /**
@@ -177,6 +181,81 @@ export class AudioLoader {
     }
 
     /**
+     * Start metronome with given tempo and meter
+     * @param {number} tempo - BPM
+     * @param {string} meter - Time signature (e.g., "4/4")
+     * @private
+     */
+    _startMetronome(tempo, meter) {
+        // Stop any existing metronome
+        this._stopMetronome();
+
+        // Parse meter
+        const [beatsPerBar, noteValue] = meter.split('/').map(Number);
+        const beatDuration = (60 / tempo) * (4 / noteValue) * 1000; // milliseconds
+
+        // Initialize audio context for metronome
+        this.metronomeAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+        let beatCount = 0;
+
+        // Play first click immediately
+        this._playMetronomeClick(beatCount % beatsPerBar === 0);
+
+        // Then play on interval
+        this.metronomeInterval = setInterval(() => {
+            beatCount++;
+            this._playMetronomeClick(beatCount % beatsPerBar === 0);
+        }, beatDuration);
+
+        console.log(`Metronome started: ${tempo} BPM, ${meter}`);
+    }
+
+    /**
+     * Play a single metronome click
+     * @param {boolean} isDownbeat - True for first beat of bar
+     * @private
+     */
+    _playMetronomeClick(isDownbeat) {
+        if (!this.metronomeAudioContext) return;
+
+        const ctx = this.metronomeAudioContext;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        // Higher pitch for downbeat, lower for other beats
+        osc.frequency.value = isDownbeat ? 1200 : 800;
+        osc.type = 'sine';
+
+        // Quick fade out
+        const now = ctx.currentTime;
+        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+
+        osc.start(now);
+        osc.stop(now + 0.05);
+    }
+
+    /**
+     * Stop metronome
+     * @private
+     */
+    _stopMetronome() {
+        if (this.metronomeInterval) {
+            clearInterval(this.metronomeInterval);
+            this.metronomeInterval = null;
+            console.log('Metronome stopped');
+        }
+        if (this.metronomeAudioContext) {
+            this.metronomeAudioContext.close();
+            this.metronomeAudioContext = null;
+        }
+    }
+
+    /**
      * Start recording from microphone (prepares, waits for first Right Ctrl to start)
      * @returns {Promise<void>}
      */
@@ -216,6 +295,13 @@ export class AudioLoader {
             this._boundKeyHandler = (e) => this._handleTapKey(e);
             document.addEventListener('keydown', this._boundKeyHandler);
 
+            // Get recording settings and start metronome
+            const tempoInput = document.getElementById('record-tempo');
+            const meterSelect = document.getElementById('record-meter');
+            const tempo = tempoInput ? parseInt(tempoInput.value) || 120 : 120;
+            const meter = meterSelect ? meterSelect.value : '4/4';
+            this._startMetronome(tempo, meter);
+
             console.log('Recording ready - press Right Ctrl to START recording and mark first note');
 
         } catch (error) {
@@ -239,6 +325,9 @@ export class AudioLoader {
                 this.isWaitingForFirstTap = false;
                 this.isRecording = true;
                 this.recordingStartTime = now;
+
+                // Stop metronome
+                this._stopMetronome();
 
                 // Start the MediaRecorder NOW
                 this.mediaRecorder.start(100); // Collect data every 100ms
@@ -286,6 +375,9 @@ export class AudioLoader {
                 reject(new Error('Not recording'));
                 return;
             }
+
+            // Stop metronome if still running
+            this._stopMetronome();
 
             // Remove tap listener
             if (this._boundKeyHandler) {
