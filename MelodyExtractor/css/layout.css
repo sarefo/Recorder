@@ -684,7 +684,7 @@
     font-size: 0.85rem;
 }
 
-.editor-tools button {
+.editor-tools button:not(.btn-tempo) {
     width: 100%;
     box-sizing: border-box;
 }
