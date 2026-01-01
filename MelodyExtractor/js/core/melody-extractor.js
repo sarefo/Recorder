@@ -36,6 +36,7 @@ export class MelodyExtractor {
         this.isProcessing = false;
         this.recordingStartTime = null;
         this.recordingInterval = null;
+        this.tapCheckInterval = null;
         this.tapTimestamps = [];  // User-marked note onsets
 
         // Initialize modules
@@ -471,7 +472,7 @@ export class MelodyExtractor {
      * Toggle recording
      */
     async toggleRecording() {
-        if (this.audioLoader.getIsRecording()) {
+        if (this.audioLoader.getIsRecording() || this.audioLoader.getIsWaitingForFirstTap()) {
             // Stop recording
             try {
                 const blob = await this.audioLoader.stopRecording();
@@ -480,6 +481,10 @@ export class MelodyExtractor {
                 if (this.recordingInterval) {
                     clearInterval(this.recordingInterval);
                     this.recordingInterval = null;
+                }
+                if (this.tapCheckInterval) {
+                    clearInterval(this.tapCheckInterval);
+                    this.tapCheckInterval = null;
                 }
 
                 document.getElementById('recording-timer').classList.add('hidden');
@@ -511,30 +516,35 @@ export class MelodyExtractor {
             }
 
         } else {
-            // Start recording
+            // Prepare recording (wait for first tap to actually start)
             try {
                 await this.audioLoader.startRecording();
 
-                document.getElementById('btn-record').innerHTML = '<span class="record-icon">■</span> Stop Recording';
-                document.getElementById('recording-timer').classList.remove('hidden');
+                document.getElementById('btn-record').innerHTML = '<span class="record-icon">■</span> Stop';
                 document.getElementById('tap-hint')?.classList.remove('hidden');
                 document.getElementById('tap-count')?.classList.remove('hidden');
                 document.getElementById('tap-count-value').textContent = '0';
 
-                this.recordingStartTime = Date.now();
-                this.recordingInterval = setInterval(() => {
-                    const elapsed = Math.floor((Date.now() - this.recordingStartTime) / 1000);
-                    const mins = Math.floor(elapsed / 60);
-                    const secs = elapsed % 60;
-                    document.getElementById('timer-display').textContent =
-                        `${mins}:${secs.toString().padStart(2, '0')}`;
-
-                    // Update tap count
+                // Check for first tap to start timer
+                this.tapCheckInterval = setInterval(() => {
                     const tapCount = this.audioLoader.getTapTimestamps().length;
                     document.getElementById('tap-count-value').textContent = tapCount;
+
+                    // Start timer when first tap happens
+                    if (tapCount > 0 && !this.recordingInterval) {
+                        document.getElementById('recording-timer').classList.remove('hidden');
+                        this.recordingStartTime = Date.now();
+                        this.recordingInterval = setInterval(() => {
+                            const elapsed = Math.floor((Date.now() - this.recordingStartTime) / 1000);
+                            const mins = Math.floor(elapsed / 60);
+                            const secs = elapsed % 60;
+                            document.getElementById('timer-display').textContent =
+                                `${mins}:${secs.toString().padStart(2, '0')}`;
+                        }, 100);
+                    }
                 }, 100);
 
-                Utils.showFeedback('Recording started - tap Right Ctrl for each note');
+                Utils.showFeedback('Ready - tap Right Ctrl to START recording');
 
             } catch (error) {
                 console.error('Failed to start recording:', error);

@@ -10,6 +10,7 @@ export class AudioLoader {
         this.mediaRecorder = null;
         this.recordedChunks = [];
         this.isRecording = false;
+        this.isWaitingForFirstTap = false;
 
         // Tap tracking for note onset marking
         this.tapTimestamps = [];
@@ -176,7 +177,7 @@ export class AudioLoader {
     }
 
     /**
-     * Start recording from microphone
+     * Start recording from microphone (prepares, waits for first Right Ctrl to start)
      * @returns {Promise<void>}
      */
     async startRecording() {
@@ -192,7 +193,7 @@ export class AudioLoader {
             this.recordedChunks = [];
             this.tapTimestamps = [];
             this._firstDataReceived = false;
-            this._pendingTaps = []; // Store taps before we know actual start time
+            this.isWaitingForFirstTap = true;
 
             this.mediaRecorder = new MediaRecorder(stream, {
                 mimeType: 'audio/webm;codecs=opus'
@@ -203,23 +204,10 @@ export class AudioLoader {
                     this.recordedChunks.push(e.data);
 
                     // Set the actual recording start time on first data
-                    // This accounts for MediaRecorder startup latency
                     if (!this._firstDataReceived) {
                         this._firstDataReceived = true;
-                        // The first chunk means recording has been active for ~100ms
-                        // (since we use start(100))
-                        // So actual start time is now - 100ms
-                        this.recordingStartTime = performance.now() - 100;
-
-                        // Convert any pending taps to actual timestamps
-                        this._pendingTaps.forEach(tapTime => {
-                            const relativeTime = (tapTime - this.recordingStartTime) / 1000;
-                            if (relativeTime >= 0) {
-                                this.tapTimestamps.push(relativeTime);
-                                console.log(`Tap (adjusted) at ${relativeTime.toFixed(2)}s`);
-                            }
-                        });
-                        this._pendingTaps = [];
+                        // Recording started when first tap was pressed
+                        console.log(`First data received at ${((performance.now() - this.recordingStartTime) / 1000).toFixed(3)}s`);
                     }
                 }
             });
@@ -228,14 +216,7 @@ export class AudioLoader {
             this._boundKeyHandler = (e) => this._handleTapKey(e);
             document.addEventListener('keydown', this._boundKeyHandler);
 
-            // Initial start time estimate (will be refined on first dataavailable)
-            this._initialStartTime = performance.now();
-            this.recordingStartTime = this._initialStartTime;
-
-            this.mediaRecorder.start(100); // Collect data every 100ms
-            this.isRecording = true;
-
-            console.log('Recording started - press Right Ctrl to mark note onsets');
+            console.log('Recording ready - press Right Ctrl to START recording and mark first note');
 
         } catch (error) {
             console.error('Failed to start recording:', error);
@@ -249,23 +230,37 @@ export class AudioLoader {
      */
     _handleTapKey(e) {
         // Right Ctrl key
-        if (e.code === 'ControlRight' && this.isRecording) {
+        if (e.code === 'ControlRight' && (this.isWaitingForFirstTap || this.isRecording)) {
             e.preventDefault();
             const now = performance.now();
 
-            // If we haven't received first data yet, store as pending
-            if (!this._firstDataReceived) {
-                this._pendingTaps.push(now);
-                console.log(`Tap registered (pending calibration)`);
-            } else {
-                // Calculate relative time from calibrated start
+            // First tap: START recording at this exact moment
+            if (this.isWaitingForFirstTap) {
+                this.isWaitingForFirstTap = false;
+                this.isRecording = true;
+                this.recordingStartTime = now;
+
+                // Start the MediaRecorder NOW
+                this.mediaRecorder.start(100); // Collect data every 100ms
+
+                // First tap is at time 0.0
+                this.tapTimestamps.push(0.0);
+                console.log('Recording STARTED on first tap at 0.00s');
+
+                // Visual feedback
+                this._showTapFeedback();
+                return;
+            }
+
+            // Subsequent taps: record relative time
+            if (this.isRecording) {
                 const tapTime = (now - this.recordingStartTime) / 1000;
                 this.tapTimestamps.push(tapTime);
                 console.log(`Tap registered at ${tapTime.toFixed(2)}s (total: ${this.tapTimestamps.length})`);
-            }
 
-            // Visual feedback
-            this._showTapFeedback();
+                // Visual feedback
+                this._showTapFeedback();
+            }
         }
     }
 
@@ -361,6 +356,14 @@ export class AudioLoader {
      */
     getIsRecording() {
         return this.isRecording;
+    }
+
+    /**
+     * Check if waiting for first tap to start recording
+     * @returns {boolean}
+     */
+    getIsWaitingForFirstTap() {
+        return this.isWaitingForFirstTap;
     }
 
     /**
