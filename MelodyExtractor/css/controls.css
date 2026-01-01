@@ -254,6 +254,8 @@ kbd {
     display: flex;
     align-items: center;
     gap: 4px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .btn-tempo {

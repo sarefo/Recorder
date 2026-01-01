@@ -154,6 +154,26 @@
         <!-- Step 2: Edit & Export -->
         <section id="panel-review" class="step-panel hidden">
             <div class="panel-content review-layout">
+                <!-- Control Bar -->
+                <div class="control-bar">
+                    <div class="control-group">
+                        <h4>Playback:</h4>
+                        <button id="btn-play-parsed" class="btn btn-tool btn-sm">▶ Parsed</button>
+                        <button id="btn-play-original" class="btn btn-tool btn-sm">▶ Original</button>
+                        <button id="btn-stop-all" class="btn btn-tool btn-sm" disabled>⏹</button>
+                        <label class="checkbox-row">
+                            <input type="checkbox" id="chk-play-both"> Play both
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <h4>Tools:</h4>
+                        <button id="btn-add-note" class="btn btn-tool btn-sm">+ Add Note</button>
+                        <button id="btn-retime" class="btn btn-tool btn-sm">⏱ Re-time</button>
+                        <button id="btn-transpose-up" class="btn btn-tool btn-sm">↑ Transpose</button>
+                        <button id="btn-transpose-down" class="btn btn-tool btn-sm">↓ Transpose</button>
+                    </div>
+                </div>
+
                 <div class="visualization-area">
                     <div class="viz-label">Piano Roll (drag to edit notes)</div>
                     <div id="piano-roll" class="piano-roll-container"></div>
@@ -246,33 +266,11 @@
                         <p class="placeholder-text">Click a note to edit</p>
                     </div>
 
-                    <!-- Playback Section -->
-                    <div class="editor-tools">
-                        <h4>Playback</h4>
-                        <div class="playback-row">
-                            <button id="btn-play-parsed" class="btn btn-tool btn-sm">▶ Parsed</button>
-                            <button id="btn-play-original" class="btn btn-tool btn-sm">▶ Original</button>
-                            <button id="btn-stop-all" class="btn btn-tool btn-sm" disabled>⏹</button>
-                        </div>
-                        <label class="checkbox-row">
-                            <input type="checkbox" id="chk-play-both"> Play both together
-                        </label>
-                    </div>
-
-                    <!-- Tools Section -->
-                    <div class="editor-tools">
-                        <h4>Tools</h4>
-                        <button id="btn-add-note" class="btn btn-tool btn-sm">+ Add Note</button>
-                        <button id="btn-retime" class="btn btn-tool btn-sm">⏱ Re-time</button>
-                        <div id="retime-status" class="retime-status hidden">
-                            <span class="recording-indicator">●</span>
-                            Tap <kbd>Right Ctrl</kbd> for each note
-                            <div>Taps: <span id="retime-tap-count">0</span> / <span id="retime-note-count">0</span></div>
-                        </div>
-                        <div class="transpose-buttons">
-                            <button id="btn-transpose-up" class="btn btn-tool btn-sm">↑ Transpose All</button>
-                            <button id="btn-transpose-down" class="btn btn-tool btn-sm">↓ Transpose All</button>
-                        </div>
+                    <!-- Re-time Status (shown when re-timing) -->
+                    <div id="retime-status" class="retime-status hidden">
+                        <span class="recording-indicator">●</span>
+                        Tap <kbd>Right Ctrl</kbd> for each note
+                        <div>Taps: <span id="retime-tap-count">0</span> / <span id="retime-note-count">0</span></div>
                     </div>
 
                     <!-- Shortcuts and Legend -->
