@@ -29,8 +29,8 @@
     border: 1px solid #ddd;
     border-radius: var(--border-radius-sm);
     padding: var(--spacing-xs);
-    min-height: 250px;
-    height: 300px;
+    min-height: 350px;
+    height: 450px;
     overflow: hidden;
     position: relative;
 }

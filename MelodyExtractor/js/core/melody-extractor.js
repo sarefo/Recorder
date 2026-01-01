@@ -143,14 +143,7 @@ export class MelodyExtractor {
             const audioData = this.audioLoader.getMonoChannel();
             console.log('Got mono channel, length:', audioData.length);
 
-            // Update config from UI
-            this.config.confidenceThreshold = parseFloat(
-                document.getElementById('confidence-threshold').value
-            );
-            this.config.minNoteDuration = parseInt(
-                document.getElementById('min-duration').value
-            ) / 1000;  // Convert ms to seconds
-
+            // Config values are set in constructor (confidenceThreshold: 0.7, minNoteDuration: 0.05)
             console.log('Detection config:', this.config);
 
             // Initialize pitch detector if needed

@@ -15,7 +15,6 @@ export class UIControls {
     init() {
         this._setupDropZone();
         this._setupNavigationButtons();
-        this._setupDetectionControls();
         this._setupExportControls();
     }
 
@@ -134,30 +133,6 @@ export class UIControls {
         if (backToReview) {
             backToReview.addEventListener('click', () => {
                 this.app.workflowManager.showStep('review');
-            });
-        }
-    }
-
-    /**
-     * Setup detection settings controls
-     * @private
-     */
-    _setupDetectionControls() {
-        // Confidence threshold slider
-        const confidenceSlider = document.getElementById('confidence-threshold');
-        const confidenceValue = document.getElementById('confidence-value');
-        if (confidenceSlider && confidenceValue) {
-            confidenceSlider.addEventListener('input', () => {
-                confidenceValue.textContent = confidenceSlider.value;
-            });
-        }
-
-        // Min duration slider
-        const durationSlider = document.getElementById('min-duration');
-        const durationValue = document.getElementById('duration-value');
-        if (durationSlider && durationValue) {
-            durationSlider.addEventListener('input', () => {
-                durationValue.textContent = durationSlider.value;
             });
         }
     }

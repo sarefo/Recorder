@@ -164,6 +164,46 @@ export class Synth {
     }
 
     /**
+     * Play a metronome click
+     * @param {number} startTime - When to play the click (in audio context time)
+     * @param {boolean} isDownbeat - Whether this is a downbeat (louder)
+     */
+    playMetronomeClick(startTime = null, isDownbeat = false) {
+        this.init();
+
+        // Resume audio context if suspended (needed for user interaction)
+        if (this.audioContext.state === 'suspended') {
+            this.audioContext.resume();
+        }
+
+        const now = startTime !== null ? startTime : this.audioContext.currentTime;
+        const frequency = isDownbeat ? 1200 : 800; // Higher pitch for downbeat
+        const duration = 0.1; // Slightly longer for audibility
+
+        // Create oscillator for click
+        const oscillator = this.audioContext.createOscillator();
+        oscillator.type = 'sine';
+        oscillator.frequency.value = frequency;
+
+        // Create envelope for click with louder volume
+        const envelope = this.audioContext.createGain();
+        const volume = isDownbeat ? 0.8 : 0.5; // Increased volume
+        envelope.gain.setValueAtTime(0, now);
+        envelope.gain.linearRampToValueAtTime(volume, now + 0.01);
+        envelope.gain.exponentialRampToValueAtTime(0.01, now + duration);
+
+        // Connect
+        oscillator.connect(envelope);
+        envelope.connect(this.masterGain);
+
+        // Play
+        oscillator.start(now);
+        oscillator.stop(now + duration + 0.01);
+
+        console.log(`Metronome click: ${isDownbeat ? 'DOWNBEAT' : 'beat'} at ${now.toFixed(3)}s`);
+    }
+
+    /**
      * Clean up resources
      */
     destroy() {

@@ -34,7 +34,7 @@ export class PianoRoll {
         this.originalNote = null;
 
         // Grid settings
-        this.snapEnabled = false;
+        this.snapEnabled = true;
         this.gridTempo = 120;
         this.gridDivision = 4; // beats per bar
     }
@@ -91,6 +91,7 @@ export class PianoRoll {
     _setupGridControls() {
         const snapCheckbox = document.getElementById('chk-snap-grid');
         const tempoInput = document.getElementById('grid-tempo');
+        const meterSelect = document.getElementById('grid-meter');
         const divisionSelect = document.getElementById('grid-division');
 
         if (snapCheckbox) {
@@ -103,6 +104,13 @@ export class PianoRoll {
         if (tempoInput) {
             tempoInput.addEventListener('change', () => {
                 this.gridTempo = parseInt(tempoInput.value) || 120;
+                this.render();
+            });
+        }
+
+        if (meterSelect) {
+            meterSelect.addEventListener('change', () => {
+                // Meter change doesn't affect grid rendering, just stored for reference
                 this.render();
             });
         }
@@ -157,15 +165,15 @@ export class PianoRoll {
             const minMidi = Math.min(...midiValues);
             const maxMidi = Math.max(...midiValues);
 
-            // Add padding of 3 semitones above and below
-            this.midiMin = Math.max(36, minMidi - 3);  // Don't go below C2
-            this.midiMax = Math.min(96, maxMidi + 3);  // Don't go above C7
+            // Add padding of one full octave (12 semitones) above and below
+            this.midiMin = Math.max(36, minMidi - 12);  // Don't go below C2
+            this.midiMax = Math.min(96, maxMidi + 12);  // Don't go above C7
 
-            // Ensure at least 12 semitones (one octave) visible
-            if (this.midiMax - this.midiMin < 12) {
+            // Ensure at least 2 octaves (24 semitones) visible
+            if (this.midiMax - this.midiMin < 24) {
                 const center = Math.floor((this.midiMin + this.midiMax) / 2);
-                this.midiMin = Math.max(36, center - 6);
-                this.midiMax = Math.min(96, center + 6);
+                this.midiMin = Math.max(36, center - 12);
+                this.midiMax = Math.min(96, center + 12);
             }
 
             console.log(`Piano roll range: MIDI ${this.midiMin} to ${this.midiMax} (${midiToNoteName(this.midiMin)} to ${midiToNoteName(this.midiMax)})`);

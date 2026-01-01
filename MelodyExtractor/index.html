@@ -91,21 +91,6 @@
                 </div>
                 <div id="waveform-preview" class="waveform-container hidden"></div>
 
-                <!-- Detection Settings (moved from old Step 2) -->
-                <div class="settings-group">
-                    <h3>Detection Settings</h3>
-                    <div class="setting-row">
-                        <label for="confidence-threshold">Confidence Threshold</label>
-                        <input type="range" id="confidence-threshold" min="0.3" max="0.9" step="0.05" value="0.7">
-                        <span id="confidence-value">0.7</span>
-                    </div>
-                    <div class="setting-row">
-                        <label for="min-duration">Minimum Note Duration (ms)</label>
-                        <input type="range" id="min-duration" min="20" max="200" step="10" value="50">
-                        <span id="duration-value">50</span>
-                    </div>
-                </div>
-
                 <!-- Detection Progress -->
                 <div id="detection-progress" class="progress-container hidden">
                     <div class="progress-bar">
@@ -176,15 +161,28 @@
                             Tap <kbd>Right Ctrl</kbd> for each note
                             <div>Taps: <span id="retime-tap-count">0</span> / <span id="retime-note-count">0</span></div>
                         </div>
+                        <div class="transpose-buttons">
+                            <button id="btn-transpose-up" class="btn btn-tool btn-sm">↑ Transpose All</button>
+                            <button id="btn-transpose-down" class="btn btn-tool btn-sm">↓ Transpose All</button>
+                        </div>
                     </div>
                     <div class="editor-tools">
                         <h4>Grid</h4>
                         <label class="checkbox-row">
-                            <input type="checkbox" id="chk-snap-grid"> Snap to grid
+                            <input type="checkbox" id="chk-snap-grid" checked> Snap to grid
                         </label>
                         <div class="grid-options">
                             <label>Tempo:</label>
                             <input type="number" id="grid-tempo" value="120" min="40" max="240" class="input-sm">
+                            <label>Meter:</label>
+                            <select id="grid-meter" class="input-sm">
+                                <option value="4/4" selected>4/4</option>
+                                <option value="3/4">3/4</option>
+                                <option value="2/4">2/4</option>
+                                <option value="6/8">6/8</option>
+                                <option value="7/8">7/8</option>
+                                <option value="5/4">5/4</option>
+                            </select>
                             <label>Div:</label>
                             <select id="grid-division" class="input-sm">
                                 <option value="1">1 (whole)</option>

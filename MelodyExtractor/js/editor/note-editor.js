@@ -22,6 +22,8 @@ export class NoteEditor {
         this.retimeStartTime = null;
         this.retimeTaps = [];
         this.retimeKeyHandler = null;
+        this.retimeMetronomeInterval = null;
+        this.retimeRecordingStarted = false;
     }
 
     /**
@@ -88,6 +90,20 @@ export class NoteEditor {
                 } else {
                     this.startRetime();
                 }
+            });
+        }
+
+        // Transpose all buttons
+        const transposeUpBtn = document.getElementById('btn-transpose-up');
+        const transposeDownBtn = document.getElementById('btn-transpose-down');
+        if (transposeUpBtn) {
+            transposeUpBtn.addEventListener('click', () => {
+                this.transposeAll(1);
+            });
+        }
+        if (transposeDownBtn) {
+            transposeDownBtn.addEventListener('click', () => {
+                this.transposeAll(-1);
             });
         }
 
@@ -764,7 +780,52 @@ export class NoteEditor {
     }
 
     /**
-     * Start re-time mode - play audio and capture tap timestamps
+     * Transpose all notes up or down by semitones
+     * @param {number} semitones - Number of semitones to transpose (positive for up, negative for down)
+     */
+    transposeAll(semitones) {
+        if (this.app.correctedNotes.length === 0) {
+            showFeedback('No notes to transpose');
+            return;
+        }
+
+        let transposed = 0;
+        this.app.correctedNotes.forEach(note => {
+            const newMidi = note.midi + semitones;
+            // Only transpose if within valid range
+            if (newMidi >= 36 && newMidi <= 96) {
+                note.midi = newMidi;
+                note.noteName = midiToNoteName(newMidi);
+                note.userCorrected = true;
+                transposed++;
+            }
+        });
+
+        if (transposed > 0) {
+            // Refresh all displays
+            this.app.regionManager.refresh();
+            if (this.app.pianoRoll) {
+                this.app.pianoRoll.refresh();
+            }
+            if (this.app.updateAbcPreview) {
+                this.app.updateAbcPreview();
+            }
+
+            // Update details if a note is selected
+            const selectedNote = this._getSelectedNote();
+            if (selectedNote) {
+                this._showNoteDetails(selectedNote);
+            }
+
+            const direction = semitones > 0 ? 'up' : 'down';
+            showFeedback(`Transposed ${transposed} note${transposed > 1 ? 's' : ''} ${direction}`);
+        } else {
+            showFeedback('No notes could be transposed (out of range)');
+        }
+    }
+
+    /**
+     * Start re-time mode - play metronome with count-in, then capture tap timestamps
      */
     startRetime() {
         if (this.app.correctedNotes.length === 0) {
@@ -772,13 +833,19 @@ export class NoteEditor {
             return;
         }
 
-        if (!this.app.waveformManager.editorWavesurfer) {
-            showFeedback('Audio not loaded');
-            return;
-        }
-
         this.retimeMode = true;
         this.retimeTaps = [];
+        this.retimeRecordingStarted = false;
+
+        // Get tempo and meter from grid settings
+        const tempoInput = document.getElementById('grid-tempo');
+        const meterSelect = document.getElementById('grid-meter');
+        const tempo = tempoInput ? parseInt(tempoInput.value) || 120 : 120;
+        const meter = meterSelect ? meterSelect.value : '4/4';
+
+        // Parse meter (e.g., "4/4" -> beats=4, noteValue=4)
+        const [beatsPerBar, noteValue] = meter.split('/').map(Number);
+        const beatDuration = (60 / tempo) * (4 / noteValue); // Adjust for note value
 
         // Update UI
         const retimeBtn = document.getElementById('btn-retime');
@@ -790,19 +857,24 @@ export class NoteEditor {
             retimeBtn.textContent = '⏹ Stop';
             retimeBtn.classList.add('active');
         }
-        if (retimeStatus) retimeStatus.classList.remove('hidden');
-        if (tapCount) tapCount.textContent = '0';
-        if (noteCount) noteCount.textContent = this.app.correctedNotes.length;
+        if (retimeStatus) {
+            retimeStatus.classList.remove('hidden');
+            retimeStatus.querySelector('div').innerHTML =
+                `Count-in (${meter})... <span id="retime-tap-count">0</span> / <span id="retime-note-count">${this.app.correctedNotes.length}</span>`;
+        }
 
         // Setup keydown handler for Right Ctrl
         this.retimeKeyHandler = (e) => {
-            if (e.code === 'ControlRight' && this.retimeMode) {
+            if (e.code === 'ControlRight' && this.retimeMode && this.retimeRecordingStarted) {
                 e.preventDefault();
-                const currentTime = this.app.waveformManager.editorWavesurfer.getCurrentTime();
-                this.retimeTaps.push(currentTime);
+
+                // Calculate time since recording started
+                const elapsed = (performance.now() - this.retimeStartTime) / 1000;
+                this.retimeTaps.push(elapsed);
 
                 // Visual feedback
-                if (tapCount) tapCount.textContent = this.retimeTaps.length;
+                const tapCountEl = document.getElementById('retime-tap-count');
+                if (tapCountEl) tapCountEl.textContent = this.retimeTaps.length;
 
                 // Flash indicator
                 const indicator = retimeStatus?.querySelector('.recording-indicator');
@@ -813,24 +885,61 @@ export class NoteEditor {
                     }, 100);
                 }
 
-                console.log(`Re-time tap ${this.retimeTaps.length}: ${currentTime.toFixed(3)}s`);
+                console.log(`Re-time tap ${this.retimeTaps.length}: ${elapsed.toFixed(3)}s`);
+
+                // Auto-stop when all notes have been tapped
+                if (this.retimeTaps.length >= this.app.correctedNotes.length) {
+                    setTimeout(() => this.stopRetime(), 100);
+                }
             }
         };
         document.addEventListener('keydown', this.retimeKeyHandler);
 
-        // Start playback from beginning
-        this.app.waveformManager.editorWavesurfer.setTime(0);
-        this.app.waveformManager.playEditor();
-        this.retimeStartTime = performance.now();
+        // Initialize synth for metronome
+        this.app.synth.init();
 
-        // Listen for playback to finish
-        this.app.waveformManager.editorWavesurfer.once('finish', () => {
-            if (this.retimeMode) {
-                this.stopRetime();
+        // Play count-in: one bar based on meter
+        const countInBeats = beatsPerBar;
+        const now = this.app.synth.audioContext.currentTime;
+
+        console.log(`Count-in: ${countInBeats} beats at ${tempo} BPM (meter: ${meter})`);
+
+        // Schedule count-in beats
+        for (let i = 0; i < countInBeats; i++) {
+            const clickTime = now + (i * beatDuration);
+            this.app.synth.playMetronomeClick(clickTime, i === 0); // First beat is downbeat
+        }
+
+        // Calculate exact time when recording should start (after count-in)
+        const recordingStartDelay = countInBeats * beatDuration * 1000; // in milliseconds
+
+        // Start recording after count-in
+        setTimeout(() => {
+            this.retimeRecordingStarted = true;
+            this.retimeStartTime = performance.now();
+
+            // Update status to show we're recording
+            const statusDiv = retimeStatus?.querySelector('div');
+            if (statusDiv) {
+                statusDiv.innerHTML = `Taps: <span id="retime-tap-count">0</span> / <span id="retime-note-count">${this.app.correctedNotes.length}</span>`;
             }
-        });
 
-        showFeedback('Re-time started - tap Right Ctrl for each note');
+            console.log('Recording started - tap for each note');
+
+            // Play first beat of continuous metronome immediately (synchronized with audio context)
+            const firstBeatTime = this.app.synth.audioContext.currentTime;
+            this.app.synth.playMetronomeClick(firstBeatTime, true); // First beat is downbeat
+
+            // Continue playing metronome clicks at regular intervals
+            let beatCount = 1; // Start at 1 since we already played beat 0
+            this.retimeMetronomeInterval = setInterval(() => {
+                this.app.synth.playMetronomeClick(null, beatCount % beatsPerBar === 0);
+                beatCount++;
+            }, beatDuration * 1000);
+
+        }, recordingStartDelay);
+
+        showFeedback(`Re-time: ${countInBeats} beat count-in (${meter}) at ${tempo} BPM, then tap Right Ctrl for each note`);
     }
 
     /**
@@ -840,9 +949,13 @@ export class NoteEditor {
         if (!this.retimeMode) return;
 
         this.retimeMode = false;
+        this.retimeRecordingStarted = false;
 
-        // Stop playback
-        this.app.waveformManager.stopEditor();
+        // Stop metronome
+        if (this.retimeMetronomeInterval) {
+            clearInterval(this.retimeMetronomeInterval);
+            this.retimeMetronomeInterval = null;
+        }
 
         // Remove keydown handler
         if (this.retimeKeyHandler) {
@@ -875,12 +988,16 @@ export class NoteEditor {
     _applyRetiming() {
         const notes = this.app.correctedNotes;
         const taps = this.retimeTaps;
-        const audioDuration = this.app.waveformManager.editorWavesurfer.getDuration();
 
         console.log(`Applying ${taps.length} taps to ${notes.length} notes`);
 
-        // Sort notes by start time
+        // Sort notes by their original start time to maintain pitch order
         notes.sort((a, b) => a.startTime - b.startTime);
+
+        // Get tempo for calculating default durations
+        const tempoInput = document.getElementById('grid-tempo');
+        const tempo = tempoInput ? parseInt(tempoInput.value) || 120 : 120;
+        const quarterNoteDuration = 60 / tempo;
 
         // Match taps to notes
         const numToProcess = Math.min(taps.length, notes.length);
@@ -892,15 +1009,11 @@ export class NoteEditor {
             // Calculate new end time
             let newEndTime;
             if (i < taps.length - 1) {
-                // End at next tap (with small gap)
+                // End just before next tap
                 newEndTime = taps[i + 1] - 0.02;
-            } else if (i < notes.length - 1) {
-                // Keep relative duration for remaining notes
-                const oldDuration = note.duration;
-                newEndTime = tapTime + oldDuration;
             } else {
-                // Last note - extend to end or keep duration
-                newEndTime = Math.min(tapTime + note.duration, audioDuration);
+                // Last note - use quarter note duration
+                newEndTime = tapTime + quarterNoteDuration;
             }
 
             // Update note timing
