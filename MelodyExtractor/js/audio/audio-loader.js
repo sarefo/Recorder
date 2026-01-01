@@ -184,9 +184,10 @@ export class AudioLoader {
      * Start metronome with given tempo and meter
      * @param {number} tempo - BPM
      * @param {string} meter - Time signature (e.g., "4/4")
+     * @param {boolean} audioOnly - If true, only play audio (no visual)
      * @private
      */
-    _startMetronome(tempo, meter) {
+    _startMetronome(tempo, meter, audioOnly = false) {
         // Stop any existing metronome
         this._stopMetronome();
 
@@ -194,57 +195,80 @@ export class AudioLoader {
         const [beatsPerBar, noteValue] = meter.split('/').map(Number);
         const beatDuration = (60 / tempo) * (4 / noteValue) * 1000; // milliseconds
 
+        // Store for later use
+        this.beatsPerBar = beatsPerBar;
+        this.audioOnly = audioOnly;
+
         // Initialize audio context for metronome
-        this.metronomeAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+        if (!audioOnly) {
+            this.metronomeAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        // Get visual metronome overlay
+        this.visualMetronome = document.getElementById('visual-metronome');
+        if (this.visualMetronome) {
+            this.visualMetronome.classList.remove('hidden');
+        }
 
         let beatCount = 0;
 
         // Play first click immediately
-        this._playMetronomeClick(beatCount % beatsPerBar === 0);
+        this._playMetronomeBeat(beatCount % beatsPerBar === 0);
 
         // Then play on interval
         this.metronomeInterval = setInterval(() => {
             beatCount++;
-            this._playMetronomeClick(beatCount % beatsPerBar === 0);
+            this._playMetronomeBeat(beatCount % beatsPerBar === 0);
         }, beatDuration);
 
-        console.log(`Metronome started: ${tempo} BPM, ${meter}`);
+        console.log(`Metronome started: ${tempo} BPM, ${meter}${audioOnly ? ' (visual only)' : ''}`);
     }
 
     /**
-     * Play a single metronome click
+     * Play a single metronome beat (audio + visual)
      * @param {boolean} isDownbeat - True for first beat of bar
      * @private
      */
-    _playMetronomeClick(isDownbeat) {
-        if (!this.metronomeAudioContext) return;
+    _playMetronomeBeat(isDownbeat) {
+        // Audio metronome (if not audio-only mode, meaning we're in count-in)
+        if (!this.audioOnly && this.metronomeAudioContext) {
+            const ctx = this.metronomeAudioContext;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
 
-        const ctx = this.metronomeAudioContext;
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
 
-        osc.connect(gain);
-        gain.connect(ctx.destination);
+            // Higher pitch for downbeat, lower for other beats
+            osc.frequency.value = isDownbeat ? 1200 : 800;
+            osc.type = 'sine';
 
-        // Higher pitch for downbeat, lower for other beats
-        osc.frequency.value = isDownbeat ? 1200 : 800;
-        osc.type = 'sine';
+            // Quick fade out
+            const now = ctx.currentTime;
+            gain.gain.setValueAtTime(0.3, now);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
 
-        // Quick fade out
-        const now = ctx.currentTime;
-        gain.gain.setValueAtTime(0.3, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+            osc.start(now);
+            osc.stop(now + 0.05);
+        }
 
-        osc.start(now);
-        osc.stop(now + 0.05);
+        // Visual metronome (always)
+        if (this.visualMetronome) {
+            const flashClass = isDownbeat ? 'flash-downbeat' : 'flash-beat';
+            this.visualMetronome.classList.add(flashClass);
+            setTimeout(() => {
+                this.visualMetronome.classList.remove(flashClass);
+            }, 100);
+        }
     }
 
     /**
      * Stop metronome
+     * @param {boolean} keepVisual - If true, keep visual metronome running
      * @private
      */
-    _stopMetronome() {
-        if (this.metronomeInterval) {
+    _stopMetronome(keepVisual = false) {
+        if (this.metronomeInterval && !keepVisual) {
             clearInterval(this.metronomeInterval);
             this.metronomeInterval = null;
             console.log('Metronome stopped');
@@ -253,10 +277,13 @@ export class AudioLoader {
             this.metronomeAudioContext.close();
             this.metronomeAudioContext = null;
         }
+        if (!keepVisual && this.visualMetronome) {
+            this.visualMetronome.classList.add('hidden');
+        }
     }
 
     /**
-     * Start recording from microphone (prepares, waits for first Right Ctrl to start)
+     * Start recording from microphone (auto-starts after count-in)
      * @returns {Promise<void>}
      */
     async startRecording() {
@@ -272,7 +299,7 @@ export class AudioLoader {
             this.recordedChunks = [];
             this.tapTimestamps = [];
             this._firstDataReceived = false;
-            this.isWaitingForFirstTap = true;
+            this.isRecording = false;
 
             this.mediaRecorder = new MediaRecorder(stream, {
                 mimeType: 'audio/webm;codecs=opus'
@@ -285,24 +312,40 @@ export class AudioLoader {
                     // Set the actual recording start time on first data
                     if (!this._firstDataReceived) {
                         this._firstDataReceived = true;
-                        // Recording started when first tap was pressed
                         console.log(`First data received at ${((performance.now() - this.recordingStartTime) / 1000).toFixed(3)}s`);
                     }
                 }
             });
 
-            // Set up tap listener for Right Ctrl
-            this._boundKeyHandler = (e) => this._handleTapKey(e);
-            document.addEventListener('keydown', this._boundKeyHandler);
-
-            // Get recording settings and start metronome
+            // Get recording settings
             const tempoInput = document.getElementById('record-tempo');
             const meterSelect = document.getElementById('record-meter');
+            const useTapMarkers = document.getElementById('use-tap-markers');
             const tempo = tempoInput ? parseInt(tempoInput.value) || 120 : 120;
             const meter = meterSelect ? meterSelect.value : '4/4';
-            this._startMetronome(tempo, meter);
+            const useTaps = useTapMarkers ? useTapMarkers.checked : false;
 
-            console.log('Recording ready - press Right Ctrl to START recording and mark first note');
+            // Set up tap listener only if enabled
+            if (useTaps) {
+                this._boundKeyHandler = (e) => this._handleTapKey(e);
+                document.addEventListener('keydown', this._boundKeyHandler);
+            }
+
+            // Start metronome (audio + visual)
+            this._startMetronome(tempo, meter, false);
+
+            // Calculate count-in duration (2 bars if no taps, 1 bar if using taps)
+            const [beatsPerBar, noteValue] = meter.split('/').map(Number);
+            const beatDuration = (60 / tempo) * (4 / noteValue); // seconds
+            const countInBars = useTaps ? 1 : 2;
+            const countInDuration = beatsPerBar * beatDuration * countInBars * 1000; // milliseconds
+
+            console.log(`Count-in: ${beatsPerBar * countInBars} beats (${countInBars} bars) at ${tempo} BPM (${(countInDuration/1000).toFixed(2)}s)`);
+
+            // Auto-start recording after count-in
+            setTimeout(() => {
+                this._autoStartRecording(tempo, meter);
+            }, countInDuration);
 
         } catch (error) {
             console.error('Failed to start recording:', error);
@@ -311,45 +354,44 @@ export class AudioLoader {
     }
 
     /**
-     * Handle tap key press during recording
+     * Auto-start recording after count-in
+     * @private
+     */
+    _autoStartRecording(tempo, meter) {
+        this.isRecording = true;
+        this.recordingStartTime = performance.now();
+
+        // Start MediaRecorder
+        this.mediaRecorder.start(100); // Collect data every 100ms
+
+        // Stop audio metronome, switch to visual-only
+        if (this.metronomeAudioContext) {
+            this.metronomeAudioContext.close();
+            this.metronomeAudioContext = null;
+        }
+        this.audioOnly = true; // Visual metronome continues
+
+        console.log('Recording STARTED automatically after count-in');
+        console.log('Tap Right Ctrl to mark note onsets (optional)');
+    }
+
+    /**
+     * Handle tap key press during recording (optional - marks note onsets)
      * @private
      */
     _handleTapKey(e) {
-        // Right Ctrl key
-        if (e.code === 'ControlRight' && (this.isWaitingForFirstTap || this.isRecording)) {
+        // Right Ctrl key during recording
+        if (e.code === 'ControlRight' && this.isRecording) {
             e.preventDefault();
             const now = performance.now();
 
-            // First tap: START recording at this exact moment
-            if (this.isWaitingForFirstTap) {
-                this.isWaitingForFirstTap = false;
-                this.isRecording = true;
-                this.recordingStartTime = now;
+            // Record tap time relative to recording start
+            const tapTime = (now - this.recordingStartTime) / 1000;
+            this.tapTimestamps.push(tapTime);
+            console.log(`Tap marked at ${tapTime.toFixed(2)}s (total: ${this.tapTimestamps.length})`);
 
-                // Stop metronome
-                this._stopMetronome();
-
-                // Start the MediaRecorder NOW
-                this.mediaRecorder.start(100); // Collect data every 100ms
-
-                // First tap is at time 0.0
-                this.tapTimestamps.push(0.0);
-                console.log('Recording STARTED on first tap at 0.00s');
-
-                // Visual feedback
-                this._showTapFeedback();
-                return;
-            }
-
-            // Subsequent taps: record relative time
-            if (this.isRecording) {
-                const tapTime = (now - this.recordingStartTime) / 1000;
-                this.tapTimestamps.push(tapTime);
-                console.log(`Tap registered at ${tapTime.toFixed(2)}s (total: ${this.tapTimestamps.length})`);
-
-                // Visual feedback
-                this._showTapFeedback();
-            }
+            // Visual feedback
+            this._showTapFeedback();
         }
     }
 

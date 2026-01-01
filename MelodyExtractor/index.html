@@ -55,7 +55,7 @@
                         <button id="btn-record" class="btn btn-primary">
                             <span class="record-icon">●</span> Start Recording
                         </button>
-                        <p class="record-hint">Click to record, then play your melody</p>
+                        <p class="record-hint">Recording starts automatically after count-in</p>
 
                         <!-- Recording Settings -->
                         <div class="recording-settings">
@@ -74,8 +74,11 @@
                                     <option value="5/4">5/4</option>
                                 </select>
                             </div>
+                            <label class="checkbox-row" style="margin-top: 8px;">
+                                <input type="checkbox" id="use-tap-markers"> Use tap markers (Right Ctrl)
+                            </label>
                             <p class="record-hint" style="margin-top: 8px; font-size: 0.85rem;">
-                                Metronome will play until first <kbd>Right Ctrl</kbd> tap
+                                <span id="count-in-hint">2 bars count-in, then recording starts</span>
                             </p>
                         </div>
 
@@ -85,7 +88,7 @@
                             <div id="tap-indicator" class="tap-indicator">TAP</div>
                         </div>
                         <p class="tap-hint hidden" id="tap-hint">
-                            Press <kbd>Right Ctrl</kbd> each time a new note starts
+                            Optional: Press <kbd>Right Ctrl</kbd> to mark note onsets
                         </p>
                         <div id="tap-count" class="tap-count hidden">
                             Taps: <span id="tap-count-value">0</span>
@@ -152,6 +155,21 @@
                     <div id="piano-roll" class="piano-roll-container"></div>
                     <div class="viz-label">Notation Preview</div>
                     <div id="abc-review-preview" class="abc-review-container"></div>
+
+                    <!-- ABC Text Output -->
+                    <div class="abc-text-section">
+                        <div class="viz-label">
+                            ABC Notation
+                            <button id="btn-copy-abc" class="btn-copy-icon" title="Copy to clipboard">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <textarea id="abc-text" class="abc-output-text" readonly rows="4"></textarea>
+                    </div>
+
                     <!-- Hidden waveform for audio playback -->
                     <div id="waveform-editor" class="waveform-container" style="display: none;"></div>
                 </div>
@@ -239,12 +257,6 @@
                         </div>
                     </div>
 
-                    <!-- ABC Output Section -->
-                    <div class="editor-tools">
-                        <h4>ABC Notation</h4>
-                        <textarea id="abc-text" class="abc-output-text" readonly rows="6"></textarea>
-                    </div>
-
                     <!-- Shortcuts and Legend -->
                     <div class="how-to-edit">
                         <h4>Shortcuts</h4>
@@ -269,7 +281,6 @@
                     <button id="btn-back-to-load" class="btn btn-secondary">
                         <span class="arrow">←</span> Back
                     </button>
-                    <button id="btn-copy-abc" class="btn btn-primary">Copy ABC</button>
                     <button id="btn-download-abc" class="btn btn-primary">Download .abc</button>
                     <button id="btn-open-recorder" class="btn btn-secondary">Open in Recorder</button>
                 </div>
@@ -279,6 +290,9 @@
 
         <!-- Feedback Toast -->
         <div id="feedback" class="feedback"></div>
+
+        <!-- Visual Metronome Overlay -->
+        <div id="visual-metronome" class="visual-metronome hidden"></div>
     </div>
 
     <!-- Scripts loaded as ES modules -->

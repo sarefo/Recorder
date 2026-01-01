@@ -9,11 +9,19 @@
 /* Header */
 #header {
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
 }
 
 #header h1 {
     color: var(--color-primary);
+    font-size: 1.5rem;
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+#header .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
 }
 
 /* Step Indicator */
@@ -21,15 +29,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--spacing-xl);
-    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    gap: var(--spacing-xs);
 }
 
 .step {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-xs);
+    gap: 4px;
     opacity: 0.5;
     transition: opacity var(--transition-normal);
 }
@@ -40,8 +48,8 @@
 }
 
 .step-number {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: var(--border-color);
     color: var(--text-muted);
@@ -49,7 +57,7 @@
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     transition: all var(--transition-normal);
 }
 
@@ -64,7 +72,7 @@
 }
 
 .step-label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--text-muted);
     white-space: nowrap;
 }
@@ -75,10 +83,33 @@
 }
 
 .step-connector {
-    width: 40px;
+    width: 30px;
     height: 2px;
     background: var(--border-color);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+}
+
+/* Visual Metronome */
+.visual-metronome {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.05s ease-out;
+}
+
+.visual-metronome.flash-downbeat {
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 1;
+}
+
+.visual-metronome.flash-beat {
+    background: rgba(100, 150, 255, 0.2);
+    opacity: 1;
 }
 
 /* Step Panels */
@@ -457,6 +488,56 @@
 .abc-review-container .highlighted ellipse {
     fill: #ff6b6b !important;
     stroke: #ff6b6b !important;
+}
+
+/* ABC Text Section */
+.abc-text-section {
+    margin-top: var(--spacing-md);
+}
+
+.abc-text-section .viz-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.abc-text-section .abc-output-text {
+    width: 100%;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    background: #f8f8f8;
+    resize: vertical;
+    min-height: 60px;
+    line-height: 1.4;
+}
+
+.btn-copy-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-copy-icon:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-copy-icon:active {
+    transform: translateY(0);
+}
+
+.btn-copy-icon svg {
+    display: block;
 }
 
 .editor-sidebar {

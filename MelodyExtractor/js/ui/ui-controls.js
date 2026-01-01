@@ -16,6 +16,30 @@ export class UIControls {
         this._setupDropZone();
         this._setupNavigationButtons();
         this._setupExportControls();
+        this._setupRecordingSettings();
+    }
+
+    /**
+     * Setup recording settings controls
+     * @private
+     */
+    _setupRecordingSettings() {
+        const useTapMarkers = document.getElementById('use-tap-markers');
+        const countInHint = document.getElementById('count-in-hint');
+        const tapHint = document.getElementById('tap-hint');
+
+        if (useTapMarkers && countInHint) {
+            // Update hint when checkbox changes
+            useTapMarkers.addEventListener('change', () => {
+                if (useTapMarkers.checked) {
+                    countInHint.textContent = '1 bar count-in, then recording starts';
+                    if (tapHint) tapHint.classList.remove('hidden');
+                } else {
+                    countInHint.textContent = '2 bars count-in, then recording starts';
+                    if (tapHint) tapHint.classList.add('hidden');
+                }
+            });
+        }
     }
 
     /**
