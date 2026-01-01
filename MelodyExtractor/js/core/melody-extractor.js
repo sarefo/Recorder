@@ -332,11 +332,13 @@ export class MelodyExtractor {
      */
     generateAbc() {
         // Get settings from UI
+        const gRecorderCheckbox = document.getElementById('chk-g-recorder');
         const options = {
             title: document.getElementById('abc-title').value || 'Extracted Melody',
             tempo: parseInt(document.getElementById('abc-tempo').value) || 120,
             meter: document.getElementById('abc-meter').value || '4/4',
-            key: document.getElementById('abc-key').value || 'C'
+            key: document.getElementById('abc-key').value || 'C',
+            transpose: gRecorderCheckbox && gRecorderCheckbox.checked ? -12 : 0
         };
 
         // Generate ABC
@@ -363,16 +365,24 @@ export class MelodyExtractor {
         const tempoInput = document.getElementById('abc-tempo');
         const meterSelect = document.getElementById('abc-meter');
         const keySelect = document.getElementById('abc-key');
+        const gRecorderCheckbox = document.getElementById('chk-g-recorder');
 
         // Generate ABC preview with current settings
         const options = {
             title: titleInput ? titleInput.value : 'Extracted Melody',
             tempo: tempoInput ? parseInt(tempoInput.value) || 120 : 120,
             meter: meterSelect ? meterSelect.value : '4/4',
-            key: keySelect ? keySelect.value : 'C'
+            key: keySelect ? keySelect.value : 'C',
+            transpose: gRecorderCheckbox && gRecorderCheckbox.checked ? -12 : 0
         };
 
         const abc = this.abcGenerator.generate(this.correctedNotes, options);
+
+        // Update the ABC text textarea
+        const textArea = document.getElementById('abc-text');
+        if (textArea) {
+            textArea.value = abc;
+        }
 
         try {
             container.innerHTML = '';

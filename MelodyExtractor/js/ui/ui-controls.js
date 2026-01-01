@@ -152,7 +152,7 @@ export class UIControls {
     _setupExportControls() {
         // ABC settings changes → regenerate both preview and output
         const settingsInputs = [
-            'abc-title', 'abc-tempo', 'abc-meter', 'abc-key'
+            'abc-title', 'abc-tempo', 'abc-meter', 'abc-key', 'chk-g-recorder'
         ];
         settingsInputs.forEach(id => {
             const input = document.getElementById(id);

@@ -37,6 +37,9 @@ export class PianoRoll {
         this.snapEnabled = true;
         this.gridTempo = 120;
         this.gridDivision = 4; // beats per bar
+
+        // Delete bar buttons
+        this.deleteButtons = []; // Array of {x, y, width, height, barStartTime, barEndTime}
     }
 
     /**
@@ -247,6 +250,9 @@ export class PianoRoll {
 
         // Draw time markers
         this._drawTimeMarkers();
+
+        // Draw delete bar buttons
+        this._drawBarDeleteButtons();
     }
 
     /**
@@ -358,6 +364,73 @@ export class PianoRoll {
                 ctx.lineTo(x, height);
                 ctx.stroke();
             }
+        }
+    }
+
+    /**
+     * Draw delete buttons for each measure
+     */
+    _drawBarDeleteButtons() {
+        const ctx = this.ctx;
+        this.deleteButtons = []; // Reset delete buttons array
+
+        // Get meter from UI to determine measure duration
+        const meterSelect = document.getElementById('abc-meter');
+        const meter = meterSelect ? meterSelect.value : '4/4';
+        const beatsPerMeasure = parseInt(meter.split('/')[0]);
+        const beatDuration = 60 / this.gridTempo;
+        const measureDuration = beatDuration * beatsPerMeasure;
+
+        // Calculate measure boundaries
+        let measureTime = 0;
+        let measureIndex = 0;
+
+        while (measureTime < this.duration) {
+            const nextMeasureTime = Math.min(measureTime + measureDuration, this.duration);
+            const x1 = this._timeToX(measureTime);
+            const x2 = this._timeToX(nextMeasureTime);
+
+            // Only draw if measure has width
+            if (x2 - x1 > 30) {
+                // Button dimensions
+                const buttonSize = 16;
+                const buttonX = x2 - buttonSize - 4;
+                const buttonY = 4;
+
+                // Store button info for click detection
+                this.deleteButtons.push({
+                    x: buttonX,
+                    y: buttonY,
+                    width: buttonSize,
+                    height: buttonSize,
+                    barStartTime: measureTime,
+                    barEndTime: nextMeasureTime,
+                    measureIndex: measureIndex
+                });
+
+                // Draw button background
+                ctx.fillStyle = 'rgba(220, 53, 69, 0.8)';
+                ctx.fillRect(buttonX, buttonY, buttonSize, buttonSize);
+
+                // Draw border
+                ctx.strokeStyle = 'rgba(155, 37, 48, 1)';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(buttonX, buttonY, buttonSize, buttonSize);
+
+                // Draw X
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                const padding = 4;
+                ctx.beginPath();
+                ctx.moveTo(buttonX + padding, buttonY + padding);
+                ctx.lineTo(buttonX + buttonSize - padding, buttonY + buttonSize - padding);
+                ctx.moveTo(buttonX + buttonSize - padding, buttonY + padding);
+                ctx.lineTo(buttonX + padding, buttonY + buttonSize - padding);
+                ctx.stroke();
+            }
+
+            measureTime = nextMeasureTime;
+            measureIndex++;
         }
     }
 
@@ -514,6 +587,15 @@ export class PianoRoll {
 
         const { x, y } = this._getCanvasCoords(e);
 
+        // Check if a delete button was clicked
+        for (const button of this.deleteButtons) {
+            if (x >= button.x && x <= button.x + button.width &&
+                y >= button.y && y <= button.y + button.height) {
+                this._deleteBar(button.barStartTime, button.barEndTime, button.measureIndex);
+                return;
+            }
+        }
+
         const note = this._findNoteAt(x, y);
         if (note) {
             this.selectNote(note.id);
@@ -560,6 +642,15 @@ export class PianoRoll {
         const { x, y } = this._getCanvasCoords(e);
 
         if (!this.isDragging || !this.dragNote) {
+            // Check if hovering over a delete button
+            for (const button of this.deleteButtons) {
+                if (x >= button.x && x <= button.x + button.width &&
+                    y >= button.y && y <= button.y + button.height) {
+                    this.canvas.style.cursor = 'pointer';
+                    return;
+                }
+            }
+
             // Update cursor based on hover position
             const note = this._findNoteAt(x, y);
             if (note) {
@@ -685,6 +776,45 @@ export class PianoRoll {
 
         if (this.app.noteEditor) {
             this.app.noteEditor.deselectNote();
+        }
+    }
+
+    /**
+     * Delete all notes in a measure/bar
+     * @param {number} barStartTime - Start time of the bar in seconds
+     * @param {number} barEndTime - End time of the bar in seconds
+     * @param {number} measureIndex - Index of the measure
+     */
+    _deleteBar(barStartTime, barEndTime, measureIndex) {
+        // Confirm deletion
+        const notesInBar = this.app.correctedNotes.filter(note =>
+            note.startTime >= barStartTime && note.startTime < barEndTime
+        );
+
+        if (notesInBar.length === 0) {
+            return; // No notes to delete
+        }
+
+        if (!confirm(`Delete bar ${measureIndex + 1} (${notesInBar.length} note${notesInBar.length > 1 ? 's' : ''})?`)) {
+            return;
+        }
+
+        // Remove notes from the corrected notes array
+        this.app.correctedNotes = this.app.correctedNotes.filter(note =>
+            !(note.startTime >= barStartTime && note.startTime < barEndTime)
+        );
+
+        // Deselect if the selected note was deleted
+        if (this.selectedNoteId && !this.app.correctedNotes.find(n => n.id === this.selectedNoteId)) {
+            this.deselectNote();
+        }
+
+        // Update all visualizations
+        this.setNotes(this.app.correctedNotes);
+
+        // Update ABC preview
+        if (this.app.updateAbcPreview) {
+            this.app.updateAbcPreview();
         }
     }
 

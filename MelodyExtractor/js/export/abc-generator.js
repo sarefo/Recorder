@@ -22,6 +22,7 @@ export class AbcGenerator {
         const tempo = options.tempo || this._estimateTempo(notes);
         const meter = options.meter || this.defaultMeter;
         const key = options.key || this.defaultKey;
+        const transpose = options.transpose || 0;  // Semitones to transpose (e.g., -12 for down one octave)
 
         // Calculate timing parameters
         const beatsPerMeasure = parseInt(meter.split('/')[0]);
@@ -43,7 +44,7 @@ export class AbcGenerator {
         if (notes.length === 0) {
             abc += 'z8 |]\n';  // Empty measure with rest
         } else {
-            abc += this._notesToAbcString(notes, eighthNoteDuration, measureDuration);
+            abc += this._notesToAbcString(notes, eighthNoteDuration, measureDuration, transpose);
         }
 
         return abc;
@@ -53,7 +54,7 @@ export class AbcGenerator {
      * Convert notes to ABC string
      * @private
      */
-    _notesToAbcString(notes, eighthNoteDuration, measureDuration) {
+    _notesToAbcString(notes, eighthNoteDuration, measureDuration, transpose = 0) {
         let abc = '';
         let currentMeasureTime = 0;
         let lastEndTime = 0;
@@ -72,26 +73,20 @@ export class AbcGenerator {
                 currentMeasureTime = restResult.measureTime;
             }
 
-            // Add the note
-            const abcNote = midiToAbc(note.midi);
+            // Add the note (may span multiple measures)
+            const transposedMidi = note.midi + transpose;
+            const abcNote = midiToAbc(transposedMidi);
             const quantizedDuration = this._quantizeDuration(note.duration, eighthNoteDuration);
-            const durationSuffix = this._getDurationSuffix(quantizedDuration);
+            const noteDurationSeconds = quantizedDuration * eighthNoteDuration;
 
-            abc += abcNote + durationSuffix;
-            currentMeasureTime += quantizedDuration * eighthNoteDuration;
-
-            // Check for bar line
-            if (currentMeasureTime >= measureDuration * 0.95) {
-                abc += ' | ';
-                currentMeasureTime = 0;
-            } else {
-                abc += ' ';
-            }
+            const noteResult = this._addNote(abcNote, noteDurationSeconds, eighthNoteDuration, currentMeasureTime, measureDuration);
+            abc += noteResult.abc;
+            currentMeasureTime = noteResult.measureTime;
 
             lastEndTime = note.endTime;
 
             // Add line break every 4 measures for readability
-            if (abc.split('|').length % 4 === 0 && !abc.endsWith('\n')) {
+            if (abc.split('|').length % 5 === 0 && abc.includes('|')) {
                 abc = abc.trimEnd() + '\n';
             }
         }
@@ -108,6 +103,49 @@ export class AbcGenerator {
     }
 
     /**
+     * Add a note to the ABC string, handling measure boundaries with ties
+     * @private
+     */
+    _addNote(abcNote, noteDuration, eighthNoteDuration, currentMeasureTime, measureDuration) {
+        let abc = '';
+        let remainingDuration = noteDuration;
+        let measureTime = currentMeasureTime;
+        const tolerance = eighthNoteDuration * 0.05; // Small tolerance for rounding
+
+        while (remainingDuration > tolerance) {
+            const spaceInMeasure = measureDuration - measureTime;
+
+            if (remainingDuration <= spaceInMeasure + tolerance) {
+                // Note fits in current measure
+                const quantized = this._quantizeDuration(remainingDuration, eighthNoteDuration);
+                abc += abcNote + this._getDurationSuffix(quantized) + ' ';
+                measureTime += quantized * eighthNoteDuration;
+
+                // Check if measure is now full
+                if (Math.abs(measureTime - measureDuration) < tolerance) {
+                    abc = abc.trimEnd() + ' | ';
+                    measureTime = 0;
+                }
+                break;
+            } else {
+                // Note crosses bar line - split with tie
+                const quantized = this._quantizeDuration(spaceInMeasure, eighthNoteDuration);
+                if (quantized > 0) {
+                    abc += abcNote + this._getDurationSuffix(quantized) + '-| '; // Tie across bar
+                    remainingDuration -= quantized * eighthNoteDuration;
+                    measureTime = 0;
+                } else {
+                    // Measure is full, start new measure
+                    abc = abc.trimEnd() + ' | ';
+                    measureTime = 0;
+                }
+            }
+        }
+
+        return { abc, measureTime };
+    }
+
+    /**
      * Add a rest to the ABC string
      * @private
      */
@@ -115,30 +153,24 @@ export class AbcGenerator {
         let abc = '';
         let remainingGap = gapDuration;
         let measureTime = currentMeasureTime;
+        const tolerance = eighthNoteDuration * 0.05;
 
         while (remainingGap > eighthNoteDuration * 0.3) {
-            const quantized = this._quantizeDuration(remainingGap, eighthNoteDuration);
-            const suffix = this._getDurationSuffix(quantized);
+            const spaceInMeasure = measureDuration - measureTime;
+            const quantized = this._quantizeDuration(Math.min(remainingGap, spaceInMeasure), eighthNoteDuration);
 
-            // Check if rest would cross bar line
+            if (quantized === 0) break; // Safety check
+
             const restDuration = quantized * eighthNoteDuration;
-            if (measureTime + restDuration > measureDuration) {
-                // Fill remainder of measure
-                const remainder = measureDuration - measureTime;
-                const remainderQuantized = this._quantizeDuration(remainder, eighthNoteDuration);
-                if (remainderQuantized > 0) {
-                    abc += 'z' + this._getDurationSuffix(remainderQuantized) + ' | ';
-                    remainingGap -= remainder;
-                    measureTime = 0;
-                }
-            } else {
-                abc += 'z' + suffix + ' ';
-                remainingGap -= restDuration;
-                measureTime += restDuration;
-            }
+            abc += 'z' + this._getDurationSuffix(quantized) + ' ';
+            remainingGap -= restDuration;
+            measureTime += restDuration;
 
-            // Safety check to prevent infinite loop
-            if (remainingGap > 0 && quantized === 0) break;
+            // Check if measure is now full
+            if (Math.abs(measureTime - measureDuration) < tolerance) {
+                abc = abc.trimEnd() + ' | ';
+                measureTime = 0;
+            }
         }
 
         return { abc, measureTime };

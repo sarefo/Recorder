@@ -1,0 +1,7 @@
+- transform ABC to piano roll
+- tempo up/down by steps of 10
+- ability to edit ABC
+- bar deletion icon on every bar
+- fix bar deletion (currently deletes entire file in piano roll)
+- improve playback display
+-  
