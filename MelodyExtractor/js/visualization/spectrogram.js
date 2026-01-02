@@ -243,9 +243,10 @@ export class Spectrogram {
             const time = (x - this.keyWidth) / this.pixelsPerSecond;
             const frameIndex = Math.floor(time / timePerFrame);
 
-            if (frameIndex >= numFrames) continue;
+            if (frameIndex < 0 || frameIndex >= numFrames) continue;
 
             const spectrum = magnitudes[frameIndex];
+            if (!spectrum) continue; // Defensive check
 
             for (let y = 0; y < height; y++) {
                 // Map y to MIDI note (inverted - higher notes at top)

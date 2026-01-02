@@ -1,3 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <text y="80" font-size="80" font-family="Arial, sans-serif">🎵</text>
+  <defs>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB366;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF9933;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#orangeGrad)"/>
+
+  <!-- Musical note -->
+  <g fill="white">
+    <!-- Note head -->
+    <ellipse cx="38" cy="68" rx="10" ry="8" transform="rotate(-20 38 68)"/>
+    <!-- Note stem -->
+    <rect x="46" y="30" width="4" height="40" rx="2"/>
+    <!-- Flag -->
+    <path d="M 50 30 Q 65 28 68 35 Q 65 38 50 40 Z"/>
+    <path d="M 50 38 Q 65 36 68 43 Q 65 46 50 48 Z"/>
+  </g>
 </svg>
