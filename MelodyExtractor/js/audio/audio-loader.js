@@ -17,9 +17,11 @@ export class AudioLoader {
         this.recordingStartTime = null;
         this._boundKeyHandler = null;
 
-        // Latency compensation for MediaRecorder startup delay
-        // Typical latency is 100-300ms. This offset is ADDED to tap times.
-        this.tapLatencyOffset = 0;
+        // Recording timing (for precise trimming)
+        this.mediaRecorderStartTime = null;     // When start() was called
+        this.firstAudioCaptureTime = null;      // When first data actually arrived
+        this.actualRecordingStartTime = null;   // When count-in ended (beat 1)
+        this.inputLatencyMs = 0;                // Audio input latency setting
 
         // Metronome for recording
         this.metronomeInterval = null;
@@ -283,7 +285,7 @@ export class AudioLoader {
     }
 
     /**
-     * Start recording from microphone (auto-starts after count-in)
+     * Start recording from microphone (starts immediately, trims count-in later)
      * @returns {Promise<void>}
      */
     async startRecording() {
@@ -298,8 +300,7 @@ export class AudioLoader {
 
             this.recordedChunks = [];
             this.tapTimestamps = [];
-            this._firstDataReceived = false;
-            this.isRecording = false;
+            this.firstAudioCaptureTime = null;
 
             this.mediaRecorder = new MediaRecorder(stream, {
                 mimeType: 'audio/webm;codecs=opus'
@@ -309,10 +310,11 @@ export class AudioLoader {
                 if (e.data.size > 0) {
                     this.recordedChunks.push(e.data);
 
-                    // Set the actual recording start time on first data
-                    if (!this._firstDataReceived) {
-                        this._firstDataReceived = true;
-                        console.log(`First data received at ${((performance.now() - this.recordingStartTime) / 1000).toFixed(3)}s`);
+                    // Track when first audio data actually arrives
+                    if (!this.firstAudioCaptureTime) {
+                        this.firstAudioCaptureTime = performance.now();
+                        const startupLatency = (this.firstAudioCaptureTime - this.mediaRecorderStartTime) / 1000;
+                        console.log(`MediaRecorder startup latency: ${startupLatency.toFixed(3)}s`);
                     }
                 }
             });
@@ -321,18 +323,11 @@ export class AudioLoader {
             const tempoInput = document.getElementById('record-tempo');
             const meterSelect = document.getElementById('record-meter');
             const useTapMarkers = document.getElementById('use-tap-markers');
+            const inputLatencyInput = document.getElementById('input-latency');
             const tempo = tempoInput ? parseInt(tempoInput.value) || 120 : 120;
             const meter = meterSelect ? meterSelect.value : '4/4';
             const useTaps = useTapMarkers ? useTapMarkers.checked : false;
-
-            // Set up tap listener only if enabled
-            if (useTaps) {
-                this._boundKeyHandler = (e) => this._handleTapKey(e);
-                document.addEventListener('keydown', this._boundKeyHandler);
-            }
-
-            // Start metronome (audio + visual)
-            this._startMetronome(tempo, meter, false);
+            this.inputLatencyMs = inputLatencyInput ? parseInt(inputLatencyInput.value) || 0 : 0;
 
             // Calculate count-in duration (2 bars if no taps, 1 bar if using taps)
             const [beatsPerBar, noteValue] = meter.split('/').map(Number);
@@ -342,9 +337,23 @@ export class AudioLoader {
 
             console.log(`Count-in: ${beatsPerBar * countInBars} beats (${countInBars} bars) at ${tempo} BPM (${(countInDuration/1000).toFixed(2)}s)`);
 
-            // Auto-start recording after count-in
+            // Start MediaRecorder NOW (during count-in) so it has time to warm up
+            this.mediaRecorderStartTime = performance.now();
+            this.mediaRecorder.start(100);
+            console.log('MediaRecorder starting (warming up during count-in)...');
+
+            // Start metronome (audio + visual)
+            this._startMetronome(tempo, meter, false);
+
+            // Set up tap listener only if enabled
+            if (useTaps) {
+                this._boundKeyHandler = (e) => this._handleTapKey(e);
+                document.addEventListener('keydown', this._boundKeyHandler);
+            }
+
+            // Mark when actual recording starts (beat 1 of bar 3)
             setTimeout(() => {
-                this._autoStartRecording(tempo, meter);
+                this._onCountInComplete(tempo, meter);
             }, countInDuration);
 
         } catch (error) {
@@ -354,15 +363,18 @@ export class AudioLoader {
     }
 
     /**
-     * Auto-start recording after count-in
+     * Called when count-in completes - mark this as "time 0" for recording
      * @private
      */
-    _autoStartRecording(tempo, meter) {
+    _onCountInComplete(tempo, meter) {
         this.isRecording = true;
-        this.recordingStartTime = performance.now();
 
-        // Start MediaRecorder
-        this.mediaRecorder.start(100); // Collect data every 100ms
+        // Mark when the actual recording should start (beat 1 of bar 3)
+        this.actualRecordingStartTime = performance.now();
+        this.recordingStartTime = this.actualRecordingStartTime;
+
+        const countInDuration = (this.actualRecordingStartTime - this.mediaRecorderStartTime) / 1000;
+        console.log(`Beat 1 of bar 3 reached. Count-in was ${countInDuration.toFixed(3)}s`);
 
         // Stop audio metronome, switch to visual-only
         if (this.metronomeAudioContext) {
@@ -370,9 +382,6 @@ export class AudioLoader {
             this.metronomeAudioContext = null;
         }
         this.audioOnly = true; // Visual metronome continues
-
-        console.log('Recording STARTED automatically after count-in');
-        console.log('Tap Right Ctrl to mark note onsets (optional)');
     }
 
     /**
@@ -470,7 +479,30 @@ export class AudioLoader {
         const arrayBuffer = await blob.arrayBuffer();
 
         // Decode audio data
-        this.audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer);
+        let audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer);
+
+        // Trim count-in from recording
+        if (this.firstAudioCaptureTime && this.actualRecordingStartTime) {
+            // Calculate trim: time from when audio capture started to when beat 1 occurred
+            // PLUS input latency (microphone → browser delay)
+            const countInTrim = (this.actualRecordingStartTime - this.firstAudioCaptureTime) / 1000;
+            const inputLatencyTrim = this.inputLatencyMs / 1000;
+            const totalTrim = countInTrim + inputLatencyTrim;
+
+            if (totalTrim > 0) {
+                console.log(`Trimming ${totalTrim.toFixed(3)}s (count-in: ${countInTrim.toFixed(3)}s + input latency: ${inputLatencyTrim.toFixed(3)}s)`);
+                audioBuffer = this._trimAudioBuffer(audioBuffer, totalTrim);
+                console.log(`Final audio duration: ${audioBuffer.duration.toFixed(3)}s`);
+            }
+
+            // Reset for next recording
+            this.mediaRecorderStartTime = null;
+            this.firstAudioCaptureTime = null;
+            this.actualRecordingStartTime = null;
+            this.inputLatencyMs = 0;
+        }
+
+        this.audioBuffer = audioBuffer;
 
         // Pre-calculate mono channel
         this.monoChannel = this._mixToMono();
@@ -482,6 +514,40 @@ export class AudioLoader {
             channels: this.audioBuffer.numberOfChannels,
             length: this.audioBuffer.length
         };
+    }
+
+    /**
+     * Trim audio buffer from the start
+     * @param {AudioBuffer} buffer - Original buffer
+     * @param {number} trimSeconds - Seconds to trim
+     * @returns {AudioBuffer} Trimmed buffer
+     * @private
+     */
+    _trimAudioBuffer(buffer, trimSeconds) {
+        const sampleRate = buffer.sampleRate;
+        const trimSamples = Math.floor(trimSeconds * sampleRate);
+        const newLength = buffer.length - trimSamples;
+
+        if (newLength <= 0) {
+            console.warn('Trim would remove entire buffer, keeping original');
+            return buffer;
+        }
+
+        const trimmedBuffer = this.audioContext.createBuffer(
+            buffer.numberOfChannels,
+            newLength,
+            sampleRate
+        );
+
+        for (let channel = 0; channel < buffer.numberOfChannels; channel++) {
+            const src = buffer.getChannelData(channel);
+            const dst = trimmedBuffer.getChannelData(channel);
+            for (let i = 0; i < newLength; i++) {
+                dst[i] = src[trimSamples + i];
+            }
+        }
+
+        return trimmedBuffer;
     }
 
     /**
