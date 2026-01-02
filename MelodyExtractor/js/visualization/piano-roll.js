@@ -133,21 +133,23 @@ export class PianoRoll {
     _resize() {
         if (!this.container || !this.canvas) return;
 
-        const rect = this.container.getBoundingClientRect();
         const numNotes = this.midiMax - this.midiMin + 1;
         const height = Math.max(150, numNotes * this.noteHeight + 20);
 
+        // Calculate width based on duration and fixed pixels per second
+        const width = this.keyWidth + (this.duration * this.pixelsPerSecond) + 40;
+
         // Set both the canvas internal dimensions AND the CSS dimensions
-        this.canvas.width = rect.width;
+        this.canvas.width = width;
         this.canvas.height = height;
-        this.canvas.style.width = rect.width + 'px';
+        this.canvas.style.width = width + 'px';
         this.canvas.style.height = height + 'px';
 
         // Also resize spectrogram canvas
         if (this.spectrogramCanvas) {
-            this.spectrogramCanvas.width = rect.width;
+            this.spectrogramCanvas.width = width;
             this.spectrogramCanvas.height = height;
-            this.spectrogramCanvas.style.width = rect.width + 'px';
+            this.spectrogramCanvas.style.width = width + 'px';
             this.spectrogramCanvas.style.height = height + 'px';
         }
 
@@ -183,9 +185,9 @@ export class PianoRoll {
             console.log(`Piano roll range: MIDI ${this.midiMin} to ${this.midiMax} (${midiToNoteName(this.midiMin)} to ${midiToNoteName(this.midiMax)})`);
         }
 
-        // Calculate pixels per second to fit the container
-        const availableWidth = this.canvas.width - this.keyWidth - 20;
-        this.pixelsPerSecond = Math.max(50, availableWidth / duration);
+        // Use a fixed pixels per second for consistent scaling with horizontal scrolling
+        // Increased from 100 to 150 for better readability
+        this.pixelsPerSecond = 150;
 
         // Update spectrogram display parameters
         if (this.spectrogram) {
