@@ -31,8 +31,7 @@
     padding: var(--spacing-xs);
     min-height: 350px;
     height: 450px;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: auto;
     position: relative;
     max-width: 100%;
 }

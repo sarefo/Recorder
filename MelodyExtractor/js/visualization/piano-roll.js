@@ -153,6 +153,17 @@ export class PianoRoll {
             this.spectrogramCanvas.style.height = height + 'px';
         }
 
+        // Update spectrogram display parameters
+        if (this.spectrogram) {
+            this.spectrogram.setDisplayParams({
+                midiMin: this.midiMin,
+                midiMax: this.midiMax,
+                pixelsPerSecond: this.pixelsPerSecond,
+                noteHeight: this.noteHeight,
+                keyWidth: this.keyWidth
+            });
+        }
+
         this.render();
     }
 
@@ -785,7 +796,8 @@ export class PianoRoll {
                 noteToUpdate.startTime = newStart;
                 noteToUpdate.endTime = newEnd;
                 noteToUpdate.duration = newEnd - newStart;
-                noteToUpdate.midi = Math.max(this.midiMin, Math.min(this.midiMax, this.originalNote.midi + deltaMidi));
+                // Allow dragging outside current range (will auto-expand)
+                noteToUpdate.midi = Math.max(36, Math.min(96, this.originalNote.midi + deltaMidi));
                 noteToUpdate.noteName = midiToNoteName(noteToUpdate.midi);
                 break;
 
@@ -830,6 +842,9 @@ export class PianoRoll {
      */
     _handleMouseUp(e) {
         if (this.isDragging && this.dragNote) {
+            // Update MIDI range if note was dragged outside current range
+            this.refresh();
+
             // Refresh regions to ensure sync
             this.app.regionManager.refresh();
 
@@ -981,11 +996,53 @@ export class PianoRoll {
     }
 
     /**
+     * Update MIDI range based on current notes
+     * @private
+     */
+    _updateMidiRange() {
+        if (this.notes.length === 0) return false;
+
+        const midiValues = this.notes.map(n => n.midi);
+        const minMidi = Math.min(...midiValues);
+        const maxMidi = Math.max(...midiValues);
+
+        // Add padding of one full octave (12 semitones) above and below
+        const newMidiMin = Math.max(36, minMidi - 12);  // Don't go below C2
+        const newMidiMax = Math.min(96, maxMidi + 12);  // Don't go above C7
+
+        // Ensure at least 2 octaves (24 semitones) visible
+        let finalMin = newMidiMin;
+        let finalMax = newMidiMax;
+        if (finalMax - finalMin < 24) {
+            const center = Math.floor((finalMin + finalMax) / 2);
+            finalMin = Math.max(36, center - 12);
+            finalMax = Math.min(96, center + 12);
+        }
+
+        // Check if range changed
+        const rangeChanged = (this.midiMin !== finalMin || this.midiMax !== finalMax);
+
+        this.midiMin = finalMin;
+        this.midiMax = finalMax;
+
+        return rangeChanged;
+    }
+
+    /**
      * Refresh display
      */
     refresh() {
         this.notes = this.app.correctedNotes;
-        this.render();
+
+        // Update MIDI range based on current notes
+        const rangeChanged = this._updateMidiRange();
+
+        // If range changed, resize canvas
+        if (rangeChanged) {
+            this._resize();
+        } else {
+            this.render();
+        }
     }
 
     /**
