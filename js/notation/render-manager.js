@@ -45,6 +45,11 @@ class RenderManager {
                 this.player.tuneNavigation.updateTuneTitle();
             }
 
+            // Scroll back to the beginning when a new piece is loaded
+            if (this.player.autoScrollManager) {
+                this.player.autoScrollManager.scrollToTop();
+            }
+
         } catch (error) {
             console.error("Error in render:", error);
         }

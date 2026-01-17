@@ -792,6 +792,12 @@ class MidiPlayer {
             if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying && !this.customMetronome.isConstantMode()) {
                 this.customMetronome.stop();
             }
+
+            // Scroll back to the beginning of the sheet music
+            if (this.autoScrollManager) {
+                this.autoScrollManager.scrollToTop();
+            }
+
             this.updateStatusDisplay("Playback finished");
             this.onEndedCallbackActive = false;
         }
