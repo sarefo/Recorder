@@ -147,9 +147,21 @@ class DiagramRenderer {
             staff.notes.forEach(note => {
                 // Get the corresponding note data using data-index
                 const noteData = noteDataMap.get(note.dataIndex);
-                
+
 
                 if (noteData && noteData.name !== 'rest' && !noteData.suppressDiagram) {
+                    // Check if we're in 'marked' mode and if so, only show marked notes
+                    if (this.fingeringManager.fingeringDisplayMode === 'marked') {
+                        // Find the marker zone for this note
+                        const markerZone = document.querySelector(`[data-note-index="${note.dataIndex}"].note-marker-zone`);
+                        const markerState = markerZone ? markerZone.getAttribute('data-state') : 'neutral';
+
+                        // Skip this note if it's not marked (red or green)
+                        if (markerState !== 'red' && markerState !== 'green') {
+                            return;
+                        }
+                    }
+
                     // Create and position the diagram
                     const fingeringData = this.fingeringManager.getFingeringForNote(noteData.name);
                     if (!fingeringData) return;
@@ -197,7 +209,7 @@ class DiagramRenderer {
             markerZone.style.height = `${this.config.noteMarkingHeight}px`;
             
             // Set initial z-index based on whether fingering diagrams are shown
-            if (this.fingeringManager.showFingering) {
+            if (this.fingeringManager.fingeringDisplayMode !== 'off') {
                 markerZone.style.zIndex = '5'; // Lower when fingering diagrams are visible
             } else {
                 markerZone.style.zIndex = '15'; // Higher when fingering diagrams are hidden
@@ -259,5 +271,84 @@ class DiagramRenderer {
     clearAllDiagrams() {
         const existing = document.getElementById('fingering-layer');
         if (existing) existing.remove();
+    }
+
+    /**
+     * Adds a single fingering diagram for a specific note index
+     * @param {number} noteIndex - The note index
+     * @param {Array} notesData - All notes data
+     */
+    addSingleDiagram(noteIndex, notesData) {
+        const abcContainer = document.getElementById('abc-notation');
+        const layer = document.getElementById('fingering-layer');
+        if (!layer || !abcContainer) return;
+
+        // Convert noteIndex to integer for map lookup
+        const noteIndexInt = parseInt(noteIndex, 10);
+
+        // Find the note element with this index
+        const noteElement = document.querySelector(`.abcjs-note[data-index="${noteIndex}"]`);
+        if (!noteElement) return;
+
+        // Get note data
+        const noteDataMap = this.buildNoteDataMapping(notesData);
+        const noteData = noteDataMap.get(noteIndexInt);
+        if (!noteData || noteData.name === 'rest' || noteData.suppressDiagram) return;
+
+        // Get fingering data
+        const fingeringData = this.fingeringManager.getFingeringForNote(noteData.name);
+        if (!fingeringData) return;
+
+        // Find the staff line number
+        const lineClass = Array.from(noteElement.classList).find(cls => cls.match(/abcjs-l\d+/));
+        if (!lineClass) return;
+
+        const lineNumber = parseInt(lineClass.replace('abcjs-l', ''), 10);
+        const staffEl = document.querySelector(`.abcjs-staff.abcjs-l${lineNumber}`);
+        if (!staffEl) return;
+
+        // Calculate positions
+        const noteRect = noteElement.getBoundingClientRect();
+        const staffRect = staffEl.getBoundingClientRect();
+        const containerRect = abcContainer.getBoundingClientRect();
+
+        const diagramsTopPosition = staffRect.top - containerRect.top - this.config.verticalOffset;
+
+        // Create the diagram
+        const diagram = this.fingeringManager.createFingeringDiagram(fingeringData, noteData.name);
+        diagram.setAttribute('data-note-index', noteIndex);
+
+        // Check if this note already has a marked state and apply it
+        const markerZone = document.querySelector(`[data-note-index="${noteIndex}"].note-marker-zone`);
+        if (markerZone) {
+            const markerState = markerZone.getAttribute('data-state');
+            diagram.setAttribute('data-state', markerState);
+            if (markerState === 'red') {
+                diagram.style.backgroundColor = this.config.redColor;
+            } else if (markerState === 'green') {
+                diagram.style.backgroundColor = this.config.greenColor;
+                diagram.classList.add('clicked');
+            }
+        }
+
+        // Position the diagram
+        diagram.style.position = 'absolute';
+        diagram.style.left = `${noteRect.left - containerRect.left + (noteRect.width / 2)}px`;
+        diagram.style.top = `${diagramsTopPosition}px`;
+        diagram.style.transform = `translate(-50%, -100%) scale(${this.config.scale})`;
+        diagram.style.transformOrigin = 'center bottom';
+
+        layer.appendChild(diagram);
+    }
+
+    /**
+     * Removes a single fingering diagram for a specific note index
+     * @param {number} noteIndex - The note index
+     */
+    removeSingleDiagram(noteIndex) {
+        const diagram = document.querySelector(`[data-note-index="${noteIndex}"].fingering-diagram-container`);
+        if (diagram) {
+            diagram.remove();
+        }
     }
 }

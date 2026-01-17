@@ -29,7 +29,7 @@ class RenderManager {
                 this.player.diagramRenderer.addMarkerZones(abcContainer, notes);
 
                 // Add fingering diagrams if they should be shown
-                if (this.player.fingeringManager.showFingering) {
+                if (this.player.fingeringManager.fingeringDisplayMode !== 'off') {
                     this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
                 }
             }, RenderManager.RENDER_DELAY);
@@ -92,7 +92,7 @@ class RenderManager {
      * @param {HTMLElement} abcContainer - The container element
      */
     renderFingeringDiagrams(abcContainer) {
-        if (this.player.fingeringManager.showFingering) {
+        if (this.player.fingeringManager.fingeringDisplayMode !== 'off') {
             setTimeout(() => {
                 const notes = this.player.notationParser.extractCleanedNotes();
                 this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
@@ -160,7 +160,7 @@ class RenderManager {
     captureAnnotationStates() {
         const states = {
             noteStates: new Map(),
-            fingeringVisibility: this.player.fingeringManager.showFingering,
+            fingeringVisibility: this.player.fingeringManager.fingeringDisplayMode,
             lastWindowWidth: window.innerWidth
         };
 
@@ -222,8 +222,8 @@ class RenderManager {
         }
 
         // Restore fingering visibility if it was enabled
-        if (states.fingeringVisibility && !this.player.fingeringManager.showFingering) {
-            this.player.fingeringManager.showFingering = true;
+        if (states.fingeringVisibility !== 'off' && this.player.fingeringManager.fingeringDisplayMode === 'off') {
+            this.player.fingeringManager.fingeringDisplayMode = states.fingeringVisibility;
             this.player.showFingeringDiagrams();
         }
     }

@@ -127,14 +127,35 @@ class UIControls {
         const fingeringDisplayToggle = document.createElement('button');
         fingeringDisplayToggle.id = 'show-fingering';
         fingeringDisplayToggle.textContent = 'Fingering';
-        fingeringDisplayToggle.title = 'Show/hide fingering diagrams';
+        fingeringDisplayToggle.title = 'Cycle fingering display: Off → Full → Marked';
 
         fingeringDisplayToggle.addEventListener('click', () => {
-            const showFingering = this.player.toggleFingeringDisplay();
-            fingeringDisplayToggle.classList.toggle('active', showFingering);
+            const mode = this.player.toggleFingeringDisplay();
+            this.updateFingeringButtonState(fingeringDisplayToggle, mode);
         });
 
         return fingeringDisplayToggle;
+    }
+
+    /**
+     * Updates the fingering button state based on the current mode
+     * @param {HTMLElement} button - The fingering button
+     * @param {string} mode - The current mode ('off', 'full', or 'marked')
+     */
+    updateFingeringButtonState(button, mode) {
+        // Remove all mode classes
+        button.classList.remove('active', 'marked-mode');
+
+        // Update based on mode
+        if (mode === 'full') {
+            button.classList.add('active');
+            button.textContent = 'Fingering';
+        } else if (mode === 'marked') {
+            button.classList.add('active', 'marked-mode');
+            button.textContent = 'Fingering ★';
+        } else {
+            button.textContent = 'Fingering';
+        }
     }
 
     /**
@@ -984,7 +1005,7 @@ class UIControls {
         // Update fingering visibility button
         const fingeringButton = document.getElementById('show-fingering');
         if (fingeringButton) {
-            fingeringButton.classList.toggle('active', this.player.fingeringManager.showFingering);
+            this.updateFingeringButtonState(fingeringButton, this.player.fingeringManager.fingeringDisplayMode);
         }
 
         // Update fingering system button

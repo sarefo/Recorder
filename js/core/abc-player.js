@@ -60,6 +60,12 @@ class AbcPlayer {
         });
 
         this.diagramRenderer = new DiagramRenderer(this.fingeringManager, this.fingeringConfig);
+
+        // Set up callback for note marking changes (for dynamic diagram updates in 'marked' mode)
+        this.fingeringManager.onNoteMarkingChanged = (noteIndex, newState, oldState) => {
+            this.handleNoteMarkingChanged(noteIndex, newState, oldState);
+        };
+
         this.fileManager = new FileManager(this);
         this.tuneNavigation = new TuneNavigation(this);
         this.uiControls = new UIControls(this);
@@ -190,23 +196,32 @@ class AbcPlayer {
     }
 
     /**
-     * Toggles the display of fingering diagrams
-     * @returns {boolean} Whether fingering diagrams are now shown
+     * Toggles the display of fingering diagrams through three states: off -> full -> marked -> off
+     * @returns {string} The new fingering display mode ('off', 'full', or 'marked')
      */
     toggleFingeringDisplay() {
-        this.fingeringManager.showFingering = !this.fingeringManager.showFingering;
-        this.settingsManager.set('fingeringVisible', this.fingeringManager.showFingering);
-
-        if (this.fingeringManager.showFingering) {
-            this.showFingeringDiagrams();
+        // Cycle through the three states
+        if (this.fingeringManager.fingeringDisplayMode === 'off') {
+            this.fingeringManager.fingeringDisplayMode = 'full';
+        } else if (this.fingeringManager.fingeringDisplayMode === 'full') {
+            this.fingeringManager.fingeringDisplayMode = 'marked';
         } else {
+            this.fingeringManager.fingeringDisplayMode = 'off';
+        }
+
+        this.settingsManager.set('fingeringDisplayMode', this.fingeringManager.fingeringDisplayMode);
+
+        if (this.fingeringManager.fingeringDisplayMode === 'off') {
             this.hideFingeringDiagrams();
+        } else {
+            // For both 'full' and 'marked' modes, show diagrams (filtering happens in renderer)
+            this.showFingeringDiagrams();
         }
 
         // Update marker zone z-indexes after toggling
         this.updateMarkerZoneZIndexes();
 
-        return this.fingeringManager.showFingering;
+        return this.fingeringManager.fingeringDisplayMode;
     }
 
     /**
@@ -215,7 +230,7 @@ class AbcPlayer {
     updateMarkerZoneZIndexes() {
         const markerZones = document.querySelectorAll('.note-marker-zone');
         markerZones.forEach(zone => {
-            if (this.fingeringManager.showFingering) {
+            if (this.fingeringManager.fingeringDisplayMode !== 'off') {
                 zone.style.zIndex = '5'; // Lower when fingering diagrams are visible
             } else {
                 zone.style.zIndex = '15'; // Higher when fingering diagrams are hidden
@@ -238,6 +253,31 @@ class AbcPlayer {
      */
     hideFingeringDiagrams() {
         this.diagramRenderer.clearFingeringDiagrams();
+    }
+
+    /**
+     * Handles note marking changes for dynamic diagram updates in 'marked' mode
+     * @param {number} noteIndex - The note index
+     * @param {string} newState - The new state ('red', 'green', or 'neutral')
+     * @param {string} oldState - The old state
+     */
+    handleNoteMarkingChanged(noteIndex, newState, oldState) {
+        // Only handle in 'marked' mode
+        if (this.fingeringManager.fingeringDisplayMode !== 'marked') {
+            return;
+        }
+
+        const isNowMarked = (newState === 'red' || newState === 'green');
+        const wasMarked = (oldState === 'red' || oldState === 'green');
+
+        if (isNowMarked && !wasMarked) {
+            // Note was just marked - add the diagram
+            const notes = this.notationParser.extractCleanedNotes();
+            this.diagramRenderer.addSingleDiagram(noteIndex, notes);
+        } else if (!isNowMarked && wasMarked) {
+            // Note was just unmarked - remove the diagram
+            this.diagramRenderer.removeSingleDiagram(noteIndex);
+        }
     }
 
     /**
@@ -357,7 +397,7 @@ class AbcPlayer {
                 lastWidth = currentWidth;
             } else {
                 // For minor resizes, just reposition fingering diagrams
-                if (this.fingeringManager.showFingering) {
+                if (this.fingeringManager.fingeringDisplayMode !== 'off') {
                     this.showFingeringDiagrams();
                 }
             }
@@ -368,8 +408,15 @@ class AbcPlayer {
      * Applies initial settings from SettingsManager
      */
     applyInitialSettings() {
-        // Set fingering visibility
-        this.fingeringManager.showFingering = this.settingsManager.get('fingeringVisible');
+        // Set fingering display mode (migrate from old 'fingeringVisible' setting if needed)
+        const savedMode = this.settingsManager.get('fingeringDisplayMode');
+        if (savedMode) {
+            this.fingeringManager.fingeringDisplayMode = savedMode;
+        } else {
+            // Migrate from old boolean setting
+            const oldVisible = this.settingsManager.get('fingeringVisible');
+            this.fingeringManager.fingeringDisplayMode = oldVisible ? 'full' : 'off';
+        }
 
         // Set fingering style
         const fingeringStyle = this.settingsManager.get('fingeringStyle');

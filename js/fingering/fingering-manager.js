@@ -79,7 +79,8 @@ class FingeringManager {
         };
 
         this.currentFingeringSystem = 'german';
-        this.showFingering = false;
+        this.fingeringDisplayMode = 'off'; // 'off', 'full', or 'marked'
+        this.onNoteMarkingChanged = null; // Callback for when note marking changes
     }
 
     /**
@@ -273,6 +274,11 @@ class FingeringManager {
         // Update marker zone state
         if (markerZone) {
             markerZone.setAttribute('data-state', newState);
+        }
+
+        // Notify callback if set (for dynamic diagram updates in 'marked' mode)
+        if (this.onNoteMarkingChanged) {
+            this.onNoteMarkingChanged(noteIndex, newState, currentState);
         }
     }
 
