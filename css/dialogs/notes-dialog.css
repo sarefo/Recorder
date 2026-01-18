@@ -1,0 +1,137 @@
+/* Notes Dialog Styles */
+
+.notes-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.notes-dialog {
+    background: white;
+    border-radius: 12px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.notes-dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.notes-dialog-header h3 {
+    margin: 0;
+    font-size: 18px;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.notes-dialog-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.notes-dialog-close:hover {
+    color: #000;
+}
+
+.notes-dialog-textarea {
+    flex: 1;
+    border: none;
+    padding: 20px;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    resize: none;
+    outline: none;
+    min-height: 200px;
+}
+
+.notes-dialog-textarea::placeholder {
+    color: #999;
+}
+
+.notes-dialog-buttons {
+    display: flex;
+    gap: 12px;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.notes-dialog-save,
+.notes-dialog-cancel {
+    flex: 1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.notes-dialog-save {
+    background: #1a73e8;
+    color: white;
+}
+
+.notes-dialog-save:hover {
+    background: #1557b0;
+}
+
+.notes-dialog-cancel {
+    background: #f1f3f4;
+    color: #202124;
+}
+
+.notes-dialog-cancel:hover {
+    background: #e8eaed;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .notes-dialog {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .notes-dialog-header {
+        padding: 16px;
+    }
+
+    .notes-dialog-header h3 {
+        font-size: 16px;
+    }
+
+    .notes-dialog-textarea {
+        padding: 16px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    .notes-dialog-buttons {
+        padding: 16px;
+        gap: 8px;
+    }
+}

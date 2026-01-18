@@ -33,7 +33,10 @@ class AbcPlayer {
 
         // Initialize settings manager first
         this.settingsManager = new SettingsManager();
-        
+
+        // Initialize user data manager for personal song metadata
+        this.userDataManager = new UserDataManager();
+
         // Initialize sub-modules
         this.notationParser = new NotationParser();
         this.tuneManager = new TuneManager(this);
@@ -66,7 +69,7 @@ class AbcPlayer {
             this.handleNoteMarkingChanged(noteIndex, newState, oldState);
         };
 
-        this.fileManager = new FileManager(this);
+        this.fileManager = new FileManager(this, this.userDataManager);
         this.tuneNavigation = new TuneNavigation(this);
         this.uiControls = new UIControls(this);
         this.renderManager = new RenderManager(this);

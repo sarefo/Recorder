@@ -1,0 +1,287 @@
+/* Song Metadata UI Styles */
+
+/* File item positioning context */
+.file-item {
+    position: relative;
+    padding: 8px 40px 8px 12px; /* Add padding for metadata indicators */
+}
+
+/* Favorite star button */
+.song-favorite-star {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 2px 4px;
+    line-height: 1;
+    z-index: 10;
+    transition: transform 0.2s;
+}
+
+.song-favorite-star:hover {
+    transform: scale(1.2);
+}
+
+.song-favorite-star:active {
+    transform: scale(0.9);
+}
+
+/* Status badge */
+.song-status-badge {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    z-index: 5;
+}
+
+.status-needs-practice {
+    background: #f44336;
+}
+
+.status-practicing {
+    background: #ff9800;
+}
+
+.status-good {
+    background: #4caf50;
+}
+
+.status-mastered {
+    background: #9c27b0;
+}
+
+/* Notes indicator */
+.song-notes-indicator {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 2px;
+    line-height: 1;
+    z-index: 10;
+    opacity: 0.8;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.song-notes-indicator:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Status selector menu */
+.song-status-selector {
+    position: fixed;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 4px;
+    z-index: 10000;
+    min-width: 160px;
+}
+
+.status-option {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    background: none;
+    border: none;
+    border-left: 4px solid transparent;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.status-option:hover {
+    background: #f5f5f5;
+}
+
+.status-option.active {
+    background: #e8f4fd;
+    font-weight: 500;
+}
+
+/* Context menu */
+.file-context-menu {
+    position: fixed;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 4px;
+    z-index: 10000;
+    min-width: 180px;
+}
+
+.context-menu-option {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.context-menu-option:hover {
+    background: #f5f5f5;
+}
+
+/* Settings button in dialog header */
+.files-dialog-title-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.files-dialog-title-container h2 {
+    flex: 1;
+    margin: 0;
+}
+
+.settings-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+    opacity: 0.7;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.settings-button:hover {
+    opacity: 1;
+    transform: rotate(45deg);
+}
+
+/* Settings menu */
+.settings-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.settings-menu {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.settings-menu h3 {
+    margin: 0 0 16px 0;
+    font-size: 20px;
+}
+
+.settings-menu-button {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    margin: 8px 0;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: left;
+}
+
+.settings-menu-button:hover {
+    background: #1557b0;
+}
+
+.settings-menu-button.danger {
+    background: #dc3545;
+}
+
+.settings-menu-button.danger:hover {
+    background: #c82333;
+}
+
+.settings-menu-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+}
+
+.settings-menu-close:hover {
+    color: #000;
+}
+
+.settings-stats {
+    margin-top: 16px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.settings-stats p {
+    margin: 0 0 8px 0;
+    font-weight: 500;
+}
+
+.settings-stats ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.settings-stats li {
+    margin: 4px 0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .song-favorite-star {
+        font-size: 20px;
+        padding: 4px 6px;
+    }
+
+    .song-notes-indicator {
+        font-size: 16px;
+        padding: 4px;
+    }
+
+    .song-status-badge {
+        width: 12px;
+        height: 12px;
+    }
+
+    .file-item {
+        padding: 10px 44px 10px 32px;
+    }
+}

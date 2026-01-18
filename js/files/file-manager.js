@@ -2,10 +2,14 @@
  * Manages loading ABC files
  */
 class FileManager {
-    constructor(player) {
+    constructor(player, userDataManager) {
         this.player = player;
+        this.userDataManager = userDataManager;
+        this.metadataUI = new SongMetadataUI(userDataManager, this);
         this.fileList = AbcFileList.getFiles();
         this.categorizedFiles = this.categorizeFiles();
+        this.currentFilter = 'all'; // Current filter: 'all', 'favorites', 'needs-practice', 'practicing', 'good', 'mastered', 'recent', 'collection'
+        this.currentCollectionId = null; // Active collection ID when viewing collection
     }
 
     /**
@@ -53,6 +57,11 @@ class FileManager {
 
                 this.player.tuneManager.resetToFirstTune();
                 this.player.render();
+
+                // Record playback in user data
+                if (this.userDataManager) {
+                    this.userDataManager.recordPlayback(filePath);
+                }
 
                 // Extract filename for feedback
                 const filename = filePath.split('/').pop();
@@ -155,10 +164,19 @@ class FileManager {
         const header = document.createElement('div');
         header.className = 'files-dialog-header';
 
-        // Create title
+        // Create title and settings button container
+        const titleContainer = document.createElement('div');
+        titleContainer.className = 'files-dialog-title-container';
+
         const title = document.createElement('h2');
         title.textContent = 'ABC Files';
-        header.appendChild(title);
+        titleContainer.appendChild(title);
+
+        // Add settings button
+        const settingsButton = this.metadataUI.createSettingsButton();
+        titleContainer.appendChild(settingsButton);
+
+        header.appendChild(titleContainer);
 
         // Create search input
         const searchContainer = document.createElement('div');
@@ -190,6 +208,14 @@ class FileManager {
         });
         header.appendChild(closeButton);
 
+        // Create filter tabs
+        const filterContainer = document.createElement('div');
+        filterContainer.className = 'filter-container';
+        this.metadataUI.createFilterTabs(filterContainer, (filter) => {
+            this.currentFilter = filter;
+            this.populateFilesList(filesList, handleEscape);
+        });
+
         // Create files list container
         const filesList = document.createElement('div');
         filesList.className = 'files-list';
@@ -199,6 +225,7 @@ class FileManager {
 
         // Assemble dialog
         dialog.appendChild(header);
+        dialog.appendChild(filterContainer);
         dialog.appendChild(filesList);
         dialogOverlay.appendChild(dialog);
 
@@ -210,6 +237,9 @@ class FileManager {
     }
 
     populateFilesList(container, handleEscape) {
+        // Clear existing content
+        container.innerHTML = '';
+
         // Sort categories alphabetically
         const sortedCategories = Object.keys(this.categorizedFiles).sort();
 
@@ -246,14 +276,56 @@ class FileManager {
         const fileItems = document.createElement('ul');
         fileItems.className = 'files-items collapsed';
 
+        let visibleFileCount = 0;
+
         files.forEach(file => {
+            // Check if file should be shown based on current filter
+            if (!this.shouldShowFile(file.file)) {
+                return;
+            }
+
+            visibleFileCount++;
+
             const fileItem = document.createElement('li');
             fileItem.className = 'file-item';
-            fileItem.textContent = file.name;
+
+            // Create text node for the filename
+            const textNode = document.createTextNode(file.name);
+            fileItem.appendChild(textNode);
+
             fileItem.dataset.file = file.file;
             fileItem.dataset.name = file.name.toLowerCase();
             fileItem.dataset.category = category.toLowerCase();
-            fileItem.addEventListener('click', () => {
+
+            // Add metadata indicators
+            const starButton = this.metadataUI.createStarButton(file.file, fileItem);
+            fileItem.appendChild(starButton);
+
+            const statusBadge = this.metadataUI.createStatusBadge(file.file);
+            if (statusBadge) {
+                // Add click handler to status badge to open status selector
+                statusBadge.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const rect = statusBadge.getBoundingClientRect();
+                    this.metadataUI.showStatusSelector(file.file, fileItem, rect.left, rect.bottom + 5);
+                });
+                fileItem.appendChild(statusBadge);
+            }
+
+            const notesIndicator = this.metadataUI.createNotesIndicator(file.file);
+            if (notesIndicator) {
+                fileItem.appendChild(notesIndicator);
+            }
+
+            // Click to load file
+            fileItem.addEventListener('click', (e) => {
+                // Don't load if clicking on metadata buttons
+                if (e.target.classList.contains('song-favorite-star') ||
+                    e.target.classList.contains('song-notes-indicator') ||
+                    e.target.classList.contains('song-status-badge')) {
+                    return;
+                }
+
                 this.loadFile(file.file);
                 // Close dialog
                 const dialog = document.querySelector('.files-dialog-overlay');
@@ -262,10 +334,38 @@ class FileManager {
                     document.removeEventListener('keydown', handleEscape);
                 }
             });
+
+            // Right-click context menu (desktop)
+            fileItem.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                this.metadataUI.showContextMenu(file.file, fileItem, e.pageX, e.pageY);
+            });
+
+            // Long-press context menu (mobile)
+            let pressTimer;
+            fileItem.addEventListener('touchstart', (e) => {
+                pressTimer = setTimeout(() => {
+                    const touch = e.touches[0];
+                    this.metadataUI.showContextMenu(file.file, fileItem, touch.pageX, touch.pageY);
+                }, 500);
+            });
+            fileItem.addEventListener('touchend', () => {
+                clearTimeout(pressTimer);
+            });
+            fileItem.addEventListener('touchmove', () => {
+                clearTimeout(pressTimer);
+            });
+
             fileItems.appendChild(fileItem);
         });
 
         categoryContainer.appendChild(fileItems);
+
+        // Hide category if no files are visible
+        if (visibleFileCount === 0) {
+            categoryContainer.style.display = 'none';
+        }
+
         return categoryContainer;
     }
 
@@ -287,6 +387,44 @@ class FileManager {
                 behavior: 'smooth',
                 block: 'start'
             });
+        }
+    }
+
+    /**
+     * Check if a file should be shown based on current filter
+     * @param {string} filePath - Path to the file
+     * @returns {boolean} True if file should be shown
+     */
+    shouldShowFile(filePath) {
+        if (this.currentFilter === 'all') {
+            return true;
+        }
+
+        const songData = this.userDataManager.getSongData(filePath);
+
+        switch (this.currentFilter) {
+            case 'favorites':
+                return songData.favorite === true;
+
+            case 'needs-practice':
+            case 'practicing':
+            case 'good':
+            case 'mastered':
+                return songData.status === this.currentFilter;
+
+            case 'recent':
+                const recentSongs = this.userDataManager.getRecentSongs();
+                return recentSongs.some(item => item.filePath === filePath);
+
+            case 'collection':
+                if (this.currentCollectionId) {
+                    const collection = this.userDataManager.getCollection(this.currentCollectionId);
+                    return collection && collection.songPaths.includes(filePath);
+                }
+                return false;
+
+            default:
+                return true;
         }
     }
 
