@@ -127,6 +127,11 @@
     text-overflow: ellipsis;
     direction: rtl;
     text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    touch-action: manipulation;
 }
 
 .folder-button:hover {
@@ -171,6 +176,11 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     color: #495057;
     font-weight: 500;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    touch-action: manipulation;
 }
 
 .file-item:hover {
@@ -179,6 +189,24 @@
     box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);
     transform: translateY(-1px);
     color: #1976d2;
+}
+
+.file-item.long-pressing {
+    animation: longPressIndicator 0.5s ease-out;
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border-color: #ffc107;
+}
+
+@keyframes longPressIndicator {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .no-results-message {

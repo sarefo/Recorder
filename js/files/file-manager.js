@@ -102,17 +102,18 @@ class FileManager {
 
         // Add event listener to the random button
         randomButton.addEventListener('click', () => {
-            const allFiles = this.fileList;
-            if (allFiles && allFiles.length > 0) {
-                const randomIndex = Math.floor(Math.random() * allFiles.length);
-                const randomFile = allFiles[randomIndex];
+            const filteredFiles = this.getFilteredFiles();
+            if (filteredFiles && filteredFiles.length > 0) {
+                const randomIndex = Math.floor(Math.random() * filteredFiles.length);
+                const randomFile = filteredFiles[randomIndex];
 
                 if (randomFile && randomFile.file) {
                     this.loadFile(randomFile.file);
                     Utils.showFeedback(`Loaded random file: ${randomFile.name}`);
                 }
             } else {
-                Utils.showFeedback("No files available to choose from.", true);
+                const filterName = this.currentFilter === 'all' ? 'files' : `${this.currentFilter} files`;
+                Utils.showFeedback(`No ${filterName} available to choose from.`, true);
             }
         });
 
@@ -326,6 +327,12 @@ class FileManager {
                     return;
                 }
 
+                // Don't load if long-press was triggered (context menu shown)
+                if (fileItem._longPressTriggered) {
+                    fileItem._longPressTriggered = false;
+                    return;
+                }
+
                 this.loadFile(file.file);
                 // Close dialog
                 const dialog = document.querySelector('.files-dialog-overlay');
@@ -343,17 +350,50 @@ class FileManager {
 
             // Long-press context menu (mobile)
             let pressTimer;
+
             fileItem.addEventListener('touchstart', (e) => {
+                fileItem._longPressTriggered = false;
+
+                // Add visual feedback class after 300ms
+                const feedbackTimer = setTimeout(() => {
+                    fileItem.classList.add('long-pressing');
+                }, 300);
+
                 pressTimer = setTimeout(() => {
+                    fileItem._longPressTriggered = true;
+                    fileItem.classList.remove('long-pressing');
+
+                    // Trigger haptic feedback if available
+                    if (navigator.vibrate) {
+                        navigator.vibrate(50);
+                    }
+
                     const touch = e.touches[0];
                     this.metadataUI.showContextMenu(file.file, fileItem, touch.pageX, touch.pageY);
                 }, 500);
+
+                // Store feedback timer to clear it if needed
+                fileItem._feedbackTimer = feedbackTimer;
             });
+
             fileItem.addEventListener('touchend', () => {
                 clearTimeout(pressTimer);
+                clearTimeout(fileItem._feedbackTimer);
+                fileItem.classList.remove('long-pressing');
+
+                // Reset long-press flag after a short delay
+                // (to allow click handler to check it first)
+                setTimeout(() => {
+                    if (fileItem._longPressTriggered) {
+                        fileItem._longPressTriggered = false;
+                    }
+                }, 100);
             });
+
             fileItem.addEventListener('touchmove', () => {
                 clearTimeout(pressTimer);
+                clearTimeout(fileItem._feedbackTimer);
+                fileItem.classList.remove('long-pressing');
             });
 
             fileItems.appendChild(fileItem);
@@ -426,6 +466,14 @@ class FileManager {
             default:
                 return true;
         }
+    }
+
+    /**
+     * Gets all files that match the current filter
+     * @returns {Array} Filtered list of file paths
+     */
+    getFilteredFiles() {
+        return this.fileList.filter(file => this.shouldShowFile(file.file));
     }
 
     filterFilesList(searchTerm, container) {

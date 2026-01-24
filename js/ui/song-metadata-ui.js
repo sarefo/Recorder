@@ -27,11 +27,29 @@ class SongMetadataUI {
             starButton.innerHTML = newState ? '⭐' : '☆';
             starButton.title = newState ? 'Remove from favorites' : 'Add to favorites';
 
-            // Refresh the file list to update filtering
-            const filesList = document.querySelector('.files-list');
-            if (filesList) {
-                const dummyHandler = () => {};
-                this.fileManager.populateFilesList(filesList, dummyHandler);
+            // Add animation
+            starButton.classList.add('toggling');
+            setTimeout(() => starButton.classList.remove('toggling'), 400);
+
+            // Haptic feedback
+            if (navigator.vibrate) {
+                navigator.vibrate(30);
+            }
+
+            // Only refresh if we're in favorites filter (item should disappear)
+            // For other filters, the star just updates in place
+            if (this.fileManager.currentFilter === 'favorites') {
+                const filesList = document.querySelector('.files-list');
+                if (filesList) {
+                    // Save folder expansion states before refresh
+                    const expandedFolders = this.saveExpandedFolders();
+
+                    const dummyHandler = () => {};
+                    this.fileManager.populateFilesList(filesList, dummyHandler);
+
+                    // Restore folder expansion states after refresh
+                    this.restoreExpandedFolders(expandedFolders);
+                }
             }
         });
 
@@ -124,10 +142,16 @@ class SongMetadataUI {
                 const filesList = document.querySelector('.files-list');
                 const filesDialog = document.querySelector('.files-dialog-overlay');
                 if (filesList && filesDialog) {
+                    // Save folder expansion states before refresh
+                    const expandedFolders = this.saveExpandedFolders();
+
                     // Find the escape handler from the dialog's event listeners
                     // We'll just pass a dummy handler since we're not closing the dialog
                     const dummyHandler = () => {};
                     this.fileManager.populateFilesList(filesList, dummyHandler);
+
+                    // Restore folder expansion states after refresh
+                    this.restoreExpandedFolders(expandedFolders);
                 }
             });
 
@@ -548,11 +572,19 @@ class SongMetadataUI {
             this.userDataManager.toggleFavorite(filePath);
             menu.remove();
 
-            // Refresh the file list to update filtering
-            const filesList = document.querySelector('.files-list');
-            if (filesList) {
-                const dummyHandler = () => {};
-                this.fileManager.populateFilesList(filesList, dummyHandler);
+            // Only refresh if we're in favorites filter
+            if (this.fileManager.currentFilter === 'favorites') {
+                const filesList = document.querySelector('.files-list');
+                if (filesList) {
+                    // Save folder expansion states before refresh
+                    const expandedFolders = this.saveExpandedFolders();
+
+                    const dummyHandler = () => {};
+                    this.fileManager.populateFilesList(filesList, dummyHandler);
+
+                    // Restore folder expansion states after refresh
+                    this.restoreExpandedFolders(expandedFolders);
+                }
             }
         });
         menu.appendChild(favoriteOption);
@@ -628,5 +660,49 @@ class SongMetadataUI {
         if (newNotes) {
             fileItem.appendChild(newNotes);
         }
+    }
+
+    /**
+     * Save the current expansion state of all folders
+     * @returns {Array} Array of expanded folder categories
+     */
+    saveExpandedFolders() {
+        const expandedFolders = [];
+        const categories = document.querySelectorAll('.files-category');
+
+        categories.forEach(category => {
+            const button = category.querySelector('.folder-button');
+            if (button && button.getAttribute('aria-expanded') === 'true') {
+                expandedFolders.push(category.dataset.category);
+            }
+        });
+
+        return expandedFolders;
+    }
+
+    /**
+     * Restore the expansion state of folders
+     * @param {Array} expandedFolders - Array of category names that should be expanded
+     */
+    restoreExpandedFolders(expandedFolders) {
+        if (!expandedFolders || expandedFolders.length === 0) {
+            return;
+        }
+
+        // Wait for DOM to update
+        setTimeout(() => {
+            expandedFolders.forEach(categoryName => {
+                const category = document.querySelector(`.files-category[data-category="${categoryName}"]`);
+                if (category) {
+                    const button = category.querySelector('.folder-button');
+                    const items = category.querySelector('.files-items');
+
+                    if (button && items) {
+                        items.classList.remove('collapsed');
+                        button.setAttribute('aria-expanded', 'true');
+                    }
+                }
+            });
+        }, 50);
     }
 }
