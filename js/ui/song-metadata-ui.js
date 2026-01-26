@@ -559,8 +559,6 @@ class SongMetadataUI {
 
         const menu = document.createElement('div');
         menu.className = 'file-context-menu';
-        menu.style.left = `${x}px`;
-        menu.style.top = `${y}px`;
 
         const songData = this.userDataManager.getSongData(filePath);
 
@@ -622,6 +620,34 @@ class SongMetadataUI {
         menu.appendChild(notesOption);
 
         document.body.appendChild(menu);
+
+        // Adjust position to keep menu within viewport
+        const menuRect = menu.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        let finalX = x;
+        let finalY = y;
+
+        // Horizontal bounds check
+        if (finalX + menuRect.width > viewportWidth) {
+            finalX = viewportWidth - menuRect.width - 8; // 8px margin
+        }
+        if (finalX < 8) {
+            finalX = 8;
+        }
+
+        // Vertical bounds check - center if would overflow
+        if (finalY + menuRect.height > viewportHeight) {
+            // Center vertically in viewport
+            finalY = (viewportHeight - menuRect.height) / 2;
+        }
+        if (finalY < 8) {
+            finalY = 8;
+        }
+
+        menu.style.left = `${finalX}px`;
+        menu.style.top = `${finalY}px`;
 
         // Close on outside click
         setTimeout(() => {
