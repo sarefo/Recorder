@@ -270,15 +270,15 @@ class AbcPlayer {
             return;
         }
 
-        const isNowMarked = (newState === 'red' || newState === 'green');
-        const wasMarked = (oldState === 'red' || oldState === 'green');
+        const isNowRed = (newState === 'red');
+        const wasRed = (oldState === 'red');
 
-        if (isNowMarked && !wasMarked) {
-            // Note was just marked - add the diagram
+        if (isNowRed && !wasRed) {
+            // Note was just marked red - add the diagram
             const notes = this.notationParser.extractCleanedNotes();
             this.diagramRenderer.addSingleDiagram(noteIndex, notes);
-        } else if (!isNowMarked && wasMarked) {
-            // Note was just unmarked - remove the diagram
+        } else if (!isNowRed && wasRed) {
+            // Note is no longer red - remove the diagram
             this.diagramRenderer.removeSingleDiagram(noteIndex);
         }
     }

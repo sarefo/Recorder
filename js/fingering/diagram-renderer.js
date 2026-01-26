@@ -156,8 +156,8 @@ class DiagramRenderer {
                         const markerZone = document.querySelector(`[data-note-index="${note.dataIndex}"].note-marker-zone`);
                         const markerState = markerZone ? markerZone.getAttribute('data-state') : 'neutral';
 
-                        // Skip this note if it's not marked (red or green)
-                        if (markerState !== 'red' && markerState !== 'green') {
+                        // Skip this note if it's not marked red
+                        if (markerState !== 'red') {
                             return;
                         }
                     }
