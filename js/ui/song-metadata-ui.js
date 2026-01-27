@@ -587,27 +587,58 @@ class SongMetadataUI {
         });
         menu.appendChild(favoriteOption);
 
-        // Status selector
-        const statusOption = document.createElement('button');
-        statusOption.className = 'context-menu-option';
-        statusOption.innerHTML = '🎯 Set Status';
-        statusOption.addEventListener('click', () => {
-            menu.remove();
-            const selector = this.createStatusSelector(filePath, fileItem);
-            selector.style.position = 'absolute';
-            selector.style.left = `${x}px`;
-            selector.style.top = `${y}px`;
-            document.body.appendChild(selector);
+        // Status section header
+        const statusHeader = document.createElement('div');
+        statusHeader.className = 'context-menu-section-header';
+        statusHeader.textContent = 'Status';
+        menu.appendChild(statusHeader);
 
-            // Close on outside click
-            setTimeout(() => {
-                document.addEventListener('click', function closeSelector() {
-                    selector.remove();
-                    document.removeEventListener('click', closeSelector);
-                });
-            }, 100);
+        // Status options inline
+        const statusContainer = document.createElement('div');
+        statusContainer.className = 'context-menu-status-container';
+
+        const statuses = [
+            { value: null, label: 'None', color: '#ccc' },
+            { value: 'needs-practice', label: 'Needs Practice', color: '#f44336' },
+            { value: 'practicing', label: 'Practicing', color: '#ff9800' },
+            { value: 'good', label: 'Good', color: '#4caf50' },
+            { value: 'mastered', label: 'Mastered', color: '#9c27b0' }
+        ];
+
+        statuses.forEach(status => {
+            const option = document.createElement('button');
+            option.className = 'context-menu-status-option';
+            option.textContent = status.label;
+            option.style.borderLeft = `4px solid ${status.color}`;
+
+            if (songData.status === status.value) {
+                option.classList.add('active');
+            }
+
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.userDataManager.setSongStatus(filePath, status.value);
+                menu.remove();
+
+                // Refresh the file list to update filtering
+                const filesList = document.querySelector('.files-list');
+                const filesDialog = document.querySelector('.files-dialog-overlay');
+                if (filesList && filesDialog) {
+                    // Save folder expansion states before refresh
+                    const expandedFolders = this.saveExpandedFolders();
+
+                    const dummyHandler = () => {};
+                    this.fileManager.populateFilesList(filesList, dummyHandler);
+
+                    // Restore folder expansion states after refresh
+                    this.restoreExpandedFolders(expandedFolders);
+                }
+            });
+
+            statusContainer.appendChild(option);
         });
-        menu.appendChild(statusOption);
+
+        menu.appendChild(statusContainer);
 
         // Notes
         const notesOption = document.createElement('button');
