@@ -3,7 +3,7 @@
  * Handles offline caching of app shell and ABC music files
  */
 
-const CACHE_VERSION = 'abc-player-v1';
+const CACHE_VERSION = 'abc-player-v2';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const ABC_FILES_CACHE = `${CACHE_VERSION}-abc-files`;
 
@@ -121,6 +121,13 @@ self.addEventListener('fetch', (event) => {
 
     // Handle CDN requests (ABCJS library)
     if (url.hostname === 'cdn.jsdelivr.net') {
+        event.respondWith(cacheFirstStrategy(request, APP_SHELL_CACHE));
+        return;
+    }
+
+    // Handle MIDI soundfont requests (required for offline MIDI playback)
+    // ABCJS loads instrument samples from this domain
+    if (url.hostname === 'paulrosen.github.io') {
         event.respondWith(cacheFirstStrategy(request, APP_SHELL_CACHE));
         return;
     }
