@@ -166,6 +166,9 @@
     z-index: 10000;
     min-width: 320px;
     max-width: 420px;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .context-menu-option {
