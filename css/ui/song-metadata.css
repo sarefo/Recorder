@@ -354,6 +354,71 @@
     margin: 4px 0;
 }
 
+/* Inline tag button in control bar */
+.inline-tag-button,
+.control-bar .inline-tag-button {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    background-color: #ccc;
+    cursor: pointer;
+    padding: 0;
+    z-index: 102;
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    min-height: 20px;
+    /* Override control-bar button defaults */
+    box-shadow: none;
+    font-size: inherit;
+}
+
+.inline-tag-button:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.inline-tag-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.inline-tag-button.hidden {
+    display: none;
+}
+
+.inline-tag-star {
+    font-size: 10px;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+/* On mobile, position tag button fixed in top-right */
+body.mobile-controls-active .inline-tag-button {
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    transform: none;
+    z-index: 1001;
+}
+
+body.mobile-controls-active .inline-tag-button:hover {
+    transform: scale(1.15);
+}
+
+body.mobile-controls-active .inline-tag-button:active {
+    transform: scale(0.95);
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .song-favorite-star {

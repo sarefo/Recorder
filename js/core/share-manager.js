@@ -36,6 +36,8 @@ class ShareManager {
                 // Validate basic ABC structure
                 if (decodedAbc.includes('X:') && decodedAbc.includes('K:')) {
                     this.player.notationParser.currentAbc = decodedAbc;
+                    this.player.fileManager.currentFilePath = null;
+                    this.player.fileManager.metadataUI.updateInlineTagButton(null);
                     this.player.render();
 
                     // Add a small message to indicate successful loading

@@ -31,6 +31,10 @@ class UIControls {
         controlBar.appendChild(this.createFingeringControlsSection());
         controlBar.appendChild(this.createNotationControlsSection());
 
+        // Add inline tag button (positioned at the right edge of the control bar)
+        const tagButton = this.player.fileManager.metadataUI.createInlineTagButton();
+        controlBar.appendChild(tagButton);
+
         // Add control elements to the document
         controlContainer.appendChild(midiStatus);
         controlContainer.appendChild(controlBar);

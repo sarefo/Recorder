@@ -569,6 +569,7 @@ class SongMetadataUI {
         favoriteOption.addEventListener('click', () => {
             this.userDataManager.toggleFavorite(filePath);
             menu.remove();
+            this.updateInlineTagButton(filePath);
 
             // Only refresh if we're in favorites filter
             if (this.fileManager.currentFilter === 'favorites') {
@@ -619,6 +620,7 @@ class SongMetadataUI {
                 e.stopPropagation();
                 this.userDataManager.setSongStatus(filePath, status.value);
                 menu.remove();
+                this.updateInlineTagButton(filePath);
 
                 // Refresh the file list to update filtering
                 const filesList = document.querySelector('.files-list');
@@ -687,6 +689,68 @@ class SongMetadataUI {
                 document.removeEventListener('click', closeMenu);
             });
         }, 100);
+    }
+
+    /**
+     * Create the inline tag button for the control bar
+     * @returns {HTMLElement} The tag button element
+     */
+    createInlineTagButton() {
+        const button = document.createElement('button');
+        button.id = 'inline-tag-button';
+        button.className = 'inline-tag-button hidden';
+        button.title = 'Song tags';
+
+        // Star indicator (shown when favorited)
+        const star = document.createElement('span');
+        star.className = 'inline-tag-star';
+        button.appendChild(star);
+
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const filePath = this.fileManager.currentFilePath;
+            if (filePath) {
+                const rect = button.getBoundingClientRect();
+                this.showContextMenu(filePath, null, rect.right, rect.bottom + 5);
+            }
+        });
+
+        this._inlineTagButton = button;
+        return button;
+    }
+
+    /**
+     * Update the inline tag button appearance based on current metadata
+     * @param {string} filePath - Path to the song file, or null to hide
+     */
+    updateInlineTagButton(filePath) {
+        const button = this._inlineTagButton || document.getElementById('inline-tag-button');
+        if (!button) return;
+
+        if (!filePath) {
+            button.classList.add('hidden');
+            return;
+        }
+
+        button.classList.remove('hidden');
+
+        const songData = this.userDataManager.getSongData(filePath);
+
+        // Update dot color based on status
+        const statusColors = {
+            'needs-practice': '#f44336',
+            'practicing': '#ff9800',
+            'good': '#4caf50',
+            'mastered': '#9c27b0'
+        };
+        const color = statusColors[songData.status] || '#ccc';
+        button.style.backgroundColor = color;
+
+        // Update star indicator
+        const star = button.querySelector('.inline-tag-star');
+        if (star) {
+            star.textContent = songData.favorite ? '★' : '';
+        }
     }
 
     /**

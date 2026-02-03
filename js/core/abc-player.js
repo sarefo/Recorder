@@ -107,6 +107,8 @@ class AbcPlayer {
         const text = await Utils.readFromClipboard();
         if (text && text.includes('X:') && text.includes('K:')) {
             this.notationParser.currentAbc = text;
+            this.fileManager.currentFilePath = null;
+            this.fileManager.metadataUI.updateInlineTagButton(null);
             this.render();
             Utils.showFeedback('ABC notation pasted successfully!');
             return true;

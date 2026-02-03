@@ -10,6 +10,7 @@ class FileManager {
         this.categorizedFiles = this.categorizeFiles();
         this.currentFilter = 'all'; // Current filter: 'all', 'favorites', 'needs-practice', 'practicing', 'good', 'mastered', 'recent', 'collection'
         this.currentCollectionId = null; // Active collection ID when viewing collection
+        this.currentFilePath = null; // Currently loaded file path (null when loaded from paste/share)
     }
 
     /**
@@ -62,6 +63,11 @@ class FileManager {
                 if (this.userDataManager) {
                     this.userDataManager.recordPlayback(filePath);
                 }
+
+                this.currentFilePath = filePath;
+
+                // Update inline tag button
+                this.metadataUI.updateInlineTagButton(filePath);
 
                 // Extract filename for feedback
                 const filename = filePath.split('/').pop();
