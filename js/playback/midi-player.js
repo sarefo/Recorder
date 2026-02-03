@@ -103,24 +103,16 @@ class MidiPlayer {
         }
 
         // Get the base tempo from the tune
+        // getBpm() returns beats per minute in the time signature's beat unit
+        // (e.g., half-note BPM for 2/2, dotted-quarter BPM for 6/8)
         const baseTempo = visualObj.getBpm() || 120;
         const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
 
-        // Calculate milliseconds per measure based on adjusted tempo
-        const timeSignature = visualObj.getMeter?.() || null;
-        let beatsPerMeasure = timeSignature?.value?.[0]?.num || 4;
-
-        // For compound time (6/8, 9/8, 12/8), the beat is the dotted quarter (3 eighths),
-        // not individual eighth notes, so divide by 3 to get actual beats per measure
-        if (timeSignature?.value?.[0]) {
-            const numerator = parseInt(timeSignature.value[0].num);
-            const denominator = parseInt(timeSignature.value[0].den);
-            if (numerator % 3 === 0 && denominator === 8 && numerator > 3) {
-                beatsPerMeasure = numerator / 3; // e.g., 6/8 → 2 beats, 9/8 → 3 beats
-            }
-        }
-
-        const millisecondsPerMeasure = (60000 * beatsPerMeasure) / adjustedTempo;
+        // Use ABCJS's own millisecondsPerMeasure() which correctly handles all
+        // time signatures (cut time, compound time, etc.) and Q: notations
+        const millisecondsPerMeasure = typeof visualObj.millisecondsPerMeasure === 'function'
+            ? visualObj.millisecondsPerMeasure(adjustedTempo)
+            : (60000 * 4) / adjustedTempo;
 
         return {
             adjustedTempo,
@@ -143,21 +135,22 @@ class MidiPlayer {
             return;
         }
 
-        // Extract time signature from the visual object
-        const timeSignature = visualObj.getMeter?.();
-        const numerator = timeSignature?.value?.[0]?.num || 4;
+        // Extract beats per measure using ABCJS method (handles cut time, compound time, etc.)
+        const beatsPerMeasure = typeof visualObj.getBeatsPerMeasure === 'function'
+            ? visualObj.getBeatsPerMeasure()
+            : 4;
 
         // Extract tempo from the visual object (same method as MIDI)
         const baseTempo = visualObj.getBpm() || 120;
         const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
 
         // Update saved values
-        this.lastTimeSignature = numerator;
+        this.lastTimeSignature = beatsPerMeasure;
         this.lastTempo = adjustedTempo;
 
         // Update metronome if it's running
         if (this.customMetronome.isPlaying) {
-            this.customMetronome.setTimeSignature(numerator);
+            this.customMetronome.setTimeSignature(beatsPerMeasure);
             // Only update tempo if it's different to avoid unnecessary restarts
             if (this.customMetronome.tempo !== adjustedTempo) {
                 await this.customMetronome.setTempo(adjustedTempo);
@@ -443,9 +436,10 @@ class MidiPlayer {
                 // Update our saved tempo values
                 this.lastTempo = adjustedTempo;
 
-                // Get time signature
-                const timeSignature = visualObj.getMeter?.();
-                numerator = timeSignature?.value?.[0]?.num || 4;
+                // Get beats per measure (handles cut time, compound time, etc.)
+                numerator = typeof visualObj.getBeatsPerMeasure === 'function'
+                    ? visualObj.getBeatsPerMeasure()
+                    : 4;
                 this.lastTimeSignature = numerator;
             }
 
@@ -569,8 +563,9 @@ class MidiPlayer {
                     if (visualObj && typeof visualObj.getBpm === 'function') {
                         const baseTempo = visualObj.getBpm() || 120;
                         const adjustedTempo = (baseTempo * this.playbackSettings.tempo) / 100;
-                        const timeSignature = visualObj.getMeter?.();
-                        const numerator = timeSignature?.value?.[0]?.num || 4;
+                        const beatsPerMeasure = typeof visualObj.getBeatsPerMeasure === 'function'
+                            ? visualObj.getBeatsPerMeasure()
+                            : 4;
 
                         // Initialize and start auto-scroll manager for note highlighting and completion detection
                         if (this.autoScrollManager) {
@@ -578,7 +573,7 @@ class MidiPlayer {
                             this.autoScrollManager.start();
                         }
 
-                        await this.customMetronome.start(adjustedTempo, numerator);
+                        await this.customMetronome.start(adjustedTempo, beatsPerMeasure);
                         this.isPlaying = true;
                         this.updatePlayButtonState();
                         success = true;
