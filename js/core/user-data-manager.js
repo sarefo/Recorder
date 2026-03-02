@@ -6,6 +6,53 @@ class UserDataManager {
     constructor() {
         this.storageKey = 'abc-player-user-data';
         this.data = this.loadData();
+        this.fetchServerData('./user-data-server.json');
+    }
+
+    /**
+     * Fetch server baseline data and merge it (server fills gaps, local wins).
+     * Fire-and-forget: silently ignored if file is missing or fetch fails.
+     * @param {string} url - URL of the server JSON file
+     */
+    async fetchServerData(url) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) return;
+            const serverData = JSON.parse(await response.text());
+            if (!this.validateData(serverData)) return;
+            this.mergeServerDataAsBase(serverData);
+        } catch (e) {
+            // Server data is optional — network errors and missing file are fine
+        }
+    }
+
+    /**
+     * Merge server data as a baseline: server fills gaps, local data always wins.
+     * @param {Object} serverData - Validated server data object
+     */
+    mergeServerDataAsBase(serverData) {
+        // Songs: add server entries that don't exist locally
+        for (const [path, songData] of Object.entries(serverData.songs)) {
+            if (!this.data.songs[path]) {
+                this.data.songs[path] = songData;
+            }
+        }
+
+        // Collections: add server collections not present locally
+        for (const [id, collection] of Object.entries(serverData.collections)) {
+            if (!this.data.collections[id]) {
+                this.data.collections[id] = collection;
+            }
+        }
+
+        // Recently played: append server entries not already in local list
+        const localPaths = new Set(this.data.recentlyPlayed.map(i => i.filePath));
+        const serverOnly = serverData.recentlyPlayed.filter(i => !localPaths.has(i.filePath));
+        this.data.recentlyPlayed = [...this.data.recentlyPlayed, ...serverOnly]
+            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+            .slice(0, this.data.settings.maxRecentSongs);
+
+        this.saveData();
     }
 
     /**
