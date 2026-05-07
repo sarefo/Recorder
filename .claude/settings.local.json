@@ -16,7 +16,8 @@
       "mcp__context7__resolve-library-id",
       "mcp__context7__get-library-docs",
       "WebSearch",
-      "mcp__context7__query-docs"
+      "mcp__context7__query-docs",
+      "Bash(netstat -tln)"
     ]
   },
   "enableAllProjectMcpServers": false
