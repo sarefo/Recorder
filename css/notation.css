@@ -49,17 +49,8 @@
     z-index: var(--z-raised);
 }
 
-/* Dark mode: keep abcjs SVG legible. abcjs renders strokes/fills as
-   currentColor or #000 by default; invert just the staff/notes layer. */
-@media (prefers-color-scheme: dark) {
-    #abc-notation svg {
-        filter: invert(0.9) hue-rotate(180deg);
-    }
-
-    /* Re-invert the playing-note color so it stays orange, not cyan */
-    .abcjs-note.playing,
-    .abcjs-note.playing path,
-    .abcjs-note.playing rect {
-        filter: invert(1) hue-rotate(180deg);
-    }
-}
+/* Dark mode: abcjs draws every glyph as a <path fill="currentColor">,
+   so the SVG already inherits --color-text (near-white in dark mode).
+   No filter needed — and the previous invert() was actively darkening
+   an already-bright color. The playing-note keeps its inline orange
+   fill via the !important rule above. */
