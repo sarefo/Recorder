@@ -412,13 +412,10 @@
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
 }
 
-/* On mobile: pin to top-right with safe-area-inset */
-body.mobile-controls-active .inline-tag-button {
-    position: fixed;
-    top: calc(env(safe-area-inset-top, 0px) + var(--space-2));
-    right: calc(env(safe-area-inset-right, 0px) + var(--space-2));
-    margin: 0;
-    z-index: var(--z-modal);
+/* In the mobile main row: drop the auto-margin and just sit at the end of
+   the scrollable bar like any other button. */
+.mobile-main-row .inline-tag-button {
+    margin-left: 0;
 }
 
 /* ----- Mobile size tweaks for indicators ----- */

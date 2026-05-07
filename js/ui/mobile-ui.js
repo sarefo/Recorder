@@ -323,6 +323,11 @@ class MobileUI {
             this.applyMobileState();
         };
         mainRow.appendChild(toggleButton);
+
+        // Move the inline tag button (song-status indicator + quick tag access)
+        // from the desktop control bar into the mobile main row so it's reachable.
+        const tagButton = document.getElementById('inline-tag-button');
+        if (tagButton) mainRow.appendChild(tagButton);
     }
 
     /**
