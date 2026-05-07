@@ -1,34 +1,34 @@
-/* ABC notation display styling */
+/* ABC notation (abcjs SVG) display */
+
 #abc-notation svg {
     max-width: 100%;
     height: auto;
 }
 
-/* Interactive elements within notation */
 .abcjs-note,
 .abcjs-rest {
     cursor: pointer;
 }
 
 .abcjs-note:hover {
-    fill: #1a73e8;
+    fill: var(--color-primary);
 }
 
-/* Highlighting for active notes */
 .abcjs-note.highlight {
-    fill: #1a73e8;
+    fill: var(--color-primary);
 }
 
-/* Highlighting for currently playing note (auto-scroll) */
+/* Currently-playing note (auto-scroll). !important is justified here:
+   abcjs sets fill/stroke inline on its SVG nodes, so we need to win
+   without depending on selector specificity. */
 .abcjs-note.playing,
 .abcjs-note.playing path,
 .abcjs-note.playing rect {
     fill: #ff6b35 !important;
     stroke: #ff6b35 !important;
-    transition: none !important; /* Instant highlight, no animation */
+    transition: none !important;
 }
 
-/* Smooth transition for note highlighting */
 .abcjs-note {
     transition: fill 0.1s ease-in-out;
 }
@@ -38,7 +38,7 @@
     transition: fill 0.1s ease-in-out, stroke 0.1s ease-in-out;
 }
 
-/* Layer for fingering diagrams */
+/* Layer for fingering diagrams overlaid on notation */
 #fingering-layer {
     position: absolute;
     top: 0;
@@ -46,5 +46,20 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 10;
+    z-index: var(--z-raised);
+}
+
+/* Dark mode: keep abcjs SVG legible. abcjs renders strokes/fills as
+   currentColor or #000 by default; invert just the staff/notes layer. */
+@media (prefers-color-scheme: dark) {
+    #abc-notation svg {
+        filter: invert(0.9) hue-rotate(180deg);
+    }
+
+    /* Re-invert the playing-note color so it stays orange, not cyan */
+    .abcjs-note.playing,
+    .abcjs-note.playing path,
+    .abcjs-note.playing rect {
+        filter: invert(1) hue-rotate(180deg);
+    }
 }

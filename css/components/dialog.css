@@ -1,0 +1,343 @@
+/* =========================================================================
+   Dialog component
+   Shared modal frame: overlay, panel, header, body, footer, close button.
+   Used by tuning-modal, notes-dialog, files-dialog. Existing per-modal files
+   keep only their content-specific rules.
+
+   Generic class names (.dialog-*) are introduced for any new modals;
+   existing per-modal classes (.modal-*, .notes-dialog-*, .files-dialog-*)
+   reuse these tokens via aliasing rules in their own files.
+   ========================================================================= */
+
+/* ----- Overlay ----- */
+.dialog-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal-backdrop);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    animation: dialog-overlay-in var(--motion-base) var(--ease-standard);
+}
+
+@keyframes dialog-overlay-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ----- Panel ----- */
+.dialog-panel {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: var(--z-modal);
+    animation: dialog-panel-in var(--motion-slow) var(--ease-emphasis);
+}
+
+@keyframes dialog-panel-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ----- Header ----- */
+.dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.dialog-header h2,
+.dialog-header h3 {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dialog-header--primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+    border-bottom: none;
+}
+
+/* ----- Body ----- */
+.dialog-body {
+    padding: var(--space-5);
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* ----- Footer / button row ----- */
+.dialog-footer {
+    display: flex;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    border-top: 1px solid var(--color-border-subtle);
+}
+
+/* ----- Close button (× in header) ----- */
+.dialog-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    color: inherit;
+    transition: background-color var(--motion-base) var(--ease-standard);
+}
+
+.dialog-close:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.dialog-header--primary .dialog-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dialog-close:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+/* =========================================================================
+   Aliases for existing per-modal class names
+   These map legacy class names onto the dialog component so existing markup
+   benefits without DOM changes.
+   ========================================================================= */
+
+/* Tuning modal (.modal / .modal-content / .modal-header / .modal-close / .modal-body) */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-overlay);
+    z-index: var(--z-modal-backdrop);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.modal.show,
+.modal[style*="display: flex"],
+.modal[style*="display:flex"] {
+    animation: dialog-overlay-in var(--motion-base) var(--ease-standard);
+}
+
+.modal-content {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 500px;
+    width: 90%;
+    min-height: 400px;
+    overflow: hidden;
+    z-index: var(--z-modal);
+    animation: dialog-panel-in var(--motion-slow) var(--ease-emphasis);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-5);
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius-full);
+    transition: background-color var(--motion-base) var(--ease-standard);
+}
+
+.modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modal-close:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+.modal-body {
+    padding: var(--space-5);
+}
+
+/* Notes dialog (.notes-dialog-overlay / .notes-dialog / .notes-dialog-header / .notes-dialog-close) */
+.notes-dialog-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--color-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-orientation-overlay);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    animation: dialog-overlay-in var(--motion-base) var(--ease-standard);
+}
+
+.notes-dialog {
+    background: var(--color-bg);
+    color: var(--color-text);
+    border-radius: var(--radius-lg);
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-xl);
+    animation: dialog-panel-in var(--motion-slow) var(--ease-emphasis);
+}
+
+.notes-dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-5);
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.notes-dialog-header h3 {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.notes-dialog-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: var(--radius-full);
+    transition:
+        background-color var(--motion-base) var(--ease-standard),
+        color var(--motion-base) var(--ease-standard);
+}
+
+.notes-dialog-close:hover {
+    color: var(--color-text);
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.notes-dialog-close:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+/* Files dialog (.files-dialog-overlay / .files-dialog / .files-dialog-header / .files-dialog-close) */
+.files-dialog-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-overlay);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: var(--z-modal);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    animation: dialog-overlay-in var(--motion-base) var(--ease-standard);
+}
+
+.files-dialog {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-radius: var(--radius-lg);
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    animation: dialog-panel-in var(--motion-slow) var(--ease-emphasis);
+}
+
+.files-dialog-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: var(--space-1);
+    color: var(--color-danger);
+    z-index: var(--z-raised);
+    border-radius: var(--radius-full);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        background-color var(--motion-base) var(--ease-standard),
+        color var(--motion-base) var(--ease-standard);
+}
+
+.files-dialog-close:hover {
+    color: var(--color-text);
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.files-dialog-close:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}

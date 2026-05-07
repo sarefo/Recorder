@@ -1,6 +1,9 @@
-/* Mobile-specific styling with single-row layout */
+/* Mobile control bar layout
+   Button visual styling moved to components/button.css.
+   This file owns only mobile-specific layout, scroll regions, and breakpoint
+   visibility for the mobile UI. */
 
-/* Mobile control bar - fixed at top with relative positioning for extras */
+/* Top-anchored mobile control bar */
 .mobile-control-bar {
     position: fixed;
     top: 0;
@@ -9,184 +12,89 @@
     background-color: transparent;
     border-bottom: none;
     box-shadow: none;
-    z-index: 1000;
+    z-index: var(--z-modal-backdrop);
     padding: 0;
-    transition: all 0.3s ease;
+    transition: all var(--motion-slow) var(--ease-standard);
 }
 
-/* Hide mobile control bar on desktop */
 .mobile-control-bar.hidden {
     display: none;
 }
 
-/* Main row - single horizontal scrollable row with all important controls */
+/* Single horizontally-scrollable row of important controls */
 .mobile-main-row {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-2);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 8px 10px;
+    padding: var(--space-2) var(--space-3);
     flex-wrap: nowrap;
     position: relative;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-surface-alt);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
 }
 
-/* Hide scrollbar but keep functionality */
 .mobile-main-row::-webkit-scrollbar {
     height: 3px;
 }
 
 .mobile-main-row::-webkit-scrollbar-track {
-    background: #f0f0f0;
-    border-radius: 2px;
+    background: var(--color-surface-sunken);
+    border-radius: var(--radius-xs);
 }
 
 .mobile-main-row::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 2px;
+    background: var(--color-border-strong);
+    border-radius: var(--radius-xs);
 }
 
-/* Extras container - transparent wrapper with no background */
+/* Extras containers (transparent wrapper) */
 .mobile-extras-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 8px;
+    gap: var(--space-2);
     padding: 0;
     background-color: transparent;
 }
 
-/* Extras rows - compact boxes with their own background */
+/* Compact extras row with its own surface */
 .mobile-extras-row {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-2);
     flex-wrap: wrap;
-    padding: 6px 8px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: var(--space-2);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
     width: fit-content;
-    margin: 6px 0 0 0;
-    transition: all 0.3s ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin: var(--space-2) 0 0 0;
+    transition: all var(--motion-slow) var(--ease-standard);
+    box-shadow: var(--shadow-sm);
 }
 
 .mobile-extras-row.hidden {
     display: none;
 }
 
-/* Position playback extras on the left side */
 #mobile-playback-extras {
-    margin-left: 10px;
+    margin-left: var(--space-3);
     margin-right: auto;
 }
 
-/* Position file extras on the right side */
 #mobile-file-extras {
     margin-left: auto;
-    margin-right: 10px;
+    margin-right: var(--space-3);
 }
 
-/* Expand/collapse toggle buttons */
-.mobile-expand-toggle {
-    background-color: #4285f4 !important;
-    border: 1px solid #4285f4 !important;
-    border-radius: 50% !important;
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    min-height: 32px !important;
-    padding: 0 !important;
-    font-size: 18px !important;
-    font-weight: bold !important;
-    color: white !important;
-    cursor: pointer !important;
-    transition: all 0.2s ease !important;
-    flex-shrink: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    line-height: 1 !important;
-}
-
-.mobile-expand-toggle:hover {
-    background-color: #3367d6 !important;
-    border-color: #3367d6 !important;
-    transform: scale(1.05);
-}
-
-.mobile-expand-toggle.expanded {
-    background-color: #ff5722 !important;
-    border-color: #ff5722 !important;
-}
-
-/* Common button styles for mobile main row and extras */
-.mobile-main-row button:not(.mobile-expand-toggle),
-.mobile-extras-row button {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 6px 10px;
-    font-size: 12px;
-    color: #333;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    flex-shrink: 0;
-    min-height: 32px;
-    box-sizing: border-box;
-}
-
-.mobile-main-row button:not(.mobile-expand-toggle):hover,
-.mobile-extras-row button:hover {
-    background-color: #e8e8e8;
-    border-color: #ccc;
-}
-
-.mobile-main-row button.active,
-.mobile-extras-row button.active {
-    background-color: #4285f4 !important;
-    border-color: #4285f4 !important;
-    color: white !important;
-}
-
-/* Tempo control in mobile main row */
-.mobile-main-row .tempo-control {
-    display: flex !important;
-    align-items: center;
-    gap: 5px;
-    flex: 0 1 auto;
-    min-width: 150px;
-    max-width: 250px;
-}
-
-.mobile-main-row .tempo-control label {
-    font-size: 11px;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.mobile-main-row .tempo-control input[type="range"] {
-    flex: 1;
-    min-width: 80px;
-}
-
-.mobile-main-row .tempo-value {
-    font-size: 11px;
-    min-width: 35px;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-/* File controls in mobile main row */
+/* Mobile main row sub-layouts */
 .mobile-main-row .file-controls {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-2);
     flex-shrink: 0;
 }
 
@@ -196,67 +104,65 @@
 
 .mobile-main-row .tune-navigation {
     display: flex;
-    gap: 4px;
+    gap: var(--space-1);
     flex-shrink: 0;
 }
 
-/* Ensure reference row is positioned below mobile control bar */
+/* Reference row spacing under mobile control bar */
 body.mobile-controls-active #reference-row {
-    margin-top: 10px;
+    margin-top: var(--space-3);
 }
 
-/* Adjust body spacing when mobile control bar is active */
 body.mobile-controls-active {
-    padding-top: 50px !important;
+    padding-top: 50px;
 }
 
-/* Adjust for extras being visible */
 body.mobile-controls-active .mobile-extras-row:not(.hidden) ~ * {
-    margin-top: 10px;
+    margin-top: var(--space-3);
 }
 
 /* Hide mobile elements on desktop */
 @media (min-width: 1024px) {
     .mobile-control-bar {
-        display: none !important;
+        display: none;
     }
 
     body.mobile-controls-active {
-        padding-top: 0 !important;
+        padding-top: 0;
     }
 }
 
-/* Hide old control container on mobile */
+/* Hide old desktop control container on mobile */
 @media (max-width: 1023px) {
     .control-container {
-        display: none !important;
+        display: none;
     }
 
     #midi-status {
-        display: none !important;
+        display: none;
     }
 }
 
-/* Responsive adjustments for very small screens */
+/* Tighter spacing on very small screens */
 @media (max-width: 480px) {
     .mobile-main-row {
-        gap: 4px;
-        padding: 6px 8px;
+        gap: var(--space-1);
+        padding: var(--space-2);
     }
 
     .mobile-main-row button:not(.mobile-expand-toggle),
     .mobile-extras-row button {
-        padding: 5px 8px;
-        font-size: 11px;
+        padding: 5px var(--space-2);
+        font-size: var(--font-size-xs);
         min-height: 28px;
     }
 
     .mobile-expand-toggle {
-        width: 28px !important;
-        height: 28px !important;
-        min-width: 28px !important;
-        min-height: 28px !important;
-        font-size: 16px !important;
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        min-height: 28px;
+        font-size: var(--font-size-md);
     }
 
     .mobile-main-row .tempo-control {
@@ -273,6 +179,6 @@ body.mobile-controls-active .mobile-extras-row:not(.hidden) ~ * {
     }
 
     body.mobile-controls-active {
-        padding-top: 45px !important;
+        padding-top: 45px;
     }
 }

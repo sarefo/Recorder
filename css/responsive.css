@@ -1,8 +1,10 @@
-/* Media queries for responsive design */
+/* Page-level responsive adjustments */
+
+/* Mobile: stack control sections vertically */
 @media (max-width: 768px) {
     .control-bar {
         flex-direction: column;
-        gap: 8px;
+        gap: var(--space-2);
     }
 
     .control-section {
@@ -12,36 +14,34 @@
     }
 }
 
-/* Ensure desktop layout is horizontal */
+/* Desktop: horizontal layout, less reserved padding above notation */
 @media (min-width: 769px) {
-    .control-bar {
-        flex-direction: row !important;
+    .control-bar.control-bar {
+        /* Doubled selector beats the lower-specificity column override above */
+        flex-direction: row;
     }
-}
 
-@media (min-width: 769px) {
     #abc-notation {
-        margin-top: 10px;
+        margin-top: var(--space-3);
     }
 
     .abcjs-container {
         padding-top: 100px;
-        /* Reduced for mobile */
     }
 }
 
+/* Very small screens: tighter side padding, hide tempo label */
 @media (max-width: 480px) {
     body {
-        padding: 0 10px;
+        padding: 0 var(--space-3);
     }
 
     .control-bar button {
-        padding: 4px 8px;
-        font-size: 12px;
+        padding: var(--space-1) var(--space-2);
+        font-size: var(--font-size-sm);
     }
 
     .tempo-control label {
         display: none;
-        /* Hide label on very small screens */
     }
 }

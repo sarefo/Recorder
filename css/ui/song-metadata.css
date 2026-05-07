@@ -1,25 +1,25 @@
-/* Song Metadata UI Styles */
+/* Song metadata: per-tune indicators (favorite, status, notes), context menu,
+   settings menu, and the inline tag button on the control bar. */
 
-/* File item positioning context */
+/* Each file-item is a positioning context for its overlays */
 .file-item {
     position: relative;
-    padding: 8px 40px 8px 12px; /* Add padding for metadata indicators */
+    padding: var(--space-2) 40px var(--space-2) var(--space-3);
 }
 
-/* Favorite star button */
+/* ----- Favorite star (top-right of file-item) ----- */
 .song-favorite-star {
     position: absolute;
-    top: 4px;
-    right: 4px;
+    top: var(--space-1);
+    right: var(--space-1);
     background: none;
     border: none;
-    font-size: 18px;
+    font-size: var(--font-size-lg);
     cursor: pointer;
-    padding: 2px 4px;
+    padding: 2px var(--space-1);
     line-height: 1;
-    z-index: 10;
-    transition: transform 0.2s;
-    /* Larger touch target */
+    z-index: var(--z-raised);
+    transition: transform var(--motion-base) var(--ease-standard);
     min-width: 32px;
     min-height: 32px;
     display: flex;
@@ -40,32 +40,23 @@
 }
 
 @keyframes starToggle {
-    0%, 100% {
-        transform: scale(1);
-    }
-    25% {
-        transform: scale(1.3) rotate(-15deg);
-    }
-    50% {
-        transform: scale(1.1) rotate(10deg);
-    }
-    75% {
-        transform: scale(1.2) rotate(-5deg);
-    }
+    0%, 100% { transform: scale(1); }
+    25%      { transform: scale(1.3) rotate(-15deg); }
+    50%      { transform: scale(1.1) rotate(10deg); }
+    75%      { transform: scale(1.2) rotate(-5deg); }
 }
 
-/* Status badge */
+/* ----- Status badge (bottom-right dot) ----- */
 .song-status-badge {
     position: absolute;
     bottom: 6px;
     right: 6px;
     width: 10px;
     height: 10px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     border: 1px solid rgba(255, 255, 255, 0.8);
     z-index: 5;
     cursor: pointer;
-    /* Larger touch target using pseudo-element */
 }
 
 .song-status-badge::before {
@@ -75,40 +66,30 @@
     left: -8px;
     right: -8px;
     bottom: -8px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
 }
 
-.status-needs-practice {
-    background: #f44336;
-}
+.status-needs-practice { background: var(--color-danger); }
+.status-practicing     { background: var(--color-warning); }
+.status-good           { background: var(--color-success); }
+.status-mastered       { background: #9c27b0; }
 
-.status-practicing {
-    background: #ff9800;
-}
-
-.status-good {
-    background: #4caf50;
-}
-
-.status-mastered {
-    background: #9c27b0;
-}
-
-/* Notes indicator */
+/* ----- Notes indicator (top-left) ----- */
 .song-notes-indicator {
     position: absolute;
-    top: 4px;
-    left: 4px;
+    top: var(--space-1);
+    left: var(--space-1);
     background: none;
     border: none;
-    font-size: 14px;
+    font-size: var(--font-size-base);
     cursor: pointer;
     padding: 2px;
     line-height: 1;
-    z-index: 10;
+    z-index: var(--z-raised);
     opacity: 0.8;
-    transition: opacity 0.2s, transform 0.2s;
-    /* Larger touch target */
+    transition:
+        opacity var(--motion-base) var(--ease-standard),
+        transform var(--motion-base) var(--ease-standard);
     min-width: 28px;
     min-height: 28px;
     display: flex;
@@ -121,49 +102,53 @@
     transform: scale(1.1);
 }
 
-/* Status selector menu */
+/* ----- Status selector menu ----- */
 .song-status-selector {
     position: fixed;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    padding: 4px;
-    z-index: 10000;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-1);
+    z-index: var(--z-orientation-overlay);
     min-width: 160px;
 }
 
 .status-option {
     display: block;
     width: 100%;
-    padding: 8px 12px;
+    padding: var(--space-2) var(--space-3);
     background: none;
     border: none;
     border-left: 4px solid transparent;
     text-align: left;
     cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.2s;
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    transition: background-color var(--motion-base) var(--ease-standard);
 }
 
 .status-option:hover {
-    background: #f5f5f5;
+    background: var(--color-surface);
 }
 
 .status-option.active {
-    background: #e8f4fd;
-    font-weight: 500;
+    background: var(--color-primary-soft);
+    font-weight: var(--font-weight-medium);
 }
 
-/* Context menu */
+/* ----- Context menu (long-press on file-item) ----- */
 .file-context-menu {
     position: fixed;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    padding: 4px;
-    z-index: 10000;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-1);
+    z-index: var(--z-orientation-overlay);
     min-width: 320px;
     max-width: 420px;
     user-select: none;
@@ -174,67 +159,71 @@
 .context-menu-option {
     display: block;
     width: 100%;
-    padding: 10px 12px;
+    padding: var(--space-3);
     background: none;
     border: none;
     text-align: left;
     cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.2s;
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    transition: background-color var(--motion-base) var(--ease-standard);
 }
 
 .context-menu-option:hover {
-    background: #f5f5f5;
+    background: var(--color-surface);
 }
 
-/* Context menu section header */
 .context-menu-section-header {
-    padding: 8px 12px 4px 12px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #666;
+    padding: var(--space-2) var(--space-3) var(--space-1) var(--space-3);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-/* Status options container */
 .context-menu-status-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
-    padding: 4px 8px 8px 8px;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-2) var(--space-2) var(--space-2);
 }
 
 .context-menu-status-option {
     flex: 1 1 calc(50% - 4px);
     min-width: 140px;
-    padding: 8px 10px;
-    background: white;
-    border: 1px solid #ddd;
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
     border-left: 4px solid transparent;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     text-align: left;
     cursor: pointer;
+    font-family: inherit;
     font-size: 13px;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition:
+        background-color var(--motion-base) var(--ease-standard),
+        border-color var(--motion-base) var(--ease-standard);
 }
 
 .context-menu-status-option:hover {
-    background: #f5f5f5;
-    border-color: #ccc;
+    background: var(--color-surface);
+    border-color: var(--color-border-strong);
 }
 
 .context-menu-status-option.active {
-    background: #e8f4fd;
-    font-weight: 600;
-    border-right: 1px solid #1a73e8;
+    background: var(--color-primary-soft);
+    font-weight: var(--font-weight-semibold);
+    border-right: 1px solid var(--color-primary);
 }
 
-/* Settings button in dialog header */
+/* ----- Files dialog: settings button in header ----- */
 .files-dialog-title-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: var(--space-3);
 }
 
 .files-dialog-title-container h2 {
@@ -245,11 +234,14 @@
 .settings-button {
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: var(--font-size-lg);
     cursor: pointer;
-    padding: 4px 8px;
+    padding: var(--space-1) var(--space-2);
+    color: var(--color-text);
     opacity: 0.7;
-    transition: opacity 0.2s, transform 0.2s;
+    transition:
+        opacity var(--motion-base) var(--ease-standard),
+        transform var(--motion-base) var(--ease-standard);
 }
 
 .settings-button:hover {
@@ -257,52 +249,54 @@
     transform: rotate(45deg);
 }
 
-/* Settings menu */
+/* ----- Settings menu modal ----- */
 .settings-menu-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    background: var(--color-overlay);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10000;
+    z-index: var(--z-orientation-overlay);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 
 .settings-menu {
-    background: white;
-    border-radius: 12px;
-    padding: 24px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
     max-width: 400px;
     width: 90%;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-xl);
     position: relative;
 }
 
 .settings-menu h3 {
-    margin: 0 0 16px 0;
-    font-size: 20px;
+    margin: 0 0 var(--space-4) 0;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
 }
 
 .settings-menu-button {
     display: block;
     width: 100%;
-    padding: 12px 16px;
-    margin: 8px 0;
-    background: #1a73e8;
-    color: white;
+    padding: var(--space-3) var(--space-4);
+    margin: var(--space-2) 0;
+    background: var(--color-primary);
+    color: var(--color-text-on-primary);
     border: none;
-    border-radius: 6px;
-    font-size: 15px;
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: var(--font-size-md);
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color var(--motion-base) var(--ease-standard);
     text-align: left;
 }
 
 .settings-menu-button:hover {
-    background: #1557b0;
+    background: var(--color-primary-hover);
 }
 
 .settings-menu-button.danger {
@@ -315,80 +309,96 @@
 
 .settings-menu-close {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: var(--space-3);
+    right: var(--space-3);
     background: none;
     border: none;
     font-size: 28px;
-    cursor: pointer;
-    color: #666;
     line-height: 1;
+    cursor: pointer;
+    color: var(--color-text-muted);
     padding: 0;
     width: 32px;
     height: 32px;
+    border-radius: var(--radius-full);
+    transition:
+        color var(--motion-base) var(--ease-standard),
+        background-color var(--motion-base) var(--ease-standard);
 }
 
 .settings-menu-close:hover {
-    color: #000;
+    color: var(--color-text);
+    background-color: rgba(0, 0, 0, 0.06);
 }
 
 .settings-stats {
-    margin-top: 16px;
-    padding: 12px;
-    background: #f8f9fa;
-    border-radius: 6px;
-    font-size: 14px;
+    margin-top: var(--space-4);
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
 }
 
 .settings-stats p {
-    margin: 0 0 8px 0;
-    font-weight: 500;
+    margin: 0 0 var(--space-2) 0;
+    font-weight: var(--font-weight-medium);
 }
 
 .settings-stats ul {
     margin: 0;
-    padding-left: 20px;
+    padding-left: var(--space-5);
 }
 
 .settings-stats li {
-    margin: 4px 0;
+    margin: var(--space-1) 0;
 }
 
-/* Inline tag button in control bar */
-.inline-tag-button,
-.control-bar .inline-tag-button {
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid rgba(0, 0, 0, 0.15);
-    background-color: #ccc;
+/* =========================================================================
+   Inline tag button
+   On the desktop control bar: 32x32, sits inside the bar's flex flow at the
+   far right (margin-left: auto). Was previously absolute-positioned at 20x20
+   which made it easy to miss.
+   On mobile: fixed in the top-right with safe-area-inset, since the mobile
+   bar is fixed at the top of the viewport and has no flex slot for it.
+   ========================================================================= */
+.inline-tag-button {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: var(--radius-full);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--color-border-strong);
     cursor: pointer;
     padding: 0;
-    z-index: 102;
-    opacity: 0.6;
-    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+    margin-left: auto;
+    flex-shrink: 0;
+    z-index: var(--z-tag-button);
+    opacity: 0.7;
+    box-shadow: none;
+    font-size: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 20px;
-    min-height: 20px;
-    /* Override control-bar button defaults */
-    box-shadow: none;
-    font-size: inherit;
+    transition:
+        opacity var(--motion-base) var(--ease-standard),
+        transform var(--motion-fast) var(--ease-standard),
+        box-shadow var(--motion-base) var(--ease-standard);
 }
 
 .inline-tag-button:hover {
     opacity: 1;
-    transform: translateY(-50%) scale(1.15);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-sm);
 }
 
 .inline-tag-button:active {
-    transform: translateY(-50%) scale(0.95);
+    transform: scale(0.95);
+}
+
+.inline-tag-button:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
 }
 
 .inline-tag-button.hidden {
@@ -396,39 +406,31 @@
 }
 
 .inline-tag-star {
-    font-size: 10px;
+    font-size: var(--font-size-sm);
     line-height: 1;
-    color: #fff;
+    color: var(--color-text-on-primary);
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
 }
 
-/* On mobile, position tag button fixed in top-right */
+/* On mobile: pin to top-right with safe-area-inset */
 body.mobile-controls-active .inline-tag-button {
     position: fixed;
-    top: 8px;
-    right: 8px;
-    transform: none;
-    z-index: 1001;
+    top: calc(env(safe-area-inset-top, 0px) + var(--space-2));
+    right: calc(env(safe-area-inset-right, 0px) + var(--space-2));
+    margin: 0;
+    z-index: var(--z-modal);
 }
 
-body.mobile-controls-active .inline-tag-button:hover {
-    transform: scale(1.15);
-}
-
-body.mobile-controls-active .inline-tag-button:active {
-    transform: scale(0.95);
-}
-
-/* Mobile adjustments */
+/* ----- Mobile size tweaks for indicators ----- */
 @media (max-width: 768px) {
     .song-favorite-star {
-        font-size: 20px;
-        padding: 4px 6px;
+        font-size: var(--font-size-xl);
+        padding: var(--space-1) 6px;
     }
 
     .song-notes-indicator {
-        font-size: 16px;
-        padding: 4px;
+        font-size: var(--font-size-md);
+        padding: var(--space-1);
     }
 
     .song-status-badge {
@@ -437,6 +439,6 @@ body.mobile-controls-active .inline-tag-button:active {
     }
 
     .file-item {
-        padding: 10px 44px 10px 32px;
+        padding: var(--space-3) 44px var(--space-3) var(--space-7);
     }
 }

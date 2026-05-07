@@ -1,31 +1,53 @@
-/* Base styles and typography */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0 auto;
-    padding: 0 20px;
+/* Base styles, typography, and global utilities */
+
+html {
+    box-sizing: border-box;
 }
 
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    margin: 0 auto;
+    padding: 0 var(--space-5);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Form controls inherit type by default */
+button, input, select, textarea {
+    font-family: inherit;
+}
+
+/* Toast feedback */
 .feedback {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 4px;
+    bottom: var(--space-5);
+    right: var(--space-5);
+    background-color: var(--color-success);
+    color: var(--color-text-on-primary);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
     display: none;
-    z-index: 1001; /* Above mobile playback bar */
+    z-index: var(--z-toast);
 }
 
 #midi-status {
     text-align: center;
-    font-size: 12px;
-    color: #666;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
     height: 20px;
-    margin-bottom: 5px;
-    background-color: #f0f0f0;
-    border-radius: 4px;
-    padding: 2px 8px;
+    margin-bottom: var(--space-1);
+    background-color: var(--color-surface-sunken);
+    border-radius: var(--radius-sm);
+    padding: 2px var(--space-2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,20 +55,18 @@ body {
 
 /* Global utility classes */
 .minimize-label {
-    font-size: 12px;
-    color: #666;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
 }
 
-/* Status and feedback styles */
 .status-error {
-    color: red !important;
+    color: var(--color-danger) !important;
 }
 
 .status-normal {
-    color: #666 !important;
+    color: var(--color-text-muted) !important;
 }
 
-/* Temporary elements (used for transposition, etc.) */
 .temp-hidden {
     display: none !important;
 }

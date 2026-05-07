@@ -1,137 +1,94 @@
-/* Notes Dialog Styles */
-
-.notes-dialog-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-}
-
-.notes-dialog {
-    background: white;
-    border-radius: 12px;
-    padding: 0;
-    max-width: 500px;
-    width: 90%;
-    max-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.notes-dialog-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.notes-dialog-header h3 {
-    margin: 0;
-    font-size: 18px;
-    flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.notes-dialog-close {
-    background: none;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: #666;
-    line-height: 1;
-    padding: 0;
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-}
-
-.notes-dialog-close:hover {
-    color: #000;
-}
+/* Notes dialog: content-specific styles
+   The shared modal frame (.notes-dialog-overlay / .notes-dialog /
+   .notes-dialog-header / .notes-dialog-close) lives in
+   css/components/dialog.css. */
 
 .notes-dialog-textarea {
     flex: 1;
     border: none;
-    padding: 20px;
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    padding: var(--space-5);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-base);
+    color: var(--color-text);
+    background: transparent;
     resize: none;
     outline: none;
     min-height: 200px;
 }
 
 .notes-dialog-textarea::placeholder {
-    color: #999;
+    color: var(--color-text-soft);
+}
+
+.notes-dialog-textarea:focus-visible {
+    background: var(--color-surface);
 }
 
 .notes-dialog-buttons {
     display: flex;
-    gap: 12px;
-    padding: 20px;
-    border-top: 1px solid #e0e0e0;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    border-top: 1px solid var(--color-border-subtle);
 }
 
 .notes-dialog-save,
 .notes-dialog-cancel {
     flex: 1;
-    padding: 10px 20px;
+    padding: var(--space-3) var(--space-5);
     border: none;
-    border-radius: 6px;
-    font-size: 15px;
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: var(--font-size-md);
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition:
+        background-color var(--motion-base) var(--ease-standard),
+        box-shadow var(--motion-base) var(--ease-standard);
 }
 
 .notes-dialog-save {
-    background: #1a73e8;
-    color: white;
+    background: var(--color-primary);
+    color: var(--color-text-on-primary);
 }
 
 .notes-dialog-save:hover {
-    background: #1557b0;
+    background: var(--color-primary-hover);
+}
+
+.notes-dialog-save:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
 }
 
 .notes-dialog-cancel {
-    background: #f1f3f4;
-    color: #202124;
+    background: var(--color-surface-sunken);
+    color: var(--color-text);
 }
 
 .notes-dialog-cancel:hover {
-    background: #e8eaed;
+    background: var(--color-border-subtle);
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .notes-dialog {
-        width: 95%;
-        max-height: 90vh;
-    }
+.notes-dialog-cancel:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
 
+@media (max-width: 768px) {
     .notes-dialog-header {
-        padding: 16px;
+        padding: var(--space-4);
     }
 
     .notes-dialog-header h3 {
-        font-size: 16px;
+        font-size: var(--font-size-md);
     }
 
     .notes-dialog-textarea {
-        padding: 16px;
-        font-size: 16px; /* Prevent zoom on iOS */
+        padding: var(--space-4);
+        font-size: var(--font-size-md); /* Prevent iOS zoom on focus */
     }
 
     .notes-dialog-buttons {
-        padding: 16px;
-        gap: 8px;
+        padding: var(--space-4);
+        gap: var(--space-2);
     }
 }

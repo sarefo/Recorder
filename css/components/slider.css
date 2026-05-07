@@ -1,0 +1,225 @@
+/* =========================================================================
+   Slider component
+   Tempo control + range input styling. Single source for the rules formerly
+   duplicated in controls-base.css, tempo-control.css, and mobile-controls.css.
+   ========================================================================= */
+
+.tempo-control {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex: 1 1 auto;
+    min-width: 200px;
+    max-width: 500px;
+}
+
+.tempo-control label {
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.tempo-control input[type="range"] {
+    flex: 1 1 auto;
+    min-width: 120px;
+    height: 6px;
+    background-color: var(--color-border);
+    border-radius: var(--radius-xs);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+/* WebKit thumb */
+.tempo-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-primary);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: transform var(--motion-fast) var(--ease-standard);
+}
+
+.tempo-control input[type="range"]:hover::-webkit-slider-thumb {
+    transform: scale(1.15);
+}
+
+.tempo-control input[type="range"]:focus-visible::-webkit-slider-thumb {
+    box-shadow: var(--shadow-focus);
+}
+
+/* Firefox thumb */
+.tempo-control input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-primary);
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    transition: transform var(--motion-fast) var(--ease-standard);
+}
+
+.tempo-control input[type="range"]:hover::-moz-range-thumb {
+    transform: scale(1.15);
+}
+
+.tempo-value {
+    min-width: 50px;
+    font-size: var(--font-size-sm);
+    text-align: left;
+    flex-shrink: 0;
+    white-space: nowrap;
+    color: var(--color-text-muted);
+}
+
+/* ----- Mobile main-row tempo control: tighter ----- */
+.mobile-main-row .tempo-control {
+    gap: var(--space-1);
+    flex: 0 1 auto;
+    min-width: 150px;
+    max-width: 250px;
+}
+
+.mobile-main-row .tempo-control label {
+    font-size: var(--font-size-xs);
+}
+
+.mobile-main-row .tempo-control input[type="range"] {
+    min-width: 80px;
+}
+
+.mobile-main-row .tempo-value {
+    font-size: var(--font-size-xs);
+    min-width: 35px;
+    text-align: center;
+}
+
+/* ----- Mobile tempo button (replaces slider on small screens) ----- */
+.mobile-tempo-button {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: background-color var(--motion-base) var(--ease-standard);
+}
+
+.mobile-tempo-button:active {
+    background-color: var(--color-primary-hover);
+}
+
+/* On desktop: hide mobile button, show slider */
+@media (min-width: 769px) and (min-height: 601px) {
+    .mobile-tempo-button {
+        display: none;
+    }
+    .tempo-control {
+        display: flex;
+    }
+}
+
+/* On mobile: hide slider, show button */
+@media (max-width: 768px), (max-height: 600px) {
+    .tempo-control {
+        display: none;
+    }
+}
+
+/* ----- Full-screen tempo overlay (touch-drag tempo selector) ----- */
+.tempo-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--color-overlay-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-orientation-overlay);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--motion-base) var(--ease-standard);
+    touch-action: none;
+}
+
+.tempo-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.tempo-overlay-content {
+    width: 90%;
+    max-width: 800px;
+    color: var(--color-text-on-primary);
+    touch-action: none;
+}
+
+.tempo-overlay-label {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    margin-bottom: var(--space-3);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.tempo-overlay-value {
+    font-size: 48px;
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-bottom: var(--space-7);
+    color: var(--color-text-on-primary);
+}
+
+.tempo-overlay-track {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-4);
+}
+
+.tempo-overlay-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: var(--color-primary);
+    border-radius: var(--radius-sm);
+    transition: width 0.05s ease;
+}
+
+.tempo-overlay-thumb {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background: var(--color-text-on-primary);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-md);
+    transition: left 0.05s ease;
+}
+
+.tempo-overlay-markers {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.55);
+    padding: 0 var(--space-3);
+}
+
+.tempo-overlay-markers span:nth-child(2) {
+    font-weight: var(--font-weight-medium);
+    color: rgba(255, 255, 255, 0.7);
+}

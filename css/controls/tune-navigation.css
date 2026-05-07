@@ -1,39 +1,40 @@
-/* Tune navigation */
+/* Tune navigation (prev/next within multi-tune ABC files) */
+
 .tune-navigation {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-left: 8px;
+    gap: var(--space-2);
+    margin-left: var(--space-2);
 }
 
 .tune-display {
-    font-size: 14px;
+    font-size: var(--font-size-base);
     text-align: center;
 }
 
 #prev-tune,
 #next-tune {
-    padding: 4px 8px;
+    padding: var(--space-1) var(--space-2);
     min-width: 30px;
 }
 
-/* Hide tune navigation by default - shown only when multiple tunes are present */
-#prev-tune.hidden,
-#next-tune.hidden,
-#tune-display.hidden {
-    display: none !important;
-}
-
-/* Default state: hidden initially until JavaScript determines if they should show */
+/* Default: hidden until JS shows them when needed.
+   Order matters here: the .hidden rule is last so it wins over :not(.hidden)
+   on equal specificity, eliminating the previous !important. */
 #prev-tune,
 #next-tune,
 #tune-display {
     display: none;
 }
 
-/* When not hidden, show the elements */
 #prev-tune:not(.hidden),
 #next-tune:not(.hidden),
 #tune-display:not(.hidden) {
     display: inline-block;
+}
+
+#prev-tune.hidden,
+#next-tune.hidden,
+#tune-display.hidden {
+    display: none;
 }

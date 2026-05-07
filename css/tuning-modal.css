@@ -1,123 +1,64 @@
-/* Tuning Modal Styles */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
-    width: 90%;
-    min-height: 400px;
-    overflow: hidden;
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #1a73e8;
-    color: white;
-}
-
-.modal-header h3 {
-    margin: 0;
-    font-size: 1.2em;
-}
-
-.modal-close {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: background-color 0.2s;
-}
-
-.modal-close:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.modal-body {
-    padding: 20px;
-}
+/* Tuning modal: content-specific styles
+   The shared modal frame (.modal, .modal-content, .modal-header, .modal-close,
+   .modal-body) lives in css/components/dialog.css. */
 
 .tuning-instructions {
-    margin-bottom: 20px;
+    margin-bottom: var(--space-5);
     text-align: center;
 }
 
 .tuning-instructions p {
     margin: 0;
-    color: #666;
-    font-size: 0.9em;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
 }
 
-/* Tuning Display */
+/* Tuning display panel */
 .tuning-display {
-    background-color: #f8f9fa;
-    border-radius: 6px;
-    padding: 20px;
-    margin-bottom: 20px;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    margin-bottom: var(--space-5);
 }
 
 .frequency-display,
 .cents-display {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
-    font-family: monospace;
+    margin-bottom: var(--space-3);
+    font-family: var(--font-family-mono);
 }
 
 .frequency-label,
 .cents-label {
-    font-weight: bold;
-    color: #333;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
 }
 
 .frequency-value,
 .cents-value {
-    color: #1a73e8;
-    font-weight: bold;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
 }
 
-/* Tuning Meter */
+/* Tuning meter (rainbow gauge) */
 .tuning-indicator {
-    margin-top: 20px;
+    margin-top: var(--space-5);
 }
 
 .tuning-meter {
     position: relative;
     height: 40px;
-    background: linear-gradient(to right, 
-        #ff4444 0%, 
-        #ffaa00 30%, 
-        #00aa00 45%, 
-        #00aa00 55%, 
-        #ffaa00 70%, 
+    background: linear-gradient(to right,
+        #ff4444 0%,
+        #ffaa00 30%,
+        #00aa00 45%,
+        #00aa00 55%,
+        #ffaa00 70%,
         #ff4444 100%);
-    border-radius: 20px;
-    margin-bottom: 10px;
-    border: 2px solid #ddd;
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-3);
+    border: 2px solid var(--color-border);
 }
 
 .tuning-needle {
@@ -126,34 +67,34 @@
     left: 50%;
     width: 4px;
     height: 50px;
-    background-color: #333;
-    border-radius: 2px;
+    background-color: var(--color-text);
+    border-radius: var(--radius-xs);
     transform: translateX(-50%);
-    transition: left 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: left var(--motion-base) var(--ease-standard);
+    box-shadow: var(--shadow-sm);
 }
 
 .tuning-scale {
     display: flex;
     justify-content: space-between;
-    font-size: 0.8em;
-    color: #666;
-    margin-top: 5px;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
 }
 
 .scale-mark {
-    font-family: monospace;
+    font-family: var(--font-family-mono);
 }
 
-/* In-Tune Indicator */
+/* In-tune feedback */
 .in-tune-indicator {
     text-align: center;
-    font-weight: bold;
-    font-size: 1.1em;
-    padding: 10px;
-    border-radius: 4px;
-    margin: 15px 0;
-    transition: all 0.3s ease;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-md);
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    margin: var(--space-4) 0;
+    transition: all var(--motion-slow) var(--ease-standard);
 }
 
 .in-tune-indicator.in-tune {
@@ -174,30 +115,38 @@
     border: 1px solid #f5c6cb;
 }
 
-/* Tuning Controls */
+/* Tuning control buttons */
 .tuning-controls {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
 }
 
 .tuning-btn {
     flex: 1;
     min-width: 100px;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f8f9fa;
-    color: #333;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+    color: var(--color-text);
     cursor: pointer;
-    font-size: 0.9em;
-    transition: all 0.2s;
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    transition:
+        background-color var(--motion-base) var(--ease-standard),
+        border-color var(--motion-base) var(--ease-standard);
 }
 
 .tuning-btn:hover:not(:disabled) {
-    background-color: #e9ecef;
-    border-color: #adb5bd;
+    background-color: var(--color-border-subtle);
+    border-color: var(--color-border-strong);
+}
+
+.tuning-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
 }
 
 .tuning-btn:disabled {
@@ -206,49 +155,48 @@
 }
 
 .tuning-btn.primary {
-    background-color: #1a73e8;
-    color: white;
-    border-color: #1a73e8;
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+    border-color: var(--color-primary);
 }
 
 .tuning-btn.primary:hover:not(:disabled) {
-    background-color: #1557b3;
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
 }
 
-/* Tuning Status */
 .tuning-status {
     text-align: center;
-    font-size: 0.9em;
-    color: #666;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
     min-height: 20px;
     font-style: italic;
 }
 
-/* Mobile Responsive */
 @media (max-width: 600px) {
     .modal-content {
         width: 95%;
-        margin: 10px;
+        margin: var(--space-3);
     }
-    
+
     .modal-header {
-        padding: 15px;
+        padding: var(--space-4);
     }
-    
+
     .modal-body {
-        padding: 15px;
+        padding: var(--space-4);
     }
-    
+
     .tuning-controls {
         flex-direction: column;
     }
-    
+
     .tuning-btn {
         min-width: auto;
     }
-    
+
     .frequency-display,
     .cents-display {
-        font-size: 0.9em;
+        font-size: var(--font-size-sm);
     }
 }

@@ -1,155 +1,135 @@
-/* Files dialog styles */
-.files-dialog-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1002;
-}
-
-.files-dialog {
-    background-color: white;
-    border-radius: 8px;
-    width: 95%;
-    height: 95%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
+/* Files dialog: content-specific styles
+   The dialog frame (.files-dialog-overlay / .files-dialog / .files-dialog-close)
+   lives in css/components/dialog.css. This file owns the search input,
+   folder/file grid, and the tap states for picking a tune. */
 
 .files-dialog-header {
     display: flex;
     align-items: center;
-    padding: 4px 20px;
-    border-bottom: 1px solid #eee;
+    padding: var(--space-1) var(--space-5);
+    border-bottom: 1px solid var(--color-border-subtle);
     position: relative;
 }
 
 .files-dialog-header h2 {
     margin: 0;
-    font-size: 1.3rem;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
     flex: 1;
 }
 
+/* Search input */
 .files-search-container {
     position: relative;
-    margin: 0 20px;
+    margin: 0 var(--space-5);
     flex: 2;
 }
 
 .files-search-input {
     width: 100%;
-    padding: 8px 15px 8px 35px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    font-size: 14px;
+    padding: var(--space-2) var(--space-4) var(--space-2) 35px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    font-family: inherit;
+    font-size: var(--font-size-base);
     outline: none;
+    transition:
+        border-color var(--motion-base) var(--ease-standard),
+        box-shadow var(--motion-base) var(--ease-standard);
 }
 
 .files-search-input:focus {
-    border-color: #1a73e8;
-    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-focus);
 }
 
 .files-search-icon {
     position: absolute;
-    left: 10px;
+    left: var(--space-3);
     top: 50%;
     transform: translateY(-50%);
-    color: #666;
-    font-size: 16px;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-md);
 }
 
-.files-dialog-close {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 5px;
-    color: red;
-    z-index: 10;
-}
-
-.files-dialog-close:hover {
-    color: #333;
-}
-
+/* List + grid */
 .files-list {
     flex: 1;
     overflow-y: auto;
-    padding: 4px;
-    background-color: #f8f8f8;
+    padding: var(--space-1);
+    background-color: var(--color-surface-alt);
 }
 
 .files-columns {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 4px;
+    gap: var(--space-1);
 }
 
 .files-category {
-    background-color: white;
-    border-radius: 6px;
-    padding: 4px 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-1);
+    box-shadow: var(--shadow-xs);
 }
 
 .files-category h3 {
-    margin: 0 0 10px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 1rem;
-    color: #333;
+    margin: 0 0 var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
 }
 
+/* Folder buttons */
 .folder-button {
     width: 100%;
-    padding: 12px 16px;
-    border: none;
-    border-radius: 8px;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--motion-slow) var(--ease-standard);
     text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    border: 1px solid #e9ecef;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    color: #495057;
+    font-family: inherit;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-1);
+    background: var(--color-bg);
+    box-shadow: var(--shadow-xs);
+    color: var(--color-text);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     direction: rtl;
-    text-align: center;
     user-select: none;
     -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     touch-action: manipulation;
 }
 
 .folder-button:hover {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-    border-color: #2196f3;
-    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
     transform: translateY(-1px);
-    color: #1976d2;
+    color: var(--color-primary-hover);
 }
 
+.folder-button:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+/* File items grid */
 .files-items {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 8px;
-    transition: all 0.3s ease;
+    gap: var(--space-2);
+    transition: all var(--motion-slow) var(--ease-standard);
     overflow: hidden;
 }
 
@@ -158,10 +138,10 @@
 }
 
 .file-item {
-    padding: 12px 8px;
-    border-radius: 8px;
+    padding: var(--space-3) var(--space-2);
+    border-radius: var(--radius-md);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--motion-slow) var(--ease-standard);
     text-align: center;
     min-height: 44px;
     display: flex;
@@ -169,55 +149,46 @@
     justify-content: center;
     word-wrap: break-word;
     hyphens: auto;
-    line-height: 1.3;
-    font-size: 14px;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    border: 1px solid #e9ecef;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    color: #495057;
-    font-weight: 500;
+    line-height: var(--line-height-tight);
+    font-size: var(--font-size-base);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-subtle);
+    box-shadow: var(--shadow-xs);
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
     user-select: none;
     -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     -webkit-touch-callout: none;
     touch-action: manipulation;
 }
 
 .file-item:hover {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-    border-color: #2196f3;
-    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
     transform: translateY(-1px);
-    color: #1976d2;
+    color: var(--color-primary-hover);
 }
 
 .file-item.long-pressing {
     animation: longPressIndicator 0.5s ease-out;
-    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    background: #fff3cd;
     border-color: #ffc107;
 }
 
 @keyframes longPressIndicator {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.95);
-    }
-    100% {
-        transform: scale(1);
-    }
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(0.95); }
 }
 
 .no-results-message {
     text-align: center;
-    padding: 20px;
-    color: #666;
+    padding: var(--space-5);
+    color: var(--color-text-muted);
     font-style: italic;
 }
 
-/* Mobile styling */
+/* Mobile: full-screen dialog */
 @media (max-width: 480px) {
     .files-dialog {
         width: 100%;
@@ -228,48 +199,42 @@
     }
 
     .files-dialog-header {
-        padding: 4px;
+        padding: var(--space-1);
     }
 
     .files-dialog-header h2 {
-        font-size: 1.1rem;
+        font-size: var(--font-size-lg);
     }
 
     .files-search-container {
-        margin: 0 10px;
+        margin: 0 var(--space-3);
     }
 
     .files-columns {
         grid-template-columns: 1fr;
-        gap: 4px;
+        gap: var(--space-1);
     }
 
     .folder-button {
-        padding: 16px 16px;
-        font-size: 1.1rem;
-        margin-bottom: 4px;
+        padding: var(--space-4);
+        font-size: var(--font-size-md);
+        margin-bottom: var(--space-1);
     }
 
     .files-items {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 12px;
+        gap: var(--space-3);
     }
 
     .file-item {
-        padding: 16px 10px;
+        padding: var(--space-4) var(--space-3);
         min-height: 48px;
-        font-size: 15px;
-        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-        border: 1px solid #e9ecef;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        font-size: var(--font-size-md);
     }
 
     .file-item:hover,
     .file-item:active {
-        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-        border-color: #2196f3;
-        box-shadow: 0 4px 12px rgba(33, 150, 243, 0.25);
+        box-shadow: var(--shadow-md);
         transform: translateY(-2px);
-        color: #1976d2;
     }
 }

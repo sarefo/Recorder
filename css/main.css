@@ -1,16 +1,25 @@
-/* Import all CSS modules in logical order */
+/* Import all CSS modules in logical order
+   Cascade: tokens -> base -> components -> layout -> page-specific. */
+
+/* Design tokens (must be first - everything else references these) */
+@import 'tokens.css';
 
 /* Base styles and layout */
 @import 'base.css';
 @import 'layout.css';
 
-/* Controls and UI components */
+/* Reusable components (low-specificity, token-driven) */
+@import 'components/button.css';
+@import 'components/slider.css';
+@import 'components/dialog.css';
+@import 'components/tabs.css';
+
+/* Controls and UI */
 @import 'controls/controls-base.css';
 @import 'controls/mobile-controls.css';
 @import 'controls/file-selector.css';
 @import 'controls/files-dialog.css';
 @import 'controls/tune-navigation.css';
-@import 'tempo-control.css';
 @import 'tuning-modal.css';
 
 /* Music notation and fingering */
@@ -22,6 +31,3 @@
 
 /* Orientation handling */
 @import 'orientation.css';
-
-/* Mobile tempo (must be last to override other styles) */
-@import 'mobile-tempo.css';

@@ -1,75 +1,83 @@
-/* File selector styles */
-.file-controls {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+/* File selector controls (Files button, search results, navigation) */
 
-
-
+.file-controls,
 .file-selector-container {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--space-2);
 }
 
-
-/* Files button styles - special blue styling */
-.files-button {
+/* Files button: distinct accent color so it stands apart from toggles
+   Higher specificity beats the generic .control-bar button rule. */
+.control-bar .files-button,
+.mobile-main-row .files-button,
+.mobile-extras-row .files-button {
     display: flex;
     align-items: center;
-    padding: 6px 12px;
-    background-color: #e7f3ff !important;
-    border: 1px solid #6cb0f5 !important;
-    color: #1a73e8 !important;
-    border-radius: 4px;
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--color-primary-soft);
+    border: 1px solid #6cb0f5;
+    color: var(--color-primary);
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    font-weight: 500;
-    transition: all 0.2s;
+    font-weight: var(--font-weight-medium);
+    transition:
+        background-color var(--motion-base) var(--ease-standard),
+        border-color var(--motion-base) var(--ease-standard),
+        box-shadow var(--motion-base) var(--ease-standard),
+        transform var(--motion-fast) var(--ease-standard);
 }
 
-.files-button:hover {
-    background-color: #d0e7ff !important;
+.control-bar .files-button:hover,
+.mobile-main-row .files-button:hover,
+.mobile-extras-row .files-button:hover {
+    background-color: #d0e7ff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
 }
 
-/* Random button styles */
+.control-bar .files-button:focus-visible,
+.mobile-main-row .files-button:focus-visible,
+.mobile-extras-row .files-button:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+/* Random tune (dice) button */
 #random-abc-button {
-    padding: 2px 6px;
+    padding: 2px var(--space-2);
     font-size: 1.5em;
     line-height: 1;
     cursor: pointer;
 }
 
-
-/* Search result styles */
+/* Inline search results dropdown */
 .search-no-results {
-    padding: 8px 12px;
-    color: #666;
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-text-muted);
 }
 
 .search-category {
-    padding: 4px 12px;
-    font-weight: bold;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #eee;
+    padding: var(--space-1) var(--space-3);
+    font-weight: var(--font-weight-bold);
+    background-color: var(--color-surface-alt);
+    border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .search-result-item {
-    padding: 8px 12px;
+    padding: var(--space-2) var(--space-3);
     cursor: pointer;
-    border-bottom: 1px solid #eee;
-    background-color: white;
-    transition: background-color 0.2s;
+    border-bottom: 1px solid var(--color-border-subtle);
+    background-color: var(--color-bg);
+    transition: background-color var(--motion-base) var(--ease-standard);
 }
 
 .search-result-item:hover {
-    background-color: #f0f0f0;
+    background-color: var(--color-surface-sunken);
 }
 
-/* Search highlighting */
 .search-highlight {
     background-color: #ffeb3b;
     padding: 1px 2px;
-    border-radius: 2px;
+    border-radius: var(--radius-xs);
 }
-

@@ -1,0 +1,199 @@
+/* =========================================================================
+   Button component
+   Single source of truth for all control-bar / mobile-row / extras buttons,
+   plus toggle active states and special metronome / loop states.
+
+   Targets existing DOM selectors (no JS/HTML changes required).
+   Replaces the NUCLEAR !important blocks formerly in controls-base.css.
+   ========================================================================= */
+
+/* ----- Base button: shared by desktop control bar + mobile rows ----- */
+.control-bar button,
+.playback-controls button,
+.mobile-main-row button:not(.mobile-expand-toggle),
+.mobile-extras-row button {
+    background-color: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-3);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    cursor: pointer;
+    white-space: nowrap;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    transition:
+        background-color var(--motion-base) var(--ease-standard),
+        border-color var(--motion-base) var(--ease-standard),
+        color var(--motion-base) var(--ease-standard),
+        box-shadow var(--motion-base) var(--ease-standard),
+        transform var(--motion-fast) var(--ease-standard);
+}
+
+/* Touch target: comfortable on touch, compact on desktop */
+.control-bar button {
+    min-height: 44px;
+}
+
+@media (min-width: 1024px) {
+    .control-bar button {
+        min-height: auto;
+    }
+}
+
+.mobile-main-row button:not(.mobile-expand-toggle),
+.mobile-extras-row button {
+    font-size: var(--font-size-sm);
+    min-height: 32px;
+    flex-shrink: 0;
+}
+
+/* ----- Hover ----- */
+.control-bar button:hover,
+.playback-controls button:hover,
+.mobile-main-row button:not(.mobile-expand-toggle):hover,
+.mobile-extras-row button:hover {
+    background-color: var(--color-surface-sunken);
+    border-color: var(--color-border-strong);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ----- Focus-visible (keyboard navigation) ----- */
+.control-bar button:focus-visible,
+.playback-controls button:focus-visible,
+.mobile-main-row button:focus-visible,
+.mobile-extras-row button:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+/* ----- Active press ----- */
+.control-bar button:active,
+.playback-controls button:active,
+.mobile-main-row button:active,
+.mobile-extras-row button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* ----- Toggle .active state (chords / voices / metronome / fingering / chart) ----- */
+.control-bar button.active,
+.playback-controls button.active,
+.control-section button.active,
+.mobile-main-row button.active,
+.mobile-extras-row button.active {
+    background-color: var(--color-primary-active);
+    border-color: var(--color-primary-active);
+    color: var(--color-text-on-primary);
+    box-shadow: none;
+}
+
+/* ----- Mobile expand/collapse toggle (round +/- button) ----- */
+.mobile-expand-toggle {
+    background-color: var(--color-primary-active);
+    border: 1px solid var(--color-primary-active);
+    border-radius: var(--radius-full);
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-on-primary);
+    cursor: pointer;
+    transition: background-color var(--motion-base) var(--ease-standard),
+                transform var(--motion-fast) var(--ease-standard);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.mobile-expand-toggle:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    transform: scale(1.05);
+}
+
+.mobile-expand-toggle.expanded {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* ----- Special-state overrides (specific buttons) ----- */
+
+/* System toggle (German/Baroque): never gets the blue active styling */
+#system-toggle.active,
+.control-bar #system-toggle.active {
+    background-color: var(--color-surface-alt);
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+
+/* Loop-enabled state on restart button */
+#restart-button.loop-active,
+.control-bar #restart-button.loop-active {
+    background-color: var(--color-warning);
+    border-color: var(--color-warning);
+    color: var(--color-text-on-primary);
+    box-shadow: 0 0 0 2px var(--color-warning-soft);
+}
+
+#restart-button.loop-active:hover {
+    background-color: #f57c00;
+    border-color: #f57c00;
+}
+
+/* ----- Metronome visual feedback states ----- */
+
+/* Constant mode indicator (slow pulse) */
+#metronome-toggle.constant-mode {
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3);
+    animation: constant-mode-pulse 2s infinite ease-in-out;
+}
+
+@keyframes constant-mode-pulse {
+    0%, 100% { box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3); }
+    50%      { box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.6); }
+}
+
+/* Regular beat (green flash) */
+#metronome-toggle.metronome-beat {
+    background-color: var(--color-success);
+    border-color: var(--color-success);
+    transform: scale(1.05);
+    transition:
+        background-color var(--motion-fast) var(--ease-standard),
+        border-color var(--motion-fast) var(--ease-standard),
+        transform var(--motion-fast) var(--ease-standard);
+    box-shadow: 0 0 4px var(--color-success-soft);
+}
+
+/* Accented beat (first beat of bar — orange flash) */
+#metronome-toggle.metronome-beat-accent {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: scale(1.1);
+    transition:
+        background-color var(--motion-fast) var(--ease-standard),
+        border-color var(--motion-fast) var(--ease-standard),
+        transform var(--motion-fast) var(--ease-standard);
+    box-shadow: 0 0 12px rgba(255, 87, 34, 0.7);
+}
+
+/* Beat feedback keeps white text when overlapping with .active */
+#metronome-toggle.metronome-beat.active,
+#metronome-toggle.metronome-beat-accent.active {
+    color: var(--color-text-on-primary);
+}
+
+/* Body background flash on accented beat (subtle) */
+body.metronome-beat-accent {
+    background-color: rgba(255, 87, 34, 0.03);
+    transition: background-color var(--motion-fast) var(--ease-standard);
+}
