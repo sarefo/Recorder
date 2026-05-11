@@ -76,6 +76,18 @@ class MobileUI {
             return;
         }
 
+        // Ensure mobile bar exists and is visible (may have been hidden by a
+        // prior desktop state, or never built if the page first loaded at
+        // desktop width).
+        let mobileBar = document.getElementById('mobile-control-bar');
+        if (!mobileBar || !mobileBar.querySelector('.mobile-main-row')) {
+            this.createMobileControlBar();
+            mobileBar = document.getElementById('mobile-control-bar');
+        }
+        if (mobileBar) {
+            mobileBar.classList.remove('hidden');
+        }
+
         // Apply mobile state - toggle expandable rows
         const playbackExtras = document.getElementById('mobile-playback-extras');
         const fileExtras = document.getElementById('mobile-file-extras');
@@ -149,6 +161,51 @@ class MobileUI {
             }
         }
 
+        // Mobile layout moves individual buttons out of their original section
+        // containers and into mobile-main-row. Put them back so the desktop
+        // control bar isn't left with empty section shells.
+        const moveBack = (parentSelector, ids) => {
+            const parent = document.querySelector(parentSelector);
+            if (!parent) return;
+            for (const id of ids) {
+                const el = document.getElementById(id);
+                if (el && el.parentElement !== parent) parent.appendChild(el);
+            }
+        };
+        moveBack('.playback-controls', [
+            'play-button', 'restart-button',
+            'chords-toggle', 'voices-toggle', 'metronome-toggle',
+            'tuning-button',
+            'transpose-up', 'transpose-down',
+        ]);
+        // Tempo control wrapper is a div, not an id'd button — re-home it too.
+        const tempoControl = document.querySelector('.tempo-control');
+        const playbackSection = document.querySelector('.playback-controls');
+        if (tempoControl && playbackSection && tempoControl.parentElement !== playbackSection) {
+            playbackSection.appendChild(tempoControl);
+        }
+        moveBack('.fingering-controls', ['show-fingering', 'system-toggle', 'chart-toggle']);
+        moveBack('.notation-controls', ['copy-button', 'paste-button', 'share-button']);
+        // file-controls subtree (Files / dice / help) belongs inside notation-controls.
+        const fileControls = document.querySelector('.file-controls');
+        const notationSection = document.querySelector('.notation-controls');
+        if (fileControls && notationSection && fileControls.parentElement !== notationSection) {
+            notationSection.appendChild(fileControls);
+        }
+        // Inline tag button is owned by the desktop control-bar directly.
+        const tagButton = document.getElementById('inline-tag-button');
+        if (tagButton && controlBar && tagButton.parentElement !== controlBar) {
+            controlBar.appendChild(tagButton);
+        }
+        // Mobile-only toggles should not leak into the desktop layout.
+        for (const id of ['mobile-playback-toggle', 'mobile-file-toggle', 'mobile-tempo-button']) {
+            const el = document.getElementById(id);
+            if (el && el.parentElement && el.parentElement.classList.contains('mobile-main-row')) {
+                // Leave them in the (now-hidden) mobile bar; they'll be reused
+                // when we go back to mobile.
+            }
+        }
+
         // Reset mobile-specific styles
         if (playbackControls) {
             playbackControls.style.cssText = '';
@@ -170,7 +227,9 @@ class MobileUI {
             const wasMobile = this.player.isMobile;
             this.updateMobileState();
 
-            // If transitioning between mobile/desktop, recreate layout
+            // Rebuild layout on any transition. Going desktop→mobile needs the
+            // mobile bar built (or rebuilt, in case desktop state moved nodes
+            // back into the desktop control bar).
             if (wasMobile !== this.player.isMobile) {
                 this.createMobileLayout();
             }
@@ -181,7 +240,11 @@ class MobileUI {
         // Handle orientation changes specifically
         window.addEventListener('orientationchange', () => {
             setTimeout(() => {
+                const wasMobile = this.player.isMobile;
                 this.updateMobileState();
+                if (wasMobile !== this.player.isMobile) {
+                    this.createMobileLayout();
+                }
                 this.applyMobileState();
             }, 100);
         });

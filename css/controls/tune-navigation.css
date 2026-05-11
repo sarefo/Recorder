@@ -7,6 +7,13 @@
     margin-left: var(--space-2);
 }
 
+/* Collapse the wrapper when every child is hidden — otherwise it still
+   contributes a flex gap to its left, producing a stray empty space
+   after the file-selector buttons. */
+.tune-navigation:not(:has(> :not(.hidden))) {
+    display: none;
+}
+
 .tune-display {
     font-size: var(--font-size-base);
     text-align: center;

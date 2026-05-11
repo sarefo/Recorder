@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize main app
     window.app = new AbcPlayer();
 
+    // Keep the device screen awake while the app is in the foreground.
+    window.wakeLockManager = new WakeLockManager();
+
     // Initialize offline manager and register service worker
     window.offlineManager = new OfflineManager();
     window.offlineManager.registerServiceWorker()
