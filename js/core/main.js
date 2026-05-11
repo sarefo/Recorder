@@ -1,5 +1,9 @@
+const APP_BUILD = '2026-05-11-keep-awake';
+console.log(`[App] build: ${APP_BUILD}`);
+
 // Initialize the application when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.dataset.build = APP_BUILD;
     // Initialize orientation handler first
     window.orientationHandler = new OrientationHandler();
 
