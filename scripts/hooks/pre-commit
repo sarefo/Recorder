@@ -1,0 +1,27 @@
+#!/bin/sh
+# Recorder pre-commit hook.
+# Regenerates the ABC/docs file lists and bumps the PWA cache + build version,
+# then re-stages the touched files so the commit always ships a fresh release.
+#
+# Enabled via:  git config core.hooksPath scripts/hooks
+# Uses the Windows `py` launcher (falls back to python3/python on other OSes).
+
+root="$(git rev-parse --show-toplevel)"
+
+if command -v py >/dev/null 2>&1; then
+    PY=py
+elif command -v python3 >/dev/null 2>&1; then
+    PY=python3
+else
+    PY=python
+fi
+
+"$PY" "$root/scripts/prepare_release.py" || {
+    echo "pre-commit: prepare_release.py failed; aborting commit." >&2
+    exit 1
+}
+
+git add "$root/sw.js" \
+        "$root/js/core/main.js" \
+        "$root/js/data/abc-file-list.js" \
+        "$root/js/data/docs-file-list.js"

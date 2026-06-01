@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDMX Triage Station</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/abcjs@6.4.4/abcjs-audio.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>PDMX Triage</h1>
+        <div id="tabs" class="tabs"></div>
+        <input id="search" type="search" placeholder="Search title / composer...">
+        <select id="sort">
+            <option value="rating">Top rated</option>
+            <option value="title">Title A-Z</option>
+            <option value="notes">Fewest notes</option>
+            <option value="bars">Fewest bars</option>
+        </select>
+    </header>
+
+    <main>
+        <section id="list-pane">
+            <ul id="song-list"></ul>
+            <div id="list-footer"></div>
+        </section>
+
+        <section id="detail-pane">
+            <div id="detail-empty" class="placeholder">Select a song to audition.</div>
+            <div id="detail" hidden>
+                <div id="meta"></div>
+                <div id="audio"></div>
+                <div id="notation"><div id="notation-inner"></div></div>
+
+                <div class="promote-panel">
+                    <label>Title
+                        <input id="edit-title" type="text">
+                    </label>
+                    <label>Transpose
+                        <span class="stepper">
+                            <button id="tr-down" type="button">-</button>
+                            <span id="tr-val">0</span>
+                            <button id="tr-up" type="button">+</button>
+                        </span>
+                        <span class="hint">semitones</span>
+                    </label>
+                    <label>Category
+                        <input id="edit-category" list="category-list" placeholder="e.g. folk">
+                        <datalist id="category-list"></datalist>
+                    </label>
+                </div>
+
+                <div class="actions">
+                    <button id="btn-discard" class="discard">Discard</button>
+                    <button id="btn-keep" class="keep">Keep</button>
+                    <button id="btn-promote" class="promote">Promote &rarr; app</button>
+                </div>
+                <div id="action-status" class="action-status"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/abcjs@6.4.4/dist/abcjs-basic-min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

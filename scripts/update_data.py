@@ -59,8 +59,8 @@ def generate_abc_file_list():
                 # Extract title
                 title = extract_title(full_path)
                 
-                # Get category from folder name
-                category = os.path.dirname(rel_path)
+                # Get category from folder name (forward slashes for nested folders on Windows)
+                category = os.path.dirname(rel_path).replace('\\', '/')
                 if category == '.':
                     category = 'General'  # Default category for files in root
                 
@@ -77,7 +77,7 @@ def generate_abc_file_list():
     js_dir = os.path.join(project_dir, 'js', 'data')
     os.makedirs(js_dir, exist_ok=True)
     js_file_path = os.path.join(js_dir, 'abc-file-list.js')
-    with open(js_file_path, 'w', encoding='utf-8') as js_file:
+    with open(js_file_path, 'w', encoding='utf-8', newline='\n') as js_file:
         js_file.write("// Auto-generated file list - do not edit manually\n")
         js_file.write("class AbcFileList {\n")
         js_file.write("    static getFiles() {\n")
@@ -138,7 +138,7 @@ def generate_docs_file_list():
     js_dir = os.path.join(project_dir, 'js', 'data')
     os.makedirs(js_dir, exist_ok=True)
     js_file_path = os.path.join(js_dir, 'docs-file-list.js')
-    with open(js_file_path, 'w', encoding='utf-8') as js_file:
+    with open(js_file_path, 'w', encoding='utf-8', newline='\n') as js_file:
         js_file.write("// Auto-generated docs file list - do not edit manually\n")
         js_file.write("class DocsFileList {\n")
         js_file.write("    static getFiles() {\n")

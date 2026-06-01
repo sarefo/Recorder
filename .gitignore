@@ -7,3 +7,8 @@ abc/french/ai vist lo lop sheet.png
 abc/australian/waltzing matilda.png
 scripts/list_files.txt
 *.swp
+
+# PDMX dataset + triage tool local data (kept out of the published app)
+/pdmx/
+/triage/triage.db
+__pycache__/
