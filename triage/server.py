@@ -143,17 +143,23 @@ def promote(pdmx_id):
     category = (data.get("category") or "").strip()
     title = (data.get("title") or "").strip()
     transpose = int(data.get("transpose", 0))
+    abc_text = data.get("abc")  # client sends the (already transposed) ABC it auditioned
     if not category:
         abort(400, "category required")
 
     conn = db()
     row = get_song(conn, pdmx_id)
-    mxl = os.path.join(PDMX_DIR, row["mxl_path"])
-    if not os.path.exists(mxl):
-        conn.close()
-        abort(404, "mxl not extracted")
     try:
-        abc = import_song.convert_to_abc(mxl, title=title or None, transpose=transpose)
+        if abc_text:
+            # Transposition happens in the browser (abcjs), so no music21 needed here -
+            # just tidy the title/index and write what the user heard.
+            abc = import_song.clean_abc(abc_text, title=title or None)
+        else:
+            mxl = os.path.join(PDMX_DIR, row["mxl_path"])
+            if not os.path.exists(mxl):
+                conn.close()
+                abort(404, "mxl not extracted")
+            abc = import_song.convert_to_abc(mxl, title=title or None, transpose=transpose)
         rel = import_song.write_song(abc, category, title or import_song.extract_title(abc))
     except Exception as e:
         conn.close()

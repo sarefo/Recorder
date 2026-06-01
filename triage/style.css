@@ -101,6 +101,26 @@ main { flex: 1; display: flex; min-height: 0; }
 #notation svg text, #notation svg path { fill: #000; }
 #audio { margin: 4px 0 6px; }
 
+.fit-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0 2px;
+    min-height: 22px;
+}
+.fit-badges .range-label { color: var(--muted); font-size: 12px; margin-right: 2px; }
+.fit-badges .fit {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+}
+.fit-badges .fit.ok { background: rgba(52, 199, 89, .15); color: #57d977; border-color: #2c6a3d; }
+.fit-badges .fit.warn { background: rgba(240, 180, 41, .15); color: #f0b429; border-color: #6a5418; }
+.fit-badges .fit.bad { background: rgba(255, 107, 107, .12); color: #ff8585; border-color: #6a2c2c; }
+
 .promote-panel {
     display: flex;
     gap: 16px;

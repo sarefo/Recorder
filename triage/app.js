@@ -7,8 +7,21 @@ const state = {
     sort: 'rating',
     songs: [],
     current: null,   // current song object
-    abc: '',
+    abc: '',         // ABC currently shown (transposed)
+    baseAbc: '',     // untransposed ABC as fetched from the server
+    baseVisual: null,// cached abcjs tune object of baseAbc, for strTranspose
     transpose: 0,
+    autoFitDone: false,  // whether auto-fit has run for the current song
+};
+
+// Playable ranges as absolute MIDI numbers, matching abcjs' rendering (middle C 'C' = 60).
+// These are the exact written note tokens the app's fingering charts cover, so the verdict
+// here agrees with what the real app will actually be able to finger:
+//   recorder C..d'  (js/fingering/fingering-manager.js, baroque/german tables)
+//   dizi-D   A,..d'  (fingeringDataDiziD) - reaches 3 semitones lower than the recorder.
+const RANGES = {
+    recorder: { label: '🎼 Recorder', lo: 60, hi: 86 },  // C5..D6 written
+    dizi: { label: '🪈 Dizi', lo: 57, hi: 86 },           // A4..D6 written
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -81,6 +94,7 @@ async function selectSong(song) {
     stopAudio();
     state.current = song;
     state.transpose = 0;
+    state.autoFitDone = false;
     document.querySelectorAll('#song-list li').forEach(li =>
         li.classList.toggle('selected', li.dataset.id === song.pdmx_id));
 
@@ -105,24 +119,172 @@ async function selectSong(song) {
     $('#edit-title').value = $('#detail').dataset.suggestTitle || song.title || song.song_name || '';
 }
 
+const RENDER_OPTS = { scale: 0.8, staffwidth: 700 };
+
+// Fetch the untransposed ABC once per song. All transposition afterwards is done in the
+// browser with ABCJS.strTranspose, so auditioning never round-trips and needs no music21
+// (the server only needs it absent now - the final transposed ABC text is sent on promote).
 async function loadAbc() {
     stopAudio();
     const id = state.current.pdmx_id;
     $('#notation-inner').innerHTML = '<p style="color:#888;padding:20px">Converting...</p>';
-    const data = await api(`/api/song/${id}/abc?transpose=${state.transpose}`);
+    const data = await api(`/api/song/${id}/abc`);
     if (data.error) {
         $('#notation-inner').innerHTML = `<p style="color:#c00;padding:20px">Conversion failed: ${data.error}</p>`;
-        state.abc = '';
+        state.baseAbc = state.abc = '';
+        state.baseVisual = null;
+        renderBadges(null);
         return;
     }
-    state.abc = data.abc;
+    state.baseAbc = data.abc;
+    state.baseVisual = null;   // cached on first (untransposed) render below
     $('#detail').dataset.suggestTitle = data.title || '';
     renderNotation();
 }
 
 function renderNotation() {
-    const visual = ABCJS.renderAbc('notation-inner', state.abc, { scale: 0.8, staffwidth: 700 });
-    setupSynth(visual[0]);
+    if (!state.baseAbc) return;
+    try {
+        // Transpose the ABC text itself so what plays, what's shown, and what gets promoted
+        // are identical. strTranspose needs the untransposed tune object, which we cache.
+        state.abc = (state.transpose && state.baseVisual)
+            ? ABCJS.strTranspose(state.baseAbc, state.baseVisual, state.transpose)
+            : state.baseAbc;
+        const visual = ABCJS.renderAbc('notation-inner', state.abc, RENDER_OPTS);
+        if (!state.transpose) state.baseVisual = visual;   // cache base tune for later transposes
+        setupSynth(visual[0]);
+        evaluateFit(visual[0]);
+    } catch (e) {
+        // Some elaborate PDMX scores trip up abcjs' renderer; fail soft so triage continues.
+        $('#notation-inner').innerHTML =
+            `<p style="color:#c00;padding:20px">Couldn't render this score (${e}).</p>`;
+        renderBadges(null);
+    }
+}
+
+// ---- range / instrument fit -----------------------------------------------
+
+const signed = (n) => (n > 0 ? '+' : '') + n;
+
+const NOTE_NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+const midiName = (m) => NOTE_NAMES[((m % 12) + 12) % 12] + (Math.floor(m / 12) - 1);
+
+// Diatonic scale degree (C..B) -> semitones above C.
+const DEGREE_SEMITONES = [0, 2, 4, 5, 7, 9, 11];
+const LETTERS = 'CDEFGAB';
+
+// Read the explicit accidental off an abcjs pitch name ('^F', '__B', '=c'); null if none.
+function nameAccidental(name) {
+    const m = /^(\^+|_+|=)/.exec(name || '');
+    if (!m) return null;
+    const a = m[1];
+    return a === '=' ? 0 : (a[0] === '^' ? a.length : -a.length);
+}
+
+/**
+ * Walk an abcjs tuneObject and return the {lo, hi, count} of sounding MIDI pitches.
+ *
+ * abcjs only attaches true MIDI (midiPitches) after the synth runs, so we compute pitch
+ * ourselves from the rendered notes: pitch.pitch is the clef-resolved diatonic staff
+ * position (middle C = 0), and we layer on accidentals the way the staff sounds them -
+ * an explicit accidental wins, else a same-bar accidental on that line, else the key
+ * signature. This matches abcjs' own MIDI on ordinary tunes; it can only drift on exotic
+ * scores using 8va/8vb octave spanners (which shift playback but not the written position),
+ * and those are far out of any flute's range anyway, so the fit verdict is unaffected.
+ */
+function extractMidiRange(tune) {
+    let lo = Infinity, hi = -Infinity, count = 0;
+    const keyMap = {};   // letter -> semitone offset from the key signature
+    for (const line of (tune && tune.lines) || []) {
+        for (const staff of line.staff || []) {
+            if (staff.key && staff.key.accidentals) {
+                for (const k in keyMap) delete keyMap[k];
+                staff.key.accidentals.forEach(a =>
+                    keyMap[a.note.toUpperCase()] = a.acc === 'sharp' ? 1 : a.acc === 'flat' ? -1 : 0);
+            }
+            for (const voice of staff.voices || []) {
+                const barAcc = {};   // verticalPos -> accidental, reset each measure
+                for (const el of voice) {
+                    if (el.el_type === 'bar') { for (const k in barAcc) delete barAcc[k]; continue; }
+                    if (el.el_type !== 'note' || el.rest || !el.pitches) continue;
+                    for (const p of el.pitches) {
+                        const vp = p.pitch;
+                        const oct = Math.floor(vp / 7), deg = ((vp % 7) + 7) % 7;
+                        const explicit = nameAccidental(p.name);
+                        if (explicit !== null) barAcc[vp] = explicit;
+                        const acc = explicit !== null ? explicit
+                            : (vp in barAcc ? barAcc[vp] : (keyMap[LETTERS[deg]] || 0));
+                        const midi = 60 + oct * 12 + DEGREE_SEMITONES[deg] + acc;
+                        lo = Math.min(lo, midi);
+                        hi = Math.max(hi, midi);
+                        count++;
+                    }
+                }
+            }
+        }
+    }
+    return count ? { lo, hi, count } : null;
+}
+
+/**
+ * Find the transposition (in semitones) that moves [lo, hi] inside [range.lo, range.hi].
+ * Prefers no shift, then octave shifts (which keep the key), then the smallest shift.
+ * Returns { fits, shift, over }: shift is null and over>0 when the tune's span is simply
+ * wider than the instrument can play.
+ */
+function bestFitShift(lo, hi, range) {
+    const span = hi - lo, rangeSpan = range.hi - range.lo;
+    if (span > rangeSpan) return { fits: false, shift: null, over: span - rangeSpan };
+    const sMin = range.lo - lo, sMax = range.hi - hi;  // valid shifts: sMin..sMax
+    let best = null;
+    for (let s = sMin; s <= sMax; s++) {
+        // Lower score wins: prefer no shift, then octave shifts (key preserved), then smallest.
+        const score = (s === 0 ? 0 : 1e6) + (Math.abs(s) % 12 === 0 ? 0 : 1e3) + Math.abs(s);
+        if (!best || score < best.score) best = { s, score };
+    }
+    return { fits: true, shift: best.s };
+}
+
+/**
+ * Compute the range from a freshly rendered tune; on the first render for a song,
+ * auto-apply the transposition that best fits the recorder (which also fits the dizi,
+ * since the recorder range sits inside it), falling back to the dizi if the recorder
+ * can't fit. Then draw the per-instrument fit badges.
+ */
+function evaluateFit(tune) {
+    const range = extractMidiRange(tune);
+    if (!range) { renderBadges(null); return; }
+
+    if (!state.autoFitDone) {
+        state.autoFitDone = true;
+        const rec = bestFitShift(range.lo, range.hi, RANGES.recorder);
+        const fit = rec.fits ? rec : bestFitShift(range.lo, range.hi, RANGES.dizi);
+        if (fit.fits && fit.shift !== 0) {
+            state.transpose = fit.shift;
+            $('#tr-val').textContent = signed(fit.shift);
+            renderNotation();   // re-render transposed; autoFitDone is set, so no loop
+            return;             // badges will be drawn by that render
+        }
+    }
+    renderBadges(range);
+}
+
+/** Draw a fit badge per instrument for the currently shown (already-transposed) range. */
+function renderBadges(range) {
+    const box = $('#fit-badges');
+    if (!range) { box.innerHTML = ''; return; }
+    const head = `<span class="range-label">${midiName(range.lo)}–${midiName(range.hi)} · ${range.count} notes</span>`;
+    const badges = Object.values(RANGES).map(r => {
+        const below = Math.max(0, r.lo - range.lo), above = Math.max(0, range.hi - r.hi);
+        if (!below && !above) return `<span class="fit ok">${r.label} ✓</span>`;
+        const fit = bestFitShift(range.lo, range.hi, r);
+        if (fit.fits) {
+            const total = state.transpose + fit.shift;  // absolute stepper value that would fit
+            return `<span class="fit warn">${r.label} ✗ · fits at ${signed(total)}</span>`;
+        }
+        return `<span class="fit bad">${r.label} ✗ · ${fit.over} st too wide</span>`;
+    }).join('');
+    box.innerHTML = head + badges;
 }
 
 async function setupSynth(visualObj) {
@@ -146,9 +308,9 @@ async function setupSynth(visualObj) {
 // ---- transpose ------------------------------------------------------------
 
 function bumpTranspose(delta) {
-    state.transpose = Math.max(-12, Math.min(12, state.transpose + delta));
-    $('#tr-val').textContent = (state.transpose > 0 ? '+' : '') + state.transpose;
-    loadAbc();
+    state.transpose = Math.max(-24, Math.min(24, state.transpose + delta));
+    $('#tr-val').textContent = signed(state.transpose);
+    renderNotation();   // client-side transpose, no refetch
 }
 
 // ---- actions --------------------------------------------------------------
@@ -171,6 +333,7 @@ async function promote() {
         category,
         title: $('#edit-title').value.trim(),
         transpose: state.transpose,
+        abc: state.abc,   // already transposed client-side; server writes it as-is
     };
     const res = await api(`/api/song/${state.current.pdmx_id}/promote`,
         { method: 'POST', headers: { 'Content-Type': 'application/json' },
