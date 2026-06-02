@@ -7,6 +7,7 @@ const state = {
     sort: 'rating',
     filterPlayable: false,
     filterChords: false,
+    categories: [],  // existing abc/ subfolders, for the new-vs-existing hint
     songs: [],
     current: null,   // current song object
     abc: '',         // ABC currently shown (transposed)
@@ -47,7 +48,10 @@ function stopAudio() {
 // ---- list / tabs ----------------------------------------------------------
 
 async function refreshStats() {
-    const counts = await api('/api/stats');
+    const params = new URLSearchParams();
+    if (state.filterPlayable) params.set('playable', '1');
+    if (state.filterChords) params.set('chords', '1');
+    const counts = await api('/api/stats?' + params);
     document.querySelectorAll('#tabs button').forEach(btn => {
         const s = btn.dataset.status;
         const n = s === 'all'
@@ -421,7 +425,24 @@ function showStatus(msg, isError) {
 
 async function refreshCategories() {
     const cats = await api('/api/categories');
+    state.categories = cats;
     $('#category-list').innerHTML = cats.map(c => `<option value="${c}">`).join('');
+    updateCategoryHint();
+}
+
+// Tell the user whether the typed category already exists or will be created.
+function updateCategoryHint() {
+    const el = $('#cat-hint');
+    if (!el) return;
+    const val = $('#edit-category').value.trim();
+    if (!val) { el.textContent = ''; el.className = 'cat-hint'; return; }
+    if (state.categories.includes(val)) {
+        el.textContent = '✓ existing category';
+        el.className = 'cat-hint existing';
+    } else {
+        el.textContent = `+ will create new category “${val}”`;
+        el.className = 'cat-hint new';
+    }
 }
 
 // ---- init -----------------------------------------------------------------
@@ -451,11 +472,12 @@ function init() {
     $('#btn-promote').addEventListener('click', promote);
 
     $('#filter-playable').addEventListener('change', e => {
-        state.filterPlayable = e.target.checked; loadSongs();
+        state.filterPlayable = e.target.checked; refreshStats(); loadSongs();
     });
     $('#filter-chords').addEventListener('change', e => {
-        state.filterChords = e.target.checked; loadSongs();
+        state.filterChords = e.target.checked; refreshStats(); loadSongs();
     });
+    $('#edit-category').addEventListener('input', updateCategoryHint);
 
     refreshStats();
     refreshCategories();

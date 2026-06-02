@@ -30,6 +30,14 @@ app = Flask(__name__)
 STATUSES = ("new", "kept", "discarded", "promoted")
 
 
+@app.after_request
+def no_cache(resp):
+    # Local dev tool: never let the browser serve a stale app.js/style.css/API
+    # response, so edits show up on a plain reload without cache-busting dances.
+    resp.headers["Cache-Control"] = "no-store"
+    return resp
+
+
 def db():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
@@ -71,9 +79,17 @@ def static_files(fname):
 
 @app.route("/api/stats")
 def stats():
+    # Honor the same filters as /api/songs so the tab counts reflect what's shown.
+    extra, params = [], []
+    if request.args.get("playable") == "1":
+        extra.append("(instrument_fit IS NULL OR instrument_fit != 'none')")
+    if request.args.get("chords") == "1":
+        extra.append("has_chords=1")
+    clause = (" WHERE " + " AND ".join(extra)) if extra else ""
     conn = db()
     counts = {s: 0 for s in STATUSES}
-    for row in conn.execute("SELECT status, COUNT(*) c FROM songs GROUP BY status"):
+    for row in conn.execute(
+            f"SELECT status, COUNT(*) c FROM songs{clause} GROUP BY status", params):
         counts[row["status"]] = row["c"]
     conn.close()
     return jsonify(counts)

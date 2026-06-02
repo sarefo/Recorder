@@ -1,0 +1,19 @@
+X: 1
+T: Grogg Mayles
+Z:Copyright © O.Koivisto
+L:1/8
+Q:1/4=87
+M:4/4
+I:linebreak $
+K:F
+V:1 treble nm="Piano" snm="Pno."
+V:1
+"^    85" a/>g/ |:"Dm" fd"Am"ec"Dm" d2 d/ z/ a/>g/ | fd"Am"dc"Dm" dfg"Am" a/>g/ |$ %3
+"Dm" fd"Am"dc"Dm" d2 d/ z/ a/>g/ |"Dm" fd"Am"dc"Dm" df"Am"g a/>g/ |"Dm" fd"Am"ec"Dm" d2 d/ z/ c ||$ %6
+"F" f2- fg ac'c'a |"C" bagf e2 z c |"Dm" d2- de faaf |$"A" gfed ^c2 z A ||"Dm" d3 e f3 d | %11
+"A" e>d ed ^c2 z"Am" =c |$"F" f3 g a3 f |"C" g>g ga g3 a |1"B" b>b c'>b"F" ag f>f |$ %15
+"A" g>g a>g"Dm" fed A |"B" B>B c>B"Dm" Ad dd/e/ |"A" fed^c"Dm" d2 d/ z/ a/>g/ :|2$ %18
+"B" b>b c'>b"F"[Q:1/4=87]"^molto rit." a[Q:1/4=85]"^.2"g[Q:1/4=83]"^.3" f>[Q:1/4=80]"^.6"f[Q:1/4=81]"^.5" || %19
+"A"[Q:1/4=79]"^.7" g>[Q:1/4=76]"^.9"g[Q:1/4=76] a>[Q:1/4=73]"^.3"g"Dm"[Q:1/4=72]"^.3" f[Q:1/4=70]"^.5"e[Q:1/4=68]"^.7" d>A[Q:1/4=77]"^.8"[Q:1/4=74]"^.2"[Q:1/4=66]"^.8" |$ %20
+"B"[Q:1/4=65] BBcB"Dm" Ad[Q:1/4=22] !breath!d[Q:1/4=58] d/e/ | %21
+"A"[Q:1/4=50] fed^c"Dm"[Q:1/4=40] d3[Q:1/4=87]"^in Tempo" a/>g/ |"Dm" fd"Am"ec"Dm" d2 d z |] %23

@@ -1,0 +1,23 @@
+X: 1
+T: The Red Army Is The Strongest
+T:Original by Red Army Choir
+T:Arr. by Felix Zander
+L:1/8
+Q:1/4=100
+M:4/4
+I:linebreak $
+K:Eb
+V:1 treble nm="Piano" snm="Pno."
+V:1
+ c8 | e2 e3/2 e/ e2 d c | =B2 c d c2 z2 |[Q:1/4=106] c2 BA G2 c d | e2 d2 cG/G/ GG |$ %5
+ e2 e3/2 e/ e2 e c | =B2 c d c2 z2 | c2 BA G2 cd | e2 d2 cc=Bc |:$ %9
+!f![Q:1/4=114] d3/2 d/ G=B z dcd | e2 e2 z ede | f2 B2 b2 a2 | g4 z gfg | a2 FG z def |$ %14
+ g2 EF z edc |1 g2 f2 e2 d2 | c4 z c=Bc :|2$ g2 f2 e2 d2 || c6 z2 || %19
+!f![Q:1/4=106] e2 e3/2 e/ e2 d c | =B2 c d c2 z2 |$ c cBA EC z2 | e2 d2 cg/g/ gg | %23
+[Q:1/4=108] e2 e3/2 e/ e2 d c | =B2 c d c2 z2 |$ c2 BA G2 c d | e2 d2 cc=Bc |: %27
+[Q:1/4=114] d3/2 d/ d3 dcd!ff! |$ e2 c2 e4 | f2 B2 z2 a2 | g4 z gfg | z2 FG z def | z2 EF z edc |1$ %33
+ g2 f2 e2 d2 | c4 z c=Bc :|2 g2 f2 e2 d2 || c6 z2 |$!f![Q:1/4=106] e2 e3/2 e/ e2 d c | %38
+ =B2 c d c2 z2 | c2 BA EC z2 | e2 d2 cg/g/ gg |$[Q:1/4=108] e2 e3/2 e/ e2 d c | =B2 c d c2 z2 | %43
+ c2 B A G2 c d | e2 d2 cc=Bc |:$[Q:1/4=114] d3/2 d/ G=B G4!ff! | e2 e3 ede | f2 d2 z Bcd | %48
+ g4 z gfg |1$ a2 FG A2 F2 | g2 EF G2 z z | g2 f2 e2 d2 | c4 z c=Bc :|2$ a2 FG A2 F2 || %54
+ g2 EF G2 z z"_rit." |[Q:1/4=100] g2 g2 =a2 =b2 |[Q:1/4=90] c'8 |] %57

@@ -152,6 +152,10 @@ main { flex: 1; display: flex; min-height: 0; }
     padding: 6px 9px;
     min-width: 180px;
 }
+.cat-hint { font-size: 11px; min-height: 14px; }
+.cat-hint.existing { color: var(--muted); }
+.cat-hint.new { color: var(--promote); }
+
 .stepper { display: inline-flex; align-items: center; gap: 8px; }
 .stepper button {
     width: 28px; height: 28px;

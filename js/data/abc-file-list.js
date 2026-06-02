@@ -263,6 +263,11 @@ class AbcFileList {
                 "category": "russian"
         },
         {
+                "name": "The Red Army Is The Strongest",
+                "file": "russian/the red army is the strongest.abc",
+                "category": "russian"
+        },
+        {
                 "name": "Atholl Braes #1",
                 "file": "scottish/atholl_braes_1.abc",
                 "category": "scottish"
@@ -331,6 +336,11 @@ class AbcFileList {
                 "name": "Sweet Molly",
                 "file": "scottish/hopetoun_house.abc",
                 "category": "scottish"
+        },
+        {
+                "name": "Grogg Mayles",
+                "file": "shanty/grogg mayles.abc",
+                "category": "shanty"
         },
         {
                 "name": "Nanita Nana",
