@@ -1,0 +1,17 @@
+X: 1
+T: Russian hymn
+C:Александр Васильевич Александров
+Z:Сергей Владимирович Михалков
+L:1/8
+Q:1/4=76
+M:2/4
+I:linebreak $
+K:C
+V:1 treble nm="Piano" snm="Pno."
+V:1
+"^Торжественно. Распевно \n\n"!f! c4- | c2 z G |: c2 (G>A) | B2 EE | A2 (G>F) | G2 CC | D2 (D>E) | %7
+ F2"_cresc." F3/2 G/ | A2 B c |$ d3 G |"^1" e2 d3/2 c/ | d2 BG | c2 B3/2 A/ | B2 EE | A2 (G>=F) | %15
+ G2 (C>C) | c2 B3/2 A/ | G!<(! B c d!<)! |$[M:4/4]!ff!"^2" e4 d c B c | d3 G G B c d | c4 B A G A | %21
+ B3 E E!>(! G A B!>)! | c2 A3/2 B/"_cresc." c2 A3/2 B/ |$ c2 A c f4 |"^3"!ff! f4 (ed) c d | %25
+ e3 c c4 | d4 (cB) A B | c3 A A4 |1,2$ c2 B3/2 A/ G2 C>C | c2 B3/2 A/!>(! G2- G!>)!!f!G :|3 %30
+ c2 B3/2 A/ G2 C>C | G4"^rit."!<(! A2 B2!<)! | c4- c z2 z |] %33

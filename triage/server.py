@@ -33,7 +33,17 @@ STATUSES = ("new", "kept", "discarded", "promoted")
 def db():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
+    _migrate(conn)
     return conn
+
+
+def _migrate(conn):
+    existing = {row[1] for row in conn.execute("PRAGMA table_info(songs)")}
+    if "instrument_fit" not in existing:
+        conn.execute("ALTER TABLE songs ADD COLUMN instrument_fit TEXT")
+    if "has_chords" not in existing:
+        conn.execute("ALTER TABLE songs ADD COLUMN has_chords INTEGER")
+    conn.commit()
 
 
 def get_song(conn, pdmx_id):
@@ -85,6 +95,8 @@ def songs():
     sort = request.args.get("sort", "rating")
     limit = min(int(request.args.get("limit", 100)), 500)
     offset = int(request.args.get("offset", 0))
+    playable = request.args.get("playable")   # '1' = exclude known-unplayable songs
+    chords = request.args.get("chords")        # '1' = only songs with confirmed chords
 
     where, params = [], []
     if status != "all":
@@ -94,6 +106,10 @@ def songs():
         where.append("(LOWER(title) LIKE ? OR LOWER(composer) LIKE ? OR LOWER(artist) LIKE ?)")
         like = f"%{q.lower()}%"
         params += [like, like, like]
+    if playable == "1":
+        where.append("(instrument_fit IS NULL OR instrument_fit != 'none')")
+    if chords == "1":
+        where.append("has_chords=1")
     clause = (" WHERE " + " AND ".join(where)) if where else ""
     order = {"rating": "rating DESC", "title": "title COLLATE NOCASE",
              "notes": "n_notes", "bars": "bars"}.get(sort, "rating DESC")
@@ -102,7 +118,8 @@ def songs():
     total = conn.execute(f"SELECT COUNT(*) FROM songs{clause}", params).fetchone()[0]
     rows = conn.execute(
         f"SELECT pdmx_id, title, song_name, composer, artist, genres, n_tracks, "
-        f"n_notes, bars, seconds, rating, status, abc_path FROM songs{clause} "
+        f"n_notes, bars, seconds, rating, status, abc_path, instrument_fit, has_chords "
+        f"FROM songs{clause} "
         f"ORDER BY {order} LIMIT ? OFFSET ?", params + [limit, offset]).fetchall()
     conn.close()
     return jsonify({"total": total, "songs": [dict(r) for r in rows]})
@@ -118,7 +135,8 @@ def song_abc(pdmx_id):
     if not os.path.exists(mxl):
         abort(404, f"mxl not extracted: {row['mxl_path']} (re-run index_pdmx.py)")
     try:
-        abc = import_song.convert_to_abc(mxl, transpose=transpose)
+        # Audition the melody line we'd actually promote, not the full arrangement.
+        abc = import_song.convert_to_abc(mxl, transpose=transpose, melody_only=True)
     except Exception as e:  # conversion can fail on odd scores; report it
         return jsonify({"error": str(e)}), 422
     return jsonify({"abc": abc, "title": import_song.extract_title(abc)})
@@ -135,6 +153,28 @@ def set_status(pdmx_id):
     conn.commit()
     conn.close()
     return jsonify({"ok": True, "status": status})
+
+
+@app.route("/api/song/<pdmx_id>/metadata", methods=["POST"])
+def save_metadata(pdmx_id):
+    data = request.json or {}
+    fit = data.get("instrument_fit")   # 'recorder' | 'dizi' | 'none'
+    chords = data.get("has_chords")    # true | false
+    conn = db()
+    get_song(conn, pdmx_id)
+    updates, params = [], []
+    if fit is not None:
+        updates.append("instrument_fit=?")
+        params.append(fit)
+    if chords is not None:
+        updates.append("has_chords=?")
+        params.append(1 if chords else 0)
+    if updates:
+        conn.execute(f"UPDATE songs SET {', '.join(updates)} WHERE pdmx_id=?",
+                     params + [pdmx_id])
+        conn.commit()
+    conn.close()
+    return jsonify({"ok": True})
 
 
 @app.route("/api/song/<pdmx_id>/promote", methods=["POST"])
@@ -159,7 +199,8 @@ def promote(pdmx_id):
             if not os.path.exists(mxl):
                 conn.close()
                 abort(404, "mxl not extracted")
-            abc = import_song.convert_to_abc(mxl, title=title or None, transpose=transpose)
+            abc = import_song.convert_to_abc(mxl, title=title or None,
+                                             transpose=transpose, melody_only=True)
         rel = import_song.write_song(abc, category, title or import_song.extract_title(abc))
     except Exception as e:
         conn.close()

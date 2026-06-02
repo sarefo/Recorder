@@ -258,6 +258,11 @@ class AbcFileList {
                 "category": "russian"
         },
         {
+                "name": "Russian hymn",
+                "file": "russian/russian hymn.abc",
+                "category": "russian"
+        },
+        {
                 "name": "Atholl Braes #1",
                 "file": "scottish/atholl_braes_1.abc",
                 "category": "scottish"

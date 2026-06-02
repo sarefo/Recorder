@@ -15,7 +15,11 @@ Examples:
 import os
 import re
 import sys
+import tempfile
 import subprocess
+import xml.etree.ElementTree as ET
+
+import musicxml_melody
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
@@ -72,17 +76,37 @@ def clean_abc(abc, title=None):
     return abc
 
 
-def convert_to_abc(input_path, title=None, transpose=0):
-    """Convert a MusicXML/.mxl file to cleaned ABC text."""
+def _reduce_to_melody_file(input_path):
+    """Reduce a score to its melody line + chord symbols; return a temp .musicxml."""
+    root = musicxml_melody.read_musicxml(input_path)
+    musicxml_melody.reduce_to_melody(root)
+    fd, out = tempfile.mkstemp(suffix=".musicxml")
+    os.close(fd)
+    ET.ElementTree(root).write(out, encoding="utf-8", xml_declaration=True)
+    return out
+
+
+def convert_to_abc(input_path, title=None, transpose=0, melody_only=False):
+    """Convert a MusicXML/.mxl file to cleaned ABC text.
+
+    melody_only reduces the score to the single melody line (highest-register
+    voice) plus its <harmony> chord symbols before conversion, dropping any
+    accompaniment - so a two-hand piano arrangement yields a clean recorder line.
+    """
     xml_path = input_path
-    tmp = None
-    if transpose:
-        xml_path = tmp = _transpose_xml(input_path, transpose)
+    tmps = []
     try:
+        if melody_only:
+            xml_path = _reduce_to_melody_file(xml_path)
+            tmps.append(xml_path)
+        if transpose:
+            xml_path = _transpose_xml(xml_path, transpose)
+            tmps.append(xml_path)
         raw = _run_xml2abc(xml_path)
     finally:
-        if tmp and os.path.exists(tmp):
-            os.remove(tmp)
+        for t in tmps:
+            if os.path.exists(t):
+                os.remove(t)
     return clean_abc(raw, title=title)
 
 
@@ -116,11 +140,14 @@ def main():
     p.add_argument("--title", help="override the tune title")
     p.add_argument("--transpose", type=int, default=0,
                    help="transpose by N semitones (needs music21)")
+    p.add_argument("--melody-only", action="store_true",
+                   help="reduce to the melody line + chord symbols (drop accompaniment)")
     p.add_argument("--stdout", action="store_true",
                    help="print ABC instead of writing a file")
     args = p.parse_args()
 
-    abc = convert_to_abc(args.input, title=args.title, transpose=args.transpose)
+    abc = convert_to_abc(args.input, title=args.title, transpose=args.transpose,
+                         melody_only=args.melody_only)
 
     if args.stdout or not args.category:
         sys.stdout.write(abc)

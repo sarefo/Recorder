@@ -5,6 +5,8 @@ const state = {
     status: 'new',
     q: '',
     sort: 'rating',
+    filterPlayable: false,
+    filterChords: false,
     songs: [],
     current: null,   // current song object
     abc: '',         // ABC currently shown (transposed)
@@ -12,6 +14,7 @@ const state = {
     baseVisual: null,// cached abcjs tune object of baseAbc, for strTranspose
     transpose: 0,
     autoFitDone: false,  // whether auto-fit has run for the current song
+    metadataPosted: false, // whether we've saved fit+chords for this song
 };
 
 // Playable ranges as absolute MIDI numbers, matching abcjs' rendering (middle C 'C' = 60).
@@ -59,9 +62,20 @@ async function loadSongs() {
     const params = new URLSearchParams({
         status: state.status, q: state.q, sort: state.sort, limit: 200,
     });
+    if (state.filterPlayable) params.set('playable', '1');
+    if (state.filterChords) params.set('chords', '1');
     const data = await api('/api/songs?' + params);
     state.songs = data.songs;
     renderList(data.total);
+}
+
+function listBadgeText(song) {
+    const parts = [`★ ${fmt(song.rating)}`, `${song.bars ?? '?'} bars`, `${song.n_notes ?? '?'} notes`];
+    if (song.instrument_fit === 'recorder') parts.push('rec ✓');
+    else if (song.instrument_fit === 'dizi') parts.push('dizi ✓');
+    else if (song.instrument_fit === 'none') parts.push('✗ too wide');
+    if (song.has_chords === 1) parts.push('♩ chords');
+    return parts.join(' · ');
 }
 
 function renderList(total) {
@@ -75,15 +89,21 @@ function renderList(total) {
         li.innerHTML =
             `<div class="s-title"></div>` +
             `<div class="s-sub"></div>` +
-            `<div class="s-badges">★ ${fmt(song.rating)} · ${song.bars ?? '?'} bars · ${song.n_notes ?? '?'} notes</div>`;
+            `<div class="s-badges"></div>`;
         li.querySelector('.s-title').textContent = song.title || song.song_name || song.pdmx_id;
         li.querySelector('.s-sub').textContent = sub;
+        li.querySelector('.s-badges').textContent = listBadgeText(song);
         li.addEventListener('click', () => selectSong(song));
         if (state.current && state.current.pdmx_id === song.pdmx_id) li.classList.add('selected');
         ul.appendChild(li);
     });
     $('#list-footer').textContent =
         `${state.songs.length} shown${total > state.songs.length ? ` of ${total}` : ''}`;
+}
+
+function updateListItemBadge(song) {
+    const li = document.querySelector(`#song-list li[data-id="${song.pdmx_id}"]`);
+    if (li) li.querySelector('.s-badges').textContent = listBadgeText(song);
 }
 
 const fmt = (v) => (v == null ? '–' : (+v).toFixed(2));
@@ -95,6 +115,7 @@ async function selectSong(song) {
     state.current = song;
     state.transpose = 0;
     state.autoFitDone = false;
+    state.metadataPosted = false;
     document.querySelectorAll('#song-list li').forEach(li =>
         li.classList.toggle('selected', li.dataset.id === song.pdmx_id));
 
@@ -245,6 +266,26 @@ function bestFitShift(lo, hi, range) {
     return { fits: true, shift: best.s };
 }
 
+// Chord symbols in ABC look like "Am" "C7" "F/A" immediately before notes.
+function detectChords(abc) {
+    return /"[A-Ga-g#b][^"\n]*"/.test(abc);
+}
+
+async function postMetadata(fitInstrument, hasChords) {
+    if (!state.current || state.metadataPosted) return;
+    state.metadataPosted = true;
+    const id = state.current.pdmx_id;
+    await api(`/api/song/${id}/metadata`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ instrument_fit: fitInstrument, has_chords: hasChords }),
+    });
+    // Update song object and list item so the badge shows immediately
+    state.current.instrument_fit = fitInstrument;
+    state.current.has_chords = hasChords ? 1 : 0;
+    updateListItemBadge(state.current);
+}
+
 /**
  * Compute the range from a freshly rendered tune; on the first render for a song,
  * auto-apply the transposition that best fits the recorder (which also fits the dizi,
@@ -267,6 +308,16 @@ function evaluateFit(tune) {
         }
     }
     renderBadges(range);
+    // After auto-fit settles, record fit + chord info once per song - but only if
+    // scan_fit.py hasn't already classified it (that pass reads <harmony> directly
+    // and is more accurate than the in-browser regex, so don't overwrite it).
+    if (!state.metadataPosted && state.current && state.current.instrument_fit == null) {
+        const rec = bestFitShift(range.lo, range.hi, RANGES.recorder);
+        const dizi = bestFitShift(range.lo, range.hi, RANGES.dizi);
+        const fitInstrument = rec.fits ? 'recorder' : dizi.fits ? 'dizi' : 'none';
+        const hasChords = detectChords(state.abc);
+        postMetadata(fitInstrument, hasChords);
+    }
 }
 
 /** Draw a fit badge per instrument for the currently shown (already-transposed) range. */
@@ -274,17 +325,20 @@ function renderBadges(range) {
     const box = $('#fit-badges');
     if (!range) { box.innerHTML = ''; return; }
     const head = `<span class="range-label">${midiName(range.lo)}–${midiName(range.hi)} · ${range.count} notes</span>`;
-    const badges = Object.values(RANGES).map(r => {
+    const fitBadges = Object.values(RANGES).map(r => {
         const below = Math.max(0, r.lo - range.lo), above = Math.max(0, range.hi - r.hi);
         if (!below && !above) return `<span class="fit ok">${r.label} ✓</span>`;
         const fit = bestFitShift(range.lo, range.hi, r);
         if (fit.fits) {
-            const total = state.transpose + fit.shift;  // absolute stepper value that would fit
+            const total = state.transpose + fit.shift;
             return `<span class="fit warn">${r.label} ✗ · fits at ${signed(total)}</span>`;
         }
         return `<span class="fit bad">${r.label} ✗ · ${fit.over} st too wide</span>`;
     }).join('');
-    box.innerHTML = head + badges;
+    const chordBadge = detectChords(state.abc)
+        ? `<span class="fit ok chords-badge">♩ chords</span>`
+        : `<span class="fit bad chords-badge">no chords</span>`;
+    box.innerHTML = head + fitBadges + chordBadge;
 }
 
 async function setupSynth(visualObj) {
@@ -395,6 +449,13 @@ function init() {
     $('#btn-discard').addEventListener('click', () => setStatus('discarded'));
     $('#btn-keep').addEventListener('click', () => setStatus('kept'));
     $('#btn-promote').addEventListener('click', promote);
+
+    $('#filter-playable').addEventListener('change', e => {
+        state.filterPlayable = e.target.checked; loadSongs();
+    });
+    $('#filter-chords').addEventListener('change', e => {
+        state.filterChords = e.target.checked; loadSongs();
+    });
 
     refreshStats();
     refreshCategories();
