@@ -144,6 +144,22 @@ export class UIControls {
                 this.app.workflowManager.showStep('load');
             });
         }
+
+        // Guided ear-first note review
+        const reviewBtn = document.getElementById('btn-review-notes');
+        if (reviewBtn) {
+            reviewBtn.addEventListener('click', () => {
+                this.app.reviewWizard.start();
+            });
+        }
+
+        // Snap all timings to the beat grid
+        const quantizeBtn = document.getElementById('btn-quantize');
+        if (quantizeBtn) {
+            quantizeBtn.addEventListener('click', () => {
+                this.app.quantizeTiming();
+            });
+        }
     }
 
     /**

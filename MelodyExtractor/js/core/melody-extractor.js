@@ -12,6 +12,7 @@ import { WaveformManager } from '../visualization/waveform-manager.js';
 import { RegionManager } from '../visualization/region-manager.js';
 import { PianoRoll } from '../visualization/piano-roll.js';
 import { NoteEditor } from '../editor/note-editor.js';
+import { ReviewWizard } from '../editor/review-wizard.js';
 import { AbcGenerator } from '../export/abc-generator.js';
 import { AbcParser } from '../export/abc-parser.js';
 import { AbcPreview } from '../export/abc-preview.js';
@@ -52,6 +53,7 @@ export class MelodyExtractor {
         this.regionManager = new RegionManager(this);
         this.pianoRoll = new PianoRoll(this, 'piano-roll');
         this.noteEditor = new NoteEditor(this);
+        this.reviewWizard = new ReviewWizard(this);
         this.abcGenerator = new AbcGenerator();
         this.abcParser = new AbcParser();
         this.abcPreview = new AbcPreview(this);
@@ -73,6 +75,7 @@ export class MelodyExtractor {
             // Initialize UI controls and event listeners
             this.uiControls.init();
             this.workflowManager.init();
+            this.reviewWizard.init();
 
             // Initialize waveform (preview only at first)
             await this.waveformManager.initPreview('waveform-preview');
@@ -197,6 +200,7 @@ export class MelodyExtractor {
 
             // Copy to corrected notes for editing
             this.correctedNotes = JSON.parse(JSON.stringify(this.detectedNotes));
+            this._autoQuantizePending = true; // quantize once on entering review
 
             // Update UI
             this.onDetectionComplete();
@@ -309,6 +313,15 @@ export class MelodyExtractor {
                 }
             }
 
+            // Snap raw detected timings onto the beat grid once per detection,
+            // AFTER tempo is settled - the ABC output is quantized anyway, so
+            // this only makes the piano roll show what will actually be written
+            if (this._autoQuantizePending) {
+                this._autoQuantizePending = false;
+                this.quantizeTiming({ silent: true });
+                console.log('Auto-quantized note timings to grid');
+            }
+
             // Initialize editor waveform if not already
             if (!this.waveformManager.editorWavesurfer) {
                 console.log('Initializing editor waveform...');
@@ -343,6 +356,52 @@ export class MelodyExtractor {
         } catch (error) {
             console.error('Failed to enter review mode:', error);
             Utils.showFeedback('Failed to initialize editor');
+        }
+    }
+
+    /**
+     * Snap all note timings onto the current tempo's 16th-note grid,
+     * using the same quantization the ABC generator applies. This makes
+     * the piano roll WYSIWYG with the ABC output and removes the need to
+     * drag notes into rhythmic position. Undoable.
+     * @param {Object} options - { silent: true } suppresses the toast
+     */
+    quantizeTiming(options = {}) {
+        if (this.correctedNotes.length === 0) return;
+
+        const tempoInput = document.getElementById('abc-tempo');
+        const tempo = (tempoInput && parseInt(tempoInput.value)) || 120;
+
+        this.pushUndo();
+
+        const gen = this.abcGenerator;
+        const unitDur = (60 / tempo) / gen.gridUnitsPerBeat;
+        const sorted = [...this.correctedNotes].sort((a, b) => a.startTime - b.startTime);
+        const t0 = sorted[0].startTime;
+
+        // quantizeNotes emits exactly one 'note' event per input note, in order
+        const noteEvents = gen.quantizeNotes(this.correctedNotes, tempo)
+            .filter(e => e.type === 'note');
+
+        sorted.forEach((note, i) => {
+            const ev = noteEvents[i];
+            if (!ev) return;
+            note.startTime = t0 + ev.startUnits * unitDur;
+            note.endTime = t0 + (ev.startUnits + ev.units) * unitDur;
+            note.duration = note.endTime - note.startTime;
+        });
+
+        // Refresh views (piano roll may not be initialized yet on first entry)
+        if (this.pianoRoll && this.pianoRoll.canvas) {
+            this.pianoRoll.refresh();
+        }
+        if (this.regionManager && this.waveformManager.editorWavesurfer) {
+            this.regionManager.refresh();
+        }
+        this.updateAbcPreview();
+
+        if (!options.silent) {
+            Utils.showFeedback('Timing quantized to grid — Ctrl+Z to revert');
         }
     }
 

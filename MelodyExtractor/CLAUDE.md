@@ -104,13 +104,33 @@ Two engines, selectable in step 1 (`#detection-engine`):
 
 ## Rhythm Quantization (abc-generator.js)
 
-Onsets are snapped independently to a 16th-note grid anchored at the FIRST
-NOTE ONSET (never per-duration accumulation - that drifts). Articulation
-gaps ≤1 grid unit or <25% of note spacing are absorbed into the note;
-larger gaps become rests. `estimateTempo()` scores candidate BPMs from the
-median inter-onset interval against all onsets. The piano roll reads tempo
-and meter live from `#abc-tempo` / `#abc-meter` and anchors its bar grid at
-the same first onset, so piano-roll bars correspond 1:1 to ABC measures.
+`quantizeNotes()` is a tracking quantizer on a 16th grid anchored at the
+FIRST NOTE ONSET: each onset is placed relative to the previous quantized
+onset with full error feedback (re-anchors every step, so jitter never
+compounds), and steps/durations are rounded by `_bestUnits()`, which
+applies a musical simplicity prior (quarters cheap, bare 16th offsets
+expensive) - this is what makes sloppy human timing come out clean.
+Articulation gaps ≤1 unit or <25% of spacing are absorbed; larger gaps
+become rests. `estimateTempo()` sweeps candidate beat durations against
+the IOIs with relative error, refines via total-time/total-beats (jitter
+telescopes away), and octave-normalizes into 55-145 BPM (halving tempo
+doubles note values - always a consistent transcription; never clamp).
+The piano roll reads tempo/meter live from `#abc-tempo` / `#abc-meter`
+and anchors its bar grid at the same first onset, so piano-roll bars
+correspond 1:1 to ABC measures. `app.quantizeTiming()` writes the
+quantized times back onto correctedNotes (auto-runs once per detection
+on entering review; also the "⧉ Quantize" button).
+
+## Review Wizard (editor/review-wizard.js)
+
+Ear-first correction for users who can't judge rhythm visually: the
+"✓ Review notes" button steps through notes one at a time, playing the
+original audio slice then the detected pitch. Keys (captured before the
+normal editor shortcuts): Up/Down fix pitch with instant preview, R/Left
+replay, Enter/Space/Right keep & advance, Del remove, Esc finish.
+Rhythm can be edited without dragging: `[`/`]` halve/double duration,
+`,`/`.` nudge by one grid step. Piano-roll drags are axis-locked
+(vertical = pitch only with audible preview, horizontal = time only).
 
 ## Undo
 

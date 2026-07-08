@@ -176,6 +176,8 @@
                     </div>
                     <div class="control-group">
                         <h4>Tools:</h4>
+                        <button id="btn-review-notes" class="btn btn-primary btn-sm" title="Step through each note by ear: hear original + detected, fix pitch with ↑↓">✓ Review notes</button>
+                        <button id="btn-quantize" class="btn btn-tool btn-sm" title="Snap all note timings to the beat grid (Ctrl+Z to revert)">⧉ Quantize</button>
                         <button id="btn-add-note" class="btn btn-tool btn-sm">+ Add Note</button>
                         <button id="btn-retime" class="btn btn-tool btn-sm">⏱ Re-time</button>
                         <button id="btn-transpose-up" class="btn btn-tool btn-sm">↑ Transpose</button>
@@ -257,9 +259,9 @@
                             <select id="grid-division" class="input-sm">
                                 <option value="1">1 (whole)</option>
                                 <option value="2">2 (half)</option>
-                                <option value="4" selected>4 (quarter)</option>
+                                <option value="4">4 (quarter)</option>
                                 <option value="8">8 (eighth)</option>
-                                <option value="16">16 (16th)</option>
+                                <option value="16" selected>16 (16th)</option>
                             </select>
                         </div>
                         <label class="checkbox-row">
@@ -268,6 +270,23 @@
                         <label class="checkbox-row">
                             <input type="checkbox" id="chk-g-recorder" checked> G Recorder notation (transpose -8ve)
                         </label>
+                    </div>
+
+                    <!-- Review Wizard (guided ear-first correction) -->
+                    <div id="review-wizard" class="editor-tools review-wizard hidden">
+                        <h4>Note Review <span id="rw-progress" class="rw-progress"></span></h4>
+                        <div class="rw-note-row">
+                            <span id="rw-note-name" class="rw-note-name">–</span>
+                            <span id="rw-confidence" class="rw-conf"></span>
+                        </div>
+                        <div class="rw-buttons">
+                            <button id="rw-replay" class="btn btn-tool btn-sm" title="Replay original + detected (R)">▶ Replay</button>
+                            <button id="rw-keep" class="btn btn-tool btn-sm" title="Keep and go to next note (Enter)">Keep ✓</button>
+                            <button id="rw-stop" class="btn btn-tool btn-sm" title="Finish review (Esc)">Done</button>
+                        </div>
+                        <p class="rw-hints">Plays original, then detected note.<br>
+                            <strong>↑↓</strong> fix pitch · <strong>R</strong> replay ·
+                            <strong>Enter</strong> keep · <strong>Del</strong> remove · <strong>Esc</strong> done</p>
                     </div>
 
                     <!-- Note Details Section -->
@@ -287,8 +306,10 @@
                         <h4>Shortcuts</h4>
                         <ul class="edit-hints">
                             <li><strong>Click</strong> note to select</li>
-                            <li><strong>Drag</strong> to move/resize</li>
+                            <li><strong>Drag ↕</strong> pitch only, <strong>↔</strong> time only</li>
                             <li><strong>↑↓</strong> change pitch</li>
+                            <li><strong>[ ]</strong> halve/double length</li>
+                            <li><strong>, .</strong> nudge earlier/later</li>
                             <li><strong>Del</strong> remove note</li>
                             <li><strong>Ctrl+Z</strong> undo edit</li>
                         </ul>

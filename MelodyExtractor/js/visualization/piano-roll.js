@@ -37,7 +37,7 @@ export class PianoRoll {
         // Music Settings inputs (single source of truth shared with the
         // ABC generator) - see _getTempo() / _getMeter().
         this.snapEnabled = true;
-        this.gridDivision = 4; // grid subdivision (4 = quarter notes)
+        this.gridDivision = 16; // grid subdivision (16 = sixteenth notes, matches ABC grid)
 
         // Bar management buttons
         this.deleteButtons = []; // Array of {x, y, width, height, barStartTime, barEndTime}
@@ -754,6 +754,10 @@ export class PianoRoll {
             this.dragType = 'move';
             this.canvas.style.cursor = 'grabbing';
         }
+
+        // Axis lock is decided by the drag's initial direction (see mousemove):
+        // vertical = pitch only, horizontal = time only
+        this.dragAxis = null;
     }
 
     /**
@@ -813,26 +817,46 @@ export class PianoRoll {
         }
 
         switch (this.dragType) {
-            case 'move':
-                // Move both start and end time
-                let newStart = Math.max(0, this.originalNote.startTime + deltaTime);
-                let newEnd = this.originalNote.endTime + deltaTime;
+            case 'move': {
+                // Lock the drag to its dominant initial axis: a vertical drag
+                // changes only the pitch (the common correction), a horizontal
+                // one only the timing - no more accidental cross-axis edits.
+                if (this.dragAxis === null && (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5)) {
+                    this.dragAxis = Math.abs(deltaY) > Math.abs(deltaX) ? 'pitch' : 'time';
+                }
+                const movePitch = this.dragAxis !== 'time';
+                const moveTime = this.dragAxis === 'time';
 
-                // Apply snap to grid
-                if (this.snapEnabled) {
-                    const snappedStart = this._snapToGrid(newStart);
-                    const offset = snappedStart - newStart;
-                    newStart = snappedStart;
-                    newEnd = newEnd + offset;
+                let newStart = this.originalNote.startTime;
+                let newEnd = this.originalNote.endTime;
+                if (moveTime) {
+                    newStart = Math.max(0, this.originalNote.startTime + deltaTime);
+                    newEnd = this.originalNote.endTime + deltaTime;
+
+                    // Apply snap to grid
+                    if (this.snapEnabled) {
+                        const snappedStart = this._snapToGrid(newStart);
+                        const offset = snappedStart - newStart;
+                        newStart = snappedStart;
+                        newEnd = newEnd + offset;
+                    }
                 }
 
                 noteToUpdate.startTime = newStart;
                 noteToUpdate.endTime = newEnd;
                 noteToUpdate.duration = newEnd - newStart;
-                // Allow dragging outside current range (will auto-expand)
-                noteToUpdate.midi = Math.max(36, Math.min(96, this.originalNote.midi + deltaMidi));
-                noteToUpdate.noteName = midiToNoteName(noteToUpdate.midi);
+                if (movePitch) {
+                    // Allow dragging outside current range (will auto-expand)
+                    const newMidi = Math.max(36, Math.min(96, this.originalNote.midi + deltaMidi));
+                    if (newMidi !== noteToUpdate.midi) {
+                        noteToUpdate.midi = newMidi;
+                        noteToUpdate.noteName = midiToNoteName(newMidi);
+                        // Audible feedback while dragging pitch
+                        if (this.app.synth) this.app.synth.previewNote(newMidi, 0.15);
+                    }
+                }
                 break;
+            }
 
             case 'resize-left':
                 let resizeLeftStart = Math.max(0, this.originalNote.startTime + deltaTime);

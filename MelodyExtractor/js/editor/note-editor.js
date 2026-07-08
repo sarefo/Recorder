@@ -196,6 +196,22 @@ export class NoteEditor {
                 }
                 break;
 
+            case 'BracketLeft':   // [ halve duration
+                if (note) { e.preventDefault(); this.adjustTiming(note.id, 'halve'); }
+                break;
+
+            case 'BracketRight':  // ] double duration
+                if (note) { e.preventDefault(); this.adjustTiming(note.id, 'double'); }
+                break;
+
+            case 'Comma':         // , nudge earlier by one grid step
+                if (note) { e.preventDefault(); this.adjustTiming(note.id, 'earlier'); }
+                break;
+
+            case 'Period':        // . nudge later by one grid step
+                if (note) { e.preventDefault(); this.adjustTiming(note.id, 'later'); }
+                break;
+
             case 'Escape':
                 if (this.addMode) {
                     this.toggleAddMode();
@@ -494,6 +510,53 @@ export class NoteEditor {
         if (this.app.pianoRoll) {
             this.app.pianoRoll.refresh();
         }
+    }
+
+    /**
+     * Keyboard rhythm editing without dragging: halve/double the duration
+     * or nudge the onset by one grid step. All values stay on the grid,
+     * and the ABC preview updates immediately so the result is audible.
+     * @param {string} noteId - Note ID
+     * @param {string} action - 'halve' | 'double' | 'earlier' | 'later'
+     */
+    adjustTiming(noteId, action) {
+        const note = this.app.correctedNotes.find(n => n.id === noteId);
+        if (!note) return;
+
+        const grid = this.app.pianoRoll
+            ? this.app.pianoRoll._getGridInterval()
+            : 0.125;
+
+        this.app.pushUndo();
+
+        switch (action) {
+            case 'halve': {
+                const newDur = Math.max(grid, note.duration / 2);
+                note.endTime = note.startTime + newDur;
+                break;
+            }
+            case 'double':
+                note.endTime = note.startTime + note.duration * 2;
+                break;
+            case 'earlier': {
+                const shift = Math.min(grid, note.startTime);
+                note.startTime -= shift;
+                note.endTime -= shift;
+                break;
+            }
+            case 'later':
+                note.startTime += grid;
+                note.endTime += grid;
+                break;
+        }
+
+        note.duration = note.endTime - note.startTime;
+        note.userCorrected = true;
+
+        this.app.regionManager.refresh();
+        if (this.app.pianoRoll) this.app.pianoRoll.refresh();
+        if (this.app.updateAbcPreview) this.app.updateAbcPreview(noteId);
+        this._showNoteDetails(note);
     }
 
     /**

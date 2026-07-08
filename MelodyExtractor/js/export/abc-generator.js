@@ -66,11 +66,26 @@ export class AbcGenerator {
         const sorted = [...notes].sort((a, b) => a.startTime - b.startTime);
         const t0 = sorted[0].startTime;
 
-        // Snap all onsets first (independently - no drift)
-        const snapped = sorted.map(n => ({
+        // Tracking quantizer: each onset is placed relative to the previous
+        // QUANTIZED onset, with the step chosen by musical plausibility
+        // (see _bestUnits) against the note's actual absolute position.
+        // Full error feedback re-anchors every step, so jitter never
+        // compounds through interval differences.
+        const onsetUnits = new Array(sorted.length);
+        onsetUnits[0] = 0;
+        let err = 0; // quantized - actual, in grid units
+
+        for (let i = 1; i < sorted.length; i++) {
+            const ioiUnits = (sorted[i].startTime - sorted[i - 1].startTime) / unitDur;
+            const step = this._bestUnits(ioiUnits - err);
+            onsetUnits[i] = onsetUnits[i - 1] + step;
+            err = onsetUnits[i] - (sorted[i].startTime - t0) / unitDur;
+        }
+
+        const snapped = sorted.map((n, i) => ({
             midi: n.midi,
-            onsetUnits: Math.round((n.startTime - t0) / unitDur),
-            endUnits: Math.round((n.endTime - t0) / unitDur)
+            onsetUnits: onsetUnits[i],
+            endUnits: onsetUnits[i] + this._bestUnits(n.duration / unitDur)
         }));
 
         const events = [];
@@ -105,6 +120,47 @@ export class AbcGenerator {
         }
 
         return events;
+    }
+
+    /**
+     * Round a value in grid units to the most plausible musical duration.
+     *
+     * Plain rounding treats 3 units (dotted 8th) and 4 units (quarter) as
+     * equally likely, so human timing jitter constantly produces odd
+     * dotted/offset values. This scores nearby integers with a simplicity
+     * prior: quarters cost nothing, eighths a little, 16th-offsets a lot -
+     * matching how likely each duration actually is in a melody.
+     *
+     * @param {number} target - Duration/interval in grid units (16ths)
+     * @returns {number} Chosen integer units (>= 1)
+     * @private
+     */
+    _bestUnits(target) {
+        const center = Math.max(1, Math.round(target));
+        let best = center;
+        let bestScore = Infinity;
+
+        for (const c of [center - 1, center, center + 1]) {
+            if (c < 1) continue;
+            const score = Math.abs(c - target) + this._complexityPenalty(c);
+            if (score < bestScore) {
+                bestScore = score;
+                best = c;
+            }
+        }
+        return best;
+    }
+
+    /**
+     * Simplicity prior for a duration in 16th units
+     * @private
+     */
+    _complexityPenalty(units) {
+        if (units % 4 === 0) return 0;      // quarter multiples
+        if (units === 6) return 0.15;       // dotted quarter
+        if (units % 2 === 0) return 0.2;    // eighth positions
+        if (units === 3) return 0.4;        // dotted eighth
+        return 0.45;                        // bare 16th offsets
     }
 
     /**
@@ -207,10 +263,13 @@ export class AbcGenerator {
     }
 
     /**
-     * Estimate tempo from inter-onset intervals.
+     * Estimate tempo from inter-onset intervals (IOIs).
      *
-     * Tries interpreting the median IOI as a quarter, eighth or half note,
-     * and picks the interpretation whose grid best explains all onsets.
+     * Sweeps candidate beat durations and scores how well each explains the
+     * IOIs as integer beat multiples (relative error, so slow tempos gain no
+     * unfair advantage), then refines the winner as the median of IOI/k -
+     * this pins the estimate to the tempo actually played, so grid drift
+     * over long melodies stays minimal even with sloppy human timing.
      */
     estimateTempo(notes) {
         if (!notes || notes.length < 3) return this.defaultTempo;
@@ -219,43 +278,51 @@ export class AbcGenerator {
         const iois = [];
         for (let i = 1; i < sorted.length; i++) {
             const ioi = sorted[i].startTime - sorted[i - 1].startTime;
-            if (ioi >= 0.1 && ioi <= 2.5) iois.push(ioi);
+            if (ioi >= 0.15 && ioi <= 3) iois.push(ioi);
         }
         if (iois.length === 0) return this.defaultTempo;
 
-        iois.sort((a, b) => a - b);
-        const median = iois[Math.floor(iois.length / 2)];
-
-        // Candidate beat durations if median IOI is an 8th, quarter, or half
-        const candidates = [median * 2, median, median / 2]
-            .map(beat => 60 / beat)
-            .filter(bpm => bpm >= 45 && bpm <= 200);
-        if (candidates.length === 0) return this.defaultTempo;
-
-        const t0 = sorted[0].startTime;
-        let best = candidates[0];
+        // Sweep beat duration 0.27s..1.5s (222..40 BPM)
+        let bestBeat = 0.6;
         let bestScore = Infinity;
-
-        for (const bpm of candidates) {
-            const unitDur = (60 / bpm) / this.gridUnitsPerBeat;
+        for (let b = 0.27; b <= 1.5; b += 0.005) {
             let err = 0;
-            for (const n of sorted) {
-                const pos = (n.startTime - t0) / unitDur;
-                err += Math.abs(pos - Math.round(pos));
+            for (const ioi of iois) {
+                const ratio = ioi / b;
+                const frac = Math.abs(ratio - Math.round(ratio));
+                err += Math.min(frac / ratio, 0.5); // relative error, capped
             }
-            // Mild preference for tempos near 100 to break scale-invariance ties
-            const score = err / sorted.length + Math.abs(bpm - 100) / 400;
+            // Octave-ambiguity tiebreak: prefer beats near 0.6s (100 BPM)
+            const score = err / iois.length + 0.08 * Math.abs(Math.log2(b / 0.6));
             if (score < bestScore) {
                 bestScore = score;
-                best = bpm;
+                bestBeat = b;
             }
         }
 
-        // Round to a common tempo value
-        const common = [60, 66, 72, 80, 88, 92, 100, 108, 112, 120, 132, 144, 160, 176, 200];
-        return common.reduce((prev, curr) =>
-            Math.abs(curr - best) < Math.abs(prev - best) ? curr : prev
-        );
+        // Refine: total time / total beats. Onset jitter telescopes away
+        // in the summed intervals (only the endpoints matter), making this
+        // an essentially unbiased estimate of the tempo actually played.
+        let sumTime = 0;
+        let sumBeats = 0;
+        for (const ioi of iois) {
+            const k = Math.round(ioi / bestBeat);
+            if (k >= 1 && k <= 8) {
+                sumTime += ioi;
+                sumBeats += k;
+            }
+        }
+        if (sumBeats > 0) {
+            bestBeat = sumTime / sumBeats;
+        }
+
+        // Normalize to a readable tempo octave: halving/doubling the tempo
+        // just doubles/halves the written note values, so this always stays
+        // a consistent transcription (unlike clamping, which would not)
+        let bpm = 60 / bestBeat;
+        while (bpm > 145) bpm /= 2;
+        while (bpm < 55) bpm *= 2;
+        return Math.round(bpm);
     }
 
     /**

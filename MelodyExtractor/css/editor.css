@@ -194,3 +194,63 @@
     margin-bottom: var(--spacing-md);
     opacity: 0.5;
 }
+
+/* Review wizard (guided ear-first correction) */
+.review-wizard {
+    border: 2px solid var(--color-primary, #4F4A85);
+    border-radius: 8px;
+    padding: 12px;
+    background: rgba(79, 74, 133, 0.06);
+}
+
+.review-wizard h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    color: var(--color-primary, #4F4A85);
+}
+
+.rw-progress {
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: #666;
+}
+
+.rw-note-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.rw-note-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary, #4F4A85);
+    font-family: monospace;
+}
+
+.rw-conf {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.rw-conf.high { background: var(--confidence-high, #d4edda); color: #155724; }
+.rw-conf.medium { background: var(--confidence-medium, #fff3cd); color: #856404; }
+.rw-conf.low { background: var(--confidence-low, #f8d7da); color: #721c24; }
+
+.rw-buttons {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.rw-hints {
+    font-size: 0.75rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
