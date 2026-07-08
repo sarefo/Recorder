@@ -5,6 +5,7 @@
 
 import { AudioLoader } from '../audio/audio-loader.js';
 import { PitchDetector } from '../audio/pitch-detector.js';
+import { MlPitchDetector } from '../audio/ml-pitch-detector.js';
 import { Synth } from '../audio/synth.js';
 import { NoteSegmenter } from '../analysis/note-segmenter.js';
 import { WaveformManager } from '../visualization/waveform-manager.js';
@@ -23,7 +24,7 @@ export class MelodyExtractor {
         // Configuration
         this.config = {
             sampleRate: 44100,
-            frameSize: 4096,
+            frameSize: 2048,
             hopSize: 256,
             confidenceThreshold: 0.7,
             minNoteDuration: 0.05  // 50ms
@@ -39,10 +40,12 @@ export class MelodyExtractor {
         this.recordingInterval = null;
         this.tapCheckInterval = null;
         this.tapTimestamps = [];  // User-marked note onsets
+        this.undoStack = [];      // Snapshots of correctedNotes (Ctrl+Z)
 
         // Initialize modules
         this.audioLoader = new AudioLoader();
         this.pitchDetector = new PitchDetector(this.config);
+        this.mlPitchDetector = new MlPitchDetector();
         this.synth = new Synth();
         this.noteSegmenter = new NoteSegmenter(this.config);
         this.waveformManager = new WaveformManager(this);
@@ -91,6 +94,7 @@ export class MelodyExtractor {
         try {
             this.isProcessing = true;
             this.audioFile = file;
+            this.isRecordedAudio = false;
 
             // Load and decode audio
             const audioInfo = await this.audioLoader.loadFile(file);
@@ -142,40 +146,44 @@ export class MelodyExtractor {
 
             console.log('Starting detection process...');
 
-            // Get mono audio data
-            const audioData = this.audioLoader.getMonoChannel();
-            console.log('Got mono channel, length:', audioData.length);
+            const engineSelect = document.getElementById('detection-engine');
+            const useMl = engineSelect && engineSelect.value === 'ml'
+                && this.tapTimestamps.length === 0; // tap markers need the DSP path
 
-            // Config values are set in constructor (confidenceThreshold: 0.7, minNoteDuration: 0.05)
-            console.log('Detection config:', this.config);
+            if (useMl) {
+                // ML path: Basic Pitch produces note events directly
+                console.log('Running Basic Pitch (ML) detection...');
+                this.detectedNotes = await this.mlPitchDetector.detectNotes(
+                    this.audioBuffer,
+                    (progress) => this.updateProgress(progress)
+                );
+            } else {
+                // DSP path: YIN pitch tracking + onset-aware segmentation
+                const audioData = this.audioLoader.getMonoChannel();
+                console.log('Got mono channel, length:', audioData.length);
 
-            // Initialize pitch detector if needed
-            console.log('Initializing pitch detector...');
-            await this.pitchDetector.init();
-            console.log('Pitch detector initialized');
+                await this.pitchDetector.init();
 
-            // Run detection with progress updates
-            console.log('Running pitch detection...');
-            const pitchData = await this.pitchDetector.detectPitches(
-                audioData,
-                this.config.sampleRate,
-                (progress) => this.updateProgress(progress)
-            );
-            console.log('Pitch detection complete, got data:', pitchData);
+                console.log('Running pitch detection...');
+                const pitchData = await this.pitchDetector.detectPitches(
+                    audioData,
+                    this.config.sampleRate,
+                    (progress) => this.updateProgress(progress)
+                );
 
-            // Segment into notes (pass tap timestamps if available)
-            console.log('Segmenting notes...');
-            if (this.tapTimestamps.length > 0) {
-                console.log('Using', this.tapTimestamps.length, 'tap markers for segmentation');
+                if (this.tapTimestamps.length > 0) {
+                    console.log('Using', this.tapTimestamps.length, 'tap markers for segmentation');
+                }
+                this.detectedNotes = this.noteSegmenter.segmentNotes(
+                    pitchData.pitches,
+                    pitchData.confidences,
+                    this.config.hopSize,
+                    this.config.sampleRate,
+                    this.tapTimestamps,  // Pass tap markers
+                    pitchData.energies   // Enables onset-based repeated-note splitting
+                );
             }
-            this.detectedNotes = this.noteSegmenter.segmentNotes(
-                pitchData.pitches,
-                pitchData.confidences,
-                this.config.hopSize,
-                this.config.sampleRate,
-                this.tapTimestamps  // Pass tap markers
-            );
-            console.log('Segmented into', this.detectedNotes.length, 'notes');
+            console.log('Detected', this.detectedNotes.length, 'notes');
 
             // Debug: Log detected notes with frequencies and MIDI
             console.log('\n=== DETECTED NOTES DEBUG ===');
@@ -289,6 +297,18 @@ export class MelodyExtractor {
         try {
             console.log('Entering review mode...');
 
+            // Settle music settings FIRST - the piano roll reads tempo/meter
+            // live from these inputs when it renders its grid and bar buttons
+            this._copyRecordingSettings();
+            if (!this.isRecordedAudio && this.detectedNotes.length >= 3) {
+                const estimated = this.abcGenerator.estimateTempo(this.detectedNotes);
+                const tempoInput = document.getElementById('abc-tempo');
+                if (tempoInput && estimated) {
+                    tempoInput.value = estimated;
+                    console.log('Auto-estimated tempo:', estimated, 'BPM');
+                }
+            }
+
             // Initialize editor waveform if not already
             if (!this.waveformManager.editorWavesurfer) {
                 console.log('Initializing editor waveform...');
@@ -314,9 +334,6 @@ export class MelodyExtractor {
             // Attach wavesurfer events after it's ready
             this.noteEditor.attachWavesurferEvents();
 
-            // Copy recording settings to music settings (if they exist)
-            this._copyRecordingSettings();
-
             // Render initial ABC preview and generate output text
             this.updateAbcPreview();
             this.generateAbc();
@@ -327,6 +344,35 @@ export class MelodyExtractor {
             console.error('Failed to enter review mode:', error);
             Utils.showFeedback('Failed to initialize editor');
         }
+    }
+
+    /**
+     * Snapshot correctedNotes so the next destructive edit can be undone
+     */
+    pushUndo() {
+        this.undoStack.push(JSON.parse(JSON.stringify(this.correctedNotes)));
+        if (this.undoStack.length > 50) this.undoStack.shift();
+    }
+
+    /**
+     * Restore the most recent snapshot (Ctrl+Z)
+     * @returns {boolean} True if something was undone
+     */
+    undo() {
+        if (this.undoStack.length === 0) return false;
+
+        this.correctedNotes = this.undoStack.pop();
+
+        // Refresh all views
+        const duration = this.audioBuffer ? this.audioBuffer.duration : 10;
+        this.pianoRoll.setNotes(this.correctedNotes, duration);
+        if (this.regionManager) {
+            this.regionManager.clearAll();
+            this.regionManager.displayNotes(this.correctedNotes);
+        }
+        this.noteEditor.deselectNote();
+        this.updateAbcPreview();
+        return true;
     }
 
     /**
@@ -503,7 +549,8 @@ export class MelodyExtractor {
                 });
             }
 
-            // Update corrected notes
+            // Update corrected notes (undoable)
+            this.pushUndo();
             this.correctedNotes = parsed.notes;
 
             // Update metadata in UI if available
@@ -628,6 +675,7 @@ export class MelodyExtractor {
 
                 // Load the recorded audio
                 this.audioFile = { name: 'Recording.webm' };
+                this.isRecordedAudio = true;
                 const audioInfo = await this.audioLoader.loadBlob(blob);
                 this.audioBuffer = audioInfo.buffer;
                 this.config.sampleRate = audioInfo.sampleRate;

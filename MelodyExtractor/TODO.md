@@ -1,3 +1,2 @@
-- bar deletion icon on every bar
-- fix bar deletion (currently deletes entire file in piano roll)
--  
+- (bar deletion fixed 2026-07: bars now anchored at first onset and share tempo with ABC settings; delete is undoable with Ctrl+Z)
+- try the AI (Basic Pitch) engine on real recordings and compare with the fast engine

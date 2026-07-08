@@ -149,6 +149,10 @@
                 </div>
 
                 <div class="panel-actions">
+                    <select id="detection-engine" class="input-sm" title="Detection engine">
+                        <option value="fast" selected>Fast (built-in)</option>
+                        <option value="ml">AI model (~9 MB download, slower, more robust)</option>
+                    </select>
                     <button id="btn-run-detection" class="btn btn-primary" disabled>
                         Detect Pitches <span class="arrow">→</span>
                     </button>
@@ -286,6 +290,7 @@
                             <li><strong>Drag</strong> to move/resize</li>
                             <li><strong>↑↓</strong> change pitch</li>
                             <li><strong>Del</strong> remove note</li>
+                            <li><strong>Ctrl+Z</strong> undo edit</li>
                         </ul>
                     </div>
                     <div class="confidence-legend">

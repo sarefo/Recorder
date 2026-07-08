@@ -139,6 +139,17 @@ export class NoteEditor {
             return;
         }
 
+        // Undo (Ctrl+Z / Cmd+Z)
+        if ((e.ctrlKey || e.metaKey) && e.code === 'KeyZ') {
+            e.preventDefault();
+            if (this.app.undo()) {
+                showFeedback('Undone');
+            } else {
+                showFeedback('Nothing to undo');
+            }
+            return;
+        }
+
         const note = this._getSelectedNote();
 
         switch (e.code) {
@@ -409,7 +420,9 @@ export class NoteEditor {
 
         // Clamp to valid range
         newMidi = Math.max(36, Math.min(96, newMidi));
+        if (newMidi === note.midi) return;
 
+        this.app.pushUndo();
         note.midi = newMidi;
         note.noteName = midiToNoteName(newMidi);
         note.userCorrected = true;
@@ -491,6 +504,7 @@ export class NoteEditor {
         const index = this.app.correctedNotes.findIndex(n => n.id === noteId);
         if (index === -1) return;
 
+        this.app.pushUndo();
         this.app.correctedNotes.splice(index, 1);
         this.app.regionManager.removeRegion(noteId);
 
@@ -519,6 +533,7 @@ export class NoteEditor {
         const note = this.app.correctedNotes.find(n => n.id === noteId);
         if (!note || note.duration < 0.05) return;
 
+        this.app.pushUndo();
         const splitTime = note.startTime + note.duration / 2;
         const splitNotes = this.app.noteSegmenter.splitNote(note, splitTime);
 
@@ -548,6 +563,7 @@ export class NoteEditor {
         const index = notes.findIndex(n => n.id === noteId);
         if (index === -1 || index >= notes.length - 1) return;
 
+        this.app.pushUndo();
         const merged = this.app.noteSegmenter.mergeNotes(notes[index], notes[index + 1]);
 
         // Replace both with merged note
@@ -789,6 +805,7 @@ export class NoteEditor {
             return;
         }
 
+        this.app.pushUndo();
         let transposed = 0;
         this.app.correctedNotes.forEach(note => {
             const newMidi = note.midi + semitones;
@@ -990,6 +1007,7 @@ export class NoteEditor {
         const taps = this.retimeTaps;
 
         console.log(`Applying ${taps.length} taps to ${notes.length} notes`);
+        this.app.pushUndo();
 
         // Sort notes by their original start time to maintain pitch order
         notes.sort((a, b) => a.startTime - b.startTime);

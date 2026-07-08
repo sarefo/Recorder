@@ -6,6 +6,11 @@ Standalone web app that extracts melody from audio files and transcribes to ABC 
 
 - URL: http://localhost:8000/Recorder/MelodyExtractor
 - No build step - uses ES modules directly
+- Test harness: http://localhost:8000/Recorder/MelodyExtractor/test/harness.html —
+  synthesizes melodies with known ground truth (repeated notes, vibrato,
+  octave-trap timbres), runs the full pipeline, scores note F1 + rhythm
+  accuracy + tempo estimation. Results in `window.__testResults`.
+  Run it after any change to detection, segmentation or ABC generation.
 
 ## Architecture
 
@@ -27,10 +32,11 @@ Standalone web app that extracts melody from audio files and transcribes to ABC 
     │   └── utils.js              # Shared utilities (single source of truth)
     ├── audio/
     │   ├── audio-loader.js       # File loading, recording, tap detection
-    │   ├── pitch-detector.js     # Essentia.js wrapper
+    │   ├── pitch-detector.js     # Optimized YIN: pitch + confidence + RMS energy per frame
+    │   ├── ml-pitch-detector.js  # Optional Basic Pitch (ML) engine, CDN-loaded on demand
     │   └── synth.js              # Web Audio synth for playback
     ├── analysis/
-    │   └── note-segmenter.js     # Pitch frames → note events
+    │   └── note-segmenter.js     # Median filter, octave fix, energy onsets → note events
     ├── visualization/
     │   ├── waveform-manager.js   # Wavesurfer.js (hidden, for audio playback)
     │   ├── region-manager.js     # Note regions
@@ -82,13 +88,44 @@ Standalone web app that extracts melody from audio files and transcribes to ABC 
 - Tap Right Ctrl during recording to mark note onsets
 - Markers improve segmentation accuracy
 
+## Detection Pipeline
+
+Two engines, selectable in step 1 (`#detection-engine`):
+
+- **Fast (default)**: optimized YIN in `pitch-detector.js` (difference function
+  only up to maxPeriod, ~4x realtime) producing per-frame pitch/confidence/RMS.
+  `note-segmenter.js` then median-filters the pitch track, corrects octave
+  jumps against local context, detects energy onsets (this is what splits
+  repeated same-pitch notes), and segments with hysteresis so vibrato and
+  short dropouts don't split notes. Tap markers use this path.
+- **AI (Basic Pitch)**: `ml-pitch-detector.js` lazy-loads Spotify Basic Pitch
+  from esm.sh/unpkg (~9 MB), resamples to 22050 Hz, and reduces the
+  polyphonic output to a melody line (drops overlapping harmonics).
+
+## Rhythm Quantization (abc-generator.js)
+
+Onsets are snapped independently to a 16th-note grid anchored at the FIRST
+NOTE ONSET (never per-duration accumulation - that drifts). Articulation
+gaps ≤1 grid unit or <25% of note spacing are absorbed into the note;
+larger gaps become rests. `estimateTempo()` scores candidate BPMs from the
+median inter-onset interval against all onsets. The piano roll reads tempo
+and meter live from `#abc-tempo` / `#abc-meter` and anchors its bar grid at
+the same first onset, so piano-roll bars correspond 1:1 to ABC measures.
+
+## Undo
+
+`app.pushUndo()` snapshots `correctedNotes` before every destructive edit
+(note delete/split/merge/drag, pitch change, transpose, re-time, bar
+add/delete, ABC parse). Ctrl+Z calls `app.undo()`. When adding new editing
+operations, call `pushUndo()` BEFORE the first mutation.
+
 ## Libraries (CDN)
 
 | Library | Purpose |
 |---------|---------|
-| Essentia.js | Pitch detection (PitchYinProbabilistic) |
 | Wavesurfer.js 7.x | Audio playback (hidden) |
 | ABCJS 6.4.4 | ABC notation rendering and synth |
+| @spotify/basic-pitch 1.0.1 | Optional ML transcription (lazy-loaded) |
 
 ## Utility Functions (utils.js)
 
@@ -119,8 +156,9 @@ Handles note selection and editing:
 
 ### PianoRoll (piano-roll.js)
 Interactive visualization:
-- `snapEnabled`, `gridTempo`, `gridDivision` - Grid settings
-- `_snapToGrid(time)` - Snap time to nearest grid line
+- `snapEnabled`, `gridDivision` - Grid settings; tempo/meter are read live
+  from the Music Settings inputs via `_getTempo()` / `_getMeter()`
+- `_snapToGrid(time)` - Snap time to nearest grid line (anchored at first onset)
 - Handles drag to move/resize with snap support
 
 ## Note Object Structure

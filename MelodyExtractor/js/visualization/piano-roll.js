@@ -2,7 +2,7 @@
  * PianoRoll - Interactive piano roll visualization for note editing
  */
 
-import { midiToNoteName, getConfidenceColor } from '../core/utils.js';
+import { midiToNoteName, getConfidenceColor, showFeedback } from '../core/utils.js';
 import { Spectrogram } from './spectrogram.js';
 
 export class PianoRoll {
@@ -33,10 +33,11 @@ export class PianoRoll {
         this.dragStartY = 0;
         this.originalNote = null;
 
-        // Grid settings
+        // Grid settings. Tempo and meter are always read live from the
+        // Music Settings inputs (single source of truth shared with the
+        // ABC generator) - see _getTempo() / _getMeter().
         this.snapEnabled = true;
-        this.gridTempo = 120;
-        this.gridDivision = 4; // beats per bar
+        this.gridDivision = 4; // grid subdivision (4 = quarter notes)
 
         // Bar management buttons
         this.deleteButtons = []; // Array of {x, y, width, height, barStartTime, barEndTime}
@@ -106,17 +107,11 @@ export class PianoRoll {
         }
 
         if (tempoInput) {
-            tempoInput.addEventListener('change', () => {
-                this.gridTempo = parseInt(tempoInput.value) || 120;
-                this.render();
-            });
+            tempoInput.addEventListener('change', () => this.render());
         }
 
         if (meterSelect) {
-            meterSelect.addEventListener('change', () => {
-                // Meter change doesn't affect grid rendering, just stored for reference
-                this.render();
-            });
+            meterSelect.addEventListener('change', () => this.render());
         }
 
         if (divisionSelect) {
@@ -320,18 +315,18 @@ export class PianoRoll {
         }
 
         // Calculate beat timing
-        const beatDuration = 60 / this.gridTempo; // seconds per beat
+        const beatDuration = 60 / this._getTempo(); // seconds per beat
         const divisionDuration = beatDuration / (this.gridDivision / 4); // seconds per grid line
+        const beatsPerMeasure = this._getMeter().beats;
 
         if (this.snapEnabled) {
-            // Draw beat grid lines
-            let gridTime = 0;
+            // Draw beat grid lines, anchored at the first note onset
+            let gridTime = this._getGridAnchor();
             let beatCount = 0;
 
             while (gridTime <= this.duration) {
                 const x = this._timeToX(gridTime);
-                const isMeasureLine = beatCount % 4 === 0;
-                const isBeatLine = beatCount % 1 === 0;
+                const isMeasureLine = beatCount % beatsPerMeasure === 0;
 
                 if (isMeasureLine) {
                     // Measure lines (every 4 beats in 4/4) - thick purple
@@ -382,15 +377,45 @@ export class PianoRoll {
     }
 
     /**
+     * Current tempo, read live from the shared Music Settings input
+     * @returns {number} BPM
+     */
+    _getTempo() {
+        const tempoInput = document.getElementById('abc-tempo');
+        return (tempoInput && parseInt(tempoInput.value)) || 120;
+    }
+
+    /**
+     * Current meter, read live from the shared Music Settings select
+     * @returns {{beats: number, unit: number}}
+     */
+    _getMeter() {
+        const meterSelect = document.getElementById('abc-meter');
+        const meter = meterSelect ? meterSelect.value : '4/4';
+        const [beats, unit] = meter.split('/').map(Number);
+        return { beats: beats || 4, unit: unit || 4 };
+    }
+
+    /**
+     * Time of the first note onset - the beat grid and the ABC generator's
+     * quantization are both anchored here, so piano-roll bars correspond
+     * exactly to ABC measures.
+     * @returns {number} Anchor time in seconds
+     */
+    _getGridAnchor() {
+        if (!this.notes || this.notes.length === 0) return 0;
+        return Math.min(...this.notes.map(n => n.startTime));
+    }
+
+    /**
      * Get measure duration based on current tempo and meter
      * @returns {number} Measure duration in seconds
      */
     _getMeasureDuration() {
-        const meterSelect = document.getElementById('abc-meter');
-        const meter = meterSelect ? meterSelect.value : '4/4';
-        const beatsPerMeasure = parseInt(meter.split('/')[0]);
-        const beatDuration = 60 / this.gridTempo;
-        return beatDuration * beatsPerMeasure;
+        const meter = this._getMeter();
+        const beatDuration = 60 / this._getTempo();
+        // A beat here is a quarter note; scale for the meter's unit
+        return beatDuration * meter.beats * (4 / meter.unit);
     }
 
     /**
@@ -403,8 +428,9 @@ export class PianoRoll {
 
         const measureDuration = this._getMeasureDuration();
 
-        // Calculate measure boundaries
-        let measureTime = 0;
+        // Calculate measure boundaries, anchored at the first note onset
+        // (same anchor as the ABC generator's quantization grid)
+        let measureTime = this._getGridAnchor();
         let measureIndex = 0;
         const buttonSize = 16;
         const buttonY = 4;
@@ -524,12 +550,12 @@ export class PianoRoll {
      * @returns {number} Grid interval in seconds
      */
     _getGridInterval() {
-        const beatDuration = 60 / this.gridTempo;
+        const beatDuration = 60 / this._getTempo();
         return beatDuration / (this.gridDivision / 4);
     }
 
     /**
-     * Snap a time value to the nearest grid line
+     * Snap a time value to the nearest grid line (grid anchored at first onset)
      * @param {number} time - Time in seconds
      * @returns {number} Snapped time
      */
@@ -537,7 +563,8 @@ export class PianoRoll {
         if (!this.snapEnabled) return time;
 
         const interval = this._getGridInterval();
-        return Math.round(time / interval) * interval;
+        const anchor = this._getGridAnchor();
+        return anchor + Math.round((time - anchor) / interval) * interval;
     }
 
     /**
@@ -779,6 +806,12 @@ export class PianoRoll {
         const noteToUpdate = this.app.correctedNotes.find(n => n.id === this.dragNote.id);
         if (!noteToUpdate) return;
 
+        // First actual mutation of this drag: snapshot for undo
+        if (!this.dragUndoPushed) {
+            this.app.pushUndo();
+            this.dragUndoPushed = true;
+        }
+
         switch (this.dragType) {
             case 'move':
                 // Move both start and end time
@@ -858,6 +891,7 @@ export class PianoRoll {
         this.dragNote = null;
         this.dragType = null;
         this.originalNote = null;
+        this.dragUndoPushed = false;
         this.canvas.style.cursor = 'default';
     }
 
@@ -895,6 +929,7 @@ export class PianoRoll {
      */
     _addBar(insertTime, measureIndex, isEndButton = false) {
         const measureDuration = this._getMeasureDuration();
+        this.app.pushUndo();
 
         if (isEndButton) {
             // Just extend duration, no notes to shift
@@ -940,14 +975,8 @@ export class PianoRoll {
             note.startTime >= barStartTime && note.startTime < barEndTime
         );
 
-        // Confirm deletion
-        const noteInfo = notesInBar.length > 0
-            ? ` (${notesInBar.length} note${notesInBar.length > 1 ? 's' : ''} will be deleted)`
-            : ' (empty bar)';
-
-        if (!confirm(`Delete bar ${measureIndex + 1}${noteInfo}? Notes after this bar will shift left.`)) {
-            return;
-        }
+        // No blocking confirm dialog - the action is undoable with Ctrl+Z
+        this.app.pushUndo();
 
         // Remove notes in the bar
         this.app.correctedNotes = this.app.correctedNotes.filter(note =>
@@ -984,6 +1013,10 @@ export class PianoRoll {
             this.app.updateAbcPreview();
         }
 
+        const noteInfo = notesInBar.length > 0
+            ? ` (${notesInBar.length} note${notesInBar.length > 1 ? 's' : ''} removed)`
+            : '';
+        showFeedback(`Deleted bar ${measureIndex + 1}${noteInfo} — Ctrl+Z to undo`, 3000);
         console.log(`Deleted bar ${measureIndex + 1}, duration now ${this.duration.toFixed(2)}s`);
     }
 
