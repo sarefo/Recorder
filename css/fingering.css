@@ -162,6 +162,20 @@ section .fingering-diagram {
     transition: background-color var(--motion-base) var(--ease-standard);
 }
 
+/* Long-press playback anchor: fresh starts play from this note */
+.note-marker-zone[data-anchor="true"]::before {
+    content: '▶';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    line-height: 1;
+    color: var(--color-primary-active);
+    text-shadow: 0 0 3px rgba(66, 133, 244, 0.5);
+    pointer-events: none;
+}
+
 /* Mark states */
 .note-marker-zone[data-state="red"]::after {
     background-color: rgba(255, 0, 0, 0.6);

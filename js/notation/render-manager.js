@@ -7,6 +7,12 @@ class RenderManager {
     constructor(player) {
         this.player = player;
         this.currentVisualObj = null;
+
+        // Long-press playback anchor: fresh starts (play after stop or song
+        // end, restart) begin at this note instead of the top. Kept while the
+        // same tune stays open, cleared when another tune loads.
+        this.anchorNoteIndex = null;
+        this.anchorTuneId = null;
     }
 
     /**
@@ -20,6 +26,14 @@ class RenderManager {
             // Render the ABC notation first to get the visual object
             this.currentVisualObj = this.renderAbcNotation();
 
+            // A different tune invalidates the long-press playback anchor
+            // (re-renders of the same tune — resize, transpose — keep it)
+            const tuneId = `${this.player.tuneManager?.currentTuneIndex ?? 0}:${this.currentVisualObj?.metaText?.title || ''}`;
+            if (tuneId !== this.anchorTuneId) {
+                this.anchorNoteIndex = null;
+                this.anchorTuneId = tuneId;
+            }
+
             // Initialize MIDI player
             this.player.midiPlayer.init(this.currentVisualObj);
 
@@ -32,6 +46,9 @@ class RenderManager {
                 if (this.player.fingeringManager.fingeringDisplayMode !== 'off') {
                     this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
                 }
+
+                // Marker zones were rebuilt; re-show the playback anchor
+                this.applyAnchorMarker();
             }, RenderManager.RENDER_DELAY);
 
             // Update URL for sharing
@@ -152,8 +169,42 @@ class RenderManager {
         const selectable = this.currentVisualObj?.engraver?.selectables?.[noteIndex];
         const abcElem = selectable?.absEl?.abcelem;
         if (abcElem) {
+            this.setPlaybackAnchor(noteIndex);
             this.handleNoteClick(abcElem);
         }
+    }
+
+    /**
+     * Remembers a note as the playback anchor and marks it in the score
+     * @param {number} noteIndex - Index into the engraver's selectables
+     */
+    setPlaybackAnchor(noteIndex) {
+        this.anchorNoteIndex = noteIndex;
+        this.applyAnchorMarker();
+    }
+
+    /**
+     * Shows the anchor marker on the matching note marker zone
+     * (safe to call after zones were rebuilt)
+     */
+    applyAnchorMarker() {
+        document.querySelectorAll('.note-marker-zone[data-anchor]')
+            .forEach(zone => zone.removeAttribute('data-anchor'));
+        if (this.anchorNoteIndex === null) return;
+        const zone = document.querySelector(`.note-marker-zone[data-note-index="${this.anchorNoteIndex}"]`);
+        if (zone) {
+            zone.setAttribute('data-anchor', 'true');
+        }
+    }
+
+    /**
+     * Resolves the anchor note to its playback start time
+     * @returns {number|undefined} Start time in ms, or undefined if no anchor
+     */
+    getAnchorStartMs() {
+        if (this.anchorNoteIndex === null) return undefined;
+        const abcElem = this.currentVisualObj?.engraver?.selectables?.[this.anchorNoteIndex]?.absEl?.abcelem;
+        return abcElem ? this.getNoteStartTime(abcElem) : undefined;
     }
 
     /**
@@ -163,13 +214,24 @@ class RenderManager {
     playFromPosition(startMs) {
         const midiPlayer = this.player.midiPlayer;
 
-        // Stop current playback if playing
-        if (midiPlayer.isPlaying) {
+        // Take over playback: abort any in-flight start (preparation delay or
+        // count-in) and silence whatever is sounding so sources never stack
+        midiPlayer.interruptPendingStart();
+        const session = midiPlayer.playSession;
+        try {
             midiPlayer.midiPlayer.stop();
+        } catch (e) {
+            // stop() before the synth ever started is safe to ignore
         }
 
         // Start from this position
         setTimeout(() => {
+            // Abort if another play/pause action took over in the meantime
+            if (session !== midiPlayer.playSession) return;
+            if (midiPlayer.midiPlayer.isRunning) {
+                midiPlayer.midiPlayer.stop();
+            }
+
             // seek() defaults to percent (0-1); pass seconds explicitly
             midiPlayer.midiPlayer.seek(startMs / 1000, "seconds");
             midiPlayer.midiPlayer.start();

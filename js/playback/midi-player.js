@@ -33,6 +33,11 @@ class MidiPlayer {
         // re-initializing on resume would reset the paused position to 0.
         this.synthInitialized = false;
 
+        // Monotonic token identifying the latest play/pause/seek action. A start
+        // attempt records the token before its awaits (prep delay, count-in) and
+        // aborts if a newer action bumped it, so two starts can never overlap.
+        this.playSession = 0;
+
         // Track whether this is the first play (for count-in bar)
         // First play always gets count-in, loop repeats don't
         this.isFirstPlay = true;
@@ -90,6 +95,19 @@ class MidiPlayer {
         this.midiPlayer = new ABCJS.synth.CreateSynth();
         this.synthInitialized = false;
         return this.midiPlayer;
+    }
+
+    /**
+     * Invalidates any in-flight start attempt (preparation delay or count-in)
+     * so a seek or other takeover can start playback cleanly.
+     */
+    interruptPendingStart() {
+        this.playSession++;
+        if (this.preparationTimeout) {
+            clearTimeout(this.preparationTimeout);
+            this.preparationTimeout = null;
+        }
+        this.isPreparingToPlay = false;
     }
 
     /**
@@ -412,6 +430,9 @@ class MidiPlayer {
      */
     async pausePlayback() {
         try {
+            // Invalidate any in-flight start attempt
+            this.playSession++;
+
             await this.midiPlayer.pause();
 
             // Pause auto-scroll
@@ -433,10 +454,26 @@ class MidiPlayer {
      */
     async startPlayback() {
         try {
+            // Record this attempt; any later play/pause/seek action bumps the
+            // session and makes this attempt abort instead of double-starting
+            const session = ++this.playSession;
+
             // Get the current visual object to calculate tempo and time signature
             const visualObj = window.app?.renderManager?.currentVisualObj;
             let adjustedTempo = this.lastTempo;
             let numerator = this.lastTimeSignature;
+
+            // Decide the start position BEFORE touching the synth: resuming a
+            // pause keeps the synth's own paused position; a fresh start begins
+            // at the long-press anchor when one is set
+            const isResume = this.midiPlayer.pausedTimeSec !== undefined && this.midiPlayer.pausedTimeSec !== null;
+            let startFromSec = 0;
+            if (!isResume) {
+                const anchorMs = window.app?.renderManager?.getAnchorStartMs?.();
+                if (typeof anchorMs === 'number' && !isNaN(anchorMs)) {
+                    startFromSec = anchorMs / 1000;
+                }
+            }
 
             if (visualObj && typeof visualObj.getBpm === 'function') {
                 // Calculate the correct tempo directly from the current piece
@@ -455,6 +492,11 @@ class MidiPlayer {
 
             // ALWAYS start metronome for count-in bar (even if metronomeOn is false)
             if (!this.customMetronome.isPlaying && this.isFirstPlay) {
+                // The count-in is part of "preparing": another play press
+                // during it cancels this start (see togglePlay)
+                this.isPreparingToPlay = true;
+                this.updatePlayButtonState();
+
                 await this.customMetronome.start(adjustedTempo, numerator);
 
                 // Calculate duration of one measure for count-in
@@ -463,6 +505,16 @@ class MidiPlayer {
 
                 // Wait for count-in bar to complete
                 await new Promise(resolve => setTimeout(resolve, countInDuration));
+
+                // Abort if canceled or superseded during the count-in
+                if (session !== this.playSession) {
+                    this.isPreparingToPlay = false;
+                    if (!this.playbackSettings.metronomeOn) {
+                        this.customMetronome.stop();
+                    }
+                    return false;
+                }
+                this.isPreparingToPlay = false;
 
                 // After count-in, stop metronome if metronomeOn is false
                 if (!this.playbackSettings.metronomeOn) {
@@ -477,12 +529,33 @@ class MidiPlayer {
                 await this.customMetronome.start(adjustedTempo, numerator);
             }
 
+            // Abort if another action superseded this start while waiting
+            if (session !== this.playSession) {
+                return false;
+            }
+
+            // Never layer a second audio source over a running one (isRunning
+            // also stays true after a natural end, where stop() is harmless)
+            if (this.midiPlayer.isRunning) {
+                this.midiPlayer.stop();
+            }
+
+            // Fresh start at the anchor: position the synth before starting
+            if (!isResume && startFromSec > 0) {
+                this.midiPlayer.seek(startFromSec, "seconds");
+            }
+
             // Start MIDI player after count-in
             await this.midiPlayer.start();
 
             // Start timing callbacks for note highlighting (always) and auto-scroll (mobile only)
             if (this.autoScrollManager) {
                 this.autoScrollManager.start();
+                // On a fresh start, align highlighting with the actual position
+                // (resume keeps the timing callbacks' own paused position)
+                if (!isResume && this.autoScrollManager.timingCallbacks) {
+                    this.autoScrollManager.timingCallbacks.setProgress(startFromSec, "seconds");
+                }
             }
 
             this.updateStatusDisplay("Playing");
@@ -513,14 +586,21 @@ class MidiPlayer {
                 !this.playbackSettings.chordsOn &&
                 !this.playbackSettings.voicesOn;
 
-            // Handle canceling preparation if button is pressed during delay
+            // Handle canceling if the button is pressed during the preparation
+            // delay or the count-in bar
             if (this.isPreparingToPlay) {
+                // Abort the in-flight start attempt (see startPlayback)
+                this.playSession++;
                 // Cancel the preparation timeout
                 if (this.preparationTimeout) {
                     clearTimeout(this.preparationTimeout);
                     this.preparationTimeout = null;
                 }
                 this.isPreparingToPlay = false;
+                // Silence a count-in that is already ticking
+                if (this.customMetronome.isPlaying && !this.customMetronome.isConstantMode()) {
+                    this.customMetronome.stop();
+                }
                 this.updatePlayButtonState();
                 this.updateStatusDisplay("Playback canceled");
                 return true;
@@ -644,6 +724,9 @@ class MidiPlayer {
      */
     async stopPlayback() {
         try {
+            // Invalidate any in-flight start attempt
+            this.playSession++;
+
             // Cancel any pending preparation
             if (this.isPreparingToPlay) {
                 if (this.preparationTimeout) {
@@ -738,6 +821,20 @@ class MidiPlayer {
      * @private
      */
     _handlePlaybackEnded() {
+        // abcjs fires onEnded whenever the audio source stops — including our
+        // own pause(), stop() and seek() calls, not just the natural end of the
+        // song. Reacting to those (e.g. loop restarting after a pause) is how
+        // overlapping playback used to happen. Only proceed when playback
+        // actually reached the end of the tune.
+        const synth = this.midiPlayer;
+        if (synth && this.audioContext &&
+            typeof synth.duration === 'number' && typeof synth.startTimeSec === 'number') {
+            const elapsed = this.audioContext.currentTime - synth.startTimeSec;
+            if (elapsed < synth.duration - 0.5) {
+                return;
+            }
+        }
+
         // Prevent multiple simultaneous callbacks
         if (this.onEndedCallbackActive || !this.isPlaying) {
             return;
@@ -785,11 +882,22 @@ class MidiPlayer {
 
                 // Simply stop (resets to beginning) and start again - no re-priming needed
                 this.midiPlayer.stop();
+
+                // Loop back to the long-press anchor when one is set
+                const anchorMs = window.app?.renderManager?.getAnchorStartMs?.();
+                const anchorSec = (typeof anchorMs === 'number' && !isNaN(anchorMs) && anchorMs > 0)
+                    ? anchorMs / 1000 : 0;
+                if (anchorSec > 0) {
+                    this.midiPlayer.seek(anchorSec, "seconds");
+                }
                 this.midiPlayer.start();
 
-                // Restart auto-scroll timing
+                // Restart auto-scroll timing at the same position
                 if (this.autoScrollManager) {
                     this.autoScrollManager.start();
+                    if (this.autoScrollManager.timingCallbacks) {
+                        this.autoScrollManager.timingCallbacks.setProgress(anchorSec, "seconds");
+                    }
                 }
 
                 this.isPlaying = true;
