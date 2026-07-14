@@ -77,6 +77,11 @@ class RenderManager {
             oneSvgPerLine: this.player.renderConfig.oneSvgPerLine,
             scale: this.player.renderConfig.scale,
             clickListener: clickListener,
+            // abcjs paints the clicked element (note + attached chord symbol) with
+            // selectionColor and leaves it that way; the default is #ff0000, which
+            // showed up as "random" red notes after tap-to-seek. currentColor makes
+            // the selection invisible while keeping the clickListener working.
+            selectionColor: "currentColor",
             dragging: false,   // Disable all drag functionality - notes should never be draggable
             footer: false,
             footerPadding: 0,
@@ -110,11 +115,6 @@ class RenderManager {
             return;
         }
 
-        // Check if we're on mobile and this might be a scroll attempt
-        if (this.player.isMobile) {
-            // Additional check could go here if needed
-        }
-
         // Find the start milliseconds for this note
         const startMs = this.getNoteStartTime(abcElem);
         if (startMs === undefined) {
@@ -131,7 +131,16 @@ class RenderManager {
      * @returns {number} The start time in milliseconds
      */
     getNoteStartTime(abcElem) {
-        return abcElem.currentTrackMilliseconds || abcElem.midiStartTime * 1000;
+        // For notes inside repeats, abcjs stores an array of occurrence times;
+        // seek to the first occurrence.
+        let ms = abcElem.currentTrackMilliseconds;
+        if (Array.isArray(ms)) {
+            ms = ms[0];
+        }
+        if (typeof ms !== 'number' && typeof abcElem.midiStartTime === 'number') {
+            ms = abcElem.midiStartTime * 1000;
+        }
+        return typeof ms === 'number' && !isNaN(ms) ? ms : undefined;
     }
 
     /**
@@ -146,10 +155,11 @@ class RenderManager {
 
         // Start from this position
         setTimeout(() => {
-            this.player.midiPlayer.midiPlayer.seek(startMs);
+            // seek() defaults to percent (0-1); pass seconds explicitly
+            this.player.midiPlayer.midiPlayer.seek(startMs / 1000, "seconds");
             this.player.midiPlayer.midiPlayer.start();
             this.player.midiPlayer.isPlaying = true;
-            document.getElementById('play-button').textContent = '⏸';
+            this.player.midiPlayer.updatePlayButtonState();
         }, RenderManager.RENDER_DELAY);
     }
 
