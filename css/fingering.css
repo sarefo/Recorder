@@ -48,6 +48,11 @@ section .fingering-diagram {
     pointer-events: auto;
     cursor: pointer;
     transition: background-color var(--motion-base) var(--ease-standard);
+    /* Diagrams support long-press (playback anchor), so suppress
+       text selection / touch callout on press-and-hold */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .fingering-diagram-container.clickable:hover {

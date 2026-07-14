@@ -53,6 +53,7 @@ class MidiPlayer {
         this.isPreparingToPlay = false;
         this.preparationTimeout = null;
         this.preparationDelayMs = 2000; // 2-second delay before playback starts
+        this.resumeDelayMs = 300; // resuming a pause needs only a short buffer
     }
 
     /**
@@ -635,14 +636,20 @@ class MidiPlayer {
                     }
                 }
             } else {
+                // Resuming a pause skips the long preparation wait — the player
+                // is already set up and "in the groove"
+                const isResume = !!this.midiPlayer &&
+                    this.midiPlayer.pausedTimeSec !== undefined && this.midiPlayer.pausedTimeSec !== null;
+                const prepDelayMs = isResume ? this.resumeDelayMs : this.preparationDelayMs;
+
                 // Set preparing state and update UI
                 this.isPreparingToPlay = true;
                 this.updatePlayButtonState();
-                this.updateStatusDisplay("Preparing to play...");
+                this.updateStatusDisplay(isResume ? "Resuming..." : "Preparing to play...");
 
-                // Wait for 2 seconds before starting playback
+                // Wait before starting playback
                 await new Promise((resolve) => {
-                    this.preparationTimeout = setTimeout(resolve, this.preparationDelayMs);
+                    this.preparationTimeout = setTimeout(resolve, prepDelayMs);
                 });
 
                 // Check if preparation was canceled during the delay

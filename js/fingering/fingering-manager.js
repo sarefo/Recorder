@@ -191,16 +191,13 @@ class FingeringManager {
     }
 
     /**
-     * Adds click behavior to cycle through states for a diagram
+     * Adds tap/long-press behavior to a diagram. Diagrams can overlap the
+     * note marker zones, so they must support the same gestures.
      * @param {HTMLElement} diagram - The diagram element
      * @private
      */
     _addClickBehavior(diagram) {
-        diagram.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const noteIndex = diagram.getAttribute('data-note-index');
-            this._updateCoupledState(noteIndex, diagram);
-        });
+        this._addNoteInteraction(diagram);
     }
 
     /**
@@ -221,13 +218,24 @@ class FingeringManager {
     }
 
     /**
-     * Adds interaction behavior to a marker zone:
-     * - tap/click cycles the red/green marking state
-     * - long-press starts playback from that note
+     * Adds interaction behavior to a marker zone
      * @param {HTMLElement} markerZone - The marker zone element
      * @private
      */
     _addMarkerClickBehavior(markerZone) {
+        this._addNoteInteraction(markerZone);
+    }
+
+    /**
+     * Adds the shared note interaction to an element carrying data-note-index
+     * (marker zones and fingering diagrams):
+     * - tap/click cycles the red/green marking state
+     * - long-press sets/unpins the playback anchor and plays from that note
+     * @param {HTMLElement} element - The interactive element
+     * @private
+     */
+    _addNoteInteraction(element) {
+        const markerZone = element;
         const LONG_PRESS_MS = 500;
         const MOVE_TOLERANCE_PX = 10;
         let pressTimer = null;
