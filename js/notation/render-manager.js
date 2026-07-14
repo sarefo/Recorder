@@ -8,9 +8,10 @@ class RenderManager {
         this.player = player;
         this.currentVisualObj = null;
 
-        // Long-press playback anchor: fresh starts (play after stop or song
-        // end, restart) begin at this note instead of the top. Kept while the
-        // same tune stays open, cleared when another tune loads.
+        // Long-press playback anchor: while set, pressing play always starts
+        // at this note (practice mode) — overriding the pause position and
+        // fresh starts alike. Long-press the same note again to unpin it.
+        // Kept while the same tune stays open, cleared when another tune loads.
         this.anchorNoteIndex = null;
         this.anchorTuneId = null;
     }
@@ -169,7 +170,14 @@ class RenderManager {
         const selectable = this.currentVisualObj?.engraver?.selectables?.[noteIndex];
         const abcElem = selectable?.absEl?.abcelem;
         if (abcElem) {
-            this.setPlaybackAnchor(noteIndex);
+            if (this.anchorNoteIndex === noteIndex) {
+                // Long-press on the anchored note unpins it (this one still
+                // plays from there; afterwards pause/resume behaves normally)
+                this.anchorNoteIndex = null;
+                this.applyAnchorMarker();
+            } else {
+                this.setPlaybackAnchor(noteIndex);
+            }
             this.handleNoteClick(abcElem);
         }
     }

@@ -463,17 +463,15 @@ class MidiPlayer {
             let adjustedTempo = this.lastTempo;
             let numerator = this.lastTimeSignature;
 
-            // Decide the start position BEFORE touching the synth: resuming a
-            // pause keeps the synth's own paused position; a fresh start begins
-            // at the long-press anchor when one is set
-            const isResume = this.midiPlayer.pausedTimeSec !== undefined && this.midiPlayer.pausedTimeSec !== null;
-            let startFromSec = 0;
-            if (!isResume) {
-                const anchorMs = window.app?.renderManager?.getAnchorStartMs?.();
-                if (typeof anchorMs === 'number' && !isNaN(anchorMs)) {
-                    startFromSec = anchorMs / 1000;
-                }
-            }
+            // Decide the start position BEFORE touching the synth. The
+            // long-press anchor wins: while one is set, play always restarts
+            // there (practice mode). Without an anchor, a paused synth resumes
+            // at its own position and a fresh start begins at the top.
+            const anchorMs = window.app?.renderManager?.getAnchorStartMs?.();
+            const hasAnchor = typeof anchorMs === 'number' && !isNaN(anchorMs);
+            const isResume = !hasAnchor &&
+                this.midiPlayer.pausedTimeSec !== undefined && this.midiPlayer.pausedTimeSec !== null;
+            const startFromSec = hasAnchor ? anchorMs / 1000 : 0;
 
             if (visualObj && typeof visualObj.getBpm === 'function') {
                 // Calculate the correct tempo directly from the current piece
@@ -540,8 +538,9 @@ class MidiPlayer {
                 this.midiPlayer.stop();
             }
 
-            // Fresh start at the anchor: position the synth before starting
-            if (!isResume && startFromSec > 0) {
+            // Position the synth unless resuming a pause. The explicit seek
+            // also clears a stale paused position when the anchor overrides it
+            if (!isResume) {
                 this.midiPlayer.seek(startFromSec, "seconds");
             }
 
