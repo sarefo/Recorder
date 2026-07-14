@@ -8,11 +8,15 @@ class RenderManager {
         this.player = player;
         this.currentVisualObj = null;
 
-        // Long-press playback anchor: fresh starts (play after stop or song
-        // end, restart) and loop wrap-arounds begin at this note — without a
-        // count-in bar. Pause/resume keeps its own position. Long-press the
-        // same note again to unpin. Cleared when another tune loads.
+        // Long-press playback anchors. Start anchor (blue arrow): fresh starts
+        // (play after stop or song end, restart) and loop wrap-arounds begin at
+        // this note — without a count-in bar. Pause/resume keeps its own
+        // position. End anchor (orange arrow): playback stops there (or wraps
+        // to the start anchor in loop mode), forming an A-B practice region.
+        // Long-press an existing arrow to remove it; long-press elsewhere with
+        // a start anchor set opens a start-or-end choice. Cleared on tune load.
         this.anchorNoteIndex = null;
+        this.anchorEndNoteIndex = null;
         this.anchorTuneId = null;
     }
 
@@ -32,6 +36,7 @@ class RenderManager {
             const tuneId = `${this.player.tuneManager?.currentTuneIndex ?? 0}:${this.currentVisualObj?.metaText?.title || ''}`;
             if (tuneId !== this.anchorTuneId) {
                 this.anchorNoteIndex = null;
+                this.anchorEndNoteIndex = null;
                 this.anchorTuneId = tuneId;
             }
 
@@ -166,53 +171,180 @@ class RenderManager {
      * (used by the long-press gesture on note marker zones)
      * @param {number} noteIndex - Index into the engraver's selectables
      */
+    /**
+     * Handles a long-press on a note (via marker zone or fingering diagram):
+     * - no start anchor yet: set it there and play from it
+     * - on the start anchor: remove both anchors (and play from there)
+     * - on the end anchor: remove just the end anchor
+     * - elsewhere: ask whether to move the start or set the end
+     * @param {number} noteIndex - Index into the engraver's selectables
+     */
+    handleNoteLongPress(noteIndex) {
+        this.dismissAnchorChoice();
+
+        if (this.anchorNoteIndex === null) {
+            this.setPlaybackAnchor(noteIndex);
+            this.playFromNoteIndex(noteIndex);
+        } else if (noteIndex === this.anchorNoteIndex) {
+            // Unpin (this press still plays from there; afterwards
+            // pause/resume behaves normally)
+            this.anchorNoteIndex = null;
+            this.anchorEndNoteIndex = null;
+            this.applyAnchorMarker();
+            this.playFromNoteIndex(noteIndex);
+        } else if (noteIndex === this.anchorEndNoteIndex) {
+            this.anchorEndNoteIndex = null;
+            this.applyAnchorMarker();
+        } else {
+            this.showAnchorChoice(noteIndex);
+        }
+    }
+
+    /**
+     * Plays from a specific note, identified by its abcjs data-index
+     * @param {number} noteIndex - Index into the engraver's selectables
+     */
     playFromNoteIndex(noteIndex) {
         const selectable = this.currentVisualObj?.engraver?.selectables?.[noteIndex];
         const abcElem = selectable?.absEl?.abcelem;
         if (abcElem) {
-            if (this.anchorNoteIndex === noteIndex) {
-                // Long-press on the anchored note unpins it (this one still
-                // plays from there; afterwards pause/resume behaves normally)
-                this.anchorNoteIndex = null;
-                this.applyAnchorMarker();
-            } else {
-                this.setPlaybackAnchor(noteIndex);
-            }
             this.handleNoteClick(abcElem);
         }
     }
 
     /**
-     * Remembers a note as the playback anchor and marks it in the score
+     * Remembers a note as the playback start anchor and marks it in the score
      * @param {number} noteIndex - Index into the engraver's selectables
      */
     setPlaybackAnchor(noteIndex) {
         this.anchorNoteIndex = noteIndex;
+        // An end anchor at or before the start makes no sense
+        if (this.anchorEndNoteIndex !== null && this.anchorEndNoteIndex <= noteIndex) {
+            this.anchorEndNoteIndex = null;
+        }
         this.applyAnchorMarker();
     }
 
     /**
-     * Shows the anchor marker on the matching note marker zone
+     * Remembers a note as the playback end anchor (A-B region)
+     * @param {number} noteIndex - Index into the engraver's selectables
+     */
+    setPlaybackAnchorEnd(noteIndex) {
+        if (noteIndex <= this.anchorNoteIndex) {
+            // End before the start: swap so the region stays ordered
+            this.anchorEndNoteIndex = this.anchorNoteIndex;
+            this.anchorNoteIndex = noteIndex;
+        } else {
+            this.anchorEndNoteIndex = noteIndex;
+        }
+        this.applyAnchorMarker();
+    }
+
+    /**
+     * Shows the anchor markers on the matching note marker zones
      * (safe to call after zones were rebuilt)
      */
     applyAnchorMarker() {
         document.querySelectorAll('.note-marker-zone[data-anchor]')
             .forEach(zone => zone.removeAttribute('data-anchor'));
-        if (this.anchorNoteIndex === null) return;
-        const zone = document.querySelector(`.note-marker-zone[data-note-index="${this.anchorNoteIndex}"]`);
-        if (zone) {
-            zone.setAttribute('data-anchor', 'true');
-        }
+        const mark = (noteIndex, kind) => {
+            const zone = document.querySelector(`.note-marker-zone[data-note-index="${noteIndex}"]`);
+            if (zone) zone.setAttribute('data-anchor', kind);
+        };
+        if (this.anchorNoteIndex !== null) mark(this.anchorNoteIndex, 'start');
+        if (this.anchorEndNoteIndex !== null) mark(this.anchorEndNoteIndex, 'end');
     }
 
     /**
-     * Resolves the anchor note to its playback start time
+     * Resolves the start anchor note to its playback start time
      * @returns {number|undefined} Start time in ms, or undefined if no anchor
      */
     getAnchorStartMs() {
-        if (this.anchorNoteIndex === null) return undefined;
-        const abcElem = this.currentVisualObj?.engraver?.selectables?.[this.anchorNoteIndex]?.absEl?.abcelem;
+        return this.getNoteStartMsByIndex(this.anchorNoteIndex);
+    }
+
+    /**
+     * Resolves the end anchor note to its playback start time. Playback that
+     * passes this moment has finished the end note (the next event marks it).
+     * @returns {number|undefined} Start time in ms, or undefined if no end anchor
+     */
+    getAnchorEndMs() {
+        return this.getNoteStartMsByIndex(this.anchorEndNoteIndex);
+    }
+
+    /**
+     * Resolves a selectable index to that note's playback start time
+     * @param {number|null} noteIndex - Index into the engraver's selectables
+     * @returns {number|undefined} Start time in ms
+     */
+    getNoteStartMsByIndex(noteIndex) {
+        if (noteIndex === null || noteIndex === undefined) return undefined;
+        const abcElem = this.currentVisualObj?.engraver?.selectables?.[noteIndex]?.absEl?.abcelem;
         return abcElem ? this.getNoteStartTime(abcElem) : undefined;
+    }
+
+    /**
+     * Shows a small popup asking whether the long-pressed note should become
+     * the loop start or the loop end
+     * @param {number} noteIndex - Index into the engraver's selectables
+     */
+    showAnchorChoice(noteIndex) {
+        const zone = document.querySelector(`.note-marker-zone[data-note-index="${noteIndex}"]`);
+        if (!zone) return;
+        const rect = zone.getBoundingClientRect();
+
+        const popup = document.createElement('div');
+        popup.className = 'anchor-choice-popup';
+
+        const startBtn = document.createElement('button');
+        startBtn.textContent = '▶ Start here';
+        startBtn.addEventListener('click', () => {
+            this.dismissAnchorChoice();
+            this.setPlaybackAnchor(noteIndex);
+            this.playFromNoteIndex(noteIndex);
+        });
+
+        const endBtn = document.createElement('button');
+        endBtn.textContent = '◀ End here';
+        endBtn.addEventListener('click', () => {
+            this.dismissAnchorChoice();
+            this.setPlaybackAnchorEnd(noteIndex);
+        });
+
+        popup.appendChild(startBtn);
+        popup.appendChild(endBtn);
+        document.body.appendChild(popup);
+
+        // Position centered under the note, clamped to the viewport
+        const popupRect = popup.getBoundingClientRect();
+        const left = Math.min(
+            Math.max(4, rect.left + rect.width / 2 - popupRect.width / 2),
+            window.innerWidth - popupRect.width - 4
+        );
+        popup.style.left = `${left}px`;
+        popup.style.top = `${Math.max(4, rect.bottom + 4)}px`;
+
+        this._anchorChoicePopup = popup;
+        // Dismiss on the next press anywhere outside the popup (pointerdown,
+        // so the long-press's own trailing click can't dismiss it instantly)
+        this._anchorChoiceDismiss = (e) => {
+            if (!popup.contains(e.target)) this.dismissAnchorChoice();
+        };
+        document.addEventListener('pointerdown', this._anchorChoiceDismiss, true);
+    }
+
+    /**
+     * Removes the anchor choice popup if present
+     */
+    dismissAnchorChoice() {
+        if (this._anchorChoiceDismiss) {
+            document.removeEventListener('pointerdown', this._anchorChoiceDismiss, true);
+            this._anchorChoiceDismiss = null;
+        }
+        if (this._anchorChoicePopup) {
+            this._anchorChoicePopup.remove();
+            this._anchorChoicePopup = null;
+        }
     }
 
     /**

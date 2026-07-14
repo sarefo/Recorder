@@ -828,6 +828,46 @@ class MidiPlayer {
     }
 
     /**
+     * Called when playback passes the A-B region's end anchor: wraps to the
+     * start anchor in loop mode, otherwise stops (next play starts at the
+     * start anchor again).
+     */
+    handleRegionBoundary() {
+        if (!this.isPlaying || this._handlingRegionBoundary) {
+            return;
+        }
+        // Several timing events can pass the boundary in the same tick;
+        // handle the crossing only once
+        const now = performance.now();
+        if (this._lastRegionBoundaryAt && now - this._lastRegionBoundaryAt < 250) {
+            return;
+        }
+        this._lastRegionBoundaryAt = now;
+        this._handlingRegionBoundary = true;
+        try {
+            if (this.playbackSettings.loopEnabled) {
+                const anchorMs = window.app?.renderManager?.getAnchorStartMs?.();
+                const anchorSec = (typeof anchorMs === 'number' && !isNaN(anchorMs)) ? anchorMs / 1000 : 0;
+
+                this.midiPlayer.stop();
+                if (anchorSec > 0) {
+                    this.midiPlayer.seek(anchorSec, "seconds");
+                }
+                this.midiPlayer.start();
+
+                if (this.autoScrollManager && this.autoScrollManager.timingCallbacks) {
+                    this.autoScrollManager.timingCallbacks.setProgress(anchorSec, "seconds");
+                }
+            } else {
+                this.stopPlayback();
+                this.updateStatusDisplay("Reached end marker");
+            }
+        } finally {
+            this._handlingRegionBoundary = false;
+        }
+    }
+
+    /**
      * Handles playback ended event (shared callback for loop/stop logic)
      * @private
      */

@@ -95,6 +95,16 @@ class AutoScrollManager {
     handleNoteEvent(ev) {
         if (!ev) return;
 
+        // A-B practice region: the first event past the end anchor means the
+        // end note has finished — wrap to the start anchor (loop) or stop
+        if (typeof ev.milliseconds === 'number') {
+            const endMs = this.player?.renderManager?.getAnchorEndMs?.();
+            if (typeof endMs === 'number' && ev.milliseconds > endMs) {
+                this.player?.midiPlayer?.handleRegionBoundary?.();
+                return;
+            }
+        }
+
         // Always clear previous highlight from all elements
         if (this.currentElements && this.currentElements.length > 0) {
             this.currentElements.forEach(el => {

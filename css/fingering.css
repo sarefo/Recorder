@@ -167,18 +167,63 @@ section .fingering-diagram {
     transition: background-color var(--motion-base) var(--ease-standard);
 }
 
-/* Long-press playback anchor: fresh starts play from this note */
-.note-marker-zone[data-anchor="true"]::before {
-    content: '▶';
+/* Long-press playback anchors: start (▶) and end (◀) of the practice region */
+.note-marker-zone[data-anchor]::before {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     font-size: 15px;
     line-height: 1;
+    pointer-events: none;
+}
+
+.note-marker-zone[data-anchor="start"]::before {
+    content: '▶';
     color: var(--color-primary-active);
     text-shadow: 0 0 3px rgba(66, 133, 244, 0.5);
-    pointer-events: none;
+}
+
+.note-marker-zone[data-anchor="end"]::before {
+    content: '◀';
+    color: #ff6b35;
+    text-shadow: 0 0 3px rgba(255, 107, 53, 0.5);
+}
+
+/* Popup asking whether a long-pressed note is the loop start or end */
+.anchor-choice-popup {
+    position: fixed;
+    z-index: var(--z-modal);
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-surface-sunken);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+}
+
+.anchor-choice-popup button {
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    background: var(--color-surface-alt);
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.anchor-choice-popup button:first-child {
+    color: var(--color-primary-active);
+}
+
+.anchor-choice-popup button:last-child {
+    color: #ff6b35;
+}
+
+.anchor-choice-popup button:hover {
+    background: var(--color-surface-sunken);
 }
 
 /* Mark states */

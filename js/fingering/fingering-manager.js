@@ -259,7 +259,7 @@ class FingeringManager {
                 pressTimer = null;
                 longPressFired = true;
                 const noteIndex = parseInt(markerZone.getAttribute('data-note-index'), 10);
-                window.app?.renderManager?.playFromNoteIndex(noteIndex);
+                window.app?.renderManager?.handleNoteLongPress(noteIndex);
             }, LONG_PRESS_MS);
         });
 
