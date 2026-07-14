@@ -136,7 +136,9 @@ section .fingering-diagram {
     box-shadow: var(--shadow-sm);
 }
 
-/* Note marker zones (invisible click targets above the notation) */
+/* Note marker zones (invisible click targets above the notation).
+   Tap cycles the red/green marking; long-press plays from the note,
+   so selection/callout on press-and-hold must be suppressed. */
 .note-marker-zone {
     position: absolute;
     height: 80px;
@@ -144,6 +146,9 @@ section .fingering-diagram {
     background: transparent;
     pointer-events: auto;
     z-index: 5;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .note-marker-zone::after {

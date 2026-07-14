@@ -144,22 +144,49 @@ class RenderManager {
     }
 
     /**
+     * Plays from a specific note, identified by its abcjs data-index
+     * (used by the long-press gesture on note marker zones)
+     * @param {number} noteIndex - Index into the engraver's selectables
+     */
+    playFromNoteIndex(noteIndex) {
+        const selectable = this.currentVisualObj?.engraver?.selectables?.[noteIndex];
+        const abcElem = selectable?.absEl?.abcelem;
+        if (abcElem) {
+            this.handleNoteClick(abcElem);
+        }
+    }
+
+    /**
      * Plays from a specific position in the music
      * @param {number} startMs - The start time in milliseconds
      */
     playFromPosition(startMs) {
+        const midiPlayer = this.player.midiPlayer;
+
         // Stop current playback if playing
-        if (this.player.midiPlayer.isPlaying) {
-            this.player.midiPlayer.midiPlayer.stop();
+        if (midiPlayer.isPlaying) {
+            midiPlayer.midiPlayer.stop();
         }
 
         // Start from this position
         setTimeout(() => {
             // seek() defaults to percent (0-1); pass seconds explicitly
-            this.player.midiPlayer.midiPlayer.seek(startMs / 1000, "seconds");
-            this.player.midiPlayer.midiPlayer.start();
-            this.player.midiPlayer.isPlaying = true;
-            this.player.midiPlayer.updatePlayButtonState();
+            midiPlayer.midiPlayer.seek(startMs / 1000, "seconds");
+            midiPlayer.midiPlayer.start();
+
+            // Playback is now mid-piece; a later pause/resume must not
+            // insert a count-in bar
+            midiPlayer.isFirstPlay = false;
+
+            // Keep note highlighting (and mobile auto-scroll) in sync
+            const autoScroll = midiPlayer.autoScrollManager;
+            if (autoScroll && autoScroll.timingCallbacks) {
+                autoScroll.start();
+                autoScroll.timingCallbacks.setProgress(startMs / 1000, "seconds");
+            }
+
+            midiPlayer.isPlaying = true;
+            midiPlayer.updatePlayButtonState();
         }, RenderManager.RENDER_DELAY);
     }
 

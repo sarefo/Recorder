@@ -28,6 +28,11 @@ class MidiPlayer {
         // Track onEnded callback to prevent duplicates
         this.onEndedCallbackActive = false;
 
+        // Whether the synth has been initialized and primed for the current tune.
+        // CreateSynth has no public property that reflects this, so track it here;
+        // re-initializing on resume would reset the paused position to 0.
+        this.synthInitialized = false;
+
         // Track whether this is the first play (for count-in bar)
         // First play always gets count-in, loop repeats don't
         this.isFirstPlay = true;
@@ -83,6 +88,7 @@ class MidiPlayer {
         
         // Create new player
         this.midiPlayer = new ABCJS.synth.CreateSynth();
+        this.synthInitialized = false;
         return this.midiPlayer;
     }
 
@@ -242,6 +248,7 @@ class MidiPlayer {
 
 
             // Initialize MIDI with all current settings
+            this.synthInitialized = false;
             try {
                 await this.midiPlayer.init({
                     visualObj: visualObj,
@@ -268,6 +275,7 @@ class MidiPlayer {
                 this.updateStatusDisplay("MIDI initialization failed");
                 return false;
             }
+            this.synthInitialized = true;
 
             // Initialize auto-scroll manager if available
             if (this.autoScrollManager) {
@@ -319,6 +327,7 @@ class MidiPlayer {
             options.onEnded = () => this._handlePlaybackEnded();
 
             // Initialize MIDI with all current settings
+            this.synthInitialized = false;
             await this.midiPlayer.init({
                 visualObj: visualObj,
                 audioContext: this.audioContext,
@@ -333,6 +342,7 @@ class MidiPlayer {
 
             // Load and prepare the synth
             await this.midiPlayer.prime();
+            this.synthInitialized = true;
 
             // Initialize tuning manager with shared audio context
             if (!this.tuningManagerInitialized) {
@@ -459,6 +469,9 @@ class MidiPlayer {
                     this.customMetronome.stop();
                 }
                 // If metronomeOn is true, CustomMetronome keeps running
+
+                // Count-in is done; resuming from a pause must not replay it
+                this.isFirstPlay = false;
             } else if (this.playbackSettings.metronomeOn && !this.customMetronome.isPlaying) {
                 // Resume case: start metronome if it should be on
                 await this.customMetronome.start(adjustedTempo, numerator);
@@ -593,8 +606,10 @@ class MidiPlayer {
                         return false;
                     }
 
-                    // Ensure MIDI player is initialized
-                    if (!this.midiPlayer.synth) {
+                    // Ensure MIDI player is initialized. Only init when actually
+                    // needed: re-initializing resets the synth's paused position,
+                    // which would turn every resume into a restart from the top.
+                    if (!this.synthInitialized) {
                         await this.init(visualObj);
                     }
 
@@ -783,6 +798,9 @@ class MidiPlayer {
             }
             // Note: Metronome continues running - don't stop/restart it for seamless rhythm
         } else {
+            // The song finished, so the next play starts fresh with a count-in
+            this.isFirstPlay = true;
+
             // Stop the metronome when the song ends, unless it's in constant mode
             if (this.playbackSettings.metronomeOn && this.customMetronome.isPlaying && !this.customMetronome.isConstantMode()) {
                 this.customMetronome.stop();

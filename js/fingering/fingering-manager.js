@@ -221,13 +221,64 @@ class FingeringManager {
     }
 
     /**
-     * Adds click behavior to cycle through states for a marker zone
+     * Adds interaction behavior to a marker zone:
+     * - tap/click cycles the red/green marking state
+     * - long-press starts playback from that note
      * @param {HTMLElement} markerZone - The marker zone element
      * @private
      */
     _addMarkerClickBehavior(markerZone) {
+        const LONG_PRESS_MS = 500;
+        const MOVE_TOLERANCE_PX = 10;
+        let pressTimer = null;
+        let longPressFired = false;
+        let pressStartX = 0;
+        let pressStartY = 0;
+
+        const cancelPress = () => {
+            if (pressTimer) {
+                clearTimeout(pressTimer);
+                pressTimer = null;
+            }
+        };
+
+        markerZone.addEventListener('pointerdown', (e) => {
+            longPressFired = false;
+            pressStartX = e.clientX;
+            pressStartY = e.clientY;
+            cancelPress();
+            pressTimer = setTimeout(() => {
+                pressTimer = null;
+                longPressFired = true;
+                const noteIndex = parseInt(markerZone.getAttribute('data-note-index'), 10);
+                window.app?.renderManager?.playFromNoteIndex(noteIndex);
+            }, LONG_PRESS_MS);
+        });
+
+        // A finger drag means scrolling, not a long-press
+        markerZone.addEventListener('pointermove', (e) => {
+            if (pressTimer &&
+                (Math.abs(e.clientX - pressStartX) > MOVE_TOLERANCE_PX ||
+                    Math.abs(e.clientY - pressStartY) > MOVE_TOLERANCE_PX)) {
+                cancelPress();
+            }
+        });
+
+        markerZone.addEventListener('pointerup', cancelPress);
+        markerZone.addEventListener('pointerleave', cancelPress);
+        markerZone.addEventListener('pointercancel', cancelPress);
+
+        // Long-press on touch devices must not open the context menu
+        markerZone.addEventListener('contextmenu', (e) => e.preventDefault());
+
         markerZone.addEventListener('click', (e) => {
             e.stopPropagation();
+            // A long-press already played from this note; swallow the
+            // click that follows the pointer release
+            if (longPressFired) {
+                longPressFired = false;
+                return;
+            }
             const noteIndex = markerZone.getAttribute('data-note-index');
             this._updateCoupledState(noteIndex, markerZone);
         });
