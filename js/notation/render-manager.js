@@ -8,10 +8,10 @@ class RenderManager {
         this.player = player;
         this.currentVisualObj = null;
 
-        // Long-press playback anchor: while set, pressing play always starts
-        // at this note (practice mode) — overriding the pause position and
-        // fresh starts alike. Long-press the same note again to unpin it.
-        // Kept while the same tune stays open, cleared when another tune loads.
+        // Long-press playback anchor: fresh starts (play after stop or song
+        // end, restart) and loop wrap-arounds begin at this note — without a
+        // count-in bar. Pause/resume keeps its own position. Long-press the
+        // same note again to unpin. Cleared when another tune loads.
         this.anchorNoteIndex = null;
         this.anchorTuneId = null;
     }

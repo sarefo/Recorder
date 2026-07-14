@@ -463,15 +463,19 @@ class MidiPlayer {
             let adjustedTempo = this.lastTempo;
             let numerator = this.lastTimeSignature;
 
-            // Decide the start position BEFORE touching the synth. The
-            // long-press anchor wins: while one is set, play always restarts
-            // there (practice mode). Without an anchor, a paused synth resumes
-            // at its own position and a fresh start begins at the top.
-            const anchorMs = window.app?.renderManager?.getAnchorStartMs?.();
-            const hasAnchor = typeof anchorMs === 'number' && !isNaN(anchorMs);
-            const isResume = !hasAnchor &&
-                this.midiPlayer.pausedTimeSec !== undefined && this.midiPlayer.pausedTimeSec !== null;
-            const startFromSec = hasAnchor ? anchorMs / 1000 : 0;
+            // Decide the start position BEFORE touching the synth: resuming a
+            // pause keeps the synth's own paused position; a fresh start (after
+            // stop, restart or song end) begins at the long-press anchor when
+            // one is set, otherwise at the top.
+            const isResume = this.midiPlayer.pausedTimeSec !== undefined && this.midiPlayer.pausedTimeSec !== null;
+            let startFromSec = 0;
+            if (!isResume) {
+                const anchorMs = window.app?.renderManager?.getAnchorStartMs?.();
+                if (typeof anchorMs === 'number' && !isNaN(anchorMs)) {
+                    startFromSec = anchorMs / 1000;
+                }
+            }
+            const startsAtAnchor = !isResume && startFromSec > 0;
 
             if (visualObj && typeof visualObj.getBpm === 'function') {
                 // Calculate the correct tempo directly from the current piece
@@ -488,8 +492,10 @@ class MidiPlayer {
                 this.lastTimeSignature = numerator;
             }
 
-            // ALWAYS start metronome for count-in bar (even if metronomeOn is false)
-            if (!this.customMetronome.isPlaying && this.isFirstPlay) {
+            // ALWAYS start metronome for count-in bar (even if metronomeOn is
+            // false) — except when starting at the long-press anchor: the
+            // player is already in the groove, so jump straight in
+            if (!this.customMetronome.isPlaying && this.isFirstPlay && !startsAtAnchor) {
                 // The count-in is part of "preparing": another play press
                 // during it cancels this start (see togglePlay)
                 this.isPreparingToPlay = true;
@@ -538,9 +544,8 @@ class MidiPlayer {
                 this.midiPlayer.stop();
             }
 
-            // Position the synth unless resuming a pause. The explicit seek
-            // also clears a stale paused position when the anchor overrides it
-            if (!isResume) {
+            // Fresh start at the anchor: position the synth before starting
+            if (startsAtAnchor) {
                 this.midiPlayer.seek(startFromSec, "seconds");
             }
 
