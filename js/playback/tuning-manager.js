@@ -21,6 +21,15 @@ class TuningManager {
         // Tuning tolerance
         this.tuningTolerance = 5; // ±5 cents considered "in tune"
 
+        // Pitch detection range and stability settings
+        this.minFrequency = 200; // Hz, lower bound of search range
+        this.maxFrequency = 1500; // Hz, upper bound of search range
+        this.peakThreshold = 0.85; // First peak must reach this fraction of the global max
+        this.clarityThreshold = 0.3; // Minimum normalized correlation to accept a detection
+        this.recentPitches = []; // Recent detections for consensus filtering
+        this.consensusSize = 5; // Number of detections kept for the median filter
+        this.consensusCents = 20; // Detections must agree within this many cents
+
         // Load saved tuning offset
         this.loadTuningOffset();
     }
@@ -63,9 +72,15 @@ class TuningManager {
 
             await this.init();
 
-            // Request microphone access with simpler constraints first
+            // Request raw microphone input: the default voice-call processing
+            // (echo cancellation, noise suppression, AGC) distorts sustained
+            // tones and breaks pitch detection
             this.mediaStream = await navigator.mediaDevices.getUserMedia({
-                audio: true
+                audio: {
+                    echoCancellation: false,
+                    noiseSuppression: false,
+                    autoGainControl: false
+                }
             });
 
             // Create audio analysis nodes
@@ -77,6 +92,7 @@ class TuningManager {
             // Connect audio nodes
             source.connect(this.analyser);
 
+            this.recentPitches = [];
             this.isListening = true;
 
             // Start pitch analysis
@@ -115,6 +131,7 @@ class TuningManager {
 
             // Clean up analyser
             this.analyser = null;
+            this.recentPitches = [];
 
             return true;
         } catch (error) {
@@ -157,7 +174,11 @@ class TuningManager {
     }
 
     /**
-     * Detect pitch using autocorrelation algorithm
+     * Detect pitch using normalized autocorrelation.
+     * Picks the FIRST strong peak (shortest lag) rather than the global
+     * maximum: for a periodic signal the correlation peaks at the true period
+     * T and again at 2T, 3T, ... with near-equal strength, so a global-max
+     * rule randomly flips down an octave (e.g. 880 Hz read as 440 Hz).
      * @param {Float32Array} buffer - Audio buffer
      * @returns {number|null} Detected frequency in Hz
      */
@@ -168,46 +189,81 @@ class TuningManager {
         // Need sufficient signal strength
         if (rms < 0.01) return null;
 
-        let r1 = 0, r2 = SIZE - 1, thres = 0.2;
-        const c = new Array(SIZE).fill(0);
+        // Only search lags corresponding to the plausible frequency range
+        const minLag = Math.max(2, Math.floor(this.sampleRate / this.maxFrequency));
+        const maxLag = Math.min(SIZE - 2, Math.ceil(this.sampleRate / this.minFrequency));
+        if (minLag >= maxLag) return null;
 
-        // Autocorrelation
-        for (let i = 0; i < SIZE; i++) {
-            for (let j = 0; j < SIZE - i; j++) {
-                c[i] = c[i] + buffer[j] * buffer[j + i];
+        // Normalized autocorrelation over the search range
+        const energy = buffer.reduce((sum, val) => sum + val * val, 0);
+        if (energy === 0) return null;
+
+        const c = new Float32Array(maxLag + 2);
+        for (let lag = minLag - 1; lag <= maxLag + 1; lag++) {
+            let sum = 0;
+            for (let j = 0; j < SIZE - lag; j++) {
+                sum += buffer[j] * buffer[j + lag];
             }
+            c[lag] = sum / energy;
         }
 
-        let d = 0;
-        while (c[d] > c[d + 1]) d++;
-        let maxval = -1, maxpos = -1;
-
-        for (let i = d; i < SIZE; i++) {
-            if (c[i] > maxval) {
-                maxval = c[i];
-                maxpos = i;
-            }
+        // Find the global maximum in range as a reference level
+        let maxval = -1;
+        for (let lag = minLag; lag <= maxLag; lag++) {
+            if (c[lag] > maxval) maxval = c[lag];
         }
 
-        let T0 = maxpos;
+        // Reject noisy/aperiodic frames
+        if (maxval < this.clarityThreshold) return null;
 
-        // Parabolic interpolation
+        // Take the first local peak that comes close to the global max —
+        // the shortest such lag is the true period
+        const threshold = maxval * this.peakThreshold;
+        let T0 = -1;
+        for (let lag = minLag; lag <= maxLag; lag++) {
+            if (c[lag] >= threshold && c[lag] >= c[lag - 1] && c[lag] >= c[lag + 1]) {
+                T0 = lag;
+                break;
+            }
+        }
+        if (T0 < 0) return null;
+
+        // Parabolic interpolation for sub-sample precision
         const y1 = c[T0 - 1], y2 = c[T0], y3 = c[T0 + 1];
         const a = (y1 - 2 * y2 + y3) / 2;
         const b = (y3 - y1) / 2;
+        let period = T0;
+        if (a) period = T0 - b / (2 * a);
 
-        if (a) T0 = T0 - b / (2 * a);
-
-        return this.sampleRate / T0;
+        return this.sampleRate / period;
     }
 
     /**
-     * Process detected pitch and calculate tuning offset
+     * Process detected pitch and calculate tuning offset.
+     * Uses a median consensus over recent detections so a single bad frame
+     * (e.g. an octave glitch) cannot yank the tuning reading.
      * @param {number} frequency - Detected frequency in Hz
      */
     processPitchDetection(frequency) {
-        // Calculate cents offset from target frequency (A440)
-        const centsOffset = this.frequencyToCents(frequency, this.targetFrequency);
+        // Keep a short history of raw detections
+        this.recentPitches.push(frequency);
+        if (this.recentPitches.length > this.consensusSize) {
+            this.recentPitches.shift();
+        }
+        if (this.recentPitches.length < 3) return;
+
+        // Median of recent detections
+        const sorted = [...this.recentPitches].sort((a, b) => a - b);
+        const median = sorted[Math.floor(sorted.length / 2)];
+
+        // Require a majority of detections to agree with the median
+        const agreeing = this.recentPitches.filter(f =>
+            Math.abs(this.frequencyToCents(f, median)) <= this.consensusCents
+        ).length;
+        if (agreeing < 3) return;
+
+        // Calculate cents offset from target frequency (A880)
+        const centsOffset = this.frequencyToCents(median, this.targetFrequency);
 
         // Update tuning offset (smooth it slightly to reduce jitter)
         const smoothingFactor = 0.7;
@@ -216,7 +272,7 @@ class TuningManager {
         // Trigger callback if registered
         if (this.onTuningUpdate) {
             this.onTuningUpdate({
-                frequency: frequency,
+                frequency: median,
                 centsOffset: centsOffset,
                 smoothedOffset: this.tuningOffset,
                 isInTune: Math.abs(this.tuningOffset) <= this.tuningTolerance
