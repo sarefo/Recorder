@@ -49,6 +49,10 @@ class MidiPlayer {
         // Auto-scroll manager reference (will be set by AbcPlayer)
         this.autoScrollManager = null;
 
+        // Schedules loop repeats on the audio clock so the seam stays in time
+        // (see SeamlessLooper); created lazily per synth instance
+        this.looper = null;
+
         // Track preparation delay state and timeout
         this.isPreparingToPlay = false;
         this.preparationTimeout = null;
@@ -436,6 +440,10 @@ class MidiPlayer {
 
             await this.midiPlayer.pause();
 
+            // The synth's pause silences the loop's sources and records the
+            // position; the looper only needs its pending repeats cancelled
+            this.stopSeamlessLoop();
+
             // Pause auto-scroll
             if (this.autoScrollManager) {
                 this.autoScrollManager.pause();
@@ -541,17 +549,23 @@ class MidiPlayer {
 
             // Never layer a second audio source over a running one (isRunning
             // also stays true after a natural end, where stop() is harmless)
+            this.stopSeamlessLoop();
             if (this.midiPlayer.isRunning) {
                 this.midiPlayer.stop();
             }
 
-            // Fresh start at the anchor: position the synth before starting
-            if (startsAtAnchor) {
-                this.midiPlayer.seek(startFromSec, "seconds");
-            }
+            // In loop mode the repeats are scheduled on the audio clock, so
+            // the seam has no JavaScript round trip in it and stays in time
+            const resumeSec = isResume ? (this.midiPlayer.pausedTimeSec || 0) : startFromSec;
+            if (!this.startSeamlessLoop(resumeSec)) {
+                // Fresh start at the anchor: position the synth before starting
+                if (startsAtAnchor) {
+                    this.midiPlayer.seek(startFromSec, "seconds");
+                }
 
-            // Start MIDI player after count-in
-            await this.midiPlayer.start();
+                // Start MIDI player after count-in
+                await this.midiPlayer.start();
+            }
 
             // Start timing callbacks for note highlighting (always) and auto-scroll (mobile only)
             if (this.autoScrollManager) {
@@ -750,6 +764,9 @@ class MidiPlayer {
             // Make sure metronome is stopped first
             this.customMetronome.stop();
 
+            // Cancel scheduled loop repeats before silencing the synth
+            this.stopSeamlessLoop();
+
             // Stop auto-scroll
             if (this.autoScrollManager) {
                 this.autoScrollManager.stop();
@@ -828,12 +845,106 @@ class MidiPlayer {
     }
 
     /**
+     * The stretch of the tune that loop mode repeats: the A-B practice region
+     * when anchors are set, otherwise the whole tune. The tail abcjs appends
+     * to the buffer for the final fade is excluded — looping through it would
+     * add silence to every repeat.
+     * @returns {{start: number, end: number}|null} Bounds in seconds, or null
+     *   when no usable window exists
+     */
+    getLoopWindowSec() {
+        const synth = this.midiPlayer;
+        if (!synth || typeof synth.duration !== 'number' || !(synth.duration > 0)) {
+            return null;
+        }
+        const musicalEndSec = synth.duration - (synth.fadeLength || 0) / 1000;
+
+        const renderManager = window.app?.renderManager;
+        const startMs = renderManager?.getAnchorStartMs?.();
+        const endMs = renderManager?.getAnchorEndBoundaryMs?.();
+
+        const start = (typeof startMs === 'number' && !isNaN(startMs)) ? startMs / 1000 : 0;
+        let end = (typeof endMs === 'number' && !isNaN(endMs)) ? endMs / 1000 : musicalEndSec;
+        end = Math.min(end, musicalEndSec);
+
+        // Too short a window would thrash the scheduler instead of making music
+        return (end > start + 0.1) ? { start, end } : null;
+    }
+
+    /**
+     * @returns {boolean} Whether the audio-clock loop is currently driving playback
+     */
+    isSeamlessLoopActive() {
+        return !!(this.looper && this.looper.active);
+    }
+
+    /**
+     * Returns the looper bound to the current synth, creating it if the synth
+     * was replaced since last time
+     * @returns {SeamlessLooper|null}
+     */
+    _getLooper() {
+        if (typeof SeamlessLooper === 'undefined' || !this.midiPlayer || !this.audioContext) {
+            return null;
+        }
+        if (!this.looper || this.looper.synth !== this.midiPlayer) {
+            if (this.looper) this.looper.stop();
+            this.looper = new SeamlessLooper(this.audioContext, this.midiPlayer);
+            this.looper.onWrap = (loopStartSec) => {
+                this.autoScrollManager?.restartAt(loopStartSec);
+            };
+        }
+        return this.looper;
+    }
+
+    /**
+     * Starts looped playback that repeats on the audio clock instead of
+     * waiting for the previous pass to end.
+     * @param {number} fromSec - Position to begin at
+     * @returns {boolean} Whether the seamless loop took over
+     */
+    startSeamlessLoop(fromSec) {
+        if (!this.playbackSettings.loopEnabled) return false;
+        const loopWindow = this.getLoopWindowSec();
+        const looper = loopWindow ? this._getLooper() : null;
+        return !!looper && looper.start(loopWindow, fromSec);
+    }
+
+    /**
+     * Stops the audio-clock loop (playback control returns to the synth)
+     */
+    stopSeamlessLoop() {
+        if (this.looper) {
+            this.looper.stop();
+        }
+    }
+
+    /**
+     * Points a running loop at the current anchors, e.g. after the user moved
+     * an A-B marker while the music kept playing
+     */
+    refreshLoopWindow() {
+        if (!this.isSeamlessLoopActive()) return;
+        const loopWindow = this.getLoopWindowSec();
+        if (loopWindow) {
+            this.looper.retarget(loopWindow);
+        } else {
+            this.stopSeamlessLoop();
+        }
+    }
+
+    /**
      * Called when playback passes the A-B region's end anchor: wraps to the
      * start anchor in loop mode, otherwise stops (next play starts at the
      * start anchor again).
      */
     handleRegionBoundary() {
         if (!this.isPlaying || this._handlingRegionBoundary) {
+            return;
+        }
+        // The seamless loop already wraps the audio (and the highlighting)
+        // exactly on the beat; reacting here would only fight it
+        if (this.isSeamlessLoopActive()) {
             return;
         }
         // Several timing events can pass the boundary in the same tick;
@@ -872,6 +983,11 @@ class MidiPlayer {
      * @private
      */
     _handlePlaybackEnded() {
+        // A seamless loop schedules its own repeats and never reaches an end
+        if (this.isSeamlessLoopActive()) {
+            return;
+        }
+
         // abcjs fires onEnded whenever the audio source stops — including our
         // own pause(), stop() and seek() calls, not just the natural end of the
         // song. Reacting to those (e.g. loop restarting after a pause) is how

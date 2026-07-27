@@ -253,6 +253,9 @@ class RenderManager {
         };
         if (this.anchorNoteIndex !== null) mark(this.anchorNoteIndex, 'start');
         if (this.anchorEndNoteIndex !== null) mark(this.anchorEndNoteIndex, 'end');
+
+        // A loop that is already running should follow the moved anchors
+        this.player?.midiPlayer?.refreshLoopWindow?.();
     }
 
     /**
@@ -270,6 +273,27 @@ class RenderManager {
      */
     getAnchorEndMs() {
         return this.getNoteStartMsByIndex(this.anchorEndNoteIndex);
+    }
+
+    /**
+     * Resolves the moment the A-B region is over: the start of the first note
+     * after the end anchor. Seamless looping needs the region's true end, not
+     * the end note's start.
+     * @returns {number|undefined} End time in ms, or undefined without an end
+     *   anchor or when it is the last note (then the tune's end applies)
+     */
+    getAnchorEndBoundaryMs() {
+        const endMs = this.getAnchorEndMs();
+        if (typeof endMs !== 'number') return undefined;
+
+        const selectables = this.currentVisualObj?.engraver?.selectables || [];
+        for (let i = this.anchorEndNoteIndex + 1; i < selectables.length; i++) {
+            const nextMs = this.getNoteStartMsByIndex(i);
+            if (typeof nextMs === 'number' && nextMs > endMs) {
+                return nextMs;
+            }
+        }
+        return undefined;
     }
 
     /**

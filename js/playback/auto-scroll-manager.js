@@ -295,6 +295,38 @@ class AutoScrollManager {
     }
 
     /**
+     * Sends note highlighting back to a position mid-flight, without stopping
+     * anything. Used when looped playback wraps: the audio never pauses, so
+     * neither should the timing callbacks.
+     * @param {number} seconds - Position in the tune to continue from
+     */
+    restartAt(seconds) {
+        if (!this.timingCallbacks) return;
+
+        // Clear highlight so the note we jump away from doesn't stay lit
+        if (this.currentElements && this.currentElements.length > 0) {
+            this.currentElements.forEach(el => {
+                if (el && el.classList) {
+                    el.classList.remove('playing');
+                }
+            });
+            this.currentElements = [];
+        }
+
+        try {
+            // The timing callbacks stop themselves at the end of the tune;
+            // only restart them when they actually ran out (starting an
+            // already-running instance would double up its animation loop)
+            if (!this.timingCallbacks.isRunning) {
+                this.timingCallbacks.start();
+            }
+            this.timingCallbacks.setProgress(seconds, "seconds");
+        } catch (error) {
+            console.error('AutoScrollManager: Error restarting timing callbacks:', error);
+        }
+    }
+
+    /**
      * Scroll back to the top of the notation
      */
     scrollToTop() {
