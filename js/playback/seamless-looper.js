@@ -41,9 +41,12 @@ class SeamlessLooper {
         // play. Recomputed per loop window.
         this.maxLookaheadSec = 0.3;
         this.lookaheadSec = this.maxLookaheadSec;
-        // Fade applied to a repeat that is being retired. Long enough to
-        // remove the click, short enough that no audible amount of the
-        // following music leaks through on an A-B region.
+        // Fade applied to a repeat that is being retired. It runs *before* the
+        // seam and reaches silence exactly there, so the outgoing repeat never
+        // leaks the music that follows the region — which was clearly audible
+        // as a second attack alongside the first note whenever the region ends
+        // in a rest and nothing masks the leak. Long enough to remove the
+        // click, short enough to barely shorten the last note.
         this.fadeOutSec = 0.06;
         // Tiny fade-in guards against a click when the loop start sits mid-note
         this.fadeInSec = 0.005;
@@ -185,23 +188,28 @@ class SeamlessLooper {
     }
 
     /**
-     * Fades out and stops every repeat except the newest one
-     * @param {number} atSec - Audio-clock time the fade starts at
+     * Fades out and stops every repeat except the newest one, so that the
+     * outgoing repeat is silent by the time the seam arrives
+     * @param {number} seamSec - Audio-clock time of the seam
      */
-    _retireOldVoices(atSec) {
+    _retireOldVoices(seamSec) {
         const keep = this.voices[this.voices.length - 1];
         const outgoing = this.voices.filter(voice => voice !== keep);
         this.voices = keep ? [keep] : [];
         this.retiring = this.retiring.concat(outgoing);
         this._publishVoices();
 
+        // Never schedule in the past: on a very short loop the seam can be
+        // closer than a full fade, in which case we fade over what is left
+        const fadeFrom = Math.max(this.audioContext.currentTime, seamSec - this.fadeOutSec);
+
         outgoing.forEach(voice => {
             const { source, gain } = voice;
             try {
-                gain.gain.cancelScheduledValues(atSec);
-                gain.gain.setValueAtTime(gain.gain.value, atSec);
-                gain.gain.linearRampToValueAtTime(0, atSec + this.fadeOutSec);
-                source.stop(atSec + this.fadeOutSec + 0.01);
+                gain.gain.cancelScheduledValues(fadeFrom);
+                gain.gain.setValueAtTime(gain.gain.value, fadeFrom);
+                gain.gain.linearRampToValueAtTime(0, seamSec);
+                source.stop(seamSec + 0.01);
             } catch (e) {
                 // A source that already stopped is fine to skip
             }
