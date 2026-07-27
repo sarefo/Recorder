@@ -42,18 +42,44 @@ class DiagramRenderer {
         this.renderDiagramsByStaff(staffMap, noteDataMap, containerRect, layer);
     }
 
-    findNoteElements() {
-        const elements = document.querySelectorAll("#abc-notation .abcjs-note");
+    /**
+     * Collects the rendered note elements of the score
+     * @param {boolean} includeRests - Keep rests in the result. Rests never get
+     *   a fingering diagram, but they do get a marker zone so they can be
+     *   long-pressed (e.g. to end an A-B loop region on a rest).
+     * @returns {HTMLElement[]} The note elements
+     */
+    findNoteElements(includeRests = false) {
+        const elements = document.querySelectorAll("#abc-notation .abcjs-note, #abc-notation .abcjs-rest");
+        const seen = new Set();
         const validNotes = Array.from(elements).filter(el => {
-            return !el.classList.contains('abcjs-clef') &&
-                !el.classList.contains('abcjs-key-signature') &&
-                !el.classList.contains('abcjs-time-signature') &&
-                !el.classList.contains('abcjs-tempo') &&
-                // Exclude rest notes
-                !el.querySelector('[data-name="rest"]');
+            if (el.classList.contains('abcjs-clef') ||
+                el.classList.contains('abcjs-key-signature') ||
+                el.classList.contains('abcjs-time-signature') ||
+                el.classList.contains('abcjs-tempo')) {
+                return false;
+            }
+            if (this.isRestElement(el) && !includeRests) return false;
+            // A rest can match both selectors (or sit inside a note group);
+            // keep one element per data-index
+            const dataIndex = el.getAttribute('data-index');
+            if (dataIndex !== null) {
+                if (seen.has(dataIndex)) return false;
+                seen.add(dataIndex);
+            }
+            return true;
         });
 
         return validNotes;
+    }
+
+    /**
+     * @param {HTMLElement} el - A rendered score element
+     * @returns {boolean} Whether it represents a rest
+     */
+    isRestElement(el) {
+        return el.classList.contains('abcjs-rest') ||
+            !!el.querySelector('[data-name="rest"]');
     }
 
     buildNoteDataMapping(notesData) {
@@ -230,8 +256,9 @@ class DiagramRenderer {
             abcContainer.appendChild(layer);
         }
 
-        // Find note elements
-        const noteElements = this.findNoteElements();
+        // Find note elements (rests included: they get no fingering diagram,
+        // but must be long-pressable to serve as loop anchors)
+        const noteElements = this.findNoteElements(true);
         if (!noteElements.length) return;
 
         // Create a mapping from data-index to note data
