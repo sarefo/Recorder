@@ -1,14 +1,15 @@
 X:1
 T:Popcorn
-N: Transposed - simple notation
+N: Transposed - syncopated, one bar per phrase half
+O: https://www.sheetmusicdirect.com/se/ID_No/121302/Product.aspx
 M:4/4
 Q:1/4=120
 L:1/8
 K:Cdor
-"Cm" z2 cB|: "Cm" cGFG C2 cB|cGFG C2 cd|"Bb" edec "Ab" dcdB|cBc_A c2 cB|
-"Cm" cGFG C2 cB|cGFG C2 cd|"Bb" edec "Ab" dcdB|cBcd e2 gf|
-"Eb" geBe G2 gf|geBe G2 ga|"Gm" babg "F" agaf|"Eb" gfge g2 gf|
-geBe G2 gf|geBe G2 ga|"Gm" babg "F" agaf|"Eb" gfef g2 cB:|
+"Cm" z2 cB|: "Cm" cG F<G C2 cB|cG F<G C2 cd|"Bb" ed e>c "Ab" dc d>B|cBc_A c2 cB|
+"Cm" cG F<G C2 cB|cG F<G C2 cd|"Bb" ed e>c "Ab" dc d>B|cBcd e2 gf|
+"Eb" ge B<e G2 gf|ge B<e G2 ga|"Gm" ba b>g "F" ag a>f|"Eb" gfge g2 gf|
+ge B<e G2 gf|ge B<e G2 ga|"Gm" ba b>g "F" ag a>f|"Eb" gfef g2 cB:|
 
 X:2
 T:Popcorn
