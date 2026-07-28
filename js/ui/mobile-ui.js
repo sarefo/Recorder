@@ -185,7 +185,7 @@ class MobileUI {
             playbackSection.appendChild(tempoControl);
         }
         moveBack('.fingering-controls', ['show-fingering', 'system-toggle', 'chart-toggle']);
-        moveBack('.notation-controls', ['copy-button', 'paste-button', 'share-button', 'theme-toggle']);
+        moveBack('.notation-controls', ['copy-button', 'paste-button', 'share-button']);
         // file-controls subtree (Files / dice / help) belongs inside notation-controls.
         const fileControls = document.querySelector('.file-controls');
         const notationSection = document.querySelector('.notation-controls');
@@ -435,12 +435,10 @@ class MobileUI {
         const copyButton = document.getElementById('copy-button');
         const pasteButton = document.getElementById('paste-button');
         const shareButton = document.getElementById('share-button');
-        const themeToggle = document.getElementById('theme-toggle');
 
         if (copyButton) extrasRow.appendChild(copyButton);
         if (pasteButton) extrasRow.appendChild(pasteButton);
         if (shareButton) extrasRow.appendChild(shareButton);
-        if (themeToggle) extrasRow.appendChild(themeToggle);
 
         return extrasRow;
     }

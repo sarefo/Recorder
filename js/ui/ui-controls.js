@@ -298,10 +298,7 @@ class UIControls {
         // Add share button
         notationSection.appendChild(this.createShareButton());
 
-        // Add theme toggle
-        notationSection.appendChild(this.createThemeToggleButton());
-
-        // Add file selector
+        // Add file selector (the theme toggle rides along inside it)
         notationSection.appendChild(this.createFileSelector());
 
         return notationSection;
@@ -313,6 +310,17 @@ class UIControls {
 
         // Create the selector using our hardcoded list
         const selector = this.player.fileManager.createFileSelector();
+
+        // Theme toggle belongs between the random and help buttons. Putting it
+        // inside the file-selector container (rather than alongside it) means
+        // the mobile layout, which re-homes that whole subtree, carries it too.
+        const helpButton = selector.querySelector('#help-button');
+        const themeToggle = this.createThemeToggleButton();
+        if (helpButton) {
+            selector.insertBefore(themeToggle, helpButton);
+        } else {
+            selector.appendChild(themeToggle);
+        }
 
         // Create tune navigation controls
         const tuneNavigation = this.player.tuneNavigation.createTuneNavigationControls();

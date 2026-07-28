@@ -39,6 +39,25 @@ body.mobile-playback-active #reference-row {
     margin-bottom: var(--space-5);
 }
 
+/* Desktop: keep the control bar on screen while scrolling a long tune.
+   .control-bar is already position:sticky, but that does nothing on its own —
+   a sticky element is confined to its containing block, and .control-container
+   is only as tall as the bar, so there is no room to slide. Sticking the
+   container instead scopes it to <body>, which spans the whole scroll range.
+   Mobile keeps its own bar handling, so this is desktop-only. */
+@media (min-width: 769px) {
+    .control-container {
+        position: sticky;
+        top: 0;
+        z-index: var(--z-control-bar);
+        /* Opaque, and the gap below becomes padding rather than margin, so
+           notation cannot scroll through the space under the bar. */
+        background-color: var(--color-bg);
+        margin-bottom: 0;
+        padding-bottom: var(--space-3);
+    }
+}
+
 /* Display utility classes (used by JS for dynamic show/hide) */
 .hidden {
     display: none !important;
