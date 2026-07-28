@@ -9,11 +9,11 @@ L:1/8
 Q:1/4=120
 K:F
 P:Verse
-"F"CF>G|A>A A2- A z/G/F>G|A2 A2-A  AB>A   |"C7"A2  G2- G z/G/A>G|"F"G2 F2-F
+CF>G|"F"A>A A2- A z/G/F>G|A2 A2-A  AB>A   |"C7"A2  G2- G z/G/A>G|"F"G2 F2-F
 CF>G|"F"A>A A2- A z/G/F>G|A2 A2-A  AB>A   |"C7"A2  G2- G z/A/A>G|"F"F4-   F||
 P:Chorus
 z3|"F"c2 c>c cA-Ac|"Bb"d2c2 B4|    "C7"B2 B>B BG-GB|"F"c2B2 A4|
-   "F"c2 c>c cA-Ac|"C7"d2e2 f3  d|cc cc  cc cB|"F"A2G2 F|]
+   "F"c2 c>c cA-Ac|"C7"d2e2 "F"f3  d|"C7"cc cc  cc cB|"F"A2G2 F|]
 
 X:2
 T:Bandiera Rossa
@@ -33,5 +33,5 @@ G,C>D|"C"E>E E2- E z/D/C>D|E2 E2-E
 P:Chorus
 z3|"C"G2 G>G GE-EG|"F"A2G2 F4|
    "G7"F2 F>F FD-DF|"C"G2F2 E4|
-   "C"G2 G>G GE-EG|"G7"A2B2 c3
- A|GG GG  GG GF|"C"E2D2 C|]
+   "C"G2 G>G GE-EG|"G7"A2B2 "C"c3
+ A|"G7"GG GG  GG GF|"C"E2D2 C|]

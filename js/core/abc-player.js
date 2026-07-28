@@ -37,6 +37,10 @@ class AbcPlayer {
         // Initialize user data manager for personal song metadata
         this.userDataManager = new UserDataManager();
 
+        // Theme first: it only needs settingsManager, and applying it before the
+        // rest of the UI is built avoids a repaint in the wrong palette
+        this.themeManager = new ThemeManager(this);
+
         // Initialize sub-modules
         this.notationParser = new NotationParser();
         this.tuneManager = new TuneManager(this);
@@ -109,6 +113,13 @@ class AbcPlayer {
             this.notationParser.currentAbc = text;
             this.fileManager.currentFilePath = null;
             this.fileManager.metadataUI.updateInlineTagButton(null);
+            // The pasted text is a fresh set of tunes, so the old index may be out
+            // of range. abcjs returns an EMPTY array from renderAbc() when
+            // startingTune >= tune count, so currentVisualObj would come back
+            // undefined: blank staff, and midiPlayer.init() bails before building
+            // the timing callbacks, killing note highlighting. Same reset the
+            // file-loading path does (see FileManager.loadAbcFile).
+            this.tuneManager.resetToFirstTune();
             this.render();
             Utils.showFeedback('ABC notation pasted successfully!');
             return true;

@@ -298,6 +298,9 @@ class UIControls {
         // Add share button
         notationSection.appendChild(this.createShareButton());
 
+        // Add theme toggle
+        notationSection.appendChild(this.createThemeToggleButton());
+
         // Add file selector
         notationSection.appendChild(this.createFileSelector());
 
@@ -649,6 +652,24 @@ class UIControls {
         });
 
         return voicesToggle;
+    }
+
+    /**
+     * Creates the light/dark theme toggle button
+     * Cycles auto -> light -> dark; ThemeManager owns the icon and tooltip.
+     * @returns {HTMLElement} The theme toggle button
+     */
+    createThemeToggleButton() {
+        const themeToggle = document.createElement('button');
+        themeToggle.id = 'theme-toggle';
+
+        this.player.themeManager.registerButton(themeToggle);
+
+        themeToggle.addEventListener('click', () => {
+            this.player.themeManager.cycleTheme();
+        });
+
+        return themeToggle;
     }
 
     /**

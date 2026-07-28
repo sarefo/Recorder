@@ -7,8 +7,8 @@ M: 4/4
 Q:1/4=100
 L: 1/8
 K: F
-|: A3 F G3 E | FEDE- E4 | A3 F G3 E | FEDG- G3 G |
-c3 A B3 G | GABA- A3 F | A3 F G3 E | F2 E2 D4 :|
+|: "F"A3 F "C"G3 E | "Dm"FEDE- "Am"E4 | "F"A3 F "C"G3 E | "Dm"FEDG- "C"G3 G |
+"Am"c3 A "Gm"B3 G | "C"GABA- "F"A3 F | "F"A3 F "C"G3 E | "Dm"F2 "Am"E2 "Dm"D4 :|
 
 X: 1
 T: Here's to you
@@ -17,5 +17,5 @@ C: Ennio Morricone
 M: 4/4
 L: 1/8
 K: C
-|: E3 C D3 B, | CB,A,B,- B,4 | E3 C D3 B, | CB,A,D- D3 D |
-G3 E F3 D | DEFE- E3 C | E3 C D3 B, | C2 B,2 A,4 :|
+|: "C"E3 C "G"D3 B, | "Am"CB,A,B,- "G"B,4 | "C"E3 C "G"D3 B, | "Am"CB,A,D- "G"D3 D |
+"Em"G3 E "Dm"F3 D | "G"DEFE- "C"E3 C | "C"E3 C "G"D3 B, | "Am"C2 "Em"B,2 "Am"A,4 :|

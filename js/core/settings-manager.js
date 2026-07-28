@@ -8,7 +8,8 @@ class SettingsManager {
             chordsOn: false,
             metronomeOn: true,
             loopEnabled: false,
-            autoScrollEnabled: true
+            autoScrollEnabled: true,
+            theme: 'auto'   // 'auto' follows the OS; 'light' / 'dark' override it
         };
         this.settings = {};
         this.urlParams = {};
@@ -71,6 +72,12 @@ class SettingsManager {
         const metronome = params.get('metronome');
         if (metronome === 'on' || metronome === 'off') {
             this.urlParams.metronomeOn = metronome === 'on';
+        }
+
+        // Parse theme setting
+        const theme = params.get('theme');
+        if (theme === 'auto' || theme === 'light' || theme === 'dark') {
+            this.urlParams.theme = theme;
         }
     }
     

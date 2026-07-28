@@ -122,9 +122,17 @@
 /* =========================================================================
    Dark mode token overrides
    Notation legibility (abcjs SVG) is handled in notation.css.
+
+   Two selectors carry the same values on purpose:
+     - the media query applies only when no theme has been forced
+       (:root:not([data-theme])), i.e. the "auto" setting, so that
+       data-theme="light" wins over a dark OS preference;
+     - :root[data-theme="dark"] is the manual override.
+   Light needs no block — it is the plain :root default above.
+   Keep the two lists in sync; ThemeManager sets the attribute.
    ========================================================================= */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme]) {
         --color-bg:             #121417;
         --color-surface:        #1c1f23;
         --color-surface-alt:    #23272d;
@@ -153,3 +161,37 @@
         --shadow-xl:  0 8px 32px rgba(0, 0, 0, 0.8);
     }
 }
+
+:root[data-theme="dark"] {
+    --color-bg:             #121417;
+    --color-surface:        #1c1f23;
+    --color-surface-alt:    #23272d;
+    --color-surface-sunken: #0e1013;
+    --color-border:         #2e333a;
+    --color-border-strong:  #3a4049;
+    --color-border-subtle:  #23272d;
+
+    --color-text:           #e8eaed;
+    --color-text-muted:     #aab1b8;
+    --color-text-soft:      #828990;
+
+    --color-primary:        #4285f4;
+    --color-primary-hover:  #5a95f5;
+    --color-primary-active: #1a73e8;
+    --color-primary-soft:   rgba(66, 133, 244, 0.18);
+
+    --color-overlay:        rgba(0, 0, 0, 0.65);
+    --color-overlay-strong: rgba(0, 0, 0, 0.85);
+    --color-focus-ring:     rgba(66, 133, 244, 0.5);
+
+    --shadow-xs:  0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.5);
+    --shadow-md:  0 2px 8px rgba(0, 0, 0, 0.6);
+    --shadow-lg:  0 4px 20px rgba(0, 0, 0, 0.7);
+    --shadow-xl:  0 8px 32px rgba(0, 0, 0, 0.8);
+}
+
+/* Tell the UA which scheme is in force so form controls, scrollbars and
+   the caret follow the chosen theme rather than the OS preference. */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"]  { color-scheme: dark; }

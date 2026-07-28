@@ -6,6 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ABC Notation Player</title>
+
+    <!-- Set the theme before any stylesheet loads, otherwise a forced theme
+         flashes the other palette on every start. Reads the same localStorage
+         key and 'theme' field as SettingsManager; ThemeManager takes over once
+         the app scripts have loaded. Kept deliberately tiny and inline. -->
+    <script>
+        (function () {
+            try {
+                var params = new URLSearchParams(window.location.search);
+                var theme = params.get('theme');
+                if (theme !== 'light' && theme !== 'dark' && theme !== 'auto') {
+                    var saved = localStorage.getItem('abc-player-settings');
+                    theme = saved ? JSON.parse(saved).theme : null;
+                }
+                if (theme === 'light' || theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', theme);
+                }
+            } catch (e) { /* fall back to the OS preference */ }
+        })();
+    </script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/abcjs@6.4.4/abcjs-audio.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/ui/song-metadata.css">
@@ -44,6 +65,7 @@
     <script src="js/files/file-manager.js"></script>
 
     <script src="js/notation/render-manager.js"></script>
+    <script src="js/ui/theme-manager.js"></script>
     <script src="js/ui/tuning-modal.js"></script>
     <script src="js/ui/song-metadata-ui.js"></script>
     <script src="js/ui/ui-controls.js"></script>
