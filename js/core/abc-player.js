@@ -334,6 +334,36 @@ class AbcPlayer {
      * Sets up keyboard shortcuts
      */
     setupKeyboardShortcuts() {
+        // True only for elements that actually swallow typing. Note that
+        // `el.contentEditable` returns the string "inherit" for ordinary
+        // elements — truthy, and !== 'false' — so testing it directly made
+        // every focused button look like a text field and killed the space
+        // and arrow shortcuts after any button click. isContentEditable is
+        // the boolean that answers the question we mean to ask.
+        const isTextEntry = (target) => {
+            if (!target || !target.tagName) return false;
+            if (target.isContentEditable) return true;
+            if (target.tagName === 'TEXTAREA') return true;
+            if (target.tagName !== 'INPUT') return false;
+            // Range/checkbox/radio inputs don't accept typed characters
+            const type = (target.type || 'text').toLowerCase();
+            return !['range', 'checkbox', 'radio', 'button', 'submit', 'reset'].includes(type);
+        };
+
+        // Arrow keys additionally belong to controls they natively operate
+        // (the tempo slider, dropdowns), so those keep them even though space
+        // is free to trigger playback there.
+        const isArrowTarget = (target) => isTextEntry(target) ||
+            target?.tagName === 'SELECT' ||
+            (target?.tagName === 'INPUT' && (target.type || '').toLowerCase() === 'range');
+
+        // While a dialog is open its own buttons own the keyboard; hijacking
+        // space there would fire playback instead of activating the button.
+        const isDialogOpen = () => !!document.querySelector(
+            '.notes-dialog-overlay, .settings-menu-overlay, .files-dialog-overlay, ' +
+            '.tempo-overlay, #tuning-modal[style*="flex"]'
+        );
+
         const handleKeyEvent = (event) => {
             // This handler is bound to BOTH keydown and keyup (see below), so the
             // keydown check is required — without it Ctrl+V fired twice per press
@@ -347,12 +377,7 @@ class AbcPlayer {
                     this.pasteFromClipboard();
                 }
             } else if (event.key === ' ' && !event.ctrlKey && !event.shiftKey && !event.altKey) {
-                const target = event.target;
-                const isInputField = target.tagName === 'INPUT' ||
-                                   target.tagName === 'TEXTAREA' ||
-                                   (target.contentEditable && target.contentEditable !== 'false');
-
-                if (!isInputField || target.tagName === 'BODY') {
+                if (!isTextEntry(event.target) && !isDialogOpen()) {
                     event.preventDefault();
                     event.stopPropagation();
                     if (event.type === 'keydown') {
@@ -362,12 +387,7 @@ class AbcPlayer {
                 }
             } else if ((event.key === 'ArrowLeft' || event.key === 'ArrowRight') &&
                        !event.ctrlKey && !event.shiftKey && !event.altKey) {
-                const target = event.target;
-                const isInputField = target.tagName === 'INPUT' ||
-                                   target.tagName === 'TEXTAREA' ||
-                                   (target.contentEditable && target.contentEditable !== 'false');
-
-                if (!isInputField || target.tagName === 'BODY') {
+                if (!isArrowTarget(event.target) && !isDialogOpen()) {
                     event.preventDefault();
                     if (event.type === 'keydown') {
                         if (event.key === 'ArrowLeft') {

@@ -4,7 +4,7 @@
 class AutoScrollManager {
     constructor(player) {
         this.player = player;
-        this.enabled = true; // Will be set based on screen size
+        this.enabled = true;
         this.timingCallbacks = null;
         this.currentElements = []; // Array of currently playing note elements
         this.scrollBehavior = 'smooth';
@@ -13,25 +13,16 @@ class AutoScrollManager {
         this.onFinishedCallback = null; // Callback to fire when playback completes
         this.finishTimer = null; // Timer to detect playback completion
 
-        // Update enabled state based on screen size
-        this.updateEnabledBasedOnScreenSize();
-
-        // Set up listener for screen size changes
-        window.addEventListener('resize', () => this.updateEnabledBasedOnScreenSize());
     }
 
     /**
-     * Updates enabled state based on screen size
-     * Auto-scroll is ON for small screens (mobile) and OFF for large screens (desktop)
+     * Auto-scroll used to be limited to small screens, but a piece longer than
+     * one screen needs following on a laptop just as much as on a phone.
+     * It is now always on; scrollToPosition() no-ops when the page has
+     * nothing to scroll, so short tunes are unaffected on any screen size.
      */
     updateEnabledBasedOnScreenSize() {
-        // Use same mobile detection logic as MobileUI
-        const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        const smallerDimension = Math.min(window.innerWidth, window.innerHeight);
-        const isMobile = isMobileDevice || smallerDimension <= 600 || window.innerWidth < 1024;
-
-        // Auto-scroll ON for mobile, OFF for desktop
-        this.enabled = isMobile;
+        this.enabled = true;
     }
 
     /**
