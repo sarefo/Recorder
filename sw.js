@@ -3,7 +3,7 @@
  * Handles offline caching of app shell and ABC music files
  */
 
-const CACHE_VERSION = 'abc-player-v3-2026-07-28-6';
+const CACHE_VERSION = 'abc-player-v3-2026-07-28-7';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const ABC_FILES_CACHE = `${CACHE_VERSION}-abc-files`;
 
@@ -109,9 +109,14 @@ self.addEventListener('fetch', (event) => {
     const { request } = event;
     const url = new URL(request.url);
 
-    // Handle ABC file requests
+    // Handle ABC file requests.
+    // Network-first, like the app shell: tunes get edited (chords added, notes
+    // corrected) and cache-first meant those edits stayed invisible until the
+    // next CACHE_VERSION bump happened to purge the cache -- a hard reload does
+    // not help, since the .abc file is a subresource fetched by app JS and so
+    // still goes through this handler. The cache fallback keeps offline working.
     if (url.pathname.includes('/Recorder/abc/')) {
-        event.respondWith(cacheFirstStrategy(request, ABC_FILES_CACHE));
+        event.respondWith(networkFirstStrategy(request, ABC_FILES_CACHE));
         return;
     }
 
@@ -144,8 +149,10 @@ self.addEventListener('fetch', (event) => {
  */
 async function cacheFirstStrategy(request, cacheName) {
     try {
-        // Try to get from cache first
-        const cachedResponse = await caches.match(request);
+        // Try to get from cache first. Scope the lookup to this cache --
+        // a bare caches.match() searches every cache in the origin, so a
+        // stale cache that outlived a version bump could still answer.
+        const cachedResponse = await caches.match(request, { cacheName });
         if (cachedResponse) {
             return cachedResponse;
         }
@@ -187,8 +194,8 @@ async function networkFirstStrategy(request, cacheName) {
 
         return networkResponse;
     } catch (error) {
-        // If network fails, try cache
-        const cachedResponse = await caches.match(request);
+        // If network fails, try cache (scoped -- see cacheFirstStrategy)
+        const cachedResponse = await caches.match(request, { cacheName });
         if (cachedResponse) {
             return cachedResponse;
         }
