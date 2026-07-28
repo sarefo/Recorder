@@ -4,11 +4,11 @@ N: Transposed - simple notation
 M:4/4
 Q:1/4=120
 L:1/8
-K:Db
-"Cm" z2 cB|: "Cm" c=GF=G C2 cB|c=GF=G C2 c=d|"Bb" e=dec "Ab"=dcdB|cBcA c2 cB|
-"Cm" c=GF=G C2 cB|c=GF=G C2 c=d|"Bb" e=dec "Ab" =dcdB|cBc=d e2 =gf|
-"Eb" =geBe =G2 =gf|=geBe =G2 =g=a|"Gm" b=ab=g "F" =a=g=af|"Eb" =gfge =g2 gf|
-=geBe =G2 =gf|=geBe =G2 =g=a|"Gm" b=ab=g "F" =a=g=af|"Eb" =gfef =g2 cB:|
+K:Cdor
+"Cm" z2 cB|: "Cm" cGFG C2 cB|cGFG C2 cd|"Bb" edec "Ab" dcdB|cBc_A c2 cB|
+"Cm" cGFG C2 cB|cGFG C2 cd|"Bb" edec "Ab" dcdB|cBcd e2 gf|
+"Eb" geBe G2 gf|geBe G2 ga|"Gm" babg "F" agaf|"Eb" gfge g2 gf|
+geBe G2 gf|geBe G2 ga|"Gm" babg "F" agaf|"Eb" gfef g2 cB:|
 
 X:2
 T:Popcorn
@@ -17,16 +17,16 @@ O: https://www.sheetmusicdirect.com/se/ID_No/121302/Product.aspx
 M:4/4
 Q:1/4=220
 L:1/4
-K:Db
-"Cm" z2 cB|c=G F<=G|C2 cB|
-c=G F<=G|C2 c=d|"Bb" e=d e>c|"Ab"=dc d>B|
-cBcA|c2 cB|"Cm" c=G F<=G|C2 cB|
-c=G F<=G|C2 c=d|"Bb" e=d e>c|"Ab" =dc d>B|
-cBc=d|e2 =gf|"Eb" =ge B<e|=G2 =gf|
-=ge B<e|=G2 =g=a|"Gm" b=a b>=g|"F" =a=g =a>f|"Eb" =gfge|
-=g2 gf|=ge B<e|=G2 =gf|=ge B<e|
-=G2 =g=a|"Gm" b=a b>=g|"F" =a=g =a>f|"Eb" =gfef|
-=g2 cB:|
+K:Cdor
+"Cm" z2 cB|cG F<G|C2 cB|
+cG F<G|C2 cd|"Bb" ed e>c|"Ab" dc d>B|
+cBc_A|c2 cB|"Cm" cG F<G|C2 cB|
+cG F<G|C2 cd|"Bb" ed e>c|"Ab" dc d>B|
+cBcd|e2 gf|"Eb" ge B<e|G2 gf|
+ge B<e|G2 ga|"Gm" ba b>g|"F" ag a>f|"Eb" gfge|
+g2 gf|ge B<e|G2 gf|ge B<e|
+G2 ga|"Gm" ba b>g|"F" ag a>f|"Eb" gfef|
+g2 cB:|
 
 X:3
 T:Popcorn
@@ -34,13 +34,13 @@ N: Original
 M:4/4
 Q:1/4=220
 L:1/4
-K:C
-"Bm" z2 BA|B^F E<F|B,2 BA|
-B^F E<F|B,2 B^c|"A" d^c d>B|"G"^cB c>A|
-BABG|B2 BA|"Bm" B^F E<F|B,2 BA|
-B^F E<F|B,2 B^c|"A" d^c d>B|"G" ^cB c>A|
-BAB^c|d2 ^fe|"D" ^fd A<d|^F2 ^fe|
-^fd A<d|^F2 ^f^g|"F#m" a^g a>^f|"E" ^g^f g>e|"D" ^fefd|
-^f2 fe|^fd A<d|^F2 ^fe|^fd A<d|
-^F2 ^f^g|"F#m" a^g a>^f|"E" ^g^f g>e|"D" ^fede|
-^f2 BA:|
+K:Bdor
+"Bm" z2 BA|BF E<F|B,2 BA|
+BF E<F|B,2 Bc|"A" dc d>B|"G" cB c>A|
+BAB=G|B2 BA|"Bm" BF E<F|B,2 BA|
+BF E<F|B,2 Bc|"A" dc d>B|"G" cB c>A|
+BABc|d2 fe|"D" fd A<d|F2 fe|
+fd A<d|F2 fg|"F#m" ag a>f|"E" gf g>e|"D" fefd|
+f2 fe|fd A<d|F2 fe|fd A<d|
+F2 fg|"F#m" ag a>f|"E" gf g>e|"D" fede|
+f2 BA:|
