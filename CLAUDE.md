@@ -11,7 +11,9 @@ This is a browser-based web application for displaying and playing ABC music not
 ## Running the Application
 
 - Development server: http://localhost:8000/Recorder
-- Update ABC and docs file lists: `python3 scripts/update_data.py`
+- Update ABC and docs file lists: `py scripts/update_data.py`
+  (must be run after adding/renaming/retitling any file in `abc/` or `docs/` —
+  it regenerates `js/data/abc-file-list.js` and `js/data/docs-file-list.js`)
 
 ## Key Files
 
