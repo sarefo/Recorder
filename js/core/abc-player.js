@@ -335,7 +335,10 @@ class AbcPlayer {
      */
     setupKeyboardShortcuts() {
         const handleKeyEvent = (event) => {
-            if (event.ctrlKey && !event.shiftKey && !event.altKey) {
+            // This handler is bound to BOTH keydown and keyup (see below), so the
+            // keydown check is required — without it Ctrl+V fired twice per press
+            // (once on each event), running two overlapping paste + render cycles.
+            if (event.ctrlKey && !event.shiftKey && !event.altKey && event.type === 'keydown') {
                 if (event.key === 'c' && !window.getSelection().toString()) {
                     event.preventDefault();
                     this.copyToClipboard();
