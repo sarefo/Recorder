@@ -38,6 +38,12 @@ class RenderManager {
                 this.anchorNoteIndex = null;
                 this.anchorEndNoteIndex = null;
                 this.anchorTuneId = tuneId;
+
+                // A new tune always gets a count-in bar on its first play,
+                // even if loop mode left isFirstPlay=false from the previous tune
+                if (this.player.midiPlayer) {
+                    this.player.midiPlayer.isFirstPlay = true;
+                }
             }
 
             // Initialize MIDI player
