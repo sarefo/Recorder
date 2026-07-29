@@ -38,6 +38,11 @@ class MidiPlayer {
         // aborts if a newer action bumped it, so two starts can never overlap.
         this.playSession = 0;
 
+        // Set while _disengageLoopKeepingPosition swaps the seamless loop
+        // back to plain playback, so a stray onEnded from the old source
+        // can't be misread as the tune actually finishing
+        this._suspendEndedCallback = false;
+
         // Track whether this is the first play (for count-in bar)
         // First play always gets count-in, loop repeats don't
         this.isFirstPlay = true;
@@ -988,6 +993,16 @@ class MidiPlayer {
             return;
         }
 
+        // Handing playback from the seamless loop back to plain synth
+        // playback (see _disengageLoopKeepingPosition) stops and restarts
+        // the synth source; the resulting onEnded can land after that
+        // restart's own bookkeeping update is still in flight, defeating the
+        // elapsed-time check below. Ignore onEnded entirely during that
+        // narrow window.
+        if (this._suspendEndedCallback) {
+            return;
+        }
+
         // abcjs fires onEnded whenever the audio source stops — including our
         // own pause(), stop() and seek() calls, not just the natural end of the
         // song. Reacting to those (e.g. loop restarting after a pause) is how
@@ -1157,43 +1172,80 @@ class MidiPlayer {
     }
 
     /**
-     * Toggles loop mode
+     * Toggles loop mode without interrupting playback: a song already playing
+     * keeps playing from its current position, it just starts or stops
+     * wrapping at the end. Paused/stopped state is left untouched — the new
+     * setting simply takes effect the next time playback starts.
      * @param {Object} [player] - The player instance (for saving settings)
      * @returns {Promise<boolean>} The new loop state
      */
     async toggleLoop(player) {
-        const wasPlaying = this.isPlaying;
-
         this.playbackSettings.loopEnabled = !this.playbackSettings.loopEnabled;
+        const loopEnabled = this.playbackSettings.loopEnabled;
 
         // Save to settings manager if player provided
         if (player && player.settingsManager) {
-            player.settingsManager.set('loopEnabled', this.playbackSettings.loopEnabled);
+            player.settingsManager.set('loopEnabled', loopEnabled);
         }
 
-        // Reset isFirstPlay when toggling loop mode (next play will have count-in)
-        this.isFirstPlay = true;
-
-        // Reinitialize to apply drumIntro change
-        const visualObj = window.app?.renderManager?.currentVisualObj;
-        if (visualObj) {
-            if (wasPlaying) {
-                await this.stopPlayback();
-            }
-            await this.initWithNewPlayer(visualObj);
-            if (wasPlaying) {
-                await this.startPlayback();
-                this.isPlaying = true;
-                this.updatePlayButtonState();
+        if (this.isPlaying) {
+            if (loopEnabled && !this.isSeamlessLoopActive()) {
+                this._engageLoopAtCurrentPosition();
+            } else if (!loopEnabled && this.isSeamlessLoopActive()) {
+                await this._disengageLoopKeepingPosition();
             }
         }
 
-        this.updateStatusDisplay(
-            this.playbackSettings.loopEnabled
-                ? "Loop: ON (count-in on first play)"
-                : "Loop: OFF"
-        );
-        return this.playbackSettings.loopEnabled;
+        this.updateStatusDisplay(loopEnabled ? "Loop: ON" : "Loop: OFF");
+        return loopEnabled;
+    }
+
+    /**
+     * Switches a currently-playing song onto the seamless loop at its current
+     * position, without restarting it (see toggleLoop)
+     * @private
+     */
+    _engageLoopAtCurrentPosition() {
+        const positionSec = (this.audioContext && typeof this.midiPlayer.startTimeSec === 'number')
+            ? this.audioContext.currentTime - this.midiPlayer.startTimeSec
+            : 0;
+
+        this.stopSeamlessLoop();
+        if (this.midiPlayer.isRunning) {
+            this.midiPlayer.stop();
+        }
+        this.startSeamlessLoop(positionSec);
+    }
+
+    /**
+     * Hands control from the seamless loop back to plain playback at the same
+     * position, without restarting (see toggleLoop)
+     * @private
+     */
+    async _disengageLoopKeepingPosition() {
+        const positionSec = this.looper ? this.looper.positionSec() : 0;
+
+        // onEnded from the stop() below can otherwise land after this
+        // function returns but before the restarted source's bookkeeping is
+        // settled, defeating _handlePlaybackEnded's elapsed-time guard
+        this._suspendEndedCallback = true;
+        try {
+            // The synth's stop() still targets the loop's live voices (via
+            // directSource) at this point; only after that do we tear down
+            // the looper's own bookkeeping and timers — same ordering as
+            // pausePlayback
+            this.midiPlayer.stop();
+            this.stopSeamlessLoop();
+
+            this.midiPlayer.seek(positionSec, "seconds");
+            await this.midiPlayer.start();
+        } finally {
+            this._suspendEndedCallback = false;
+        }
+
+        if (this.autoScrollManager && this.autoScrollManager.timingCallbacks) {
+            this.autoScrollManager.timingCallbacks.setProgress(positionSec, "seconds");
+        }
     }
 
     /**

@@ -429,9 +429,9 @@ class UIControls {
         const playbackSection = document.createElement('div');
         playbackSection.className = 'control-section playback-controls';
 
-        // Add play and restart buttons
+        // Add play and loop buttons
         playbackSection.appendChild(this.createPlayButton());
-        playbackSection.appendChild(this.createRestartButton());
+        playbackSection.appendChild(this.createLoopButton());
 
         // Add toggle buttons
         playbackSection.appendChild(this.createChordsToggleButton());
@@ -543,28 +543,28 @@ class UIControls {
     }
 
     /**
-     * Creates restart button as a plain loop toggle
-     * @returns {HTMLElement} The restart button
+     * Creates the loop toggle button
+     * @returns {HTMLElement} The loop button
      */
-    createRestartButton() {
-        const restartButton = document.createElement('button');
-        restartButton.id = 'restart-button';
-        this.updateRestartButtonAppearance(restartButton, false);
+    createLoopButton() {
+        const loopButton = document.createElement('button');
+        loopButton.id = 'loop-button';
+        this.updateLoopButtonAppearance(loopButton, false);
 
-        restartButton.addEventListener('click', async () => {
+        loopButton.addEventListener('click', async () => {
             const loopEnabled = await this.player.midiPlayer.toggleLoop(this.player);
-            this.updateRestartButtonAppearance(restartButton, loopEnabled);
+            this.updateLoopButtonAppearance(loopButton, loopEnabled);
         });
 
-        return restartButton;
+        return loopButton;
     }
 
     /**
-     * Updates restart button appearance based on loop state
-     * @param {HTMLElement} button - The restart button
+     * Updates loop button appearance based on loop state
+     * @param {HTMLElement} button - The loop button
      * @param {boolean} loopEnabled - Whether loop is enabled
      */
-    updateRestartButtonAppearance(button, loopEnabled) {
+    updateLoopButtonAppearance(button, loopEnabled) {
         if (loopEnabled) {
             button.textContent = '↻';
             button.title = 'Loop: ON (click to toggle off)';
@@ -1071,10 +1071,10 @@ class UIControls {
             this.setButtonActiveState(metronomeButton, this.player.midiPlayer.playbackSettings.metronomeOn);
         }
 
-        // Update restart button (loop state)
-        const restartButton = document.getElementById('restart-button');
-        if (restartButton) {
-            this.updateRestartButtonAppearance(restartButton, this.player.midiPlayer.playbackSettings.loopEnabled);
+        // Update loop button
+        const loopButton = document.getElementById('loop-button');
+        if (loopButton) {
+            this.updateLoopButtonAppearance(loopButton, this.player.midiPlayer.playbackSettings.loopEnabled);
         }
     }
 

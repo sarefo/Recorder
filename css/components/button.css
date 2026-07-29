@@ -135,16 +135,16 @@
     border-color: var(--color-border);
 }
 
-/* Loop-enabled state on restart button */
-#restart-button.loop-active,
-.control-bar #restart-button.loop-active {
+/* Loop-enabled state on loop button */
+#loop-button.loop-active,
+.control-bar #loop-button.loop-active {
     background-color: var(--color-warning);
     border-color: var(--color-warning);
     color: var(--color-text-on-primary);
     box-shadow: 0 0 0 2px var(--color-warning-soft);
 }
 
-#restart-button.loop-active:hover {
+#loop-button.loop-active:hover {
     background-color: #f57c00;
     border-color: #f57c00;
 }

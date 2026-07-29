@@ -173,7 +173,7 @@ class MobileUI {
             }
         };
         moveBack('.playback-controls', [
-            'play-button', 'restart-button',
+            'play-button', 'loop-button',
             'chords-toggle', 'voices-toggle', 'metronome-toggle',
             'tuning-button',
             'transpose-up', 'transpose-down',
@@ -311,7 +311,7 @@ class MobileUI {
 
         // Get individual buttons
         const playButton = document.getElementById('play-button');
-        const restartButton = document.getElementById('restart-button');
+        const loopButton = document.getElementById('loop-button');
         const transposeUp = document.getElementById('transpose-up');
         const transposeDown = document.getElementById('transpose-down');
         const mobileTempoButton = document.getElementById('mobile-tempo-button');
@@ -319,7 +319,7 @@ class MobileUI {
 
         // Add important controls to main row
         if (playButton) mainRow.appendChild(playButton);
-        if (restartButton) mainRow.appendChild(restartButton);
+        if (loopButton) mainRow.appendChild(loopButton);
         if (transposeUp) mainRow.appendChild(transposeUp);
         if (transposeDown) mainRow.appendChild(transposeDown);
         // Use mobile tempo button on mobile, regular tempo control on desktop

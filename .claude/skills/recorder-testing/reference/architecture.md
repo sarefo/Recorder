@@ -16,7 +16,7 @@ Every component holds a back-reference as `this.player`.
 | `diagramRenderer` | `DiagramRenderer` | `js/fingering/diagram-renderer.js` | Draws diagrams, builds the note marker zones |
 | `tuneManager` | `TuneManager` | `js/files/tune-manager.js` | Multi-tune files: `getTuneCount()`, `setTuneIndex()`, `nextTune()` |
 | `fileManager` | `FileManager` | `js/files/file-manager.js` | Loading from `/abc` |
-| `uiControls` | `UIControls` | `js/ui/ui-controls.js` | Buttons, the play/loop/restart button behaviour |
+| `uiControls` | `UIControls` | `js/ui/ui-controls.js` | Buttons, the play button (hold to restart) and loop button |
 | `mobileUI`, `swipeHandler` | | `js/ui/` | Mobile layout and gestures |
 | `shareManager` | `ShareManager` | `js/core/share-manager.js` | The `?abc=<base64>` URL parameter |
 | `settingsManager` | `SettingsManager` | `js/core/settings-manager.js` | Persisted settings (localStorage) |
@@ -136,7 +136,7 @@ already-running instance starts a *second* animation loop — always check
 
 ## Useful DOM ids
 
-`#abc-notation` `#play-button` `#restart-button` (also the loop toggle)
+`#abc-notation` `#play-button` (hold to restart) `#loop-button`
 `#metronome-toggle` `#chords-toggle` `#voices-toggle` `#show-fingering`
 `#transpose-up` `#transpose-down` `#prev-tune` `#next-tune` `#tune-title`
 `#midi-status` (status line — handy to assert on) `#tuning-button` `#chart-toggle`
