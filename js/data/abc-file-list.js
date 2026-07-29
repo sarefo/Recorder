@@ -138,6 +138,11 @@ class AbcFileList {
                 "category": "georgian"
         },
         {
+                "name": "Johnny I Hardly Knew Ya",
+                "file": "irish/johnny i hardly knew ya.abc",
+                "category": "irish"
+        },
+        {
                 "name": "Bandiera Rossa",
                 "file": "italian/bandiera_rossa.abc",
                 "category": "italian"
