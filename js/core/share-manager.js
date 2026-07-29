@@ -11,10 +11,24 @@ class ShareManager {
         }, 1000); // Update URL after 1 second of inactivity
     }
 
+    // btoa/atob only handle Latin1; tunes can contain non-Latin1 text (e.g. Yiddish lyrics)
+    static encodeAbc(str) {
+        const bytes = new TextEncoder().encode(str);
+        let binary = '';
+        bytes.forEach(b => binary += String.fromCharCode(b));
+        return btoa(binary);
+    }
+
+    static decodeAbc(base64) {
+        const binary = atob(base64);
+        const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+        return new TextDecoder().decode(bytes);
+    }
+
     updateUrlWithCurrentContent() {
         // Get current tune ABC notation instead of entire file
         const abcNotation = this.player.tuneManager.getCurrentTuneAbc();
-        const encodedAbc = btoa(abcNotation);
+        const encodedAbc = ShareManager.encodeAbc(abcNotation);
 
         // Create URL with the encoded ABC as a parameter
         const url = new URL(window.location.href.split('?')[0]);
@@ -30,8 +44,8 @@ class ShareManager {
             const abcParam = urlParams.get('abc');
 
             if (abcParam) {
-                // Decode the base64 encoded ABC notation (just use atob)
-                const decodedAbc = atob(abcParam);
+                // Decode the base64 encoded ABC notation
+                const decodedAbc = ShareManager.decodeAbc(abcParam);
 
                 // Validate basic ABC structure
                 if (decodedAbc.includes('X:') && decodedAbc.includes('K:')) {
@@ -74,8 +88,7 @@ class ShareManager {
     generateShareUrl() {
         // Get current tune ABC notation instead of entire file
         const abcNotation = this.player.tuneManager.getCurrentTuneAbc();
-        // Use btoa directly without encodeURIComponent
-        const encodedAbc = btoa(abcNotation);
+        const encodedAbc = ShareManager.encodeAbc(abcNotation);
 
         // Create URL with the encoded ABC as a parameter
         const url = new URL(window.location.href.split('?')[0]); // Remove existing query params
