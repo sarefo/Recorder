@@ -462,35 +462,14 @@ class UIControls {
     }
 
     /**
-     * Creates play button
+     * Creates play button with long-press to restart
      * @returns {HTMLElement} The play button
      */
     createPlayButton() {
         const playButton = document.createElement('button');
         playButton.id = 'play-button';
-        playButton.title = 'Play/Pause';
+        playButton.title = 'Play/Pause\nHold to restart';
         playButton.textContent = '▶';
-
-        playButton.addEventListener('click', async () => {
-            await this.player.midiPlayer.togglePlay();
-
-            // If on mobile and starting playback, collapse additional controls
-            if (this.player.isMobile && this.player.midiPlayer.isPlaying) {
-                this.player.mobileUI.collapseControls();
-            }
-        });
-
-        return playButton;
-    }
-
-    /**
-     * Creates restart button with loop toggle functionality
-     * @returns {HTMLElement} The restart button
-     */
-    createRestartButton() {
-        const restartButton = document.createElement('button');
-        restartButton.id = 'restart-button';
-        this.updateRestartButtonAppearance(restartButton, false);
 
         let longPressTimer = null;
         let isLongPress = false;
@@ -527,10 +506,14 @@ class UIControls {
                 longPressTimer = null;
             }
 
-            // Toggle loop mode on normal press (if it wasn't a long press)
+            // Toggle play/pause on normal press (if it wasn't a long press)
             if (mousePressed && !isLongPress) {
-                const loopEnabled = await this.player.midiPlayer.toggleLoop(this.player);
-                this.updateRestartButtonAppearance(restartButton, loopEnabled);
+                await this.player.midiPlayer.togglePlay();
+
+                // If on mobile and starting playback, collapse additional controls
+                if (this.player.isMobile && this.player.midiPlayer.isPlaying) {
+                    this.player.mobileUI.collapseControls();
+                }
             }
 
             // Reset the pressed state
@@ -550,11 +533,28 @@ class UIControls {
         };
 
         // Add event listeners for both mouse and touch
-        restartButton.addEventListener('mousedown', startPress);
-        restartButton.addEventListener('mouseup', endPress);
-        restartButton.addEventListener('mouseleave', endPress); // Cancel if mouse leaves
-        restartButton.addEventListener('touchstart', handleTouchStart, { passive: true });
-        restartButton.addEventListener('touchend', handleTouchEnd, { passive: true });
+        playButton.addEventListener('mousedown', startPress);
+        playButton.addEventListener('mouseup', endPress);
+        playButton.addEventListener('mouseleave', endPress); // Cancel if mouse leaves
+        playButton.addEventListener('touchstart', handleTouchStart, { passive: true });
+        playButton.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+        return playButton;
+    }
+
+    /**
+     * Creates restart button as a plain loop toggle
+     * @returns {HTMLElement} The restart button
+     */
+    createRestartButton() {
+        const restartButton = document.createElement('button');
+        restartButton.id = 'restart-button';
+        this.updateRestartButtonAppearance(restartButton, false);
+
+        restartButton.addEventListener('click', async () => {
+            const loopEnabled = await this.player.midiPlayer.toggleLoop(this.player);
+            this.updateRestartButtonAppearance(restartButton, loopEnabled);
+        });
 
         return restartButton;
     }
@@ -567,11 +567,11 @@ class UIControls {
     updateRestartButtonAppearance(button, loopEnabled) {
         if (loopEnabled) {
             button.textContent = '↻';
-            button.title = 'Loop: ON (click to toggle off)\nHold to restart';
+            button.title = 'Loop: ON (click to toggle off)';
             button.classList.add('loop-active');
         } else {
             button.textContent = '⟳';
-            button.title = 'Loop: OFF (click to toggle on)\nHold to restart';
+            button.title = 'Loop: OFF (click to toggle on)';
             button.classList.remove('loop-active');
         }
     }

@@ -407,7 +407,7 @@ class MidiPlayer {
                 playButton.title = 'Preparing to play...';
             } else {
                 playButton.textContent = this.isPlaying ? '⏸' : '▶';
-                playButton.title = this.isPlaying ? 'Pause' : 'Play';
+                playButton.title = (this.isPlaying ? 'Pause' : 'Play') + '\nHold to restart';
             }
         }
     }

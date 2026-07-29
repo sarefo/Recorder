@@ -143,6 +143,11 @@ class AbcFileList {
                 "category": "irish"
         },
         {
+                "name": "The Wild Rover",
+                "file": "irish/the wild rover.abc",
+                "category": "irish"
+        },
+        {
                 "name": "Bandiera Rossa",
                 "file": "italian/bandiera_rossa.abc",
                 "category": "italian"
