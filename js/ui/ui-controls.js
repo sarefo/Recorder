@@ -476,6 +476,13 @@ class UIControls {
         let mousePressed = false;
         let lastTouchTime = 0;
 
+        const clearLongPressTimer = () => {
+            if (longPressTimer) {
+                clearTimeout(longPressTimer);
+                longPressTimer = null;
+            }
+        };
+
         // Handle mouse/touch start
         const startPress = (e) => {
             // Ignore synthetic mouse events after touch events (within 500ms)
@@ -501,13 +508,17 @@ class UIControls {
             if (e && e.type === 'mouseup' && Date.now() - lastTouchTime < 500) {
                 return;
             }
-            if (longPressTimer) {
-                clearTimeout(longPressTimer);
-                longPressTimer = null;
-            }
+            clearLongPressTimer();
+
+            // The press is over now. Releasing it before the await matters:
+            // togglePlay only settles once the preparation delay and the whole
+            // count-in bar have run, and until it did, a press that had long
+            // since ended still looked live to anything else reading this.
+            const wasPressed = mousePressed;
+            mousePressed = false;
 
             // Toggle play/pause on normal press (if it wasn't a long press)
-            if (mousePressed && !isLongPress) {
+            if (wasPressed && !isLongPress) {
                 await this.player.midiPlayer.togglePlay();
 
                 // If on mobile and starting playback, collapse additional controls
@@ -515,8 +526,13 @@ class UIControls {
                     this.player.mobileUI.collapseControls();
                 }
             }
+        };
 
-            // Reset the pressed state
+        // The pointer left the button before it was released: abandon the press
+        // without acting on it, the way a button is expected to behave. Ending
+        // it here instead would make moving the mouse away count as a click.
+        const cancelPress = () => {
+            clearLongPressTimer();
             mousePressed = false;
         };
 
@@ -535,7 +551,7 @@ class UIControls {
         // Add event listeners for both mouse and touch
         playButton.addEventListener('mousedown', startPress);
         playButton.addEventListener('mouseup', endPress);
-        playButton.addEventListener('mouseleave', endPress); // Cancel if mouse leaves
+        playButton.addEventListener('mouseleave', cancelPress); // Cancel if mouse leaves
         playButton.addEventListener('touchstart', handleTouchStart, { passive: true });
         playButton.addEventListener('touchend', handleTouchEnd, { passive: true });
 
