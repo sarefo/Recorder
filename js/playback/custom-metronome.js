@@ -19,6 +19,13 @@ class CustomMetronome {
         this.constantMode = false; // whether metronome runs independently of playback
         this.visualCallback = null; // callback for visual feedback
 
+        // Optional source for the music's own beat grid (see setBeatGridProvider)
+        this.beatGridProvider = null;
+        // Audio-clock time of the most recently scheduled click, so a grid that
+        // moves under us can never place a second click on top of one already
+        // sounding
+        this.lastScheduledTime = -Infinity;
+
         // Create gain nodes for different accent levels
         this.accentedClickGain = null;
         this.normalClickGain = null;
@@ -31,7 +38,8 @@ class CustomMetronome {
         // Create audio context if it doesn't exist yet
         if (!this.audioContext) {
             this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-
+        }
+        if (!this.accentedClickGain) {
             // Create gain nodes for accented and normal beats. The clicks sit
             // under the music, so these stay well below unity.
             this.accentedClickGain = this.audioContext.createGain();
@@ -42,6 +50,36 @@ class CustomMetronome {
             this.normalClickGain.gain.value = CustomMetronome.NORMAL_VOLUME;
             this.normalClickGain.connect(this.audioContext.destination);
         }
+    }
+
+    /**
+     * Adopts the audio context the music plays on. Two separate contexts have
+     * unrelated `currentTime` origins, so sharing one is what makes it possible
+     * to place a click at a known position in the music.
+     * @param {AudioContext} context - The player's audio context
+     */
+    useAudioContext(context) {
+        if (!context || this.audioContext === context) return;
+
+        // Nodes belong to the context that created them
+        this.accentedClickGain = null;
+        this.normalClickGain = null;
+        this.audioContext = context;
+        this.lastScheduledTime = -Infinity;
+        this.nextNoteTime = context.currentTime;
+        this.init();
+    }
+
+    /**
+     * Supplies the music's beat grid, so the clicks land on the printed beats
+     * instead of free-running from whenever the metronome happened to start.
+     * @param {function(): ({originSec: number, pickupBeats: number}|null)} provider
+     *   Returns the audio-clock time of the music's position 0 and how many
+     *   beats of pickup precede its first bar line, or null when no music is
+     *   playing (the metronome then free-runs, e.g. during the count-in)
+     */
+    setBeatGridProvider(provider) {
+        this.beatGridProvider = provider;
     }
 
     /**
@@ -89,18 +127,70 @@ class CustomMetronome {
     scheduleClicks() {
         // Calculate beat length in seconds based on tempo
         const secondsPerBeat = 60.0 / this.tempo;
+        const now = this.audioContext.currentTime;
+        const horizon = now + this.clickSchedulerLookahead;
+
+        const grid = this.beatGridProvider ? this.beatGridProvider() : null;
+        if (grid) {
+            this.scheduleClicksOnGrid(grid, secondsPerBeat, now, horizon);
+            return;
+        }
+
+        // No music to follow: free-run from wherever we are. Coming back from
+        // grid mode, nextNoteTime is stale and would flush a burst of clicks.
+        if (this.nextNoteTime < now) {
+            this.nextNoteTime = Math.max(now, this.lastScheduledTime + secondsPerBeat);
+        }
 
         // Schedule clicks until we're beyond our lookahead window
-        while (this.nextNoteTime < this.audioContext.currentTime + this.clickSchedulerLookahead) {
+        while (this.nextNoteTime < horizon) {
             // Determine if this is an accented beat (first beat of measure)
             const isAccented = this.currentBeat % this.beatsPerMeasure === 0;
 
             // Schedule this beat
             this.scheduleClick(this.nextNoteTime, isAccented);
+            this.lastScheduledTime = this.nextNoteTime;
 
             // Advance beat time and counter
             this.nextNoteTime += secondsPerBeat;
             this.currentBeat++;
+        }
+    }
+
+    /**
+     * Schedules the upcoming clicks onto the music's beat grid.
+     *
+     * The grid is re-derived on every scheduler tick rather than advanced by
+     * one beat at a time, and that is the whole point: when a loop wraps, the
+     * music jumps back and the grid jumps with it, so the next click lands on
+     * the beat at the region's start instead of wherever a free-running count
+     * happened to be. It also keeps the accent on real bar lines, however many
+     * beats long the A-B region is.
+     *
+     * @param {{originSec: number, pickupBeats: number}} grid - Music beat grid
+     * @param {number} secondsPerBeat - Beat length in seconds
+     * @param {number} now - Current audio-clock time
+     * @param {number} horizon - Schedule clicks up to this audio-clock time
+     */
+    scheduleClicksOnGrid(grid, secondsPerBeat, now, horizon) {
+        // Audio-clock time of the music's first bar line
+        const downbeat = grid.originSec + grid.pickupBeats * secondsPerBeat;
+
+        // Half a beat of guard: enough to absorb the grid shifting at a loop
+        // seam without ever double-triggering a beat
+        const earliest = Math.max(now, this.lastScheduledTime + secondsPerBeat / 2);
+        let beat = Math.ceil((earliest - downbeat) / secondsPerBeat);
+
+        for (let time = downbeat + beat * secondsPerBeat; time < horizon;) {
+            // Beats before the first bar line (a pickup) count negative
+            const beatInMeasure = ((beat % this.beatsPerMeasure) + this.beatsPerMeasure)
+                % this.beatsPerMeasure;
+            this.scheduleClick(time, beatInMeasure === 0);
+            this.lastScheduledTime = time;
+            this.currentBeat = beat;
+
+            beat++;
+            time = downbeat + beat * secondsPerBeat;
         }
     }
 
@@ -125,6 +215,7 @@ class CustomMetronome {
 
         // Start scheduling from current time (after audio context is ready)
         this.nextNoteTime = this.audioContext.currentTime;
+        this.lastScheduledTime = -Infinity;
 
         // Start scheduler interval
         this.interval = setInterval(() => this.scheduleClicks(), this.clickSchedulerInterval);

@@ -14,8 +14,11 @@ class MidiPlayer {
             loopEnabled: false // Loop playback when song ends
         };
 
-        // Add custom metronome
+        // Add custom metronome. Its clicks follow the music's own beat grid
+        // rather than free-running, so an A-B region of any length loops
+        // without the beat sliding away from the notes.
         this.customMetronome = new CustomMetronome();
+        this.customMetronome.setBeatGridProvider(() => this.getBeatGrid());
         this.lastTimeSignature = 4; // Default 4/4 time
         this.lastTempo = 120;       // Default tempo
 
@@ -72,7 +75,42 @@ class MidiPlayer {
         if (!this.audioContext) {
             this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
         }
+        // The metronome has to be on the same clock as the synth, or the
+        // positions it reads out of the synth mean nothing
+        this.customMetronome.useAudioContext(this.audioContext);
         return this.audioContext;
+    }
+
+    /**
+     * Where the music's beat grid currently sits on the audio clock.
+     *
+     * The synth's startTimeSec is the audio-clock time of music position 0, and
+     * SeamlessLooper keeps it accurate across every loop seam, so a metronome
+     * derived from it stays on the printed beats wherever an A-B region begins
+     * and however many beats long it is.
+     *
+     * @returns {{originSec: number, pickupBeats: number}|null} null when no
+     *   music is running or the clocks are not comparable, in which case the
+     *   metronome free-runs (the count-in, and constant metronome mode)
+     */
+    getBeatGrid() {
+        const synth = this.midiPlayer;
+        if (!synth || !synth.isRunning || typeof synth.startTimeSec !== 'number') {
+            return null;
+        }
+        if (!this.audioContext || this.customMetronome.audioContext !== this.audioContext) {
+            return null;
+        }
+
+        // A pickup shifts every bar line, so the accent has to shift with it
+        const visualObj = window.app?.renderManager?.currentVisualObj;
+        const pickupLength = visualObj?.getPickupLength?.();
+        const beatLength = visualObj?.getBeatLength?.();
+        const pickupBeats = (pickupLength > 0 && beatLength > 0)
+            ? pickupLength / beatLength
+            : 0;
+
+        return { originSec: synth.startTimeSec, pickupBeats };
     }
 
     /**
