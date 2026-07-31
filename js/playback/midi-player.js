@@ -2,6 +2,10 @@
  * Manages MIDI playback functionality with enhanced controls
  */
 class MidiPlayer {
+    // Lead before the count-in's first click, long enough for the scheduler to
+    // place it and for the synth buffer to be handed to the audio thread
+    static COUNT_IN_LEAD_SEC = 0.12;
+
     constructor() {
         this.midiPlayer = null;
         this.isPlaying = false;
@@ -61,6 +65,11 @@ class MidiPlayer {
         // (see SeamlessLooper); created lazily per synth instance
         this.looper = null;
 
+        // Audio-clock time a scheduled-but-not-yet-sounding start will begin
+        // at, so the count-in can be clicked out on the grid the music will
+        // land on. Null whenever nothing is waiting on the clock.
+        this.scheduledStartSec = null;
+
         // Track preparation delay state and timeout
         this.isPreparingToPlay = false;
         this.preparationTimeout = null;
@@ -94,23 +103,26 @@ class MidiPlayer {
      *   metronome free-runs (the count-in, and constant metronome mode)
      */
     getBeatGrid() {
-        const synth = this.midiPlayer;
-        if (!synth || !synth.isRunning || typeof synth.startTimeSec !== 'number') {
-            return null;
-        }
         if (!this.audioContext || this.customMetronome.audioContext !== this.audioContext) {
             return null;
         }
 
-        // A pickup shifts every bar line, so the accent has to shift with it
-        const visualObj = window.app?.renderManager?.currentVisualObj;
-        const pickupLength = visualObj?.getPickupLength?.();
-        const beatLength = visualObj?.getBeatLength?.();
-        const pickupBeats = (pickupLength > 0 && beatLength > 0)
-            ? pickupLength / beatLength
-            : 0;
+        const synth = this.midiPlayer;
+        let originSec = null;
+        if (this.scheduledStartSec !== null
+            && this.audioContext.currentTime < this.scheduledStartSec) {
+            // The music is on the clock but not sounding yet (the count-in).
+            // Using the time it will start at is what puts the count-in on the
+            // same grid, and it also keeps a stale startTimeSec from a previous
+            // pass out of the way.
+            originSec = this.scheduledStartSec;
+        } else if (synth && synth.isRunning && typeof synth.startTimeSec === 'number') {
+            originSec = synth.startTimeSec;
+        }
+        if (originSec === null) return null;
 
-        return { originSec: synth.startTimeSec, pickupBeats };
+        // A pickup shifts every bar line, so the accent has to shift with it
+        return { originSec, pickupBeats: this.getPickupBeats() };
     }
 
     /**
@@ -151,6 +163,7 @@ class MidiPlayer {
      */
     interruptPendingStart() {
         this.playSession++;
+        this.cancelScheduledStart();
         if (this.preparationTimeout) {
             clearTimeout(this.preparationTimeout);
             this.preparationTimeout = null;
@@ -485,6 +498,7 @@ class MidiPlayer {
 
             // The synth's pause silences the loop's sources and records the
             // position; the looper only needs its pending repeats cancelled
+            this.scheduledStartSec = null;
             this.stopSeamlessLoop();
 
             // Pause auto-scroll
@@ -498,6 +512,114 @@ class MidiPlayer {
             console.error("Error pausing playback:", error);
             return false;
         }
+    }
+
+    /**
+     * Plays the count-in bar and hands over to the music without a seam.
+     *
+     * The music's start is placed on the audio clock up front, so the count-in
+     * clicks and the first note come off one grid. Waiting out the count-in and
+     * only then telling abcjs to "start now" — which is all abcjs offers — put
+     * the main thread's latency between the last click and the first note.
+     *
+     * @param {number} bpm - Tempo the count-in and the music run at
+     * @param {number} numerator - Beats in the count-in bar
+     * @param {number} startFromSec - Position in the tune the music begins at
+     * @returns {Promise<boolean>} Whether the music was placed on the clock
+     *   (false means the caller still has to start it the ordinary way)
+     */
+    async playCountIn(bpm, numerator, startFromSec) {
+        // currentTime does not advance while suspended, so the clock has to be
+        // running before anything can be scheduled against it
+        if (this.audioContext.state === 'suspended') {
+            await this.audioContext.resume();
+        }
+
+        // Nothing may be sounding when the new start goes on the clock
+        this.stopSeamlessLoop();
+        if (this.midiPlayer.isRunning) {
+            this.midiPlayer.stop();
+        }
+
+        const secondsPerBeat = 60.0 / bpm;
+        const pickupBeats = this.getPickupBeats();
+        // The count-in fills the bar in front of the music's first bar line, so
+        // with a pickup the music starts partway through the last count-in beat
+        // — exactly how a player counts a pickup in.
+        const musicStartAt = this.audioContext.currentTime
+            + MidiPlayer.COUNT_IN_LEAD_SEC
+            + (numerator - pickupBeats) * secondsPerBeat;
+
+        // Publish the grid before the first click is scheduled, so the count-in
+        // is already on the beat the music will land on
+        this.scheduledStartSec = musicStartAt;
+        await this.customMetronome.start(bpm, numerator);
+
+        const scheduled = this.startSeamlessLoop(startFromSec, musicStartAt)
+            || this.startSynthAt(musicStartAt, startFromSec);
+        if (!scheduled) {
+            // No buffer to schedule: fall back to the plain start, which the
+            // caller does once the count-in has been waited out
+            this.scheduledStartSec = null;
+        }
+
+        const waitMs = (musicStartAt - this.audioContext.currentTime) * 1000;
+        await new Promise(resolve => setTimeout(resolve, Math.max(0, waitMs)));
+        return scheduled;
+    }
+
+    /**
+     * Starts the synth's audio at an exact moment on the audio clock.
+     *
+     * abcjs can only start "now", so this schedules the buffer itself and then
+     * describes it to the synth, the same way SeamlessLooper does at a seam.
+     * The synth's own pause, seek and stop keep working on it.
+     *
+     * @param {number} atSec - Audio-clock time to begin at
+     * @param {number} offsetSec - Position in the tune to begin at
+     * @returns {boolean} Whether the start could be scheduled
+     */
+    startSynthAt(atSec, offsetSec) {
+        const synth = this.midiPlayer;
+        const buffer = synth?.getAudioBuffer?.();
+        if (!buffer || !this.audioContext) return false;
+
+        const source = this.audioContext.createBufferSource();
+        source.buffer = buffer;
+        source.connect(this.audioContext.destination);
+        source.start(atSec, offsetSec || 0);
+        if (typeof synth.onEnded === 'function') {
+            source.onended = () => synth.onEnded(synth.callbackContext);
+        }
+
+        synth.directSource = [source];
+        synth.isRunning = true;
+        synth.startTimeSec = atSec - (offsetSec || 0);
+        synth.pausedTimeSec = undefined;
+        return true;
+    }
+
+    /**
+     * Silences a start that is on the clock but not yet sounding
+     */
+    cancelScheduledStart() {
+        if (this.scheduledStartSec === null) return;
+        this.scheduledStartSec = null;
+        this.stopSeamlessLoop();
+        if (this.midiPlayer && this.midiPlayer.isRunning) {
+            this.midiPlayer.stop();
+        }
+    }
+
+    /**
+     * How many beats of pickup precede the music's first bar line
+     * @returns {number} Beats, 0 when the tune starts on a downbeat
+     */
+    getPickupBeats() {
+        const visualObj = window.app?.renderManager?.currentVisualObj;
+        const pickupLength = visualObj?.getPickupLength?.();
+        const beatLength = visualObj?.getBeatLength?.();
+        return (pickupLength > 0 && beatLength > 0) ? pickupLength / beatLength : 0;
     }
 
     /**
@@ -544,27 +666,24 @@ class MidiPlayer {
                 this.lastTimeSignature = numerator;
             }
 
-            // ALWAYS start metronome for count-in bar (even if metronomeOn is
-            // false) — except when starting at the long-press anchor: the
-            // player is already in the groove, so jump straight in
-            if (!this.customMetronome.isPlaying && this.isFirstPlay && !startsAtAnchor) {
+            // ALWAYS play a count-in bar (even if metronomeOn is false) —
+            // except when starting at the long-press anchor: the player is
+            // already in the groove, so jump straight in
+            const needsCountIn = !this.customMetronome.isPlaying && this.isFirstPlay && !startsAtAnchor;
+            let startedOnSchedule = false;
+
+            if (needsCountIn) {
                 // The count-in is part of "preparing": another play press
                 // during it cancels this start (see togglePlay)
                 this.isPreparingToPlay = true;
                 this.updatePlayButtonState();
 
-                await this.customMetronome.start(adjustedTempo, numerator);
-
-                // Calculate duration of one measure for count-in
-                const secondsPerBeat = 60.0 / adjustedTempo;
-                const countInDuration = secondsPerBeat * numerator * 1000; // Convert to milliseconds
-
-                // Wait for count-in bar to complete
-                await new Promise(resolve => setTimeout(resolve, countInDuration));
+                startedOnSchedule = await this.playCountIn(adjustedTempo, numerator, startFromSec);
 
                 // Abort if canceled or superseded during the count-in
                 if (session !== this.playSession) {
                     this.isPreparingToPlay = false;
+                    this.cancelScheduledStart();
                     if (!this.playbackSettings.metronomeOn) {
                         this.customMetronome.stop();
                     }
@@ -587,27 +706,30 @@ class MidiPlayer {
 
             // Abort if another action superseded this start while waiting
             if (session !== this.playSession) {
+                this.cancelScheduledStart();
                 return false;
             }
 
-            // Never layer a second audio source over a running one (isRunning
-            // also stays true after a natural end, where stop() is harmless)
-            this.stopSeamlessLoop();
-            if (this.midiPlayer.isRunning) {
-                this.midiPlayer.stop();
-            }
-
-            // In loop mode the repeats are scheduled on the audio clock, so
-            // the seam has no JavaScript round trip in it and stays in time
-            const resumeSec = isResume ? (this.midiPlayer.pausedTimeSec || 0) : startFromSec;
-            if (!this.startSeamlessLoop(resumeSec)) {
-                // Fresh start at the anchor: position the synth before starting
-                if (startsAtAnchor) {
-                    this.midiPlayer.seek(startFromSec, "seconds");
+            if (!startedOnSchedule) {
+                // Never layer a second audio source over a running one (isRunning
+                // also stays true after a natural end, where stop() is harmless)
+                this.stopSeamlessLoop();
+                if (this.midiPlayer.isRunning) {
+                    this.midiPlayer.stop();
                 }
 
-                // Start MIDI player after count-in
-                await this.midiPlayer.start();
+                // In loop mode the repeats are scheduled on the audio clock, so
+                // the seam has no JavaScript round trip in it and stays in time
+                const resumeSec = isResume ? (this.midiPlayer.pausedTimeSec || 0) : startFromSec;
+                if (!this.startSeamlessLoop(resumeSec)) {
+                    // Fresh start at the anchor: position the synth before starting
+                    if (startsAtAnchor) {
+                        this.midiPlayer.seek(startFromSec, "seconds");
+                    }
+
+                    // Start MIDI player after count-in
+                    await this.midiPlayer.start();
+                }
             }
 
             // Start timing callbacks for note highlighting (always) and auto-scroll (mobile only)
@@ -659,7 +781,9 @@ class MidiPlayer {
                     this.preparationTimeout = null;
                 }
                 this.isPreparingToPlay = false;
-                // Silence a count-in that is already ticking
+                // Silence a count-in that is already ticking, and the music
+                // waiting on the clock behind it
+                this.cancelScheduledStart();
                 if (this.customMetronome.isPlaying && !this.customMetronome.isConstantMode()) {
                     this.customMetronome.stop();
                 }
@@ -808,6 +932,7 @@ class MidiPlayer {
             this.customMetronome.stop();
 
             // Cancel scheduled loop repeats before silencing the synth
+            this.scheduledStartSec = null;
             this.stopSeamlessLoop();
 
             // Stop auto-scroll
@@ -944,13 +1069,15 @@ class MidiPlayer {
      * Starts looped playback that repeats on the audio clock instead of
      * waiting for the previous pass to end.
      * @param {number} fromSec - Position to begin at
+     * @param {number} [atSec] - Audio-clock time to begin at; defaults to as
+     *   soon as a repeat can be scheduled
      * @returns {boolean} Whether the seamless loop took over
      */
-    startSeamlessLoop(fromSec) {
+    startSeamlessLoop(fromSec, atSec) {
         if (!this.playbackSettings.loopEnabled) return false;
         const loopWindow = this.getLoopWindowSec();
         const looper = loopWindow ? this._getLooper() : null;
-        return !!looper && looper.start(loopWindow, fromSec);
+        return !!looper && looper.start(loopWindow, fromSec, atSec);
     }
 
     /**

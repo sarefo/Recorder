@@ -56,9 +56,11 @@ class SeamlessLooper {
      * Starts looped playback at a position inside the loop window.
      * @param {{start: number, end: number}} loopWindow - Loop bounds in seconds
      * @param {number} fromSec - Position to begin at (defaults to the loop start)
+     * @param {number} [atSec] - Audio-clock time to begin at, for a start that
+     *   has to land on an exact moment (the end of a count-in)
      * @returns {boolean} Whether the loop could be started
      */
-    start(loopWindow, fromSec) {
+    start(loopWindow, fromSec, atSec) {
         const buffer = this.synth?.getAudioBuffer?.();
         if (!buffer || !loopWindow || !(loopWindow.end > loopWindow.start)) {
             return false;
@@ -73,7 +75,9 @@ class SeamlessLooper {
             ? fromSec : loopWindow.start;
 
         // A small lead lets the first repeat be scheduled rather than raced
-        const startAt = this.audioContext.currentTime + 0.03;
+        const startAt = (typeof atSec === 'number' && atSec > this.audioContext.currentTime)
+            ? atSec
+            : this.audioContext.currentTime + 0.03;
         this._startVoice(offset, startAt);
         this._adoptSynthClock(startAt, offset);
 
