@@ -2,6 +2,10 @@
  * CustomMetronome: Simple metronome using Web Audio API
  */
 class CustomMetronome {
+    // Click loudness, relative to full scale
+    static ACCENTED_VOLUME = 0.25;
+    static NORMAL_VOLUME = 0.12;
+
     constructor() {
         this.audioContext = null;
         this.isPlaying = false;
@@ -28,13 +32,14 @@ class CustomMetronome {
         if (!this.audioContext) {
             this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-            // Create gain nodes for accented and normal beats
+            // Create gain nodes for accented and normal beats. The clicks sit
+            // under the music, so these stay well below unity.
             this.accentedClickGain = this.audioContext.createGain();
-            this.accentedClickGain.gain.value = 1.0;
+            this.accentedClickGain.gain.value = CustomMetronome.ACCENTED_VOLUME;
             this.accentedClickGain.connect(this.audioContext.destination);
 
             this.normalClickGain = this.audioContext.createGain();
-            this.normalClickGain.gain.value = 0.5; // Lower volume for non-accented beats
+            this.normalClickGain.gain.value = CustomMetronome.NORMAL_VOLUME;
             this.normalClickGain.connect(this.audioContext.destination);
         }
     }
@@ -54,12 +59,20 @@ class CustomMetronome {
         // Choose gain node based on whether this is an accented beat
         const gainNode = isAccented ? this.accentedClickGain : this.normalClickGain;
 
-        // Connect oscillator to gain node
-        osc.connect(gainNode);
+        // Per-click envelope: a bare start/stop on the oscillator snaps the
+        // waveform at both ends, which is heard as a harsh extra click
+        const envelope = this.audioContext.createGain();
+        envelope.gain.setValueAtTime(0, time);
+        envelope.gain.linearRampToValueAtTime(1, time + 0.002);
+        envelope.gain.exponentialRampToValueAtTime(0.001, time + 0.05);
+
+        osc.connect(envelope);
+        envelope.connect(gainNode);
 
         // Schedule the click
         osc.start(time);
         osc.stop(time + 0.05); // Short duration click
+        osc.onended = () => envelope.disconnect();
 
         // Schedule visual feedback if callback is set
         if (this.visualCallback) {
