@@ -43,6 +43,11 @@ class AbcFileList {
                 "category": "chinese"
         },
         {
+                "name": "Baobao Yao Shuijiao",
+                "file": "chinese/baobao yao shuijiao.abc",
+                "category": "chinese"
+        },
+        {
                 "name": "Geming shengli zaixiangfeng",
                 "file": "chinese/geming.abc",
                 "category": "chinese"
@@ -50,6 +55,31 @@ class AbcFileList {
         {
                 "name": "Huang hua cao",
                 "file": "chinese/huang hua cao.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Liangshanbo",
+                "file": "chinese/liangshanbo.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Molihua",
+                "file": "chinese/molihua.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Nigu Sifan",
+                "file": "chinese/nigu sifan.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Yueguang Ge",
+                "file": "chinese/yueguang ge.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Zou Xikou",
+                "file": "chinese/zou xikou.abc",
                 "category": "chinese"
         },
         {
