@@ -3,8 +3,8 @@
  */
 class CustomMetronome {
     // Click loudness, relative to full scale
-    static ACCENTED_VOLUME = 0.25;
-    static NORMAL_VOLUME = 0.12;
+    static ACCENTED_VOLUME = 0.5;
+    static NORMAL_VOLUME = 0.25;
 
     constructor() {
         this.audioContext = null;
