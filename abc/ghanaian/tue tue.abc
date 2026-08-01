@@ -1,0 +1,14 @@
+X:1
+T:Tue Tue
+O:Ghana (Akan)
+N:Melody and chords from the mu-tech.org lead sheet, verified against its MIDI; transposed from D up to G to keep the low note inside the recorder's range
+M:4/4
+Q:1/4=120
+L:1/16
+K:G
+"G" d2 d2 d2 d4-d"D" d1 e2 d2 |"G" B2 B2 B2 B8-B2 |
+"G" d2 d2 d2 d2"D" z3 d1 e2 d2 |"G" B2 B2 B2 B2"Em" z3 G1 G2 B2 |
+"G" d4 e2 d2"Bm7" B2 B2 A2 A2 |"G" d2 d2 d2 d2"Em" z3 G1 G2 B2 |
+"G" d4 e2 d2"Bm7" B2 B2 A2 A2 |"G" G2 G2 G2 G2"Em" G2 z1 G1 A2 E2 |
+"G" G2 G2 G2 G2"C" G2 z1 G1 A2 E2 |"G" G2 G2 G2 G2"C" G2 z1 G1 A2 E2 |
+"G" G2 G2 G2 G2 G2 z6 |]

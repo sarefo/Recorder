@@ -38,6 +38,11 @@ class AbcFileList {
                 "category": "bartok/romanian folk dances"
         },
         {
+                "name": "Atirei o Pau no Gato",
+                "file": "brazilian/atirei o pau no gato.abc",
+                "category": "brazilian"
+        },
+        {
                 "name": "AAA Dongjia chimi wo chikang",
                 "file": "chinese/670_songs.abc",
                 "category": "chinese"
@@ -168,6 +173,26 @@ class AbcFileList {
                 "category": "georgian"
         },
         {
+                "name": "Muss i denn",
+                "file": "german/muss i denn.abc",
+                "category": "german"
+        },
+        {
+                "name": "Tue Tue",
+                "file": "ghanaian/tue tue.abc",
+                "category": "ghanaian"
+        },
+        {
+                "name": "Vande Mataram",
+                "file": "indian/vande mataram.abc",
+                "category": "indian"
+        },
+        {
+                "name": "Rasa Sayange",
+                "file": "indonesian/rasa sayange.abc",
+                "category": "indonesian"
+        },
+        {
                 "name": "Johnny I Hardly Knew Ya",
                 "file": "irish/johnny i hardly knew ya.abc",
                 "category": "irish"
@@ -176,6 +201,11 @@ class AbcFileList {
                 "name": "The Wild Rover",
                 "file": "irish/the wild rover.abc",
                 "category": "irish"
+        },
+        {
+                "name": "Hava Nagila",
+                "file": "israeli/hava nagila.abc",
+                "category": "israeli"
         },
         {
                 "name": "Bandiera Rossa",
@@ -226,6 +256,16 @@ class AbcFileList {
                 "name": "Te Hokinga Mai",
                 "file": "maori/te hokinga mai.abc",
                 "category": "maori"
+        },
+        {
+                "name": "Cielito Lindo",
+                "file": "mexican/cielito lindo.abc",
+                "category": "mexican"
+        },
+        {
+                "name": "A Ram Sam Sam",
+                "file": "moroccan/a ram sam sam.abc",
+                "category": "moroccan"
         },
         {
                 "name": "Bortkomne sauen",
@@ -413,6 +453,11 @@ class AbcFileList {
                 "category": "shanty"
         },
         {
+                "name": "Shosholoza",
+                "file": "south african/shosholoza.abc",
+                "category": "south african"
+        },
+        {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish"
@@ -421,6 +466,11 @@ class AbcFileList {
                 "name": "Akta dig f\u00f6r flickor",
                 "file": "swedish/akta dig f\u00f6r flickor.abc",
                 "category": "swedish"
+        },
+        {
+                "name": "\u00dcsk\u00fcdar'a Gider \u0130ken",
+                "file": "turkish/uskudara gider iken.abc",
+                "category": "turkish"
         },
         {
                 "name": "A-Team Theme",
@@ -438,6 +488,11 @@ class AbcFileList {
                 "category": "tv"
         },
         {
+                "name": "Nich Yaka Misyachna",
+                "file": "ukrainian/nich yaka misyachna.abc",
+                "category": "ukrainian"
+        },
+        {
                 "name": "",
                 "file": "unsorted/test.abc",
                 "category": "unsorted"
@@ -451,6 +506,11 @@ class AbcFileList {
                 "name": "The People United",
                 "file": "unsorted/people united.abc",
                 "category": "unsorted"
+        },
+        {
+                "name": "B\u00e8o D\u1ea1t M\u00e2y Tr\u00f4i",
+                "file": "vietnamese/beo dat may troi.abc",
+                "category": "vietnamese"
         },
         {
                 "name": "Chiribim Chiribom",
@@ -471,6 +531,11 @@ class AbcFileList {
                 "name": "In Kamf",
                 "file": "yiddish/in kamf.abc",
                 "category": "yiddish"
+        },
+        {
+                "name": "Kankuluwe",
+                "file": "zambian/kankuluwe.abc",
+                "category": "zambian"
         }
 ];
     }

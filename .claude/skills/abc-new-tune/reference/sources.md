@@ -40,8 +40,67 @@ curl -sL "http://www.mu-tech.co.jp/FirstSongWeb/ScoreImage/c_Leron_leron_sinta.j
 ```
 
 Then Read the image (crop and upscale systems that are too small — see SKILL.md).
-Country indexes are at `index_<country>_song.html`. Catalogue per country is
-small, so check before planning around it.
+
+#### It indexes the whole world — start here for any tradition
+
+`https://www.mu-tech.org/WorldTrad/index_Countries_of_the_World.html` lists
+**~110 per-country indexes**, `index_<Country>_song.html` (`index_Ghanaian_song`,
+`index_Kenyan_song`, `index_turkish_song`, `index_Zambian_song`, …), plus
+continental ones (`index_africa_song`, `index_asian_song`, `index_latin_america`).
+Each lists tune pages by romanised filename. This is by far the best starting
+point for filling geographic gaps — nothing else found covers Africa, the Middle
+East or Southeast Asia at all.
+
+```bash
+curl -sL "https://www.mu-tech.org/WorldTrad/index_Nigerian_song.html" \
+  | grep -o 'href="[A-Za-z0-9_%-]*\.html"' | sed 's/href="//;s/\.html"//' | sort -u
+```
+
+The tune page itself is only in Japanese for some entries (a ~1 kB stub in the
+English tree means "not translated" — and often that the tune is still in
+copyright, e.g. Bengawan Solo). The country is stated in the score header as
+`◯◯民謡` ("… folk song"), which is worth reading back as confirmation.
+
+#### Getting a MIDI when the page shows no MIDI link
+
+Most English tune pages link only the score generator. Two URL patterns work
+anyway:
+
+```bash
+# 1. the plain melody MIDI — present for maybe a third of tunes
+curl -sL "http://www.mu-tech.co.jp/midi/traditional/<Name>.mid" -o tune.mid
+# 2. the auto-arrangements — present for essentially all of them
+curl -sL "http://www.mu-tech.co.jp/midi/traditional/fsout/<Name>_Country.mid" -o tune.mid
+#    other styles: _Acoustic, _Ethnic_Guitar, _Samba, _Bon_Odori
+```
+
+In the `fsout` arrangements the melody is usually **channel 15**; in the plain
+MIDIs it is channel 0 (sometimes duplicated on channel 10, and often
+**octave-doubled** — each note appears twice, an octave apart, lower first, so
+`awk 'NR%2==1'` recovers the single line).
+
+#### Three gotchas that will cost you an hour each
+
+- **`SongKey` names the major key signature, not the tonic.** A minor tune needs
+  the *relative major*: A minor → `SongKey=c`, D minor → `f`, F minor → `af`.
+  Ask for `a` on a minor tune and you get F# minor. Generate the score in the
+  MIDI's own key so the chords map 1:1 and you never transpose by hand.
+- **The arrangements often carry a one-beat lead-in**, so `midi_notes.py`'s bar
+  grid is a beat off and every chord lands wrong. Detect it by matching bar 1 of
+  the score against the dump, then realign with `--shift 3` (4/4) or `--shift 2`
+  (3/4) — the shift is mod the bar length, so it also renumbers the bars.
+- **The engraver mis-renders ties**: a note tied over a barline loses its first
+  half and the remainder is drawn as a whole note, and tied *into* a bar it draws
+  a bare notehead that looks like an extra note. Take rhythm from the MIDI and
+  chords from the score; never try to reconcile the two note-for-note.
+
+#### Check the texture before assuming a single line
+
+Not every setting is monophonic. The Thai entries (Khangkhaw kin kluay,
+Kunsuwan, Thaleba) are two-voice ranat transcriptions with simultaneous dyads —
+reducing them to one recorder line means choosing notes, which is composing, not
+transcribing. Skip those. A quick tell is repeated identical onsets in the dump
+(`G5@1.5/0.25 E5@1.5/0.25`).
 
 ### MIDI libraries hosted on Google Drive
 

@@ -1,0 +1,16 @@
+X:1
+T:Vande Mataram
+C:Jadunath Bhattacharya
+O:India (Bengal)
+N:Melody and chords from the mu-tech.org lead sheet, verified against its MIDI
+M:4/4
+Q:1/4=100
+L:1/8
+K:C
+"C" C2 D3 F G F |"G" G4 z4 |"F" F2 G3 B c B |"C" c4 z4 |
+"Bb" c d _B4 A G |"F" G A F4 E D |"Dm" D G F G E D2 E |"C" C4 z4 |
+"C" C2 D F"G" G F G2- |"G" G G"Gm" _B A"C" G4 |"F" F2 G3 B c B |"C" c4 z4 |
+"F" F2 G2"G" B2 B2 |"G" B B c B"F" c3 B |"C" c4 z4 |"G" B2 B B"F" c B c2 |
+"C" c d c _B"Gm" _B A _B A |"C" A G4 z3 |"Dm" D D F E E D3 |"Bb" D _B A _B A G2 A |
+"C" A G4 z3 |"G7" F G B2 B B B2 |"C" z B c B c4 |"F" F2 G3 B c B |
+"C" c4 z4 |"F" F2 G3 B c B |"C" c4 z4 |"F" z8 |]

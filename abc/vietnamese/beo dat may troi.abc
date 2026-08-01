@@ -1,0 +1,11 @@
+X:1
+T:Bèo Dạt Mây Trôi
+O:Vietnam (Quan Ho)
+N:Melody and chords from the mu-tech.org lead sheet, verified against its MIDI
+M:4/4
+Q:1/4=80
+L:1/16
+K:F
+"F" z4 F4 F4 c2 A B |"F" c3 c d2 c2 c4 A4 |"Dm" A4 A G A c F4 F A G F |"C7" C8 c3 f A2 B2 |
+"F" c4 A4 A4 A G A c |"F" F4 F A G F C8 |"Dm" D2 F2 G2 A G A6 G2 |"F" A4 A3 G F2 G2 A G A c |
+"F" F2 C4 F2"C7" C2 F G A2 G2 |"F" F12 z4 |]
