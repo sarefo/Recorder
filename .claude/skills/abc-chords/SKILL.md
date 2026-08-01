@@ -38,6 +38,21 @@ What actually happens:
 - tunearch.org and chordify give generic or wrong-setting chords.
 - abcnotation.com sometimes has a chorded setting — worth one look.
 
+Two routes *do* yield sourced harmony often enough to try first, especially
+outside the Anglo/Celtic repertoire. Both are written up in
+`../abc-new-tune/reference/sources.md`:
+
+- **A printed lead sheet.** `mu-tech.org` generates one on demand, as an image,
+  in any key — download it and Read it. Chords straight off the page.
+- **A MIDI arrangement with a separate accompaniment channel.** Read the
+  harmony bar by bar off the arranger's own chord track:
+  `py ../abc-new-tune/scripts/midi_notes.py source.mid --chords 2`.
+  Pitch classes, so `ACE` is Am and `BDG#` is E7 — and a stack with the third
+  omitted (`ABF#`) means checking how the same arrangement voices that chord
+  elsewhere before choosing between B7 and Bm.
+
+A sourced progression beats a derived one. Derive only when neither exists.
+
 So use research to establish **facts about the tune** — composer, key, whether
 it is modal, what a standard accompaniment looks like — then derive the actual
 progression from the notes in front of you. That is what has been accepted.
