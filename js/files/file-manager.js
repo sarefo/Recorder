@@ -332,22 +332,22 @@ class FileManager {
     toggleRegion(section, header, options = {}) {
         const isExpanded = header.getAttribute('aria-expanded') === 'true';
 
-        // Opening a region shows its tunes, not another rank of folders — the
-        // country headings stay, so a long region (Europe, Asia) can still be
-        // scanned by place and its big folders collapsed individually.
-        const setFolders = (target, open) => {
+        // A region opens onto its country folders, closed. Expanding them all
+        // was tried and rejected: it buries the country names you are trying
+        // to choose between under every tune they contain.
+        const collapseFolders = (target) => {
             target.querySelectorAll('.files-items').forEach(items => {
-                items.classList.toggle('collapsed', !open);
+                items.classList.add('collapsed');
             });
             target.querySelectorAll('.folder-button').forEach(button => {
-                button.setAttribute('aria-expanded', String(open));
+                button.setAttribute('aria-expanded', 'false');
             });
         };
 
         if (isExpanded) {
             section.classList.remove('expanded');
             header.setAttribute('aria-expanded', 'false');
-            setFolders(section, false);
+            collapseFolders(section);
             this.lastOpenRegion = null;
             return;
         }
@@ -358,12 +358,12 @@ class FileManager {
         list?.querySelectorAll('.files-region.expanded').forEach(other => {
             other.classList.remove('expanded');
             other.querySelector('.region-button')?.setAttribute('aria-expanded', 'false');
-            setFolders(other, false);
+            collapseFolders(other);
         });
 
         section.classList.add('expanded');
         header.setAttribute('aria-expanded', 'true');
-        setFolders(section, true);
+        collapseFolders(section);
         this.lastOpenRegion = section.dataset.region;
 
         if (options.scroll !== false) {
@@ -645,10 +645,10 @@ class FileManager {
                 region.classList.toggle('expanded', stillOpen);
                 header?.setAttribute('aria-expanded', String(stillOpen));
                 region.querySelectorAll('.files-items').forEach(items => {
-                    items.classList.toggle('collapsed', !stillOpen);
+                    items.classList.add('collapsed');
                 });
                 region.querySelectorAll('.folder-button').forEach(button => {
-                    button.setAttribute('aria-expanded', String(stillOpen));
+                    button.setAttribute('aria-expanded', 'false');
                 });
             } else {
                 region.querySelectorAll('.files-category:not(.hidden) .files-items')
