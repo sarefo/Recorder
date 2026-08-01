@@ -128,9 +128,29 @@ class AbcFileList {
                 "category": "classical/tchaikovsky"
         },
         {
+                "name": "Amawole",
+                "file": "congolese/amawole.abc",
+                "category": "congolese"
+        },
+        {
+                "name": "Na Tom Bo\u0161ileck\u00fdm Mostku",
+                "file": "czech/na tom bosileckym mostku.abc",
+                "category": "czech"
+        },
+        {
+                "name": "Sarasponda",
+                "file": "dutch/sarasponda.abc",
+                "category": "dutch"
+        },
+        {
                 "name": "Largo From \"The new world\"",
                 "file": "dvorak/new world/going home.abc",
                 "category": "dvorak/new world"
+        },
+        {
+                "name": "A Ya Zein",
+                "file": "egyptian/a ya zein.abc",
+                "category": "egyptian"
         },
         {
                 "name": "Here's to you",
@@ -183,6 +203,16 @@ class AbcFileList {
                 "category": "ghanaian"
         },
         {
+                "name": "Aloha \u02bbOe",
+                "file": "hawaiian/aloha oe.abc",
+                "category": "hawaiian"
+        },
+        {
+                "name": "B\u00fajj, B\u00fajj, Z\u00f6ld \u00c1g",
+                "file": "hungarian/bujj bujj zold ag.abc",
+                "category": "hungarian"
+        },
+        {
                 "name": "Vande Mataram",
                 "file": "indian/vande mataram.abc",
                 "category": "indian"
@@ -223,6 +253,11 @@ class AbcFileList {
                 "category": "italian"
         },
         {
+                "name": "Banana Boat Song",
+                "file": "jamaican/banana boat song.abc",
+                "category": "jamaican"
+        },
+        {
                 "name": "Hana",
                 "file": "japanese/hana.abc",
                 "category": "japanese"
@@ -241,6 +276,16 @@ class AbcFileList {
                 "name": "All Of Me",
                 "file": "jazz/all of me.abc",
                 "category": "jazz"
+        },
+        {
+                "name": "Mayila",
+                "file": "kazakh/mayila.abc",
+                "category": "kazakh"
+        },
+        {
+                "name": "Jambo Bwana",
+                "file": "kenyan/jambo bwana.abc",
+                "category": "kenyan"
         },
         {
                 "name": "Arirang",
@@ -351,6 +396,11 @@ class AbcFileList {
                 "name": "Mario Theme",
                 "file": "pop/game/mario theme.abc",
                 "category": "pop/game"
+        },
+        {
+                "name": "Dorme, Dorme, Meu Menino",
+                "file": "portuguese/dorme dorme meu menino.abc",
+                "category": "portuguese"
         },
         {
                 "name": "Chromatic Scale C to d'",
@@ -486,6 +536,11 @@ class AbcFileList {
                 "name": "Fraggle Rock Theme",
                 "file": "tv/fraggle rock.abc",
                 "category": "tv"
+        },
+        {
+                "name": "Mwana Wa Nnyabo",
+                "file": "ugandan/mwana wa nnyabo.abc",
+                "category": "ugandan"
         },
         {
                 "name": "Nich Yaka Misyachna",

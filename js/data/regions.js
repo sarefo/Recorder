@@ -21,16 +21,20 @@ class RegionMap {
             label: 'Europe',
             accent: 210,
             categories: [
-                'austrian', 'finnish', 'french', 'georgian', 'german', 'irish',
-                'italian', 'norwegian', 'polish', 'russian', 'scottish',
-                'spanish', 'swedish', 'ukrainian', 'yiddish',
+                'austrian', 'czech', 'dutch', 'finnish', 'french', 'georgian',
+                'german', 'hungarian', 'irish', 'italian', 'norwegian',
+                'polish', 'portuguese', 'russian', 'scottish', 'spanish',
+                'swedish', 'ukrainian', 'yiddish',
             ],
         },
         {
             id: 'africa',
             label: 'Africa',
             accent: 35,
-            categories: ['ghanaian', 'moroccan', 'south african', 'zambian'],
+            categories: [
+                'congolese', 'egyptian', 'ghanaian', 'kenyan', 'moroccan',
+                'south african', 'ugandan', 'zambian',
+            ],
         },
         {
             id: 'middle-east',
@@ -43,7 +47,7 @@ class RegionMap {
             label: 'Asia',
             accent: 0,
             categories: [
-                'chinese', 'indian', 'indonesian', 'japanese', 'korean',
+                'chinese', 'indian', 'indonesian', 'japanese', 'kazakh', 'korean',
                 'philippine', 'vietnamese',
             ],
         },
@@ -51,13 +55,16 @@ class RegionMap {
             id: 'americas',
             label: 'Americas',
             accent: 145,
-            categories: ['american', 'brazilian', 'latino', 'mexican', 'peruvian'],
+            categories: [
+                'american', 'brazilian', 'jamaican', 'latino', 'mexican',
+                'peruvian',
+            ],
         },
         {
             id: 'oceania',
             label: 'Oceania',
             accent: 185,
-            categories: ['australian', 'maori'],
+            categories: ['australian', 'hawaiian', 'maori'],
         },
         {
             id: 'classical',
