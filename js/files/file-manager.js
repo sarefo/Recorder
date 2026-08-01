@@ -11,6 +11,7 @@ class FileManager {
         this.currentFilter = 'all'; // Current filter: 'all', 'favorites', 'needs-practice', 'practicing', 'good', 'mastered', 'recent', 'collection'
         this.currentCollectionId = null; // Active collection ID when viewing collection
         this.currentFilePath = null; // Currently loaded file path (null when loaded from paste/share)
+        this.lastOpenRegion = null; // Region left expanded, so reopening the dialog resumes there
     }
 
     /**
@@ -250,16 +251,124 @@ class FileManager {
         // Sort categories alphabetically
         const sortedCategories = Object.keys(this.categorizedFiles).sort();
 
-        // Create column containers
+        // One section per world region, each holding its country folders. The
+        // flat 40-folder list this replaced was searchable but not browsable.
+        RegionMap.group(sortedCategories).forEach(({ region, categories }) => {
+            const section = this.createRegionSection(region, categories, handleEscape);
+            if (section) container.appendChild(section);
+        });
+    }
+
+    /**
+     * Builds one collapsible region section wrapping its country folders
+     * @param {Object} region - Descriptor from RegionMap.REGIONS
+     * @param {string[]} categories - Folder names belonging to this region
+     * @param {Function} handleEscape - Dialog's escape handler, to detach on load
+     * @returns {HTMLElement|null} The section, or null if the filter hid everything
+     */
+    createRegionSection(region, categories, handleEscape) {
+        const section = document.createElement('section');
+        section.className = 'files-region';
+        section.dataset.region = region.id;
+        section.dataset.regionLabel = region.label.toLowerCase();
+        section.style.setProperty('--region-accent', region.accent);
+        if (region.muted) section.classList.add('files-region-muted');
+
         const columns = document.createElement('div');
         columns.className = 'files-columns';
-        container.appendChild(columns);
 
-        // Populate each category
-        sortedCategories.forEach(category => {
+        let tuneCount = 0;
+        let placeCount = 0;
+
+        categories.forEach(category => {
             const categoryContainer = this.createCategoryContainer(category, handleEscape);
+            // createCategoryContainer hides a folder whose files are all
+            // filtered out; don't count those towards the region either
+            if (categoryContainer.style.display === 'none') return;
+            tuneCount += categoryContainer.querySelectorAll('.file-item').length;
+            placeCount++;
             columns.appendChild(categoryContainer);
         });
+
+        // A region with nothing left after filtering is not worth a header
+        if (placeCount === 0) return null;
+
+        const header = document.createElement('button');
+        header.className = 'region-button';
+        header.setAttribute('aria-expanded', 'false');
+
+        const label = document.createElement('span');
+        label.className = 'region-label';
+        label.textContent = region.label;
+
+        const count = document.createElement('span');
+        count.className = 'region-count';
+        count.textContent = `${tuneCount} ${tuneCount === 1 ? 'tune' : 'tunes'}`;
+        count.title = `${placeCount} ${placeCount === 1 ? 'folder' : 'folders'}, ` +
+            `${tuneCount} ${tuneCount === 1 ? 'tune' : 'tunes'}`;
+
+        header.appendChild(label);
+        header.appendChild(count);
+        header.addEventListener('click', () => this.toggleRegion(section, header));
+
+        section.appendChild(header);
+        section.appendChild(columns);
+
+        // Reopen whichever region was last browsed, so the dialog picks up
+        // where it left off instead of always starting fully collapsed
+        if (region.id === this.lastOpenRegion) {
+            this.toggleRegion(section, header, { scroll: false });
+        }
+
+        return section;
+    }
+
+    /**
+     * Expands or collapses a region, keeping at most one open at a time
+     * @param {HTMLElement} section - The region section
+     * @param {HTMLElement} header - Its header button
+     * @param {Object} [options] - `scroll: false` to skip scrolling into view
+     */
+    toggleRegion(section, header, options = {}) {
+        const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+        // Opening a region shows its tunes, not another rank of folders — the
+        // country headings stay, so a long region (Europe, Asia) can still be
+        // scanned by place and its big folders collapsed individually.
+        const setFolders = (target, open) => {
+            target.querySelectorAll('.files-items').forEach(items => {
+                items.classList.toggle('collapsed', !open);
+            });
+            target.querySelectorAll('.folder-button').forEach(button => {
+                button.setAttribute('aria-expanded', String(open));
+            });
+        };
+
+        if (isExpanded) {
+            section.classList.remove('expanded');
+            header.setAttribute('aria-expanded', 'false');
+            setFolders(section, false);
+            this.lastOpenRegion = null;
+            return;
+        }
+
+        // Accordion: only one region open, so the list never grows past a
+        // screenful of headers plus the one region being browsed
+        const list = section.parentElement;
+        list?.querySelectorAll('.files-region.expanded').forEach(other => {
+            other.classList.remove('expanded');
+            other.querySelector('.region-button')?.setAttribute('aria-expanded', 'false');
+            setFolders(other, false);
+        });
+
+        section.classList.add('expanded');
+        header.setAttribute('aria-expanded', 'true');
+        setFolders(section, true);
+        this.lastOpenRegion = section.dataset.region;
+
+        if (options.scroll !== false) {
+            header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }
 
     createCategoryContainer(category, handleEscape) {
@@ -484,35 +593,68 @@ class FileManager {
 
     filterFilesList(searchTerm, container) {
         const lowerSearchTerm = searchTerm.toLowerCase();
-        const categories = container.querySelectorAll('.files-category');
+        const regions = container.querySelectorAll('.files-region');
 
         let totalVisible = 0;
 
-        categories.forEach(category => {
-            let visibleInCategory = 0;
-            const fileItems = category.querySelectorAll('.file-item');
+        regions.forEach(region => {
+            // A region name is a legitimate search term of its own: typing
+            // "africa" should surface every African tune, not nothing
+            const regionMatches = lowerSearchTerm !== '' &&
+                region.dataset.regionLabel.includes(lowerSearchTerm);
+            let visibleInRegion = 0;
 
-            fileItems.forEach(item => {
-                const fileName = item.dataset.name;
-                const categoryName = item.dataset.category;
+            region.querySelectorAll('.files-category').forEach(category => {
+                let visibleInCategory = 0;
+                const fileItems = category.querySelectorAll('.file-item');
 
-                const matches = fileName.includes(lowerSearchTerm) ||
-                    categoryName.includes(lowerSearchTerm);
+                fileItems.forEach(item => {
+                    const fileName = item.dataset.name;
+                    const categoryName = item.dataset.category;
 
-                if (matches || lowerSearchTerm === '') {
-                    item.classList.remove('hidden');
-                    visibleInCategory++;
-                    totalVisible++;
+                    const matches = regionMatches ||
+                        fileName.includes(lowerSearchTerm) ||
+                        categoryName.includes(lowerSearchTerm);
+
+                    if (matches || lowerSearchTerm === '') {
+                        item.classList.remove('hidden');
+                        visibleInCategory++;
+                        totalVisible++;
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+
+                // Show/hide category based on whether it has visible items
+                if (visibleInCategory > 0) {
+                    category.classList.remove('hidden');
+                    visibleInRegion += visibleInCategory;
                 } else {
-                    item.classList.add('hidden');
+                    category.classList.add('hidden');
                 }
             });
 
-            // Show/hide category based on whether it has visible items
-            if (visibleInCategory > 0) {
-                category.classList.remove('hidden');
+            // While searching, open every region holding a hit and reveal the
+            // matching folders — a hit buried inside a collapsed section reads
+            // as no hit at all. Clearing the box restores the accordion.
+            region.classList.toggle('hidden', visibleInRegion === 0);
+            region.classList.toggle('searching', lowerSearchTerm !== '');
+            if (lowerSearchTerm === '') {
+                const header = region.querySelector('.region-button');
+                const stillOpen = region.dataset.region === this.lastOpenRegion;
+                region.classList.toggle('expanded', stillOpen);
+                header?.setAttribute('aria-expanded', String(stillOpen));
+                region.querySelectorAll('.files-items').forEach(items => {
+                    items.classList.toggle('collapsed', !stillOpen);
+                });
+                region.querySelectorAll('.folder-button').forEach(button => {
+                    button.setAttribute('aria-expanded', String(stillOpen));
+                });
             } else {
-                category.classList.add('hidden');
+                region.querySelectorAll('.files-category:not(.hidden) .files-items')
+                    .forEach(items => items.classList.remove('collapsed'));
+                region.querySelectorAll('.files-category:not(.hidden) .folder-button')
+                    .forEach(button => button.setAttribute('aria-expanded', 'true'));
             }
         });
 

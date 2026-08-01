@@ -463,7 +463,8 @@ class MidiPlayer {
                 playButton.title = 'Preparing to play...';
             } else {
                 playButton.textContent = this.isPlaying ? '⏸' : '▶';
-                playButton.title = (this.isPlaying ? 'Pause' : 'Play') + '\nHold to restart';
+                playButton.title = (this.isPlaying ? 'Pause' : 'Play') +
+                    '\nHold to restart (or press Backspace)';
             }
         }
     }
@@ -983,6 +984,13 @@ class MidiPlayer {
             this.isPlaying = false;
             this.updatePlayButtonState();
             this.customMetronome.stop();
+
+            // Drop any paused position, or startPlayback() below reads this as
+            // a resume and picks up mid-tune instead of restarting (and skips
+            // the start anchor with it)
+            if (this.midiPlayer) {
+                this.midiPlayer.pausedTimeSec = undefined;
+            }
 
             // Reset auto-scroll position for loop restart
             if (this.autoScrollManager) {

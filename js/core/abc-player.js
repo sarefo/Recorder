@@ -385,6 +385,19 @@ class AbcPlayer {
                     }
                     return false;
                 }
+            } else if (event.key === 'Backspace' && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+                // Restart from the top — or from the start anchor when one is
+                // set, since that is where "the beginning" is while practising
+                // a section. restart() goes through startPlayback(), which
+                // already resolves the anchor.
+                if (!isTextEntry(event.target) && !isDialogOpen()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    if (event.type === 'keydown') {
+                        this.midiPlayer.restart();
+                    }
+                    return false;
+                }
             } else if ((event.key === 'ArrowLeft' || event.key === 'ArrowRight') &&
                        !event.ctrlKey && !event.shiftKey && !event.altKey) {
                 if (!isArrowTarget(event.target) && !isDialogOpen()) {

@@ -1,22 +1,22 @@
 X: 1
 T: Detective Conan Theme
-N: Transposed
+N: Transposed from the original A flat up to C — the G version this replaced dipped a semitone below middle C
 N: https://musescore.com/user/22574601/scores/4900820
 M: 4/4
 L: 1/8
 R: 
 Q:1/4=145
-K: G
-"Em" B>A- AG- GF E2|"G" A>G- GF- FE D2|"C" G>F- FE- EDCD|"B7" FGAB zA3|
-"Em" B>A- AG- GF E2|"G" A>G- GF- FE D2|"C" G>F- FE- EDCD|"B7" FGAB z2 GF|
-"Em" E2 B4 GE|"D" F2 c2 B A3|"G" GAGA B2 GF|"C" E2 A2 "B7" GF z E/F/|
-"Em" G2 E2 B2 G2|"D" A2 e2 d2 cB/A/|"G" B8|"B7" ^DEFB z2 GF|
-"Em" E2 B4 GE|"D" F2 c2 B A3|"G" GAGA B2 GF|"C" E2 A2 "B7" GF z E/F/|
-"Em" G2 E2 B2 G2|"D" A2 e2 d2 cB/A/|"G" B8|"B7" ^DEFB z2 ^AB|
-"Em" g2 e2 z^deg|"D" f e2 d-d3 d/^d/|"C" e2 GA zGAB-|"G" B4 zGAB|
-"Am" c2 BA z2 ABcd|"C" e2 dc de z f-|"F#7" ffff ff B,/^D/F/B/|"B7" B zz B z2 GF|
-"Em" E2 B4 GE|"D" F2 c2 B A3|"G" GAGA BBcd|"C" e2 g2 "B7" f ^d3 "Em" e-|
-e8|]
+K: C
+"Am" e>d- dc- cB A2|"C" d>c- cB- BA G2|"F" c>B- BA- AGFG|"E7" Bcde zd3|
+"Am" e>d- dc- cB A2|"C" d>c- cB- BA G2|"F" c>B- BA- AGFG|"E7" Bcde z2 cB|
+"Am" A2 e4 cA|"G" B2 f2 e d3|"C" cdcd e2 cB|"F" A2 d2 "E7" cB z A/B/|
+"Am" c2 A2 e2 c2|"G" d2 a2 g2 fe/d/|"C" e8|"E7" ^GABe z2 cB|
+"Am" A2 e4 cA|"G" B2 f2 e d3|"C" cdcd e2 cB|"F" A2 d2 "E7" cB z A/B/|
+"Am" c2 A2 e2 c2|"G" d2 a2 g2 fe/d/|"C" e8|"E7" ^GABe z2 ^de|
+"Am" c'2 a2 z^gac'|"G" b a2 g-g3 g/^g/|"F" a2 cd zcde-|"C" e4 zcde|
+"Dm" f2 ed z2 defg|"F" a2 gf ga z b-|"B7" bbbb bb E/^G/B/e/|"E7" e zz e z2 cB|
+"Am" A2 e4 cA|"G" B2 f2 e d3|"C" cdcd eefg|"F" a2 c'2 "E7" b ^g3 "Am" a-|
+a8|]
 
 X: 2
 T: Detective Conan Theme

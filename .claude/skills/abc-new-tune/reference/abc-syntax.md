@@ -130,8 +130,17 @@ pickup** — the first chord goes on the first full bar.
 The fingering diagrams cover **written C4 to D6** (`js/fingering/fingering-manager.js`).
 Anything outside that renders as notation but gets no diagram.
 
+**C4 is a hard floor, not a guideline.** The user's instrument cannot sound
+below written middle C at all, so a single B3 makes the whole tune unplayable.
+Check the extremes before choosing a key — the bottom note decides it. The top
+is forgiving by comparison: sitting high is only tiring, sitting low is
+impossible.
+
 Most tunes here sit between D4 and E5. When a source sits awkwardly — a very low
-melody, or a key with four flats — transpose it into a comfortable register and
-say so in `N:`. If both the original key and a playable one matter, write them as
+melody, or a key with four flats — transpose the **whole tune** up (a 4th or a
+5th usually does it) rather than octave-shifting the offending notes, and say so
+in `N:`. `abc/ghanaian/tue tue.abc` (+5) and `abc/zambian/kankuluwe.abc` (+7)
+are the worked examples; a transposed transcription still diffs clean against
+its source via `--transpose N`, so nothing is lost by doing it. If both the original key and a playable one matter, write them as
 `X:1` and `X:2` in one file, the way `abc/korean/arirang.abc` does, and chord
 both.

@@ -68,6 +68,88 @@
     gap: var(--space-1);
 }
 
+/* Regions: the browse layer above the country folders. One section per part
+   of the world, only one open at a time, so the dialog opens as a short list
+   of destinations rather than forty alphabetical folders. */
+.files-region {
+    margin-bottom: var(--space-1);
+}
+
+.region-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--color-border-subtle);
+    border-left: 4px solid hsl(var(--region-accent, 210) 55% 55%);
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    box-shadow: var(--shadow-xs);
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    text-align: left;
+    cursor: pointer;
+    min-height: 44px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition:
+        background var(--motion-base) var(--ease-standard),
+        border-color var(--motion-base) var(--ease-standard);
+}
+
+/* "Other" is genres rather than places — present but visibly secondary */
+.files-region-muted .region-button {
+    border-left-color: var(--color-border);
+    color: var(--color-text-muted);
+}
+
+.region-button:hover {
+    background: var(--color-primary-soft);
+}
+
+.region-button:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+/* Disclosure caret, rotating on open */
+.region-label::before {
+    content: '▸';
+    display: inline-block;
+    margin-right: var(--space-2);
+    color: var(--color-text-muted);
+    transition: transform var(--motion-base) var(--ease-standard);
+}
+
+.files-region.expanded .region-label::before,
+.files-region.searching .region-label::before {
+    transform: rotate(90deg);
+}
+
+.region-count {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+/* Folders stay out of the layout entirely until their region is opened */
+.files-region > .files-columns {
+    display: none;
+    padding: var(--space-1) 0 var(--space-2) var(--space-2);
+}
+
+.files-region.expanded > .files-columns,
+.files-region.searching > .files-columns {
+    display: grid;
+}
+
 .files-category {
     background-color: var(--color-bg);
     border-radius: var(--radius-md);
@@ -213,6 +295,17 @@
     .files-columns {
         grid-template-columns: 1fr;
         gap: var(--space-1);
+    }
+
+    .region-button {
+        padding: var(--space-4);
+        min-height: 52px;
+        font-size: var(--font-size-lg);
+    }
+
+    /* Reclaim the indent — a phone has no width to spare for it */
+    .files-region > .files-columns {
+        padding-left: 0;
     }
 
     .folder-button {

@@ -3,13 +3,14 @@ T:Frank's Reel
 C:John McCusker
 S:Drumtochty session, 15/7/04
 N:Played by some of the Blackford Fiddlers
+N:Transposed from D up to G — the original dips to A below middle C
 Z:Nigel Gatherer
 M:4/4
 L:1/8
-K:D
-z   | DFED B,2 DB, | A,B,DE FDEF | G3 B ADFA | (3Bcd AF (3EFG FE |
-      DFED B,2 DB, | A,B,DE FDEF | G3 B AFDF |   EDCE     D3    :| 
-ABc | dDDc DDBD  | ABBA FDEF | G3 B ADFD |   EFGA     BABc   |
-      dDDc DDBD  | ABBA FDEF | G3 B AFDF |   EDCE     DABc   |
-      dDDc DDBD  | ABBA FDEF | G3 B ADFA | (3Bcd AF (3EFG FE |
-      DFED B,2 DB, | A,B,DE FDEF | G3 B AFDF |   EDCE     D3    ||
+K:G
+z   | GBAG E2 GE | DEGA BGAB | c3 e dGBd | (3efg dB (3ABc BA |
+      GBAG E2 GE | DEGA BGAB | c3 e dBGB |   AGFA     G3    :| 
+def | gGGf GGeG  | deed BGAB | c3 e dGBG |   ABcd     edef   |
+      gGGf GGeG  | deed BGAB | c3 e dBGB |   AGFA     Gdef   |
+      gGGf GGeG  | deed BGAB | c3 e dGBd | (3efg dB (3ABc BA |
+      GBAG E2 GE | DEGA BGAB | c3 e dBGB |   AGFA     G3    ||
