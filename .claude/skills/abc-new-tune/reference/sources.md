@@ -74,6 +74,11 @@ curl -sL "http://www.mu-tech.co.jp/midi/traditional/fsout/<Name>_Country.mid" -o
 #    other styles: _Acoustic, _Ethnic_Guitar, _Samba, _Bon_Odori
 ```
 
+**`Country` there is the literal arrangement style, not the nation.** It is a
+country-and-western backing, and the URL is the same for a Ugandan lullaby as
+for a Czech polka. Substituting the actual country gives a 404 for every tune
+and looks exactly like "this source has no MIDI".
+
 In the `fsout` arrangements the melody is usually **channel 15**; in the plain
 MIDIs it is channel 0 (sometimes duplicated on channel 10, and often
 **octave-doubled** — each note appears twice, an octave apart, lower first, so
@@ -93,6 +98,24 @@ MIDIs it is channel 0 (sometimes duplicated on channel 10, and often
   half and the remainder is drawn as a whole note, and tied *into* a bar it draws
   a bare notehead that looks like an extra note. Take rhythm from the MIDI and
   chords from the score; never try to reconcile the two note-for-note.
+
+#### The score header names the country — read it
+
+Every generated score prints `作曲　◯◯民謡` in the top middle: `コンゴ民謡`
+(Congolese folk song), `ウガンダの子守唄` (Ugandan lullaby), `ジャマイカ労働歌`
+(Jamaican work song). It is the one place the source states provenance, and it
+sometimes contradicts the index the tune was filed under. It also distinguishes
+a genuine folk song from a modern hit the site has filed as one — worth saying
+so in `N:` when it does.
+
+#### The chords are in the MIDI too, and they are easier to read
+
+`--chords <channel>` on the accompaniment often prints complete triads
+(`BDG` = G, `ACF#` = D7, `FG#C` = Fm), which is far quicker than reading chord
+symbols off an image and beats guessing at their horizontal position. Generate
+the score anyway and check the two agree — where they have been compared they
+match bar for bar, which is what makes the MIDI route trustworthy. Fall back to
+the image whenever the accompaniment is an arpeggio with passing tones.
 
 #### Check the texture before assuming a single line
 
