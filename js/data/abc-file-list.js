@@ -238,6 +238,31 @@ class AbcFileList {
                 "category": "peruvian"
         },
         {
+                "name": "Bahay Kubo",
+                "file": "philippine/bahay kubo.abc",
+                "category": "philippine"
+        },
+        {
+                "name": "Dandansoy",
+                "file": "philippine/dandansoy.abc",
+                "category": "philippine"
+        },
+        {
+                "name": "Ili-Ili Tulog Anay",
+                "file": "philippine/ili-ili tulog anay.abc",
+                "category": "philippine"
+        },
+        {
+                "name": "Leron Leron Sinta",
+                "file": "philippine/leron leron sinta.abc",
+                "category": "philippine"
+        },
+        {
+                "name": "Pamulinawen",
+                "file": "philippine/pamulinawen.abc",
+                "category": "philippine"
+        },
+        {
                 "name": "Dwa serduszka",
                 "file": "polish/dwa serduszka.abc",
                 "category": "polish"
