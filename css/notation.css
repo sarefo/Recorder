@@ -29,6 +29,21 @@
     transition: none !important;
 }
 
+/* Notes the key signature silently alters (e.g. every F with one sharp).
+   Toggled by tapping the key signature at the line start; see
+   KeySignatureHighlighter. !important for the same reason as .playing
+   above; :not(.playing) lets the playing-note orange win while it lasts. */
+.abcjs-note.keysig-affected:not(.playing),
+.abcjs-note.keysig-affected:not(.playing) path {
+    fill: var(--color-keysig) !important;
+    stroke: var(--color-keysig) !important;
+}
+
+/* The key signature is tappable (toggles the highlight above) */
+.abcjs-key-signature {
+    cursor: pointer;
+}
+
 .abcjs-note {
     transition: fill 0.1s ease-in-out;
 }

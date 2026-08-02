@@ -44,6 +44,9 @@ class RenderManager {
                 if (this.player.midiPlayer) {
                     this.player.midiPlayer.isFirstPlay = true;
                 }
+
+                // The key-signature highlight toggle is per tune, default off
+                this.player.keySignatureHighlighter?.reset();
             }
 
             // Initialize MIDI player
@@ -61,6 +64,10 @@ class RenderManager {
 
                 // Marker zones were rebuilt; re-show the playback anchor
                 this.applyAnchorMarker();
+
+                // The SVG was rebuilt: re-wire the tappable key signature
+                // and re-apply its highlight if it was on
+                this.player.keySignatureHighlighter?.setup();
             }, RenderManager.RENDER_DELAY);
 
             // Update URL for sharing

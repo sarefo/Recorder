@@ -3,7 +3,7 @@
  * Handles offline caching of app shell and ABC music files
  */
 
-const CACHE_VERSION = 'abc-player-v3-2026-08-01-10';
+const CACHE_VERSION = 'abc-player-v3-2026-08-02';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const ABC_FILES_CACHE = `${CACHE_VERSION}-abc-files`;
 
@@ -17,6 +17,7 @@ const APP_SHELL_FILES = [
     '/Recorder/js/core/main.js',
     '/Recorder/js/core/share-manager.js',
     '/Recorder/js/notation/notation-parser.js',
+    '/Recorder/js/notation/keysig-highlighter.js',
     '/Recorder/js/notation/render-manager.js',
     '/Recorder/js/notation/transpose-manager.js',
     '/Recorder/js/fingering/fingering-manager.js',
