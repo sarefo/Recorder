@@ -48,8 +48,18 @@ class AbcFileList {
                 "category": "chinese"
         },
         {
-                "name": "Baobao Yao Shuijiao",
+                "name": "Alamuhan \u963f\u62c9\u6728\u6c57",
+                "file": "chinese/alamuhan.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Baobao Yao Shuijiao \u5bf6\u5bf6\u7761\u89ba",
                 "file": "chinese/baobao yao shuijiao.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Gan Shengling \u8d76\u7272\u7075",
+                "file": "chinese/gan shengling.abc",
                 "category": "chinese"
         },
         {
@@ -68,13 +78,18 @@ class AbcFileList {
                 "category": "chinese"
         },
         {
-                "name": "Molihua",
+                "name": "Molihua \u8309\u8389\u82b1",
                 "file": "chinese/molihua.abc",
                 "category": "chinese"
         },
         {
                 "name": "Nigu Sifan",
                 "file": "chinese/nigu sifan.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Yue'er Ming \u6708\u513f\u660e",
+                "file": "chinese/yue er ming.abc",
                 "category": "chinese"
         },
         {
