@@ -568,6 +568,11 @@ class AbcFileList {
                 "category": "swedish"
         },
         {
+                "name": "Bua Kao \u0e1a\u0e31\u0e27\u0e02\u0e32\u0e27",
+                "file": "thai/bua kao.abc",
+                "category": "thai"
+        },
+        {
                 "name": "\u00dcsk\u00fcdar'a Gider \u0130ken",
                 "file": "turkish/uskudara gider iken.abc",
                 "category": "turkish"
