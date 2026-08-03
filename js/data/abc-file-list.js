@@ -58,6 +58,11 @@ class AbcFileList {
                 "category": "chinese"
         },
         {
+                "name": "Caicha Wuqu \u91c7\u8336\u821e\u66f2",
+                "file": "chinese/caicha wuqu.abc",
+                "category": "chinese"
+        },
+        {
                 "name": "Gan Shengling \u8d76\u7272\u7075",
                 "file": "chinese/gan shengling.abc",
                 "category": "chinese"
@@ -78,13 +83,38 @@ class AbcFileList {
                 "category": "chinese"
         },
         {
+                "name": "Meili de Caoyuan Wo de Jia \u7f8e\u4e3d\u7684\u8349\u539f\u6211\u7684\u5bb6",
+                "file": "chinese/meili de caoyuan.abc",
+                "category": "chinese"
+        },
+        {
                 "name": "Molihua \u8309\u8389\u82b1",
                 "file": "chinese/molihua.abc",
                 "category": "chinese"
         },
         {
+                "name": "Na Jiushi Wo \u90a3\u5c31\u662f\u6211",
+                "file": "chinese/na jiushi wo.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Nianqing de Pengyou Lai Xianghui \u5e74\u8f7b\u7684\u670b\u53cb\u6765\u76f8\u4f1a",
+                "file": "chinese/nianqing de pengyou.abc",
+                "category": "chinese"
+        },
+        {
                 "name": "Nigu Sifan",
                 "file": "chinese/nigu sifan.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Women de Shenghuo Chongman Yangguang \u6211\u4eec\u7684\u751f\u6d3b\u5145\u6ee1\u9633\u5149",
+                "file": "chinese/chongman yangguang.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Wusuli Chuan'ge \u4e4c\u82cf\u91cc\u8239\u6b4c",
+                "file": "chinese/wusuli chuange.abc",
                 "category": "chinese"
         },
         {
@@ -95,6 +125,11 @@ class AbcFileList {
         {
                 "name": "Yueguang Ge",
                 "file": "chinese/yueguang ge.abc",
+                "category": "chinese"
+        },
+        {
+                "name": "Zai Xiwang de Tianye Shang \u5728\u5e0c\u671b\u7684\u7530\u91ce\u4e0a",
+                "file": "chinese/xiwang de tianye.abc",
                 "category": "chinese"
         },
         {
