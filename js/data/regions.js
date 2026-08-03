@@ -48,7 +48,7 @@ class RegionMap {
             accent: 0,
             categories: [
                 'chinese', 'indian', 'indonesian', 'japanese', 'kazakh', 'korean',
-                'philippine', 'vietnamese',
+                'philippine', 'thai', 'vietnamese',
             ],
         },
         {
