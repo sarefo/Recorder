@@ -125,6 +125,32 @@ reducing them to one recorder line means choosing notes, which is composing, not
 transcribing. Skip those. A quick tell is repeated identical onsets in the dump
 (`G5@1.5/0.25 E5@1.5/0.25`).
 
+### The Essen collection (ESAC) — scholarly ABC, downloadable whole
+
+Field transcriptions digitized from printed anthologies (for China: *Zhongguo
+minjian gequ jicheng*), with region, singer and source page in the headers.
+Already the source of `abc/chinese/molihua.abc` and `gan shengling.abc`.
+
+```bash
+# whole collections as one ABC file each (HAN1/HAN2 = Han Chinese, ~900 tunes)
+curl -s "https://ifdo.ca/~seymour/runabc/esac/HAN1.abc" -o HAN1.abc   # https only; http 404s
+grep -in "title fragment" HAN1.abc
+```
+
+abcnotation.com's search indexes these page-by-page (`/tunePage?a=ifdo.ca/...`),
+which is how you discover the tune number. `M: L: K:` plus the notes copy
+straight out; check the German `N:` notes — they flag doublets and variants.
+
+### Cross-checking Chinese tunes: jianpu images via Google Images in Chrome
+
+The Chinese score sites (jianpu.cn, gepuwang, qupu123, everyonepiano full-size)
+all 403/timeout/paywall from the sandbox — do not spend calls on them. What
+works: Google Images (`<title> 简谱`, udm=2) in the user's Chrome via
+claude-in-chrome, then the `zoom` action on a thumbnail region. The thumbnails
+are large enough to read number notation phrase-by-phrase, which is exactly the
+pitch cross-check a MIDI source needs. Renderer freezes on those pages are
+common; re-issue the zoom once, and reload rather than fight a frozen tab.
+
 ### MIDI libraries hosted on Google Drive
 
 Old school-music blogs often link whole folk-song collections as Drive files.
