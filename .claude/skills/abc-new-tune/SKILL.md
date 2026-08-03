@@ -48,6 +48,33 @@ im = Image.open('score.jpg').crop((0, 90, 1310, 245))
 im.resize((im.width * 2, im.height * 2), Image.LANCZOS).save('system1.png')
 ```
 
+### Staff notation with no MIDI: read it twice, two different ways
+
+For a whole piece that exists only as staff-notation images (scans, screenshots
+of a choral score), eyeballing line-vs-space at screen resolution WILL produce
+wrong notes. `scripts/staff_scan.py` (built for Bua Kao, 2026-08) machine-reads
+a one-staff crop: it detects the staff lines, prints every notehead it can find
+as x-position + pitch letter + filled/hollow, and lists the barline positions.
+Crop each system's staff to its own band (~25px line spacing after a 3x
+upscale), run it, then generate its `--tint` image — background striped one
+colour per diatonic letter, labels in the margin — and read that visually as
+the second, independent pass:
+
+```bash
+py .claude/skills/abc-new-tune/scripts/staff_scan.py band3x.png --tint t.png
+py ... staff_scan.py bassband.png --clef bass          # SATB bass for chords
+```
+
+The detector misses some heads (nicked hollow rims, graces, odd flags) — the
+tint read fills the gaps, and disagreements get a dedicated 3-4x zoom crop.
+What replaces the source-MIDI diff as proof: every bar must sum to the meter
+using the detected barlines, every tie must join equal pitches (including
+across systems), and the harmony implied by the bass staff must be functional.
+An SATB score's bass staff, read the same way at bar level, gives *sourced*
+chords instead of derived ones. Pitch names are diatonic letters — apply the
+key signature yourself, and remember graces/lyrics can be omitted but say so
+in `N:`.
+
 ## Extracting from a MIDI
 
 `scripts/midi_notes.py` does all three jobs. Start with the summary:
