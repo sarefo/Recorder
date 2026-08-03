@@ -141,6 +141,27 @@ abcnotation.com's search indexes these page-by-page (`/tunePage?a=ifdo.ca/...`),
 which is how you discover the tune number. `M: L: K:` plus the notes copy
 straight out; check the German `N:` notes — they flag doublets and variants.
 
+### jianpu.net and qupu123.com — full-res jianpu scans via curl with a referer
+
+The two Chinese scan libraries that DO work from the sandbox, and the main
+source for the seven 1980s songs added 2026-08. Find the tune page via
+`WebSearch site:jianpu.net <歌名> 简谱` (also `/jianpu/<id>.html` paths), then:
+
+```bash
+curl -sL -A "Mozilla/5.0" "https://www.jianpu.net/qupu/<id>.html" -o p.html
+grep -oE 'img\.asp\?url=[^"]*' p.html
+curl -sL -A "Mozilla/5.0" -e "https://www.jianpu.net/" \
+  "https://www.jianpu.net/img.asp?url=<path>" -o scan.png   # referer required
+# qupu123.com: images are plain https://www.qupu123.com/Public/Uploads/... paths
+```
+
+Scans range from 700px (marginal) to 2480×3508 (excellent). Read with PIL
+band-crops at 2-3× (see SKILL.md). Always fetch a second engraving of the same
+song and reconcile — octave-dot conventions differ per engraver (some anchor
+do at the octave below the melody, so the whole tune carries high dots), and
+ornament rhythms vary between editions. Multi-page uploads sometimes contain
+only odd pages; check the last page number printed on the scan.
+
 ### Cross-checking Chinese tunes: jianpu images via Google Images in Chrome
 
 The Chinese score sites (jianpu.cn, gepuwang, qupu123, everyonepiano full-size)
