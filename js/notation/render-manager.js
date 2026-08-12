@@ -169,14 +169,23 @@ class RenderManager {
     getNoteStartTime(abcElem) {
         // For notes inside repeats, abcjs stores an array of occurrence times;
         // seek to the first occurrence.
-        let ms = abcElem.currentTrackMilliseconds;
-        if (Array.isArray(ms)) {
-            ms = ms[0];
+        return this.getNoteTimes(abcElem)[0];
+    }
+
+    /**
+     * Every moment a note is sounded, in milliseconds. A note inside a repeat
+     * is played once per pass, so abcjs gives it one time per occurrence.
+     * @param {Object} abcElem - The ABC element
+     * @returns {number[]} Occurrence times, empty when the element has none
+     */
+    getNoteTimes(abcElem) {
+        const ms = abcElem?.currentTrackMilliseconds;
+        const times = (Array.isArray(ms) ? ms : [ms])
+            .filter(t => typeof t === 'number' && !isNaN(t));
+        if (times.length === 0 && typeof abcElem?.midiStartTime === 'number') {
+            return [abcElem.midiStartTime * 1000];
         }
-        if (typeof ms !== 'number' && typeof abcElem.midiStartTime === 'number') {
-            ms = abcElem.midiStartTime * 1000;
-        }
-        return typeof ms === 'number' && !isNaN(ms) ? ms : undefined;
+        return times;
     }
 
     /**
@@ -289,24 +298,33 @@ class RenderManager {
     }
 
     /**
-     * Resolves the moment the A-B region is over: the start of the first note
-     * after the end anchor. Seamless looping needs the region's true end, not
-     * the end note's start.
+     * Resolves the moment the A-B region is over: the next note to sound after
+     * the end anchor. Seamless looping needs the region's true end, not the end
+     * note's start.
+     *
+     * This is the earliest note time in the whole tune that is later than the
+     * end anchor — not simply the next note on the page. Inside a repeat those
+     * differ: the notes printed after the end anchor are only heard again on
+     * the *second* pass, so following the page would stretch the region across
+     * the entire repeat. The note that actually comes next is an earlier one on
+     * the page, sounding its second occurrence.
      * @returns {number|undefined} End time in ms, or undefined without an end
-     *   anchor or when it is the last note (then the tune's end applies)
+     *   anchor or when nothing follows it (then the tune's end applies)
      */
     getAnchorEndBoundaryMs() {
         const endMs = this.getAnchorEndMs();
         if (typeof endMs !== 'number') return undefined;
 
         const selectables = this.currentVisualObj?.engraver?.selectables || [];
-        for (let i = this.anchorEndNoteIndex + 1; i < selectables.length; i++) {
-            const nextMs = this.getNoteStartMsByIndex(i);
-            if (typeof nextMs === 'number' && nextMs > endMs) {
-                return nextMs;
-            }
-        }
-        return undefined;
+        let boundaryMs;
+        selectables.forEach(selectable => {
+            this.getNoteTimes(selectable?.absEl?.abcelem).forEach(ms => {
+                if (ms > endMs && (boundaryMs === undefined || ms < boundaryMs)) {
+                    boundaryMs = ms;
+                }
+            });
+        });
+        return boundaryMs;
     }
 
     /**
