@@ -398,6 +398,11 @@ class AbcFileList {
                 "category": "philippine"
         },
         {
+                "name": "Sitsiritsit Alibangbang",
+                "file": "philippine/sitsiritsit alibangbang.abc",
+                "category": "philippine"
+        },
+        {
                 "name": "Dwa serduszka",
                 "file": "polish/dwa serduszka.abc",
                 "category": "polish"
