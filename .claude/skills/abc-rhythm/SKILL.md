@@ -56,6 +56,12 @@ factor 2:
 Each old bar now spans **two** bars, so rebar as you go and re-place the
 barlines by hand. Watch for:
 
+- **Beaming — the easy one to get wrong.** Whitespace breaks beams in ABC.
+  Scaling turns beamed sixteenths into eighths that must *stay* beamed, so
+  notes that shared a beam before must still share one after: write `e2 ee d2 d2`,
+  never `e2 e e d2 d2`. Space separates beats, not notes. Quarters and longer
+  cannot beam, so leave those spaced. The rest of the repertoire already does
+  this (`dandansoy.abc`: `e4 Bc`, `A4 AA`).
 - **Chord symbols.** A chord attached mid-bar in the old notation often lands on
   the downbeat of the second new bar — put it there. Carry the prevailing chord
   onto any new bar that would otherwise start bare; the repertoire marks a chord

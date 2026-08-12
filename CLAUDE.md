@@ -35,6 +35,17 @@ This is a browser-based web application for displaying and playing ABC music not
 - Maintain compatibility with the abcjs library API
 - Add new music files in the appropriate folders within the /abc directory
 
+## ABC Notation Style
+
+- **Beam short notes together — whitespace breaks beams.** Write consecutive
+  eighths/sixteenths within a beat with no space between them, so abcjs beams
+  them: `e2 ee d2 d2`, not `e2 e e d2 d2`. Space separates beats, not notes.
+  Quarters and longer cannot beam, so they are always spaced: `A4 AA`, `d2 cd B2 AB`.
+- Prefer `L:1/8` with quarters and eighths as the normal moving values. A tune
+  crawling with sixteenths and fractional durations (`c3/2 d/`) was almost
+  certainly transcribed at half the intended note values — see the `abc-rhythm`
+  skill.
+
 ## MCP Server Usage
 
 - Use the Context7 MCP server (mcp__context7__*) when working with external libraries or frameworks to get up-to-date documentation and examples
