@@ -110,8 +110,13 @@ look fine on screen while erroring every frame.
 - **New JS file?** It needs *both* a `<script>` tag in `index.html` and an entry
   in `APP_SHELL_FILES` in `sw.js`, or it works locally and breaks offline.
 - **Service worker caching.** `/Recorder/` paths are network-first, so edits
-  normally show up on reload. If they don't, hard-reload or unregister the
-  worker in DevTools.
+  normally show up on reload. If they don't — you edited a file mid-session and
+  the page still runs the old code — do **not** waste calls on unregistering the
+  worker and reloading; that re-registers and re-caches the stale copy just as
+  often as it works. Open a page in a throwaway browser context instead, which
+  has no worker and no cache: `new_page` with `isolatedContext: "fresh1"` (a new
+  name each time). Confirm the new code arrived (`typeof app.x.newMethod`) before
+  trusting any result.
 - **Version bumping is automatic.** A pre-commit hook bumps `sw.js`
   `CACHE_VERSION` and `main.js` `APP_BUILD`. Don't edit those by hand.
 - **Mobile targets** (from CLAUDE.md): Pixel 7a landscape `915x412`, Pixel 4a
