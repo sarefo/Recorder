@@ -358,6 +358,11 @@ class AbcFileList {
                 "category": "mexican"
         },
         {
+                "name": "La Cucaracha",
+                "file": "mexican/la cucaracha.abc",
+                "category": "mexican"
+        },
+        {
                 "name": "A Ram Sam Sam",
                 "file": "moroccan/a ram sam sam.abc",
                 "category": "moroccan"
