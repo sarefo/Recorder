@@ -7,8 +7,8 @@ L:1/8
 M:C|
 Q:1/2=120
 K:F
-C|"F"F2 AC "F/A"F2 AD|"Bb"F2 BD "Bb/D"F2 BC|"F"F2 AC "F/A"F2 AC|"C7" EGEC z2 z C|
-"F"F2 AC "F/Eb"F2 AD|"Bb/D"F2 BD "Bb-/Db"F2 BC|"F"F2 AC "C7"BGEG|"F"F6 z E||
+(C|"F"F2 A) (C "F/A"F2 A) (D|"Bb"F2 B) (D "Bb/D"F2 B) (C|"F"F2 A) (C "F/A"F2 A) (C|"C7" EGEC) z2 z (C|
+        "F"F2 A) (C "F/Eb"F2 A) (D|"Bb/D"F2 B) (D "Bb-/Db"F2 B) (C|"F"F2 A) (C "C7"BGEG|"F"F6) z E||
 [K:Ab]"Ab"A2 cE A2 cF|"Db"A2 dF A2 dE|"Ab"A2 cE A2 cE|"Eb7"GBGE z2 z E|
 "Ab"A2 cE A2 cF|"Db"A2 dF A2 dE|"Ab"A2 cE "Eb7"dBGA-|"Ab"A6 z E|
 cA z E Aced-|"Db"d4 z A dA|"Ab"cA z =D EAcB-|"Eb7"B4 z2 z e|
