@@ -1,0 +1,47 @@
+X: 1
+T: Monkey Island Theme
+C: Michael Land
+O: The Secret of Monkey Island (LucasFilm Games, 1990)
+N: Transposed down a fifth from the original, for a comfortable recorder range.
+N: Melody from the easymusic.altervista.org recorder setting, checked note for
+N: note against the official General MIDI release of the main title theme
+N: ((c) 1990 LucasFilm Games); bars 14 and 21 corrected to it. Chords read off
+N: that file's accompaniment tracks. Bars 24-25 keep the melody in one octave
+N: where the arrangement hands it to a lower voice, and bars 27-28 are the
+N: easymusic ending -- the original runs on into an interlude there.
+Z: http://easymusic.altervista.org/recorder-the-secret-of-monkey-island-main-theme-sheet-music-guitar-chords/
+M: 4/4
+Q: 1/4=180
+L: 1/8
+K: Am
+|:"Am"A2 Ac "G"BA G2 |"F"A4-"C"A2 G2 |"C"GF EG "Dm"F2 F2 |"Am"E6 A2 |
+"Am"A3 c "G"BA G2 |"F"A6 zB |"C"c2 c2 "Dm"d4 |"G"B3 c BA GB |
+"C"c2 c2 "E/G#"B4 |"Am"A3 c "G"BA GB |"C"c2 c2 "E"B4 |"Am"A3 c "G"BA G2 |
+"F"A2 A2 A4- |A2 A2 "C"GF EG |"Dm"F2 F2 "Am"E4- |E4-"G"E4 |
+"Am"z4 "C"z4 |"G7"E2 G2 "F"A2 c2 |"F"c4 fe df |"C"e2 c2 c4 |
+"C"z2 c2 "G7"d2 G2 |"G7"G3 d ed cd |"Am"e2 c2 c2 A2 |"Am"A4 B2 c2 |
+"Bb"d8- |"Bb"d4 d4 |"Am"A8- |"Am"A4 z4 :|
+
+X: 2
+T: Monkey Island Theme
+C: Michael Land
+O: The Secret of Monkey Island (LucasFilm Games, 1990)
+N: Original key and octave.
+N: Melody from the easymusic.altervista.org recorder setting, checked note for
+N: note against the official General MIDI release of the main title theme
+N: ((c) 1990 LucasFilm Games); bars 14 and 21 corrected to it. Chords read off
+N: that file's accompaniment tracks. Bars 24-25 keep the melody in one octave
+N: where the arrangement hands it to a lower voice, and bars 27-28 are the
+N: easymusic ending -- the original runs on into an interlude there.
+Z: http://easymusic.altervista.org/recorder-the-secret-of-monkey-island-main-theme-sheet-music-guitar-chords/
+M: 4/4
+Q: 1/4=180
+L: 1/8
+K: Em
+|:"Em"e2 eg "D"fe d2 |"C"e4-"G"e2 d2 |"G"dc Bd "Am"c2 c2 |"Em"B6 e2 |
+"Em"e3 g "D"fe d2 |"C"e6 zf |"G"g2 g2 "Am"a4 |"D"f3 g fe df |
+"G"g2 g2 "B/D#"f4 |"Em"e3 g "D"fe df |"G"g2 g2 "B"f4 |"Em"e3 g "D"fe d2 |
+"C"e2 e2 e4- |e2 e2 "G"dc Bd |"Am"c2 c2 "Em"B4- |B4-"D"B4 |
+"Em"z4 "G"z4 |"D7"B2 d2 "C"e2 g2 |"C"g4 c'b ac' |"G"b2 g2 g4 |
+"G"z2 g2 "D7"a2 d2 |"D7"d3 a ba ga |"Em"b2 g2 g2 e2 |"Em"e4 f2 g2 |
+"F"a8- |"F"a4 a4 |"Em"e8- |"Em"e4 z4 :|

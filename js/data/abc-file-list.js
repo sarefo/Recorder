@@ -458,6 +458,11 @@ class AbcFileList {
                 "category": "pop/game"
         },
         {
+                "name": "Monkey Island Theme",
+                "file": "pop/game/monkey island.abc",
+                "category": "pop/game"
+        },
+        {
                 "name": "Dorme, Dorme, Meu Menino",
                 "file": "portuguese/dorme dorme meu menino.abc",
                 "category": "portuguese"
