@@ -30,9 +30,9 @@
       "Bash(tar --version)",
       "Bash(curl -sI -L https://zenodo.org/records/15571083/files/__TRACKED_VAR__?download=1)",
       "Bash(curl -L -s -o scripts/xml2abc.py \"https://raw.githubusercontent.com/jwdj/EasyABC/master/xml2abc.py\")",
-      "Bash(curl -L -s -o C:/dev/Recorder/scripts/xml2abc.py https://raw.githubusercontent.com/jwdj/EasyABC/master/xml2abc.py)",
+      "Bash(curl -L -s -o C:/Users/stefa/OneDrive/Documents/GitHub/sarefo.github.io/Recorder/scripts/xml2abc.py https://raw.githubusercontent.com/jwdj/EasyABC/master/xml2abc.py)",
       "Bash(echo \"exit=$?\")",
-      "Bash(curl -L -C - -s -o C:/dev/Recorder/pdmx/__TRACKED_VAR__ https://zenodo.org/records/15571083/files/__TRACKED_VAR__?download=1)"
+      "Bash(curl -L -C - -s -o C:/Users/stefa/OneDrive/Documents/GitHub/sarefo.github.io/Recorder/pdmx/__TRACKED_VAR__ https://zenodo.org/records/15571083/files/__TRACKED_VAR__?download=1)"
     ]
   },
   "enableAllProjectMcpServers": false
