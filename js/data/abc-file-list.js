@@ -203,6 +203,11 @@ class AbcFileList {
                 "category": "egyptian"
         },
         {
+                "name": "Herbie's Theme",
+                "file": "film/herbie's theme.abc",
+                "category": "film"
+        },
+        {
                 "name": "Here's to you",
                 "file": "film/here's to you.abc",
                 "category": "film"
