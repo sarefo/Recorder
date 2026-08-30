@@ -57,7 +57,7 @@ class RegionMap {
             accent: 145,
             categories: [
                 'american', 'brazilian', 'jamaican', 'latino', 'mexican',
-                'peruvian',
+                'peruvian', 'trinidadian'
             ],
         },
         {
