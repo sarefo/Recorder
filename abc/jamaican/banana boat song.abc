@@ -1,7 +1,26 @@
 X:1
-T:Banana Boat Song
+T:Banana Boat Song (Day-O)
 O:Jamaica (mento work song)
-N:Also known as Day-O. Melody and chords from the mu-tech.org lead sheet, verified against its MIDI
+N:The full 32-bar form: the "Day-o" refrain, the "Come Mister tally man" verse and the "Six foot, seven foot" verse
+N:Melody from the flutetunes.com flute setting, transposed down a fifth into Belafonte's published key of F; diffed note for note against that setting's MIDI
+N:Chords derived from the melody and checked against the Hooktheory transcription of the Belafonte recording (F and C7 throughout the verse) and the Hal Leonard edition's key
+M:4/4
+Q:1/4=120
+L:1/8
+K:F
+"F" f3 c4 f |"C7" edc "F" A4-A |"F" F F2 A2 A2 F |"C7" GF G2 A c3 |
+"F" f3 c4 f |"C7" edc "F" A4-A |"F" F F2 A2 A2 F |"C7" G2 G2 "F" F4 |
+"F" A2 cc AA c2 |"C7" BBBG E2 C2 |"F" F F2 A2 A2 F |"C7" GF G2 A c3 |
+"F" A2 cc AA c2 |"C7" BBBG E2 C2 |"F" F F2 A2 A2 F |"C7" G2 G2 "F" F4 |
+"F" A2 cc AA c2 | A c2 f4-f |"F" F F2 A2 A2 F |"C7" GF G2 A c3 |
+"F" A2 cc AA c2 | A c2 f4-f |"F" F F2 A2 A2 F |"C7" G2 G2 "F" F4 |
+"F" f3 c4 f |"C7" edc "F" A4-A |"F" F F2 A2 A2 F |"C7" GF G2 A c3 |
+"F" f3 c4 f |"C7" edc "F" A4-A |"F" F F2 A2 A2 F |"C7" G2 G2 "F" F4 |]
+
+X:2
+T:Banana Boat Song (Day-O)
+O:Jamaica (mento work song)
+N:The shorter setting: melody and chords from the mu-tech.org lead sheet, verified against its MIDI
 M:4/4
 Q:1/4=120
 L:1/16

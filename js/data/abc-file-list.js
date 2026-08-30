@@ -308,7 +308,7 @@ class AbcFileList {
                 "category": "italian"
         },
         {
-                "name": "Banana Boat Song",
+                "name": "Banana Boat Song (Day-O)",
                 "file": "jamaican/banana boat song.abc",
                 "category": "jamaican"
         },
@@ -591,6 +591,16 @@ class AbcFileList {
                 "name": "Bua Kao \u0e1a\u0e31\u0e27\u0e02\u0e32\u0e27",
                 "file": "thai/bua kao.abc",
                 "category": "thai"
+        },
+        {
+                "name": "Jump in the Line (Shake, Senora)",
+                "file": "trinidadian/jump in the line.abc",
+                "category": "trinidadian"
+        },
+        {
+                "name": "Matilda",
+                "file": "trinidadian/matilda.abc",
+                "category": "trinidadian"
         },
         {
                 "name": "\u00dcsk\u00fcdar'a Gider \u0130ken",
