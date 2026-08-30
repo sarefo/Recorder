@@ -2,8 +2,32 @@ X:1
 T:Herbie's Theme
 C:George Bruns
 O:from Walt Disney's The Love Bug (1968)
-N:The full 16-bar theme, decoded from a piano arrangement of the film cue; every bar checked to sum to 4/4
-N:Chords are the arrangement's own left hand. In the arrangement the theme is played twice, with a 16-bar two-note riff between the statements
+N:The complete 56-bar cue: theme (1-16), horn riff (17-32), theme again (33-48), riff to close (49-56)
+N:Decoded from the vector data of a piano arrangement; the riff is written as the top note of its two-note chords
+M:4/4
+Q:1/4=160
+L:1/8
+K:A
+"A" e3 c- c2 A2 |"D" G2 Fd- d B2 A |"E" G3 G F G2 E- |"A" E4 z4 |
+"A" e3 c- c3 e |"D" e2 dF- F B2 A |"E" G2 G2 F G2 A- |"A" A4 z4 |
+"A" z2 c4 A2 |"D" G2 Fd- d4 |"E" z2 B4 G2 |"A" F2 EA- A4 |
+"A" A3 A c2 e2 |"D" e2 dF- F B2 A |"E" G2 G2 F2 GA- |"A" A2 z2 z4 |
+"A" e3 e- e2 z2 |"D" f3 e- e2 z2 |"A" e3 e- e2 z2 |"E" B3 e- e2 z2 |
+"A" e3 e- e2 z2 |"D" f3 e- e2 z2 |"A" e2 z2 "E7" d2 z2 |"A" c4 z4 |
+"A" e3 e- e2 z2 |"D" f3 e- e2 z2 |"A" e3 c- c2 z2 |"E" B3 e- e2 z2 |
+"A" e3 e- e2 z2 |"D" f3 e- e2 z2 |"A" e2 z2 "E7" d2 z2 |"A" c4 z4 |
+"A" z eec- c2 A2 |"D" G2 Fd- d B2 A |"E" G3 G F G2 E- |"A" E4 z4 |
+"A" z2 A2 c2 z e |"D" e2 dF- F B2 A |"E" G3 G F G2 A- |"A" A4 z4 |
+"A" z2 c4 A2 |"D" G2 Fd- d4 |"E" z2 B4 G2 |"A" F2 EA- A4 |
+"A" A3 A c2 e2 |"D" e2 dF- F B2 A |"E" G2 G2 F2 GA- |"A" A2 z2 z4 |
+"A" e3 e- e2 z2 |"D" f3 e- e2 z2 |"A" e3 c- c2 z2 |"E" B3 e- e2 z2 |
+"A" e3 e- e2 z2 |"D" f3 e- e2 z2 |"A" e2 z2 "E7" d2 z2 |"A" c4 z4 |]
+
+X:2
+T:Herbie's Theme
+C:George Bruns
+O:from Walt Disney's The Love Bug (1968)
+N:The 16-bar theme on its own, without the riff sections
 M:4/4
 Q:1/4=160
 L:1/8
@@ -13,7 +37,7 @@ K:A
 "A" z2 c4 A2 |"D" G2 Fd- d4 |"E" z2 B4 G2 |"A" F2 EA- A4 |
 "A" A3 A c2 e2 |"D" e2 dF- F B2 A |"E" G2 G2 F2 GA- |"A" A2 z2 z4 |]
 
-X:2
+X:3
 T:Herbie's Theme
 C:George Bruns
 O:from Walt Disney's The Love Bug (1968)
