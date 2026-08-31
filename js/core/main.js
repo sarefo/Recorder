@@ -1,4 +1,4 @@
-const APP_BUILD = '2026-08-30-6';
+const APP_BUILD = '2026-09-01';
 console.log(`[App] build: ${APP_BUILD}`);
 
 // Initialize the application when DOM is ready

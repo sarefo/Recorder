@@ -318,6 +318,11 @@ class AbcFileList {
                 "category": "japanese"
         },
         {
+                "name": "Hashire Kotaro",
+                "file": "japanese/hashire kotaro.abc",
+                "category": "japanese"
+        },
+        {
                 "name": "Kojo no Tsuki",
                 "file": "japanese/kojo no tsuki.abc",
                 "category": "japanese"
