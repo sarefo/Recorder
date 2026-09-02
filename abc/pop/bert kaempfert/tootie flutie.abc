@@ -7,11 +7,11 @@ L:1/8
 M:C|
 Q:1/4=160
 K:F
-(F>A .c2) z4|z2 z (d- d>BG>E|F>A .c2) z4|
-z2 z (d- d>BG>E|F>A .c2) z2 z (E|F>B .d2) z4|
-(c2 B>^G A2 =G>E|F2 E>C D>CD>E)|(F>A .c2) z4|
-z2 z (d- d>BG>E|F>A .c2) z4|z2 z (d- d>BG>E|
-F>A .c2) z (E|F>B .d2) z4|(c2 B>^G A2 =G>E|F2 E>C D>CD>E)||
+"F"(F>A .c2) z4|"C7"z2 z (d- d>BG>E|"F"F>A .c2) z4|
+"C7"z2 z (d- d>BG>E|"F"F>A .c2) z2 z (E|"Bb"F>B .d2) z4|
+"C7"(c2 B>^G A2 =G>E|"F"F2 E>C "C7"D>CD>E)|"F"(F>A .c2) z4|
+"C7"z2 z (d- d>BG>E|"F"F>A .c2) z4|"C7"z2 z (d- d>BG>E|
+"F"F>A .c2) z2 z (E|"Bb"F>B .d2) z4|"C7"(c2 B>^G A2 =G>E|"F"F2 E>C D>CD>E)||
 
 X:2
 T: Tootie Flutie
@@ -22,8 +22,8 @@ L:1/8
 M:C|
 Q:1/4=160
 K:A
-(A>c .e2) z4|z2 z (f- f>dB>G|A>c .e2) z4|
-z2 z (f- f>dB>G|A>c .e2) z2 z (G|A>d .f2) z4|
-(e2 d>^B c2 =B>G|A2 G>E F>EF>G)|(A>c .e2) z4|
-z2 z (f- f>dB>G|A>c .e2) z4|z2 z (f- f>dB>G|
-A>c .e2) z (G|A>d .f2) z4|(e2 d>^B c2 =B>G|A2 G>E F>EF>G)||
+"A"(A>c .e2) z4|"E7"z2 z (f- f>dB>G|"A"A>c .e2) z4|
+"E7"z2 z (f- f>dB>G|"A"A>c .e2) z2 z (G|"D"A>d .f2) z4|
+"E7"(e2 d>^B c2 =B>G|"A"A2 G>E "E7"F>EF>G)|"A"(A>c .e2) z4|
+"E7"z2 z (f- f>dB>G|"A"A>c .e2) z4|"E7"z2 z (f- f>dB>G|
+"A"A>c .e2) z2 z (G|"D"A>d .f2) z4|"E7"(e2 d>^B c2 =B>G|"A"A2 G>E F>EF>G)||
