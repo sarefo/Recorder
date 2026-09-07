@@ -1,10 +1,11 @@
 X: 100
 T: 100. Durch Adams Fall ist ganz verderbt
-N: Derived from chor100.krn
+N: BWV 18/5, Riemenschneider 100. Derived from chor100.krn.
+N: Chords derived from Bach's own four-part setting.
 C: Johann Sebastian Bach
 L: 1/4
 M: C
 K: Bb
-G | GGFG | ED!fermata!CG/A/ | =BcGA | BA!fermata!G :|]  
-B [I:setbarnb 5]| BB/_A/ G/F/ E/F/ | GF!fermata!EG | GGFE/D/ | D2!fermata!CG |
- GFG=A | B/A/G!fermata!Fc | dcG/A/B | AGA2 | !fermata!G3 |]  
+G | "Cm" G G "F7" F "G" G | "Cm" E D !fermata!C G/A/ | "G" =B "Cm" c G "Adim" A | "D+" B "D7" A "G" !fermata!G :|]  
+"Gm" B [I:setbarnb 5]| "Bb" B B/_A/ "Eb" G/F/ "Cm" E/F/ | "Eb" G "Bb" F "Eb" !fermata!E G | "G" G "Cm" G "Fm" F "Fm7" E/D/ | "Cm" D2 !fermata!C "G" G |
+ "Cm" G "Fm" F "Eb" G "F" =A | "Bb" B/A/ "C7" G "F" !fermata!F c | "Bb" d "Cm" c G/A/ "Gm" B | "D" A "Eb" G "Am7b5" A2 | "G" !fermata!G3 |]  

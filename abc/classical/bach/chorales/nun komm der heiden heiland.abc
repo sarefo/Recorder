@@ -1,0 +1,13 @@
+X: 28
+T: Nun komm, der Heiden Heiland
+C: Johann Sebastian Bach
+N: BWV 36(2)/8, Riemenschneider 28.
+N: Melody and chords derived from Bach's four-part setting (chor028.krn).
+M: 4/4
+L: 1/4
+Q: 1/4=100
+K: Bm
+"Bm" B "C#m7b5" B "F#m" A "Bm" d | "C#m7b5" c/B/ "E" c "Bm" !fermata!B2 |
+"Bm" B/c/ d "A" e "D" d | "C#dim" e "D" f "G" !fermata!d2 |
+"D" d "A" e "D" f/e/ "G" d | "C#dim" e/d/ "F#" c "Bm" !fermata!B2 |
+"Bm" B "C#7" B "F#m" A "D" d | "F#7" c/B/ "F#m" c "B" !fermata!B2 |]

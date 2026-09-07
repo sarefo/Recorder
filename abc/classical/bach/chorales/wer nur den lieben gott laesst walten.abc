@@ -1,0 +1,13 @@
+X: 146
+T: Wer nur den lieben Gott läßt walten
+C: Johann Sebastian Bach
+N: BWV 434, Riemenschneider 146.
+N: Melody and chords derived from Bach's four-part setting (chor146.krn).
+M: 4/4
+L: 1/8
+Q: 1/4=100
+K: Am
+E2 | "Am" A2 B2 c2 "G#dim" B2 | "Am" A2 "Bdim" B2 "E" ^G3 ^F | "E" !fermata!E2 "Em" G2 "Am7" G2 "Bdim" F2 |
+"E7" E2 "D" A2 "Am" AB "E" ^G2 | "Am" !fermata!A6 :|
+"E" B2 | "Am" c2 "G" d2 "C" e2 "Am" e2 | "Dm7" de/f/ "G" d2 "C" !fermata!c2 "A" e2 |
+"D" d2 "Fmaj7" c2 "G" B2 "Am" AB | "D#dim7" cB "E" B2 "A" !fermata!A2 |]

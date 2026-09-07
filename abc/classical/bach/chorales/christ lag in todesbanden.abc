@@ -1,0 +1,15 @@
+X: 184
+T: Christ lag in Todesbanden
+C: Johann Sebastian Bach
+N: BWV 4/8, Riemenschneider 184.
+N: Melody and chords derived from Bach's four-part setting (chor184.krn).
+M: 4/4
+L: 1/4
+Q: 1/4=100
+K: Ddor
+A | "E" ^G "Am" A/B/ c "E7" d | "Am" c "E" B "A" !fermata!A A |
+"Dm" F "Am7" G "F" A "Dm" G/F/ | "Em7b5" E/D/ "A" E "Dm" !fermata!D2 :|
+"Dm" D/E/ F "Gm" G D/E/ | "Dm" F "C" G "F" !fermata!A A |
+"Dm" d "C#dim" ^c "D" d "E" e/d/ | "Am" c "E" B "Am" !fermata!A "Bdim" B |
+"C" c "F" A/_B/ c "C" G | "Dm" F "A7" E "Bb" !fermata!D2 |
+"F" A "C#dim" G "Dm" F2 | "Em7b5" E2 "D" !fermata!D2 |]

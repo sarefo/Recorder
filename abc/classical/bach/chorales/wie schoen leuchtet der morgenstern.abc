@@ -1,0 +1,16 @@
+X: 323
+T: Wie schön leuchtet der Morgenstern
+C: Johann Sebastian Bach
+N: BWV 172/6, Riemenschneider 323.
+N: Melody and chords derived from Bach's four-part setting (chor323.krn).
+M: 4/4
+L: 1/4
+Q: 1/4=100
+K: F
+F | "C" c/B/ "F" A/G/ "Dm" F "F" c | "Bb" d d "F" !fermata!c "C" c |
+"Dm7" d "Em" e "F" f "C" e | "Dm" d "G7" d "C" !fermata!c "F" A |
+"Bb" d "C" c "Bb" B "F" A | "C" G2 "F" !fermata!F :|
+z | "C" c2 "F" !fermata!A2 |
+"C" c2 "F" !fermata!A2 |
+"F" A A "C" G G | "F" A "Am" A "C" G "Am7" G | "F" A "Dm" A "Gm7" G2 | "F" !fermata!F2 "Dm" f "Edim" e |
+"Bb" d "C" c "Bb" B "F" A | "Gm" G2 "F" !fermata!F |]

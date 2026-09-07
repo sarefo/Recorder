@@ -1,0 +1,16 @@
+X: 22
+T: Schmücke dich, o liebe Seele
+C: Johann Sebastian Bach
+N: BWV 180/7, Riemenschneider 22.
+N: Melody and chords derived from Bach's four-part setting (chor022.krn).
+N: Transposed up a whole tone from Bach's E-flat major.
+M: 4/4
+L: 1/4
+Q: 1/4=100
+K: F
+"F" A "C" G "Dm" F "C" G | "F" A/B/ c "C7" B2 | "F" !fermata!A2 "C" c "F" A |
+"Bb" B "F" A/G/ "Bb" F/G/ "F" A | "F" G2 !fermata!F2 :|
+"F" c "Em7" d/e/ "Dm" f f | "Am" e/d/ c/d/ "Dm7" d2 | "C" !fermata!c2 "F" c "Bb" d/e/ |
+"F" f f "C" e/d/ c/d/ | "C" d2 !fermata!c2 |
+"C" G "F" A "Edim" B "Gm" B | "F" A/c/ "Gm" B/A/ "C" G !fermata!G |
+"Am" c "Dm7" A "Gm" B "F" A/G/ | "Bb" F/G/ "F" A G2 | "F" !fermata!F4 |]

@@ -1,0 +1,13 @@
+X: 358
+T: Meine Seele erhebet den Herrn (German Magnificat)
+C: Johann Sebastian Bach
+N: BWV 10/7, Riemenschneider 358.
+N: Melody and chords derived from Bach's four-part setting (chor358.krn).
+M: 4/4
+L: 1/4
+Q: 1/4=100
+K: Gm
+"Gm" d2 "F" f2 | "Bb" d "D7" d "Gm" d "D" d | "Eb" e2 "Bb" d2 | "Cm7" c2 "F" c2 | "Bb" !fermata!B4 |
+"Bb" d2 f2 | "F" c c "Cm" c G | "Gm" B2 "D" A2 | "Gm" !fermata!G4 |
+"Gm" d2 "F" f2 | "Bb" d "F" d "Bb" d "D" d | "Ebmaj7" e2 "Bb" d2 | "Cm7" c2 "Bb" c2 | "Bb" !fermata!B4 |
+"Bb" d2 "Dm" f2 | "F" c "C7" c "F" c "C7" c | "Am" c2 "C" G "F#dim" A | "Gm" B2 "Dm" A2 | "G7" G4- | "Cm" G4- | "Cm" G4- | "G" !fermata!G4 |]

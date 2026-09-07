@@ -1,0 +1,18 @@
+X: 121
+T: Werde munter, mein Gemüte (Jesu, Joy of Man's Desiring)
+C: Johann Sebastian Bach
+N: BWV 244/40, Riemenschneider 121.
+N: Melody and chords derived from Bach's four-part setting (chor121.krn).
+N: Transposed down a whole tone from Bach's A major.
+M: 4/4
+L: 1/8
+Q: 1/4=100
+K: G
+"Em" B2 "Am" c2 "D" d2 "Bm" d2 | "C" c2 "G" B2 "D" A2 !fermata!A2 |
+"G" B2 "C" c2 "G" d2 "D7" cB | "Am7" A3 G "G" !fermata!G4 |
+"G" B2 "Am" c2 "D" d2 "Bm" d2 | "C" c2 "G" B2 "D" A2 !fermata!A2 |
+"G" B2 "C" c2 "G" d2 "D7" cB | "Am7" A3 G "G" !fermata!G4 |
+"D" A2 "G#dim" B2 "Am" cB "Dm7" cd | "Bm7b5" B2 "E" B2 "Am" !fermata!A4 |
+"Am" c2 "Bm" d2 "C" e2 "Dm7" de/=f/ | "C" e2 "G7" dc "C" !fermata!c4 |
+"G" B2 "F#dim" c2 "D" d2 "Bm" d2 | "C" c2 "Em7" B2 "D" A2 !fermata!A2 |
+"G" B2 "C" c2 "Bm" d2 "G" GA | "G" B2 "D7" AG "G" G2 !fermata!G2 |]

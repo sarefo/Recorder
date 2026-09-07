@@ -1,0 +1,15 @@
+X: 4
+T: Es ist das Heil uns kommen her
+C: Johann Sebastian Bach
+N: BWV 86/6, Riemenschneider 4.
+N: Melody and chords derived from Bach's four-part setting (chor004.krn).
+N: Transposed up a semitone from Bach's E major.
+M: 4/4
+L: 1/4
+Q: 1/4=100
+K: F
+c | "C" c "F" c c "Eb" _e | "Bb" d c !fermata!B "C" c |
+"F" A F/G/ "Dm" A "G" =B | "C" c "G7" d "C" !fermata!c :|
+"F" c | "Dm" f "C" e "G" d "C" e | "F" f/e/ "G" d "C" !fermata!c "F" c |
+"F" f c "Bb" d "Dm" A/B/ | "F#dim7" c "Gm" B "D" !fermata!A "F" A |
+"C" G "Bb" B "F" A "C" G | "G" D "C" E "F" !fermata!F |]

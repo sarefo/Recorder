@@ -148,6 +148,136 @@ class AbcFileList {
                 "category": "classical/bach"
         },
         {
+                "name": "Allein Gott in der H\u00f6h sei Ehr",
+                "file": "classical/bach/chorales/allein gott in der hoeh sei ehr.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Christ lag in Todesbanden",
+                "file": "classical/bach/chorales/christ lag in todesbanden.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Ein feste Burg ist unser Gott",
+                "file": "classical/bach/chorales/ein feste burg ist unser gott.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Es ist das Heil uns kommen her",
+                "file": "classical/bach/chorales/es ist das heil uns kommen her.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Es ist genug",
+                "file": "classical/bach/chorales/es ist genug.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Freu dich sehr, o meine Seele (Genevan Psalm 42)",
+                "file": "classical/bach/chorales/freu dich sehr o meine seele.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Gelobet seist du, Jesu Christ",
+                "file": "classical/bach/chorales/gelobet seist du jesu christ.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Herzliebster Jesu, was hast du verbrochen",
+                "file": "classical/bach/chorales/herzliebster jesu.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "In dulci jubilo",
+                "file": "classical/bach/chorales/in dulci jubilo.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Jesu, meine Freude",
+                "file": "classical/bach/chorales/jesu meine freude.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Meine Seele erhebet den Herrn (German Magnificat)",
+                "file": "classical/bach/chorales/meine seele erhebet den herrn.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Nun bitten wir den heiligen Geist",
+                "file": "classical/bach/chorales/nun bitten wir den heiligen geist.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Nun danket alle Gott",
+                "file": "classical/bach/chorales/nun danket alle gott.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Nun komm, der Heiden Heiland",
+                "file": "classical/bach/chorales/nun komm der heiden heiland.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Nun ruhen alle W\u00e4lder (O Welt, ich mu\u00df dich lassen)",
+                "file": "classical/bach/chorales/nun ruhen alle waelder.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "O Haupt voll Blut und Wunden (Passion Chorale)",
+                "file": "classical/bach/chorales/o haupt voll blut und wunden.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "O Lamm Gottes, unschuldig",
+                "file": "classical/bach/chorales/o lamm gottes unschuldig.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Schm\u00fccke dich, o liebe Seele",
+                "file": "classical/bach/chorales/schmuecke dich o liebe seele.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Valet will ich dir geben (All Glory, Laud and Honour)",
+                "file": "classical/bach/chorales/valet will ich dir geben.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Vater unser im Himmelreich",
+                "file": "classical/bach/chorales/vater unser im himmelreich.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Vom Himmel hoch, da komm ich her",
+                "file": "classical/bach/chorales/vom himmel hoch da komm ich her.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Wachet auf, ruft uns die Stimme",
+                "file": "classical/bach/chorales/wachet auf.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Was Gott tut, das ist wohlgetan",
+                "file": "classical/bach/chorales/was gott tut das ist wohlgetan.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Wer nur den lieben Gott l\u00e4\u00dft walten",
+                "file": "classical/bach/chorales/wer nur den lieben gott laesst walten.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Werde munter, mein Gem\u00fcte (Jesu, Joy of Man's Desiring)",
+                "file": "classical/bach/chorales/werde munter mein gemuete.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
+                "name": "Wie sch\u00f6n leuchtet der Morgenstern",
+                "file": "classical/bach/chorales/wie schoen leuchtet der morgenstern.abc",
+                "category": "classical/bach/chorales"
+        },
+        {
                 "name": "Invention 1 BWV 772",
                 "file": "classical/bach/inventions/invention 01.abc",
                 "category": "classical/bach/inventions"

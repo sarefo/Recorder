@@ -1,0 +1,16 @@
+X: 32
+T: Nun danket alle Gott
+C: Johann Sebastian Bach
+N: BWV 386, Riemenschneider 32.
+N: Melody and chords derived from Bach's four-part setting (chor032.krn).
+N: Transposed down a whole tone from Bach's A major.
+M: 4/4
+L: 1/8
+Q: 1/4=100
+K: G
+d2 | "G" d2 d2 "C" e2 e2 | "G" !fermata!d4 z2 "Em" B2 |
+"D7" c2 "G" B2 "D" A2 "G" Bc | "G" A4 !fermata!G2 :|
+"D" A2 | "D" A2 A2 "G" B2 B2 | "D" !fermata!A4 z2 A2 |
+"G" B^c "Bm" d2 "Em7" d2 "A" c2 | "D" !fermata!d4 z2 "G" d2 |
+"C" e2 "Bm" d2 "Am" c2 "Bm7b5" B2 | "Am" !fermata!c4 z2 "G" B2 |
+"D" A2 "G" Bc "Am7" A3 G | "G" !fermata!G6 |]

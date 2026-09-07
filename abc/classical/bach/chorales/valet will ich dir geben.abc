@@ -1,0 +1,16 @@
+X: 108
+T: Valet will ich dir geben (All Glory, Laud and Honour)
+C: Johann Sebastian Bach
+N: BWV 245/26, Riemenschneider 108.
+N: Melody and chords derived from Bach's four-part setting (chor108.krn).
+N: Transposed up a whole tone from Bach's E-flat major.
+M: 4/4
+L: 1/4
+Q: 1/4=100
+K: F
+F | "F" c c "Bb" d "A" e | "Dm" f2 !fermata!f a |
+"Gm" g "Gm7" f "F" f "C" e | "F" !fermata!f3 :|
+"F" f/g/ | "F" a "Dm" a "G" g "G7" f | "C" e/d/ e !fermata!c "C7" e |
+"F" f "C" e "Dm7" d "G" d | "C" !fermata!c3 c |
+"F" A/B/ "F7" c "Bb" d "F#dim7" c | "D7" c "Gm" B "Dm" !fermata!A "F7" c |
+"Bb" B "F" A "Gm7" G "C" G | "F" !fermata!F3 |]

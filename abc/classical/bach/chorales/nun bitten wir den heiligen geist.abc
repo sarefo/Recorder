@@ -1,0 +1,16 @@
+X: 36
+T: Nun bitten wir den heiligen Geist
+C: Johann Sebastian Bach
+N: BWV 385, Riemenschneider 36.
+N: Melody and chords derived from Bach's four-part setting (chor036.krn).
+N: Transposed down a whole tone from Bach's A major.
+M: 4/4
+L: 1/4
+Q: 1/4=100
+K: G
+G | "D" A A "G" G "C" E | "D7" D "Em" E/F/ "G" G A | "G" !fermata!G3 B/c/ |
+"D" d "C" e "D" d "G" B | "G" G "C" E/F/ "Em" G "Am7" A | "G" !fermata!G2 B "B7" B |
+"Em" B "Am" A "Em" B2 | "Em" !fermata!G2 z G |
+"D" A "Bm7" A "G" B2 | "C" !fermata!G2 "Am" A "D" A |
+"G" B/A/ "Am7" G/F/ "C" E "F#dim" A | "Bm" A "C#dim" G/F/ "Em7" E2 | "D" !fermata!D2 "C" E "B7" F |
+"G" G A !fermata!G |]

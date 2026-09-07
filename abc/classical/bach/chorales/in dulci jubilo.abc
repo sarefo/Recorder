@@ -1,0 +1,17 @@
+X: 143
+T: In dulci jubilo
+C: Johann Sebastian Bach
+N: BWV 368, Riemenschneider 143.
+N: Melody and chords derived from Bach's four-part setting (chor143.krn).
+M: 3/4
+L: 1/8
+Q: 1/4=100
+K: F
+F2 | "Dm" F4 "Bb" F2 | "Am" A4 "Edim" B2 | "F" c4 "Bb" d2 | "F" !fermata!c6 |
+"Dm" F4 "Bb" F2 | "F" A4 "Bb" B2 | "C" c4 "G" d2 | "C" !fermata!c6 |
+"F" c4 "Bb" d2 | "C7" c4 "Edim" B2 | "A7" A3 B "A" AG | "Dm" !fermata!F4 "F" F2 |
+"Gm7" G4 "C" G2 | "F" A4 "C" G2 | "F" F4 G2 | "F" !fermata!A6 |
+"F" c4 "Bb" d2 | "C" c4 "C7" B2 | "A7" A3 B "A" AG | "Dm" !fermata!F4 "F" F2 |
+"Gm7" G4 "C" G2 | "F" A4 "C" G2 | "Dm" F4 "Gm" G2 | "A" !fermata!A6 |
+"Bb" D4 "Gm" D2 | "C" E4 "Am" E2 | "Dm" FE FG AB | "C" !fermata!c6 |
+"F" A4 A2 | "Gm7" G4 "C" G2 | "F" F6- | "F" !fermata!F6 |]

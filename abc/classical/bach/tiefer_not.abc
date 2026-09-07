@@ -1,15 +1,16 @@
 X: 10
 T: 10. Aus tiefer Not schrei ich zu dir
-N: Derived from chor010.krn
+N: BWV 38/6, Riemenschneider 10. Derived from chor010.krn.
+N: Chords derived from Bach's own four-part setting.
 C: Johann Sebastian Bach
 L: 1/4
 M: C
 Q:1/4=104
 K: C
-B2EB | cB/A/GA | !fermata!B2B2 | cdc/B/A | GF!fermata!E2 :|]  
+"E7" B2 "Am" E "G#dim" B | "Am" c "G" B/A/ "C" G "F#dim" A | "E" !fermata!B2 B2 | "Am" c "G7" d "C" c/B/ "F" A | "C" G "Dm" F "E" !fermata!E2 :|]  
 w:Ob bei uns ist der _ Sün-den viel, bei Gott ist viel _ mehr Gna--de.
 w:sein Hand zu hel- fen _ hat kein Ziel, wie groß auch sei _ der Scha--de.
-A2=Gc | BAd/c/B | !fermata!A2c2 | BcdG | BA!fermata!G2 | 
+"Am" A2 "G" =G "Am" c | "G" B "Dm" A "Bdim" d/c/ "E" B | "Am" !fermata!A2 c2 | "Em" B "C" c "G" d "C" G | "Bm" B "D7" A "G" !fermata!G2 | 
 w: Er ist al-lein der gu- _ te Hirt, der Is-ra-el er-lö-sen wird
-G2cB | AEGF | !fermata!E4 |]  
+"C" G2 "Am" c "E" B | "F" A "C" E "Gm" G "Dm" F | "E7" !fermata!E4 |]  
 w: aus sei- nen Sün-den al- _ len.

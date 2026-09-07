@@ -1,0 +1,13 @@
+X: 59
+T: Herzliebster Jesu, was hast du verbrochen
+C: Johann Sebastian Bach
+N: BWV 245/3, Riemenschneider 59.
+N: Melody and chords derived from Bach's four-part setting (chor059.krn).
+M: 4/4
+L: 1/4
+Q: 1/4=100
+K: Gm
+G | "Cm7" G "Am7b5" G "D" ^F "D7" D | "Gm" G "F#dim" A "Gm" B B | "F#dim7" c "Gm" B "D" !fermata!A A |
+"Gm" B "Adim" c "Bb" d/c/ "Bb7" B | "Eb" e "Ebm" e "Bb" d "Edim7" _d/c/ | "Bb" c2 !fermata!B "Gm" B |
+"Adim" A "C#dim7" G "Dm" F D/E/ | "Bb" F F "Eb" G "F7" F | "Ebmaj7" E2 "Bb" !fermata!D d |
+"F#dim7" c "Gm" B/A/ "A7" A2 | "G" !fermata!G3 |]

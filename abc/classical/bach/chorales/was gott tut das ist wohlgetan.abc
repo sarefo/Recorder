@@ -1,0 +1,15 @@
+X: 293
+T: Was Gott tut, das ist wohlgetan
+C: Johann Sebastian Bach
+N: BWV 12/7 & 69a/16, Riemenschneider 293.
+N: Melody and chords derived from Bach's four-part setting (chor293.krn).
+M: 4/4
+L: 1/8
+Q: 1/4=100
+K: G
+D2 | "G" G2 "D" A2 "G" B2 "C" c2 | "G" d3 c !fermata!B2 "C" e2 |
+"D" d2 "C" c2 "G" B2 "C" c2 | "G" A4 !fermata!G2 :|
+"G" d2 | "C" e2 "A" e2 "D" !fermata!A2 "D7" A2 |
+"G" d2 d2 "C" !fermata!G2 "G" B2 |
+"A" A2 "G" G2 "D" F2 "Em" G2 | "D" E4 !fermata!D2 "G" d2 |
+"C" c2 "G" B2 "D" A2 "G" B2 | "G" A4 !fermata!G2 |]
