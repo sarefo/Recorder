@@ -1,4 +1,9 @@
 class DiagramRenderer {
+    // Gap kept between the leading clef/key signature/meter and the first
+    // marker zone of a line, wide enough to clear the invisible tap rect
+    // KeySignatureHighlighter pads the key signature with
+    static STAFF_EXTRA_GAP = 8;
+
     constructor(fingeringManager, config) {
         this.fingeringManager = fingeringManager;
         this.config = config;
@@ -223,15 +228,26 @@ class DiagramRenderer {
         // Position marker zones to extend from above staff to below staff
         const markerTopPosition = staffRect.top - containerRect.top - 20;
 
+        // The first note's zone reaches half a zone to the left of the note,
+        // which on a dense line lands on top of the clef and key signature and
+        // swallows taps meant for them (the key signature toggles its own
+        // highlight). Keep every zone clear of that leading block.
+        const leftLimit = this.getStaffExtraRight(staff.lineNumber, containerRect, leftmostNote);
+
         // Create marker zones for each note
         staff.notes.forEach((note, index) => {
             const markerZone = this.fingeringManager.createNoteMarkerZone(note.dataIndex);
-            
+
+            const noteLeft = note.left - containerRect.left;
+            const rawLeft = noteLeft + (note.width / 2) - (zoneWidth / 2);
+            // Never clamp past the note itself — the note stays tappable
+            const zoneLeft = Math.min(Math.max(rawLeft, leftLimit), noteLeft);
+
             // Position the marker zone to align with the note center (same as fingering diagrams)
             markerZone.style.position = 'absolute';
-            markerZone.style.left = `${note.left - containerRect.left + (note.width / 2) - (zoneWidth / 2)}px`;
+            markerZone.style.left = `${zoneLeft}px`;
             markerZone.style.top = `${markerTopPosition}px`;
-            markerZone.style.width = `${zoneWidth}px`;
+            markerZone.style.width = `${rawLeft + zoneWidth - zoneLeft}px`;
             markerZone.style.height = `${this.config.noteMarkingHeight}px`;
             
             // Set initial z-index based on whether fingering diagrams are shown
@@ -243,6 +259,27 @@ class DiagramRenderer {
 
             layer.appendChild(markerZone);
         });
+    }
+
+    /**
+     * Finds where a staff line's leading block (clef, key signature, meter)
+     * ends, so marker zones can start to the right of it
+     * @param {number} lineNumber - The abcjs staff line number
+     * @param {DOMRect} containerRect - Bounding rect of the notation container
+     * @param {number} leftmostNote - Viewport x of the line's first note; a
+     *   mid-line key or meter change sits to the right of it and is ignored,
+     *   so only the leading block counts
+     * @returns {number} Right edge in container coordinates, 0 if none found
+     */
+    getStaffExtraRight(lineNumber, containerRect, leftmostNote) {
+        let right = 0;
+        document.querySelectorAll(`#abc-notation .abcjs-staff-extra.abcjs-l${lineNumber}`)
+            .forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.right > leftmostNote) return;
+                right = Math.max(right, rect.right - containerRect.left);
+            });
+        return right ? right + DiagramRenderer.STAFF_EXTRA_GAP : 0;
     }
 
     addMarkerZones(abcContainer, notesData) {
