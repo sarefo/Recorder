@@ -133,7 +133,7 @@ class AbcFileList {
                 "category": "chinese"
         },
         {
-                "name": "Zou Xikou",
+                "name": "Zou Xikou \u8d70\u897f\u53e3",
                 "file": "chinese/zou xikou.abc",
                 "category": "chinese"
         },
