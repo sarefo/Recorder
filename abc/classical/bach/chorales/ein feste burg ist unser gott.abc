@@ -7,10 +7,6 @@ M: 4/4
 L: 1/4
 Q: 1/4=100
 K: D
-d | "Bm" d "D" d A/B/ "F#7" c | "D" d/c/ "Em" B "A" !fermata!A "Bm" d |
-"A" c "Em" B "F#m" A "G" B/A/ | "G" G/F/ "A" E "D" !fermata!D :|
-"D" D | "F#m" A "C#m7" B "A" A "E" ^G | "A" !fermata!A2 "Bm" D "D" A |
-"G" B "C#dim" c "D" !fermata!d "F#m" c |
-"Bm7" d "A" c "Bm7" B2 | "A" !fermata!A "Em" B "G" B "D" A |
-"B" B/A/ "Em" G "B" !fermata!F "Bm" d |
-"C#dim" c "G" B "A7" A "Bm" B/A/ | "G" G/F/ "A" E "D" !fermata!D |]
+d | "Bm" d "D" d A/B/ "F#7" c | "D" d/c/ "Em" B "A" !fermata!A "Bm" d | "A" c "Em" B "F#m" A "G" B/A/ | "G" G/F/ "A" E "D" !fermata!D :|
+"D" D | "F#m" A "C#m7" B "A" A "E" ^G | "A" !fermata!A2 "Bm" D "D" A | "G" B "C#dim" c "D" !fermata!d "F#m" c |
+"Bm7" d "A" c "Bm7" B2 | "A" !fermata!A "Em" B "G" B "D" A | "B" B/A/ "Em" G "B" !fermata!F "Bm" d | "C#dim" c "G" B "A7" A "Bm" B/A/ | "G" G/F/ "A" E "D" !fermata!D |]
