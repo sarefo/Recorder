@@ -7,6 +7,6 @@ Z:Nigel Gatherer
 M:4/4
 L:1/8
 K:Dm
-A | D<DAD cDAd | cAGE CDEC | D<DAD cDAd  | cAGE A2 D :|
-E | Ddde  fedc | AcAF CDEC | Ddde  fedc  | AcGE A2 DE |
-    Ddde  fedc | AcAF CDEG | gefd  ecd=B | cAGE A2 D ||
+A | "Dm"D<DAD cDAd | "C"cAGE CDEC    | "Dm"D<DAD cDAd | "C"cAGE "Dm"A2 D :|
+E | "Dm"Ddde fedc  | "F"AcAF "C"CDEC | "Dm"Ddde fedc  | "Am"AcGE "Dm"A2 DE |
+    "Dm"Ddde fedc  | "F"AcAF "C"CDEG | "G"gefd ecd=B  | "C"cAGE "Dm"A2 D ||
