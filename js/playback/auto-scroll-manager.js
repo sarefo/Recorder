@@ -12,6 +12,8 @@ class AutoScrollManager {
         this.scrollThreshold = 50; // Minimum pixels out of position before scrolling
         this.onFinishedCallback = null; // Callback to fire when playback completes
         this.finishTimer = null; // Timer to detect playback completion
+        this.noteTimings = []; // ABCJS timing entries for the current tune
+        this.preScrolledForRepeat = false; // View already moved to the repeat's first line
 
     }
 
@@ -73,6 +75,10 @@ class AutoScrollManager {
                 eventCallback: (ev) => this.handleNoteEvent(ev),
                 lineEndCallback: (info) => this.handleLineEnd(info)
             });
+
+            // Kept so the tune's last note and the loop's first note can be looked
+            // up while playing; these are the same objects eventCallback receives
+            this.noteTimings = this.timingCallbacks.noteTimings || [];
         } catch (error) {
             console.error('AutoScrollManager: Error initializing timing callbacks:', error);
         }
@@ -125,7 +131,11 @@ class AutoScrollManager {
 
             // Only scroll when auto-scroll is enabled (mobile)
             if (this.enabled) {
-                this.scrollToPosition(ev.top, ev.height);
+                if (this.isRepeatLeadIn(ev)) {
+                    this.scrollToLoopStart();
+                } else {
+                    this.scrollToPosition(ev.top, ev.height);
+                }
             }
         }
     }
@@ -170,6 +180,68 @@ class AutoScrollManager {
     }
 
     /**
+     * Whether the note that just started is the last one before playback
+     * loops back to the start. Scrolling at the wrap itself puts the first
+     * line on screen only once it is already sounding, too late to read; the
+     * last note is usually long enough to give that reading time back.
+     * @param {Object} ev - The current timing event
+     * @returns {boolean} True when the view should move to the loop start now
+     */
+    isRepeatLeadIn(ev) {
+        if (!this.player?.midiPlayer?.playbackSettings?.loopEnabled) return false;
+        if (typeof ev?.milliseconds !== 'number') return false;
+
+        const lastMs = this.getLastNoteMs();
+        return typeof lastMs === 'number' && ev.milliseconds >= lastMs;
+    }
+
+    /**
+     * Start time of the last note heard before the loop wraps: the end anchor
+     * when an A-B region is set, otherwise the final note of the tune.
+     * @returns {number|undefined} Time in ms, or undefined when unknown
+     */
+    getLastNoteMs() {
+        const endMs = this.player?.renderManager?.getAnchorEndMs?.();
+        if (typeof endMs === 'number' && !isNaN(endMs)) return endMs;
+
+        const timings = this.noteTimings || [];
+        for (let i = timings.length - 1; i >= 0; i--) {
+            if (this.isSoundingEvent(timings[i])) return timings[i].milliseconds;
+        }
+        return undefined;
+    }
+
+    /**
+     * Scrolls to where the next pass begins - the start anchor's note, or the
+     * first note of the tune. Landing on the position the wrap would scroll to
+     * anyway means the wrap itself no longer moves the page.
+     */
+    scrollToLoopStart() {
+        this.preScrolledForRepeat = true;
+
+        const startMs = this.player?.renderManager?.getAnchorStartMs?.();
+        const from = (typeof startMs === 'number' && !isNaN(startMs)) ? startMs : 0;
+        const timing = (this.noteTimings || []).find(t =>
+            this.isSoundingEvent(t) && t.milliseconds >= from);
+
+        if (timing) {
+            this.scrollToPosition(timing.top, timing.height);
+        } else {
+            this.scrollToTop();
+        }
+    }
+
+    /**
+     * @param {Object} timing - An ABCJS timing entry
+     * @returns {boolean} True for entries that sound a note and carry a position
+     */
+    isSoundingEvent(timing) {
+        return !!timing && timing.type === 'event' &&
+            typeof timing.milliseconds === 'number' &&
+            !!timing.elements && timing.elements.length > 0;
+    }
+
+    /**
      * Handle line end event (optional optimization for pre-scrolling)
      * @param {Object} info - Line end information
      */
@@ -182,6 +254,7 @@ class AutoScrollManager {
      * Start timing callbacks for note highlighting (always) and auto-scroll (mobile only)
      */
     start() {
+        this.preScrolledForRepeat = false;
         if (this.timingCallbacks) {
             try {
                 this.timingCallbacks.start();
@@ -249,6 +322,7 @@ class AutoScrollManager {
         }
 
         // Reset scroll position
+        this.preScrolledForRepeat = false;
         this.scrollToTop();
     }
 
@@ -281,8 +355,13 @@ class AutoScrollManager {
             }
         }
 
-        // Scroll back to top
-        this.scrollToTop();
+        // Scroll back to top, unless the last note already put the loop's
+        // first line in view - scrolling again would only jog the page
+        if (this.preScrolledForRepeat) {
+            this.preScrolledForRepeat = false;
+        } else {
+            this.scrollToTop();
+        }
     }
 
     /**
@@ -293,6 +372,7 @@ class AutoScrollManager {
      */
     restartAt(seconds) {
         if (!this.timingCallbacks) return;
+        this.preScrolledForRepeat = false;
 
         // Clear highlight so the note we jump away from doesn't stay lit
         if (this.currentElements && this.currentElements.length > 0) {
