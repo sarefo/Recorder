@@ -196,17 +196,21 @@ class AutoScrollManager {
     }
 
     /**
-     * Start time of the last note heard before the loop wraps: the end anchor
-     * when an A-B region is set, otherwise the final note of the tune.
+     * Start time of the last note actually heard before the loop wraps. Rests
+     * are skipped: a tune ending in a bar of silence should give its reading
+     * time from the last sounding note, not from the pause after it.
      * @returns {number|undefined} Time in ms, or undefined when unknown
      */
     getLastNoteMs() {
         const endMs = this.player?.renderManager?.getAnchorEndMs?.();
-        if (typeof endMs === 'number' && !isNaN(endMs)) return endMs;
+        const limit = (typeof endMs === 'number' && !isNaN(endMs)) ? endMs : Infinity;
 
         const timings = this.noteTimings || [];
         for (let i = timings.length - 1; i >= 0; i--) {
-            if (this.isSoundingEvent(timings[i])) return timings[i].milliseconds;
+            const timing = timings[i];
+            if (timing?.milliseconds <= limit && this.isSoundingEvent(timing)) {
+                return timing.milliseconds;
+            }
         }
         return undefined;
     }
@@ -232,13 +236,24 @@ class AutoScrollManager {
     }
 
     /**
+     * Whether a timing entry is a note being played, as opposed to a rest or
+     * the end marker.
      * @param {Object} timing - An ABCJS timing entry
-     * @returns {boolean} True for entries that sound a note and carry a position
+     * @returns {boolean} True for entries that sound a pitch and carry a position
      */
     isSoundingEvent(timing) {
-        return !!timing && timing.type === 'event' &&
-            typeof timing.milliseconds === 'number' &&
-            !!timing.elements && timing.elements.length > 0;
+        if (!timing || timing.type !== 'event' ||
+            typeof timing.milliseconds !== 'number' ||
+            !timing.elements || timing.elements.length === 0) {
+            return false;
+        }
+        if (timing.midiPitches && timing.midiPitches.length > 0) return true;
+
+        // ABCJS only hangs midiPitches on an event once the audio for the tune
+        // has been built, so fall back to what was drawn: a rest says so in
+        // the class of its element, a note carries abcjs-note
+        return timing.elements.some(group => (group || []).some(el =>
+            el?.classList?.contains('abcjs-note')));
     }
 
     /**
