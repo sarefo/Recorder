@@ -124,24 +124,16 @@ function playedQuarters(bytes) {
 
 /**
  * What is still to run, in whole notes, after the tune's last note-ON: that
- * note's own written value, anything tied onto it (a tie sounds as one note, so
- * it has only the one note-on), and any rests after it.
+ * note's own value, anything tied onto it (a tie sounds as one note, so it has
+ * only the one note-on), and any rests after it. Durations come from
+ * writtenBars, so a tuplet at the end counts as it sounds, not as it is written.
  */
-function tailAfterLastOnset(tune) {
-    const notes = [];
-    for (const line of tune.lines) {
-        if (!line.staff) continue;
-        for (const staff of line.staff) {
-            for (const el of staff.voices[0] || []) {
-                if (el.el_type === 'note') notes.push(el);
-            }
-        }
-    }
+function tailAfterLastOnset(notes) {
     let total = 0;
     for (let i = notes.length - 1; i >= 0; i--) {
-        total += notes[i].duration;
+        total += notes[i].dur;
         if (notes[i].rest) continue;
-        if (!(notes[i].pitches || []).some(p => p.endTie)) break;
+        if (!notes[i].tiedFromBefore) break;
     }
     return total;
 }
@@ -154,9 +146,13 @@ function writtenBars(tune) {
         : 1;                                            // common / cut time
     const meters = new Set([measure]);
     const out = [];
+    const notes = [];      // every note, with tuplets resolved, in playing order
     let filled = 0;
     let seen = false;
-    let left = 0;
+    // A tuplet runs until abcjs marks a note endTriplet. startTriplet is the p of
+    // (p:q:r -- for (3:2:2 it says 3 where only 2 notes are in the tuplet -- so
+    // counting notes off it stretches the ratio over one note too many.
+    let inTuplet = false;
     let mult = 1;
     let written = 0;        // every duration, ignoring barlines
     let repeats = false;    // any repeat or volta -- played length then differs
@@ -181,11 +177,16 @@ function writtenBars(tune) {
                     measure = Number(el.value[0].num) / Number(el.value[0].den);
                     meters.add(measure);
                 } else if (el.el_type === 'note') {
-                    if (el.startTriplet) { left = el.startTriplet; mult = el.tripletMultiplier; }
-                    const dur = el.duration * (left > 0 ? mult : 1);
+                    if (el.startTriplet) { inTuplet = true; mult = el.tripletMultiplier; }
+                    const dur = el.duration * (inTuplet ? mult : 1);
                     filled += dur;
                     written += dur;
-                    if (left > 0 && --left === 0) mult = 1;
+                    if (el.endTriplet) { inTuplet = false; mult = 1; }
+                    notes.push({
+                        dur,
+                        rest: !!el.rest,
+                        tiedFromBefore: (el.pitches || []).some(p => p.endTie),
+                    });
                     seen = true;
                     if (from === null) from = el.startChar;
                     to = el.endChar;
@@ -233,7 +234,7 @@ function writtenBars(tune) {
             endingPre: startsEnding ? groupPre : null, repeatTarget: null,
         });
     }
-    return { bars: out, meters, written, repeats, voices };
+    return { bars: out, meters, written, repeats, voices, notes };
 }
 
 /**
@@ -356,7 +357,7 @@ for (const file of files) {
             if (!onlyBad) console.log(`--      ${label} (no K: line -- not written yet)`);
             return;
         }
-        const { bars, meters, written, repeats, voices } = writtenBars(tune);
+        const { bars, meters, written, repeats, voices, notes } = writtenBars(tune);
         if (!bars.length) return;
         checked++;
 
@@ -419,7 +420,7 @@ for (const file of files) {
 
         const measureQ = 4 * bars[0].measure;
         const total = playedQuarters(Object.values(midis[0]))
-            + tailAfterLastOnset(tune) * 4;
+            + tailAfterLastOnset(notes) * 4;
 
         // Self-check. With no repeat to expand and a single voice, the played
         // length has to equal the written length; if it does not, the
@@ -447,9 +448,13 @@ for (const file of files) {
             // and a final bar do. An UNDER-full bar that nothing completes is
             // that defect. Over-full bars are a different complaint -- a bar
             // with too many beats in it -- so --bars has to be asked for.
+            // Some music is written with barlines only at the ends of phrases --
+            // a lute or consort part, say. Every "bar" is then several measures
+            // and none of them is meant to be one, so there is no join to judge.
+            const unbarred = bars.every(b => b.filled > 1.5 * b.measure);
             // With two staves the bars of both are concatenated, so "the next
             // bar" is not a join anything plays; only the total is meaningful.
-            const unpaired = voices === 1
+            const unpaired = voices === 1 && !unbarred
                 ? pairPartials(partial, bars, bars[0].measure) : null;
             if (unpaired) {
                 const short = unpaired.filter(b => b.filled < b.measure - EPS);

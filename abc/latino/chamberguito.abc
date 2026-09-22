@@ -1,3 +1,10 @@
+% The two transposed settings below use (12:7:2 and (6:5:2 tuplets. abcjs
+% does not implement a tuplet wider than 9, so it ignores the (12:7:2 ratio
+% entirely and plays those notes at their written length -- which is why
+% bars 34, 36, 42 and 44 run over. Honouring the ratio by hand does not
+% rescue them either: they still do not sum to 2/4. These came out of a
+% machine transcription of a performance, and putting them right means
+% re-reading Villoldo's score rather than adjusting what is here.
 X:1
 T:Villoldo Que Haces Chamberguito
 %%score 1 2

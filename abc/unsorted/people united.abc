@@ -1,6 +1,8 @@
 X:1
 T:The People United
 N:Transposed
+N:The closing rest is an eighth, not a triplet pair, so it pays back the
+N:one-eighth anacrusis and the tune comes round on the beat.
 M:4/4
 Q:1/4=100
 L:1/8
@@ -12,7 +14,7 @@ F2) (3:2:2 z2(F A2) (3:2:2 z2(A|(3:2:2 c2)(c (3:2:2 B2A G2) (3:2:2 z2(c|
 d2) (3:2:2 z2(A G2) (3:2:2 z2(d|(3:2:2 c2B (3:2:2 c2G F2) (3:2:2 z2(c| 
 B2) (3:2:2 z2(F =E2) (3:2:2 z2B|(3:2:2 A2G (3:2:2 A2B (3:2:2 c2=B (3:2:2 c2e|
 d2- (3:2:2 d2 A  G2- (3:2:2 G2 d|(3:2:2 c2 B (3:2:2 c2 G F2- (3:2:2 F2 c|
-B2- (3:2:2 B2 F =E2- (3:2:2 =E2 B|(3:2:2 A2 G (3:2:2 F2 =E F2 (3:2:2 z2 z|
+B2- (3:2:2 B2 F =E2- (3:2:2 =E2 B|(3:2:2 A2 G (3:2:2 F2 =E F2 z|
 
 X:2
 T:The People United
@@ -28,4 +30,4 @@ D2) (3:2:2 z2(D F2) (3:2:2 z2(F|(3:2:2 A2)(A (3:2:2 G2F E2) (3:2:2 z2(A|
 B2) (3:2:2 z2(F E2) (3:2:2 z2(B|(3:2:2 A2G (3:2:2 A2E D2) (3:2:2 z2(A| 
 G2) (3:2:2 z2(D ^C2) (3:2:2 z2G|(3:2:2 F2E (3:2:2 F2G (3:2:2 A2^G (3:2:2 A2c|
 B2- (3:2:2 B2 F  E2- (3:2:2 E2 B|(3:2:2 A2 G (3:2:2 A2 E D2- (3:2:2 D2 A|
-G2- (3:2:2 G2 D ^C2- (3:2:2 ^C2 G|(3:2:2 F2 E (3:2:2 D2 ^C D2 (3:2:2 z2 z|
+G2- (3:2:2 G2 D ^C2- (3:2:2 ^C2 G|(3:2:2 F2 E (3:2:2 D2 ^C D2 z|
