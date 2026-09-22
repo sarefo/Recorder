@@ -1,0 +1,18 @@
+X: 1
+T: Branle des Chevaux
+O: France, 16th century
+N: A branle is a village round-dance; this one has been current since at least
+N: the 16th century. The third strain drops into the minor.
+N: Melody from flutetunes.com, transposed up a fifth for recorder range.
+L: 1/8
+Q: 1/2=96
+M: 4/4
+K: D
+|:"D"d3e f2 f2 |"G"g2 f2 e2 g2 |"D"f2 e2 "A"d2 c2 |"Bm"B4 "A"A4 |
+"D"d3e f2 f2 |"G"g2 f2 e2 g2 |"D"f2 d2 "A"e2 c2 |"D"d4 d4 :|
+|:"D"a2 gf e2 f2 |"G"g2 fe "D"d2 f2 |"A"e2 d2 c2 d2 |"A"e4 e4 |
+"D"a2 gf e2 f2 |"G"g2 fe "D"d2 f2 |"A"e2 d2 d2 c2 |"D"d4 d4 :|
+|:"Dm"=f2 ed =f2 ed |"A"c2 d2 e4 |"A"A2 B2 c2 "Dm"d2 |"Dm"e2 =f2 e2 d2 |
+"Dm"=f2 ed =f2 ed |"A"c2 d2 e4 |"A"A2 B2 c2 "Dm"d2 |"Dm"d2 "A"c2 "Dm"d4 :|
+
+% Source: https://www.flutetunes.com/tunes.php?id=3166

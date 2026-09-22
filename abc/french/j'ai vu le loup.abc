@@ -1,0 +1,18 @@
+X: 1
+T: J'ai vu le loup, le renard, le lievre
+O: Traditional French, Burgundy
+N: The northern French cousin of the Occitan "Ai vist lo lop" -- same wolf,
+N: same fox, same hare, same complaint. Danced as a branle in Burgundy.
+N: Melody from Henri Davenson, "Le livre des chansons" no. 60, and matching
+N: S. Piron's Burgundian branle setting note for note. Transposed up a fifth.
+L: 1/8
+Q: 1/4=90
+M: 2/4
+K: Ddor
+"Dm"z2 f e/f/ |"Dm"d e c d |"Dm"d d f e/f/ |"Dm"d e c d |"Dm"d2 d e |"F"f f/f/ f g |
+"Dm"e2 f f/f/ |"Dm"d d "Am"e e |"F"c A "Dm"d e |"F"f f/f/ f g |"Dm"e2 f e/f/ |"Dm"d e c d |"Dm"d4 |]
+
+% J'ai vu le loup, le renard, le lievre,
+% j'ai vu le loup, le renard cheuler;
+% c'est moi-meme qui les ai rebeuilles.
+% ("cheuler" = to drink; "rebeuiller" = to spy on, in Burgundian dialect)

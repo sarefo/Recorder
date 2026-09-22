@@ -200,11 +200,75 @@ curl -s "https://abcnotation.com/searchTunes?q=<term>&f=c&o=a&s=0" | grep -o '/t
 Coverage is overwhelmingly Anglo/Celtic — worth one query for any tradition, but
 do not expect hits outside Europe and North America.
 
+#### It will hand you the raw ABC of sites you cannot otherwise read
+
+This is the important part, found while building the Occitan/Breton set
+(2026-09). Every search hit has a `tunePage`, and every tune page offers the
+ABC, a MIDI, a PNG and a MusicXML as `getResource` downloads — served by
+abcnotation, not by the original host. So thesession.org (403), tunearch.org
+and the `free.fr` sites (directory listings 403) are all readable after all:
+
+```bash
+# 1. search -> the a= keys, with titles from the score-image alt text
+curl -s "https://abcnotation.com/searchTunes?q=tri+martolod&f=c&o=a&s=0" | tr '>' '\n' | grep -oE 'alt="[^"]*"'
+# 2. the ABC itself — the filename is free, only a= matters
+curl -sL "https://abcnotation.com/getResource/downloads/text_/x.abc?a=thesession.org/tunes/23345.no-ext/0001"
+```
+
+The `a=` key is `<collection file without its extension>/<4-digit index>`.
+
+#### Whole collections come off the trillian.mit.edu mirror
+
+Where the `a=` key points at `trillian.mit.edu/~jc/music/abc/mirror/<host>/<file>/NNNN`,
+appending `.abc` to the file part downloads the entire collection in one go —
+hundreds of tunes, with `B:`/`S:` source citations. Directory listing is 404
+but files serve. This is how the French repertoire was found:
+
+```bash
+M=https://trillian.mit.edu/~jc/music/abc/mirror/galouvielle.free.fr
+curl -sL "$M/france.abc"     # 304 tunes: bourrées, an dro, hanter dro, gavottes
+curl -sL "$M/Provence.abc"   # 137 galoubet-tambourin tunes, incl. medieval dances
+```
+
+They are Latin-1 — pipe through `iconv -f ISO-8859-1 -t UTF-8` before grepping.
+
+#### Collections worth knowing for France
+
+- **anamnese.online.fr** (Eric Forgeot) — the file list is on
+  `index.php?page=abc`, and `abc/<name>_ps.abc` downloads directly even though
+  the directory 403s. `davenson` and `orain` carry real book-and-page citations
+  (Davenson's *Le livre des chansons*; Orain's *Chansons de la Haute-Bretagne*,
+  1902); `arbeau` and `susato` are Renaissance dance prints; `celtia`, `gallia`,
+  `tagafolk` are session repertoire.
+- **graner.name/nicolas/arbeau** — Arbeau's *Orchésographie* (1589) transcribed
+  with **all four voices**, which means sourced chords, not derived ones: render
+  the voices to MIDI and read the pitch-class stack per half-bar. Same trick
+  works for the four-voice Attaingnant Tourdion on abcplus.sourceforge.net.
+
+### mamalisa.com — score image *and* MIDI, for traditions nothing else covers
+
+A children's-song site with a real per-region index, a printed score as a JPG
+and a melody MIDI for most entries. It is the only route found to Occitan
+material (Se canta, Adiu paure Carnaval, O Magali, La cambo me fai mau):
+
+```bash
+curl -sL "https://www.mamalisa.com/?t=ec&c=72" -o idx.html     # c=72 is Occitania
+# titles: <a href=...p=(\d+)> ... <strong>TITLE</strong>
+curl -sL "https://www.mamalisa.com/?t=es&p=506" | grep -oE 'mamalisa.com/(midi|images/scores)/[^"]+'
+curl -sL -e "https://www.mamalisa.com/" "https://www.mamalisa.com/images/scores/secanta.jpg" -o s.jpg
+```
+
+The score jpg needs a referer; the MIDI does not. **Read the score as well as
+the MIDI** — the MIDI is a flat rendering and will not show you a mid-tune
+meter change (O Magali has one 9/8 bar), while the MIDI is the only thing that
+gives exact rhythm. Its long notes come back shortened (a quarter as 0.75, a
+half as 1.5): compare pitch and onset only, and ignore duration.
+
 ## Dead ends — do not spend calls on these
 
 | Route | What happens |
 |---|---|
-| `thesession.org` | HTTP 403 to WebFetch. Search surfaces it; you cannot read it. |
+| `thesession.org` direct | HTTP 403 to WebFetch — but abcnotation's `getResource` serves its ABC, see above. |
 | `cpdl.org` API | 403 Forbidden. |
 | musescore.com | Score data needs an authenticated download. |
 | musicnotes.com, sheetmusicplus | Paywalled; search results only tell you a key. |

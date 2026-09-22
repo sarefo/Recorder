@@ -1,0 +1,21 @@
+X: 1
+T: La cambo me fai mau
+O: Traditional Provencal
+N: A Provencal noel from Nicolas Saboly's collections (17th century), still
+N: played on galoubet and tambourin. "My leg hurts" -- the shepherd's excuse.
+N: Note values doubled from the 2/4 source so the moving value is a quarter.
+N: Melody and score from mamalisa.com, transposed up a fifth.
+L: 1/8
+Q: 1/2=100
+M: 4/4
+K: Dm
+"Dm"d4 "A"e2^c2 |"Dm"d6 f2 |"Am"e2f2 g2e2 |"F"f4 "A"e4 |
+"Dm"d4 "A"e2^c2 |"Dm"d6 f2 |"Am"e2f2 g2e2 |"F"f8 |
+"Dm"a4 g2f2 |"Gm"g6 f2 |"Dm"e2f2 d2e2 |"A"^c4 A4 |
+"Dm"a4 g2f2 |"Gm"g6 f2 |"A"e2d2 ^c2 "Dm"d2 |"Dm"A4 z2 A2 |
+"Dm"d3^c d2e2 |"Dm"f4 e2f2 |"Gm"g2g2 "Dm"f2e2 |"Dm"f4 e2a2 |
+"Dm"d3^c d2e2 |"Dm"f4 e2f2 |"Gm"g2g2 "Dm"f2e2 |"Dm"d8 |]
+
+% La cambo me fai mau, bouto sello, bouto sello,
+% la cambo me fai mau, bouto sello a moun chivau.
+% Source: https://www.mamalisa.com/?t=es&p=2968

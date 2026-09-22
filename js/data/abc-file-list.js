@@ -43,6 +43,31 @@ class AbcFileList {
                 "category": "brazilian"
         },
         {
+                "name": "Les filles des forges de Paimpont",
+                "file": "breton/les filles des forges de paimpont.abc",
+                "category": "breton"
+        },
+        {
+                "name": "Saint Patrick's An Dro",
+                "file": "breton/saint patricks an dro.abc",
+                "category": "breton"
+        },
+        {
+                "name": "Son ar Chistr",
+                "file": "breton/son ar chistr.abc",
+                "category": "breton"
+        },
+        {
+                "name": "Toutouic",
+                "file": "breton/toutouic.abc",
+                "category": "breton"
+        },
+        {
+                "name": "Tri Martolod",
+                "file": "breton/tri martolod.abc",
+                "category": "breton"
+        },
+        {
                 "name": "AAA Dongjia chimi wo chikang",
                 "file": "chinese/670_songs.abc",
                 "category": "chinese"
@@ -363,13 +388,33 @@ class AbcFileList {
                 "category": "finnish"
         },
         {
-                "name": "Ai vist lo lop",
-                "file": "french/ai vist lo lop.abc",
+                "name": "Belle qui tiens ma vie",
+                "file": "french/belle qui tiens ma vie.abc",
+                "category": "french"
+        },
+        {
+                "name": "Branle des Chevaux",
+                "file": "french/branle des chevaux.abc",
+                "category": "french"
+        },
+        {
+                "name": "Douce Dame Jolie",
+                "file": "french/douce dame jolie.abc",
+                "category": "french"
+        },
+        {
+                "name": "J'ai vu le loup, le renard, le lievre",
+                "file": "french/j'ai vu le loup.abc",
                 "category": "french"
         },
         {
                 "name": "Reel du r\u00e9prtoire des fr\u00e8res Pigeon",
                 "file": "french/Reel du repertoire des freres pigeon.abc",
+                "category": "french"
+        },
+        {
+                "name": "Tourdion",
+                "file": "french/tourdion.abc",
                 "category": "french"
         },
         {
@@ -511,6 +556,31 @@ class AbcFileList {
                 "name": "Bortkomne sauen",
                 "file": "norwegian/bortkomne.abc",
                 "category": "norwegian"
+        },
+        {
+                "name": "Adiu paure Carnaval",
+                "file": "occitan/adiu paure carnaval.abc",
+                "category": "occitan"
+        },
+        {
+                "name": "Ai vist lo lop",
+                "file": "occitan/ai vist lo lop.abc",
+                "category": "occitan"
+        },
+        {
+                "name": "La cambo me fai mau",
+                "file": "occitan/la cambo me fai mau.abc",
+                "category": "occitan"
+        },
+        {
+                "name": "O Magali",
+                "file": "occitan/o magali.abc",
+                "category": "occitan"
+        },
+        {
+                "name": "Se Canta",
+                "file": "occitan/se canta.abc",
+                "category": "occitan"
         },
         {
                 "name": "El Condor Pasa",

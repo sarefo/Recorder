@@ -1,0 +1,19 @@
+X: 1
+T: Belle qui tiens ma vie
+C: Thoinot Arbeau, Orchesographie (Langres, 1589)
+O: France, 16th century
+N: The pavane from Arbeau's dancing manual, printed there with the drum
+N: pattern beside it. Melody and chords come from the four-voice setting
+N: (Nicolas Graner's transcription of the 1589 print) -- the chords are the
+N: harmony Arbeau's lower three voices actually sing. Transposed up a fifth.
+L: 1/8
+Q: 1/2=56
+M: 4/4
+K: C
+|:"Dm"d4 d2 "A"^c2 |"Dm"d2 "C"e2 "F"f4 |"F"f2 a2 "G"g2 "F"f2 |"Dm"f2 "C"e2 "F"f4 :|
+"F"f4 "C"e2 "Am"e2 |"Dm"d2 "Gm"d2 "Am"c4 |"F"A4 "G"Bc "Dm"d2 |"A"d2 ^c2 "D"d4 |
+"Dm"f4 "C"e2 "Am"e2 |"Dm"d2 "Gm"d2 "A"^c4 |"F"A4 "G"Bc "Dm"d2 |"A"d2 ^c2 "D"d4 |]
+
+% Belle qui tiens ma vie captive dans tes yeulx,
+% qui m'as l'ame ravie d'un soubzriz gracieux,
+% viens tost me secourir ou me fauldra mourir.
