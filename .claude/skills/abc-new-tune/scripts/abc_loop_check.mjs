@@ -75,7 +75,14 @@ if (!files.length) {
     process.exit(2);
 }
 
-/** Last event time of a standard MIDI file, in quarter notes. */
+/**
+ * Time of the last note-ON in a standard MIDI file, in quarter notes.
+ *
+ * The last note-OFF would be the obvious thing to measure, but abcjs shortens
+ * a note that carries a staccato dot, so a tune ending on one measures short by
+ * however much the dot took off. Where the last note STARTS is exact, and what
+ * it is worth is written in the ABC.
+ */
 function playedQuarters(bytes) {
     const d = Buffer.from(bytes);
     const division = d.readUInt16BE(12);
@@ -107,7 +114,8 @@ function playedQuarters(bytes) {
             } else {
                 p += 2;
             }
-            if (tick > maxTick) maxTick = tick;
+            // Note-on with a real velocity; 0x9n with velocity 0 is a note-off.
+            if ((status & 0xf0) === 0x90 && d[p - 1] > 0 && tick > maxTick) maxTick = tick;
         }
         i = end;
     }
@@ -115,11 +123,11 @@ function playedQuarters(bytes) {
 }
 
 /**
- * Duration, in whole notes, of the rests that follow the last sounding note.
- * MIDI ends at the last note-off, so a tune that finishes on a rest measures
- * short unless this is added back.
+ * What is still to run, in whole notes, after the tune's last note-ON: that
+ * note's own written value, anything tied onto it (a tie sounds as one note, so
+ * it has only the one note-on), and any rests after it.
  */
-function trailingRest(tune) {
+function tailAfterLastOnset(tune) {
     const notes = [];
     for (const line of tune.lines) {
         if (!line.staff) continue;
@@ -131,8 +139,9 @@ function trailingRest(tune) {
     }
     let total = 0;
     for (let i = notes.length - 1; i >= 0; i--) {
-        if (!notes[i].rest) break;
         total += notes[i].duration;
+        if (notes[i].rest) continue;
+        if (!(notes[i].pitches || []).some(p => p.endTie)) break;
     }
     return total;
 }
@@ -337,6 +346,12 @@ for (const file of files) {
         }
         if (!tune || !midis || !midis.length) return;
         const label = sources.length > 1 ? `${file} [tune ${i + 1}/${sources.length}]` : file;
+        // A stub with a title and a TODO but no K: is not a tune yet; abcjs
+        // still reads stray letters in the prose as notes.
+        if (!/^K:/m.test(src)) {
+            if (!onlyBad) console.log(`--      ${label} (no K: line -- not written yet)`);
+            return;
+        }
         const { bars, meters, written, repeats, voices } = writtenBars(tune);
         if (!bars.length) return;
         checked++;
@@ -400,7 +415,7 @@ for (const file of files) {
 
         const measureQ = 4 * bars[0].measure;
         const total = playedQuarters(Object.values(midis[0]))
-            + trailingRest(tune) * 4;
+            + tailAfterLastOnset(tune) * 4;
 
         // Self-check. With no repeat to expand and a single voice, the played
         // length has to equal the written length; if it does not, the

@@ -29,8 +29,8 @@ B3 | G2F | =E3 | zC=E | G=EG | Bcd | "Fm"=B3 | c3 ||
 "Bbm/G"b3 | "Fm/C"g2f | "C7/G"=e3- | ec=e | g=eg | bc'd' | "Fm"=b3 | c'3 ||
 a3 | g2f | "Bbm/G"e2d | B3 | "Eb/G"g3 | f2e | "Ab"e3 | "Db"z.A.[GB] ||
 "Ab/C".[Ac] c/B/ c/d/ | "Bbm/Db".[GB] B/A/ B/c/ | "Fm/C".[FA]z.[FAc] | "Db"z.[FA].[GB] |
-"Ab/C".[Ac] c/B/ c/d/ | "Db".[GB] B/A/ B/c/ | "Fm/C".[FA]z.[FAc] | "Db".[Af].[Bg] ||
-"Fm/C".[fa] a/g/ a/b/ | "C7".[=eg] g/f/ g/a/ | "Fm"fz "C7".[=ebc'] | "Fm".[faf'] z |]
+"Ab/C".[Ac] c/B/ c/d/ | "Db".[GB] B/A/ B/c/ | "Fm/C".[FA]z.[FAc] | "Db"z.[Af].[Bg] ||
+"Fm/C".[fa] a/g/ a/b/ | "C7".[=eg] g/f/ g/a/ | "Fm"fz "C7".[=ebc'] | "Fm".[faf'] z2 |]
 
 X: 2
 T: Waltz No.2
@@ -47,7 +47,7 @@ K: Gm
 c3 | A2G | ^F3 | zC^F | A^FA | cde | "Gm"^c3 | d3 ||
 "Gm"b3 | a2g | "Cm"f2e | c3 | "F7"a3 | g2f | "Bb"f3 | "Eb"z.B.[Ac] ||
 "Bb/D".[Bd] d/c/ d/e/ | "Cm/Eb".[Ac] c/B/ c/d/ | "Gm/D".[GB]z.[GBd] | "Eb"z.[GB].[Ac] |
-"Bb/D".[Bd] d/c/ d/e/ | "Cm/Eb".[Ac] c/B/ c/d/ | "Gm".[GB]z.[GBd] | "Eb"z.[Bg][.[ca] ||
+"Bb/D".[Bd] d/c/ d/e/ | "Cm/Eb".[Ac] c/B/ c/d/ | "Gm".[GB]z.[GBd] | "Eb"z.[Bg].[ca] ||
 "Gm/D".[gb] b/a/ b/c'/ | "D7".[^fa] a/g/ "To Coda"a/b/ ||
 [1 "Gm"g3- | g3- | g3- | g3 :|[2 "Gm"[B3-d3-g3-] | [Bdg] z "Gb7"f "^B"||
 "Bb"b3 | b3 | bag | fdf | "F7"a3 | a3 | "Bb"gfd | Bcd ||
@@ -63,8 +63,8 @@ c3 | A2G | ^F3 | zC^F | A^FA | cde | "Gm"^c3 | d3 ||
 "Cm/A"c'3 | "Gm/D"a2g | "D7/A"^f3- | fd^f | a^fa | c'd'e' | "Gm"^c'3 | d'3 ||
 b3 | a2g | "Cm/A"f2e | c3 | "F/A"a3 | g2f | "Bb"f3 | "Eb"z.B.[Ac] ||
 "Bb/D".[Bd] d/c/ d/e/ | "Cm/Eb".[Ac] c/B/ c/d/ | "Gm/D".[GB]z.[GBd] | "Eb"z.[GB].[Ac] |
-"Bb/D".[Bd] d/c/ d/e/ | "Eb".[Ac] c/B/ c/d/ | "Gm/D".[GB]z.[GBd] | "Eb".[Bg].[ca] ||
-"Gm/D".[gb] b/a/ b/c'/ | "D7".[^fa] a/g/ a/b/ | "Gm"gz "D7".[^fc'd'] | "Gm".[gbg'] z |]
+"Bb/D".[Bd] d/c/ d/e/ | "Eb".[Ac] c/B/ c/d/ | "Gm/D".[GB]z.[GBd] | "Eb"z.[Bg].[ca] ||
+"Gm/D".[gb] b/a/ b/c'/ | "D7".[^fa] a/g/ a/b/ | "Gm"gz "D7".[^fc'd'] | "Gm".[gbg'] z2 |]
 
 X: 3
 T: Waltz No.2
@@ -81,7 +81,7 @@ K: Cm
 F3 | D2C | =B,3 | zF,=B, | D=B,D | FGA | "Cm"^F3 | G3 ||
 "Cm"e3 | d2c | "Fm"B2A | F3 | "Bb7"d3 | c2B | "Eb"B3 | "Ab"z.E.[FD] ||\
 "Eb/G".[GE] G/F/ G/A/ | "Fm/Ab".[FD] F/E/ F/G/ | "Cm/G".[EC]z.[GEC] | "Ab"z.[EC].[FD] |\
-"Eb/G".[GE] G/F/ G/A/ | "Fm/Ab".[FD] F/E/ F/G/ | "Cm".[EC]z.[GEC] | "Ab"z.[cE][.[dF] ||
+"Eb/G".[GE] G/F/ G/A/ | "Fm/Ab".[FD] F/E/ F/G/ | "Cm".[EC]z.[GEC] | "Ab"z.[cE].[dF] ||
 "Cm/G".[ec] e/d/ e/f/ | "G7".[d=B] d/c/ "To Coda"d/e/ ||\
 [1 "Cm"c3- | c3- | c3- | c3 :|[2 "Cm"[c3-G3-E3-] | [cEG] z "B7"B "^B"||\
 "Eb"e3 | e3 | edc | BGB | "Bb7"d3 | d3 | "Eb"cBG | EFG ||
@@ -97,5 +97,5 @@ F3 | D2C | =B,3 | zF,=B, | D=B,D | FGA | "Cm"^F3 | G3 ||
 "Fm/D"f3 | "Cm/G"d2c | "G7/D"=B3- | BG=B | d=Bd | fga | "Cm"^f3 | g3 ||
 e3 | d2c | "Fm/D"B2A | F3 | "Bb/D"d3 | c2B | "Eb"B3 | "Ab"z.E.[FD] ||\
 "Eb/G".[GE] G/F/ G/A/ | "Fm/Ab".[FD] F/E/ F/G/ | "Cm/G".[EC]z.[GEC] | "Ab"z.[EC].[FD] |
-"Eb/G".[GE] G/F/ G/A/ | "Ab".[FD] F/E/ F/G/ | "Cm/G".[EC]z.[GEC] | "Ab".[cE].[dF] ||\
-"Cm/G".[ec] e/d/ e/f/ | "G7".[d=B] d/c/ d/e/ | "Cm"cz "G7".[gf=B] | "Cm".[c'ec] z |]
+"Eb/G".[GE] G/F/ G/A/ | "Ab".[FD] F/E/ F/G/ | "Cm/G".[EC]z.[GEC] | "Ab"z.[cE].[dF] ||\
+"Cm/G".[ec] e/d/ e/f/ | "G7".[d=B] d/c/ d/e/ | "Cm"cz "G7".[gf=B] | "Cm".[c'ec] z2 |]
