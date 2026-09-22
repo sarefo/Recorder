@@ -4,13 +4,14 @@ O: Traditional Breton, Pays Gallo
 N: A round from the Broceliande forest, about the girls who worked the
 N: ironworks at Paimpont. Melody from Adolphe Orain, "Chansons de la
 N: Haute-Bretagne" (1902), p. 36, via Eric Forgeot's transcription;
-N: transposed up a fifth for recorder range.
+N: transposed up a fifth for recorder range. Orain's final note is a quarter;
+N: it is an eighth here so the 1/8 pickup is paid back and the tune loops.
 L: 1/8
 Q: 1/4=110
 M: 2/4
 K: Am
 A |"Am"A B c d |"Am"e3f |"C"g f "Dm"e d |"Am"c>B A2 |"Am"c2 B A |"E"^G A B c |"Am"d B "E"e d |
-"Am"c B c2 |"Am"c2 B A |"E"^G A B c |"Am"d B "E"e d |"Am"c>B A2 |]
+"Am"c B c2 |"Am"c2 B A |"E"^G A B c |"Am"d B "E"e d |"Am"c>B A |]
 
 % Ce sont les fill's des forges (bis), des forges de Paimpont,
 % falaridon, falaridaine, des forges de Paimpont,

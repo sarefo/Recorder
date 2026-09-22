@@ -149,6 +149,35 @@ node .claude/skills/abc-chords/scripts/check_abc.mjs abc/philippine/*.abc
 
 Expect zero warnings. The only partial bars should be your intended pickups.
 
+## Check that it loops
+
+The app repeats a tune by restarting it, so one pass has to last a whole number
+of measures or the pulse limps at every wrap. A pickup has to be paid back by a
+short final bar — write a 3-eighth anacrusis and end on a full bar and the loop
+runs three eighths long forever.
+
+```bash
+node .claude/skills/abc-new-tune/scripts/abc_range.mjs abc/breton/*.abc
+node .claude/skills/abc-new-tune/scripts/abc_loop_check.mjs abc/breton
+```
+
+It measures the MIDI abcjs renders rather than counting written bars, because
+repeats, voltas, ties, tuplets and leading rests are already resolved there.
+Two traps it exists to catch, both found in tunes added 2026-09:
+
+- **A repeat around a section that is already written out twice.** Tri Martolod's
+  second strain ends with a 7/8 bar that pays back the tune's 1/8 pickup; that is
+  right at the end of the tune and wrong in front of a `:|`, so the added repeat
+  made every pass an eighth short.
+- **A held final note that was squared off to fill its bar.** Son ar Chistr ends
+  on a dotted half tied over the barline. Writing it as a plain `c4` in a full
+  bar lost a quarter from every cycle; `c4- |c2` restores the source value *and*
+  completes the 6/8 anacrusis.
+
+`--bad` prints only the failures, `--bars` also flags bars with too many beats.
+A `SUSPECT` line means the script could not measure that tune and is not
+judging it, not that the tune is wrong.
+
 ## Registering the tune
 
 ```bash
