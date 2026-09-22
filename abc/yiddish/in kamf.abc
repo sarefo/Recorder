@@ -2,11 +2,14 @@ X:1
 T:In Kamf
 C:David Edelstadt
 O:Yiddish
+N:Bar 3 was an eighth short. Written here to match bar 7, "(B2 ed) c2 z C",
+N:which closes its phrase the same way: slur, then a quarter, a rest and the
+N:pickup. No score of the song was found to check it against.
 M:C
 Q:1/4=96
 L:1/8
 K:Ab
-C2|F2 F>A c2 B>A|(G3=E) C z _E|A2 A>A B2 e>d|
+C2|F2 F>A c2 B>A|(G3=E) C2 z _E|A2 A>A B2 e>d|
 c6 c>c|c2 A>c e2 d>c|(B2 ed) c2 z C |
 F>F F>A c2 G>A|(F4c3) c|c>c =B>c a2 g>a|f6|]
 

@@ -3,6 +3,8 @@ T: Grogg Mayles
 Z:Copyright © O.Koivisto
 L:1/8
 Q:1/4=87
+N:The last bar ends "d2 d/ z/", the same bar the tune repeats from, minus the
+N:a/>g/ pickup -- so the pickup completes it and the tune comes round on the beat.
 M:4/4
 I:linebreak $
 K:F
@@ -16,4 +18,4 @@ V:1
 "B" b>b c'>b"F"[Q:1/4=87]"^molto rit." a[Q:1/4=85]"^.2"g[Q:1/4=83]"^.3" f>[Q:1/4=80]"^.6"f[Q:1/4=81]"^.5" || %19
 "A"[Q:1/4=79]"^.7" g>[Q:1/4=76]"^.9"g[Q:1/4=76] a>[Q:1/4=73]"^.3"g"Dm"[Q:1/4=72]"^.3" f[Q:1/4=70]"^.5"e[Q:1/4=68]"^.7" d>A[Q:1/4=77]"^.8"[Q:1/4=74]"^.2"[Q:1/4=66]"^.8" |$ %20
 "B"[Q:1/4=65] BBcB"Dm" Ad[Q:1/4=22] !breath!d[Q:1/4=58] d/e/ | %21
-"A"[Q:1/4=50] fed^c"Dm"[Q:1/4=40] d3[Q:1/4=87]"^in Tempo" a/>g/ |"Dm" fd"Am"ec"Dm" d2 d z |] %23
+"A"[Q:1/4=50] fed^c"Dm"[Q:1/4=40] d3[Q:1/4=87]"^in Tempo" a/>g/ |"Dm" fd"Am"ec"Dm" d2 d/ z/ |] %23

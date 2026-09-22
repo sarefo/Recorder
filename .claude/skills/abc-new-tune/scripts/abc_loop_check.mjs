@@ -338,7 +338,11 @@ for (const file of files) {
             tune = abcjs.parseOnly(src)[0];
             // chordsOff: the accompaniment's last release can sit past the final
             // melody note and would otherwise be read as extra length.
-            midis = abcjs.synth.getMidiFile(src, { midiOutputType: 'binary', chordsOff: true });
+            // Inline [Q:] changes are dropped first: abcjs scales tick durations
+            // by the tempo, so a tune that slows down measures long. How fast it
+            // is played has nothing to do with whether it comes round evenly.
+            midis = abcjs.synth.getMidiFile(src.replace(/\[Q:[^\]]*\]/g, ''),
+                { midiOutputType: 'binary', chordsOff: true });
         } catch (err) {
             console.log(`BROKEN  ${file} [tune ${i + 1}]: ${err.message}`);
             bad++;
