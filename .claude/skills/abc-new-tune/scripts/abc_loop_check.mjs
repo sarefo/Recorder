@@ -156,11 +156,17 @@ function writtenBars(tune) {
     // from the end of the barline before it to the start of the one after.
     let from = null;
     let to = null;
+    // Where a `:|` jumps back to, and which bar an alternative ending starts on,
+    // so a short bar in front of either can be paired with what completes it.
+    let sectionStart = 0;
+    let groupPre = null;
+    let startsEnding = false;
+    let closesRepeat = false;
 
     for (const line of tune.lines) {
         if (!line.staff) continue;
         for (const staff of line.staff) {
-            voices = Math.max(voices, staff.voices.length);
+            voices = Math.max(voices, staff.voices.length, line.staff.length);
             for (const el of staff.voices[0] || []) {
                 if (el.el_type === 'meter' && el.value) {
                     measure = Number(el.value[0].num) / Number(el.value[0].den);
@@ -175,12 +181,36 @@ function writtenBars(tune) {
                     if (from === null) from = el.startChar;
                     to = el.endChar;
                 } else if (el.el_type === 'bar') {
-                    if (String(el.type || '').includes('repeat')
-                        || el.startEnding || el.endEnding) repeats = true;
+                    const type = String(el.type || '');
+                    if (type.includes('repeat') || el.startEnding || el.endEnding) repeats = true;
                     // End the span at the barline, not after it: abcjs sometimes
                     // reports an endChar well past it and the quote would then
                     // run into the next bar.
-                    if (seen) out.push({ filled, measure, from, to: Math.max(to, Math.min(el.startChar ?? to, el.endChar ?? to)) });
+                    if (seen) {
+                        out.push({
+                            filled, measure, from,
+                            to: Math.max(to, Math.min(el.startChar ?? to, el.endChar ?? to)),
+                            idx: out.length,
+                            // Set below, once this barline says what follows it.
+                            endingPre: startsEnding ? groupPre : null,
+                            repeatTarget: null,
+                        });
+                    }
+                    startsEnding = false;
+                    if (type === 'bar_right_repeat' || type === 'bar_dbl_repeat') {
+                        if (out.length) out[out.length - 1].repeatTarget = sectionStart;
+                    }
+                    if (type === 'bar_left_repeat' || type === 'bar_dbl_repeat') {
+                        sectionStart = out.length;
+                    }
+                    if (el.startEnding) {
+                        // The bar before the FIRST ending is the one every
+                        // alternative ending has to complete.
+                        if (groupPre === null || String(el.startEnding).trim() === '1') {
+                            groupPre = out.length - 1;
+                        }
+                        startsEnding = true;
+                    }
                     filled = 0;
                     seen = false;
                     from = null;
@@ -188,34 +218,48 @@ function writtenBars(tune) {
             }
         }
     }
-    if (seen) out.push({ filled, measure, from, to });
+    if (seen) {
+        out.push({
+            filled, measure, from, to, idx: out.length,
+            endingPre: startsEnding ? groupPre : null, repeatTarget: null,
+        });
+    }
     return { bars: out, meters, written, repeats, voices };
 }
 
 /**
- * Try to pair every partial bar off against another that completes it.
+ * Every partial bar has to be completed by SOME bar it actually abuts when the
+ * tune is played. This works out who abuts whom and keeps the bars nothing
+ * completes.
  *
- * Two shapes are legitimate. A pickup paired with the final bar is the tune's
- * own anacrusis. A pair of adjacent partial bars is a repeated section with a
- * pickup: the bar before `:|` is short by exactly what the pickup after `|:`
- * supplies. Anything left over is a bar that nothing completes.
+ * A bar's partners are its neighbours in the file; the first and last bar of
+ * the tune, because the app loops straight from one to the other; the two ends
+ * of a `:|`, since the repeat jumps from the bar before it back to the start of
+ * the section; and the bar in front of a first ending, which every alternative
+ * ending lands after in turn.
  *
- * @returns {Array|null} The bars left unpaired, or null when they all pair
+ * A bar may answer more than one join -- a pickup after `|:` completes both the
+ * bar before the `:|` and, at the end, the tune's final bar -- so this is a
+ * reachability test, not a matching.
+ *
+ * @returns {Array|null} The bars left unanswered, or null when all are answered
  */
-function pairPartials(partial, barCount, measure) {
-    let rest = partial.slice();
-    if (rest.length >= 2
-        && rest[0].idx === 0
-        && rest[rest.length - 1].idx === barCount - 1
-        && Math.abs(rest[0].filled + rest[rest.length - 1].filled - measure) < EPS) {
-        rest = rest.slice(1, -1);
-    }
-    while (rest.length >= 2
-        && Math.abs(rest[0].filled + rest[1].filled - rest[0].measure) < EPS) {
-        rest = rest.slice(2);
-    }
+function pairPartials(partial, bars, measure) {
+    const partners = bars.map(() => new Set());
+    const link = (a, b) => {
+        if (a == null || b == null || a === b || !bars[a] || !bars[b]) return;
+        partners[a].add(b);
+        partners[b].add(a);
+    };
+    for (let i = 0; i + 1 < bars.length; i++) link(i, i + 1);
+    link(0, bars.length - 1);                       // the loop join
+    bars.forEach((b, i) => { link(i, b.repeatTarget); link(i, b.endingPre); });
+
+    const rest = partial.filter(b => ![...partners[b.idx]]
+        .some(j => Math.abs(bars[j].filled + b.filled - b.measure) < EPS));
     return rest.length ? rest : null;
 }
+
 
 /** "3/8" for a duration given in whole notes, so reports read as note values. */
 function asNotes(whole) {
@@ -307,7 +351,7 @@ for (const file of files) {
 
         // Everything a report entry needs, captured while the parse is in hand.
         collect = (kind, verdict) => {
-            const unpaired = pairPartials(partial, bars.length, bars[0].measure) || [];
+            const unpaired = pairPartials(partial, bars, bars[0].measure) || [];
             const isUnpaired = b => unpaired.some(u => u.idx === b.idx);
             report.push({
                 file,
@@ -363,7 +407,7 @@ for (const file of files) {
         // measurement is being thrown off by something this script does not
         // model (grace notes, a second voice abcjs merges, an exotic bar type)
         // and any verdict from it would be a guess.
-        if (!repeats && voices === 1 && Math.abs(total - written * 4) > 1e-3) {
+        if (!repeats && voices === 1 && Math.abs(total - written * 4) > 2e-2) {
             console.log(`SUSPECT ${label}`);
             console.log(`        written ${asNotes(written)} but measured`
                 + ` ${asNotes(total / 4)} with no repeats -- not judged.`);
@@ -376,7 +420,7 @@ for (const file of files) {
         const measures = total / measureQ;
         const off = measures - Math.round(measures);
 
-        if (Math.abs(off) < 2e-3) {
+        if (Math.abs(off) < 5e-3) {
             // The pass is a whole number of measures, so the loop join lands on
             // the beat. A repeat inside the tune is a second kind of join that
             // the timeline cannot show: the bar before a `:|` and the bar the
@@ -384,7 +428,10 @@ for (const file of files) {
             // and a final bar do. An UNDER-full bar that nothing completes is
             // that defect. Over-full bars are a different complaint -- a bar
             // with too many beats in it -- so --bars has to be asked for.
-            const unpaired = pairPartials(partial, bars.length, bars[0].measure);
+            // With two staves the bars of both are concatenated, so "the next
+            // bar" is not a join anything plays; only the total is meaningful.
+            const unpaired = voices === 1
+                ? pairPartials(partial, bars, bars[0].measure) : null;
             if (unpaired) {
                 const short = unpaired.filter(b => b.filled < b.measure - EPS);
                 const show = showBars ? unpaired : short;

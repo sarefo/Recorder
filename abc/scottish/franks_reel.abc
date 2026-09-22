@@ -4,12 +4,15 @@ C:John McCusker
 S:Drumtochty session, 15/7/04
 N:Played by some of the Blackford Fiddlers
 N:Transposed from D up to G — the original dips to A below middle C
+N:Second time, the G is an eighth instead of a dotted quarter, so the
+N:def pickup into the second part lands on the beat -- exactly as it is
+N:written out in bar 18, "AGFA Gdef".
 Z:Nigel Gatherer
 M:4/4
 L:1/8
 K:G
 z   | "G"GBAG "Em"E2 GE | "G"DEGA BGAB  | "C"c3 e "G"dGBd | "G"(3efg dB "D"(3ABc BA |
-      "G"GBAG "Em"E2 GE | "G"DEGA BGAB  | "C"c3 e "G"dBGB | "D"AGFA     "G"G3       :|
+      "G"GBAG "Em"E2 GE | "G"DEGA BGAB  | "C"c3 e "G"dBGB |1"D"AGFA "G"G3 :|2"D"AGFA "G"G |
 def | "G"gGGf GGeG     | "Em"deed "G"BGAB | "C"c3 e "G"dGBG | "Am"ABcd    "D"edef     |
       "G"gGGf GGeG     | "Em"deed "G"BGAB | "C"c3 e "G"dBGB | "D"AGFA     "G"Gdef     |
       "G"gGGf GGeG     | "Em"deed "G"BGAB | "C"c3 e "G"dGBd | "G"(3efg dB "D"(3ABc BA |

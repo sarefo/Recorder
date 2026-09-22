@@ -2,10 +2,12 @@ X:1
 T:Highland Fling
 D:Peter Wyper 78rpm (Columbia Double Face D202)
 Z:Nigel Gatherer
+N:The last time, the closing G<E is shortened to two sixteenths so the
+N:1/8 pickup is paid back and the tune loops on the beat.
 M:4/4
 L:1/8
 K:D
 F|:"D"D2 F<D "A"G<E A2|"D"D/D/D F<D "C"G2 E<=C|"D"D2 F<D "A"G<E A2|\
 "G"(3GFE d>B "A"A2 G<E:|
 "D"d>B (3cBA "A"B<^G A2|"D"d>B (3cBA "A"B<^G A2|"D"d>B (3cBA "A"B<^G A<F|\
-"G"G<ED>B "A"A2 G<E:|
+[1"G"G<ED>B "A"A2 G<E:|[2"G"G<ED>B "A"A2 G/E/|]

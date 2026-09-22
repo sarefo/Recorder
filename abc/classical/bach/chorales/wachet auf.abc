@@ -4,13 +4,16 @@ C: Johann Sebastian Bach
 N: BWV 140/7, Riemenschneider 179.
 N: Melody and chords derived from Bach's four-part setting (chor179.krn).
 N: Transposed up a whole tone from Bach's E-flat major.
+N: Bach ends the Stollen on a 3-beat bar that the Abgesang's upbeat completes.
+N: Going back for the repeat there is no upbeat, so the first ending holds that
+N: fermata a beat longer and the Stollen comes round on the downbeat.
 M: 4/4
 L: 1/8
 Q: 1/4=100
 K: F
 "F" F2 A2 c3 c | "F" c2 c2 "Dm7" d4 | "C" !fermata!c4 z2 c2 |
 "F" f2 c2 fg a2 | "C" g2 "G7" f2 "C" e2 d2 | "C" !fermata!c4 z2 "F" c2 |
-"Bb" f2 "F" c2 "Bb" d2 "Dm" A2 | "Gm7" BA "C7" G2 "F" !fermata!F2 :|
+"Bb" f2 "F" c2 "Bb" d2 "Dm" A2 |1 "Gm7" BA "C7" G2 "F" !fermata!F4 :|2 "Gm7" BA "C7" G2 "F" !fermata!F2 |
 "C" c2 | "F" c3 B A2 "C" G2 | "Dm" !fermata!F4 z2 "Am" c2 |
 "C" c3 B "F" A2 "Gm7" G2 | "F" !fermata!F4 z2 "C" G2 |
 "F" A2 "Gm7" B2 "F" !fermata!A2 c2 |
