@@ -2,21 +2,23 @@ X:1
 T:Badinerie
 C:Johann Sebastian Bach
 O:Orchestral Suite No. 2 in B minor, BWV 1067, 7th movement
-N:Flute part in the original key. Notes, barring and ornaments from the flutetunes.com
-N:score and MIDI; pitches cross-checked against the norbeck.nu ABC setting, which agrees
-N:except that it writes the mordents in bars 7-10 and 29-32 out as sixteenths.
+N:Flute part, transposed down from Bach's B minor to F minor so it fits the recorder
+N:(C4 to Ab5). Notes, barring and ornaments from the flutetunes.com score and MIDI;
+N:pitches cross-checked against the norbeck.nu ABC setting, which agrees except that
+N:it writes the mordents in bars 7-10 and 29-32 out as sixteenths.
 N:The appoggiaturas in bars 33 and 40 are written out as eighths.
+N:Chords read from the four lower voices of the flutetunes.com quartet arrangement.
 M:2/4
 Q:1/4=120
 L:1/16
-K:Bm
-b2d'b |"Bm"f2bf d2fd |"Bm"B4 FBdB |"C#dim"cBcB "F#7"^Acec |"Bm"d2B2 b2d'b |
-"Bm"f2bf d2fd |"Bm"B4 d2d2 |"E7"d2d2 b2d2 |"A"Td2c2 "D"f2f2 |
-"Bm"f2f2 "G#m7b5"d'2f2 |"C#"Tf2^e2 "F#m"cfaf |"G#m7b5"^gfgf "C#7"^e^gbg |"F#m"a^gag faf^e |
-"Bm"fbf^e "F#m"fc'f^e |"G#m7b5"fd'f^e fd'c'b |"F#m"c'a^gf "C#7"a2T^g2 |"F#m"f4 :|
-|: f2af |"F#m"c2fc A2cA |"F#m"F4 "B7"=c2B2 |"Em"e2^df "B"a2gf |"Em"g2e2 g2bg |
-"A7"e2ge c2ec |"A7"A4- "D"Adfd |"Em"eded "A7"cege |"D"fefe "D7"dfdc |
-"G"dgdc "D"dadc |"Em"dbdc dbag |"D"afed "A7"f2Te2 |"D"d4 f2f2 |
-"D"f2f2 d'2f2 |"A"Tf2e2 "F#7"e2e2 |"F#7"e2e2 c'2e2 |"Bm"Te2d2 b2d'b |
-"Em"a2g2- g2b/a/g/f/ |"Em"e4- e2g/f/e/d/ |"C"=cege =cBcB |"F#7"^A2F2 G2F2 |
-"Bm"B2^Ac "F#7"e2dc |"Bm"d2B/c/d/e/ f2df |"Bm"b2f2 "F#7"edcd |"Bm"c2B2 :|
+K:Fm
+f2af |"Fm"c2fc A2cA |"Fm"F4 CFAF |"Gdim"GFGF "C7"=EGBG |"Fm"A2F2 f2af |
+"Fm"c2fc A2cA |"Fm"F4 A2A2 |"Bb7"A2A2 f2A2 |"Eb"TA2G2 "Ab"c2c2 |
+"Fm"c2c2 "Dm7b5"a2c2 |"G"Tc2=B2 "Cm"Gcec |"Dm7b5"=dcdc "G7"=B=dfd |"Cm"e=ded cec=B |
+"Fm"cfc=B "Cm"cgc=B |"Dm7b5"cac=B cagf |"Cm"ge=dc "G7"e2T=d2 |"Cm"c4 :|
+|: c2ec |"Cm"G2cG E2GE |"Cm"C4 "F7"_G2F2 |"Bbm"B2=Ac "F"e2dc |"Bbm"d2B2 d2fd |
+"Eb7"B2dB G2BG |"Eb7"E4- "Ab"EAcA |"Bbm"BABA "Eb7"GBdB |"Ab"cBcB "Ab7"AcAG |
+"Db"AdAG "Ab"AeAG |"Bbm"AfAG Afed |"Ab"ecBA "Eb7"c2TB2 |"Ab"A4 c2c2 |
+"Ab"c2c2 a2c2 |"Eb"Tc2B2 "C7"B2B2 |"C7"B2B2 g2B2 |"Fm"TB2A2 f2af |
+"Bbm"e2d2- d2f/e/d/c/ |"Bbm"B4- B2d/c/B/A/ |"Gb"_GBdB _GFGF |"C7"=E2C2 D2C2 |
+"Fm"F2=EG "C7"B2AG |"Fm"A2F/G/A/B/ c2Ac |"Fm"f2c2 "C7"BAGA |"Fm"G2F2 :|
