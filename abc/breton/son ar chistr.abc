@@ -4,16 +4,17 @@ O: Traditional Breton
 N: "The Song of Cider" — a Breton drinking song, most likely written by
 N: Jean-Bernard and Jean-Marie Prima around 1929 in the older kan ha diskan style.
 N: Note values doubled from the 2/4 source so the moving value is a quarter.
+N: Transposed down a minor third from the source's C minor to A minor.
 N: Melody from flutetunes.com, cross-checked against Paul de Grae's setting on
 N: tunearch.org (in E minor) — the two agree note for note.
 L: 1/8
 Q: 1/2=136
 M: 4/4
-K: Cm
-"Cm"g2 gf d2 |"Cm"e4 c3c |"Fm"c2 f2 f2 "Cm"e2 |"Bb"d2 f2 "Cm"e2 d2 |"Cm"e4 c2 e2 |"Gm"d2 B2 "Cm"c4- |
-c2 g2 gf d2 |"Cm"e4 c3c |"Fm"c2 f2 f2 "Cm"e2 |"Bb"d2 f2 "Cm"e2 d2 |"Cm"e4 c2 e2 |"Gm"d2 B2 "Cm"c4- |
-c2 cd e2 f2 |"Cm"g6 g2 |"Fm"a2 f2 "Cm"g4- |g2 g2 f2 gf |"Cm"e4 c2 c2 |
-"Fm"c2 f2 f2 "Cm"e2 |"Bb"d2 f2 "Cm"e2 d2 |"Cm"e4 c2 e2 |"Gm"d2 B2 "Cm"c4- |c2 |]
+K: Am
+"Am"e2 ed B2 |"Am"c4 A3A |"Dm"A2 d2 d2 "Am"c2 |"G"B2 d2 "Am"c2 B2 |"Am"c4 A2 c2 |"Em"B2 G2 "Am"A4- |
+A2 e2 ed B2 |"Am"c4 A3A |"Dm"A2 d2 d2 "Am"c2 |"G"B2 d2 "Am"c2 B2 |"Am"c4 A2 c2 |"Em"B2 G2 "Am"A4- |
+A2 AB c2 d2 |"Am"e6 e2 |"Dm"f2 d2 "Am"e4- |e2 e2 d2 ed |"Am"c4 A2 A2 |
+"Dm"A2 d2 d2 "Am"c2 |"G"B2 d2 "Am"c2 B2 |"Am"c4 A2 c2 |"Em"B2 G2 "Am"A4- |A2 |]
 
 % Ev chistr 'ta Laou, rak chistr zo mat, lonla...
 % "Drink cider, Laou, for cider is good."
