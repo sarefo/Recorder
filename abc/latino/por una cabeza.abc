@@ -1,0 +1,25 @@
+X: 1
+T: Por una Cabeza
+C: Carlos Gardel (music), Alfredo Le Pera (lyrics), 1935
+O: Argentina
+R: Tango
+N: "By a head", a horse-racing phrase. A tango canción written for the 1935 film
+N: Tango Bar; Gardel and Le Pera both died in a plane crash later that year.
+N: Melody and chords from the flute-and-piano setting on flutetunes.com, chords
+N: read from its piano part. Note values doubled from the 2/4 source so the
+N: moving value is an eighth. Transposed down a fifth from A major / A minor
+N: to D major / D minor to fit the recorder (range E4 to A5).
+N: The second-time ending is shortened to half a bar so the loop pays back
+N: the half-bar pickup; the source holds the last note a little longer.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: D
+FG^GA |: "D"B2 A2 ^GABc |"D"e2 d2 fgef |"D"de2c dc2A |"A7"G4 gfag |
+"Em"e4 e^dfe |"A7"c4 cd^de |"A7"fecB AcAG |"D"F4 FG^GA |
+"D"B2 A2 ^GABc |"D"e2 d2 defd |"D7"edef e2 d2 |"G"B4 edBG |
+"Gm"FEFG _Bd=c_B |"D"d2 A2 "Bm"defd |"E7"e2 B2 "A7"cdec |"D"d4 z4 ||
+[K:Dm] "Dm"z2 f2 f2 ga |"Am"a4 e4 |"Gm"z2 d2 d2 ef |"F"f4 c4 |
+"Gm"z2 B2 B2 cd |"Dm"d2 A2 defd |"E7"e2 =B2 defd |"E7"f4 "A7"e4 |
+"Dm"z2 f2 f2 ga |"Am"a4 e4 |"Gm"z2 d2 d2 ef |"F"f4 c4 |
+"Gm"z2 B2 B2 cd |"Dm"d2 A2 defd |"E7"e2 =B2 "A7"^cde^c |1 "Dm"d4 [K:D] FG^GA :|2 "Dm"d4 |]

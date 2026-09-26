@@ -533,6 +533,11 @@ class AbcFileList {
                 "category": "korean"
         },
         {
+                "name": "Por una Cabeza",
+                "file": "latino/por una cabeza.abc",
+                "category": "latino"
+        },
+        {
                 "name": "Villoldo Que Haces Chamberguito",
                 "file": "latino/chamberguito.abc",
                 "category": "latino"
