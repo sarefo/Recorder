@@ -3,7 +3,7 @@
  * Handles offline caching of app shell and ABC music files
  */
 
-const CACHE_VERSION = 'abc-player-v3-2026-09-26-6';
+const CACHE_VERSION = 'abc-player-v3-2026-09-26-7';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const ABC_FILES_CACHE = `${CACHE_VERSION}-abc-files`;
 
@@ -182,34 +182,50 @@ async function cacheFirstStrategy(request, cacheName) {
 
 /**
  * Network-first strategy: Try network first, fall back to cache
- * Good for app shell files that may update but need offline support
+ * Good for app shell files that may update but need offline support.
+ *
+ * A slow network is not a failed one: on patchy mobile data the fetch can
+ * hang for many seconds before erroring, and waiting for it made opening a
+ * tune feel slow even though a cached copy was sitting right there. So when
+ * a cached copy exists, the network only gets NETWORK_TIMEOUT_MS to answer;
+ * after that the cache wins, and the late network response still refreshes
+ * the cache for next time.
  */
+const NETWORK_TIMEOUT_MS = 1000;
+
 async function networkFirstStrategy(request, cacheName) {
-    try {
-        // Try network first
-        const networkResponse = await fetch(request);
+    const cache = await caches.open(cacheName);
 
-        // Cache the successful response
-        if (networkResponse && networkResponse.status === 200) {
-            const cache = await caches.open(cacheName);
-            cache.put(request, networkResponse.clone());
-        }
+    // Fetch and store; resolves to null instead of throwing so it can race
+    const networkPromise = fetch(request)
+        .then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+                cache.put(request, networkResponse.clone());
+            }
+            return networkResponse;
+        })
+        .catch(() => null);
 
-        return networkResponse;
-    } catch (error) {
-        // If network fails, try cache (scoped -- see cacheFirstStrategy)
-        const cachedResponse = await caches.match(request, { cacheName });
-        if (cachedResponse) {
-            return cachedResponse;
-        }
+    // Scoped lookup -- see cacheFirstStrategy
+    const cachedResponse = await cache.match(request);
 
-        console.error('[Service Worker] Network-first strategy failed:', error);
-        // Return error response if everything fails
-        return new Response('Offline - resource not available', {
-            status: 503,
-            statusText: 'Service Unavailable'
-        });
+    if (cachedResponse) {
+        const timeout = new Promise((resolve) =>
+            setTimeout(() => resolve(null), NETWORK_TIMEOUT_MS));
+        const networkResponse = await Promise.race([networkPromise, timeout]);
+        return networkResponse || cachedResponse;
     }
+
+    const networkResponse = await networkPromise;
+    if (networkResponse) {
+        return networkResponse;
+    }
+
+    console.error('[Service Worker] Network-first strategy failed:', request.url);
+    return new Response('Offline - resource not available', {
+        status: 503,
+        statusText: 'Service Unavailable'
+    });
 }
 
 /**
@@ -248,6 +264,17 @@ async function cacheAbcFiles(files) {
             const promises = batch.map(async (file) => {
                 try {
                     const url = `/Recorder/abc/${file.file}`;
+
+                    // Already cached for this build: skip it. The cache is
+                    // keyed by CACHE_VERSION, which every deploy bumps, so
+                    // edited tunes are still refetched once per deploy --
+                    // without this, every app start re-downloaded all tunes
+                    // and the tune the user picked queued behind them.
+                    if (await cache.match(url)) {
+                        cached++;
+                        return;
+                    }
+
                     const response = await fetch(url);
                     if (response && response.status === 200) {
                         await cache.put(url, response);
