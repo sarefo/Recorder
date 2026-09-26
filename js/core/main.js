@@ -1,4 +1,4 @@
-const APP_BUILD = '2026-09-26-2';
+const APP_BUILD = '2026-09-26-3';
 console.log(`[App] build: ${APP_BUILD}`);
 
 // Initialize the application when DOM is ready
@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Keep the device screen awake while the app is in the foreground.
     window.wakeLockManager = new WakeLockManager();
+
+    // Show the running build and flag when a newer one is deployed.
+    window.versionChecker = new VersionChecker(APP_BUILD);
 
     // Initialize offline manager and register service worker
     window.offlineManager = new OfflineManager();

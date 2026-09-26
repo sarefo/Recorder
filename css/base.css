@@ -70,3 +70,33 @@ button, input, select, textarea {
 .temp-hidden {
     display: none !important;
 }
+
+/* Build label at the bottom of the page (see js/core/version-checker.js) */
+.app-version {
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    padding: var(--space-3) 0 var(--space-5);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Shown only when the server has a newer build than the one running */
+.update-banner {
+    position: fixed;
+    bottom: var(--space-5);
+    left: var(--space-5);
+    z-index: var(--z-toast);
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+    border: none;
+    border-radius: var(--radius-full);
+    padding: var(--space-2) var(--space-5);
+    font-size: var(--font-size-sm);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+}
+
+.update-banner[hidden] {
+    display: none;
+}
