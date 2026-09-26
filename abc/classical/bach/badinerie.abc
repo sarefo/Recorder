@@ -1,0 +1,22 @@
+X:1
+T:Badinerie
+C:Johann Sebastian Bach
+O:Orchestral Suite No. 2 in B minor, BWV 1067, 7th movement
+N:Flute part in the original key. Notes, barring and ornaments from the flutetunes.com
+N:score and MIDI; pitches cross-checked against the norbeck.nu ABC setting, which agrees
+N:except that it writes the mordents in bars 7-10 and 29-32 out as sixteenths.
+N:The appoggiaturas in bars 33 and 40 are written out as eighths.
+M:2/4
+Q:1/4=120
+L:1/16
+K:Bm
+b2d'b |f2bf d2fd |B4 FBdB |cBcB ^Acec |d2B2 b2d'b |
+f2bf d2fd |B4 d2d2 |d2d2 b2d2 |Td2c2 f2f2 |
+f2f2 d'2f2 |Tf2^e2 cfaf |^gfgf ^e^gbg |a^gag faf^e |
+fbf^e fc'f^e |fd'f^e fd'c'b |c'a^gf a2T^g2 |f4 :|
+|: f2af |c2fc A2cA |F4 =c2B2 |e2^df a2gf |g2e2 g2bg |
+e2ge c2ec |A4- Adfd |eded cege |fefe dfdc |
+dgdc dadc |dbdc dbag |afed f2Te2 |d4 f2f2 |
+f2f2 d'2f2 |Tf2e2 e2e2 |e2e2 c'2e2 |Te2d2 b2d'b |
+a2g2- g2b/a/g/f/ |e4- e2g/f/e/d/ |=cege =cBcB |^A2F2 G2F2 |
+B2^Ac e2dc |d2B/c/d/e/ f2df |b2f2 edcd |c2B2 :|
