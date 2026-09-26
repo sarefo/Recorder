@@ -58,6 +58,11 @@
 .files-list {
     flex: 1;
     overflow-y: auto;
+    /* Closed regions sit side by side as chips; see .files-region */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: var(--space-1);
     padding: var(--space-1);
     background-color: var(--color-surface-alt);
 }
@@ -70,9 +75,18 @@
 
 /* Regions: the browse layer above the country folders. One section per part
    of the world, only one open at a time, so the dialog opens as a short list
-   of destinations rather than forty alphabetical folders. */
+   of destinations rather than forty alphabetical folders. A closed region is
+   a chip that shares its row with the others; the open one (or every region
+   holding a search hit) takes a full row, so its folders get the width. */
 .files-region {
-    margin-bottom: var(--space-1);
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+.files-region.expanded,
+.files-region.searching,
+.files-list > .no-results-message {
+    flex-basis: 100%;
 }
 
 .region-button {
@@ -129,14 +143,6 @@
 .files-region.expanded .region-label::before,
 .files-region.searching .region-label::before {
     transform: rotate(90deg);
-}
-
-.region-count {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-muted);
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
 }
 
 /* Folders stay out of the layout entirely until their region is opened */

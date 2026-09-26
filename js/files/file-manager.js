@@ -277,7 +277,6 @@ class FileManager {
         const columns = document.createElement('div');
         columns.className = 'files-columns';
 
-        let tuneCount = 0;
         let placeCount = 0;
 
         categories.forEach(category => {
@@ -285,7 +284,6 @@ class FileManager {
             // createCategoryContainer hides a folder whose files are all
             // filtered out; don't count those towards the region either
             if (categoryContainer.style.display === 'none') return;
-            tuneCount += categoryContainer.querySelectorAll('.file-item').length;
             placeCount++;
             columns.appendChild(categoryContainer);
         });
@@ -301,14 +299,7 @@ class FileManager {
         label.className = 'region-label';
         label.textContent = region.label;
 
-        const count = document.createElement('span');
-        count.className = 'region-count';
-        count.textContent = `${tuneCount} ${tuneCount === 1 ? 'tune' : 'tunes'}`;
-        count.title = `${placeCount} ${placeCount === 1 ? 'folder' : 'folders'}, ` +
-            `${tuneCount} ${tuneCount === 1 ? 'tune' : 'tunes'}`;
-
         header.appendChild(label);
-        header.appendChild(count);
         header.addEventListener('click', () => this.toggleRegion(section, header));
 
         section.appendChild(header);
