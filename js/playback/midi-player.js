@@ -45,6 +45,13 @@ class MidiPlayer {
         // aborts if a newer action bumped it, so two starts can never overlap.
         this.playSession = 0;
 
+        // Same idea for init(): render() fires it without awaiting, and startup
+        // renders twice (saved tune, then the URL's copy 100ms later). The first,
+        // cold init -- audio context, soundfonts -- can finish last and would then
+        // hand the timing callbacks the discarded SVG: audio plays, but the notes
+        // it highlights are no longer in the page. A superseded init bails.
+        this.initSession = 0;
+
         // Set while _disengageLoopKeepingPosition swaps the seamless loop
         // back to plain playback, so a stray onEnded from the old source
         // can't be misread as the tune actually finishing
@@ -295,6 +302,7 @@ class MidiPlayer {
      * @returns {Promise<boolean>} Success state
      */
     async init(visualObj) {
+        const session = ++this.initSession;
         try {
             // Validate visual object before proceeding
             if (!visualObj || typeof visualObj !== 'object') {
@@ -338,22 +346,27 @@ class MidiPlayer {
                 // Synth no longer has count-in (handled by CustomMetronome externally)
                 this.synthHasCountIn = false;
             } catch (synthError) {
+                if (session !== this.initSession) return false;
                 console.error('ABCJS synth initialization failed:', synthError);
                 this.updateStatusDisplay("MIDI playback not available for this tune");
                 return false;
             }
+            if (session !== this.initSession) return false;
 
             // Update metronome with the current time signature and tempo from the visual object
             await this.updateMetronome(visualObj);
+            if (session !== this.initSession) return false;
 
             // Load and prepare the synth
             try {
                 await this.midiPlayer.prime();
             } catch (primeError) {
+                if (session !== this.initSession) return false;
                 console.error('MIDI player prime failed:', primeError);
                 this.updateStatusDisplay("MIDI initialization failed");
                 return false;
             }
+            if (session !== this.initSession) return false;
             this.synthInitialized = true;
 
             // Initialize auto-scroll manager if available
@@ -389,6 +402,7 @@ class MidiPlayer {
      * @returns {Promise<boolean>} Success state
      */
     async initWithNewPlayer(visualObj) {
+        const session = ++this.initSession;
         try {
             // Ensure audio context exists
             this.createAudioContext();
@@ -415,12 +429,15 @@ class MidiPlayer {
             });
             // Synth no longer has count-in (handled by CustomMetronome externally)
             this.synthHasCountIn = false;
+            if (session !== this.initSession) return false;
 
             // Update metronome with the current time signature and tempo from the visual object
             await this.updateMetronome(visualObj);
+            if (session !== this.initSession) return false;
 
             // Load and prepare the synth
             await this.midiPlayer.prime();
+            if (session !== this.initSession) return false;
             this.synthInitialized = true;
 
             // Initialize tuning manager with shared audio context
