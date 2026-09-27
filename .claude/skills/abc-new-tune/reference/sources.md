@@ -264,6 +264,27 @@ meter change (O Magali has one 9/8 bar), while the MIDI is the only thing that
 gives exact rhythm. Its long notes come back shortened (a quarter as 0.75, a
 half as 1.5): compare pitch and onset only, and ignore duration.
 
+### midisfree.com — film and pop MIDIs
+
+The one free source found for in-copyright film music (Tiersen, 2026-09). Search
+with `https://midisfree.com/?s=<artist>`. The real file link is in the download
+page's `onclick`:
+
+```bash
+P=https://midisfree.com/download/<slug>/
+curl -sL -A "Mozilla/5.0" "$P" -o p.html
+U=$(grep -oE "https://midisfree.com/download/[^'\"]*wpdmdl=[0-9]+[^'\"]*" p.html | head -1)
+curl -sL -A "Mozilla/5.0" -e "$P" "$U" -o tune.mid
+```
+
+**Only about three downloads per visitor, then "Download Limit Exceeded"** for a
+while. Pick the three most promising slugs first. Quality varies: a sequenced
+arrangement (quantized, melody on its own channel) is gold, while a recorded
+piano performance has a meaningless bar grid and needs a second source to
+recover the meter. Waltzes are often sequenced in 6/4 or 12/8 with one
+waltz bar per half-bar, so work out the scale factor against a second source
+before writing any durations.
+
 ## Dead ends — do not spend calls on these
 
 | Route | What happens |
