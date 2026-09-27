@@ -388,6 +388,11 @@ class AbcFileList {
                 "category": "film/hisaishi"
         },
         {
+                "name": "La Valse d'Am\u00e9lie",
+                "file": "film/tiersen/la valse d'amelie.abc",
+                "category": "film/tiersen"
+        },
+        {
                 "name": "Ievan Polkka",
                 "file": "finnish/ievan_polkka.abc",
                 "category": "finnish"

@@ -67,7 +67,9 @@ function expand(target) {
 }
 
 const files = args
-    .filter((a, n) => !a.startsWith('--') && n !== reportIdx + 1 && n !== skipIdx + 1)
+    .filter((a, n) => !a.startsWith('--')
+        && !(reportIdx >= 0 && n === reportIdx + 1)
+        && !(skipIdx >= 0 && n === skipIdx + 1))
     .flatMap(expand)
     .filter(f => !skipPattern || !f.includes(skipPattern));
 if (!files.length) {
