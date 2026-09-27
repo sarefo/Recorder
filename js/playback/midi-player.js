@@ -561,12 +561,16 @@ class MidiPlayer {
 
         const secondsPerBeat = 60.0 / bpm;
         const pickupBeats = this.getPickupBeats();
-        // The count-in fills the bar in front of the music's first bar line, so
-        // with a pickup the music starts partway through the last count-in beat
-        // — exactly how a player counts a pickup in.
+        // The count-in always clicks one full bar first. Without a pickup the
+        // music follows straight on; with one, the clicks carry on into the
+        // pickup's bar and the pickup comes in on its own beat, so a 3-beat
+        // pickup in 4/4 still gets 4 + 1 clicks rather than a lone one.
+        const leadInBeats = pickupBeats > 0
+            ? 2 * numerator - pickupBeats
+            : numerator;
         const musicStartAt = this.audioContext.currentTime
             + MidiPlayer.COUNT_IN_LEAD_SEC
-            + (numerator - pickupBeats) * secondsPerBeat;
+            + leadInBeats * secondsPerBeat;
 
         // Publish the grid before the first click is scheduled, so the count-in
         // is already on the beat the music will land on
