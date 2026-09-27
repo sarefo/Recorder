@@ -285,6 +285,17 @@ recover the meter. Waltzes are often sequenced in 6/4 or 12/8 with one
 waltz bar per half-bar, so work out the scale factor against a second source
 before writing any durations.
 
+#### Copyright-flagged tunes: go to the mirror itself
+
+abcnotation strips the notes from anything its checker flags as copyright
+(`%abc2: tune is copyright - warning from abc2`), e.g. Hank Williams'
+Jambalaya. When the `a=` key is a `trillian.mit.edu/~jc/...` path, the file
+itself still serves: drop the index and add `.abc`
+(`.../session/RtB/song/Jambalaya-G-16-4.abc`). Found building the Cajun set
+(2026-09), which also showed the Fiddler's Companion ABCs (`a=tunearch.org/wiki/...`)
+are the main notated source for Cajun fiddle tunes; Jolie Blonde is only in the
+Digital Tradition (`a=sniff.numachi.com/.../abc_dtrad/JOLIBLON/0000`).
+
 ## Dead ends — do not spend calls on these
 
 | Route | What happens |
@@ -296,6 +307,7 @@ before writing any durations.
 | archive.org texts | The folk-song collections are lending-library, not open. |
 | flutenotes.ph | Real letter notes, but the post body is JS-rendered — `curl` returns an empty div. Use WebFetch. |
 | Wikipedia | Almost none of these articles carry a `<score>` tag or a notation image. Good for provenance and key, not notes. |
+| `tunearch.org` direct | Cloudflare blocks curl outright. Its ABC comes through abcnotation's `getResource`, except tunes flagged `%abc2: tune is copyright`, which come back as headers only. |
 
 ## Getting note data out of tab / letter-note sites
 
