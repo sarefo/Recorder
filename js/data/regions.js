@@ -56,7 +56,7 @@ class RegionMap {
             label: 'Americas',
             accent: 145,
             categories: [
-                'american', 'brazilian', 'jamaican', 'latino', 'mexican',
+                'american', 'brazilian', 'cajun', 'jamaican', 'latino', 'mexican',
                 'peruvian', 'trinidadian'
             ],
         },
