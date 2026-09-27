@@ -3,12 +3,13 @@ T: Madame Sosthène
 O: Traditional Cajun, Louisiana
 N: A Cajun waltz from the playing of accordionist Joseph Falcon, who made the
 N: first Cajun record ("Allons à Lafayette") in 1928.
-N: From the Fiddler's Companion (Andrew Kuntz). Chords derived from the melody.
+N: From the Fiddler's Companion (Andrew Kuntz), transposed down a major third
+N: from A. Chords derived from the melody.
 L: 1/8
 Q: 1/4=160
 M: 3/4
-K: A
-Acd |"A"e2 ec ef |"A"e3 A Bc |"D"d2 dc df |"A"e3 A cd |
-"A"e2 ef ec |"E"B3 A Bc |"E7"d2 ce BG |"A"A3 E AB |
-"A"c2 cB cd |"A"c3 A Bc |"D"d2 dc df |"A"e3 E AB |
-"A"c2 cB cd |"A"c3 A Bc |"E7"d2 ce BG |"A"A3 |]
+K: F
+FAB |"F"c2 cA cd |"F"c3 F GA |"Bb"B2 BA Bd |"F"c3 F AB |
+"F"c2 cd cA |"C"G3 F GA |"C7"B2 Ac GE |"F"F3 C FG |
+"F"A2 AG AB |"F"A3 F GA |"Bb"B2 BA Bd |"F"c3 C FG |
+"F"A2 AG AB |"F"A3 F GA |"C7"B2 Ac GE |"F"F3 |]

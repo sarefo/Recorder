@@ -6,8 +6,12 @@
 //
 // The floor is the point of this script: the user's recorder cannot sound
 // anything below written middle C, so one stray B3 makes a whole tune useless.
-// The ceiling (D6) is where the fingering diagrams stop, which is a softer
-// limit — the note still renders, it just gets no diagram.
+// The ceiling is A5: the user plays German fingering and wants nothing above
+// high A (2026-09-27), even though the diagrams run on to D6.
+//
+// Within those limits a tune should sit as low as it can without piling on
+// sharps or flats, so a tune whose lowest note is well above C4 gets a
+// "could drop" hint: pick the lowest key with few accidentals.
 //
 // Pitches come from the MIDI abcjs itself generates, so key signatures,
 // accidentals and octave marks are all already applied — the same route
@@ -18,7 +22,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const LOW = 60;   // C4, middle C — hard floor
-const HIGH = 86;  // D6 — last note with a fingering diagram
+const HIGH = 81;  // A5, high A — the user's ceiling for German fingering
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const cache = path.join(here, '..', '..', 'abc-chords', 'scripts', 'abcjs-cache.js');
@@ -147,12 +151,13 @@ for (const file of files) {
 
         const problems = [];
         if (lo < LOW) problems.push(`BELOW C4 by ${LOW - lo} semitone(s)`);
-        if (hi > HIGH) problems.push(`above D6 by ${hi - HIGH} semitone(s)`);
+        if (hi > HIGH) problems.push(`above A5 by ${hi - HIGH} semitone(s)`);
         if (problems.length) bad++;
         else if (onlyBad) return;
 
         const label = tunes.length > 1 ? ` [tune ${i + 1}/${tunes.length}]` : '';
-        const flag = problems.length ? `  <-- ${problems.join(', ')}` : '';
+        const hint = !problems.length && lo - LOW >= 3 ? `  (could drop ${lo - LOW} semitone(s))` : '';
+        const flag = problems.length ? `  <-- ${problems.join(', ')}` : hint;
         console.log(`${name(lo)}-${name(hi)}  ${file}${label}${flag}`);
     });
 }

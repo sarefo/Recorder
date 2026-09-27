@@ -4,15 +4,16 @@ O: Traditional Cajun, Louisiana
 N: A Cajun two-step, recorded by Lawrence Walker and later by the Balfa
 N: Brothers. Bosco is a small settlement near Lafayette.
 N: From the Fiddler's Companion (Andrew Kuntz), as played by Suzie Rothfield.
+N: Transposed down a major third from A, so it runs C4 to A5.
 N: The last note of the third part is written A2 here; the source's A made
 N: that bar an eighth short of paying back the pickup. Chords derived from
 N: the melody.
 L: 1/8
 Q: 1/4=180
 M: 4/4
-K: A
-AA |"A"c e2 c e2 cd |"A"efed cB A2 |"E"(B/c/B) GF EFGB |"A"efed cA AA |
-"A"c e2 c e2 cd |"A"efed cB A2 |"E"(B/c/B) GF EFGB |"A"efec a2 :|
-|: ca |"A"c'aea c'aea |"A"c'a e a3 eg |"E"bgeg bgeg |"E"bg e "A"a3 ea |
-"A"c'aea c'aea |"A"c'a e a3 eg |"E"bgeg bgeg |"E"bg e "A"a3 :|
-|: ea |"A"afec Ace a |"A"afec A2 ef |"A7"=g3 e "D"f3 e |"E"ec B2 "A"A2 :|
+K: F
+FF |"F"A c2 A c2 AB |"F"cdcB AG F2 |"C"(G/A/G) ED CDEG |"F"cdcB AF FF |
+"F"A c2 A c2 AB |"F"cdcB AG F2 |"C"(G/A/G) ED CDEG |"F"cdcA f2 :|
+|: Af |"F"afcf afcf |"F"af c f3 ce |"C"gece gece |"C"ge c "F"f3 cf |
+"F"afcf afcf |"F"af c f3 ce |"C"gece gece |"C"ge c "F"f3 :|
+|: cf |"F"fdcA FAc f |"F"fdcA F2 cd |"F7"_e3 c "Bb"d3 c |"C"cA G2 "F"F2 :|

@@ -130,14 +130,20 @@ pickup** — the first chord goes on the first full bar.
 The fingering diagrams cover **written C4 to D6** (`js/fingering/fingering-manager.js`).
 Anything outside that renders as notation but gets no diagram.
 
-**C4 is a hard floor, not a guideline.** The user's instrument cannot sound
-below written middle C at all, so a single B3 makes the whole tune unplayable.
-Check the extremes before choosing a key — the bottom note decides it. The top
-is forgiving by comparison: sitting high is only tiring, sitting low is
-impossible.
+**The playable range is C4 to A5.** C4 is a hard floor: the user's instrument
+cannot sound below written middle C at all, so a single B3 makes the whole tune
+unplayable. A5 (high A) is the ceiling: the user plays German fingering and
+does not want anything above it, even though the diagrams go on to D6.
+
+**Within that range, go as low as the key allows.** Choose the lowest
+transposition that keeps the tune inside C4 to A5 without piling up sharps or
+flats; ideally the lowest note lands on C4. Bosco Stomp is the worked example:
+the source in A ran E4 to C#6, and down a major third in F (one flat) it runs
+exactly C4 to A5. `abc_range.mjs` flags anything outside the range and prints
+`could drop N semitone(s)` when a tune sits well above C4.
 
 Most tunes here sit between D4 and E5. When a source sits awkwardly — a very low
-melody, or a key with four flats — transpose the **whole tune** up (a 4th or a
+melody, or a key with four flats — transpose the **whole tune** (a 4th or a
 5th usually does it) rather than octave-shifting the offending notes, and say so
 in `N:`. `abc/ghanaian/tue tue.abc` (+5) and `abc/zambian/kankuluwe.abc` (+7)
 are the worked examples; a transposed transcription still diffs clean against

@@ -7,12 +7,13 @@ N: (straightened into 4/4) and full of Cajun French and Louisiana food.
 N: Melody and chords from John Chambers' transcription (trillian.mit.edu,
 N: session/RtB/song/Jambalaya-G-16-4.abc); the Digital Tradition setting
 N: (abc_dtrad JAMBALAY) agrees on the contour, with small sung variants.
+N: Transposed down a fifth from G so the tune sits low on the recorder.
 L: 1/8
 Q: 1/4=180
 M: 4/4
-K: G
-B2d2 |"G"e4 B2d2 | e4 d2B2 |"D7"d2 A6 | z4 d2d2 | f4 f2f2 | e2d2 e3d |"G"d2 B6 | z4 g2g2 |
-g3g e2d2 | g4 e2d2 |"D7"d2 A6 | z4 dd d2 | f2- ff e2d2 | e4 d3B |"G"A2 G6 | z4 |]
+K: C
+E2G2 |"C"A4 E2G2 | A4 G2E2 |"G7"G2 D6 | z4 G2G2 | B4 B2B2 | A2G2 A3G |"C"G2 E6 | z4 c2c2 |
+c3c A2G2 | c4 A2G2 |"G7"G2 D6 | z4 GG G2 | B2- BB A2G2 | A4 G3E |"C"D2 C6 | z4 |]
 W: Goodbye Joe, me gotta go, me oh my oh,
 W: me gotta go pole the pirogue down the bayou.
 W: My Yvonne, the sweetest one, me oh my oh,
