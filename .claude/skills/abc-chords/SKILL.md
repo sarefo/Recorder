@@ -22,8 +22,9 @@ Learned from feedback across several tunes — follow these without asking:
 - **Two chords per bar** where the melody moves in eighths and the harmony
   really changes mid-bar; one per bar otherwise. Don't chord every beat.
 - **Don't add dynamics** (`!f!`, `!<(!`) — they were explicitly removed once.
-- If a file has `X:1` and `X:2` (the same tune in two keys for different
-  recorders), chord **both**, transposed.
+- If a file has `X:1` and `X:2` (or more), **only `X:1` matters** — it is the
+  version the app uses. Later ones are leftover transpositions/variants; don't
+  chord or otherwise maintain them.
 
 ## Researching a tune
 
