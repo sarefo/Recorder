@@ -68,6 +68,31 @@ class AbcFileList {
                 "category": "breton"
         },
         {
+                "name": "Allons Danser Colinda",
+                "file": "cajun/colinda.abc",
+                "category": "cajun"
+        },
+        {
+                "name": "Bosco Stomp",
+                "file": "cajun/bosco stomp.abc",
+                "category": "cajun"
+        },
+        {
+                "name": "Jambalaya",
+                "file": "cajun/jambalaya.abc",
+                "category": "cajun"
+        },
+        {
+                "name": "Jolie Blonde",
+                "file": "cajun/jolie blonde.abc",
+                "category": "cajun"
+        },
+        {
+                "name": "Madame Sosth\u00e8ne",
+                "file": "cajun/madame sosthene.abc",
+                "category": "cajun"
+        },
+        {
                 "name": "AAA Dongjia chimi wo chikang",
                 "file": "chinese/670_songs.abc",
                 "category": "chinese"

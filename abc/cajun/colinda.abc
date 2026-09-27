@@ -1,0 +1,14 @@
+X: 1
+T: Allons Danser Colinda
+O: Traditional Cajun, Louisiana
+N: A two-step whose name probably comes from the calinda, a dance brought to
+N: Louisiana from the Caribbean. Still danced at Mardi Gras.
+N: Melody from the Fiddler's Companion (from Larry Miller), written there in
+N: 8/4; here each 8/4 bar is split into two 4/4 bars. Chords derived from the
+N: melody.
+L: 1/8
+Q: 1/4=130
+M: 4/4
+K: C
+G2c2d2 |"C"e3 e e2 e2- |"C"e2 c2 d2e2 |"G7"f3 e e2 d2- |"G"d2 G2 B2c2 |
+"G"d3 d d2 d2- |"G"d2 d2 e2d2 |"G"B3 B A2 G2- |"G"G2 |]
