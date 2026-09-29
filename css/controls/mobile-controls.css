@@ -1,184 +1,311 @@
-/* Mobile control bar layout
-   Button visual styling moved to components/button.css.
-   This file owns only mobile-specific layout, scroll regions, and breakpoint
-   visibility for the mobile UI. */
+/* Mobile control bar, overlay and focus mode.
+   Base button visuals live in components/button.css; this file owns the
+   mobile layout. MobileUI (js/ui/mobile-ui.js) sets the state classes:
+     body.mobile-controls-active  mobile layout in use
+     body.mobile-bar-right        bar is a rail on the right edge
+     body.mobile-bar-hidden       focus mode, bar hidden
+     body.mobile-overlay-open     "more" overlay showing
+   ID selectors are deliberate: they have to beat the per-button rules in
+   file-selector.css, song-metadata.css and friends, which load later. */
 
-/* Top-anchored mobile control bar */
+:root {
+    --mobile-bar-size: 56px;
+}
+
+/* ----- Bar ----- */
+
 .mobile-control-bar {
     position: fixed;
+    z-index: var(--z-modal-backdrop);
+    background-color: var(--color-surface-alt);
+    box-shadow: var(--shadow-sm);
+}
+
+.mobile-control-bar.hidden,
+body.mobile-bar-hidden .mobile-control-bar {
+    display: none;
+}
+
+.mobile-control-bar.bar-top {
     top: 0;
     left: 0;
     right: 0;
-    background-color: transparent;
-    border-bottom: none;
-    box-shadow: none;
-    z-index: var(--z-modal-backdrop);
-    padding: 0;
-    transition: all var(--motion-slow) var(--ease-standard);
-}
-
-.mobile-control-bar.hidden {
-    display: none;
-}
-
-/* Single horizontally-scrollable row of important controls */
-.mobile-main-row {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: var(--space-2) var(--space-3);
-    flex-wrap: nowrap;
-    position: relative;
-    background-color: var(--color-surface-alt);
+    padding-top: env(safe-area-inset-top);
     border-bottom: 1px solid var(--color-border);
-    box-shadow: var(--shadow-sm);
 }
 
-.mobile-main-row::-webkit-scrollbar {
-    height: 3px;
+.mobile-control-bar.bar-right {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-right: env(safe-area-inset-right);
+    border-left: 1px solid var(--color-border);
 }
 
-.mobile-main-row::-webkit-scrollbar-track {
-    background: var(--color-surface-sunken);
-    border-radius: var(--radius-xs);
-}
-
-.mobile-main-row::-webkit-scrollbar-thumb {
-    background: var(--color-border-strong);
-    border-radius: var(--radius-xs);
-}
-
-/* Extras containers (transparent wrapper) */
-.mobile-extras-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: var(--space-2);
-    padding: 0;
-    background-color: transparent;
-}
-
-/* Compact extras row with its own surface */
-.mobile-extras-row {
+#mobile-control-bar .mobile-main-row {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
-    flex-wrap: wrap;
-    padding: var(--space-2);
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    width: fit-content;
-    margin: var(--space-2) 0 0 0;
-    transition: all var(--motion-slow) var(--ease-standard);
-    box-shadow: var(--shadow-sm);
+    gap: var(--space-1);
+    height: var(--mobile-bar-size);
+    padding: var(--space-1) var(--space-2);
 }
 
-.mobile-extras-row.hidden {
+#mobile-control-bar.bar-right .mobile-main-row {
+    flex-direction: column;
+    height: 100%;
+    width: var(--mobile-bar-size);
+    padding: var(--space-2) var(--space-1);
+}
+
+.mobile-bar-spacer {
+    flex: 1 1 0;
+}
+
+/* Every bar button: a 48px square-ish icon target that shrinks a little
+   when the screen is narrow, never below 40px */
+#mobile-control-bar .mobile-main-row > button {
+    flex: 0 1 60px;
+    min-width: 40px;
+    height: 48px;
+    min-height: 48px;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 22px;
+    line-height: 1;
+    border-radius: var(--radius-md);
+    transform: none;
+}
+
+#mobile-control-bar.bar-right .mobile-main-row > button {
+    flex: 0 1 56px;
+    width: 48px;
+    min-width: 48px;
+    height: auto;
+    min-height: 40px;
+}
+
+#mobile-control-bar .mobile-main-row > button:hover {
+    transform: none;
+}
+
+.mobile-icon-button svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+    pointer-events: none;
+}
+
+/* Text-labelled controls become icons in the bar: hide the text, draw the
+   icon as a currentColor mask so it follows the button's state colors. */
+#mobile-control-bar #show-fingering,
+#mobile-control-bar #files-button,
+#mobile-control-bar #system-toggle {
+    font-size: 0;
+}
+
+#mobile-control-bar #show-fingering::before,
+#mobile-control-bar #files-button::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
+}
+
+/* Fingering: a recorder body with tone holes */
+#mobile-control-bar #show-fingering {
+    --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='7.5' y='1' width='9' height='22' rx='4.5' fill='none' stroke='black' stroke-width='1.8'/%3E%3Ccircle cx='12' cy='6.5' r='2'/%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3Ccircle cx='12' cy='17.5' r='2'/%3E%3C/svg%3E");
+}
+
+/* "Marked" fingering mode: small star badge */
+#mobile-control-bar #show-fingering.marked-mode::after {
+    content: '★';
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    font-size: 11px;
+}
+
+/* Files: a folder */
+#mobile-control-bar #files-button {
+    --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2 6.5A2.5 2.5 0 0 1 4.5 4H9l2.5 2.5h8A2.5 2.5 0 0 1 22 9v9.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5z'/%3E%3C/svg%3E");
+    font-weight: normal;
+}
+
+/* Fingering system: short name, set from data-system */
+#mobile-control-bar #system-toggle::after {
+    font-size: 15px;
+    font-weight: var(--font-weight-bold);
+    content: 'Bar';
+}
+
+#mobile-control-bar #system-toggle[data-system="german"]::after {
+    content: 'Ger';
+}
+
+#mobile-control-bar #system-toggle[data-system="diziD"]::after {
+    content: '笛';
+    font-size: 18px;
+}
+
+/* ----- Overlay ("more") ----- */
+
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: calc(var(--z-modal-backdrop) - 1);
+    overflow-y: auto;
+    background-color: color-mix(in srgb, var(--color-bg) 94%, transparent);
+    padding: calc(var(--mobile-bar-size) + env(safe-area-inset-top) + var(--space-3))
+             var(--space-3) var(--space-3);
+}
+
+.mobile-overlay.open {
+    display: block;
+}
+
+body.mobile-bar-right .mobile-overlay {
+    padding: var(--space-3)
+             calc(var(--mobile-bar-size) + env(safe-area-inset-right) + var(--space-3))
+             var(--space-3) var(--space-3);
+}
+
+.mobile-overlay-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: var(--space-3);
+    min-height: 100%;
+}
+
+#mobile-overlay .mobile-overlay-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    width: auto;
+    margin: 0;
+    padding: var(--space-2);
+    background-color: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: none;
+}
+
+#mobile-overlay .mobile-overlay-group:first-child {
+    flex: 1 1 100%;
+}
+
+#mobile-overlay .mobile-overlay-group button {
+    min-width: 48px;
+    min-height: 48px;
+    margin: 0;
+    padding: var(--space-2) var(--space-3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-base);
+}
+
+/* slider.css hides the slider at phone sizes; the overlay has room for it */
+#mobile-overlay .tempo-control {
+    display: flex;
+    flex: 1 1 260px;
+    min-width: 220px;
+    max-width: none;
+    min-height: 48px;
+}
+
+#mobile-overlay .tempo-control label {
+    display: inline;
+}
+
+#mobile-overlay .tempo-control input[type="range"] {
+    height: 10px;
+}
+
+#mobile-overlay .tempo-control input[type="range"]::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+}
+
+#mobile-overlay .tempo-control input[type="range"]::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+}
+
+/* Status dot: same color coding, full-size target */
+#mobile-overlay #inline-tag-button {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    margin: 0;
+    border-radius: var(--radius-full);
+    opacity: 1;
+}
+
+#mobile-overlay #inline-tag-button.hidden {
     display: none;
 }
 
-#mobile-playback-extras {
-    margin-left: var(--space-3);
-    margin-right: auto;
-}
-
-#mobile-file-extras {
-    margin-left: auto;
-    margin-right: var(--space-3);
-}
-
-/* Mobile main row sub-layouts */
-.mobile-main-row .file-controls {
+#mobile-overlay .tune-navigation {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
-    flex-shrink: 0;
-}
-
-.mobile-main-row .file-selector-container {
-    flex-shrink: 0;
-}
-
-.mobile-main-row .tune-navigation {
-    display: flex;
     gap: var(--space-1);
-    flex-shrink: 0;
 }
 
-/* Reference row spacing under mobile control bar */
+/* ----- Focus mode restore button ----- */
+
+#mobile-show-bar {
+    display: none;
+    position: fixed;
+    top: calc(env(safe-area-inset-top) + var(--space-2));
+    right: calc(env(safe-area-inset-right) + var(--space-2));
+    z-index: var(--z-modal-backdrop);
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background-color: var(--color-surface-alt);
+    color: var(--color-text);
+    opacity: 0.35;
+    cursor: pointer;
+}
+
+body.mobile-controls-active.mobile-bar-hidden #mobile-show-bar {
+    display: inline-flex;
+}
+
+#mobile-show-bar:hover,
+#mobile-show-bar:active {
+    opacity: 1;
+}
+
+/* ----- Page offsets for the bar ----- */
+
+body.mobile-controls-active:not(.mobile-bar-hidden):not(.mobile-bar-right) {
+    padding-top: calc(var(--mobile-bar-size) + env(safe-area-inset-top));
+}
+
+body.mobile-controls-active.mobile-bar-right:not(.mobile-bar-hidden) {
+    padding-right: calc(var(--mobile-bar-size) + env(safe-area-inset-right) + var(--space-3));
+}
+
 body.mobile-controls-active #reference-row {
     margin-top: var(--space-3);
 }
 
-body.mobile-controls-active {
-    padding-top: 50px;
-}
-
-body.mobile-controls-active .mobile-extras-row:not(.hidden) ~ * {
-    margin-top: var(--space-3);
-}
-
-/* Hide mobile elements on desktop */
-@media (min-width: 1024px) {
-    .mobile-control-bar {
-        display: none;
-    }
-
-    body.mobile-controls-active {
-        padding-top: 0;
-    }
-}
-
-/* Hide old desktop control container on mobile */
-@media (max-width: 1023px) {
-    .control-container {
-        display: none;
-    }
-
-    #midi-status {
-        display: none;
-    }
-}
-
-/* Tighter spacing on very small screens */
-@media (max-width: 480px) {
-    .mobile-main-row {
-        gap: var(--space-1);
-        padding: var(--space-2);
-    }
-
-    .mobile-main-row button:not(.mobile-expand-toggle),
-    .mobile-extras-row button {
-        padding: 5px var(--space-2);
-        font-size: var(--font-size-xs);
-        min-height: 28px;
-    }
-
-    .mobile-expand-toggle {
-        width: 28px;
-        height: 28px;
-        min-width: 28px;
-        min-height: 28px;
-        font-size: var(--font-size-md);
-    }
-
-    .mobile-main-row .tempo-control {
-        min-width: 120px;
-        max-width: 180px;
-    }
-}
-
-/* Landscape phone optimization */
-@media (max-width: 915px) and (orientation: landscape) {
-    .mobile-control-bar {
-        max-height: 50vh;
-        overflow-y: auto;
-    }
-
-    body.mobile-controls-active {
-        padding-top: 45px;
-    }
+/* The desktop control container is emptied into the mobile bar */
+body.mobile-controls-active .control-container,
+body.mobile-controls-active #midi-status {
+    display: none;
 }

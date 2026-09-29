@@ -173,7 +173,7 @@ class UIControls {
 
         // Set initial text content based on current system
         const currentSystem = this.player.fingeringManager.currentFingeringSystem;
-        systemToggle.textContent = this._getSystemDisplayText(currentSystem);
+        this._setSystemButton(systemToggle, currentSystem);
 
         let longPressTimer = null;
         let isLongPress = false;
@@ -191,7 +191,7 @@ class UIControls {
                     isLongPress = true;
                     // Toggle to baroque/german on long press
                     const newSystem = this.player.toggleBaroqueSystem();
-                    systemToggle.textContent = this._getSystemDisplayText(newSystem);
+                    this._setSystemButton(systemToggle, newSystem);
                     // Provide haptic feedback if available
                     if (navigator.vibrate) {
                         navigator.vibrate(50);
@@ -210,7 +210,7 @@ class UIControls {
             // Only toggle normally if there was a mouse press AND it wasn't a long press
             if (mousePressed && !isLongPress) {
                 const newSystem = this.player.toggleFingeringSystem();
-                systemToggle.textContent = this._getSystemDisplayText(newSystem);
+                this._setSystemButton(systemToggle, newSystem);
             }
 
             // Reset the pressed state
@@ -231,6 +231,18 @@ class UIControls {
         });
 
         return systemToggle;
+    }
+
+    /**
+     * Shows a fingering system on its toggle button. data-system lets the
+     * mobile icon bar swap the full name for a short one via CSS.
+     * @param {HTMLElement} button - The system toggle button
+     * @param {string} system - The fingering system name
+     * @private
+     */
+    _setSystemButton(button, system) {
+        button.textContent = this._getSystemDisplayText(system);
+        button.dataset.system = system;
     }
 
     /**
@@ -1061,7 +1073,7 @@ class UIControls {
         const systemButton = document.getElementById('system-toggle');
         if (systemButton) {
             const currentSystem = this.player.fingeringManager.currentFingeringSystem;
-            systemButton.textContent = currentSystem === 'baroque' ? 'Baroque' : 'German';
+            this._setSystemButton(systemButton, currentSystem);
         }
     }
 

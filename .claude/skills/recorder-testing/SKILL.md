@@ -120,7 +120,14 @@ look fine on screen while erroring every frame.
 - **Version bumping is automatic.** A pre-commit hook bumps `sw.js`
   `CACHE_VERSION` and `main.js` `APP_BUILD`. Don't edit those by hand.
 - **Mobile targets** (from CLAUDE.md): Pixel 7a landscape `915x412`, Pixel 4a
-  portrait `393x851`. Use `resize_page`.
+  portrait `393x851`. For the mobile bar, `emulate` with a viewport like
+  `915x412x2.6,mobile,touch,landscape` beats `resize_page` (real touch + UA).
+  In portrait, an orientation prompt covers the app; hide it with
+  `document.getElementById('orientation-prompt').classList.add('hidden')`.
+  MobileUI reports its state as body classes (`mobile-bar-right`,
+  `mobile-bar-hidden`, `mobile-overlay-open`); drive it by clicking
+  `#mobile-more-toggle`, `#mobile-hide-toggle`, `#mobile-show-bar`,
+  `#mobile-position-toggle`.
 - **Don't trigger `alert`/`confirm`** — a modal dialog freezes the whole
   automation session.
 

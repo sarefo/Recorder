@@ -1,46 +1,63 @@
 /**
- * Manages mobile-specific UI behavior
+ * Manages mobile-specific UI behavior.
+ *
+ * Layout: one bar of large icon buttons for the controls used constantly
+ * (play, loop, fingering, fingering system, files, random), plus two toggles:
+ * "more" opens a full-screen overlay holding every other control, and "hide"
+ * removes the bar entirely (focus mode) leaving a small restore button.
+ * The bar sits at the top by default or as a rail on the right edge.
  */
 class MobileUI {
     constructor(player) {
         this.player = player;
-        this.playbackExtrasVisible = false; // Expandable playback controls (chords, voices, etc.)
-        this.fileExtrasVisible = false; // Expandable file controls (copy, paste, share)
+        this.overlayOpen = false;
+
+        const settings = player.settingsManager;
+        this.barPosition = settings.get('mobileBarPosition') === 'right' ? 'right' : 'top';
+        this.barHidden = settings.get('mobileBarHidden') === true;
     }
+
+    /** Icons for the buttons MobileUI creates itself (24px viewBox, stroke = currentColor) */
+    static ICONS = {
+        more: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="19" cy="12" r="2.2"/></svg>',
+        hide: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>',
+        show: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>',
+        notes: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M9 11h6M9 15h6"/></svg>',
+        clear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l5 5-10 10H6l-3-3z"/><path d="M9 21h12"/></svg>',
+        barTop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="3" y="4" width="18" height="4" fill="currentColor"/></svg>',
+        barRight: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="16" y="4" width="5" height="16" fill="currentColor"/></svg>'
+    };
 
     /**
      * Sets up mobile controls
      */
     setupMobileControls() {
-        // Set up the initial state
         this.updateMobileState();
-
-        // Create mobile layout
         this.createMobileLayout();
-
-        // Handle screen size changes
         this.setupScreenChangeHandlers();
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.overlayOpen) {
+                this.setOverlayOpen(false);
+            }
+        });
     }
 
+    /**
+     * Closes the overlay (called when playback starts)
+     */
     collapseControls() {
-        if (this.player.isMobile) {
-            this.playbackExtrasVisible = false;
-            this.fileExtrasVisible = false;
-            this.applyMobileState();
+        if (this.player.isMobile && this.overlayOpen) {
+            this.setOverlayOpen(false);
         }
     }
 
     /**
-     * Creates the mobile layout with all important controls visible
-     * and expandable sections for extras
+     * Creates the mobile layout
      */
     createMobileLayout() {
         if (!this.player.isMobile) return;
-
-        // Create mobile control bar with all controls
         this.createMobileControlBar();
-
-        // Set up initial state
         this.applyMobileState();
     }
 
@@ -49,22 +66,77 @@ class MobileUI {
      * @returns {boolean} Whether current environment is mobile
      */
     updateMobileState() {
-        // Check if this is a mobile device
         const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
         // Use smaller dimension to determine mobile (handles landscape orientation)
         const smallerDimension = Math.min(window.innerWidth, window.innerHeight);
-        const largerDimension = Math.max(window.innerWidth, window.innerHeight);
 
-        // Mobile if:
-        // 1. It's a mobile device by user agent, OR
-        // 2. Smaller dimension is phone-sized (portrait or landscape), OR  
-        // 3. It's clearly a mobile screen size (under 1024px width)
-        this.player.isMobile = isMobileDevice || 
-                               smallerDimension <= 600 || 
+        this.player.isMobile = isMobileDevice ||
+                               smallerDimension <= 600 ||
                                window.innerWidth < 1024;
 
         return this.player.isMobile;
+    }
+
+    /**
+     * Opens or closes the full-screen overlay
+     * @param {boolean} open - Whether the overlay should be open
+     */
+    setOverlayOpen(open) {
+        this.overlayOpen = open;
+        this.applyMobileState();
+    }
+
+    /**
+     * Shows or hides the whole bar (focus mode). Hiding also asks the browser
+     * for real fullscreen when the app isn't already running fullscreen.
+     * @param {boolean} hidden - Whether the bar should be hidden
+     */
+    setBarHidden(hidden) {
+        this.barHidden = hidden;
+        this.overlayOpen = false;
+        this.player.settingsManager.set('mobileBarHidden', hidden);
+
+        if (hidden) {
+            this.requestFullscreen();
+        }
+
+        this.applyMobileState();
+        this.notifyLayoutChanged();
+    }
+
+    /**
+     * Moves the bar between the top edge and a rail on the right edge
+     * @param {string} position - 'top' or 'right'
+     */
+    setBarPosition(position) {
+        this.barPosition = position;
+        this.player.settingsManager.set('mobileBarPosition', position);
+        this.applyMobileState();
+        this.notifyLayoutChanged();
+    }
+
+    /**
+     * Enters browser fullscreen if possible and not already fullscreen
+     * (the installed PWA already runs with display: fullscreen)
+     */
+    requestFullscreen() {
+        try {
+            const alreadyFullscreen = document.fullscreenElement ||
+                window.matchMedia('(display-mode: fullscreen)').matches;
+            if (alreadyFullscreen || !document.documentElement.requestFullscreen) return;
+            document.documentElement.requestFullscreen({ navigationUI: 'hide' }).catch(() => {});
+        } catch (e) {
+            // Fullscreen is a nicety; the bar is hidden either way
+        }
+    }
+
+    /**
+     * The notation area changed size without the window resizing; let the
+     * existing resize handling reposition fingering diagrams.
+     */
+    notifyLayoutChanged() {
+        requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
     }
 
     /**
@@ -76,370 +148,250 @@ class MobileUI {
             return;
         }
 
-        // Ensure mobile bar exists and is visible (may have been hidden by a
-        // prior desktop state, or never built if the page first loaded at
-        // desktop width).
         let mobileBar = document.getElementById('mobile-control-bar');
         if (!mobileBar || !mobileBar.querySelector('.mobile-main-row')) {
             this.createMobileControlBar();
             mobileBar = document.getElementById('mobile-control-bar');
         }
-        if (mobileBar) {
-            mobileBar.classList.remove('hidden');
+
+        const overlayOpen = this.overlayOpen && !this.barHidden;
+
+        mobileBar.classList.remove('hidden');
+        mobileBar.classList.toggle('bar-right', this.barPosition === 'right');
+        mobileBar.classList.toggle('bar-top', this.barPosition !== 'right');
+
+        const overlay = document.getElementById('mobile-overlay');
+        if (overlay) {
+            overlay.classList.toggle('open', overlayOpen);
         }
 
-        // Apply mobile state - toggle expandable rows
-        const playbackExtras = document.getElementById('mobile-playback-extras');
-        const fileExtras = document.getElementById('mobile-file-extras');
-        const playbackToggle = document.getElementById('mobile-playback-toggle');
-        const fileToggle = document.getElementById('mobile-file-toggle');
-
-        // Show/hide playback extras row
-        if (playbackExtras) {
-            if (this.playbackExtrasVisible) {
-                playbackExtras.classList.remove('hidden');
-            } else {
-                playbackExtras.classList.add('hidden');
-            }
+        const moreButton = document.getElementById('mobile-more-toggle');
+        if (moreButton) {
+            moreButton.classList.toggle('active', overlayOpen);
         }
 
-        // Update playback toggle button
-        if (playbackToggle) {
-            playbackToggle.classList.toggle('expanded', this.playbackExtrasVisible);
-            playbackToggle.textContent = this.playbackExtrasVisible ? '−' : '+';
+        const positionButton = document.getElementById('mobile-position-toggle');
+        if (positionButton) {
+            // Shows the layout the button switches TO
+            const toRight = this.barPosition !== 'right';
+            positionButton.innerHTML = toRight ? MobileUI.ICONS.barRight : MobileUI.ICONS.barTop;
+            positionButton.title = toRight ? 'Move bar to the right edge' : 'Move bar to the top';
         }
 
-        // Show/hide file extras row
-        if (fileExtras) {
-            if (this.fileExtrasVisible) {
-                fileExtras.classList.remove('hidden');
-            } else {
-                fileExtras.classList.add('hidden');
-            }
-        }
-
-        // Update file toggle button
-        if (fileToggle) {
-            fileToggle.classList.toggle('expanded', this.fileExtrasVisible);
-            fileToggle.textContent = this.fileExtrasVisible ? '−' : '+';
-        }
-
-        // Mark body as having mobile controls active
-        document.body.classList.add('mobile-controls-active');
+        const body = document.body;
+        body.classList.add('mobile-controls-active');
+        body.classList.toggle('mobile-bar-right', this.barPosition === 'right');
+        body.classList.toggle('mobile-bar-hidden', this.barHidden);
+        body.classList.toggle('mobile-overlay-open', overlayOpen);
     }
 
     /**
-     * Apply desktop state
+     * Apply desktop state: hide the mobile bar and put every control back
+     * into its desktop section, in the original order.
      */
     applyDesktopState() {
-        // Hide mobile elements
         const mobileBar = document.getElementById('mobile-control-bar');
-
         if (mobileBar) {
             mobileBar.classList.add('hidden');
         }
+        const overlay = document.getElementById('mobile-overlay');
+        if (overlay) {
+            overlay.classList.remove('open');
+        }
 
-        // Remove mobile body class
-        document.body.classList.remove('mobile-controls-active');
+        document.body.classList.remove('mobile-controls-active', 'mobile-bar-right',
+            'mobile-bar-hidden', 'mobile-overlay-open');
 
-        // Ensure controls are in main control bar in correct order (playback first)
         const controlBar = document.querySelector('.control-bar');
         const playbackControls = document.querySelector('.playback-controls');
         const fingeringControls = document.querySelector('.fingering-controls');
         const notationControls = document.querySelector('.notation-controls');
 
         if (controlBar) {
-            // Add in correct order: playback, fingering, notation
-            if (playbackControls && !controlBar.contains(playbackControls)) {
-                controlBar.appendChild(playbackControls);
-            }
-            if (fingeringControls && !controlBar.contains(fingeringControls)) {
-                controlBar.appendChild(fingeringControls);
-            }
-            if (notationControls && !controlBar.contains(notationControls)) {
-                controlBar.appendChild(notationControls);
+            for (const section of [playbackControls, fingeringControls, notationControls]) {
+                if (section && section.parentElement !== controlBar) {
+                    controlBar.appendChild(section);
+                }
             }
         }
 
-        // Mobile layout moves individual buttons out of their original section
-        // containers and into mobile-main-row. Put them back so the desktop
-        // control bar isn't left with empty section shells.
-        const moveBack = (parentSelector, ids) => {
-            const parent = document.querySelector(parentSelector);
+        // Appending in order restores the original sequence inside each section
+        const moveBack = (parent, elements) => {
             if (!parent) return;
-            for (const id of ids) {
-                const el = document.getElementById(id);
-                if (el && el.parentElement !== parent) parent.appendChild(el);
+            for (const el of elements) {
+                if (el) parent.appendChild(el);
             }
         };
-        moveBack('.playback-controls', [
-            'play-button', 'loop-button',
-            'chords-toggle', 'voices-toggle', 'metronome-toggle',
-            'tuning-button',
-            'transpose-up', 'transpose-down',
-        ]);
-        // Tempo control wrapper is a div, not an id'd button — re-home it too.
-        const tempoControl = document.querySelector('.tempo-control');
-        const playbackSection = document.querySelector('.playback-controls');
-        if (tempoControl && playbackSection && tempoControl.parentElement !== playbackSection) {
-            playbackSection.appendChild(tempoControl);
-        }
-        moveBack('.fingering-controls', ['show-fingering', 'system-toggle', 'chart-toggle']);
-        moveBack('.notation-controls', ['copy-button', 'paste-button', 'share-button']);
-        // file-controls subtree (Files / dice / help) belongs inside notation-controls.
-        const fileControls = document.querySelector('.file-controls');
-        const notationSection = document.querySelector('.notation-controls');
-        if (fileControls && notationSection && fileControls.parentElement !== notationSection) {
-            notationSection.appendChild(fileControls);
-        }
-        // Inline tag button is owned by the desktop control-bar directly.
-        const tagButton = document.getElementById('inline-tag-button');
-        if (tagButton && controlBar && tagButton.parentElement !== controlBar) {
-            controlBar.appendChild(tagButton);
-        }
-        // Mobile-only toggles should not leak into the desktop layout.
-        for (const id of ['mobile-playback-toggle', 'mobile-file-toggle', 'mobile-tempo-button']) {
-            const el = document.getElementById(id);
-            if (el && el.parentElement && el.parentElement.classList.contains('mobile-main-row')) {
-                // Leave them in the (now-hidden) mobile bar; they'll be reused
-                // when we go back to mobile.
-            }
-        }
+        const byId = id => document.getElementById(id);
 
-        // Reset mobile-specific styles
-        if (playbackControls) {
-            playbackControls.style.cssText = '';
-        }
-        if (fingeringControls) {
-            fingeringControls.style.cssText = '';
-        }
-        if (notationControls) {
-            notationControls.style.cssText = '';
-        }
+        moveBack(playbackControls, [
+            byId('play-button'), byId('loop-button'),
+            byId('chords-toggle'), byId('voices-toggle'), byId('metronome-toggle'),
+            document.querySelector('.tempo-control'), byId('mobile-tempo-button'),
+            byId('tuning-button'),
+            byId('transpose-up'), byId('transpose-down'),
+        ]);
+        moveBack(fingeringControls, [byId('show-fingering'), byId('system-toggle'), byId('chart-toggle')]);
+
+        const fileControls = document.querySelector('.file-controls');
+        const selector = document.querySelector('.file-selector-container');
+        moveBack(selector, [byId('files-button'), byId('random-abc-button'), byId('theme-toggle'), byId('help-button')]);
+        moveBack(fileControls, [selector, document.querySelector('.tune-navigation')]);
+        moveBack(notationControls, [byId('copy-button'), byId('paste-button'), byId('share-button'), fileControls]);
+
+        // The inline tag button is owned by the desktop control bar directly
+        moveBack(controlBar, [byId('inline-tag-button')]);
     }
 
     /**
      * Set up handlers for screen size/orientation changes
      */
     setupScreenChangeHandlers() {
-        // Handle window resize
-        window.addEventListener('resize', () => {
+        const onChange = () => {
             const wasMobile = this.player.isMobile;
             this.updateMobileState();
-
-            // Rebuild layout on any transition. Going desktop→mobile needs the
-            // mobile bar built (or rebuilt, in case desktop state moved nodes
-            // back into the desktop control bar).
             if (wasMobile !== this.player.isMobile) {
                 this.createMobileLayout();
             }
-
             this.applyMobileState();
-        });
+        };
 
-        // Handle orientation changes specifically
-        window.addEventListener('orientationchange', () => {
-            setTimeout(() => {
-                const wasMobile = this.player.isMobile;
-                this.updateMobileState();
-                if (wasMobile !== this.player.isMobile) {
-                    this.createMobileLayout();
-                }
-                this.applyMobileState();
-            }, 100);
-        });
+        window.addEventListener('resize', onChange);
+        window.addEventListener('orientationchange', () => setTimeout(onChange, 100));
     }
 
     /**
-     * Creates the mobile control bar with all important controls in one row
-     * and expandable sections for extras
+     * Creates a button owned by the mobile UI
+     * @param {string} id - Element id
+     * @param {string} icon - SVG markup
+     * @param {string} title - Tooltip
+     * @param {Function} onClick - Click handler
+     * @returns {HTMLElement} The button
+     */
+    createIconButton(id, icon, title, onClick) {
+        const button = document.createElement('button');
+        button.id = id;
+        button.className = 'mobile-icon-button';
+        button.innerHTML = icon;
+        button.title = title;
+        button.addEventListener('click', onClick);
+        return button;
+    }
+
+    /**
+     * Builds the bar, the overlay and the restore button, moving the
+     * existing controls into them
      */
     createMobileControlBar() {
         if (!this.player.isMobile) return;
 
         let mobileBar = document.getElementById('mobile-control-bar');
-
         if (!mobileBar) {
             mobileBar = document.createElement('div');
             mobileBar.id = 'mobile-control-bar';
             mobileBar.className = 'mobile-control-bar';
             document.body.appendChild(mobileBar);
         }
-
-        // Clear existing content
         mobileBar.innerHTML = '';
 
-        // Create main row with all important controls
+        const byId = id => document.getElementById(id);
+        const append = (parent, elements) => {
+            for (const el of elements) {
+                if (el) parent.appendChild(el);
+            }
+        };
+
+        // --- Main bar: the controls used all the time ---
         const mainRow = document.createElement('div');
         mainRow.className = 'mobile-main-row';
 
-        // Get all control sections
-        const playbackControls = document.querySelector('.playback-controls');
-        const fingeringControls = document.querySelector('.fingering-controls');
-        const notationControls = document.querySelector('.notation-controls');
+        append(mainRow, [
+            byId('play-button'), byId('loop-button'),
+            byId('show-fingering'), byId('system-toggle'),
+            byId('files-button'), byId('random-abc-button'),
+        ]);
 
-        // Add important controls to main row
-        this.addPlaybackControlsToRow(mainRow, playbackControls);
-        this.addFingeringControlsToRow(mainRow, fingeringControls);
-        this.addFileControlsToRow(mainRow, notationControls);
+        const spacer = document.createElement('div');
+        spacer.className = 'mobile-bar-spacer';
+        mainRow.appendChild(spacer);
+
+        mainRow.appendChild(this.createIconButton('mobile-more-toggle', MobileUI.ICONS.more,
+            'More controls', () => this.setOverlayOpen(!this.overlayOpen)));
+        mainRow.appendChild(this.createIconButton('mobile-hide-toggle', MobileUI.ICONS.hide,
+            'Hide controls', () => this.setBarHidden(true)));
 
         mobileBar.appendChild(mainRow);
 
-        // Create extras container below main row
-        const extrasContainer = document.createElement('div');
-        extrasContainer.className = 'mobile-extras-container';
+        // --- Overlay: everything else ---
+        let overlay = byId('mobile-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.id = 'mobile-overlay';
+            overlay.className = 'mobile-overlay';
+            // A tap on the backdrop (not on a control) closes it
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay || e.target.classList.contains('mobile-overlay-content')) {
+                    this.setOverlayOpen(false);
+                }
+            });
+            document.body.appendChild(overlay);
+        }
+        overlay.innerHTML = '';
 
-        // Create expandable rows
-        const playbackExtras = this.createPlaybackExtrasRow(playbackControls);
-        const fileExtras = this.createFileExtrasRow(notationControls);
+        const content = document.createElement('div');
+        content.className = 'mobile-overlay-content';
+        overlay.appendChild(content);
 
-        extrasContainer.appendChild(playbackExtras);
-        extrasContainer.appendChild(fileExtras);
+        const group = (elements) => {
+            const row = document.createElement('div');
+            row.className = 'mobile-extras-row mobile-overlay-group';
+            append(row, elements);
+            content.appendChild(row);
+            return row;
+        };
 
-        mobileBar.appendChild(extrasContainer);
+        // Playback
+        group([document.querySelector('.tempo-control')]);
+        group([byId('transpose-down'), byId('transpose-up'), byId('tuning-button')]);
+        group([byId('chords-toggle'), byId('voices-toggle'), byId('metronome-toggle')]);
 
-        return mobileBar;
-    }
+        // Song: status/favorite, practice notes, note marks
+        const player = this.player;
+        const notesButton = this.createIconButton('mobile-notes-button', MobileUI.ICONS.notes,
+            'Practice notes', () => {
+                const filePath = player.fileManager.currentFilePath;
+                if (!filePath) {
+                    Utils.showFeedback('No song loaded', true);
+                    return;
+                }
+                this.setOverlayOpen(false);
+                player.fileManager.metadataUI.showNotesDialog(filePath);
+            });
+        const clearButton = this.createIconButton('mobile-clear-marks', MobileUI.ICONS.clear,
+            'Clear note marks', () => {
+                const cleared = player.fingeringManager.clearAllMarks();
+                Utils.showFeedback(cleared ? `Cleared ${cleared} marked note${cleared === 1 ? '' : 's'}` : 'No marked notes');
+            });
+        group([byId('inline-tag-button'), notesButton, clearButton]);
 
-    /**
-     * Adds playback controls to the main row
-     * @param {HTMLElement} mainRow - The main row element
-     * @param {HTMLElement} playbackControls - The playback controls element
-     */
-    addPlaybackControlsToRow(mainRow, playbackControls) {
-        if (!playbackControls) return;
+        // Display and files
+        group([byId('chart-toggle'), byId('theme-toggle'), byId('help-button')]);
+        group([
+            byId('copy-button'), byId('paste-button'), byId('share-button'),
+            document.querySelector('.tune-navigation'),
+        ]);
 
-        // Get individual buttons
-        const playButton = document.getElementById('play-button');
-        const loopButton = document.getElementById('loop-button');
-        const transposeUp = document.getElementById('transpose-up');
-        const transposeDown = document.getElementById('transpose-down');
-        const mobileTempoButton = document.getElementById('mobile-tempo-button');
-        const tempoControl = document.querySelector('.tempo-control');
+        // Layout
+        group([this.createIconButton('mobile-position-toggle', MobileUI.ICONS.barRight, '',
+            () => this.setBarPosition(this.barPosition === 'right' ? 'top' : 'right'))]);
 
-        // Add important controls to main row
-        if (playButton) mainRow.appendChild(playButton);
-        if (loopButton) mainRow.appendChild(loopButton);
-        if (transposeUp) mainRow.appendChild(transposeUp);
-        if (transposeDown) mainRow.appendChild(transposeDown);
-        // Use mobile tempo button on mobile, regular tempo control on desktop
-        if (mobileTempoButton) {
-            mainRow.appendChild(mobileTempoButton);
-        } else if (tempoControl) {
-            mainRow.appendChild(tempoControl);
+        // --- Restore button, only visible while the bar is hidden ---
+        if (!byId('mobile-show-bar')) {
+            const showButton = this.createIconButton('mobile-show-bar', MobileUI.ICONS.show,
+                'Show controls', () => this.setBarHidden(false));
+            document.body.appendChild(showButton);
         }
 
-        // Create toggle button for playback extras
-        const toggleButton = document.createElement('button');
-        toggleButton.id = 'mobile-playback-toggle';
-        toggleButton.className = 'mobile-expand-toggle';
-        toggleButton.textContent = '+';
-        toggleButton.title = 'Show more playback controls';
-        toggleButton.onclick = () => {
-            this.playbackExtrasVisible = !this.playbackExtrasVisible;
-            this.applyMobileState();
-        };
-        mainRow.appendChild(toggleButton);
-    }
-
-    /**
-     * Adds fingering controls to the main row
-     * @param {HTMLElement} mainRow - The main row element
-     * @param {HTMLElement} fingeringControls - The fingering controls element
-     */
-    addFingeringControlsToRow(mainRow, fingeringControls) {
-        if (!fingeringControls) return;
-
-        // Get individual buttons
-        const fingeringToggle = document.getElementById('show-fingering');
-        const systemToggle = document.getElementById('system-toggle');
-        const chartToggle = document.getElementById('chart-toggle');
-
-        // Add all fingering controls (all important)
-        if (fingeringToggle) mainRow.appendChild(fingeringToggle);
-        if (systemToggle) mainRow.appendChild(systemToggle);
-        if (chartToggle) mainRow.appendChild(chartToggle);
-    }
-
-    /**
-     * Adds file controls to the main row
-     * @param {HTMLElement} mainRow - The main row element
-     * @param {HTMLElement} notationControls - The notation controls element
-     */
-    addFileControlsToRow(mainRow, notationControls) {
-        if (!notationControls) return;
-
-        // Get file selector
-        const fileControls = notationControls.querySelector('.file-controls');
-
-        // Add file selector to main row
-        if (fileControls) mainRow.appendChild(fileControls);
-
-        // Create toggle button for file extras
-        const toggleButton = document.createElement('button');
-        toggleButton.id = 'mobile-file-toggle';
-        toggleButton.className = 'mobile-expand-toggle';
-        toggleButton.textContent = '+';
-        toggleButton.title = 'Show file operations';
-        toggleButton.onclick = () => {
-            this.fileExtrasVisible = !this.fileExtrasVisible;
-            this.applyMobileState();
-        };
-        mainRow.appendChild(toggleButton);
-
-        // Move the inline tag button (song-status indicator + quick tag access)
-        // from the desktop control bar into the mobile main row so it's reachable.
-        const tagButton = document.getElementById('inline-tag-button');
-        if (tagButton) mainRow.appendChild(tagButton);
-    }
-
-    /**
-     * Creates the playback extras row
-     * @param {HTMLElement} playbackControls - The playback controls element
-     * @returns {HTMLElement} The extras row
-     */
-    createPlaybackExtrasRow(playbackControls) {
-        const extrasRow = document.createElement('div');
-        extrasRow.id = 'mobile-playback-extras';
-        extrasRow.className = 'mobile-extras-row hidden';
-
-        if (!playbackControls) return extrasRow;
-
-        // Get extras buttons
-        const chordsToggle = document.getElementById('chords-toggle');
-        const voicesToggle = document.getElementById('voices-toggle');
-        const metronomeToggle = document.getElementById('metronome-toggle');
-        const tuningButton = document.getElementById('tuning-button');
-
-        if (chordsToggle) extrasRow.appendChild(chordsToggle);
-        if (voicesToggle) extrasRow.appendChild(voicesToggle);
-        if (metronomeToggle) extrasRow.appendChild(metronomeToggle);
-        if (tuningButton) extrasRow.appendChild(tuningButton);
-
-        return extrasRow;
-    }
-
-    /**
-     * Creates the file extras row
-     * @param {HTMLElement} notationControls - The notation controls element
-     * @returns {HTMLElement} The extras row
-     */
-    createFileExtrasRow(notationControls) {
-        const extrasRow = document.createElement('div');
-        extrasRow.id = 'mobile-file-extras';
-        extrasRow.className = 'mobile-extras-row hidden';
-
-        if (!notationControls) return extrasRow;
-
-        // Get extras buttons
-        const copyButton = document.getElementById('copy-button');
-        const pasteButton = document.getElementById('paste-button');
-        const shareButton = document.getElementById('share-button');
-
-        if (copyButton) extrasRow.appendChild(copyButton);
-        if (pasteButton) extrasRow.appendChild(pasteButton);
-        if (shareButton) extrasRow.appendChild(shareButton);
-
-        return extrasRow;
+        return mobileBar;
     }
 }

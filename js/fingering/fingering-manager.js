@@ -293,6 +293,34 @@ class FingeringManager {
     }
 
     /**
+     * Resets every red/green note mark back to neutral
+     * @returns {number} How many notes were cleared
+     */
+    clearAllMarks() {
+        let cleared = 0;
+        document.querySelectorAll('.note-marker-zone').forEach(markerZone => {
+            const oldState = markerZone.getAttribute('data-state');
+            if (!oldState || oldState === 'neutral') return;
+
+            const noteIndex = markerZone.getAttribute('data-note-index');
+            markerZone.setAttribute('data-state', 'neutral');
+
+            const diagram = document.querySelector(`[data-note-index="${noteIndex}"].fingering-diagram-container`);
+            if (diagram) {
+                diagram.setAttribute('data-state', 'neutral');
+                diagram.classList.remove('clicked');
+                diagram.style.backgroundColor = this.config.backgroundColor;
+            }
+
+            if (this.onNoteMarkingChanged) {
+                this.onNoteMarkingChanged(noteIndex, 'neutral', oldState);
+            }
+            cleared++;
+        });
+        return cleared;
+    }
+
+    /**
      * Updates the state of both fingering diagram and marker zone for a note
      * @param {string} noteIndex - The note index
      * @param {HTMLElement} clickedElement - The element that was clicked
