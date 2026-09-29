@@ -3,7 +3,7 @@
  * Handles offline caching of app shell and ABC music files
  */
 
-const CACHE_VERSION = 'abc-player-v3-2026-09-29-3';
+const CACHE_VERSION = 'abc-player-v3-2026-09-29-4';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const ABC_FILES_CACHE = `${CACHE_VERSION}-abc-files`;
 
@@ -57,7 +57,10 @@ self.addEventListener('install', (event) => {
                 let cached = 0;
                 for (const file of APP_SHELL_FILES) {
                     try {
-                        await cache.add(file);
+                        // cache: 'reload' skips the browser's HTTP cache, which
+                        // (GitHub Pages: max-age=600) would otherwise hand the
+                        // new version the previous build's files
+                        await cache.add(new Request(file, { cache: 'reload' }));
                         cached++;
                     } catch (error) {
                         console.warn(`[Service Worker] Failed to cache ${file}:`, error.message);
@@ -196,8 +199,18 @@ const NETWORK_TIMEOUT_MS = 1000;
 async function networkFirstStrategy(request, cacheName) {
     const cache = await caches.open(cacheName);
 
-    // Fetch and store; resolves to null instead of throwing so it can race
-    const networkPromise = fetch(request)
+    // Fetch and store; resolves to null instead of throwing so it can race.
+    // no-cache revalidates with the server (a cheap 304 when unchanged)
+    // instead of trusting the browser's HTTP cache: GitHub Pages sends
+    // max-age=600, so for ten minutes after a deploy a plain fetch returned
+    // the old build and the "new version" banner reappeared after every
+    // reload. Only default-mode requests are rewritten: explicit modes
+    // (no-store, reload) already skip that cache, and navigations can't be
+    // rebuilt with a RequestInit.
+    const fresh = request.mode !== 'navigate' && request.cache === 'default'
+        ? new Request(request, { cache: 'no-cache' })
+        : request;
+    const networkPromise = fetch(fresh)
         .then((networkResponse) => {
             if (networkResponse && networkResponse.status === 200) {
                 cache.put(request, networkResponse.clone());

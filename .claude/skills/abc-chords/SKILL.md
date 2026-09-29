@@ -80,6 +80,26 @@ progression from the notes in front of you. That is what has been accepted.
 Typical vocabularies that have worked here: D Dorian → Dm / C / G (+ A7);
 G major → G / Em / C / D; F major → F / Dm / Gm / B♭ / C.
 
+## Accompaniment rhythm (`%%MIDI gchord`)
+
+By default abcjs plays chords as oom-pah: in 4/4, bass on beats 1 and 3,
+chord on 2 and 4. When a style needs a different pulse, put a pattern line
+in the header (after `Q:`):
+
+```
+%%MIDI gchord bzzczzcz
+```
+
+The pattern has one letter per eighth-note slot, so 8 slots for a 4/4 bar,
+and it must fit in one bar. `f` = bass, `c` = chord, `b` = both, `z` = rest.
+`G`..`K` / `g`..`k` play single chord tones (arpeggios). abcjs 6.4.4 also
+honors the same line mid-tune, so a section can switch patterns. The hits are
+eighth notes, so they sound short.
+
+Used so far: tango 3-3-2 `bzzczzcz` (Por una cabeza, 2/4 source doubled to
+4/4, so one bar = one source bar). Check the result by reading the chord
+track slots from `tune.setUpAudio({}).tracks` in Node.
+
 ## Verify before committing
 
 ```bash
