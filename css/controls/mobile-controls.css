@@ -88,6 +88,11 @@ body.mobile-bar-hidden .mobile-control-bar {
     min-height: 40px;
 }
 
+/* On the rail, "more" goes to the top, where the thumb reaches it first */
+#mobile-control-bar.bar-right #mobile-more-toggle {
+    order: -1;
+}
+
 #mobile-control-bar .mobile-main-row > button:hover {
     transform: none;
 }
