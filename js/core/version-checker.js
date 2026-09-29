@@ -117,14 +117,32 @@ class VersionChecker {
     }
 
     /**
-     * Updates the service worker, then reloads the page
+     * Updates the service worker, drops the cached copies of the app's own
+     * files, then reloads the page. Without the cached copies the service
+     * worker has to wait for the network, instead of falling back to the old
+     * build when the network takes longer than its timeout. Other cached
+     * files (the abcjs library, soundfonts, tunes) are kept.
      */
     async reload() {
+        this.banner.textContent = 'Updating...';
         try {
             const registration = await navigator.serviceWorker?.getRegistration();
             await registration?.update();
         } catch (error) {
             console.warn('[Version] service worker update failed:', error.message);
+        }
+        try {
+            const names = (await caches.keys()).filter(name => name.endsWith('-app-shell'));
+            for (const name of names) {
+                const cache = await caches.open(name);
+                for (const request of await cache.keys()) {
+                    if (new URL(request.url).pathname.startsWith('/Recorder/')) {
+                        await cache.delete(request);
+                    }
+                }
+            }
+        } catch (error) {
+            console.warn('[Version] clearing cached app files failed:', error.message);
         }
         window.location.reload();
     }
