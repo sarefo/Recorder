@@ -257,6 +257,31 @@ class AbcPlayer {
 
 
     /**
+     * Re-places the note marker zones and fingering diagrams over the current
+     * SVG without re-rendering, so playback keeps running. Both are positioned
+     * in absolute pixels, so this is needed whenever the notation changes size
+     * while the window does not (e.g. the mobile bar moving or hiding).
+     * Red/green marks and the playback anchor carry over.
+     */
+    refreshNoteOverlays() {
+        const abcContainer = document.getElementById('abc-notation');
+        if (!abcContainer || !this.renderManager.currentVisualObj) return;
+
+        const savedStates = this.renderManager.captureAnnotationStates();
+        document.querySelectorAll('.note-marker-zone').forEach(zone => zone.remove());
+
+        const notes = this.notationParser.extractCleanedNotes();
+        this.diagramRenderer.addMarkerZones(abcContainer, notes);
+        this.renderManager.restoreAnnotationStates(savedStates);
+
+        // Diagrams take their red/green state from the restored marker zones
+        if (this.fingeringManager.fingeringDisplayMode !== 'off') {
+            this.diagramRenderer.addFingeringDiagrams(abcContainer, notes);
+        }
+        this.renderManager.applyAnchorMarker();
+    }
+
+    /**
      * Shows fingering diagrams
      */
     showFingeringDiagrams() {
@@ -449,10 +474,8 @@ class AbcPlayer {
                 
                 lastWidth = currentWidth;
             } else {
-                // For minor resizes, just reposition fingering diagrams
-                if (this.fingeringManager.fingeringDisplayMode !== 'off') {
-                    this.showFingeringDiagrams();
-                }
+                // For minor resizes, just reposition what sits over the notes
+                this.refreshNoteOverlays();
             }
         }, 300)); // Increased debounce time for full re-render operations
     }

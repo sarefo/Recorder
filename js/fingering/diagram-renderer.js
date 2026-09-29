@@ -202,6 +202,15 @@ class DiagramRenderer {
                     // Add note index for coupling with marker zones
                     diagram.setAttribute('data-note-index', note.dataIndex);
 
+                    // Carry over a red/green mark the note already has
+                    const markedZone = document.querySelector(`[data-note-index="${note.dataIndex}"].note-marker-zone`);
+                    const markedState = markedZone ? markedZone.getAttribute('data-state') : 'neutral';
+                    if (markedState === 'red' || markedState === 'green') {
+                        diagram.setAttribute('data-state', markedState);
+                        diagram.style.backgroundColor = markedState === 'red' ? this.config.redColor : this.config.greenColor;
+                        if (markedState === 'green') diagram.classList.add('clicked');
+                    }
+
                     // Position the diagram
                     diagram.style.position = 'absolute';
                     diagram.style.left = `${note.left - containerRect.left + (note.width / 2)}px`;

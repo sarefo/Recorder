@@ -132,11 +132,11 @@ class MobileUI {
     }
 
     /**
-     * The notation area changed size without the window resizing; let the
-     * existing resize handling reposition fingering diagrams.
+     * The notation area changed size without the window resizing: once the
+     * new layout has been applied, re-place the marker zones and diagrams.
      */
     notifyLayoutChanged() {
-        requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
+        requestAnimationFrame(() => this.player.refreshNoteOverlays());
     }
 
     /**
