@@ -153,7 +153,12 @@ body.mobile-bar-hidden .mobile-control-bar {
     font-size: 18px;
 }
 
-/* ----- Overlay ("more") ----- */
+/* ----- Overlay ("more") -----
+   A dimmed backdrop over the page, and in its free area (beside or below the
+   bar) a panel centered both ways. Panel layout: tempo across the full width,
+   then pairs of equal-height groups whose buttons share the width evenly;
+   one column on narrow screens. margin: auto (not align-items: center) keeps
+   the panel scrollable if it is ever taller than the screen. */
 
 .mobile-overlay {
     display: none;
@@ -161,13 +166,15 @@ body.mobile-bar-hidden .mobile-control-bar {
     inset: 0;
     z-index: calc(var(--z-modal-backdrop) - 1);
     overflow-y: auto;
-    background-color: color-mix(in srgb, var(--color-bg) 94%, transparent);
+    background-color: rgba(0, 0, 0, 0.45);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
     padding: calc(var(--mobile-bar-size) + env(safe-area-inset-top) + var(--space-3))
              var(--space-3) var(--space-3);
 }
 
 .mobile-overlay.open {
-    display: block;
+    display: flex;
 }
 
 body.mobile-bar-right .mobile-overlay {
@@ -177,49 +184,76 @@ body.mobile-bar-right .mobile-overlay {
 }
 
 .mobile-overlay-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
+    margin: auto;
+    width: 100%;
+    max-width: 680px;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: var(--space-3);
-    min-height: 100%;
+    padding: var(--space-4);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+}
+
+@media (min-width: 560px) {
+    .mobile-overlay-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #mobile-overlay .mobile-overlay-wide {
+        grid-column: 1 / -1;
+    }
 }
 
 #mobile-overlay .mobile-overlay-group {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     gap: var(--space-2);
     width: auto;
+    min-height: 64px;
     margin: 0;
     padding: var(--space-2);
-    background-color: var(--color-surface-alt);
+    background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     box-shadow: none;
 }
 
-#mobile-overlay .mobile-overlay-group:first-child {
-    flex: 1 1 100%;
-}
-
 #mobile-overlay .mobile-overlay-group button {
-    min-width: 48px;
+    flex: 1 1 0;
+    min-width: 44px;
+    height: 48px;
     min-height: 48px;
     margin: 0;
-    padding: var(--space-2) var(--space-3);
+    padding: 0 var(--space-2);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: var(--font-size-base);
+    transform: none;
+}
+
+#mobile-overlay .mobile-overlay-group button:hover {
+    transform: none;
+}
+
+/* Single-glyph buttons: match the 24px SVG icons beside them */
+#mobile-overlay #theme-toggle,
+#mobile-overlay #help-button {
+    font-size: 20px;
 }
 
 /* slider.css hides the slider at phone sizes; the overlay has room for it */
 #mobile-overlay .tempo-control {
     display: flex;
-    flex: 1 1 260px;
-    min-width: 220px;
+    flex: 1 1 auto;
+    gap: var(--space-3);
+    min-width: 0;
     max-width: none;
-    min-height: 48px;
+    padding: 0 var(--space-2);
 }
 
 #mobile-overlay .tempo-control label {
@@ -227,6 +261,7 @@ body.mobile-bar-right .mobile-overlay {
 }
 
 #mobile-overlay .tempo-control input[type="range"] {
+    min-width: 0;
     height: 10px;
 }
 
@@ -240,12 +275,17 @@ body.mobile-bar-right .mobile-overlay {
     height: 28px;
 }
 
-/* Status dot: same color coding, full-size target */
+#mobile-overlay .tempo-value {
+    min-width: 3.5em;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Status dot: same color coding, a round full-size target */
 #mobile-overlay #inline-tag-button {
+    flex: 0 0 48px;
     width: 48px;
-    height: 48px;
     padding: 0;
-    margin: 0;
     border-radius: var(--radius-full);
     opacity: 1;
 }
@@ -254,10 +294,17 @@ body.mobile-bar-right .mobile-overlay {
     display: none;
 }
 
+/* Prev / count / next inside a multi-tune file; tune-navigation.css
+   collapses the wrapper when the file has a single tune */
 #mobile-overlay .tune-navigation {
-    display: flex;
-    align-items: center;
+    flex: 1.5 1 0;
+    margin-left: 0;
     gap: var(--space-1);
+}
+
+#mobile-overlay .tune-display {
+    padding: 0 var(--space-1);
+    font-variant-numeric: tabular-nums;
 }
 
 /* ----- Focus mode restore button ----- */

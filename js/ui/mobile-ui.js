@@ -328,9 +328,9 @@ class MobileUI {
             overlay = document.createElement('div');
             overlay.id = 'mobile-overlay';
             overlay.className = 'mobile-overlay';
-            // A tap on the backdrop (not on a control) closes it
+            // A tap on the backdrop around the panel closes it
             overlay.addEventListener('click', (e) => {
-                if (e.target === overlay || e.target.classList.contains('mobile-overlay-content')) {
+                if (e.target === overlay) {
                     this.setOverlayOpen(false);
                 }
             });
@@ -351,7 +351,7 @@ class MobileUI {
         };
 
         // Playback
-        group([document.querySelector('.tempo-control')]);
+        group([document.querySelector('.tempo-control')]).classList.add('mobile-overlay-wide');
         group([byId('transpose-down'), byId('transpose-up'), byId('tuning-button')]);
         group([byId('chords-toggle'), byId('voices-toggle'), byId('metronome-toggle')]);
 
@@ -375,15 +375,16 @@ class MobileUI {
         group([byId('inline-tag-button'), notesButton, clearButton]);
 
         // Display and files
-        group([byId('chart-toggle'), byId('theme-toggle'), byId('help-button')]);
+        group([
+            byId('chart-toggle'), byId('theme-toggle'),
+            this.createIconButton('mobile-position-toggle', MobileUI.ICONS.barRight, '',
+                () => this.setBarPosition(this.barPosition === 'right' ? 'top' : 'right')),
+            byId('help-button'),
+        ]);
         group([
             byId('copy-button'), byId('paste-button'), byId('share-button'),
             document.querySelector('.tune-navigation'),
-        ]);
-
-        // Layout
-        group([this.createIconButton('mobile-position-toggle', MobileUI.ICONS.barRight, '',
-            () => this.setBarPosition(this.barPosition === 'right' ? 'top' : 'right'))]);
+        ]).classList.add('mobile-overlay-wide');
 
         // --- Restore button, only visible while the bar is hidden ---
         if (!byId('mobile-show-bar')) {
