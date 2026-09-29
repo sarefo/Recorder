@@ -3,7 +3,7 @@
  * Handles offline caching of app shell and ABC music files
  */
 
-const CACHE_VERSION = 'abc-player-v3-2026-09-29-8';
+const CACHE_VERSION = 'abc-player-v3-2026-09-29-9';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const ABC_FILES_CACHE = `${CACHE_VERSION}-abc-files`;
 
@@ -221,6 +221,17 @@ async function networkFirstStrategy(request, cacheName) {
 
     // Scoped lookup -- see cacheFirstStrategy
     const cachedResponse = await cache.match(request);
+
+    // A request that explicitly asks for a fresh copy (the version check
+    // fetches main.js with no-store) must not lose the race to the cache:
+    // the cached main.js is the running build, so on a slow network the
+    // check always saw "latest" and the update banner never appeared.
+    // Wait for the network; the cache is only the offline fallback.
+    const wantsFresh = request.cache === 'no-store' || request.cache === 'reload';
+
+    if (cachedResponse && wantsFresh) {
+        return (await networkPromise) || cachedResponse;
+    }
 
     if (cachedResponse) {
         const timeout = new Promise((resolve) =>
