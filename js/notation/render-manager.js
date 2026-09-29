@@ -68,6 +68,9 @@ class RenderManager {
                 // The SVG was rebuilt: re-wire the tappable key signature
                 // and re-apply its highlight if it was on
                 this.player.keySignatureHighlighter?.setup();
+
+                // Tapping the title opens the open tune's tag menu
+                this.player.fileManager?.metadataUI?.setupScoreTitle();
             }, RenderManager.RENDER_DELAY);
 
             // Update URL for sharing

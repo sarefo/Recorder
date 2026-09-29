@@ -2,6 +2,13 @@
  * SongMetadataUI - Handles UI components for song metadata (stars, status, notes)
  */
 class SongMetadataUI {
+    static STATUS_COLORS = {
+        'needs-practice': '#f44336',
+        'practicing': '#ff9800',
+        'good': '#4caf50',
+        'mastered': '#9c27b0'
+    };
+
     constructor(userDataManager, fileManager) {
         this.userDataManager = userDataManager;
         this.fileManager = fileManager;
@@ -751,6 +758,118 @@ class SongMetadataUI {
         if (star) {
             star.textContent = songData.favorite ? '★' : '';
         }
+
+        // The mark beside the score title shows the same tags
+        this.updateScoreTitleMark();
+    }
+
+    /**
+     * Makes the engraved title in the score the handle for the open tune's
+     * tags: tap, long-press or right-click it to open the tag menu. Call after
+     * every render; the SVG is rebuilt each time, so listeners never stack.
+     */
+    setupScoreTitle() {
+        const title = document.querySelector('#abc-notation .abcjs-title');
+        const filePath = this.fileManager.currentFilePath;
+        if (!title || !filePath) return;
+
+        title.classList.add('score-title-taggable');
+        this.bindScoreTagMenu(title);
+
+        this.updateScoreTitleMark();
+    }
+
+    /**
+     * Draws the open tune's status (colored dot) and favorite (star) just
+     * right of the score title. An untagged tune gets a hollow dot, so the
+     * title always shows that it can be tagged.
+     */
+    updateScoreTitleMark() {
+        const title = document.querySelector('#abc-notation .abcjs-title.score-title-taggable');
+        document.querySelectorAll('#abc-notation .score-title-mark').forEach(m => m.remove());
+        const filePath = this.fileManager.currentFilePath;
+        if (!title || !filePath) return;
+
+        let bbox;
+        try {
+            bbox = title.getBBox();
+        } catch (error) {
+            // getBBox throws on detached/hidden SVG; skip the mark
+            return;
+        }
+
+        const songData = this.userDataManager.getSongData(filePath);
+        const color = SongMetadataUI.STATUS_COLORS[songData.status];
+        const svgNs = 'http://www.w3.org/2000/svg';
+        const radius = Math.max(5, bbox.height * 0.22);
+        const cx = bbox.x + bbox.width + radius * 3;
+        const cy = bbox.y + bbox.height / 2;
+
+        const mark = document.createElementNS(svgNs, 'g');
+        mark.setAttribute('class', 'score-title-mark');
+
+        const dot = document.createElementNS(svgNs, 'circle');
+        dot.setAttribute('cx', cx);
+        dot.setAttribute('cy', cy);
+        dot.setAttribute('r', radius);
+        dot.setAttribute('class', color ? 'score-title-dot' : 'score-title-dot untagged');
+        if (color) dot.setAttribute('fill', color);
+        mark.appendChild(dot);
+
+        if (songData.favorite) {
+            const star = document.createElementNS(svgNs, 'text');
+            star.setAttribute('x', cx + radius * 1.4);
+            star.setAttribute('y', cy);
+            star.setAttribute('class', 'score-title-star');
+            star.setAttribute('font-size', radius * 2.6);
+            star.setAttribute('dominant-baseline', 'central');
+            star.setAttribute('stroke', 'none');
+            star.textContent = '★';
+            mark.appendChild(star);
+        }
+
+        // Padded transparent rect so a finger tap lands reliably
+        const hit = document.createElementNS(svgNs, 'rect');
+        hit.setAttribute('x', cx - radius * 2.5);
+        hit.setAttribute('y', bbox.y - 4);
+        hit.setAttribute('width', radius * (songData.favorite ? 7.5 : 4.5));
+        hit.setAttribute('height', bbox.height + 8);
+        hit.setAttribute('fill', 'transparent');
+        hit.setAttribute('stroke', 'none');
+        mark.appendChild(hit);
+
+        this.bindScoreTagMenu(mark);
+        title.parentNode.insertBefore(mark, title.nextSibling);
+    }
+
+    /**
+     * Opens the tag menu for the open tune on tap, long-press or right-click
+     * @param {Element} element - Score title or its status mark
+     */
+    bindScoreTagMenu(element) {
+        // Android long-press and desktop right-click both arrive as
+        // contextmenu; a plain tap arrives as click
+        let openedAt = 0;
+        const open = () => {
+            const filePath = this.fileManager.currentFilePath;
+            if (!filePath) return;
+            const title = document.querySelector('#abc-notation .abcjs-title') || element;
+            const rect = title.getBoundingClientRect();
+            this.showContextMenu(filePath, null, rect.left, rect.bottom + 5);
+        };
+        element.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openedAt = Date.now();
+            open();
+        });
+        element.addEventListener('click', (e) => {
+            // Keep the menu's own outside-click handler from seeing this
+            e.stopPropagation();
+            // The release after a long-press can still produce a click
+            if (Date.now() - openedAt < 1000) return;
+            open();
+        });
     }
 
     /**

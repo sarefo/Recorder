@@ -240,6 +240,8 @@ class FileManager {
         // Add dialog to body
         document.body.appendChild(dialogOverlay);
 
+        this.revealCurrentFile(filesList);
+
         // Focus search input after a brief delay (for mobile keyboard)
         //setTimeout(() => searchInput.focus(), 100);
     }
@@ -403,6 +405,9 @@ class FileManager {
             fileItem.dataset.file = file.file;
             fileItem.dataset.name = file.name.toLowerCase();
             fileItem.dataset.category = category.toLowerCase();
+            if (file.file === this.currentFilePath) {
+                fileItem.classList.add('current');
+            }
 
             // Add metadata indicators
             const starButton = this.metadataUI.createStarButton(file.file, fileItem);
@@ -513,6 +518,29 @@ class FileManager {
         }
 
         return categoryContainer;
+    }
+
+    /**
+     * Opens the region and folder holding the tune that is open right now and
+     * scrolls it into view, so a tune loaded via random can be found (and
+     * long-pressed to tag it) without hunting for it
+     * @param {HTMLElement} container - The files list
+     */
+    revealCurrentFile(container) {
+        const item = container.querySelector('.file-item.current');
+        if (!item) return;
+
+        const section = item.closest('.files-region');
+        const regionHeader = section?.querySelector('.region-button');
+        if (regionHeader && regionHeader.getAttribute('aria-expanded') !== 'true') {
+            this.toggleRegion(section, regionHeader, { scroll: false });
+        }
+
+        const category = item.closest('.files-category');
+        category?.querySelector('.files-items')?.classList.remove('collapsed');
+        category?.querySelector('.folder-button')?.setAttribute('aria-expanded', 'true');
+
+        item.scrollIntoView({ block: 'center' });
     }
 
     toggleFolder(categoryContainer, folderButton) {

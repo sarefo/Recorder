@@ -337,3 +337,11 @@
         transform: translateY(-2px);
     }
 }
+
+/* The tune that is open right now */
+.file-item.current {
+    background: var(--color-primary-soft);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary-hover);
+    font-weight: var(--font-weight-bold, 700);
+}

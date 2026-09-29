@@ -34,6 +34,13 @@ class ShareManager {
         const url = new URL(window.location.href.split('?')[0]);
         url.searchParams.set('abc', encodedAbc);
 
+        // Remember which file the tune came from, so a reload can still tag
+        // it and find it in the file list
+        const filePath = this.player.fileManager?.currentFilePath;
+        if (filePath) {
+            url.searchParams.set('file', filePath);
+        }
+
         // Update browser URL without reloading the page
         window.history.replaceState({}, '', url.toString());
     }
@@ -50,8 +57,14 @@ class ShareManager {
                 // Validate basic ABC structure
                 if (decodedAbc.includes('X:') && decodedAbc.includes('K:')) {
                     this.player.notationParser.currentAbc = decodedAbc;
-                    this.player.fileManager.currentFilePath = null;
-                    this.player.fileManager.metadataUI.updateInlineTagButton(null);
+
+                    // Only trust a file param that names a real file
+                    const fileParam = urlParams.get('file');
+                    const fileManager = this.player.fileManager;
+                    const filePath = fileManager.fileList.some(f => f.file === fileParam)
+                        ? fileParam : null;
+                    fileManager.currentFilePath = filePath;
+                    fileManager.metadataUI.updateInlineTagButton(filePath);
                     this.player.render();
 
                     // Add a small message to indicate successful loading

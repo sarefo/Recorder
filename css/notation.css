@@ -69,3 +69,33 @@
    No filter needed — and the previous invert() was actively darkening
    an already-bright color. The playing-note keeps its inline orange
    fill via the !important rule above. */
+
+/* Long-press anywhere in the score is a gesture (anchors, tags), never a
+   text selection or the browser's callout menu */
+#abc-notation {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* The title and the status mark beside it open the tune's tag menu */
+#abc-notation .score-title-taggable,
+#abc-notation .score-title-mark {
+    cursor: pointer;
+}
+
+#abc-notation .score-title-dot {
+    stroke: rgba(0, 0, 0, 0.15);
+    stroke-width: 1;
+}
+
+#abc-notation .score-title-dot.untagged {
+    fill: none;
+    stroke: var(--color-border-strong);
+    stroke-width: 1.5;
+    stroke-dasharray: 2 2;
+}
+
+#abc-notation .score-title-star {
+    fill: #f5b301;
+}
