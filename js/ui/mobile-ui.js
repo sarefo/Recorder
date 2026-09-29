@@ -2,7 +2,7 @@
  * Manages mobile-specific UI behavior.
  *
  * Layout: one bar of large icon buttons for the controls used constantly
- * (play, loop, fingering, fingering system, files, random), plus two toggles:
+ * (play, loop, files, random, fingering, fingering system), plus two toggles:
  * "more" opens a full-screen overlay holding every other control, and "hide"
  * removes the bar entirely (focus mode) leaving a small restore button.
  * The bar sits at the top by default or as a rail on the right edge.
@@ -307,8 +307,8 @@ class MobileUI {
 
         append(mainRow, [
             byId('play-button'), byId('loop-button'),
-            byId('show-fingering'), byId('system-toggle'),
             byId('files-button'), byId('random-abc-button'),
+            byId('show-fingering'), byId('system-toggle'),
         ]);
 
         const spacer = document.createElement('div');
