@@ -86,6 +86,7 @@ class AbcPlayer {
         this.initializeEventListeners();
 
         this.shareManager = new ShareManager(this);
+        this.backGuard = new BackGuard(this);
 
         // Mobile detection is now handled by MobileUI class
         this.isMobile = window.innerWidth <= 768;
