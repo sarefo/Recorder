@@ -111,6 +111,7 @@ class AbcPlayer {
     async pasteFromClipboard() {
         const text = await Utils.readFromClipboard();
         if (text && text.includes('X:') && text.includes('K:')) {
+            this.mobileUI.endTransposeMode(true);
             this.notationParser.currentAbc = text;
             this.fileManager.currentFilePath = null;
             this.fileManager.metadataUI.updateInlineTagButton(null);
@@ -141,6 +142,11 @@ class AbcPlayer {
         if (transposedAbc !== this.notationParser.currentAbc) {
             this.notationParser.currentAbc = transposedAbc;
             this.render();
+
+            const key = transposedAbc.match(/^K:\s*(\S+)/m);
+            if (key) {
+                Utils.showFeedback(`Key: ${key[1]}`, 1200);
+            }
         }
     }
 

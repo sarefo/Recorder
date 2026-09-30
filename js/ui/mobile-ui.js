@@ -6,11 +6,17 @@
  * "more" opens a full-screen overlay holding every other control, and "hide"
  * removes the bar entirely (focus mode) leaving a small restore button.
  * The bar sits at the top by default or as a rail on the right edge.
+ *
+ * Transposing happens in its own mode so the score stays visible: the
+ * overlay's transpose button closes the overlay and shows a small 2x2 panel
+ * in the top right corner (accept/reject, key up/key down).
  */
 class MobileUI {
     constructor(player) {
         this.player = player;
         this.overlayOpen = false;
+        this.transposing = false;
+        this.abcBeforeTranspose = null;
 
         const settings = player.settingsManager;
         this.barPosition = settings.get('mobileBarPosition') === 'right' ? 'right' : 'top';
@@ -25,6 +31,9 @@ class MobileUI {
         notes: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M9 11h6M9 15h6"/></svg>',
         clear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l5 5-10 10H6l-3-3z"/><path d="M9 21h12"/></svg>',
         barTop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="3" y="4" width="18" height="4" fill="currentColor"/></svg>',
+        transpose: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20V4M4 8l4-4 4 4M16 4v16M12 16l4 4 4-4"/></svg>',
+        accept: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>',
+        reject: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
         barRight: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="16" y="4" width="5" height="16" fill="currentColor"/></svg>'
     };
 
@@ -39,6 +48,10 @@ class MobileUI {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.overlayOpen) {
                 this.setOverlayOpen(false);
+            } else if (e.key === 'Escape' && this.transposing) {
+                this.endTransposeMode(false);
+            } else if (e.key === 'Enter' && this.transposing) {
+                this.endTransposeMode(true);
             }
         });
     }
@@ -83,6 +96,9 @@ class MobileUI {
      * @param {boolean} open - Whether the overlay should be open
      */
     setOverlayOpen(open) {
+        if (open) {
+            this.endTransposeMode(true);
+        }
         this.overlayOpen = open;
         this.applyMobileState();
     }
@@ -93,6 +109,7 @@ class MobileUI {
      * @param {boolean} hidden - Whether the bar should be hidden
      */
     setBarHidden(hidden) {
+        this.endTransposeMode(true);
         this.barHidden = hidden;
         this.overlayOpen = false;
         this.player.settingsManager.set('mobileBarHidden', hidden);
@@ -114,6 +131,36 @@ class MobileUI {
         this.player.settingsManager.set('mobileBarPosition', position);
         this.applyMobileState();
         this.notifyLayoutChanged();
+    }
+
+    /**
+     * Closes the overlay and shows the transpose panel, remembering the
+     * current ABC so the change can be rejected
+     */
+    startTransposeMode() {
+        this.abcBeforeTranspose = this.player.notationParser.currentAbc;
+        this.transposing = true;
+        this.overlayOpen = false;
+        this.applyMobileState();
+    }
+
+    /**
+     * Leaves transpose mode. Called with keep = true whenever something else
+     * takes over (overlay, focus mode, another tune loading), so a transposition
+     * is only ever undone by an explicit reject.
+     * @param {boolean} keep - Keep the transposed music (false restores the original)
+     */
+    endTransposeMode(keep) {
+        if (!this.transposing) return;
+        this.transposing = false;
+
+        if (!keep && this.abcBeforeTranspose !== null &&
+            this.abcBeforeTranspose !== this.player.notationParser.currentAbc) {
+            this.player.notationParser.currentAbc = this.abcBeforeTranspose;
+            this.player.render();
+        }
+        this.abcBeforeTranspose = null;
+        this.applyMobileState();
     }
 
     /**
@@ -165,6 +212,11 @@ class MobileUI {
             overlay.classList.toggle('open', overlayOpen);
         }
 
+        const transposePanel = document.getElementById('mobile-transpose-panel');
+        if (transposePanel) {
+            transposePanel.classList.toggle('open', this.transposing && !this.barHidden);
+        }
+
         const moreButton = document.getElementById('mobile-more-toggle');
         if (moreButton) {
             moreButton.classList.toggle('active', overlayOpen);
@@ -183,6 +235,7 @@ class MobileUI {
         body.classList.toggle('mobile-bar-right', this.barPosition === 'right');
         body.classList.toggle('mobile-bar-hidden', this.barHidden);
         body.classList.toggle('mobile-overlay-open', overlayOpen);
+        body.classList.toggle('mobile-transposing', this.transposing);
     }
 
     /**
@@ -198,9 +251,16 @@ class MobileUI {
         if (overlay) {
             overlay.classList.remove('open');
         }
+        // Desktop has the transpose buttons inline; keep whatever was transposed
+        this.transposing = false;
+        this.abcBeforeTranspose = null;
+        const transposePanel = document.getElementById('mobile-transpose-panel');
+        if (transposePanel) {
+            transposePanel.classList.remove('open');
+        }
 
         document.body.classList.remove('mobile-controls-active', 'mobile-bar-right',
-            'mobile-bar-hidden', 'mobile-overlay-open');
+            'mobile-bar-hidden', 'mobile-overlay-open', 'mobile-transposing');
 
         const controlBar = document.querySelector('.control-bar');
         const playbackControls = document.querySelector('.playback-controls');
@@ -352,7 +412,9 @@ class MobileUI {
 
         // Playback
         group([document.querySelector('.tempo-control')]).classList.add('mobile-overlay-wide');
-        group([byId('transpose-down'), byId('transpose-up'), byId('tuning-button')]);
+        const transposeButton = this.createIconButton('mobile-transpose-button', MobileUI.ICONS.transpose,
+            'Transpose', () => this.startTransposeMode());
+        group([transposeButton, byId('tuning-button')]);
         group([byId('chords-toggle'), byId('voices-toggle'), byId('metronome-toggle')]);
 
         // Song: status/favorite, practice notes, note marks
@@ -385,6 +447,25 @@ class MobileUI {
             byId('copy-button'), byId('paste-button'), byId('share-button'),
             document.querySelector('.tune-navigation'),
         ]).classList.add('mobile-overlay-wide');
+
+        // --- Transpose panel: accept/reject beside key up/key down ---
+        let transposePanel = byId('mobile-transpose-panel');
+        if (!transposePanel) {
+            transposePanel = document.createElement('div');
+            transposePanel.id = 'mobile-transpose-panel';
+            transposePanel.className = 'mobile-extras-row';
+            document.body.appendChild(transposePanel);
+        }
+        transposePanel.innerHTML = '';
+        // Grid fills row by row: accept, up / reject, down
+        append(transposePanel, [
+            this.createIconButton('mobile-transpose-accept', MobileUI.ICONS.accept,
+                'Keep this key', () => this.endTransposeMode(true)),
+            byId('transpose-up'),
+            this.createIconButton('mobile-transpose-reject', MobileUI.ICONS.reject,
+                'Back to the original key', () => this.endTransposeMode(false)),
+            byId('transpose-down'),
+        ]);
 
         // --- Restore button, only visible while the bar is hidden ---
         if (!byId('mobile-show-bar')) {
