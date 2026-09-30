@@ -326,6 +326,7 @@ class UIControls {
         const settingsSection = document.createElement('div');
         settingsSection.className = 'control-section settings-controls';
         settingsSection.appendChild(this.createSettingsButton());
+        settingsSection.appendChild(this.createReloadButton());
         return settingsSection;
     }
 
@@ -372,6 +373,31 @@ class UIControls {
         });
 
         return settingsButton;
+    }
+
+    /**
+     * Creates the reload button: restarts the app on a fresh copy of the
+     * open tune file. A plain browser reload would restore the ABC kept in
+     * the URL, i.e. what was on screen, not what is in the file now.
+     * @returns {HTMLElement} The reload button
+     */
+    createReloadButton() {
+        const reloadButton = document.createElement('button');
+        reloadButton.id = 'reload-button';
+        reloadButton.title = 'Reload the app and the tune file';
+        reloadButton.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;pointer-events:none"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>';
+
+        reloadButton.addEventListener('click', () => {
+            const filePath = this.player.fileManager.currentFilePath;
+            if (filePath) {
+                window.location.href = `${window.location.pathname}?file=${encodeURIComponent(filePath)}`;
+            } else {
+                // Pasted or shared ABC has no file to go back to; keep it
+                window.location.reload();
+            }
+        });
+
+        return reloadButton;
     }
 
     /**

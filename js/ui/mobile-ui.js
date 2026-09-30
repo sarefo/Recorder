@@ -351,7 +351,7 @@ class MobileUI {
         const selector = document.querySelector('.file-selector-container');
         moveBack(selector, [byId('files-button'), byId('random-abc-button'), byId('theme-toggle'), byId('help-button')]);
         moveBack(fileControls, [selector, document.querySelector('.tune-navigation')]);
-        moveBack(settingsControls, [byId('settings-button')]);
+        moveBack(settingsControls, [byId('settings-button'), byId('reload-button')]);
         moveBack(notationControls, [byId('copy-button'), byId('paste-button'), byId('share-button'), fileControls]);
 
         // The inline tag button is owned by the desktop control bar directly
@@ -498,10 +498,10 @@ class MobileUI {
                 () => this.setBarPosition(this.barPosition === 'right' ? 'top' : 'right')),
             byId('help-button'),
         ]);
-        // Settings in a group of its own beside the clipboard group
+        // App-level buttons in a group of their own beside the clipboard group
         const lastRow = document.createElement('div');
         lastRow.className = 'mobile-overlay-split mobile-overlay-wide';
-        lastRow.appendChild(group([byId('settings-button')]));
+        lastRow.appendChild(group([byId('settings-button'), byId('reload-button')]));
         lastRow.appendChild(group([
             byId('copy-button'), byId('paste-button'), byId('share-button'),
             document.querySelector('.tune-navigation'),

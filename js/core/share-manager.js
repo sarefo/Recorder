@@ -71,6 +71,13 @@ class ShareManager {
                     this.showLoadMessage("ABC notation loaded from URL");
                     return true;
                 }
+            } else {
+                // A file param alone (the reload button) loads that file fresh
+                const fileParam = urlParams.get('file');
+                if (fileParam && this.player.fileManager.fileList.some(f => f.file === fileParam)) {
+                    this.player.fileManager.loadFile(fileParam);
+                    return true;
+                }
             }
         } catch (e) {
             console.error("Error decoding ABC from URL:", e);

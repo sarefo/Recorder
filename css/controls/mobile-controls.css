@@ -246,7 +246,7 @@ body.mobile-bar-right .mobile-overlay {
 }
 
 /* Single-glyph buttons: match the 24px SVG icons beside them */
-/* Last row: settings on its own, then copy / paste / share */
+/* Last row: settings and reload on their own, then copy / paste / share */
 #mobile-overlay .mobile-overlay-split {
     display: flex;
     gap: var(--space-3);
@@ -258,11 +258,13 @@ body.mobile-bar-right .mobile-overlay {
     min-width: 0;
 }
 
-#mobile-overlay #settings-button {
+#mobile-overlay #settings-button,
+#mobile-overlay #reload-button {
     flex: 0 0 64px;
 }
 
-#mobile-overlay #settings-button svg {
+#mobile-overlay #settings-button svg,
+#mobile-overlay #reload-button svg {
     width: 24px;
     height: 24px;
 }
