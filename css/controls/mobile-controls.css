@@ -316,7 +316,8 @@ body.mobile-bar-right .mobile-overlay {
    Shown instead of the overlay while transposing, so the score stays
    visible and scrollable. Tucked into the top right corner beside "more":
    under the bar when it is on top, left of the rail when it is on the right.
-   Left column accept/reject, right column key up/key down. */
+   Left column accept/reject, right column key up/key down, and with a
+   GitHub token set a save button across the bottom. */
 
 #mobile-transpose-panel {
     display: none;
@@ -369,6 +370,21 @@ body.mobile-bar-right #mobile-transpose-panel {
 
 #mobile-transpose-panel #mobile-transpose-reject {
     color: var(--color-danger);
+}
+
+#mobile-transpose-panel #mobile-transpose-save {
+    grid-column: 1 / -1;
+    width: auto;
+    color: var(--color-primary);
+}
+
+#mobile-transpose-panel #mobile-transpose-save.hidden {
+    display: none;
+}
+
+#mobile-transpose-panel #mobile-transpose-save:disabled {
+    opacity: 0.4;
+    cursor: default;
 }
 
 /* ----- Focus mode restore button ----- */

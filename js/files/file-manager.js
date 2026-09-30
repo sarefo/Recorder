@@ -42,7 +42,9 @@ class FileManager {
             if (!response.ok) {
                 throw new Error(`HTTP error ${response.status}`);
             }
-            const abcContent = await response.text();
+            const fetchedAbc = await response.text();
+            // A tune saved from this device can take a minute or two to deploy
+            const abcContent = this.player.githubSync.recentSave(filePath, fetchedAbc) ?? fetchedAbc;
 
             // Make sure it's valid ABC notation
             if (abcContent.includes('X:') && abcContent.includes('K:')) {

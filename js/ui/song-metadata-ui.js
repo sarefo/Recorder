@@ -463,6 +463,8 @@ class SongMetadataUI {
         `;
         menu.appendChild(statsDiv);
 
+        menu.appendChild(this.createGitHubSection());
+
         // Close button
         const closeButton = document.createElement('button');
         closeButton.className = 'settings-menu-close';
@@ -481,6 +483,83 @@ class SongMetadataUI {
                 document.body.removeChild(overlay);
             }
         });
+    }
+
+    /**
+     * Builds the settings section for the GitHub token that lets transpose
+     * mode save a new key to the tune file in the repo
+     * @returns {HTMLElement} The section
+     */
+    createGitHubSection() {
+        const githubSync = this.fileManager.player.githubSync;
+
+        const section = document.createElement('div');
+        section.className = 'settings-github';
+
+        const heading = document.createElement('p');
+        heading.innerHTML = '<strong>GitHub token</strong>';
+        section.appendChild(heading);
+
+        const help = document.createElement('p');
+        help.className = 'settings-github-help';
+        help.innerHTML = 'Lets transpose mode save a new key to the tune file. ' +
+            '<a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Create a fine-grained token</a> ' +
+            'for sarefo/Recorder with Contents: read and write. It stays in this browser.';
+        section.appendChild(help);
+
+        const status = document.createElement('p');
+        status.className = 'settings-github-status';
+        const showStatus = (text) => {
+            status.textContent = text || (githubSync.hasToken() ? 'Token set on this device.' : 'No token set.');
+        };
+        showStatus();
+        section.appendChild(status);
+
+        const input = document.createElement('input');
+        input.type = 'password';
+        input.className = 'settings-github-input';
+        input.placeholder = 'github_pat_…';
+        input.autocomplete = 'off';
+        input.spellcheck = false;
+        section.appendChild(input);
+
+        const row = document.createElement('div');
+        row.className = 'settings-github-row';
+
+        const saveButton = document.createElement('button');
+        saveButton.className = 'settings-menu-button';
+        saveButton.textContent = 'Save token';
+        saveButton.addEventListener('click', async () => {
+            const token = input.value.trim();
+            if (!token) {
+                showStatus('Paste a token first.');
+                return;
+            }
+            const previous = githubSync.getToken();
+            githubSync.setToken(token);
+            showStatus('Checking…');
+            try {
+                await githubSync.checkToken();
+                input.value = '';
+                showStatus('Token works and is saved.');
+            } catch (error) {
+                githubSync.setToken(previous);
+                showStatus(`Not saved: ${error.message}`);
+            }
+        });
+        row.appendChild(saveButton);
+
+        const removeButton = document.createElement('button');
+        removeButton.className = 'settings-menu-button danger';
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', () => {
+            githubSync.setToken('');
+            showStatus('Token removed.');
+        });
+        row.appendChild(removeButton);
+
+        section.appendChild(row);
+        return section;
     }
 
     /**

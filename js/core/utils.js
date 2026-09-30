@@ -19,7 +19,9 @@ const Utils = {
         feedback.textContent = message;
         feedback.classList.remove('hidden');
         feedback.classList.add('visible');
-        setTimeout(() => {
+        // A newer message must not be hidden by an older message's timer
+        clearTimeout(this.feedbackTimer);
+        this.feedbackTimer = setTimeout(() => {
             feedback.classList.add('hidden');
             feedback.classList.remove('visible');
         }, duration);

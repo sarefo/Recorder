@@ -46,6 +46,7 @@ class AbcPlayer {
         this.tuneManager = new TuneManager(this);
         this.fingeringManager = new FingeringManager(this.fingeringConfig);
         this.transposeManager = new TransposeManager();
+        this.githubSync = new GitHubSync(this);
         this.midiPlayer = new MidiPlayer();
         this.autoScrollManager = new AutoScrollManager(this);
         this.midiPlayer.autoScrollManager = this.autoScrollManager;
@@ -142,6 +143,7 @@ class AbcPlayer {
         if (transposedAbc !== this.notationParser.currentAbc) {
             this.notationParser.currentAbc = transposedAbc;
             this.render();
+            this.mobileUI.countTransposeStep(semitoneShift);
 
             const key = transposedAbc.match(/^K:\s*(\S+)/m);
             if (key) {

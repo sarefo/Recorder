@@ -9,7 +9,8 @@
  *
  * Transposing happens in its own mode so the score stays visible: the
  * overlay's transpose button closes the overlay and shows a small 2x2 panel
- * in the top right corner (accept/reject, key up/key down).
+ * in the top right corner (accept/reject, key up/key down). With a GitHub
+ * token set, a save button below them commits the new key to the repo.
  */
 class MobileUI {
     constructor(player) {
@@ -17,6 +18,8 @@ class MobileUI {
         this.overlayOpen = false;
         this.transposing = false;
         this.abcBeforeTranspose = null;
+        this.transposeSteps = 0;
+        this.savingTranspose = false;
 
         const settings = player.settingsManager;
         this.barPosition = settings.get('mobileBarPosition') === 'right' ? 'right' : 'top';
@@ -33,6 +36,7 @@ class MobileUI {
         barTop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="3" y="4" width="18" height="4" fill="currentColor"/></svg>',
         transpose: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20V4M4 8l4-4 4 4M16 4v16M12 16l4 4 4-4"/></svg>',
         accept: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>',
+        save: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 7.97"/><path d="M12 20v-8M8.5 15.5 12 12l3.5 3.5"/></svg>',
         reject: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
         barRight: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="16" y="4" width="5" height="16" fill="currentColor"/></svg>'
     };
@@ -139,6 +143,7 @@ class MobileUI {
      */
     startTransposeMode() {
         this.abcBeforeTranspose = this.player.notationParser.currentAbc;
+        this.transposeSteps = 0;
         this.transposing = true;
         this.overlayOpen = false;
         this.applyMobileState();
@@ -161,6 +166,53 @@ class MobileUI {
         }
         this.abcBeforeTranspose = null;
         this.applyMobileState();
+    }
+
+    /**
+     * Counts a key up/key down step taken in transpose mode
+     * @param {number} semitones - The step just applied
+     */
+    countTransposeStep(semitones) {
+        if (!this.transposing) return;
+        this.transposeSteps += semitones;
+        this.updateTransposeSaveButton();
+    }
+
+    /**
+     * The save button shows when a token is set and a repo file is open,
+     * and works once the key has actually changed
+     */
+    updateTransposeSaveButton() {
+        const button = document.getElementById('mobile-transpose-save');
+        if (!button) return;
+        const available = this.player.githubSync.hasToken() && !!this.player.fileManager.currentFilePath;
+        button.classList.toggle('hidden', !available);
+        button.disabled = this.savingTranspose || this.transposeSteps === 0;
+    }
+
+    /**
+     * Commits the current transposition to the tune's file in the repo,
+     * then leaves transpose mode keeping the new key
+     */
+    async saveTransposition() {
+        const filePath = this.player.fileManager.currentFilePath;
+        if (!filePath || this.transposeSteps === 0 || this.savingTranspose) return;
+
+        this.savingTranspose = true;
+        this.updateTransposeSaveButton();
+        Utils.showFeedback('Saving to GitHub…', 10000);
+
+        try {
+            const { key } = await this.player.githubSync.saveTransposition(filePath, this.transposeSteps);
+            this.endTransposeMode(true);
+            Utils.showFeedback(`Saved in ${key}, live on all devices in about a minute`, 3500);
+        } catch (error) {
+            console.error('Saving transposition failed:', error);
+            Utils.showFeedback(`Not saved: ${error.message}`, 4000);
+        } finally {
+            this.savingTranspose = false;
+            this.updateTransposeSaveButton();
+        }
     }
 
     /**
@@ -216,6 +268,7 @@ class MobileUI {
         if (transposePanel) {
             transposePanel.classList.toggle('open', this.transposing && !this.barHidden);
         }
+        this.updateTransposeSaveButton();
 
         const moreButton = document.getElementById('mobile-more-toggle');
         if (moreButton) {
@@ -465,6 +518,8 @@ class MobileUI {
             this.createIconButton('mobile-transpose-reject', MobileUI.ICONS.reject,
                 'Back to the original key', () => this.endTransposeMode(false)),
             byId('transpose-down'),
+            this.createIconButton('mobile-transpose-save', MobileUI.ICONS.save,
+                'Save this key to the tune file on GitHub', () => this.saveTransposition()),
         ]);
 
         // --- Restore button, only visible while the bar is hidden ---

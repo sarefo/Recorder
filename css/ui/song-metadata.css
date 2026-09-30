@@ -269,6 +269,9 @@
     padding: var(--space-6);
     max-width: 400px;
     width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
     box-shadow: var(--shadow-xl);
     position: relative;
 }
@@ -351,6 +354,57 @@
 
 .settings-stats li {
     margin: var(--space-1) 0;
+}
+
+/* GitHub token (saving transpositions to the repo) */
+.settings-github {
+    margin-top: var(--space-4);
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+}
+
+.settings-github p {
+    margin: 0 0 var(--space-2) 0;
+}
+
+.settings-github-help {
+    color: var(--color-text-muted);
+}
+
+.settings-github-status {
+    font-weight: var(--font-weight-medium);
+}
+
+.settings-github-input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--space-2) var(--space-3);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-md);
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+}
+
+.settings-github-row {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.settings-github-row .settings-menu-button {
+    text-align: center;
+}
+
+.settings-github-row .settings-menu-button:first-child {
+    flex: 2 1 0;
+}
+
+.settings-github-row .settings-menu-button.danger {
+    flex: 1 1 0;
 }
 
 /* =========================================================================
