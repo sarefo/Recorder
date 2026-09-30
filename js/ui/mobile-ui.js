@@ -318,10 +318,11 @@ class MobileUI {
         const controlBar = document.querySelector('.control-bar');
         const playbackControls = document.querySelector('.playback-controls');
         const fingeringControls = document.querySelector('.fingering-controls');
+        const settingsControls = document.querySelector('.settings-controls');
         const notationControls = document.querySelector('.notation-controls');
 
         if (controlBar) {
-            for (const section of [playbackControls, fingeringControls, notationControls]) {
+            for (const section of [playbackControls, fingeringControls, settingsControls, notationControls]) {
                 if (section && section.parentElement !== controlBar) {
                     controlBar.appendChild(section);
                 }
@@ -350,6 +351,7 @@ class MobileUI {
         const selector = document.querySelector('.file-selector-container');
         moveBack(selector, [byId('files-button'), byId('random-abc-button'), byId('theme-toggle'), byId('help-button')]);
         moveBack(fileControls, [selector, document.querySelector('.tune-navigation')]);
+        moveBack(settingsControls, [byId('settings-button')]);
         moveBack(notationControls, [byId('copy-button'), byId('paste-button'), byId('share-button'), fileControls]);
 
         // The inline tag button is owned by the desktop control bar directly
@@ -496,10 +498,15 @@ class MobileUI {
                 () => this.setBarPosition(this.barPosition === 'right' ? 'top' : 'right')),
             byId('help-button'),
         ]);
-        group([
+        // Settings in a group of its own beside the clipboard group
+        const lastRow = document.createElement('div');
+        lastRow.className = 'mobile-overlay-split mobile-overlay-wide';
+        lastRow.appendChild(group([byId('settings-button')]));
+        lastRow.appendChild(group([
             byId('copy-button'), byId('paste-button'), byId('share-button'),
             document.querySelector('.tune-navigation'),
-        ]).classList.add('mobile-overlay-wide');
+        ]));
+        content.appendChild(lastRow);
 
         // --- Transpose panel: accept/reject beside key up/key down ---
         let transposePanel = byId('mobile-transpose-panel');

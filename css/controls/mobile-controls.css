@@ -246,6 +246,27 @@ body.mobile-bar-right .mobile-overlay {
 }
 
 /* Single-glyph buttons: match the 24px SVG icons beside them */
+/* Last row: settings on its own, then copy / paste / share */
+#mobile-overlay .mobile-overlay-split {
+    display: flex;
+    gap: var(--space-3);
+    min-width: 0;
+}
+
+#mobile-overlay .mobile-overlay-split > .mobile-overlay-group:last-child {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+#mobile-overlay #settings-button {
+    flex: 0 0 64px;
+}
+
+#mobile-overlay #settings-button svg {
+    width: 24px;
+    height: 24px;
+}
+
 #mobile-overlay #theme-toggle,
 #mobile-overlay #help-button {
     font-size: 20px;

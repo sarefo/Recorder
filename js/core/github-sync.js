@@ -173,7 +173,7 @@ class GitHubSync {
     async request(url, options = {}) {
         const token = this.getToken();
         if (!token) {
-            throw new Error('No GitHub token set (Files → ⚙️)');
+            throw new Error('No GitHub token set (⚙ settings)');
         }
 
         let response;

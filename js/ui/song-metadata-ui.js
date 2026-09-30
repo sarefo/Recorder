@@ -379,23 +379,6 @@ class SongMetadataUI {
     }
 
     /**
-     * Create settings menu button
-     * @returns {HTMLElement} Settings button
-     */
-    createSettingsButton() {
-        const button = document.createElement('button');
-        button.className = 'settings-button';
-        button.innerHTML = '⚙️';
-        button.title = 'Settings & Export/Import';
-
-        button.addEventListener('click', () => {
-            this.showSettingsMenu();
-        });
-
-        return button;
-    }
-
-    /**
      * Show settings menu with export/import options
      */
     showSettingsMenu() {

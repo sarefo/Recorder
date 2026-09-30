@@ -175,17 +175,12 @@ class FileManager {
         const header = document.createElement('div');
         header.className = 'files-dialog-header';
 
-        // Create title and settings button container
         const titleContainer = document.createElement('div');
         titleContainer.className = 'files-dialog-title-container';
 
         const title = document.createElement('h2');
         title.textContent = 'ABC Files';
         titleContainer.appendChild(title);
-
-        // Add settings button
-        const settingsButton = this.metadataUI.createSettingsButton();
-        titleContainer.appendChild(settingsButton);
 
         header.appendChild(titleContainer);
 
