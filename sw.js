@@ -3,9 +3,14 @@
  * Handles offline caching of app shell and ABC music files
  */
 
-const CACHE_VERSION = 'abc-player-v3-2026-10-02-3';
+const CACHE_VERSION = 'abc-player-v3-2026-10-02-4';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
-const ABC_FILES_CACHE = `${CACHE_VERSION}-abc-files`;
+// Not keyed by CACHE_VERSION: a deploy used to wipe every cached tune, so
+// after each one all tunes were downloaded again and a tune the user opened
+// waited on the network. Each entry now carries the content hash from
+// abc-file-list.js instead, and only tunes whose hash changed are refetched.
+const ABC_FILES_CACHE = 'abc-player-abc-files';
+const ABC_HASH_HEADER = 'X-Abc-Hash';
 
 // App shell files to cache on install
 const APP_SHELL_FILES = [
@@ -117,14 +122,9 @@ self.addEventListener('fetch', (event) => {
     const { request } = event;
     const url = new URL(request.url);
 
-    // Handle ABC file requests.
-    // Network-first, like the app shell: tunes get edited (chords added, notes
-    // corrected) and cache-first meant those edits stayed invisible until the
-    // next CACHE_VERSION bump happened to purge the cache -- a hard reload does
-    // not help, since the .abc file is a subresource fetched by app JS and so
-    // still goes through this handler. The cache fallback keeps offline working.
+    // Handle ABC file requests (see abcFileStrategy)
     if (url.pathname.includes('/Recorder/abc/')) {
-        event.respondWith(networkFirstStrategy(request, ABC_FILES_CACHE));
+        event.respondWith(abcFileStrategy(event));
         return;
     }
 
@@ -183,6 +183,76 @@ async function cacheFirstStrategy(request, cacheName) {
             statusText: 'Service Unavailable'
         });
     }
+}
+
+/**
+ * Store a tune in the ABC cache under its plain URL, tagged with its hash
+ * @param {Cache} cache
+ * @param {string} key - URL without the ?v= query
+ * @param {Response} response - A 200 network response
+ * @param {string|null} hash - Content hash from abc-file-list.js
+ */
+async function putAbcFile(cache, key, response, hash) {
+    const headers = new Headers(response.headers);
+    if (hash) {
+        headers.set(ABC_HASH_HEADER, hash);
+    }
+    const body = await response.blob();
+    await cache.put(key, new Response(body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers
+    }));
+}
+
+/**
+ * ABC files: the app asks for abc/<file>?v=<hash>. When the cached copy has
+ * that hash it is current, so it answers at once and the network is only
+ * asked in the background (a tune saved from the phone through the GitHub
+ * API changes without a new hash). Otherwise the copy is missing or stale
+ * and this falls through to network-first with the cache as fallback.
+ * @param {FetchEvent} event
+ */
+async function abcFileStrategy(event) {
+    const url = new URL(event.request.url);
+    const hash = url.searchParams.get('v');
+    url.search = '';
+    const key = url.href;
+
+    const cache = await caches.open(ABC_FILES_CACHE);
+    const cachedResponse = await cache.match(key);
+    const cachedHash = cachedResponse?.headers.get(ABC_HASH_HEADER) ?? null;
+
+    if (cachedResponse && (!hash || cachedHash === hash)) {
+        event.waitUntil(
+            fetch(key, { cache: 'no-cache' })
+                .then((response) => response.status === 200
+                    ? putAbcFile(cache, key, response, hash ?? cachedHash)
+                    : null)
+                .catch(() => null)
+        );
+        return cachedResponse;
+    }
+
+    const networkPromise = fetch(key, { cache: 'no-cache' })
+        .then(async (response) => {
+            if (response.status === 200) {
+                await putAbcFile(cache, key, response.clone(), hash);
+            }
+            return response;
+        })
+        .catch(() => null);
+
+    if (cachedResponse) {
+        const timeout = new Promise((resolve) =>
+            setTimeout(() => resolve(null), NETWORK_TIMEOUT_MS));
+        return (await Promise.race([networkPromise, timeout])) || cachedResponse;
+    }
+
+    return (await networkPromise) || new Response('Offline - resource not available', {
+        status: 503,
+        statusText: 'Service Unavailable'
+    });
 }
 
 /**
@@ -260,7 +330,7 @@ async function networkFirstStrategy(request, cacheName) {
 self.addEventListener('message', (event) => {
     if (event.data && event.data.type === 'CACHE_ABC_FILES') {
         // Cache all ABC files in background
-        cacheAbcFiles(event.data.files);
+        event.waitUntil(cacheAbcFiles(event.data.files));
     }
 
     if (event.data && event.data.type === 'SKIP_WAITING') {
@@ -289,21 +359,19 @@ async function cacheAbcFiles(files) {
             const batch = files.slice(i, i + batchSize);
             const promises = batch.map(async (file) => {
                 try {
-                    const url = `/Recorder/abc/${file.file}`;
+                    const url = new URL(`/Recorder/abc/${file.file}`, self.location.origin).href;
 
-                    // Already cached for this build: skip it. The cache is
-                    // keyed by CACHE_VERSION, which every deploy bumps, so
-                    // edited tunes are still refetched once per deploy --
-                    // without this, every app start re-downloaded all tunes
-                    // and the tune the user picked queued behind them.
-                    if (await cache.match(url)) {
+                    // Already cached with this content: skip it, so only
+                    // tunes that changed since the last pass are downloaded
+                    const cachedResponse = await cache.match(url);
+                    if (cachedResponse && cachedResponse.headers.get(ABC_HASH_HEADER) === file.hash) {
                         cached++;
                         return;
                     }
 
-                    const response = await fetch(url);
+                    const response = await fetch(url, { cache: 'no-cache' });
                     if (response && response.status === 200) {
-                        await cache.put(url, response);
+                        await putAbcFile(cache, url, response, file.hash);
                         cached++;
 
                         // Send progress update to clients
@@ -322,6 +390,15 @@ async function cacheAbcFiles(files) {
             });
 
             await Promise.all(promises);
+        }
+
+        // The cache outlives deploys, so drop tunes that were renamed or removed
+        const listed = new Set(files.map(file =>
+            new URL(`/Recorder/abc/${file.file}`, self.location.origin).href));
+        for (const request of await cache.keys()) {
+            if (!listed.has(request.url)) {
+                await cache.delete(request);
+            }
         }
 
         console.log(`[Service Worker] Cached ${cached}/${files.length} ABC files`);

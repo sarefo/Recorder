@@ -38,7 +38,10 @@ class FileManager {
      */
     async loadFile(filePath) {
         try {
-            const response = await fetch(`abc/${filePath}`);
+            // The content hash lets the service worker answer from its cache
+            // at once when that copy is current, instead of asking the network
+            const hash = this.fileList.find(f => f.file === filePath)?.hash;
+            const response = await fetch(hash ? `abc/${filePath}?v=${hash}` : `abc/${filePath}`);
             if (!response.ok) {
                 throw new Error(`HTTP error ${response.status}`);
             }

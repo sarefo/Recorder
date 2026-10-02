@@ -2,6 +2,7 @@
 import os
 import re
 import json
+import hashlib
 
 def is_valid_abc_file(abc_file_path):
     """Check if ABC file has a valid X: field with a number."""
@@ -29,6 +30,13 @@ def extract_title(abc_file_path):
     
     # Return filename without extension if no title found
     return os.path.basename(abc_file_path).replace('.abc', '')
+
+def content_hash(path):
+    """Short hash of a file's content (line endings normalized), so the service
+    worker can tell whether its cached copy of a tune is current."""
+    with open(path, 'rb') as f:
+        data = f.read().replace(b'\r\n', b'\n')
+    return hashlib.sha1(data).hexdigest()[:10]
 
 def generate_abc_file_list():
     """Scan the abc directory and generate a file list."""
@@ -67,7 +75,8 @@ def generate_abc_file_list():
                 file_list.append({
                     "name": title,
                     "file": rel_path.replace('\\', '/'),  # Use forward slashes for URLs
-                    "category": category
+                    "category": category,
+                    "hash": content_hash(full_path)
                 })
     
     # Sort alphabetically by category then name
