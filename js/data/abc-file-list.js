@@ -519,6 +519,18 @@ class AbcFileList {
                 "hash": "1607ed8e63"
         },
         {
+                "name": "Ol' Kaunis Kes\u00e4ilta",
+                "file": "finnish/ol kaunis kesailta.abc",
+                "category": "finnish",
+                "hash": "0c7dd5441c"
+        },
+        {
+                "name": "Tuu, Tuu, Tupakkarulla",
+                "file": "finnish/tuu tuu tupakkarulla.abc",
+                "category": "finnish",
+                "hash": "74a6a1c0b5"
+        },
+        {
                 "name": "Belle qui tiens ma vie",
                 "file": "french/belle qui tiens ma vie.abc",
                 "category": "french",
@@ -583,6 +595,18 @@ class AbcFileList {
                 "file": "hungarian/bujj bujj zold ag.abc",
                 "category": "hungarian",
                 "hash": "8475c6f48e"
+        },
+        {
+                "name": "Csak Egy Sz\u00e9p L\u00e1ny Van a Vil\u00e1gon",
+                "file": "hungarian/csak egy szep lany van a vilagon.abc",
+                "category": "hungarian",
+                "hash": "55faf7b8eb"
+        },
+        {
+                "name": "Tavaszi Sz\u00e9l Vizet \u00c1raszt",
+                "file": "hungarian/tavaszi szel vizet araszt.abc",
+                "category": "hungarian",
+                "hash": "9a741a0197"
         },
         {
                 "name": "Vande Mataram",
@@ -1027,6 +1051,18 @@ class AbcFileList {
                 "file": "trinidadian/matilda.abc",
                 "category": "trinidadian",
                 "hash": "f06d52919c"
+        },
+        {
+                "name": "Dandini Dandini Dastana",
+                "file": "turkish/dandini dandini dastana.abc",
+                "category": "turkish",
+                "hash": "ae008f4b7c"
+        },
+        {
+                "name": "Tin Tin Tinimini Han\u0131m",
+                "file": "turkish/tin tin tinimini hanim.abc",
+                "category": "turkish",
+                "hash": "472d21b977"
         },
         {
                 "name": "\u00dcsk\u00fcdar'a Gider \u0130ken",
