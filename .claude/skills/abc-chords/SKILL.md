@@ -97,7 +97,9 @@ honors the same line mid-tune, so a section can switch patterns. The hits are
 eighth notes, so they sound short.
 
 Used so far: tango 3-3-2 `bzzczzcz` (Por una cabeza, 2/4 source doubled to
-4/4, so one bar = one source bar). Check the result by reading the chord
+4/4, so one bar = one source bar); calypso `fzcfzcfc` (Banana Boat Song:
+3-3-2 bass under the D-DU-UDU strum). abcjs alternates root and fifth on
+successive bass hits. Check the result by reading the chord
 track slots from `tune.setUpAudio({}).tracks` in Node.
 
 ## Verify before committing

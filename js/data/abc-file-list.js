@@ -636,7 +636,7 @@ class AbcFileList {
                 "name": "Banana Boat Song (Day-O)",
                 "file": "jamaican/banana boat song.abc",
                 "category": "jamaican",
-                "hash": "45fcb01fad"
+                "hash": "ea4cb31a37"
         },
         {
                 "name": "Hana",

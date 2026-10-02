@@ -4,8 +4,11 @@ O:Jamaica (mento work song)
 N:The full 32-bar form: the "Day-o" refrain, the "Come Mister tally man" verse and the "Six foot, seven foot" verse
 N:Melody from the flutetunes.com flute setting, transposed down a fifth into Belafonte's published key of F; diffed note for note against that setting's MIDI
 N:Chords derived from the melody and checked against the Hooktheory transcription of the Belafonte recording (F and C7 throughout the verse) and the Hal Leonard edition's key
+N:The accompaniment uses a calypso pattern (%%MIDI gchord) instead of the default oom-pah:
+N:bass on the 3-3-2 (beat 1, the "and" of 2, beat 4), chord strums on beat 2, the "and" of 3 and the "and" of 4
 M:4/4
 Q:1/4=120
+%%MIDI gchord fzcfzcfc
 L:1/8
 K:F
 "F" f3 c4 f |"C7" edc "F" A4-A |"F" F F2 A2 A2 F |"C7" GF G2 A c3 |
