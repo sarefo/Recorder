@@ -1,0 +1,21 @@
+X:1
+T:Minuet in G Minor
+C:Christian Petzold, long attributed to Johann Sebastian Bach
+O:Notebook for Anna Magdalena Bach (1725), BWV Anh. 115
+N:Transposed down a whole step from G minor to F minor so it fits the recorder (C4 to Ab5).
+N:Melody and ornaments from the Mutopia Project edition of the Bach-Gesellschaft text
+N:(anna-magdalena-05). Chords read from that edition's bass line. Cross-checked against
+N:the flutetunes.com flute setting, which moves the bass's eighth-note runs in bars 4, 8,
+N:12 and 28 up into the melody; this file keeps the original held notes there.
+M:3/4
+Q:1/4=108
+L:1/8
+K:Fm
+|:"Fm"a2 g2 f2 |"Cm/Eb"g2 c2 c2 |"Db"f2 FG AB |"C"c6 |
+"Db"d2 ed cB |"Ab"c2 dc BA |"C7"B2 cB "Fm"AB |"C"PG6 |
+"Fm"a2 Pg2 f2 |"Cm/Eb"g2 c2 c2 |"Db"f2 FG AB |"C"c6 |
+"F7"Me2 fe dc |"Bbm"d2 ed "Eb"cB |"Ab"c2 "Db"f2 "Eb"PB2 |"Ab"A6 :|
+|:"Ab"c2 AB c=d |"Eb"e2 f2 g2 |"Fm"a2 fg "Bb7"af |"Eb"g2 fg e2 |
+"Eb"EF GA Bc |"Bbm"d2 Mc2 "Eb7"B2 |"Ab"e2 A2 "Eb"G2 |"Ab"A6 |
+"F"F2 cB c2 |"Bbm"F2 dc d2 |"Fm"Fc "C7"=EB "Fm"FA |"C"G4 z2 |
+"C"C=D =EF GA |"Bbm"B2 A2 "C7"G2 |"Fm"PAB/c/ F2 "C"=E2 |"Fm"F6 :|

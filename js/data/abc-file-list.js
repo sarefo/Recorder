@@ -203,6 +203,11 @@ class AbcFileList {
                 "category": "classical/bach"
         },
         {
+                "name": "Minuet in G Minor",
+                "file": "classical/bach/minuet_in_g_minor.abc",
+                "category": "classical/bach"
+        },
+        {
                 "name": "Allein Gott in der H\u00f6h sei Ehr",
                 "file": "classical/bach/chorales/allein gott in der hoeh sei ehr.abc",
                 "category": "classical/bach/chorales"
