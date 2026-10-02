@@ -203,6 +203,11 @@ class AbcFileList {
                 "category": "classical/bach"
         },
         {
+                "name": "Minuet in G Major",
+                "file": "classical/bach/minuet_in_g_major.abc",
+                "category": "classical/bach"
+        },
+        {
                 "name": "Minuet in G Minor",
                 "file": "classical/bach/minuet_in_g_minor.abc",
                 "category": "classical/bach"

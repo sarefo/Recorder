@@ -1,0 +1,19 @@
+X:1
+T:Minuet in G Major
+C:Christian Petzold, long attributed to Johann Sebastian Bach
+O:Notebook for Anna Magdalena Bach (1725), BWV Anh. 114
+N:Transposed down a whole step from G major to F major so it fits the recorder (C4 to A5).
+N:Melody, ornaments and the grace note in bar 8 from the Mutopia Project edition of the
+N:Bach-Gesellschaft text (anna-magdalena-04). Chords read from that edition's bass line.
+M:3/4
+Q:1/4=108
+L:1/8
+K:F
+|:"F"c2 FG AB |"F"c2 F2 F2 |"Bb"d2 MBc de |"F"f2 F2 F2 |
+"Gm"MB2 cB AG |"F"A2 BA GF |"C"E2 FG "F"AF |"C"{A}G6 |
+"F"c2 FG AB |"F"c2 F2 F2 |"Bb"d2 MBc de |"F"f2 F2 F2 |
+"Gm"MB2 cB "C7"AG |"F"A2 BA GF |"Gm"G2 "C7"AG FE |"F"F6 :|
+|:"F"a2 fg af |"C"g2 cd ec |"Dm"f2 de fc |"G"=B2 A=B G2 |
+"G7"GA =Bc de |"Dm"f2 e2 "G7"d2 |"C"e2 G2 "G7"=B2 |"C"c6 |
+"F"c2 FE F2 |"Bb"d2 FE F2 |"F"c2 B2 A2 |"C"GF EF G2 |
+"C"CD EF GA |"Gm"B2 PA2 "C7"G2 |"F"Ac F2 "C"E2 |"F"F6 :|
