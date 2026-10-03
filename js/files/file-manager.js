@@ -336,6 +336,7 @@ class FileManager {
             target.querySelectorAll('.folder-button').forEach(button => {
                 button.setAttribute('aria-expanded', 'false');
             });
+            target.querySelectorAll('.files-category.open').forEach(c => c.classList.remove('open'));
         };
 
         if (isExpanded) {
@@ -540,6 +541,7 @@ class FileManager {
         const category = item.closest('.files-category');
         category?.querySelector('.files-items')?.classList.remove('collapsed');
         category?.querySelector('.folder-button')?.setAttribute('aria-expanded', 'true');
+        category?.classList.add('open');
 
         item.scrollIntoView({ block: 'center' });
     }
@@ -552,10 +554,21 @@ class FileManager {
             // Collapse folder
             fileItems.classList.add('collapsed');
             folderButton.setAttribute('aria-expanded', 'false');
+            categoryContainer.classList.remove('open');
         } else {
+            // Accordion: one open folder per region, so its files get the full row
+            categoryContainer.parentElement
+                ?.querySelectorAll('.files-category.open')
+                .forEach(other => {
+                    other.classList.remove('open');
+                    other.querySelector('.files-items')?.classList.add('collapsed');
+                    other.querySelector('.folder-button')?.setAttribute('aria-expanded', 'false');
+                });
+
             // Expand folder
             fileItems.classList.remove('collapsed');
             folderButton.setAttribute('aria-expanded', 'true');
+            categoryContainer.classList.add('open');
 
             // Scroll folder button into view so the file names are visible
             folderButton.scrollIntoView({
@@ -670,7 +683,11 @@ class FileManager {
                 region.querySelectorAll('.folder-button').forEach(button => {
                     button.setAttribute('aria-expanded', 'false');
                 });
+                region.querySelectorAll('.files-category.open')
+                    .forEach(c => c.classList.remove('open'));
             } else {
+                region.querySelectorAll('.files-category:not(.hidden)')
+                    .forEach(c => c.classList.add('open'));
                 region.querySelectorAll('.files-category:not(.hidden) .files-items')
                     .forEach(items => items.classList.remove('collapsed'));
                 region.querySelectorAll('.files-category:not(.hidden) .folder-button')
