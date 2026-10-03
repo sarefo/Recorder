@@ -2,7 +2,7 @@
    Base button visuals live in components/button.css; this file owns the
    mobile layout. MobileUI (js/ui/mobile-ui.js) sets the state classes:
      body.mobile-controls-active  mobile layout in use
-     body.mobile-bar-right        bar is a rail on the right edge
+     body.mobile-bar-left        bar is a rail on the left edge
      body.mobile-bar-hidden       focus mode, bar hidden
      body.mobile-overlay-open     "more" overlay showing
    ID selectors are deliberate: they have to beat the per-button rules in
@@ -34,12 +34,12 @@ body.mobile-bar-hidden .mobile-control-bar {
     border-bottom: 1px solid var(--color-border);
 }
 
-.mobile-control-bar.bar-right {
+.mobile-control-bar.bar-left {
     top: 0;
     bottom: 0;
-    right: 0;
-    padding-right: env(safe-area-inset-right);
-    border-left: 1px solid var(--color-border);
+    left: 0;
+    padding-left: env(safe-area-inset-left);
+    border-right: 1px solid var(--color-border);
 }
 
 #mobile-control-bar .mobile-main-row {
@@ -50,7 +50,7 @@ body.mobile-bar-hidden .mobile-control-bar {
     padding: var(--space-1) var(--space-2);
 }
 
-#mobile-control-bar.bar-right .mobile-main-row {
+#mobile-control-bar.bar-left .mobile-main-row {
     flex-direction: column;
     height: 100%;
     width: var(--mobile-bar-size);
@@ -80,7 +80,7 @@ body.mobile-bar-hidden .mobile-control-bar {
     transform: none;
 }
 
-#mobile-control-bar.bar-right .mobile-main-row > button {
+#mobile-control-bar.bar-left .mobile-main-row > button {
     flex: 0 1 56px;
     width: 48px;
     min-width: 48px;
@@ -89,7 +89,7 @@ body.mobile-bar-hidden .mobile-control-bar {
 }
 
 /* On the rail, "more" goes to the top, where the thumb reaches it first */
-#mobile-control-bar.bar-right #mobile-more-toggle {
+#mobile-control-bar.bar-left #mobile-more-toggle {
     order: -1;
 }
 
@@ -182,10 +182,9 @@ body.mobile-bar-hidden .mobile-control-bar {
     display: flex;
 }
 
-body.mobile-bar-right .mobile-overlay {
-    padding: var(--space-3)
-             calc(var(--mobile-bar-size) + env(safe-area-inset-right) + var(--space-3))
-             var(--space-3) var(--space-3);
+body.mobile-bar-left .mobile-overlay {
+    padding: var(--space-3) var(--space-3) var(--space-3)
+             calc(var(--mobile-bar-size) + env(safe-area-inset-left) + var(--space-3));
 }
 
 .mobile-overlay-content {
@@ -337,8 +336,8 @@ body.mobile-bar-right .mobile-overlay {
 
 /* ----- Transpose panel -----
    Shown instead of the overlay while transposing, so the score stays
-   visible and scrollable. Tucked into the top right corner beside "more":
-   under the bar when it is on top, left of the rail when it is on the right.
+   visible and scrollable. Tucked in beside "more":
+   under the bar when it is on top, right of the rail when it is on the left.
    Left column accept/reject, right column key up/key down, and with a
    GitHub token set a save button across the bottom. */
 
@@ -364,9 +363,10 @@ body.mobile-bar-right .mobile-overlay {
     display: grid;
 }
 
-body.mobile-bar-right #mobile-transpose-panel {
+body.mobile-bar-left #mobile-transpose-panel {
     top: calc(env(safe-area-inset-top) + var(--space-2));
-    right: calc(var(--mobile-bar-size) + env(safe-area-inset-right) + var(--space-2));
+    left: calc(var(--mobile-bar-size) + env(safe-area-inset-left) + var(--space-2));
+    right: auto;
 }
 
 #mobile-transpose-panel button {
@@ -442,12 +442,12 @@ body.mobile-controls-active.mobile-bar-hidden #mobile-show-bar {
 
 /* ----- Page offsets for the bar ----- */
 
-body.mobile-controls-active:not(.mobile-bar-hidden):not(.mobile-bar-right) {
+body.mobile-controls-active:not(.mobile-bar-hidden):not(.mobile-bar-left) {
     padding-top: calc(var(--mobile-bar-size) + env(safe-area-inset-top));
 }
 
-body.mobile-controls-active.mobile-bar-right:not(.mobile-bar-hidden) {
-    padding-right: calc(var(--mobile-bar-size) + env(safe-area-inset-right) + var(--space-3));
+body.mobile-controls-active.mobile-bar-left:not(.mobile-bar-hidden) {
+    padding-left: calc(var(--mobile-bar-size) + env(safe-area-inset-left) + var(--space-3));
 }
 
 body.mobile-controls-active #reference-row {

@@ -5,7 +5,7 @@
  * (play, loop, files, random, fingering, fingering system), plus two toggles:
  * "more" opens a full-screen overlay holding every other control, and "hide"
  * removes the bar entirely (focus mode) leaving a small restore button.
- * The bar sits at the top by default or as a rail on the right edge.
+ * The bar sits at the top by default or as a rail on the left edge.
  *
  * Transposing happens in its own mode so the score stays visible: the
  * overlay's transpose button closes the overlay and shows a small 2x2 panel
@@ -22,7 +22,8 @@ class MobileUI {
         this.savingTranspose = false;
 
         const settings = player.settingsManager;
-        this.barPosition = settings.get('mobileBarPosition') === 'right' ? 'right' : 'top';
+        const savedPosition = settings.get('mobileBarPosition');
+        this.barPosition = savedPosition === 'left' || savedPosition === 'right' ? 'left' : 'top';
         this.barHidden = settings.get('mobileBarHidden') === true;
     }
 
@@ -38,7 +39,7 @@ class MobileUI {
         accept: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>',
         save: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 7.97"/><path d="M12 20v-8M8.5 15.5 12 12l3.5 3.5"/></svg>',
         reject: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
-        barRight: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="16" y="4" width="5" height="16" fill="currentColor"/></svg>'
+        barLeft: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="3" y="4" width="5" height="16" fill="currentColor"/></svg>'
     };
 
     /**
@@ -127,8 +128,8 @@ class MobileUI {
     }
 
     /**
-     * Moves the bar between the top edge and a rail on the right edge
-     * @param {string} position - 'top' or 'right'
+     * Moves the bar between the top edge and a rail on the left edge
+     * @param {string} position - 'top' or 'left'
      */
     setBarPosition(position) {
         this.barPosition = position;
@@ -256,8 +257,8 @@ class MobileUI {
         const overlayOpen = this.overlayOpen && !this.barHidden;
 
         mobileBar.classList.remove('hidden');
-        mobileBar.classList.toggle('bar-right', this.barPosition === 'right');
-        mobileBar.classList.toggle('bar-top', this.barPosition !== 'right');
+        mobileBar.classList.toggle('bar-left', this.barPosition === 'left');
+        mobileBar.classList.toggle('bar-top', this.barPosition !== 'left');
 
         const overlay = document.getElementById('mobile-overlay');
         if (overlay) {
@@ -278,14 +279,14 @@ class MobileUI {
         const positionButton = document.getElementById('mobile-position-toggle');
         if (positionButton) {
             // Shows the layout the button switches TO
-            const toRight = this.barPosition !== 'right';
-            positionButton.innerHTML = toRight ? MobileUI.ICONS.barRight : MobileUI.ICONS.barTop;
-            positionButton.title = toRight ? 'Move bar to the right edge' : 'Move bar to the top';
+            const toLeft = this.barPosition !== 'left';
+            positionButton.innerHTML = toLeft ? MobileUI.ICONS.barLeft : MobileUI.ICONS.barTop;
+            positionButton.title = toLeft ? 'Move bar to the left edge' : 'Move bar to the top';
         }
 
         const body = document.body;
         body.classList.add('mobile-controls-active');
-        body.classList.toggle('mobile-bar-right', this.barPosition === 'right');
+        body.classList.toggle('mobile-bar-left', this.barPosition === 'left');
         body.classList.toggle('mobile-bar-hidden', this.barHidden);
         body.classList.toggle('mobile-overlay-open', overlayOpen);
         body.classList.toggle('mobile-transposing', this.transposing);
@@ -312,7 +313,7 @@ class MobileUI {
             transposePanel.classList.remove('open');
         }
 
-        document.body.classList.remove('mobile-controls-active', 'mobile-bar-right',
+        document.body.classList.remove('mobile-controls-active', 'mobile-bar-left',
             'mobile-bar-hidden', 'mobile-overlay-open', 'mobile-transposing');
 
         const controlBar = document.querySelector('.control-bar');
@@ -494,8 +495,8 @@ class MobileUI {
         // Display and files
         group([
             byId('chart-toggle'), byId('theme-toggle'),
-            this.createIconButton('mobile-position-toggle', MobileUI.ICONS.barRight, '',
-                () => this.setBarPosition(this.barPosition === 'right' ? 'top' : 'right')),
+            this.createIconButton('mobile-position-toggle', MobileUI.ICONS.barLeft, '',
+                () => this.setBarPosition(this.barPosition === 'left' ? 'top' : 'left')),
             byId('help-button'),
         ]);
         // App-level buttons in a group of their own beside the clipboard group

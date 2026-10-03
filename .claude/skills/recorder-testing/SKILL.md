@@ -124,7 +124,7 @@ look fine on screen while erroring every frame.
   `915x412x2.6,mobile,touch,landscape` beats `resize_page` (real touch + UA).
   In portrait, an orientation prompt covers the app; hide it with
   `document.getElementById('orientation-prompt').classList.add('hidden')`.
-  MobileUI reports its state as body classes (`mobile-bar-right`,
+  MobileUI reports its state as body classes (`mobile-bar-left`,
   `mobile-bar-hidden`, `mobile-overlay-open`); drive it by clicking
   `#mobile-more-toggle`, `#mobile-hide-toggle`, `#mobile-show-bar`,
   `#mobile-position-toggle`.
