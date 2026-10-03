@@ -72,10 +72,10 @@ class RegionMap {
             accent: 265,
             categories: ['bartok', 'classical', 'dvorak'],
         },
-        { id: 'film', label: 'Film', accent: 330, categories: ['film'] },
-        { id: 'tv', label: 'TV', accent: 55, categories: ['tv'] },
-        { id: 'jazz', label: 'Jazz', accent: 240, categories: ['jazz'] },
-        { id: 'pop', label: 'Pop', accent: 15, categories: ['pop'] },
+        { id: 'film', label: 'Film', accent: 330, genre: true, categories: ['film'] },
+        { id: 'tv', label: 'TV', accent: 55, genre: true, categories: ['tv'] },
+        { id: 'jazz', label: 'Jazz', accent: 240, genre: true, categories: ['jazz'] },
+        { id: 'pop', label: 'Pop', accent: 15, genre: true, categories: ['pop'] },
         {
             // Catch-all: whatever has no region of its own, plus anything unclassified
             id: 'other',

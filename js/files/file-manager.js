@@ -287,6 +287,11 @@ class FileManager {
             // createCategoryContainer hides a folder whose files are all
             // filtered out; don't count those towards the region either
             if (categoryContainer.style.display === 'none') return;
+            // A genre region's own top folder ("tv" under TV) repeats the region
+            // name, so its tunes show directly under the region header
+            if (region.genre && category === region.id) {
+                categoryContainer.classList.add('files-category-root');
+            }
             placeCount++;
             columns.appendChild(categoryContainer);
         });
