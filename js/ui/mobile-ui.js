@@ -41,6 +41,7 @@ class MobileUI {
         save: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 7.97"/><path d="M12 20v-8M8.5 15.5 12 12l3.5 3.5"/></svg>',
         toTop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14M12 20V9M7 14l5-5 5 5"/></svg>',
         toBottom: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20h14M12 4v11M7 10l5 5 5-5"/></svg>',
+        restore: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.7-6"/><path d="M4 4v5h5"/></svg>',
         reject: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
         barLeft: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="3" y="4" width="5" height="16" fill="currentColor"/></svg>'
     };
@@ -170,6 +171,21 @@ class MobileUI {
         }
         this.abcBeforeTranspose = null;
         this.applyMobileState();
+    }
+
+    /**
+     * Puts back the ABC the tune had when transpose mode started, and stays
+     * in transpose mode so another key can be tried
+     */
+    restoreOriginalKey() {
+        if (!this.transposing || this.abcBeforeTranspose === null) return;
+        if (this.abcBeforeTranspose !== this.player.notationParser.currentAbc) {
+            this.player.notationParser.currentAbc = this.abcBeforeTranspose;
+            this.player.render();
+        }
+        this.transposeSteps = 0;
+        this.updateTransposeSaveButton();
+        Utils.showFeedback('Original key restored', 1200);
     }
 
     /**
@@ -535,6 +551,8 @@ class MobileUI {
                 'Lowest note on C4', () => this.player.transpose('bottom')),
             this.createIconButton('mobile-transpose-save', MobileUI.ICONS.save,
                 'Save this key to the tune file on GitHub', () => this.saveTransposition()),
+            this.createIconButton('mobile-transpose-restore', MobileUI.ICONS.restore,
+                'Restore the original key', () => this.restoreOriginalKey()),
         ]);
 
         // --- Restore button, only visible while the bar is hidden ---
