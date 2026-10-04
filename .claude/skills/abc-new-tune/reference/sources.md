@@ -21,6 +21,31 @@ Melody only, so chords must be derived. Search their site with
 `https://www.flutetunes.com/search.php?q=<term>`; coverage is broad but shallow
 outside the European repertoire.
 
+### ifdo.ca kern2abc — printed scores of whole composers, as ABC
+
+Craig Sapp's Humdrum encodings of first editions, converted to ABC (two staves,
+`V:1` right hand, `V:2` left hand). Found 2026-10 for Chopin: **505 pieces in one
+file, several editions of each**, so two or three independent printings are
+there to cross-check. Same family: `chopinpreludes.abc`, and abcnotation's
+search (`q=chopin`) shows the other `kern2abc/<collection>` names.
+
+```bash
+curl -sL "https://ifdo.ca/~seymour/kern2abc/chopin_1stEdition.abc" -o chopin.abc   # 5.5 MB
+grep -E '^(X|T):' chopin.abc | paste - - | grep -i "Op. 9"        # find the X: numbers
+awk -v n=86 '/^X:/{p=($2==n)} p' chopin.abc > x86.abc               # one piece
+node scripts/abc_to_midi.mjs x86.abc x86.mid                        # then midi_notes.py
+```
+
+`T:` says only "Nocturne No. 2, Op. 9", so identify a piece by opus number. The
+melody is `V:1` (right-hand chords and ornaments included): read the main notes
+off it, and take the chords from the left hand or from a flutetunes
+accompaniment channel. Where the editions disagree with a modern MIDI, say so in
+`N:` (Nocturne Op. 9 No. 2 bar 6 prints D natural; the later reprise and the
+MIDI have D-flat).
+
+Ornaments arrive as `!mordent!`, `!trill!`, `{/ef}` grace groups and 13:8 tuplets.
+Drop the grace groups, keep trills as `T`, and say what was left out.
+
 ### mu-tech.org — printed lead sheets, generated on demand
 
 The best find: it renders a **lead sheet image with chord symbols**, in any key

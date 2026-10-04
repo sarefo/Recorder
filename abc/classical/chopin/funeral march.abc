@@ -1,0 +1,18 @@
+X:1
+T:Funeral March
+C:Frédéric Chopin
+O:Piano Sonata No. 2 in B-flat minor, Op. 35, third movement
+N:The opening march and its rising answer (20 bars); the rest of the movement
+N:is left out. Transposed down a minor seventh from B-flat minor to C minor, so
+N:the lowest note is C4 and the highest G5. Melody from the flutetunes.com MIDI.
+N:The grace notes on the second beat of bars 5 and 13 are omitted.
+N:Chords simplified from the bass and inner parts of that arrangement.
+M:4/4
+Q:1/4=60
+L:1/8
+K:Cm
+"Cm" C2 C3/2 C/ C4 |"Cm" C2 C3/2 C/ C4 |"Cm" C2 C3/2 C/ C2 ED |"Cm" D3/2 C/ C3/2 C/ C4 |
+"Cm" E2 E3/2 E/ E2 G3/2 F/ |"Cm" F E E3/2 E/ E4 |"Cm" c3/2 B/ A3/2 G/ G2 E2 |"Cm" c3/2 B/ A3/2 G/ G2 E2 |
+"Cm" C2 C3/2 C/ C2 E3/2 D/ |"Cm" D3/2 C/ C3/2 C/ C4 |"Cm" c3/2 B/ A3/2 G/ G2 E2 |"Cm" c3/2 B/ A3/2 G/ G2 E2 |
+"Cm" C2 C3/2 C/ C2 E3/2 D/ |"Cm" D3/2 C/ C3/2 C/ C2 D2 |"Eb" E2 G3/2 A/ B3/2 c/ d3/2 e/ |"Gm" g4 f3 z/ A/ |
+"Cm" G2 G3/2 =A/ =B3/2 c/ d3/2 e/ |"G7" e4 d2 z2 |"Cm7" G2 F2 E2 z2 |"G7" E2 D2 C4 |]

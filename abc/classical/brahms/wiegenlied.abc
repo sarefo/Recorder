@@ -1,0 +1,15 @@
+X:1
+T:Wiegenlied
+C:Johannes Brahms
+O:Lullaby, Op. 49 No. 4
+N:Transposed down a minor third from E-flat major to C major, so the lowest note is C4.
+N:Melody from the flutetunes.com MIDI. Phrase-end notes the MIDI plays short are
+N:written as half notes. Chords derived from the melody.
+M:3/4
+Q:1/4=76
+L:1/8
+K:C
+EE |"C" G3 E E2 |"C" G4 EG |"C" c2 "G7" B3 A |"F" A2 "G7" G2 DE |
+"G7" F2 D2 DE |"G7" F4 DF |"G7" BA G2 B2 |"C" c4 CC |
+"F" c4 AF |"C" G4 EC |"F" F2 G2 A2 |"C" G4 CC |
+"F" c4 AF |"C" G4 EC |"G7" F2 E2 D2 |"C" C4 |]

@@ -1,0 +1,20 @@
+X:1
+T:Nocturne Op. 9 No. 2
+C:Frédéric Chopin
+O:Nocturne in E-flat major, Op. 9 No. 2
+N:The theme and its first ornamented return (8 bars). Transposed down a minor seventh
+N:from E-flat major to F major, so the lowest note is C4 and the highest E5.
+N:Notes from three Humdrum first-edition encodings (ifdo.ca, kern2abc) that agree
+N:bar for bar, and the flutetunes.com MIDI. The grace-note turn in bar 2, the mordent
+N:signs in bars 5 and 6 and the grace notes in bars 7 and 8 are left out; the
+N:trill in bar 7 is marked. In the
+N:last bar the two lead-in eighths are replaced by a rest, so the tune comes round
+N:evenly. Bar 6 has two D-flats, as in the MIDI and in the later reprise; the
+N:first editions print D natural there. Chords from the left hand of the
+N:flutetunes.com arrangement.
+M:12/8
+Q:3/8=44
+L:1/8
+K:F
+C |"F" A4 G A G3 F2 C |"D7" A2 D d2 A "G7" c3 B2 A |"C7" G3 A2 E "Dm" F3 D3 |"C7" C e d c/B/A/B/ D/E/ "F" F3 z2 C |
+"F" A3 G/A/ G/^F/G/A/ G =F2- F/G/ F/E/F/G/ |"D7" A/^C/D/_E/D/G/ ^F/B/A/_e/d/A/ "G7" c3 B2 A |"C7" TG3 A A E "Dm" F3 D3 |"C7" C e d c/B/A/B/ D/E/ "F" F4 z |]

@@ -1,0 +1,16 @@
+X:1
+T:Valse Op. 69 No. 2
+C:Frédéric Chopin
+O:Waltz in B minor, Op. 69 No. 2 (posthumous)
+N:The opening period only (8 bars). Transposed down a major sixth from B minor to
+N:D minor, so the lowest note is C#4 and the highest F5. Notes from two Humdrum
+N:first-edition encodings (ifdo.ca, kern2abc) that agree, and the flutetunes.com
+N:MIDI. The last bar stops after four eighths: the pickup F#5 of the next pass
+N:takes the place of the original's last two eighths (F#5 C#5), so the tune
+N:comes round evenly. Chords from the left hand of the flutetunes.com arrangement.
+M:3/4
+Q:1/4=132
+L:1/8
+K:Dm
+A2- |"Dm" A B A E F D |"A7" ^C4 A2- |"A7" A B A E G F |"Dm" D4 A2- |
+"Dm" A B ^G A d f |"Bdim" f2 ^G2 f2- |"Gm" f2 G2 e2- |"A7" e d ^c B |]

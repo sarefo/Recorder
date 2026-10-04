@@ -423,6 +423,42 @@ class AbcFileList {
                 "hash": "7e6b7ed630"
         },
         {
+                "name": "Symphony No. 1, Finale Theme",
+                "file": "classical/brahms/symphony 1 finale.abc",
+                "category": "classical/brahms",
+                "hash": "c886190379"
+        },
+        {
+                "name": "Waltz in A-flat major",
+                "file": "classical/brahms/waltz 15.abc",
+                "category": "classical/brahms",
+                "hash": "edf69cca05"
+        },
+        {
+                "name": "Wiegenlied",
+                "file": "classical/brahms/wiegenlied.abc",
+                "category": "classical/brahms",
+                "hash": "41cdf0e51a"
+        },
+        {
+                "name": "Funeral March",
+                "file": "classical/chopin/funeral march.abc",
+                "category": "classical/chopin",
+                "hash": "507b769c96"
+        },
+        {
+                "name": "Nocturne Op. 9 No. 2",
+                "file": "classical/chopin/nocturne op 9 no 2.abc",
+                "category": "classical/chopin",
+                "hash": "9c18db46ec"
+        },
+        {
+                "name": "Valse Op. 69 No. 2",
+                "file": "classical/chopin/valse op 69 no 2.abc",
+                "category": "classical/chopin",
+                "hash": "d6f7585e0f"
+        },
+        {
                 "name": "Valse in A minor",
                 "file": "classical/chopin/valse in a minor.abc",
                 "category": "classical/chopin",

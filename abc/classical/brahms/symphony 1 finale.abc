@@ -1,0 +1,15 @@
+X:1
+T:Symphony No. 1, Finale Theme
+C:Johannes Brahms
+O:Symphony No. 1 in C minor, Op. 68, fourth movement, main theme
+N:Transposed down a fifth from C major to F major, so the lowest note is C4.
+N:Melody from that MIDI. The last beat of the final bar is the pickup of the next
+N:pass, so the tune loops. Chords derived from the melody.
+M:4/4
+Q:1/4=100
+L:1/8
+K:F
+C2 |"F" F4 E2 F2 |"Bb" D4 "F" C2 F2 |"C" G2 AG "F" A2 F2 |"C7" G4 G2 C2 |
+"F" F4 E2 F2 |"Bb" D4 "F" C2 F2 |"C7" G2 AB "F" A2 F2 |"C7" G4 "F" F2 C2 |
+"F" G2 AB A2 G2- |"C7" G2 AB A2 G2- |"C7" G2 AB A2 E2 |"F" F4 "Bb" d4 |
+"C7" c2 GA B2 cG |"F" A2 GD E2 C2 |"Gm" D4 B2 A2- |"F" A2 "C7" GF E2 |]

@@ -116,6 +116,22 @@ See `reference/abc-syntax.md` for the syntax and this repo's conventions —
 octave letters, durations under `L:1/8`, headers, and the recorder range the
 fingering diagrams support.
 
+## Moving a tune to a playable key
+
+`scripts/transpose_abc.py` rewrites the music lines (notes, accidentals, chord
+symbols) in another key and keeps chromatic notes spelled by function (E natural
+in E-flat becomes F-sharp in F, not G-flat):
+
+```bash
+py .claude/skills/abc-new-tune/scripts/transpose_abc.py tune.abc --to F --shift -10 > tune_f.abc
+```
+
+Without `--shift` it takes the smallest move; pass `--shift` to choose the
+octave (E-flat to F is `+2` or `-10`). Then diff against the source MIDI with
+`--transpose N` as above. Pick the shift from the range first: the lowest note
+should land on C4 and the highest stay at or under A5. Check by shifting the
+source dump, not by eye.
+
 ## Verify: diff against the source
 
 This is the step that makes the difference, and it is not optional. Render your

@@ -1,0 +1,18 @@
+X:1
+T:Waltz in A-flat major
+C:Johannes Brahms
+O:Op. 39 No. 15
+N:Transposed down a semitone from A-flat major to G major, so the high B-flat
+N:in bars 20-21 stays on A5. The melody is the flutetunes.com MIDI up to the
+N:octave-higher return, which is left out. The grace notes in bars 3 and 11 are omitted.
+N:Chords derived from the melody.
+M:3/4
+Q:1/4=100
+L:1/8
+K:G
+"G" B3 G G B |"G" B3 G G B |"D7" c2 B2 A2 |"G" B3 G G d |
+"Em" e3 B B d |"Em" e3 B B d |"D7" f e d2 ^c2 |"Bm" d3 F F B |
+"G" B3 G G B |"G" B3 G G B |"D7" c2 B2 A2 |"G" B3 G G d |
+"Em" e3 B B d |"Em" e3 B B d |"D7" f e d2 ^c2 |"G" d3 B B d |
+"D" d3 A A d |"G" d3 B B d |"G" g3 d d g |"C" g3 e e g |
+"Am7" a3 e e g |"D7" g f e2 d2 |]
