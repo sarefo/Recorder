@@ -417,6 +417,18 @@ class AbcFileList {
                 "hash": "dfdbe132a7"
         },
         {
+                "name": "Hungarian Dance No. 1",
+                "file": "classical/brahms/hungarian dance 1.abc",
+                "category": "classical/brahms",
+                "hash": "d2f9a3010e"
+        },
+        {
+                "name": "Hungarian Dance No. 4",
+                "file": "classical/brahms/hungarian dance 4.abc",
+                "category": "classical/brahms",
+                "hash": "ed8adb0823"
+        },
+        {
                 "name": "Hungarian Dance No. 5",
                 "file": "classical/brahms/hungarian dance 5.abc",
                 "category": "classical/brahms",
@@ -445,6 +457,30 @@ class AbcFileList {
                 "file": "classical/chopin/funeral march.abc",
                 "category": "classical/chopin",
                 "hash": "507b769c96"
+        },
+        {
+                "name": "Nocturne Op. 15 No. 1",
+                "file": "classical/chopin/nocturne op 15 no 1.abc",
+                "category": "classical/chopin",
+                "hash": "b9f4bb6ed5"
+        },
+        {
+                "name": "Nocturne Op. 15 No. 3",
+                "file": "classical/chopin/nocturne op 15 no 3.abc",
+                "category": "classical/chopin",
+                "hash": "e87d86999d"
+        },
+        {
+                "name": "Nocturne Op. 37 No. 1",
+                "file": "classical/chopin/nocturne op 37 no 1.abc",
+                "category": "classical/chopin",
+                "hash": "bc2b78b1ef"
+        },
+        {
+                "name": "Nocturne Op. 55 No. 1",
+                "file": "classical/chopin/nocturne op 55 no 1.abc",
+                "category": "classical/chopin",
+                "hash": "25c77049d6"
         },
         {
                 "name": "Nocturne Op. 9 No. 2",

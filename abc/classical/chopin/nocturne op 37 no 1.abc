@@ -1,0 +1,20 @@
+X:1
+T:Nocturne Op. 37 No. 1
+C:Frédéric Chopin
+O:Nocturne in G minor, Op. 37 No. 1
+N:The first two sections (16 bars): the opening theme and the contrasting theme.
+N:The reprise and the chorale that follows are left out. Transposed down a fourth
+N:from G minor to D minor, so the lowest note is C#4 and the highest F5. Notes from
+N:two Humdrum first-edition encodings (ifdo.ca, kern2abc) that agree. Left out: the
+N:grace-note groups before several beats, and the inner notes of the chords in
+N:bars 7 and 8. The trill in bar 8 is marked T. The last bar stops after three
+N:beats, where the next pass's pickup D (tied to the first note) comes in. Chords
+N:simplified from the left hand.
+M:4/4
+Q:1/4=56
+L:1/8
+K:Dm
+A2- |"Dm" A2 G F F E z2 |"Bb" z F (3FED "A7" ^C4 |"Dm" D2 E F "Gm" G2 A B |"C7" E4- E>d (3dcB |
+"F" A2 (3AGF F E z2 |"Dm" F z/ F/ (3FED "A7" ^C2 z2 |"Bb" D2 E>F "A7" G2 A2 |"Dm" D2>D2 "C" TE4 |
+"F" F2 ^F2 "C7" z G2 ^G |"F" A2 "C7" d>c c G2 ^G |"F" A2 B2 "E7" z2 =B2 |"Am" c2 f>e "E7" e ^A2 =B |
+"Am" c2 d>c "Bb" B2 F3/2 G/ |"F" A2 B z/ A/ "Gm" G2 D3/2 E/ |"Dm" F2 E>F "Gm" G2 ^F/G/A/B/ |"A7" A2 A2>A2 |]

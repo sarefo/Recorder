@@ -283,13 +283,13 @@ class FileManager {
         let placeCount = 0;
 
         categories.forEach(category => {
-            const categoryContainer = this.createCategoryContainer(category, handleEscape);
+            const categoryContainer = this.createCategoryContainer(category, handleEscape, region);
             // createCategoryContainer hides a folder whose files are all
             // filtered out; don't count those towards the region either
             if (categoryContainer.style.display === 'none') return;
             // A genre region's own top folder ("tv" under TV) repeats the region
             // name, so its tunes show directly under the region header
-            if (region.genre && category === region.id) {
+            if (category === region.id) {
                 categoryContainer.classList.add('files-category-root');
             }
             placeCount++;
@@ -371,7 +371,7 @@ class FileManager {
         }
     }
 
-    createCategoryContainer(category, handleEscape) {
+    createCategoryContainer(category, handleEscape, region) {
         const files = this.categorizedFiles[category];
 
         const categoryContainer = document.createElement('div');
@@ -381,7 +381,12 @@ class FileManager {
         // Create folder button (clickable category header)
         const categoryButton = document.createElement('button');
         categoryButton.className = 'folder-button';
-        categoryButton.textContent = category;
+        // "classical/bach" under the Classical header shows as "bach"; the
+        // region already names the parent folder
+        const prefix = region ? region.id + '/' : '';
+        categoryButton.textContent = prefix && category.startsWith(prefix)
+            ? category.slice(prefix.length)
+            : category;
         categoryButton.setAttribute('aria-expanded', 'false');
         categoryButton.addEventListener('click', () => {
             this.toggleFolder(categoryContainer, categoryButton);

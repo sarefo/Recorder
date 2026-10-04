@@ -46,6 +46,14 @@ MIDI have D-flat).
 Ornaments arrive as `!mordent!`, `!trill!`, `{/ef}` grace groups and 13:8 tuplets.
 Drop the grace groups, keep trills as `T`, and say what was left out.
 
+`scripts/kern_melody.py x86.abc` does the first pass: it prints the V:1 line one
+bar per line in L:1/8, with graces, decorations and a second voice after `&`
+dropped and chords reduced to their top note. It misreads pieces whose melody
+sits in an inner voice (Op. 72 No. 1), so read the left hand too. Cross-check
+the result against a second edition of the same piece (they often agree
+exactly) and, where one exists, the flutetunes MIDI. `check_abc.mjs` now scales
+tuplets, so triplet bars no longer show as over-full.
+
 ### mu-tech.org — printed lead sheets, generated on demand
 
 The best find: it renders a **lead sheet image with chord symbols**, in any key

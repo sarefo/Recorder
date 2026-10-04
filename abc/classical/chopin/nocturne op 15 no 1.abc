@@ -1,0 +1,21 @@
+X:1
+T:Nocturne Op. 15 No. 1
+C:Frédéric Chopin
+O:Nocturne in F major, Op. 15 No. 1
+N:The first theme and its ornamented return (24 bars); the stormy middle section
+N:is left out. Transposed down a fifth from F major to B-flat major, so the range
+N:is D4 to G5. Notes from a Humdrum first-edition encoding (ifdo.ca, kern2abc) and
+N:the flutetunes.com MIDI, which agree. Left out: the trills and the ornamental
+N:run in bars 9 and 10, the grace-note runs before the A in bars 14 and 18 and the
+N:grace notes in bars 9 and 19. The last bar stops after two beats, where the
+N:next pass's pickup comes in. Chords simplified from the left hand.
+M:3/4
+Q:1/4=69
+L:1/8
+K:Bb
+F2 |"Bb" B4 A2 |"Eb" G2 "F7" A2 F2 |"Cm" G>A "F7" B2 c2 |"Bb" d6 |
+"Cm" c2 "F7" d>c (3cBA |"Bb" B2>A2 (3GAB |"D7" A4 (3AGD |"A" =E4 "F7" (3FGF |
+"Bb" B4 A2 |"Eb" G2 "F7" A2 F2 |"Cm" G>A "F7" B2 c2 |"Bb" d6 |
+"Cdim" e4 "Bb" d2 |"F7" c2 "Bb" d2 B2 |"Bb" F2 B2 "F7" A2 |"Cm" c6 |
+"Cm" e4 "Bb" d2 |"D7" c2 d2 "F7" B2 |"F7" F2 "Cm" c2- "F7" c3/2B/ |"Bb" B2 "Gm" g4 |
+"F7" F2 "Cm" c2- "F7" c3/2B/ |"Bb" B4 A2 |"Eb" G2 "F7" A2 F2 |"Gm" G2 "F7" A2 |]

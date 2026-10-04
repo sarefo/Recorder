@@ -1,0 +1,16 @@
+X:1
+T:Hungarian Dance No. 1
+C:Johannes Brahms
+O:Hungarian Dance No. 1 in G minor
+N:The opening theme (24 bars). The runs of the second section reach C7 in this key
+N:and are left out. Transposed down a fifth from G minor to C minor so the lowest
+N:note is C4 and the highest C5. Melody from the flutetunes.com MIDI. Chords
+N:derived from the melody.
+M:2/4
+Q:1/4=138
+L:1/8
+K:Cm
+"Cm" G3 F |"G7" G3 F |"Cm" A3 G |"G7" D3 E |"Cm" C4- |"Cm" C4 |
+"G7" G3 F |"Cm" G3 A |"Cm" c3 B |"G7" G3 A |"Fm" F4- |"Fm" F4 |
+"Fm" A3 G |"Fm" A3 G |"G7" G3 F |"G7" D3 E |"G7" D4- |"G7" D4 |
+"Cm" A3 G |"Cm" A3 G |"G7" G3 D |"G7" F3 E |"Cm" C4- |"Cm" C4 |]

@@ -1,0 +1,19 @@
+X:1
+T:Nocturne Op. 55 No. 1
+C:Frédéric Chopin
+O:Nocturne in F minor, Op. 55 No. 1
+N:The opening theme and its repeat (16 bars); the middle section is left out.
+N:Transposed down a fourth from F minor to C minor, so the notes run from C4 to
+N:C5. Notes from two Humdrum first-edition encodings (ifdo.ca, kern2abc) that
+N:agree. Left out: the trills in bars 6 and 14 and the grace notes
+N:in bars 4, 6, 8, 12, 14, 15 and 16.
+N:The last bar stops after three beats, where the next pass's pickup G, tied to
+N:the first note, comes in. Chords simplified from the left hand.
+M:4/4
+Q:1/4=66
+L:1/8
+K:Cm
+G2- |"Cm" G2 c2 "Bb" B2 A2 |"Eb" G>^F "G7" G>A G4- |"Cm" G2 c2 "Bb" B2 A2 |"Eb" G>^F "G7" G>A G4- |
+"Cm" G2 c2 "Bb" B2 A2 |"Eb" G4 "Db" F2 G3/2 A/ |"Cm" E4 "G7" E2 D3/2 C/ |"Cm" C4 "G7" G2 G2- |
+"Cm" G2 c2 "Bb" B2 A2 |"Eb" G>^F "G7" G>A G4- |"Cm" G2 c2 "Bb" B2 A2 |"Eb" G>^F "G7" G>A G4- |
+"Cm" G2 c2 "Bb" B2 A2 |"Eb" G4 "Db" F4 |"Cm" E4 "G7" E2 D3/2 C/ |"Cm" C4 "G7" G2 |]

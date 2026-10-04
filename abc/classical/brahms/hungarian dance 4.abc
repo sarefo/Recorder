@@ -1,0 +1,17 @@
+X:1
+T:Hungarian Dance No. 4
+C:Johannes Brahms
+O:Hungarian Dance No. 4 in F-sharp minor
+N:The first 16 bars of the theme; the repeat an octave higher reaches F#7 and is
+N:left out. Transposed down a tritone from F-sharp minor to C minor, so the lowest
+N:note is C4 and the highest E-flat 5. The long notes of the original ring on into
+N:the next pickup; here the first bar starts with an eighth rest in their place,
+N:so the tune loops on whole bars. The small grace notes before the second eighth
+N:of each pickup are left out. Melody from the flutetunes.com MIDI. Chords derived
+N:from the melody.
+M:2/4
+Q:1/4=63
+L:1/8
+K:Cm
+z G A G |"Cm" e4- |"Cm" e G A G |"Fm" F4- |"Fm" F F G F |"G7" d4- |"G7" d F G F |"Eb" E4- |
+"Eb" E E D C |"Cm" G4- |"Cm" G E D C |"Fm" A4- |"Fm" A A G F |"Eb" E2 G2 |"G7" D2 G2 |"Cm" C4 |]

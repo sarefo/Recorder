@@ -55,6 +55,7 @@ for (const file of files) {
         const oddBars = [];
         let bar = 0;
         let filled = 0;
+        let tuplet = 1; // abcjs leaves tuplet notes at written length and flags the group
 
         for (const line of tune.lines) {
             if (!line.staff) continue;
@@ -62,7 +63,11 @@ for (const file of files) {
                 for (const voice of staff.voices) {
                     for (const el of voice) {
                         if (el.chord) chords.push(el.chord.map(c => c.name).join('/'));
-                        if (el.el_type === 'note') filled += el.duration;
+                        if (el.el_type === 'note') {
+                            if (el.startTriplet) tuplet = el.tripletMultiplier ?? 2 / 3;
+                            filled += el.duration * tuplet;
+                            if (el.endTriplet) tuplet = 1;
+                        }
                         if (el.el_type === 'bar') {
                             bar++;
                             if (filled > 0 && Math.abs(filled - measure) > 1e-9) {
