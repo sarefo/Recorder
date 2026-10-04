@@ -417,6 +417,18 @@ class AbcFileList {
                 "hash": "dfdbe132a7"
         },
         {
+                "name": "Hungarian Dance No. 5",
+                "file": "classical/brahms/hungarian dance 5.abc",
+                "category": "classical/brahms",
+                "hash": "7e6b7ed630"
+        },
+        {
+                "name": "Valse in A minor",
+                "file": "classical/chopin/valse in a minor.abc",
+                "category": "classical/chopin",
+                "hash": "abd119af8c"
+        },
+        {
                 "name": "10. M. John Langtons Pavan",
                 "file": "classical/dowland/pavane lachrimae.abc",
                 "category": "classical/dowland",

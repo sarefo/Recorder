@@ -1,0 +1,16 @@
+X:1
+T:Hungarian Dance No. 5
+C:Johannes Brahms
+O:Hungarian Dance No. 5 in F-sharp minor, after Kéler Béla's csárdás Bártfai emlék
+N:The main theme only (16 bars). The contrasting section reaches B-flat 5 in this
+N:key and the repeat opens with an arpeggio from A3, so both are left out.
+N:Transposed down a major third from F-sharp minor so the theme fits C4 to A5.
+N:Melody from the flutetunes.com MIDI. Chords derived from the melody.
+M:2/4
+Q:1/4=120
+L:1/8
+K:Dm
+"Dm" A3 d |"Dm" f3 d |"A7" ^c3 d/e/ |"Dm" d4 |
+"Gm" B3 c/d/ |"A7" A4 |"A7" G/F/F/E/ E3/2 A/ |"Dm" D4 |
+"Dm" A3 d/f/ |"Dm" a3 f |"A7" e3 f/g/ |"Dm" f4 |
+"Gm" B/c/d/B/ A/B/c/A/ |"Gm" G/A/B/G/ F/G/A/F/ |"A7" G/F/F/E/ E3/2 A/ |"Dm" D2 d/ z3/ |]
