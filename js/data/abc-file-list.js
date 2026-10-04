@@ -486,7 +486,7 @@ class AbcFileList {
                 "name": "Nocturne Op. 9 No. 2",
                 "file": "classical/chopin/nocturne op 9 no 2.abc",
                 "category": "classical/chopin",
-                "hash": "9c18db46ec"
+                "hash": "c177861852"
         },
         {
                 "name": "Valse Op. 69 No. 2",
