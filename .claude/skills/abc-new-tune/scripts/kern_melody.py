@@ -23,7 +23,7 @@ import sys
 from fractions import Fraction
 
 NOTE = r"(?:\^\^|__|\^|_|=)?[A-Ga-g][,']*"
-CHORD_RE = re.compile(r'\[((?:' + NOTE + r')+)\]')
+CHORD_RE = re.compile(r'\[((?:' + NOTE + r'[\d/]*-?)+)\]')
 LEN = r'(\d+)?(/+)?(\d+)?'
 ITEM_RE = re.compile(r'((?:\^\^|__|\^|_|=)?[A-Ga-gzxZ][,\']*)' + LEN)
 TUPLET_RE = re.compile(r'\(\d+(?::\d*)*')
@@ -37,8 +37,10 @@ def pitch_key(note):
 
 
 def top_of_chord(m):
-    notes = re.findall(NOTE, m.group(1))
-    return max(notes, key=pitch_key)
+    """Highest note of a chord, with the length it was written with inside [..]."""
+    notes = re.findall('(' + NOTE + r')([\d/]*)(-?)', m.group(1))
+    top = max(notes, key=lambda n: pitch_key(n[0]))
+    return top[0] + top[1] + top[2]
 
 
 def scale(num, slashes, den, factor):

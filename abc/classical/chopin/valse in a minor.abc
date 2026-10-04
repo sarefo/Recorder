@@ -3,14 +3,16 @@ T:Valse in A minor
 C:Frédéric Chopin
 O:Waltz in A minor, B. 150 (posthumous)
 N:The first strain only (bars 1-16, with its repeat written out). The second
-N:strain climbs to B6, far above the recorder's A5. Melody from the flutetunes.com
-N:solo flute MIDI, pitches checked against its flute and guitar arrangement.
-N:The single D6 in bar 15 is in both. Chords from the guitar part of that arrangement.
+N:strain climbs far above the recorder's A5 and is left out. Transposed down a
+N:tone from A minor to G minor, so the first note is D4 and the highest A5. Melody
+N:from the flutetunes.com solo flute MIDI, pitches checked against its flute and
+N:guitar arrangement. In bar 15 the D6 of the source (C6 here) is written a sixth
+N:lower, as A5, to stay within range. Chords from the guitar part of that arrangement.
 M:3/4
 Q:1/4=120
 L:1/8
-K:Am
-E2 |"Am" AB c2 c2 |"Dm" de f4 |"G7" Bcd a g f |"C" e ^d e4 |
-"Am" AB c2 c2 |"Dm" de f4 |"G7" Bcd a g B |"C" c3 z E2 |
-"Am" AB c2 c2 |"Dm" de f4 |"G7" Bcd a g f |"C" e ^d e4 |
-"Am" cd e2 e2 |"Dm" fg a4 |"G7" g2 ^f g d' =f |"C" e4 |]
+K:Gm
+D2 |"Gm" GA B2 B2 |"Cm" cd e4 |"F7" ABc g f e |"Bb" d ^c d4 |
+"Gm" GA B2 B2 |"Cm" cd e4 |"F7" ABc g f A |"Bb" B3 z D2 |
+"Gm" GA B2 B2 |"Cm" cd e4 |"F7" ABc g f e |"Bb" d ^c d4 |
+"Gm" Bc d2 d2 |"Cm" ef g4 |"F7" f2 =e f a _e |"Bb" d4 |]

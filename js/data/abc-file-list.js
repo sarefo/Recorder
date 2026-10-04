@@ -492,13 +492,13 @@ class AbcFileList {
                 "name": "Valse Op. 69 No. 2",
                 "file": "classical/chopin/valse op 69 no 2.abc",
                 "category": "classical/chopin",
-                "hash": "d6f7585e0f"
+                "hash": "7b3b99f57c"
         },
         {
                 "name": "Valse in A minor",
                 "file": "classical/chopin/valse in a minor.abc",
                 "category": "classical/chopin",
-                "hash": "abd119af8c"
+                "hash": "c112831ff3"
         },
         {
                 "name": "10. M. John Langtons Pavan",
