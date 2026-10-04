@@ -134,11 +134,23 @@ class AbcPlayer {
     }
 
     /**
-     * Transposes the music up or down
-     * @param {string} direction - The direction to transpose ('up' or 'down')
+     * Transposes the music up or down, or to the bottom/top of the playable range
+     * @param {string} direction - 'up' or 'down' (one semitone), 'bottom' (lowest note C4) or 'top' (highest note C6)
      */
     transpose(direction) {
-        const semitoneShift = direction === 'up' ? 1 : -1;
+        if (direction === 'top' || direction === 'bottom') {
+            this.applyTranspose(this.transposeManager.getShiftToEdge(this.notationParser.currentAbc, direction));
+        } else {
+            this.applyTranspose(direction === 'up' ? 1 : -1);
+        }
+    }
+
+    /**
+     * Transposes the music by a number of semitones and re-renders
+     * @param {number} semitoneShift - Semitones to shift (0 does nothing)
+     */
+    applyTranspose(semitoneShift) {
+        if (!semitoneShift) return;
         const transposedAbc = this.transposeManager.transpose(this.notationParser.currentAbc, semitoneShift);
 
         if (transposedAbc !== this.notationParser.currentAbc) {

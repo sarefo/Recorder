@@ -8,9 +8,10 @@
  * The bar sits at the top by default or as a rail on the left edge.
  *
  * Transposing happens in its own mode so the score stays visible: the
- * overlay's transpose button closes the overlay and shows a small 2x2 panel
- * in the top right corner (accept/reject, key up/key down). With a GitHub
- * token set, a save button below them commits the new key to the repo.
+ * overlay's transpose button closes the overlay and shows a small panel
+ * in the top right corner (accept/reject, key up/key down, lowest note on
+ * C4/highest on C6). With a GitHub token set, a save button in a fourth
+ * column commits the new key to the repo.
  */
 class MobileUI {
     constructor(player) {
@@ -38,6 +39,8 @@ class MobileUI {
         transpose: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20V4M4 8l4-4 4 4M16 4v16M12 16l4 4 4-4"/></svg>',
         accept: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>',
         save: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 7.97"/><path d="M12 20v-8M8.5 15.5 12 12l3.5 3.5"/></svg>',
+        toTop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14M12 20V9M7 14l5-5 5 5"/></svg>',
+        toBottom: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20h14M12 4v11M7 10l5 5 5-5"/></svg>',
         reject: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
         barLeft: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="3" y="4" width="5" height="16" fill="currentColor"/></svg>'
     };
@@ -518,14 +521,18 @@ class MobileUI {
             document.body.appendChild(transposePanel);
         }
         transposePanel.innerHTML = '';
-        // Grid fills row by row: accept, up / reject, down
+        // Grid fills row by row: accept, up, top / reject, down, bottom; save is the fourth column
         append(transposePanel, [
             this.createIconButton('mobile-transpose-accept', MobileUI.ICONS.accept,
                 'Keep this key', () => this.endTransposeMode(true)),
             byId('transpose-up'),
+            this.createIconButton('mobile-transpose-top', MobileUI.ICONS.toTop,
+                'Highest note on C6', () => this.player.transpose('top')),
             this.createIconButton('mobile-transpose-reject', MobileUI.ICONS.reject,
                 'Back to the original key', () => this.endTransposeMode(false)),
             byId('transpose-down'),
+            this.createIconButton('mobile-transpose-bottom', MobileUI.ICONS.toBottom,
+                'Lowest note on C4', () => this.player.transpose('bottom')),
             this.createIconButton('mobile-transpose-save', MobileUI.ICONS.save,
                 'Save this key to the tune file on GitHub', () => this.saveTransposition()),
         ]);

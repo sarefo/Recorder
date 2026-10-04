@@ -46,6 +46,84 @@ class TransposeManager {
     }
 
     /**
+     * Finds the lowest and highest sounding MIDI pitches of the ABC
+     * @param {string} abc - The ABC notation
+     * @returns {{low: number, high: number}|null} The range, or null if there are no notes
+     */
+    getPitchRange(abc) {
+        try {
+            // chordsOff: otherwise the generated bass line drags the low end down
+            const midi = ABCJS.synth.getMidiFile(abc.replace(/\r\n/g, '\n'),
+                { midiOutputType: 'binary', chordsOff: true })[0];
+            if (!midi) return null;
+
+            const bytes = Object.values(midi);
+            const pitches = [];
+            let p = 0;
+            const u32 = () => (bytes[p++] << 24 | bytes[p++] << 16 | bytes[p++] << 8 | bytes[p++]) >>> 0;
+            const varLen = () => {
+                let length = 0, b;
+                do { b = bytes[p++]; length = (length << 7) | (b & 0x7f); } while (b & 0x80);
+                return length;
+            };
+
+            p = 4;
+            const headerLength = u32();
+            p += headerLength;
+            while (p < bytes.length - 8) {
+                const tag = String.fromCharCode(...bytes.slice(p, p + 4));
+                p += 4;
+                const trackLength = u32();
+                const end = p + trackLength;
+                if (tag !== 'MTrk') { p = end; continue; }
+
+                let status = 0;
+                while (p < end) {
+                    varLen(); // delta time
+                    if (p >= end) break;
+                    if (bytes[p] & 0x80) status = bytes[p++];
+                    const type = status & 0xf0;
+
+                    if (status === 0xff) {
+                        p++;
+                        const metaLength = varLen();
+                        p += metaLength;
+                    } else if (status === 0xf0 || status === 0xf7) {
+                        const sysexLength = varLen();
+                        p += sysexLength;
+                    } else if (type === 0x90) {
+                        const pitch = bytes[p++], velocity = bytes[p++];
+                        if (velocity > 0 && (status & 0x0f) !== 9) pitches.push(pitch);
+                    } else if (type === 0xc0 || type === 0xd0) {
+                        p += 1;
+                    } else {
+                        p += 2;
+                    }
+                }
+                p = end;
+            }
+
+            if (!pitches.length) return null;
+            return { low: Math.min(...pitches), high: Math.max(...pitches) };
+        } catch (error) {
+            console.error('Pitch range error:', error);
+            return null;
+        }
+    }
+
+    /**
+     * Semitone shift that puts the lowest note on C4 or the highest on C6
+     * @param {string} abc - The ABC notation
+     * @param {string} edge - 'bottom' (lowest note becomes C4) or 'top' (highest becomes C6)
+     * @returns {number} The shift in semitones (0 if there are no notes)
+     */
+    getShiftToEdge(abc, edge) {
+        const range = this.getPitchRange(abc);
+        if (!range) return 0;
+        return edge === 'bottom' ? 60 - range.low : 84 - range.high;
+    }
+
+    /**
      * Gets or creates the temporary div for transposition
      * @returns {HTMLElement} The temp div
      * @private
