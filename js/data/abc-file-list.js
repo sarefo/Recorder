@@ -852,7 +852,7 @@ class AbcFileList {
                 "name": "La cambo me fai mau",
                 "file": "occitan/la cambo me fai mau.abc",
                 "category": "occitan",
-                "hash": "b5279349c5"
+                "hash": "fdbdf8bef9"
         },
         {
                 "name": "O Magali",
