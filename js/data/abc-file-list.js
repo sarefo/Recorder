@@ -1116,7 +1116,7 @@ class AbcFileList {
                 "name": "Akta dig f\u00f6r flickor",
                 "file": "swedish/akta dig f\u00f6r flickor.abc",
                 "category": "swedish",
-                "hash": "aca6013fe7"
+                "hash": "aec63e7dbe"
         },
         {
                 "name": "Bua Kao \u0e1a\u0e31\u0e27\u0e02\u0e32\u0e27",

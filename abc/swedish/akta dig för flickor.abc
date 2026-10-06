@@ -8,11 +8,11 @@ Z:id:hn-schottis-40
 M:C|
 L:1/8
 K:C
-CDEF G2c2 | CDEF G2c2 | d2dc B2AB | c2BA GFED |
-CDEF G2c2 | CDEF G2c2 | d2dc B2AB | c2c2 c4 :|
+"C"CDEF G2c2 | CDEF G2c2 |"G" d2dc B2AB |"C" c2BA "G"GFED |
+"C"CDEF G2c2 | CDEF G2c2 |"G" d2dc B2AB |"C" c2c2 c4 :|
 K:G
-d2BG D2GB | d2cB c2c2 | c2AF D2FA | c2BA B2B2 |
-d2BG D2GB | d2cd edcB | AGFE DcBA | G2G2 G4 :|
+"G"d2BG D2GB | d2cB "C"c2c2 |"D7" c2AF D2FA | c2BA "G"B2B2 |
+"G"d2BG D2GB | d2cd edcB |"D7" AGFE DcBA |"G" G2G2 G4 :|
 
 X:2
 T:Akta dig för flickor
