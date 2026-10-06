@@ -360,3 +360,24 @@ is movable-do scale degrees; hyphens mean held.
 Two independent sources agreeing on pitches is decent evidence. One source plus
 your own recollection is not — recollection agrees with whatever it is shown.
 When the only thing available is a letter-note page, skip the tune and say why.
+
+## Nordic set (2026-10)
+
+`index_swedish_song`, `index_norway_song`, `index_Denmark_song`, `index_Finland_song` on
+mu-tech.org gave Helan går, Du gamla du fria, Ack Värmeland, I sommarens soliga dagar,
+Ja vi elsker, Bruremarsj fra Valsøyfjord, Der er et yndigt land, Maamme and Mansikka.
+Workflow that worked: `fsout/<Name>_Country.mid` melody channel (15, or 0 with octave
+doubles) through `scripts/midi_to_abc_draft.py`, chords read off the generated lead sheet.
+
+- **Generate the sheet in the MIDI's own key.** `SongKey=eb` on a B-flat tune prints
+  transposed chords and different pitches; the bass track's lowest note is not the tonic.
+  Find the key from the accidentals in the draft (`^A` and `^d` in "key C" output mean flats).
+- **fsout arrangements start one beat late** (lead-in): use SHIFT=-1 so bars match the sheet.
+- **Quarter notes followed by a one-eighth gap are dotted** (the MIDI shortens them).
+  Check against the sheet and fill the gap.
+- **Check the first statement against its repeats.** Ack Värmeland's source plays the opening
+  phrase an octave up; the later statements show it was meant low.
+- **abcjs carries accidentals through the bar**: a natural after `^A` needs `=A`. The MIDI
+  diff catches this.
+- Skipped: Gjendines bådnlåt (B3 to B5, two octaves, does not fit the recorder), Björnen sover
+  (sheet and MIDI disagree on the bar structure), En elefant kom marsjerende (provenance unclear).

@@ -543,6 +543,12 @@ class AbcFileList {
                 "hash": "5fdf1eea37"
         },
         {
+                "name": "Der er et yndigt land",
+                "file": "danish/er et yndigt land.abc",
+                "category": "danish",
+                "hash": "c9ed0db018"
+        },
+        {
                 "name": "Sarasponda",
                 "file": "dutch/sarasponda.abc",
                 "category": "dutch",
@@ -601,6 +607,18 @@ class AbcFileList {
                 "file": "finnish/ievan_polkka.abc",
                 "category": "finnish",
                 "hash": "1607ed8e63"
+        },
+        {
+                "name": "Maamme",
+                "file": "finnish/maamme.abc",
+                "category": "finnish",
+                "hash": "082d06cd2b"
+        },
+        {
+                "name": "Mansikka",
+                "file": "finnish/mansikka.abc",
+                "category": "finnish",
+                "hash": "c55af0b3d8"
         },
         {
                 "name": "Ol' Kaunis Kes\u00e4ilta",
@@ -835,6 +853,18 @@ class AbcFileList {
                 "file": "norwegian/bortkomne.abc",
                 "category": "norwegian",
                 "hash": "f55d674718"
+        },
+        {
+                "name": "Bruremarsj fra Vals\u00f8yfjord",
+                "file": "norwegian/bruremarsj fra vals\u00f8yfjord.abc",
+                "category": "norwegian",
+                "hash": "b03ee5f418"
+        },
+        {
+                "name": "Ja, vi elsker dette landet",
+                "file": "norwegian/ja vi elsker dette landet.abc",
+                "category": "norwegian",
+                "hash": "1a9e1ac42a"
         },
         {
                 "name": "Adiu paure Carnaval",
@@ -1113,10 +1143,34 @@ class AbcFileList {
                 "hash": "96dd0d9d04"
         },
         {
+                "name": "Ack V\u00e4rmeland, du sk\u00f6na",
+                "file": "swedish/ack v\u00e4rmeland du sk\u00f6na.abc",
+                "category": "swedish",
+                "hash": "e6750b446d"
+        },
+        {
                 "name": "Akta dig f\u00f6r flickor",
                 "file": "swedish/akta dig f\u00f6r flickor.abc",
                 "category": "swedish",
                 "hash": "aec63e7dbe"
+        },
+        {
+                "name": "Du gamla, du fria",
+                "file": "swedish/du gamla du fria.abc",
+                "category": "swedish",
+                "hash": "40141d0a93"
+        },
+        {
+                "name": "Helan g\u00e5r",
+                "file": "swedish/helan g\u00e5r.abc",
+                "category": "swedish",
+                "hash": "7c601d28a5"
+        },
+        {
+                "name": "I sommarens soliga dagar",
+                "file": "swedish/i sommarens soliga dagar.abc",
+                "category": "swedish",
+                "hash": "98965060a9"
         },
         {
                 "name": "Bua Kao \u0e1a\u0e31\u0e27\u0e02\u0e32\u0e27",

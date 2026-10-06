@@ -1,0 +1,13 @@
+X:1
+T:Ja, vi elsker dette landet
+O:Norway
+N:Norwegian national anthem (Rikard Nordraak, 1864). Melody and chords from the mu-tech.org lead sheet, verified against its MIDI
+M:4/4
+Q:1/4=100
+L:1/8
+K:C
+"G"G3F E2 D2 |"F"C2 D2 E2 F2 |"C"G3A G2 "G7"F2 |"C"E6 z2 |
+"C"A3G F2 E2 |"C"D2 E2 F2 "G7"G2 |"C"G3A "F"A2 "G7"B2 |"C"c4 z4 |
+"Am"c3c "Em"B3/2B/ "Am"A3/2A/ |"Em"G4 E2 z2 |"F"A3A "A7"G2 G2 |"Dm"F4 z2 "G7"G3/2G/ |
+"C"G2 "F"A2 A2 "E7"B2 |"E7"B4 "Am"c4 |"D7"c3c B2 c2 |"G7"d4 z2 d3/2d/ |
+"Dm"d2 e2 "G7"f2 "C"e2 |"F6"d4 "C"c2 "G"B3/2A/ |"G"G3A "F"A2 "G7"B2 |"C"c6 z2 |]

@@ -1,0 +1,12 @@
+X:1
+T:Ack Värmeland, du sköna
+O:Sweden
+N:Swedish folk song (Värmlandsvisan). Melody and chords from the mu-tech.org lead sheet, verified against its MIDI. Transposed from D minor so the lowest note is D4. The source plays the first statement of the opening phrase an octave up; it is written like its repeats. The last bar is shortened to pay back the pickup
+M:4/4
+Q:1/4=100
+L:1/8
+K:Gm
+D |"Eb"G3/2A/ Bc "D"d2 zD |"Gm"G3/2A/ Bc d3/2d/ "D7"^fa |"Gm"a3/2g/ "F7"gf "Bb"d3 "Bdim"d |"Cm"c2 "D7"ed "Gm"BB "Cm6"dc |
+"D7sus4"A3/2B/ "Gm"G4 zD |"Gm"G3/2A/ Bc d3/2d/ "D7"^fa |"Gm"a3/2g/ "F7"gf "Bb"d3 "Bdim"d |"Cm"c2 "D7"ed "Gm"BB "Cm6"dc |
+"D7sus4"A3/2B/ "Gm"G4 "F7"zA |"Bb"BA "Ebm7b5"Bd "F7sus4"dc cA |"Bb"B3/2A/ "Gm6"BG "A7"A3 "D7"D |"Gm"G3/2A/ "Cm6"Bc "D"d2 ^fa |
+"Eb"a3/2g/ "F7"gf "Bb"d3 "Gm"d |"F7"f2 "F#dim"fc "Gm"BB "C7"d3/2 "D7"c/ |"Gm"A3/2B/ G4 z |]
