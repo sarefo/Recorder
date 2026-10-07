@@ -141,8 +141,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-06T08:38:28.221Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-07T10:33:03.847Z",
+      "playCount": 10,
       "createdAt": "2026-09-27T06:51:55.209Z"
     },
     "chinese/670_songs.abc": {
@@ -1735,6 +1735,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "cajun/madame sosthene.abc",
+      "timestamp": "2026-10-07T10:33:03.847Z"
+    },
+    {
       "filePath": "cajun/bosco stomp.abc",
       "timestamp": "2026-10-07T10:31:55.198Z"
     },
@@ -1809,10 +1813,6 @@
     {
       "filePath": "japanese/sakura.abc",
       "timestamp": "2026-10-07T08:05:16.355Z"
-    },
-    {
-      "filePath": "danish/er et yndigt land.abc",
-      "timestamp": "2026-10-07T07:51:37.546Z"
     }
   ],
   "settings": {}
