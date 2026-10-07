@@ -241,9 +241,11 @@ class MobileUI {
         Utils.showFeedback('Saving to GitHub…', 10000);
 
         try {
-            const { key, bpm } = await this.player.githubSync.saveChanges(filePath, { semitones, tempoPercent });
+            const tempoFallback = GitHubSync.tempoOf(this.player.renderManager.currentVisualObj);
+            const { key, bpm } = await this.player.githubSync.saveChanges(filePath,
+                { semitones, tempoPercent, tempoFallback });
             if (bpm !== null) {
-                await this.applySavedTempo(tempoPercent);
+                await this.applySavedTempo(tempoPercent, tempoFallback);
             }
             this.endTransposeMode(true);
             this.resetTransposeSteps();
@@ -263,11 +265,12 @@ class MobileUI {
      * After a tempo was saved into the file, bakes it into the open tune and
      * resets the tempo control, so playback speed stays the same
      * @param {number} percent - The tempo percentage that was saved
+     * @param {Object|null} fallback - Tempo used when the tune had no Q: line
      * @private
      */
-    async applySavedTempo(percent) {
+    async applySavedTempo(percent, fallback) {
         const parser = this.player.notationParser;
-        const scaled = GitHubSync.scaleTempo(parser.currentAbc, percent);
+        const scaled = GitHubSync.scaleTempo(parser.currentAbc, percent, fallback);
         if (scaled) {
             parser.currentAbc = scaled.abc;
             this.player.render();

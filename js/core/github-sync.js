@@ -68,19 +68,43 @@ class GitHubSync {
     }
 
     /**
+     * The tempo abcjs plays a tune at, written as a Q: beat and count. For a
+     * tune without a Q: line this is abcjs's default (180 beats, 120 in
+     * compound meters), so saving it keeps the speed the tune was heard at.
+     * @param {Object} visualObj - Rendered abcjs tune
+     * @returns {{beat: string, bpm: number}|null} e.g. {beat: '1/2', bpm: 180}
+     */
+    static tempoOf(visualObj) {
+        if (!visualObj || typeof visualObj.getBpm !== 'function' ||
+            typeof visualObj.getMeterFraction !== 'function') return null;
+        const meter = visualObj.getMeterFraction();
+        if (!meter || !meter.den) return null;
+        // Same beat abcjs uses (getBeatLength): compound meters beat in dotted notes
+        const compound = [6, 9, 12].includes(meter.num) || (meter.num === 3 && meter.den === 8);
+        return { beat: `${compound ? 3 : 1}/${meter.den}`, bpm: visualObj.getBpm() };
+    }
+
+    /**
      * Rewrites the first Q: line so the tune plays at a percentage of its
-     * current tempo
+     * current tempo. Without a Q: line, adds one before K: from the fallback.
      * @param {string} abc - ABC text
      * @param {number} percent - Tempo percentage (100 = unchanged)
+     * @param {{beat: string, bpm: number}|null} [fallback] - Tempo the tune
+     *     plays at when it has no Q: line (see tempoOf)
      * @returns {{abc: string, bpm: number}|null} The new text and tempo, or
-     *     null when there is no Q: line with a number to scale
+     *     null when there is nothing to scale
      */
-    static scaleTempo(abc, percent) {
+    static scaleTempo(abc, percent, fallback = null) {
+        const scale = value => Math.max(1, Math.round(value * percent / 100));
         const line = /^(Q:[^\n]*?)(\d+)(\s*)$/m;
         const match = abc.match(line);
-        if (!match) return null;
-        const bpm = Math.max(1, Math.round(parseInt(match[2], 10) * percent / 100));
-        return { abc: abc.replace(line, `$1${bpm}$3`), bpm };
+        if (match) {
+            const bpm = scale(parseInt(match[2], 10));
+            return { abc: abc.replace(line, `$1${bpm}$3`), bpm };
+        }
+        if (/^Q:/m.test(abc) || !fallback || !/^K:/m.test(abc)) return null;
+        const bpm = scale(fallback.bpm);
+        return { abc: abc.replace(/^K:/m, `Q:${fallback.beat}=${bpm}\nK:`), bpm };
     }
 
     /**
@@ -91,9 +115,10 @@ class GitHubSync {
      * @param {Object} changes - What to save
      * @param {number} [changes.semitones=0] - Shift to apply
      * @param {number} [changes.tempoPercent=100] - Tempo to bake into the Q: line
+     * @param {Object} [changes.tempoFallback] - Tempo for a file without Q: (see tempoOf)
      * @returns {Promise<{key: string, bpm: number|null}>} The new key and tempo
      */
-    async saveChanges(filePath, { semitones = 0, tempoPercent = 100 } = {}) {
+    async saveChanges(filePath, { semitones = 0, tempoPercent = 100, tempoFallback = null } = {}) {
         const url = this.contentsUrl(filePath);
         const file = await this.request(`${url}?ref=${GitHubSync.BRANCH}`);
         const original = GitHubSync.decodeBase64Utf8(file.content);
@@ -110,9 +135,9 @@ class GitHubSync {
         }
 
         if (tempoPercent !== 100) {
-            const scaled = GitHubSync.scaleTempo(text, tempoPercent);
+            const scaled = GitHubSync.scaleTempo(text, tempoPercent, tempoFallback);
             if (!scaled) {
-                throw new Error('This tune has no Q: tempo line to change');
+                throw new Error('Could not read the tune\'s Q: tempo line');
             }
             text = scaled.abc;
             bpm = scaled.bpm;
