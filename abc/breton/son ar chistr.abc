@@ -10,11 +10,11 @@ N: tunearch.org (in E minor) — the two agree note for note.
 L: 1/8
 Q: 1/2=136
 M: 4/4
-K: Am
-"Am"e2 ed B2 |"Am"c4 A3A |"Dm"A2 d2 d2 "Am"c2 |"G"B2 d2 "Am"c2 B2 |"Am"c4 A2 c2 |"Em"B2 G2 "Am"A4- |
-A2 e2 ed B2 |"Am"c4 A3A |"Dm"A2 d2 d2 "Am"c2 |"G"B2 d2 "Am"c2 B2 |"Am"c4 A2 c2 |"Em"B2 G2 "Am"A4- |
-A2 AB c2 d2 |"Am"e6 e2 |"Dm"f2 d2 "Am"e4- |e2 e2 d2 ed |"Am"c4 A2 A2 |
-"Dm"A2 d2 d2 "Am"c2 |"G"B2 d2 "Am"c2 B2 |"Am"c4 A2 c2 |"Em"B2 G2 "Am"A4- |A2 |]
+K: Dm
+"Dm"A2 AG E2 |"Dm"F4 D3D |"Gm"D2 G2 G2 "Dm"F2 |"C"E2 G2 "Dm"F2 E2 |"Dm"F4 D2 F2 |"Am"E2 C2 "Dm"D4- |
+D2 A2 AG E2 |"Dm"F4 D3D |"Gm"D2 G2 G2 "Dm"F2 |"C"E2 G2 "Dm"F2 E2 |"Dm"F4 D2 F2 |"Am"E2 C2 "Dm"D4- |
+D2 DE F2 G2 |"Dm"A6 A2 |"Gm"B2 G2 "Dm"A4- |A2 A2 G2 AG |"Dm"F4 D2 D2 |
+"Gm"D2 G2 G2 "Dm"F2 |"C"E2 G2 "Dm"F2 E2 |"Dm"F4 D2 F2 |"Am"E2 C2 "Dm"D4- |D2 |]
 
 % Ev chistr 'ta Laou, rak chistr zo mat, lonla...
 % "Drink cider, Laou, for cider is good."
