@@ -229,8 +229,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T09:28:51.652Z",
-      "playCount": 23,
+      "lastPlayed": "2026-10-07T10:45:57.077Z",
+      "playCount": 24,
       "createdAt": "2026-07-31T11:49:25.430Z"
     },
     "chinese/na jiushi wo.abc": {
@@ -1021,8 +1021,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-02T10:12:53.337Z",
-      "playCount": 12,
+      "lastPlayed": "2026-10-07T10:45:58.943Z",
+      "playCount": 13,
       "createdAt": "2026-08-02T02:15:53.935Z"
     },
     "japanese/hana.abc": {
@@ -1735,6 +1735,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jamaican/banana boat song.abc",
+      "timestamp": "2026-10-07T10:45:58.943Z"
+    },
+    {
+      "filePath": "chinese/molihua.abc",
+      "timestamp": "2026-10-07T10:45:57.077Z"
+    },
+    {
       "filePath": "unsorted/people united.abc",
       "timestamp": "2026-10-07T10:43:49.789Z"
     },
@@ -1775,10 +1783,6 @@
       "timestamp": "2026-10-07T09:29:02.382Z"
     },
     {
-      "filePath": "chinese/molihua.abc",
-      "timestamp": "2026-10-07T09:28:51.652Z"
-    },
-    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-10-07T09:20:14.703Z"
     },
@@ -1809,10 +1813,6 @@
     {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-10-07T08:08:46.487Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-10-07T08:07:23.391Z"
     }
   ],
   "settings": {}
