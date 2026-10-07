@@ -165,8 +165,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-05T10:20:53.162Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-07T10:55:36.960Z",
+      "playCount": 8,
       "createdAt": "2026-07-31T11:49:25.430Z"
     },
     "chinese/caicha wuqu.abc": {
@@ -1735,6 +1735,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/baobao yao shuijiao.abc",
+      "timestamp": "2026-10-07T10:55:36.960Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-07T10:53:21.578Z"
     },
@@ -1809,10 +1813,6 @@
     {
       "filePath": "peruvian/el condor pasa.abc",
       "timestamp": "2026-10-07T08:23:44.511Z"
-    },
-    {
-      "filePath": "classical/bach/chorales/ein feste burg ist unser gott.abc",
-      "timestamp": "2026-10-07T08:20:51.973Z"
     }
   ],
   "settings": {}
