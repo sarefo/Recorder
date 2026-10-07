@@ -114,6 +114,7 @@ class AbcPlayer {
         const text = await Utils.readFromClipboard();
         if (text && text.includes('X:') && text.includes('K:')) {
             this.mobileUI.endTransposeMode(true);
+            this.mobileUI.resetTransposeSteps();
             this.notationParser.currentAbc = text;
             this.fileManager.currentFilePath = null;
             this.fileManager.metadataUI.updateInlineTagButton(null);

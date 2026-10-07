@@ -53,6 +53,7 @@ class FileManager {
             if (abcContent.includes('X:') && abcContent.includes('K:')) {
                 // Update the notation
                 this.player.mobileUI.endTransposeMode(true);
+                this.player.mobileUI.resetTransposeSteps();
                 this.player.notationParser.currentAbc = abcContent;
 
                 // Apply transposition if currently in dizi mode

@@ -19,7 +19,9 @@ class MobileUI {
         this.overlayOpen = false;
         this.transposing = false;
         this.abcBeforeTranspose = null;
+        // Net shift from the tune file as loaded, kept across transpose sessions
         this.transposeSteps = 0;
+        this.stepsBeforeTranspose = 0;
         this.savingTranspose = false;
 
         const settings = player.settingsManager;
@@ -148,7 +150,7 @@ class MobileUI {
      */
     startTransposeMode() {
         this.abcBeforeTranspose = this.player.notationParser.currentAbc;
-        this.transposeSteps = 0;
+        this.stepsBeforeTranspose = this.transposeSteps;
         this.transposing = true;
         this.overlayOpen = false;
         this.applyMobileState();
@@ -167,6 +169,7 @@ class MobileUI {
         if (!keep && this.abcBeforeTranspose !== null &&
             this.abcBeforeTranspose !== this.player.notationParser.currentAbc) {
             this.player.notationParser.currentAbc = this.abcBeforeTranspose;
+            this.transposeSteps = this.stepsBeforeTranspose;
             this.player.render();
         }
         this.abcBeforeTranspose = null;
@@ -183,18 +186,28 @@ class MobileUI {
             this.player.notationParser.currentAbc = this.abcBeforeTranspose;
             this.player.render();
         }
-        this.transposeSteps = 0;
+        this.transposeSteps = this.stepsBeforeTranspose;
         this.updateTransposeSaveButton();
         Utils.showFeedback('Original key restored', 1200);
     }
 
     /**
-     * Counts a key up/key down step taken in transpose mode
+     * Counts a key up/key down step, in or out of transpose mode, so the
+     * save button knows how far the tune is from its file
      * @param {number} semitones - The step just applied
      */
     countTransposeStep(semitones) {
-        if (!this.transposing) return;
         this.transposeSteps += semitones;
+        this.updateTransposeSaveButton();
+    }
+
+    /**
+     * A tune was loaded: it now matches its file (or has no file)
+     * @param {number} [steps=0] - Shift already applied, e.g. restored from the URL
+     */
+    resetTransposeSteps(steps = 0) {
+        this.transposeSteps = steps;
+        this.stepsBeforeTranspose = steps;
         this.updateTransposeSaveButton();
     }
 
@@ -233,6 +246,7 @@ class MobileUI {
                 await this.applySavedTempo(tempoPercent);
             }
             this.endTransposeMode(true);
+            this.resetTransposeSteps();
             const saved = [semitones !== 0 ? `in ${key}` : '', bpm !== null ? `at tempo ${bpm}` : '']
                 .filter(Boolean).join(' ');
             Utils.showFeedback(`Saved ${saved}, live on all devices in about a minute`, 3500);

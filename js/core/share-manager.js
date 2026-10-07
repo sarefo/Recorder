@@ -39,6 +39,11 @@ class ShareManager {
         const filePath = this.player.fileManager?.currentFilePath;
         if (filePath) {
             url.searchParams.set('file', filePath);
+            // How far the key is from the file, so the cloud save still knows after a reload
+            const steps = this.player.mobileUI?.transposeSteps;
+            if (steps) {
+                url.searchParams.set('t', steps);
+            }
         }
 
         // Update browser URL without reloading the page
@@ -65,6 +70,8 @@ class ShareManager {
                         ? fileParam : null;
                     fileManager.currentFilePath = filePath;
                     fileManager.metadataUI.updateInlineTagButton(filePath);
+                    const steps = filePath ? parseInt(urlParams.get('t'), 10) || 0 : 0;
+                    this.player.mobileUI.resetTransposeSteps(steps);
                     this.player.render();
 
                     // Add a small message to indicate successful loading
