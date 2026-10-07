@@ -1051,6 +1051,26 @@ class UIControls {
     }
 
     /**
+     * Puts the tempo back to 100% and updates every tempo control
+     */
+    async resetTempo() {
+        const midiPlayer = this.player.midiPlayer;
+        await midiPlayer.updatePlaybackSettings({ tempo: 100 }, this.player.renderManager.currentVisualObj);
+
+        const slider = document.getElementById('tempo-slider');
+        if (slider) slider.value = '100';
+        const value = document.getElementById('tempo-value');
+        if (value) value.textContent = '100%';
+        const mobileButton = document.getElementById('mobile-tempo-button');
+        if (mobileButton) mobileButton.textContent = '100%';
+
+        if (midiPlayer.playbackSettings.metronomeOn && midiPlayer.customMetronome.isPlaying) {
+            await midiPlayer.customMetronome.setTempo(midiPlayer.lastTempo);
+        }
+        this.player.mobileUI.updateTransposeSaveButton();
+    }
+
+    /**
      * Creates tuning button
      * @returns {HTMLElement} The tuning button
      */

@@ -275,16 +275,7 @@ class MobileUI {
             parser.currentAbc = scaled.abc;
             this.player.render();
         }
-        await this.player.midiPlayer.updatePlaybackSettings(
-            { tempo: 100 },
-            this.player.renderManager.currentVisualObj
-        );
-        const label = document.getElementById('mobile-tempo-button');
-        if (label) label.textContent = '100%';
-        const slider = document.getElementById('tempo-slider');
-        if (slider) slider.value = '100';
-        const value = document.getElementById('tempo-value');
-        if (value) value.textContent = '100%';
+        await this.player.uiControls.resetTempo();
     }
 
     /**

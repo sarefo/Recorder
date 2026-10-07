@@ -67,6 +67,11 @@ class FileManager {
                 this.player.tuneManager.resetToFirstTune();
                 this.player.render();
 
+                // Each tune starts at its own tempo
+                if (this.player.midiPlayer.playbackSettings.tempo !== 100) {
+                    await this.player.uiControls.resetTempo();
+                }
+
                 // Record playback in user data
                 if (this.userDataManager) {
                     this.userDataManager.recordPlayback(filePath);
