@@ -1662,8 +1662,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-27T07:25:05.095Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-07T10:43:49.789Z",
+      "playCount": 4,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "unsorted/spin the wheel.abc": {
@@ -1734,6 +1734,10 @@
   "collections": {},
   "deletedCollections": {},
   "recentlyPlayed": [
+    {
+      "filePath": "unsorted/people united.abc",
+      "timestamp": "2026-10-07T10:43:49.789Z"
+    },
     {
       "filePath": "cajun/madame sosthene.abc",
       "timestamp": "2026-10-07T10:33:03.847Z"
@@ -1809,10 +1813,6 @@
     {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-10-07T08:07:23.391Z"
-    },
-    {
-      "filePath": "japanese/sakura.abc",
-      "timestamp": "2026-10-07T08:05:16.355Z"
     }
   ],
   "settings": {}
