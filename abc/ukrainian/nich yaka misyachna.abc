@@ -5,10 +5,10 @@ N:Melody and chords from the mu-tech.org lead sheet, verified against its MIDI; 
 M:3/4
 Q:1/4=92
 L:1/4
-K:Am
-"Am" e A A |"Am" A ^G A |"E7" B B B |"E7" B ^G E |
-"E7" E ^G B |"E7" d c d |"Am" e3 |"Am7" z3 |
-"F" a a a |"F" a g f |"C" e e e |"C" e d c |
-"G7" d d d |"G7" d c d |"C" e3 |"C" z3 |
-"F" f f g |"F" a g f |"Am" a e e |"Am" e d c |
-"E7" e B c |"E7" d c B |"Am" A3 |"Am" z3 |]
+K:Gm
+"Gm" d G G |"Gm" G ^F G |"D7" A A A |"D7" A ^F D |
+"D7" D ^F A |"D7" c B c |"Gm" d3 |"Gm7" z3 |
+"Eb" g g g |"Eb" g f e |"Bb" d d d |"Bb" d c B |
+"F7" c c c |"F7" c B c |"Bb" d3 |"Bb" z3 |
+"Eb" e e f |"Eb" g f e |"Gm" g d d |"Gm" d c B |
+"D7" d A B |"D7" c B A |"Gm" G3 |"Gm" z3 |]
