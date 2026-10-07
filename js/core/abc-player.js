@@ -536,8 +536,8 @@ class AbcPlayer {
         this.midiPlayer.playbackSettings.chordsOn = this.settingsManager.get('chordsOn');
         this.midiPlayer.playbackSettings.metronomeOn = this.settingsManager.get('metronomeOn');
 
-        // Force loop to always be false on load to prevent localStorage issues
-        this.midiPlayer.playbackSettings.loopEnabled = false;
+        // Loop starts on every launch; the button only changes it for the session
+        this.midiPlayer.playbackSettings.loopEnabled = true;
 
         // Update UI to reflect initial settings
         this.uiControls.updateFingeringButtons();

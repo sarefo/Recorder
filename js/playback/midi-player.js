@@ -15,7 +15,7 @@ class MidiPlayer {
             voicesOn: false,
             metronomeOn: true,
             tempo: 100, // Default tempo percentage (100%)
-            loopEnabled: false // Loop playback when song ends
+            loopEnabled: true // Loop playback when song ends
         };
 
         // Add custom metronome. Its clicks follow the music's own beat grid

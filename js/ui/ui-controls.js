@@ -634,7 +634,7 @@ class UIControls {
     createLoopButton() {
         const loopButton = document.createElement('button');
         loopButton.id = 'loop-button';
-        this.updateLoopButtonAppearance(loopButton, false);
+        this.updateLoopButtonAppearance(loopButton, this.player.midiPlayer.playbackSettings.loopEnabled);
 
         loopButton.addEventListener('click', async () => {
             const loopEnabled = await this.player.midiPlayer.toggleLoop(this.player);

@@ -7,7 +7,7 @@ class SettingsManager {
             voicesOn: true,
             chordsOn: false,
             metronomeOn: true,
-            loopEnabled: false,
+            loopEnabled: true,
             autoScrollEnabled: true,
             theme: 'auto'   // 'auto' follows the OS; 'light' / 'dark' override it
         };
