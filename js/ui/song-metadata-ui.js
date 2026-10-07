@@ -28,8 +28,36 @@ class SongMetadataUI {
         starButton.innerHTML = songData.favorite ? '⭐' : '☆';
         starButton.title = songData.favorite ? 'Remove from favorites' : 'Add to favorites';
 
+        // Removing a favorite takes a second tap: the first one arms the star
+        let disarmTimer = null;
+        const disarm = () => {
+            clearTimeout(disarmTimer);
+            disarmTimer = null;
+            starButton.classList.remove('confirming');
+            starButton.innerHTML = '⭐';
+            starButton.title = 'Remove from favorites';
+        };
+
         starButton.addEventListener('click', (e) => {
             e.stopPropagation(); // Prevent file from loading
+
+            const isFavorite = this.userDataManager.getSongData(filePath).favorite === true;
+            if (isFavorite && !disarmTimer) {
+                starButton.classList.add('confirming');
+                starButton.innerHTML = '✕';
+                starButton.title = 'Tap again to remove from favorites';
+                disarmTimer = setTimeout(disarm, 3000);
+                if (navigator.vibrate) {
+                    navigator.vibrate(15);
+                }
+                return;
+            }
+            if (disarmTimer) {
+                clearTimeout(disarmTimer);
+                disarmTimer = null;
+                starButton.classList.remove('confirming');
+            }
+
             const newState = this.userDataManager.toggleFavorite(filePath);
             starButton.innerHTML = newState ? '⭐' : '☆';
             starButton.title = newState ? 'Remove from favorites' : 'Add to favorites';
