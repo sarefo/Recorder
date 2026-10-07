@@ -52,6 +52,13 @@ class FileManager {
             // Make sure it's valid ABC notation
             if (abcContent.includes('X:') && abcContent.includes('K:')) {
                 // Update the notation
+                // The new tune must start cleanly: silence the old one and
+                // drop its paused position so Play does not resume mid-tune
+                const midi = this.player.midiPlayer;
+                await midi.stopPlayback();
+                if (midi.midiPlayer) midi.midiPlayer.pausedTimeSec = undefined;
+                midi.autoScrollManager?.reset();
+
                 this.player.mobileUI.endTransposeMode(true);
                 this.player.mobileUI.resetTransposeSteps();
                 this.player.notationParser.currentAbc = abcContent;
