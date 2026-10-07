@@ -757,8 +757,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-27T07:18:40.142Z",
-      "playCount": 7,
+      "lastPlayed": "2026-10-07T10:48:22.460Z",
+      "playCount": 8,
       "createdAt": "2026-08-31T03:23:32.154Z"
     },
     "film/here's to you.abc": {
@@ -1735,6 +1735,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/herbie's theme.abc",
+      "timestamp": "2026-10-07T10:48:22.460Z"
+    },
+    {
       "filePath": "jamaican/banana boat song.abc",
       "timestamp": "2026-10-07T10:45:58.943Z"
     },
@@ -1809,10 +1813,6 @@
     {
       "filePath": "japanese/kojo no tsuki.abc",
       "timestamp": "2026-10-07T08:11:10.267Z"
-    },
-    {
-      "filePath": "japanese/hashire kotaro.abc",
-      "timestamp": "2026-10-07T08:08:46.487Z"
     }
   ],
   "settings": {}
