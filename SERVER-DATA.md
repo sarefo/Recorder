@@ -1,41 +1,38 @@
-# Server User Data
+# Synced User Data
 
-`user-data-server.json` acts as a shared baseline for all devices. On every app load, devices fetch this file and use it to fill in any songs, collections, or recently-played entries that aren't already in their local browser storage. **Local data always wins** — the server only fills gaps.
+Favorites, practice status, notes, collections and recently played live in
+`user-data.json` on the **`user-data` branch** of this repo
+(`js/core/user-data-sync.js`). That branch is not the one GitHub Pages serves,
+so syncing never redeploys the site, and the data does not depend on which
+version of the app is installed.
 
-## How to update from your phone
+## When it syncs
 
-1. On your phone, open the app → settings menu → **Export Data**
-2. You'll get a file like `abc-player-backup-2026-03-02.json`
-3. Copy/move it to this folder and rename it to `user-data-server.json` (overwrite the old one)
-4. Commit and push:
-   ```
-   git add Recorder/user-data-server.json
-   git commit -m "Update server user data"
-   git push
-   ```
-5. All devices will pick up the new baseline on their next page load
+- **Pull:** on app start, when the app comes back to the foreground, and when
+  the device goes back online. Works without a token (the repo is public).
+- **Push:** about 30 seconds after a change, and when the app is hidden. Needs
+  the GitHub token (settings ⚙). A change made offline or without a token is
+  remembered and pushed on a later sync.
 
-## Merge behaviour
+The device's own copy in localStorage is always used as-is when GitHub can't
+be reached.
 
-| Situation | Result |
-|-----------|--------|
-| Song exists only on server | Added to local storage |
-| Song exists only locally | Kept as-is |
-| Song exists in both | **Local version wins** |
-| Collections | Same as songs |
-| Recently played | Both lists merged; local order preserved at top |
+## Merge rules
 
-## Gotcha: stale local data wins
+| Data | Rule |
+|------|------|
+| Status, favorite, notes | From whichever copy changed the song last (`updatedAt`; older entries fall back to `lastPlayed`) |
+| Play count, last played | The larger value |
+| Collections | The copy changed last; a deleted collection stays deleted (`deletedCollections`) |
+| Recently played | Both lists merged, newest first |
+| Settings | Each device keeps its own |
 
-If a device has an old entry for a song (e.g. "needs-practice") and your phone has it as "mastered" in the server file, the device keeps its old version. To force a device to adopt the server data:
-
-1. Open the app on that device
-2. Settings → **Import Data** → select `user-data-server.json` → choose **Replace** (not Merge)
-
-## File location
+## Editing by hand
 
 ```
-Recorder/
-  user-data-server.json   ← edit this file to update all devices
-  SERVER-DATA.md          ← this file
+git fetch origin user-data
+git switch user-data      # edit user-data.json, commit, push
 ```
+
+Devices pick it up on their next pull. To change a song's status by hand, also
+set its `updatedAt` to the current time, or a device with a newer change wins.

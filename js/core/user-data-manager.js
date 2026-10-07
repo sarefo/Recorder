@@ -6,53 +6,98 @@ class UserDataManager {
     constructor() {
         this.storageKey = 'abc-player-user-data';
         this.data = this.loadData();
-        this.fetchServerData('./user-data-server.json');
+        /** Called after every local change (UserDataSync pushes from here) */
+        this.onChange = null;
     }
 
     /**
-     * Fetch server baseline data and merge it (server fills gaps, local wins).
-     * Fire-and-forget: silently ignored if file is missing or fetch fails.
-     * @param {string} url - URL of the server JSON file
+     * Merges a copy of the data from another device into this one and stores
+     * the result. Does not count as a local change.
+     * @param {Object} remote - Validated data from the sync file
+     * @returns {boolean} Whether the local data changed
      */
-    async fetchServerData(url) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) return;
-            const serverData = JSON.parse(await response.text());
-            if (!this.validateData(serverData)) return;
-            this.mergeServerDataAsBase(serverData);
-        } catch (e) {
-            // Server data is optional — network errors and missing file are fine
+    mergeRemote(remote) {
+        const before = JSON.stringify(this.data);
+        this.data = UserDataManager.merge(this.data, remote);
+        const changed = JSON.stringify(this.data) !== before;
+        if (changed) {
+            this.saveData(false);
         }
+        return changed;
     }
 
     /**
-     * Merge server data as a baseline: server fills gaps, local data always wins.
-     * @param {Object} serverData - Validated server data object
+     * Combines two copies of the user data. Per song, status, favorite and
+     * notes come from the copy changed last; play counts and dates take the
+     * larger value. Deleted collections stay deleted.
+     * @param {Object} local - This device's data (wins ties)
+     * @param {Object} remote - The other copy
+     * @returns {Object} The merged data
      */
-    mergeServerDataAsBase(serverData) {
-        // Songs: add server entries that don't exist locally
-        for (const [path, songData] of Object.entries(serverData.songs)) {
-            if (!this.data.songs[path]) {
-                this.data.songs[path] = songData;
-            }
+    static merge(local, remote) {
+        const time = value => (value ? Date.parse(value) || 0 : 0);
+        const later = (a, b) => (time(a) >= time(b) ? a : b) || null;
+        const earlier = (a, b) => (!a ? b : !b ? a : time(a) <= time(b) ? a : b);
+        // Entries from before sync have no updatedAt; the last play is the best guess
+        const changedAt = song => time(song.updatedAt || song.lastPlayed || song.createdAt);
+
+        const songs = {};
+        for (const path of [...new Set([...Object.keys(local.songs), ...Object.keys(remote.songs)])].sort()) {
+            // A song on one side only goes through the same steps, so a later
+            // merge with an identical copy changes nothing
+            const l = local.songs[path] || remote.songs[path];
+            const r = remote.songs[path] || l;
+            const newer = changedAt(r) > changedAt(l) ? r : l;
+            // Fixed key order, so both devices write the same text for the same data
+            songs[path] = {
+                status: newer.status ?? null,
+                favorite: newer.favorite === true,
+                notes: newer.notes || '',
+                lastPlayed: later(l.lastPlayed, r.lastPlayed),
+                playCount: Math.max(l.playCount || 0, r.playCount || 0)
+            };
+            const createdAt = earlier(l.createdAt, r.createdAt);
+            if (createdAt) songs[path].createdAt = createdAt;
+            const updatedAt = later(l.updatedAt, r.updatedAt);
+            if (updatedAt) songs[path].updatedAt = updatedAt;
         }
 
-        // Collections: add server collections not present locally
-        for (const [id, collection] of Object.entries(serverData.collections)) {
-            if (!this.data.collections[id]) {
-                this.data.collections[id] = collection;
-            }
+        const localDeleted = local.deletedCollections || {};
+        const remoteDeleted = remote.deletedCollections || {};
+        const deletedCollections = {};
+        for (const id of [...new Set([...Object.keys(localDeleted), ...Object.keys(remoteDeleted)])].sort()) {
+            deletedCollections[id] = later(localDeleted[id], remoteDeleted[id]);
+        }
+        const collectionTime = c => time(c.updatedAt || c.createdAt);
+        const collections = {};
+        for (const id of [...new Set([...Object.keys(local.collections), ...Object.keys(remote.collections)])].sort()) {
+            const l = local.collections[id];
+            const r = remote.collections[id];
+            const newer = !l ? r : !r ? l : collectionTime(r) > collectionTime(l) ? r : l;
+            if (deletedCollections[id] && time(deletedCollections[id]) >= collectionTime(newer)) continue;
+            collections[id] = { ...newer, songPaths: [...(newer.songPaths || [])] };
         }
 
-        // Recently played: append server entries not already in local list
-        const localPaths = new Set(this.data.recentlyPlayed.map(i => i.filePath));
-        const serverOnly = serverData.recentlyPlayed.filter(i => !localPaths.has(i.filePath));
-        this.data.recentlyPlayed = [...this.data.recentlyPlayed, ...serverOnly]
-            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-            .slice(0, this.data.settings.maxRecentSongs);
+        const recent = new Map();
+        for (const item of [...local.recentlyPlayed, ...remote.recentlyPlayed]) {
+            const existing = recent.get(item.filePath);
+            if (!existing || time(item.timestamp) > time(existing.timestamp)) {
+                recent.set(item.filePath, item);
+            }
+        }
+        const maxRecent = local.settings.maxRecentSongs || 20;
+        const recentlyPlayed = [...recent.values()]
+            .sort((a, b) => time(b.timestamp) - time(a.timestamp) || a.filePath.localeCompare(b.filePath))
+            .slice(0, maxRecent);
 
-        this.saveData();
+        return {
+            version: local.version,
+            songs,
+            collections,
+            deletedCollections,
+            recentlyPlayed,
+            settings: local.settings
+        };
     }
 
     /**
@@ -111,9 +156,13 @@ class UserDataManager {
 
     /**
      * Save data to localStorage
+     * @param {boolean} [isLocalChange=true] - false when the data came from sync
      * @returns {boolean} True if successful
      */
-    saveData() {
+    saveData(isLocalChange = true) {
+        if (isLocalChange && this.onChange) {
+            this.onChange();
+        }
         try {
             const json = JSON.stringify(this.data);
             localStorage.setItem(this.storageKey, json);
@@ -175,6 +224,7 @@ class UserDataManager {
 
         const songData = this.getSongData(filePath);
         songData.status = status;
+        songData.updatedAt = new Date().toISOString();
         this.saveData();
     }
 
@@ -186,6 +236,7 @@ class UserDataManager {
     toggleFavorite(filePath) {
         const songData = this.getSongData(filePath);
         songData.favorite = !songData.favorite;
+        songData.updatedAt = new Date().toISOString();
         this.saveData();
         return songData.favorite;
     }
@@ -198,6 +249,7 @@ class UserDataManager {
     setSongNotes(filePath, notes) {
         const songData = this.getSongData(filePath);
         songData.notes = notes || "";
+        songData.updatedAt = new Date().toISOString();
         this.saveData();
     }
 
@@ -270,7 +322,8 @@ class UserDataManager {
             id: id,
             name: name,
             songPaths: songPaths,
-            createdAt: new Date().toISOString()
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
         };
         this.saveData();
         return id;
@@ -287,7 +340,7 @@ class UserDataManager {
             return;
         }
 
-        Object.assign(this.data.collections[id], updates);
+        Object.assign(this.data.collections[id], updates, { updatedAt: new Date().toISOString() });
         this.saveData();
     }
 
@@ -298,6 +351,9 @@ class UserDataManager {
     deleteCollection(id) {
         if (this.data.collections[id]) {
             delete this.data.collections[id];
+            // Remembered so syncing does not bring it back from another device
+            this.data.deletedCollections = this.data.deletedCollections || {};
+            this.data.deletedCollections[id] = new Date().toISOString();
             this.saveData();
         }
     }
@@ -328,6 +384,7 @@ class UserDataManager {
         const collection = this.data.collections[collectionId];
         if (collection && !collection.songPaths.includes(filePath)) {
             collection.songPaths.push(filePath);
+            collection.updatedAt = new Date().toISOString();
             this.saveData();
         }
     }
@@ -343,6 +400,7 @@ class UserDataManager {
             collection.songPaths = collection.songPaths.filter(
                 path => path !== filePath
             );
+            collection.updatedAt = new Date().toISOString();
             this.saveData();
         }
     }

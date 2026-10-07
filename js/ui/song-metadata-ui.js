@@ -513,7 +513,8 @@ class SongMetadataUI {
 
         const help = document.createElement('p');
         help.className = 'settings-github-help';
-        help.innerHTML = 'Lets transpose mode save a new key to the tune file. ' +
+        help.innerHTML = 'Lets transpose mode save a new key and tempo to the tune file, and ' +
+            'syncs favorites, practice status and notes to your other devices. ' +
             '<a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Create a fine-grained token</a> ' +
             'for sarefo/Recorder with Contents: read and write. It stays in this browser.';
         section.appendChild(help);

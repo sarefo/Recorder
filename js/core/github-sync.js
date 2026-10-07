@@ -219,12 +219,56 @@ class GitHubSync {
     }
 
     /**
+     * Reads a file from a branch through the API (fresh, needs the token)
+     * @param {string} repoPath - Path from the repo root
+     * @param {string} branch - Branch name
+     * @returns {Promise<{text: string, sha: string}|null>} null when the file does not exist
+     */
+    async readFile(repoPath, branch) {
+        try {
+            const file = await this.request(`${this.repoFileUrl(repoPath)}?ref=${encodeURIComponent(branch)}`);
+            return { text: GitHubSync.decodeBase64Utf8(file.content), sha: file.sha };
+        } catch (error) {
+            if (error.status === 404) return null;
+            throw error;
+        }
+    }
+
+    /**
+     * Writes a file to a branch as one commit
+     * @param {string} repoPath - Path from the repo root
+     * @param {string} branch - Branch name
+     * @param {string} text - New content
+     * @param {string|null} sha - SHA of the version being replaced (null for a new file)
+     * @param {string} message - Commit message
+     * @returns {Promise<string>} SHA of the new version
+     */
+    async writeFile(repoPath, branch, text, sha, message) {
+        const body = { message, content: GitHubSync.encodeBase64Utf8(text), branch };
+        if (sha) body.sha = sha;
+        const result = await this.request(this.repoFileUrl(repoPath), {
+            method: 'PUT',
+            body: JSON.stringify(body)
+        });
+        return result.content.sha;
+    }
+
+    /**
      * @param {string} filePath - Path under abc/
      * @returns {string} Contents API URL for the file
      * @private
      */
     contentsUrl(filePath) {
-        const path = ['abc', ...filePath.split('/')].map(encodeURIComponent).join('/');
+        return this.repoFileUrl(`abc/${filePath}`);
+    }
+
+    /**
+     * @param {string} repoPath - Path from the repo root
+     * @returns {string} Contents API URL for the file
+     * @private
+     */
+    repoFileUrl(repoPath) {
+        const path = repoPath.split('/').map(encodeURIComponent).join('/');
         return `https://api.github.com/repos/${GitHubSync.REPO}/contents/${path}`;
     }
 
@@ -267,7 +311,9 @@ class GitHubSync {
             409: 'The file changed on GitHub meanwhile; reload and try again',
             422: 'GitHub refused the change'
         };
-        throw new Error(messages[response.status] || `GitHub error ${response.status}`);
+        const error = new Error(messages[response.status] || `GitHub error ${response.status}`);
+        error.status = response.status;
+        throw error;
     }
 
     /**

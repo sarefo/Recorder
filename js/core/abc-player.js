@@ -88,6 +88,10 @@ class AbcPlayer {
         this.shareManager = new ShareManager(this);
         this.backGuard = new BackGuard(this);
 
+        // Favorites, practice status etc. shared between devices
+        this.userDataSync = new UserDataSync(this);
+        this.userDataSync.start();
+
         // Mobile detection is now handled by MobileUI class
         this.isMobile = window.innerWidth <= 768;
     }

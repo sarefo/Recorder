@@ -1086,7 +1086,7 @@ class AbcFileList {
                 "name": "Fang the Fiddlers",
                 "file": "scottish/fang_fiddlers.abc",
                 "category": "scottish",
-                "hash": "4a3d8c2857"
+                "hash": "13e84b61c3"
         },
         {
                 "name": "Francis T Robertson",
