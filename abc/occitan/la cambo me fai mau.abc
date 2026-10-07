@@ -8,13 +8,13 @@ N: Melody and score from mamalisa.com, transposed up a fifth.
 L: 1/8
 Q: 1/2=100
 M: 4/4
-K: Dm
-"Dm"d4 "A"e2^c2 |"Dm"d6 f2 |"Am"e2f2 g2e2 |"F"f4 "A"e4 |
-"Dm"d4 "A"e2^c2 |"Dm"d6 f2 |"Am"e2f2 g2e2 |"F"f8 |
-"Dm"a4 g2f2 |"Gm"g6 f2 |"Dm"e2f2 d2e2 |"A"^c4 A4 |
-"Dm"a4 g2f2 |"Gm"g6 f2 |"A"e2d2 ^c2 d2 |"Dm"A4 z2 "A"A2 |
-"Dm"d3^c d2e2 |"Dm"f4 e2f2 |"Gm"g2g2 "Dm"f2e2 |"Dm"f4 "A"e2a2 |
-"Dm"d3^c d2e2 |"Dm"f4 e2f2 |"Gm"g2g2 "Dm"f2e2 |"Dm"d8 |]
+K: Am
+"Am"A4 "E"B2^G2 |"Am"A6 c2 |"Em"B2c2 d2B2 |"C"c4 "E"B4 |
+"Am"A4 "E"B2^G2 |"Am"A6 c2 |"Em"B2c2 d2B2 |"C"c8 |
+"Am"e4 d2c2 |"Dm"d6 c2 |"Am"B2c2 A2B2 |"E"^G4 E4 |
+"Am"e4 d2c2 |"Dm"d6 c2 |"E"B2A2 ^G2 A2 |"Am"E4 z2 "E"E2 |
+"Am"A3^G A2B2 |"Am"c4 B2c2 |"Dm"d2d2 "Am"c2B2 |"Am"c4 "E"B2e2 |
+"Am"A3^G A2B2 |"Am"c4 B2c2 |"Dm"d2d2 "Am"c2B2 |"Am"A8 |]
 
 % La cambo me fai mau, bouto sello, bouto sello,
 % la cambo me fai mau, bouto sello a moun chivau.
