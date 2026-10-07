@@ -85,8 +85,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T10:53:21.578Z",
-      "playCount": 15,
+      "lastPlayed": "2026-10-07T10:55:53.661Z",
+      "playCount": 16,
       "createdAt": "2026-09-25T07:32:30.071Z"
     },
     "breton/toutouic.abc": {
@@ -1735,12 +1735,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
-      "filePath": "chinese/baobao yao shuijiao.abc",
-      "timestamp": "2026-10-07T10:55:36.960Z"
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-10-07T10:55:53.661Z"
     },
     {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-10-07T10:53:21.578Z"
+      "filePath": "chinese/baobao yao shuijiao.abc",
+      "timestamp": "2026-10-07T10:55:36.960Z"
     },
     {
       "filePath": "film/here's to you.abc",
