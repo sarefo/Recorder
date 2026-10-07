@@ -765,8 +765,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-03T03:44:11.111Z",
-      "playCount": 7,
+      "lastPlayed": "2026-10-07T10:51:17.592Z",
+      "playCount": 8,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "film/hisaishi/kiki_town.abc": {
@@ -1735,6 +1735,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/here's to you.abc",
+      "timestamp": "2026-10-07T10:51:17.592Z"
+    },
+    {
       "filePath": "film/herbie's theme.abc",
       "timestamp": "2026-10-07T10:48:22.460Z"
     },
@@ -1809,10 +1813,6 @@
     {
       "filePath": "latino/por una cabeza.abc",
       "timestamp": "2026-10-07T08:12:22.261Z"
-    },
-    {
-      "filePath": "japanese/kojo no tsuki.abc",
-      "timestamp": "2026-10-07T08:11:10.267Z"
     }
   ],
   "settings": {}
