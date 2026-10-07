@@ -200,32 +200,42 @@ class MobileUI {
 
     /**
      * The save button shows when a token is set and a repo file is open,
-     * and works once the key has actually changed
+     * and works once the key or the tempo has actually changed
      */
     updateTransposeSaveButton() {
         const button = document.getElementById('mobile-transpose-save');
         if (!button) return;
         const available = this.player.githubSync.hasToken() && !!this.player.fileManager.currentFilePath;
+        const changed = this.transposeSteps !== 0 || this.player.midiPlayer.playbackSettings.tempo !== 100;
         button.classList.toggle('hidden', !available);
-        button.disabled = this.savingTranspose || this.transposeSteps === 0;
+        button.disabled = this.savingTranspose || !changed;
     }
 
     /**
-     * Commits the current transposition to the tune's file in the repo,
-     * then leaves transpose mode keeping the new key
+     * Commits the current key and tempo to the tune's file in the repo, then
+     * leaves transpose mode keeping them. The saved tempo becomes the tune's
+     * own Q: line, so the tempo control goes back to 100%.
      */
     async saveTransposition() {
         const filePath = this.player.fileManager.currentFilePath;
-        if (!filePath || this.transposeSteps === 0 || this.savingTranspose) return;
+        const midiPlayer = this.player.midiPlayer;
+        const tempoPercent = midiPlayer.playbackSettings.tempo;
+        const semitones = this.transposeSteps;
+        if (!filePath || this.savingTranspose || (semitones === 0 && tempoPercent === 100)) return;
 
         this.savingTranspose = true;
         this.updateTransposeSaveButton();
         Utils.showFeedback('Saving to GitHub…', 10000);
 
         try {
-            const { key } = await this.player.githubSync.saveTransposition(filePath, this.transposeSteps);
+            const { key, bpm } = await this.player.githubSync.saveChanges(filePath, { semitones, tempoPercent });
+            if (bpm !== null) {
+                await this.applySavedTempo(tempoPercent);
+            }
             this.endTransposeMode(true);
-            Utils.showFeedback(`Saved in ${key}, live on all devices in about a minute`, 3500);
+            const saved = [semitones !== 0 ? `in ${key}` : '', bpm !== null ? `at tempo ${bpm}` : '']
+                .filter(Boolean).join(' ');
+            Utils.showFeedback(`Saved ${saved}, live on all devices in about a minute`, 3500);
         } catch (error) {
             console.error('Saving transposition failed:', error);
             Utils.showFeedback(`Not saved: ${error.message}`, 4000);
@@ -233,6 +243,31 @@ class MobileUI {
             this.savingTranspose = false;
             this.updateTransposeSaveButton();
         }
+    }
+
+    /**
+     * After a tempo was saved into the file, bakes it into the open tune and
+     * resets the tempo control, so playback speed stays the same
+     * @param {number} percent - The tempo percentage that was saved
+     * @private
+     */
+    async applySavedTempo(percent) {
+        const parser = this.player.notationParser;
+        const scaled = GitHubSync.scaleTempo(parser.currentAbc, percent);
+        if (scaled) {
+            parser.currentAbc = scaled.abc;
+            this.player.render();
+        }
+        await this.player.midiPlayer.updatePlaybackSettings(
+            { tempo: 100 },
+            this.player.renderManager.currentVisualObj
+        );
+        const label = document.getElementById('mobile-tempo-button');
+        if (label) label.textContent = '100%';
+        const slider = document.getElementById('tempo-slider');
+        if (slider) slider.value = '100';
+        const value = document.getElementById('tempo-value');
+        if (value) value.textContent = '100%';
     }
 
     /**
@@ -550,7 +585,7 @@ class MobileUI {
             this.createIconButton('mobile-transpose-bottom', MobileUI.ICONS.toBottom,
                 'Lowest note on C4', () => this.player.transpose('bottom')),
             this.createIconButton('mobile-transpose-save', MobileUI.ICONS.save,
-                'Save this key to the tune file on GitHub', () => this.saveTransposition()),
+                'Save this key and tempo to the tune file on GitHub', () => this.saveTransposition()),
             this.createIconButton('mobile-transpose-restore', MobileUI.ICONS.restore,
                 'Restore the original key', () => this.restoreOriginalKey()),
         ]);

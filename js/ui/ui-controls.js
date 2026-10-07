@@ -843,6 +843,7 @@ class UIControls {
                 { tempo: 100 },
                 this.player.renderManager.currentVisualObj
             );
+            this.player.mobileUI.updateTransposeSaveButton();
 
             // Force update metronome if it's running
             if (this.player.midiPlayer.playbackSettings.metronomeOn &&
@@ -890,6 +891,7 @@ class UIControls {
                 { tempo: value },
                 this.player.renderManager.currentVisualObj
             );
+            this.player.mobileUI.updateTransposeSaveButton();
 
             // Force update metronome if it's running
             if (this.player.midiPlayer.playbackSettings.metronomeOn &&
@@ -1004,6 +1006,7 @@ class UIControls {
                     { tempo: currentTempo },
                     this.player.renderManager.currentVisualObj
                 );
+                this.player.mobileUI.updateTransposeSaveButton();
 
                 // Force update metronome if it's running
                 if (this.player.midiPlayer.playbackSettings.metronomeOn &&
@@ -1021,6 +1024,7 @@ class UIControls {
                     { tempo: 100 },
                     this.player.renderManager.currentVisualObj
                 );
+                this.player.mobileUI.updateTransposeSaveButton();
 
                 // Force update metronome if it's running
                 if (this.player.midiPlayer.playbackSettings.metronomeOn &&

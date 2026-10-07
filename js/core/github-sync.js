@@ -68,39 +68,79 @@ class GitHubSync {
     }
 
     /**
-     * Transposes a tune file in the repo and commits it. Works from the file
-     * as it is on GitHub, not from what is on screen, so the dizi offset or
-     * any other on-screen change never gets saved.
-     * @param {string} filePath - Path under abc/, e.g. 'occitan/adiu paure carnaval.abc'
-     * @param {number} semitones - Shift to apply
-     * @returns {Promise<{key: string}>} The new key
+     * Rewrites the first Q: line so the tune plays at a percentage of its
+     * current tempo
+     * @param {string} abc - ABC text
+     * @param {number} percent - Tempo percentage (100 = unchanged)
+     * @returns {{abc: string, bpm: number}|null} The new text and tempo, or
+     *     null when there is no Q: line with a number to scale
      */
-    async saveTransposition(filePath, semitones) {
+    static scaleTempo(abc, percent) {
+        const line = /^(Q:[^\n]*?)(\d+)(\s*)$/m;
+        const match = abc.match(line);
+        if (!match) return null;
+        const bpm = Math.max(1, Math.round(parseInt(match[2], 10) * percent / 100));
+        return { abc: abc.replace(line, `$1${bpm}$3`), bpm };
+    }
+
+    /**
+     * Transposes a tune file in the repo and/or scales its tempo, in one
+     * commit. Works from the file as it is on GitHub, not from what is on
+     * screen, so the dizi offset or any other on-screen change never gets saved.
+     * @param {string} filePath - Path under abc/, e.g. 'occitan/adiu paure carnaval.abc'
+     * @param {Object} changes - What to save
+     * @param {number} [changes.semitones=0] - Shift to apply
+     * @param {number} [changes.tempoPercent=100] - Tempo to bake into the Q: line
+     * @returns {Promise<{key: string, bpm: number|null}>} The new key and tempo
+     */
+    async saveChanges(filePath, { semitones = 0, tempoPercent = 100 } = {}) {
         const url = this.contentsUrl(filePath);
         const file = await this.request(`${url}?ref=${GitHubSync.BRANCH}`);
         const original = GitHubSync.decodeBase64Utf8(file.content);
 
-        const transposed = this.player.transposeManager.transpose(original, semitones);
-        if (transposed === original) {
-            throw new Error('Transposing the file changed nothing');
+        let text = original;
+        let bpm = null;
+        const parts = [];
+
+        if (semitones !== 0) {
+            text = this.player.transposeManager.transpose(text, semitones);
+            if (text === original) {
+                throw new Error('Transposing the file changed nothing');
+            }
         }
 
-        const title = (original.match(/^T:\s*(.+)$/m) || [])[1] || filePath;
-        const keyMatch = transposed.match(/^K:\s*(\S+)/m);
+        if (tempoPercent !== 100) {
+            const scaled = GitHubSync.scaleTempo(text, tempoPercent);
+            if (!scaled) {
+                throw new Error('This tune has no Q: tempo line to change');
+            }
+            text = scaled.abc;
+            bpm = scaled.bpm;
+        }
+
+        const title = ((original.match(/^T:\s*(.+)$/m) || [])[1] || filePath).trim();
+        const keyMatch = text.match(/^K:\s*(\S+)/m);
         const key = keyMatch ? keyMatch[1] : '';
+
+        if (semitones !== 0) {
+            parts.push(`to ${key || `${semitones > 0 ? '+' : ''}${semitones}`}`);
+        }
+        if (bpm !== null) {
+            parts.push(`tempo ${bpm}`);
+        }
 
         await this.request(url, {
             method: 'PUT',
             body: JSON.stringify({
-                message: `Transpose ${title.trim()} to ${key || `${semitones > 0 ? '+' : ''}${semitones}`}`,
-                content: GitHubSync.encodeBase64Utf8(transposed),
+                message: `${semitones !== 0 ? 'Transpose' : 'Set'} ${title} ${parts.join(', ')}`,
+                content: GitHubSync.encodeBase64Utf8(text),
                 sha: file.sha,
                 branch: GitHubSync.BRANCH
             })
         });
 
-        this.rememberSave(filePath, transposed);
-        return { key };
+        this.rememberSave(filePath, text);
+        return { key, bpm };
     }
 
     /**
