@@ -109,8 +109,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-02T09:49:34.691Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-07T10:31:55.198Z",
+      "playCount": 3,
       "createdAt": "2026-09-27T06:51:55.209Z"
     },
     "cajun/colinda.abc": {
@@ -653,8 +653,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-10-04T07:33:50.606Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-07T10:31:46.077Z",
+      "playCount": 2,
       "createdAt": "2026-10-04T06:43:58.354Z"
     },
     "classical/chopin/valse op 69 no 2.abc": {
@@ -1735,6 +1735,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "cajun/bosco stomp.abc",
+      "timestamp": "2026-10-07T10:31:55.198Z"
+    },
+    {
+      "filePath": "classical/chopin/valse in a minor.abc",
+      "timestamp": "2026-10-07T10:31:46.077Z"
+    },
+    {
       "filePath": "ukrainian/nich yaka misyachna.abc",
       "timestamp": "2026-10-07T10:27:50.045Z"
     },
@@ -1805,14 +1813,6 @@
     {
       "filePath": "danish/er et yndigt land.abc",
       "timestamp": "2026-10-07T07:51:37.546Z"
-    },
-    {
-      "filePath": "shanty/grogg mayles.abc",
-      "timestamp": "2026-10-07T07:48:19.767Z"
-    },
-    {
-      "filePath": "philippine/bahay kubo.abc",
-      "timestamp": "2026-10-06T08:58:12.594Z"
     }
   ],
   "settings": {}
