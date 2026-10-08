@@ -296,8 +296,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T06:40:26.584Z",
-      "playCount": 12,
+      "lastPlayed": "2026-10-08T07:20:22.834Z",
+      "playCount": 13,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
@@ -504,8 +504,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-05T11:31:35.251Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-08T07:20:25.409Z",
+      "playCount": 2,
       "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/werde munter mein gemuete.abc": {
@@ -1300,8 +1300,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-07-28T03:57:17.163Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-08T07:20:13.024Z",
+      "playCount": 2,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/game/monkey island.abc": {
@@ -1742,6 +1742,18 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/chorales/wer nur den lieben gott laesst walten.abc",
+      "timestamp": "2026-10-08T07:20:25.409Z"
+    },
+    {
+      "filePath": "chinese/zou xikou.abc",
+      "timestamp": "2026-10-08T07:20:22.834Z"
+    },
+    {
+      "filePath": "pop/game/mario theme.abc",
+      "timestamp": "2026-10-08T07:20:13.024Z"
+    },
+    {
       "filePath": "finnish/maamme.abc",
       "timestamp": "2026-10-08T07:19:46.735Z"
     },
@@ -1778,10 +1790,6 @@
       "timestamp": "2026-10-08T06:42:10.957Z"
     },
     {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-10-08T06:40:26.584Z"
-    },
-    {
       "filePath": "italian/tarantella napoletana.abc",
       "timestamp": "2026-10-08T02:51:48.282Z"
     },
@@ -1812,14 +1820,6 @@
     {
       "filePath": "film/here's to you.abc",
       "timestamp": "2026-10-07T10:51:17.592Z"
-    },
-    {
-      "filePath": "film/herbie's theme.abc",
-      "timestamp": "2026-10-07T10:48:22.460Z"
-    },
-    {
-      "filePath": "jamaican/banana boat song.abc",
-      "timestamp": "2026-10-07T10:45:58.943Z"
     }
   ],
   "settings": {}
