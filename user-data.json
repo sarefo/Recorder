@@ -86,8 +86,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T06:56:54.643Z",
-      "playCount": 18,
+      "lastPlayed": "2026-10-08T07:27:04.035Z",
+      "playCount": 19,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-08T06:58:19.399Z"
     },
@@ -1597,8 +1597,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-02T10:02:25.915Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-08T07:27:06.609Z",
+      "playCount": 7,
       "createdAt": "2026-08-31T03:23:32.151Z"
     },
     "turkish/dandini dandini dastana.abc": {
@@ -1743,6 +1743,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "trinidadian/matilda.abc",
+      "timestamp": "2026-10-08T07:27:06.609Z"
+    },
+    {
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-10-08T07:27:04.035Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-10-08T07:23:55.077Z"
     },
@@ -1791,10 +1799,6 @@
       "timestamp": "2026-10-08T07:05:49.533Z"
     },
     {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-10-08T06:56:54.643Z"
-    },
-    {
       "filePath": "scottish/birkhall.abc",
       "timestamp": "2026-10-08T06:55:34.439Z"
     },
@@ -1817,10 +1821,6 @@
     {
       "filePath": "ukrainian/nich yaka misyachna.abc",
       "timestamp": "2026-10-08T02:34:21.100Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-10-08T02:32:33.480Z"
     }
   ],
   "settings": {}
