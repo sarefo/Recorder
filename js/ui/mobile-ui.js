@@ -2,13 +2,14 @@
  * Manages the control bar layout, used on every screen size.
  *
  * Layout: one bar of large icon buttons for the controls used constantly
- * (play, loop, files, random, fingering, fingering system), plus two toggles:
- * "more" opens a full-screen overlay holding every other control, and "hide"
- * removes the bar entirely (focus mode) leaving a small restore button.
+ * (play, loop, files, random, fingering, fingering system, transpose), plus
+ * "more", which opens a full-screen overlay holding every other control.
+ * The overlay's "hide" button removes the bar entirely (focus mode) leaving
+ * a small restore button.
  * The bar sits at the top by default or as a rail on the left edge.
  *
  * Transposing happens in its own mode so the score stays visible: the
- * overlay's transpose button closes the overlay and shows a small panel
+ * bar's transpose button closes the overlay and shows a small panel
  * in the top right corner (accept/reject, key up/key down, lowest note on
  * C4/highest on C6). With a GitHub token set, a save button in a fourth
  * column commits the new key to the repo.
@@ -391,6 +392,8 @@ class MobileUI {
             byId('play-button'), byId('loop-button'),
             byId('files-button'), byId('random-abc-button'),
             byId('show-fingering'), byId('system-toggle'),
+            this.createIconButton('mobile-transpose-button', MobileUI.ICONS.transpose,
+                'Transpose', () => this.startTransposeMode()),
         ]);
 
         const spacer = document.createElement('div');
@@ -399,8 +402,6 @@ class MobileUI {
 
         mainRow.appendChild(this.createIconButton('mobile-more-toggle', MobileUI.ICONS.more,
             'More controls', () => this.setOverlayOpen(!this.overlayOpen)));
-        mainRow.appendChild(this.createIconButton('mobile-hide-toggle', MobileUI.ICONS.hide,
-            'Hide controls', () => this.setBarHidden(true)));
 
         mobileBar.appendChild(mainRow);
 
@@ -434,9 +435,7 @@ class MobileUI {
 
         // Playback
         group([document.querySelector('.tempo-control')]).classList.add('mobile-overlay-wide');
-        const transposeButton = this.createIconButton('mobile-transpose-button', MobileUI.ICONS.transpose,
-            'Transpose', () => this.startTransposeMode());
-        group([transposeButton, byId('tuning-button')]);
+        group([byId('chart-toggle'), byId('tuning-button')]);
         group([byId('chords-toggle'), byId('voices-toggle'), byId('metronome-toggle')]);
 
         // Song: status/favorite, practice notes, note marks
@@ -460,9 +459,11 @@ class MobileUI {
 
         // Display and files
         group([
-            byId('chart-toggle'), byId('theme-toggle'),
+            byId('theme-toggle'),
             this.createIconButton('mobile-position-toggle', MobileUI.ICONS.barLeft, '',
                 () => this.setBarPosition(this.barPosition === 'left' ? 'top' : 'left')),
+            this.createIconButton('mobile-hide-toggle', MobileUI.ICONS.hide,
+                'Hide controls', () => this.setBarHidden(true)),
             byId('help-button'),
         ]);
         // App-level buttons in a group of their own beside the clipboard group
