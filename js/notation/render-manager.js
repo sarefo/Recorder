@@ -106,10 +106,14 @@ class RenderManager {
             this.handleNoteClick(abcElem);
         };
 
-        const visualObj = ABCJS.renderAbc("abc-notation", this.player.notationParser.currentAbc, {
+        const abc = this.player.notationParser.currentAbc;
+        const tuneIndex = this.player.tuneManager.currentTuneIndex;
+
+        const visualObj = ABCJS.renderAbc("abc-notation", abc, {
             responsive: "resize",
             add_classes: true,
-            stretchlast: false,
+            // Omitted when false, so abcjs keeps its own 66%-width rule
+            format: this.shouldStretchLastLine(abc, tuneIndex) ? { stretchlast: true } : {},
             staffwidth: window.innerWidth - 60,
             stafftopmargin: this.player.renderConfig.stafftopmargin,
             staffbottommargin: this.player.renderConfig.staffbottommargin,
@@ -125,10 +129,41 @@ class RenderManager {
             footer: false,
             footerPadding: 0,
             paddingbottom: 0,
-            startingTune: this.player.tuneManager.currentTuneIndex
+            startingTune: tuneIndex
         })[0];
 
         return visualObj;
+    }
+
+    /**
+     * Decides whether the last staff line should be stretched to full width.
+     * abcjs only stretches it when its natural width is at least 66% of the
+     * staff, so a last line of long notes stays at minimum spacing and looks
+     * squeezed next to the stretched lines above it. Judge by musical length
+     * instead: stretch when the last line holds at least 60% of the music of a
+     * typical line. A clearly short ending (e.g. 2 of 4 bars) is left natural,
+     * since stretching it would spread it far wider than the other lines.
+     * @param {string} abc - The ABC text being rendered
+     * @param {number} tuneIndex - Index of the tune within the ABC text
+     * @returns {boolean} True to stretch the last line
+     */
+    shouldStretchLastLine(abc, tuneIndex) {
+        try {
+            const tune = ABCJS.parseOnly(abc)[tuneIndex];
+            const lengths = (tune?.lines || [])
+                .filter(line => line.staff)
+                .map(line => (line.staff[0].voices[0] || [])
+                    .reduce((sum, el) => sum + (el.duration || 0), 0));
+            if (lengths.length < 2) return false;
+
+            const last = lengths.pop();
+            const sorted = lengths.sort((a, b) => a - b);
+            const typical = sorted[Math.floor(sorted.length / 2)];
+            return typical > 0 && last / typical >= 0.6;
+        } catch (error) {
+            console.error("Error measuring last line:", error);
+            return false;
+        }
     }
 
     /**
