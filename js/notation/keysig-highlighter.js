@@ -3,6 +3,10 @@
  * one sharp, every printed F sounds as F# without showing an accidental.
  * Toggled by tapping the key signature at the start of a line; off by
  * default and reset when a different tune is loaded.
+ *
+ * Turning it on also marks the first occurrence of each altered pitch red,
+ * so its fingering diagram shows in 'marked' fingering mode; turning it
+ * off clears those marks again.
  */
 class KeySignatureHighlighter {
     static TAP_PADDING = 6;
@@ -10,6 +14,9 @@ class KeySignatureHighlighter {
     constructor(player) {
         this.player = player;
         this.enabled = false;
+        // Note indices this highlighter marked red, so toggling off only
+        // clears its own marks
+        this.markedIndices = new Set();
     }
 
     /**
@@ -17,6 +24,7 @@ class KeySignatureHighlighter {
      */
     reset() {
         this.enabled = false;
+        this.markedIndices.clear();
     }
 
     /**
@@ -67,6 +75,11 @@ class KeySignatureHighlighter {
     toggle() {
         this.enabled = !this.enabled;
         this.apply();
+        if (this.enabled) {
+            this.markFirstOccurrences();
+        } else {
+            this.clearMarks();
+        }
     }
 
     /**
@@ -78,6 +91,63 @@ class KeySignatureHighlighter {
             .forEach(el => el.classList.remove('keysig-affected'));
         if (!this.enabled) return;
 
+        this.forEachAffectedNote(element => {
+            (element.abselem?.elemset || []).forEach(svg =>
+                svg.classList?.add('keysig-affected'));
+        });
+    }
+
+    /**
+     * Marks red the first note of each distinct pitch the key signature
+     * alters (F#4 and F#5 finger differently, so both count). Notes the
+     * user already marked are left alone.
+     */
+    markFirstOccurrences() {
+        const fingeringManager = this.player.fingeringManager;
+        const selectables = this.player.renderManager?.currentVisualObj?.engraver?.selectables;
+        if (!fingeringManager || !selectables) return;
+
+        const indexByAbsElem = new Map();
+        selectables.forEach((sel, index) => indexByAbsElem.set(sel.absEl, index));
+
+        const seenPitches = new Set();
+        this.forEachAffectedNote((element, affectedPitches) => {
+            const newPitches = affectedPitches.filter(p => !seenPitches.has(p));
+            if (!newPitches.length) return;
+            newPitches.forEach(p => seenPitches.add(p));
+
+            const noteIndex = indexByAbsElem.get(element.abselem);
+            if (noteIndex === undefined) return;
+            const zone = document.querySelector(`[data-note-index="${noteIndex}"].note-marker-zone`);
+            if (!zone || zone.getAttribute('data-state') !== 'neutral') return;
+
+            fingeringManager.setNoteMarkState(noteIndex, 'red');
+            this.markedIndices.add(noteIndex);
+        });
+    }
+
+    /**
+     * Clears the red marks this highlighter set, unless the user has since
+     * changed them
+     */
+    clearMarks() {
+        const fingeringManager = this.player.fingeringManager;
+        this.markedIndices.forEach(noteIndex => {
+            const zone = document.querySelector(`[data-note-index="${noteIndex}"].note-marker-zone`);
+            if (zone?.getAttribute('data-state') === 'red') {
+                fingeringManager?.setNoteMarkState(noteIndex, 'neutral');
+            }
+        });
+        this.markedIndices.clear();
+    }
+
+    /**
+     * Walks the score in order and calls back for every note the key
+     * signature alters
+     * @param {Function} callback - Called with (element, affectedPitches),
+     *   affectedPitches being the abcjs pitch numbers altered on that note
+     */
+    forEachAffectedNote(callback) {
         const visualObj = this.player.renderManager?.currentVisualObj;
         if (!visualObj || !visualObj.lines) return;
 
@@ -95,9 +165,10 @@ class KeySignatureHighlighter {
                             // new signature
                             keyMap = this.buildKeyMap(element);
                         } else if (element.el_type === 'note' && !element.rest) {
-                            if (this.isAffected(element, keyMap, measureAccidentals)) {
-                                (element.abselem?.elemset || []).forEach(svg =>
-                                    svg.classList?.add('keysig-affected'));
+                            const affectedPitches = this.affectedPitches(
+                                element, keyMap, measureAccidentals);
+                            if (affectedPitches.length) {
+                                callback(element, affectedPitches);
                             }
                         }
                     });
@@ -124,23 +195,24 @@ class KeySignatureHighlighter {
     }
 
     /**
-     * Decides whether a note sounds altered by the key signature alone —
+     * Finds the pitches of a note that sound altered by the key signature alone —
      * i.e. nothing is printed on it, no earlier accidental in the measure
      * governs its letter, but the signature does
      * @param {Object} element - abcjs note element
      * @param {Object} keyMap - Letters altered by the signature
      * @param {Object} measureAccidentals - Letters with an explicit
      *   accidental earlier in the current measure (mutated here)
-     * @returns {boolean} Whether to highlight the note
+     * @returns {number[]} abcjs pitch numbers of the altered pitches (empty
+     *   if the note is not affected)
      */
-    isAffected(element, keyMap, measureAccidentals) {
-        let affected = false;
+    affectedPitches(element, keyMap, measureAccidentals) {
+        const affected = [];
         (element.pitches || []).forEach(pitch => {
             const letter = pitch.name.replace(/^[=^_]+/, '').charAt(0).toUpperCase();
             if (pitch.accidental) {
                 measureAccidentals[letter] = pitch.accidental;
             } else if (!measureAccidentals[letter] && keyMap[letter]) {
-                affected = true;
+                affected.push(pitch.pitch);
             }
         });
         return affected;

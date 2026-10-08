@@ -327,10 +327,6 @@ class FingeringManager {
      * @private
      */
     _updateCoupledState(noteIndex, clickedElement) {
-        // Find both elements for this note
-        const diagram = document.querySelector(`[data-note-index="${noteIndex}"].fingering-diagram-container`);
-        const markerZone = document.querySelector(`[data-note-index="${noteIndex}"].note-marker-zone`);
-
         // Get current state from the clicked element
         const currentState = clickedElement.getAttribute('data-state');
         let newState;
@@ -342,6 +338,23 @@ class FingeringManager {
         } else {
             newState = 'neutral';
         }
+
+        this.setNoteMarkState(noteIndex, newState);
+    }
+
+    /**
+     * Sets the red/green marking of a note on both its fingering diagram and
+     * marker zone, and notifies the marking callback
+     * @param {string|number} noteIndex - The note index
+     * @param {string} newState - 'red', 'green', or 'neutral'
+     */
+    setNoteMarkState(noteIndex, newState) {
+        // Find both elements for this note
+        const diagram = document.querySelector(`[data-note-index="${noteIndex}"].fingering-diagram-container`);
+        const markerZone = document.querySelector(`[data-note-index="${noteIndex}"].note-marker-zone`);
+        const currentState = markerZone?.getAttribute('data-state')
+            || diagram?.getAttribute('data-state') || 'neutral';
+        if (currentState === newState) return;
 
         // Update diagram state and appearance
         if (diagram) {
@@ -365,7 +378,7 @@ class FingeringManager {
 
         // Notify callback if set (for dynamic diagram updates in 'marked' mode)
         if (this.onNoteMarkingChanged) {
-            this.onNoteMarkingChanged(noteIndex, newState, currentState);
+            this.onNoteMarkingChanged(String(noteIndex), newState, currentState);
         }
     }
 

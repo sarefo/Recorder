@@ -66,7 +66,7 @@ class AbcFileList {
                 "name": "Son ar Chistr",
                 "file": "breton/son ar chistr.abc",
                 "category": "breton",
-                "hash": "ddc927b457"
+                "hash": "beaf02427d"
         },
         {
                 "name": "Toutouic",
