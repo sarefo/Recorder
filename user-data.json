@@ -29,8 +29,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T02:37:50.626Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-08T07:23:51.131Z",
+      "playCount": 10,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-08T02:37:54.128Z"
     },
@@ -95,8 +95,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T06:59:06.429Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-08T07:23:53.282Z",
+      "playCount": 3,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-08T07:04:50.211Z"
     },
@@ -501,12 +501,13 @@
       "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/wer nur den lieben gott laesst walten.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-08T07:20:25.409Z",
       "playCount": 2,
-      "createdAt": "2026-09-07T16:39:38.477Z"
+      "createdAt": "2026-09-07T16:39:38.477Z",
+      "updatedAt": "2026-10-08T07:23:45.718Z"
     },
     "classical/bach/chorales/werde munter mein gemuete.abc": {
       "status": null,
@@ -880,8 +881,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-04T05:46:29.327Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-08T07:23:55.077Z",
+      "playCount": 6,
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/j'ai vu le loup.abc": {
@@ -1178,8 +1179,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-05T10:35:25.323Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-08T07:23:48.006Z",
+      "playCount": 7,
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/la cambo me fai mau.abc": {
@@ -1742,6 +1743,22 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-10-08T07:23:55.077Z"
+    },
+    {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-10-08T07:23:53.282Z"
+    },
+    {
+      "filePath": "austrian/es wird scho gleich dumpa.abc",
+      "timestamp": "2026-10-08T07:23:51.131Z"
+    },
+    {
+      "filePath": "occitan/ai vist lo lop.abc",
+      "timestamp": "2026-10-08T07:23:48.006Z"
+    },
+    {
       "filePath": "classical/bach/chorales/wer nur den lieben gott laesst walten.abc",
       "timestamp": "2026-10-08T07:20:25.409Z"
     },
@@ -1774,10 +1791,6 @@
       "timestamp": "2026-10-08T07:05:49.533Z"
     },
     {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-10-08T06:59:06.429Z"
-    },
-    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-08T06:56:54.643Z"
     },
@@ -1802,24 +1815,12 @@
       "timestamp": "2026-10-08T02:40:32.387Z"
     },
     {
-      "filePath": "austrian/es wird scho gleich dumpa.abc",
-      "timestamp": "2026-10-08T02:37:50.626Z"
-    },
-    {
       "filePath": "ukrainian/nich yaka misyachna.abc",
       "timestamp": "2026-10-08T02:34:21.100Z"
     },
     {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-10-08T02:32:33.480Z"
-    },
-    {
-      "filePath": "chinese/baobao yao shuijiao.abc",
-      "timestamp": "2026-10-07T10:55:36.960Z"
-    },
-    {
-      "filePath": "film/here's to you.abc",
-      "timestamp": "2026-10-07T10:51:17.592Z"
     }
   ],
   "settings": {}
