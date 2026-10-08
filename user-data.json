@@ -309,8 +309,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-06T08:49:10.692Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-08T05:01:56.294Z",
+      "playCount": 3,
       "createdAt": "2026-09-26T04:52:58.455Z"
     },
     "classical/bach/chorales/allein gott in der hoeh sei ehr.abc": {
@@ -1735,6 +1735,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/badinerie.abc",
+      "timestamp": "2026-10-08T05:01:56.294Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-07T10:55:53.661Z"
     },
@@ -1809,10 +1813,6 @@
     {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-10-07T08:23:46.364Z"
-    },
-    {
-      "filePath": "peruvian/el condor pasa.abc",
-      "timestamp": "2026-10-07T08:23:44.511Z"
     }
   ],
   "settings": {}
