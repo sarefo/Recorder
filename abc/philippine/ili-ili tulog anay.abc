@@ -5,9 +5,9 @@ N:Melody and chords transcribed from a MIDI setting of the traditional Hiligayno
 M:6/8
 Q:3/8=44
 L:1/8
-K:Am
-E A c |"Am" e3 a e d |"Am" c3 e d c |"E7" B3 d f e |"Am" A3 c B c |
-"Dm" f3 d e f |"Am" e3 E A e |"E7" d3 c B e |"Am" A3 |]
+K:Gm
+D G B |"Gm" d3 g d c |"Gm" B3 d c B |"D7" A3 c e d |"Gm" G3 B A B |
+"Cm" e3 c d e |"Gm" d3 D G d |"D7" c3 B A d |"Gm" G3 |]
 
 X:2
 T:Ili-Ili Tulog Anay
@@ -16,6 +16,6 @@ N:Melody and chords transcribed from a MIDI setting of the traditional Hiligayno
 M:6/8
 Q:3/8=44
 L:1/8
-K:Em
+K:Dm
 B, E G |"Em" B3 e B A |"Em" G3 B A G |"B7" F3 A c B |"Em" E3 G F G |
 "Am" c3 A B c |"Em" B3 B, E B |"B7" A3 G F B |"Em" E3 |]
