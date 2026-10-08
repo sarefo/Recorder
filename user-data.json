@@ -7,14 +7,14 @@
       "notes": "",
       "lastPlayed": "2026-10-03T10:42:24.224Z",
       "playCount": 10,
-      "createdAt": "2026-07-30T09:51:53.096Z"
+      "createdAt": "2026-07-28T06:53:46.507Z"
     },
     "american/which side are you on.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-02-09T22:14:24.779Z",
-      "playCount": 1,
+      "lastPlayed": "2026-04-17T00:37:10.916Z",
+      "playCount": 2,
       "createdAt": "2026-01-18T20:46:38.361Z"
     },
     "australian/waltzing matilda.abc": {
@@ -27,11 +27,12 @@
     },
     "austrian/es wird scho gleich dumpa.abc": {
       "status": "good",
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-21T11:30:45.510Z",
-      "playCount": 8,
-      "createdAt": "2026-01-18T20:46:38.366Z"
+      "lastPlayed": "2026-10-08T02:37:50.626Z",
+      "playCount": 9,
+      "createdAt": "2026-01-18T20:46:38.366Z",
+      "updatedAt": "2026-10-08T02:37:54.128Z"
     },
     "austrian/lieber augustin.abc": {
       "status": "good",
@@ -63,47 +64,49 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.935Z"
+      "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "breton/les filles des forges de paimpont.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-09-25T07:32:30.067Z"
+      "lastPlayed": "2026-09-22T12:46:41.492Z",
+      "playCount": 1,
+      "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "breton/saint patricks an dro.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-09-25T07:32:30.071Z"
+      "lastPlayed": "2026-09-22T12:47:31.549Z",
+      "playCount": 1,
+      "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "breton/son ar chistr.abc": {
+      "status": "good",
+      "favorite": true,
+      "notes": "",
+      "lastPlayed": "2026-10-08T06:56:54.643Z",
+      "playCount": 18,
+      "createdAt": "2026-09-22T12:46:37.240Z",
+      "updatedAt": "2026-10-08T06:58:19.399Z"
+    },
+    "breton/toutouic.abc": {
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T10:55:53.661Z",
-      "playCount": 16,
-      "createdAt": "2026-09-25T07:32:30.071Z"
-    },
-    "breton/toutouic.abc": {
-      "status": null,
-      "favorite": false,
-      "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-09-25T07:32:30.071Z"
+      "lastPlayed": "2026-10-08T06:59:06.429Z",
+      "playCount": 2,
+      "createdAt": "2026-09-22T12:46:37.240Z",
+      "updatedAt": "2026-10-08T07:04:50.211Z"
     },
     "breton/tri martolod.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-09-25T07:32:30.071Z"
+      "lastPlayed": "2026-09-22T12:59:39.518Z",
+      "playCount": 1,
+      "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "cajun/bosco stomp.abc": {
       "status": "practicing",
@@ -159,7 +162,7 @@
       "notes": "",
       "lastPlayed": "2026-10-02T10:14:12.267Z",
       "playCount": 1,
-      "createdAt": "2026-08-04T09:21:12.935Z"
+      "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/baobao yao shuijiao.abc": {
       "status": "needs-practice",
@@ -167,7 +170,7 @@
       "notes": "",
       "lastPlayed": "2026-10-07T10:55:36.960Z",
       "playCount": 8,
-      "createdAt": "2026-07-31T11:49:25.430Z"
+      "createdAt": "2026-07-31T10:42:24.802Z"
     },
     "chinese/caicha wuqu.abc": {
       "status": null,
@@ -175,7 +178,7 @@
       "notes": "",
       "lastPlayed": "2026-09-17T10:42:54.945Z",
       "playCount": 1,
-      "createdAt": "2026-08-04T09:21:12.935Z"
+      "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/chongman yangguang.abc": {
       "status": null,
@@ -183,7 +186,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-04T09:21:12.935Z"
+      "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/gan shengling.abc": {
       "status": null,
@@ -191,13 +194,13 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-04T09:21:12.935Z"
+      "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/geming.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-07-27T04:57:45.372Z",
+      "lastPlayed": "2026-08-23T08:03:44.531Z",
       "playCount": 2,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
@@ -215,7 +218,7 @@
       "notes": "",
       "lastPlayed": "2026-09-17T10:02:46.872Z",
       "playCount": 1,
-      "createdAt": "2026-07-31T11:49:25.430Z"
+      "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/meili de caoyuan.abc": {
       "status": null,
@@ -223,15 +226,15 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-04T09:21:12.935Z"
+      "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/molihua.abc": {
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T10:45:57.077Z",
-      "playCount": 24,
-      "createdAt": "2026-07-31T11:49:25.430Z"
+      "lastPlayed": "2026-10-08T06:42:10.957Z",
+      "playCount": 25,
+      "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/na jiushi wo.abc": {
       "status": null,
@@ -239,15 +242,15 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-04T09:21:12.935Z"
+      "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/nianqing de pengyou.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-08-04T09:21:12.935Z"
+      "lastPlayed": "2026-08-23T08:13:39.278Z",
+      "playCount": 1,
+      "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/nigu sifan.abc": {
       "status": null,
@@ -255,7 +258,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-07-31T11:49:25.430Z"
+      "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/wusuli chuange.abc": {
       "status": null,
@@ -263,7 +266,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-04T09:21:12.935Z"
+      "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/xiwang de tianye.abc": {
       "status": null,
@@ -271,7 +274,7 @@
       "notes": "",
       "lastPlayed": "2026-09-17T10:33:09.072Z",
       "playCount": 1,
-      "createdAt": "2026-08-04T09:21:12.935Z"
+      "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/yue er ming.abc": {
       "status": null,
@@ -279,7 +282,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-04T09:21:12.935Z"
+      "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/yueguang ge.abc": {
       "status": null,
@@ -287,15 +290,15 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-07-31T11:49:25.430Z"
+      "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/zou xikou.abc": {
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T09:20:14.703Z",
-      "playCount": 11,
-      "createdAt": "2026-07-31T11:49:25.430Z"
+      "lastPlayed": "2026-10-08T06:40:26.584Z",
+      "playCount": 12,
+      "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
       "status": "practicing",
@@ -318,8 +321,8 @@
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-09-12T04:42:06.138Z",
-      "playCount": 1,
-      "createdAt": "2026-09-09T08:50:21.697Z"
+      "playCount": 2,
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/christ lag in todesbanden.abc": {
       "status": null,
@@ -327,7 +330,7 @@
       "notes": "",
       "lastPlayed": "2026-09-12T04:43:35.956Z",
       "playCount": 1,
-      "createdAt": "2026-09-09T08:50:21.697Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/ein feste burg ist unser gott.abc": {
       "status": null,
@@ -335,15 +338,15 @@
       "notes": "",
       "lastPlayed": "2026-10-07T08:20:51.973Z",
       "playCount": 2,
-      "createdAt": "2026-09-09T08:50:21.697Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/es ist das heil uns kommen her.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.697Z"
+      "lastPlayed": "2026-09-08T02:47:02.516Z",
+      "playCount": 1,
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/es ist genug.abc": {
       "status": null,
@@ -351,7 +354,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.697Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/freu dich sehr o meine seele.abc": {
       "status": null,
@@ -359,15 +362,15 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.697Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/gelobet seist du jesu christ.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "lastPlayed": "2026-09-07T16:40:52.995Z",
+      "playCount": 1,
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/herzliebster jesu.abc": {
       "status": "needs-practice",
@@ -375,7 +378,7 @@
       "notes": "",
       "lastPlayed": "2026-10-05T11:26:52.716Z",
       "playCount": 1,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/in dulci jubilo.abc": {
       "status": null,
@@ -383,7 +386,7 @@
       "notes": "",
       "lastPlayed": "2026-09-17T09:59:21.054Z",
       "playCount": 1,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/jesu meine freude.abc": {
       "status": null,
@@ -391,7 +394,7 @@
       "notes": "",
       "lastPlayed": "2026-10-03T06:13:57.707Z",
       "playCount": 2,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/meine seele erhebet den herrn.abc": {
       "status": "practicing",
@@ -399,7 +402,7 @@
       "notes": "",
       "lastPlayed": "2026-09-30T03:43:09.140Z",
       "playCount": 1,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/nun bitten wir den heiligen geist.abc": {
       "status": null,
@@ -407,7 +410,7 @@
       "notes": "",
       "lastPlayed": "2026-09-17T10:45:09.270Z",
       "playCount": 2,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/nun danket alle gott.abc": {
       "status": null,
@@ -415,7 +418,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/nun komm der heiden heiland.abc": {
       "status": null,
@@ -423,7 +426,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/nun ruhen alle waelder.abc": {
       "status": null,
@@ -431,7 +434,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/o haupt voll blut und wunden.abc": {
       "status": null,
@@ -439,7 +442,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/o lamm gottes unschuldig.abc": {
       "status": null,
@@ -447,7 +450,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/schmuecke dich o liebe seele.abc": {
       "status": null,
@@ -455,7 +458,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/valet will ich dir geben.abc": {
       "status": null,
@@ -463,7 +466,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/vater unser im himmelreich.abc": {
       "status": null,
@@ -471,7 +474,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/vom himmel hoch da komm ich her.abc": {
       "status": null,
@@ -479,7 +482,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/wachet auf.abc": {
       "status": null,
@@ -487,7 +490,7 @@
       "notes": "",
       "lastPlayed": "2026-10-06T08:46:22.330Z",
       "playCount": 2,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/was gott tut das ist wohlgetan.abc": {
       "status": null,
@@ -495,7 +498,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/wer nur den lieben gott laesst walten.abc": {
       "status": "needs-practice",
@@ -503,7 +506,7 @@
       "notes": "",
       "lastPlayed": "2026-10-05T11:31:35.251Z",
       "playCount": 1,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/werde munter mein gemuete.abc": {
       "status": null,
@@ -511,7 +514,7 @@
       "notes": "",
       "lastPlayed": "2026-09-17T09:53:17.067Z",
       "playCount": 1,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/wie schoen leuchtet der morgenstern.abc": {
       "status": null,
@@ -519,7 +522,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-09-09T08:50:21.698Z"
+      "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/inventions/invention 01.abc": {
       "status": "practicing",
@@ -661,8 +664,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-10-04T07:32:46.931Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-08T07:05:49.533Z",
+      "playCount": 2,
       "createdAt": "2026-10-04T06:43:58.354Z"
     },
     "classical/dowland/pavane lachrimae.abc": {
@@ -709,9 +712,9 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.933Z"
+      "lastPlayed": "2026-08-01T08:55:32.821Z",
+      "playCount": 1,
+      "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "czech/na tom bosileckym mostku.abc": {
       "status": null,
@@ -719,7 +722,7 @@
       "notes": "",
       "lastPlayed": "2026-09-18T06:26:23.171Z",
       "playCount": 1,
-      "createdAt": "2026-08-02T02:15:53.930Z"
+      "createdAt": "2026-08-01T08:54:31.907Z"
     },
     "danish/er et yndigt land.abc": {
       "status": null,
@@ -735,7 +738,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.932Z"
+      "createdAt": "2026-08-01T08:54:31.907Z"
     },
     "dvorak/new world/going home.abc": {
       "status": null,
@@ -751,7 +754,7 @@
       "notes": "",
       "lastPlayed": "2026-09-17T10:42:22.517Z",
       "playCount": 1,
-      "createdAt": "2026-08-02T02:15:53.933Z"
+      "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "film/herbie's theme.abc": {
       "status": null,
@@ -759,7 +762,7 @@
       "notes": "",
       "lastPlayed": "2026-10-07T10:48:22.460Z",
       "playCount": 8,
-      "createdAt": "2026-08-31T03:23:32.154Z"
+      "createdAt": "2026-08-30T09:37:29.371Z"
     },
     "film/here's to you.abc": {
       "status": "good",
@@ -863,7 +866,7 @@
       "notes": "",
       "lastPlayed": "2026-10-04T05:55:02.130Z",
       "playCount": 4,
-      "createdAt": "2026-09-25T07:32:30.071Z"
+      "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/branle des chevaux.abc": {
       "status": null,
@@ -871,7 +874,7 @@
       "notes": "",
       "lastPlayed": "2026-09-25T08:18:59.746Z",
       "playCount": 1,
-      "createdAt": "2026-09-25T07:32:30.071Z"
+      "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/douce dame jolie.abc": {
       "status": "practicing",
@@ -879,7 +882,7 @@
       "notes": "",
       "lastPlayed": "2026-10-04T05:46:29.327Z",
       "playCount": 5,
-      "createdAt": "2026-09-25T07:32:30.071Z"
+      "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/j'ai vu le loup.abc": {
       "status": null,
@@ -887,7 +890,7 @@
       "notes": "",
       "lastPlayed": "2026-09-29T07:03:08.530Z",
       "playCount": 2,
-      "createdAt": "2026-09-25T07:32:30.071Z"
+      "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/tourdion.abc": {
       "status": null,
@@ -895,7 +898,7 @@
       "notes": "",
       "lastPlayed": "2026-09-25T08:24:02.739Z",
       "playCount": 1,
-      "createdAt": "2026-09-25T07:32:30.071Z"
+      "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "georgian/gandagana.abc": {
       "status": null,
@@ -911,7 +914,7 @@
       "notes": "",
       "lastPlayed": "2026-09-27T07:31:46.865Z",
       "playCount": 2,
-      "createdAt": "2026-08-02T02:15:53.932Z"
+      "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "ghanaian/tue tue.abc": {
       "status": null,
@@ -919,7 +922,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.933Z"
+      "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "hawaiian/aloha oe.abc": {
       "status": null,
@@ -927,7 +930,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.935Z"
+      "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "hungarian/bujj bujj zold ag.abc": {
       "status": null,
@@ -935,7 +938,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.932Z"
+      "createdAt": "2026-08-01T08:54:31.907Z"
     },
     "hungarian/csak egy szep lany van a vilagon.abc": {
       "status": null,
@@ -957,9 +960,9 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.934Z"
+      "lastPlayed": "2026-08-03T13:27:37.835Z",
+      "playCount": 1,
+      "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "indonesian/rasa sayange.abc": {
       "status": null,
@@ -967,7 +970,7 @@
       "notes": "",
       "lastPlayed": "2026-09-25T08:32:53.421Z",
       "playCount": 1,
-      "createdAt": "2026-08-02T02:15:53.934Z"
+      "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "irish/johnny i hardly knew ya.abc": {
       "status": null,
@@ -981,40 +984,42 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-08-11T04:31:19.259Z",
+      "playCount": 1,
       "createdAt": "2026-07-30T09:51:53.099Z"
     },
     "israeli/hava nagila.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-08-22T03:32:41.481Z",
-      "playCount": 1,
-      "createdAt": "2026-08-02T02:15:53.934Z"
+      "lastPlayed": "2026-08-23T08:02:10.862Z",
+      "playCount": 2,
+      "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "italian/bandiera_rossa.abc": {
       "status": "good",
-      "favorite": false,
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-07-28T03:44:45.300Z",
       "playCount": 2,
-      "createdAt": "2026-01-18T20:46:38.366Z"
+      "createdAt": "2026-01-18T20:46:38.366Z",
+      "updatedAt": "2026-10-08T02:51:46.396Z"
     },
     "italian/bella ciao.abc": {
       "status": "practicing",
-      "favorite": false,
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-08-02T08:52:41.046Z",
       "playCount": 5,
-      "createdAt": "2026-01-18T20:46:38.366Z"
+      "createdAt": "2026-01-18T20:46:38.366Z",
+      "updatedAt": "2026-10-08T02:51:44.765Z"
     },
     "italian/tarantella napoletana.abc": {
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-02T09:32:06.636Z",
-      "playCount": 39,
+      "lastPlayed": "2026-10-08T02:51:48.282Z",
+      "playCount": 40,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "jamaican/banana boat song.abc": {
@@ -1023,7 +1028,7 @@
       "notes": "",
       "lastPlayed": "2026-10-07T10:45:58.943Z",
       "playCount": 13,
-      "createdAt": "2026-08-02T02:15:53.935Z"
+      "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "japanese/hana.abc": {
       "status": "good",
@@ -1039,7 +1044,7 @@
       "notes": "",
       "lastPlayed": "2026-10-07T08:08:46.487Z",
       "playCount": 4,
-      "createdAt": "2026-09-01T10:00:33.957Z"
+      "createdAt": "2026-08-31T18:32:58.388Z"
     },
     "japanese/kojo no tsuki.abc": {
       "status": "good",
@@ -1069,9 +1074,9 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.934Z"
+      "lastPlayed": "2026-08-03T13:26:01.823Z",
+      "playCount": 1,
+      "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "kenyan/jambo bwana.abc": {
       "status": null,
@@ -1079,7 +1084,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.933Z"
+      "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "korean/arirang.abc": {
       "status": null,
@@ -1117,17 +1122,17 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.935Z"
+      "lastPlayed": "2026-08-20T11:22:29.804Z",
+      "playCount": 2,
+      "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "mexican/la cucaracha.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-02T10:39:57.285Z",
-      "playCount": 1,
-      "createdAt": "2026-08-22T02:59:38.464Z"
+      "lastPlayed": "2026-09-08T03:02:20.598Z",
+      "playCount": 7,
+      "createdAt": "2026-08-20T11:18:25.877Z"
     },
     "moroccan/a ram sam sam.abc": {
       "status": null,
@@ -1135,7 +1140,7 @@
       "notes": "",
       "lastPlayed": "2026-10-02T10:21:26.184Z",
       "playCount": 2,
-      "createdAt": "2026-08-02T02:15:53.933Z"
+      "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "norwegian/bortkomne.abc": {
       "status": "good",
@@ -1165,9 +1170,9 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T08:23:46.364Z",
-      "playCount": 6,
-      "createdAt": "2026-09-25T07:32:30.071Z"
+      "lastPlayed": "2026-10-08T02:32:33.480Z",
+      "playCount": 7,
+      "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/ai vist lo lop.abc": {
       "status": null,
@@ -1175,7 +1180,7 @@
       "notes": "",
       "lastPlayed": "2026-10-05T10:35:25.323Z",
       "playCount": 6,
-      "createdAt": "2026-09-25T07:32:30.072Z"
+      "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/la cambo me fai mau.abc": {
       "status": "practicing",
@@ -1183,7 +1188,7 @@
       "notes": "",
       "lastPlayed": "2026-10-07T08:25:07.187Z",
       "playCount": 3,
-      "createdAt": "2026-09-25T07:32:30.072Z"
+      "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/o magali.abc": {
       "status": "needs-practice",
@@ -1191,7 +1196,7 @@
       "notes": "",
       "lastPlayed": "2026-10-05T11:22:00.172Z",
       "playCount": 2,
-      "createdAt": "2026-09-25T07:32:30.072Z"
+      "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/se canta.abc": {
       "status": "good",
@@ -1199,7 +1204,7 @@
       "notes": "",
       "lastPlayed": "2026-10-05T10:39:42.988Z",
       "playCount": 1,
-      "createdAt": "2026-09-25T07:32:30.072Z"
+      "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "peruvian/el condor pasa.abc": {
       "status": "needs-practice",
@@ -1214,24 +1219,25 @@
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-06T08:58:12.594Z",
-      "playCount": 11,
-      "createdAt": "2026-08-02T02:15:53.934Z"
+      "playCount": 14,
+      "createdAt": "2026-08-01T05:59:20.044Z"
     },
     "philippine/dandansoy.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-09-11T06:16:04.646Z",
-      "playCount": 2,
-      "createdAt": "2026-08-02T02:15:53.934Z"
+      "playCount": 3,
+      "createdAt": "2026-08-01T05:59:20.044Z"
     },
     "philippine/ili-ili tulog anay.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.934Z"
+      "lastPlayed": "2026-10-08T07:06:18.944Z",
+      "playCount": 3,
+      "createdAt": "2026-08-01T05:59:20.044Z",
+      "updatedAt": "2026-10-08T07:07:55.162Z"
     },
     "philippine/leron leron sinta.abc": {
       "status": null,
@@ -1239,15 +1245,15 @@
       "notes": "",
       "lastPlayed": "2026-09-29T07:09:27.728Z",
       "playCount": 2,
-      "createdAt": "2026-08-02T02:15:53.935Z"
+      "createdAt": "2026-08-01T05:59:20.044Z"
     },
     "philippine/pamulinawen.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-11T06:24:31.159Z",
-      "playCount": 1,
-      "createdAt": "2026-08-02T02:15:53.935Z"
+      "lastPlayed": "2026-10-08T07:17:53.960Z",
+      "playCount": 3,
+      "createdAt": "2026-08-01T05:59:20.044Z"
     },
     "philippine/sitsiritsit alibangbang.abc": {
       "status": null,
@@ -1255,7 +1261,7 @@
       "notes": "",
       "lastPlayed": "2026-09-28T10:54:05.640Z",
       "playCount": 5,
-      "createdAt": "2026-08-22T02:59:38.462Z"
+      "createdAt": "2026-08-12T01:39:41.139Z"
     },
     "polish/dwa serduszka.abc": {
       "status": "needs-practice",
@@ -1309,7 +1315,7 @@
       "status": "practicing",
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-07-14T06:52:57.200Z",
+      "lastPlayed": "2026-07-28T06:54:42.522Z",
       "playCount": 3,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
@@ -1351,7 +1357,7 @@
       "notes": "",
       "lastPlayed": "2026-10-07T09:46:54.495Z",
       "playCount": 2,
-      "createdAt": "2026-08-02T02:15:53.932Z"
+      "createdAt": "2026-08-01T08:54:31.907Z"
     },
     "practice/chromatic_scale.abc": {
       "status": null,
@@ -1382,7 +1388,7 @@
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-09-18T06:28:05.666Z",
-      "playCount": 2,
+      "playCount": 3,
       "createdAt": "2026-07-01T03:19:53.473Z"
     },
     "russian/the red army is the strongest.abc": {
@@ -1405,16 +1411,16 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T09:35:22.886Z",
-      "playCount": 42,
+      "lastPlayed": "2026-10-08T02:47:56.179Z",
+      "playCount": 43,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-04T10:53:20.694Z",
-      "playCount": 18,
+      "lastPlayed": "2026-10-08T06:55:34.439Z",
+      "playCount": 21,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/bottom_bowl.abc": {
@@ -1427,10 +1433,10 @@
     },
     "scottish/caber_feigh.abc": {
       "status": "practicing",
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-07-27T04:57:52.943Z",
-      "playCount": 12,
+      "lastPlayed": "2026-08-30T03:43:44.277Z",
+      "playCount": 14,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/clanranald.abc": {
@@ -1445,16 +1451,16 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-07-28T05:56:31.333Z",
+      "playCount": 2,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/fang_fiddlers.abc": {
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T09:29:02.382Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-08T02:40:32.387Z",
+      "playCount": 6,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/francis_robertson.abc": {
@@ -1519,7 +1525,7 @@
       "notes": "",
       "lastPlayed": "2026-09-17T10:17:52.485Z",
       "playCount": 1,
-      "createdAt": "2026-08-02T02:15:53.933Z"
+      "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "spanish/nanita nana.abc": {
       "status": null,
@@ -1575,7 +1581,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-04T09:21:12.936Z"
+      "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "trinidadian/jump in the line.abc": {
       "status": null,
@@ -1615,7 +1621,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.934Z"
+      "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "tv/a-team.abc": {
       "status": "practicing",
@@ -1647,16 +1653,16 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.933Z"
+      "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "ukrainian/nich yaka misyachna.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T10:27:50.045Z",
-      "playCount": 7,
-      "createdAt": "2026-08-02T02:15:53.933Z",
-      "updatedAt": "2026-10-07T10:11:41.242Z"
+      "lastPlayed": "2026-10-08T02:34:21.100Z",
+      "playCount": 8,
+      "createdAt": "2026-08-01T08:03:26.600Z",
+      "updatedAt": "2026-10-08T02:37:41.304Z"
     },
     "unsorted/people united.abc": {
       "status": "practicing",
@@ -1688,7 +1694,7 @@
       "notes": "",
       "lastPlayed": null,
       "playCount": 0,
-      "createdAt": "2026-08-02T02:15:53.935Z"
+      "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "yiddish/chiribim.abc": {
       "status": null,
@@ -1728,19 +1734,71 @@
       "notes": "",
       "lastPlayed": "2026-10-02T10:19:10.361Z",
       "playCount": 1,
-      "createdAt": "2026-08-02T02:15:53.933Z"
+      "createdAt": "2026-08-01T08:03:26.600Z"
     }
   },
   "collections": {},
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "philippine/pamulinawen.abc",
+      "timestamp": "2026-10-08T07:17:53.960Z"
+    },
+    {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-10-08T07:13:14.483Z"
     },
     {
+      "filePath": "philippine/ili-ili tulog anay.abc",
+      "timestamp": "2026-10-08T07:06:18.944Z"
+    },
+    {
+      "filePath": "classical/chopin/valse op 69 no 2.abc",
+      "timestamp": "2026-10-08T07:05:49.533Z"
+    },
+    {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-10-08T06:59:06.429Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-10-07T10:55:53.661Z"
+      "timestamp": "2026-10-08T06:56:54.643Z"
+    },
+    {
+      "filePath": "scottish/birkhall.abc",
+      "timestamp": "2026-10-08T06:55:34.439Z"
+    },
+    {
+      "filePath": "chinese/molihua.abc",
+      "timestamp": "2026-10-08T06:42:10.957Z"
+    },
+    {
+      "filePath": "chinese/zou xikou.abc",
+      "timestamp": "2026-10-08T06:40:26.584Z"
+    },
+    {
+      "filePath": "italian/tarantella napoletana.abc",
+      "timestamp": "2026-10-08T02:51:48.282Z"
+    },
+    {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-10-08T02:47:56.179Z"
+    },
+    {
+      "filePath": "scottish/fang_fiddlers.abc",
+      "timestamp": "2026-10-08T02:40:32.387Z"
+    },
+    {
+      "filePath": "austrian/es wird scho gleich dumpa.abc",
+      "timestamp": "2026-10-08T02:37:50.626Z"
+    },
+    {
+      "filePath": "ukrainian/nich yaka misyachna.abc",
+      "timestamp": "2026-10-08T02:34:21.100Z"
+    },
+    {
+      "filePath": "occitan/adiu paure carnaval.abc",
+      "timestamp": "2026-10-08T02:32:33.480Z"
     },
     {
       "filePath": "chinese/baobao yao shuijiao.abc",
@@ -1759,60 +1817,8 @@
       "timestamp": "2026-10-07T10:45:58.943Z"
     },
     {
-      "filePath": "chinese/molihua.abc",
-      "timestamp": "2026-10-07T10:45:57.077Z"
-    },
-    {
       "filePath": "unsorted/people united.abc",
       "timestamp": "2026-10-07T10:43:49.789Z"
-    },
-    {
-      "filePath": "cajun/madame sosthene.abc",
-      "timestamp": "2026-10-07T10:33:03.847Z"
-    },
-    {
-      "filePath": "cajun/bosco stomp.abc",
-      "timestamp": "2026-10-07T10:31:55.198Z"
-    },
-    {
-      "filePath": "classical/chopin/valse in a minor.abc",
-      "timestamp": "2026-10-07T10:31:46.077Z"
-    },
-    {
-      "filePath": "ukrainian/nich yaka misyachna.abc",
-      "timestamp": "2026-10-07T10:27:50.045Z"
-    },
-    {
-      "filePath": "portuguese/dorme dorme meu menino.abc",
-      "timestamp": "2026-10-07T09:46:54.495Z"
-    },
-    {
-      "filePath": "scottish/bottom_bowl.abc",
-      "timestamp": "2026-10-07T09:39:13.854Z"
-    },
-    {
-      "filePath": "scottish/atholl_braes_1.abc",
-      "timestamp": "2026-10-07T09:37:11.808Z"
-    },
-    {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-10-07T09:35:22.886Z"
-    },
-    {
-      "filePath": "scottish/fang_fiddlers.abc",
-      "timestamp": "2026-10-07T09:29:02.382Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-10-07T09:20:14.703Z"
-    },
-    {
-      "filePath": "occitan/la cambo me fai mau.abc",
-      "timestamp": "2026-10-07T08:25:07.187Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-10-07T08:23:46.364Z"
     }
   ],
   "settings": {}
