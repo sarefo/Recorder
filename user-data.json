@@ -816,8 +816,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-08T07:19:46.735Z",
+      "playCount": 1,
       "createdAt": "2026-10-07T08:05:12.811Z"
     },
     "finnish/mansikka.abc": {
@@ -1248,12 +1248,13 @@
       "createdAt": "2026-08-01T05:59:20.044Z"
     },
     "philippine/pamulinawen.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-08T07:17:53.960Z",
       "playCount": 3,
-      "createdAt": "2026-08-01T05:59:20.044Z"
+      "createdAt": "2026-08-01T05:59:20.044Z",
+      "updatedAt": "2026-10-08T07:19:44.903Z"
     },
     "philippine/sitsiritsit alibangbang.abc": {
       "status": null,
@@ -1741,6 +1742,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "finnish/maamme.abc",
+      "timestamp": "2026-10-08T07:19:46.735Z"
+    },
+    {
       "filePath": "philippine/pamulinawen.abc",
       "timestamp": "2026-10-08T07:17:53.960Z"
     },
@@ -1815,10 +1820,6 @@
     {
       "filePath": "jamaican/banana boat song.abc",
       "timestamp": "2026-10-07T10:45:58.943Z"
-    },
-    {
-      "filePath": "unsorted/people united.abc",
-      "timestamp": "2026-10-07T10:43:49.789Z"
     }
   ],
   "settings": {}
