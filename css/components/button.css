@@ -135,18 +135,13 @@
     border-color: var(--color-border);
 }
 
-/* Loop-enabled state on loop button */
+/* Loop-enabled state on loop button: the standard toggle .active look */
 #loop-button.loop-active,
 .control-bar #loop-button.loop-active {
-    background-color: #7e57c2;
-    border-color: #7e57c2;
+    background-color: var(--color-primary-active);
+    border-color: var(--color-primary-active);
     color: var(--color-text-on-primary);
-    box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.2);
-}
-
-#loop-button.loop-active:hover {
-    background-color: #673ab7;
-    border-color: #673ab7;
+    box-shadow: none;
 }
 
 /* ----- Metronome visual feedback states ----- */
