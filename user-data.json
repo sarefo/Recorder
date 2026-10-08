@@ -1498,12 +1498,13 @@
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/hopetoun_house.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-08T07:30:00.704Z",
       "playCount": 4,
-      "createdAt": "2026-01-18T20:46:38.367Z"
+      "createdAt": "2026-01-18T20:46:38.367Z",
+      "updatedAt": "2026-10-08T07:37:13.092Z"
     },
     "scottish/irving_steeple.abc": {
       "status": null,
