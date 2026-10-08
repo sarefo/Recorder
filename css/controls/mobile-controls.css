@@ -140,6 +140,7 @@ body.mobile-bar-hidden .mobile-control-bar {
 #mobile-control-bar #files-button {
     --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2 6.5A2.5 2.5 0 0 1 4.5 4H9l2.5 2.5h8A2.5 2.5 0 0 1 22 9v9.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5z'/%3E%3C/svg%3E");
     font-weight: normal;
+    color: #f0a500;
 }
 
 /* Fingering system: short name, set from data-system */
@@ -336,8 +337,8 @@ body.mobile-bar-left .mobile-overlay {
 
 /* ----- Transpose panel -----
    Shown instead of the overlay while transposing, so the score stays
-   visible and scrollable. Tucked in beside "more":
-   under the bar when it is on top, right of the rail when it is on the left.
+   visible and scrollable. Placed next to the bar's transpose button:
+   under it when the bar is on top, right of it when the bar is on the left.
    Columns: accept/reject, key up/key down, highest note on C6/lowest note
    on C4, and a fourth column with save (only with a GitHub token set) above
    restore, which moves up to the first row when save is hidden. */
@@ -345,8 +346,7 @@ body.mobile-bar-left .mobile-overlay {
 #mobile-transpose-panel {
     display: none;
     position: fixed;
-    top: calc(var(--mobile-bar-size) + env(safe-area-inset-top) + var(--space-2));
-    right: calc(env(safe-area-inset-right) + var(--space-2));
+    /* top/left are set by MobileUI.positionTransposePanel */
     z-index: var(--z-modal-backdrop);
     grid-template-columns: repeat(4, 48px);
     grid-template-rows: repeat(2, 48px);
@@ -363,12 +363,6 @@ body.mobile-bar-left .mobile-overlay {
 
 #mobile-transpose-panel.open {
     display: grid;
-}
-
-body.mobile-bar-left #mobile-transpose-panel {
-    top: calc(env(safe-area-inset-top) + var(--space-2));
-    left: calc(var(--mobile-bar-size) + env(safe-area-inset-left) + var(--space-2));
-    right: auto;
 }
 
 #mobile-transpose-panel button {

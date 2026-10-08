@@ -9,8 +9,7 @@
  * The bar sits at the top by default or as a rail on the left edge.
  *
  * Transposing happens in its own mode so the score stays visible: the
- * bar's transpose button closes the overlay and shows a small panel
- * in the top right corner (accept/reject, key up/key down, lowest note on
+ * bar's transpose button toggles a small panel placed next to it (accept/reject, key up/key down, lowest note on
  * C4/highest on C6). With a GitHub token set, a save button in a fourth
  * column commits the new key to the repo.
  */
@@ -63,6 +62,14 @@ class MobileUI {
                 this.endTransposeMode(false);
             } else if (e.key === 'Enter' && this.transposing) {
                 this.endTransposeMode(true);
+            }
+        });
+
+        // Rotating or resizing moves the transpose button; keep the panel beside it
+        window.addEventListener('resize', () => {
+            const panel = document.getElementById('mobile-transpose-panel');
+            if (panel && panel.classList.contains('open')) {
+                this.positionTransposePanel(panel);
             }
         });
     }
@@ -148,6 +155,17 @@ class MobileUI {
         this.transposing = true;
         this.overlayOpen = false;
         this.applyMobileState();
+    }
+
+    /**
+     * The bar's transpose button: opens the panel, or closes it keeping the key
+     */
+    toggleTransposeMode() {
+        if (this.transposing) {
+            this.endTransposeMode(true);
+        } else {
+            this.startTransposeMode();
+        }
     }
 
     /**
@@ -318,9 +336,18 @@ class MobileUI {
 
         const transposePanel = document.getElementById('mobile-transpose-panel');
         if (transposePanel) {
-            transposePanel.classList.toggle('open', this.transposing && !this.barHidden);
+            const panelOpen = this.transposing && !this.barHidden;
+            transposePanel.classList.toggle('open', panelOpen);
+            if (panelOpen) {
+                this.positionTransposePanel(transposePanel);
+            }
         }
         this.updateTransposeSaveButton();
+
+        const transposeButton = document.getElementById('mobile-transpose-button');
+        if (transposeButton) {
+            transposeButton.classList.toggle('active', this.transposing);
+        }
 
         const moreButton = document.getElementById('mobile-more-toggle');
         if (moreButton) {
@@ -341,6 +368,29 @@ class MobileUI {
         body.classList.toggle('mobile-bar-hidden', this.barHidden);
         body.classList.toggle('mobile-overlay-open', overlayOpen);
         body.classList.toggle('mobile-transposing', this.transposing);
+    }
+
+    /**
+     * Places the open transpose panel beside the bar's transpose button:
+     * below it when the bar is on top, right of it on the left rail, kept
+     * inside the window
+     * @param {HTMLElement} panel - The transpose panel (already displayed)
+     */
+    positionTransposePanel(panel) {
+        const button = document.getElementById('mobile-transpose-button');
+        if (!button) return;
+        const anchor = button.getBoundingClientRect();
+        const margin = 8;
+        const maxLeft = window.innerWidth - panel.offsetWidth - margin;
+        const maxTop = window.innerHeight - panel.offsetHeight - margin;
+
+        if (this.barPosition === 'left') {
+            panel.style.left = `${anchor.right + margin}px`;
+            panel.style.top = `${Math.max(margin, Math.min(anchor.top, maxTop))}px`;
+        } else {
+            panel.style.left = `${Math.max(margin, Math.min(anchor.left, maxLeft))}px`;
+            panel.style.top = `${anchor.bottom + margin}px`;
+        }
     }
 
     /**
@@ -393,7 +443,7 @@ class MobileUI {
             byId('files-button'), byId('random-abc-button'),
             byId('show-fingering'), byId('system-toggle'),
             this.createIconButton('mobile-transpose-button', MobileUI.ICONS.transpose,
-                'Transpose', () => this.startTransposeMode()),
+                'Transpose', () => this.toggleTransposeMode()),
         ]);
 
         const spacer = document.createElement('div');
