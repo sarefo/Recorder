@@ -92,8 +92,8 @@ class AbcPlayer {
         this.userDataSync = new UserDataSync(this);
         this.userDataSync.start();
 
-        // Mobile detection is now handled by MobileUI class
-        this.isMobile = window.innerWidth <= 768;
+        // The compact bar is used on every screen (see MobileUI.updateMobileState)
+        this.isMobile = true;
     }
 
     /**

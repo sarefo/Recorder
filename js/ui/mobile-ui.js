@@ -1,5 +1,5 @@
 /**
- * Manages mobile-specific UI behavior.
+ * Manages the control bar layout, used on every screen size.
  *
  * Layout: one bar of large icon buttons for the controls used constantly
  * (play, loop, files, random, fingering, fingering system), plus two toggles:
@@ -54,7 +54,6 @@ class MobileUI {
     setupMobileControls() {
         this.updateMobileState();
         this.createMobileLayout();
-        this.setupScreenChangeHandlers();
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.overlayOpen) {
@@ -86,20 +85,14 @@ class MobileUI {
     }
 
     /**
-     * Updated mobile detection logic
-     * @returns {boolean} Whether current environment is mobile
+     * The compact bar is the layout on every screen, laptop included, so the
+     * app looks and works the same everywhere. isMobile stays as the flag
+     * the rest of the app reads.
+     * @returns {boolean} Always true
      */
     updateMobileState() {
-        const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-        // Use smaller dimension to determine mobile (handles landscape orientation)
-        const smallerDimension = Math.min(window.innerWidth, window.innerHeight);
-
-        this.player.isMobile = isMobileDevice ||
-                               smallerDimension <= 600 ||
-                               window.innerWidth < 1024;
-
-        return this.player.isMobile;
+        this.player.isMobile = true;
+        return true;
     }
 
     /**
@@ -305,11 +298,6 @@ class MobileUI {
      * Apply the current state to the UI elements
      */
     applyMobileState() {
-        if (!this.player.isMobile) {
-            this.applyDesktopState();
-            return;
-        }
-
         let mobileBar = document.getElementById('mobile-control-bar');
         if (!mobileBar || !mobileBar.querySelector('.mobile-main-row')) {
             this.createMobileControlBar();
@@ -352,90 +340,6 @@ class MobileUI {
         body.classList.toggle('mobile-bar-hidden', this.barHidden);
         body.classList.toggle('mobile-overlay-open', overlayOpen);
         body.classList.toggle('mobile-transposing', this.transposing);
-    }
-
-    /**
-     * Apply desktop state: hide the mobile bar and put every control back
-     * into its desktop section, in the original order.
-     */
-    applyDesktopState() {
-        const mobileBar = document.getElementById('mobile-control-bar');
-        if (mobileBar) {
-            mobileBar.classList.add('hidden');
-        }
-        const overlay = document.getElementById('mobile-overlay');
-        if (overlay) {
-            overlay.classList.remove('open');
-        }
-        // Desktop has the transpose buttons inline; keep whatever was transposed
-        this.transposing = false;
-        this.abcBeforeTranspose = null;
-        const transposePanel = document.getElementById('mobile-transpose-panel');
-        if (transposePanel) {
-            transposePanel.classList.remove('open');
-        }
-
-        document.body.classList.remove('mobile-controls-active', 'mobile-bar-left',
-            'mobile-bar-hidden', 'mobile-overlay-open', 'mobile-transposing');
-
-        const controlBar = document.querySelector('.control-bar');
-        const playbackControls = document.querySelector('.playback-controls');
-        const fingeringControls = document.querySelector('.fingering-controls');
-        const settingsControls = document.querySelector('.settings-controls');
-        const notationControls = document.querySelector('.notation-controls');
-
-        if (controlBar) {
-            for (const section of [playbackControls, fingeringControls, settingsControls, notationControls]) {
-                if (section && section.parentElement !== controlBar) {
-                    controlBar.appendChild(section);
-                }
-            }
-        }
-
-        // Appending in order restores the original sequence inside each section
-        const moveBack = (parent, elements) => {
-            if (!parent) return;
-            for (const el of elements) {
-                if (el) parent.appendChild(el);
-            }
-        };
-        const byId = id => document.getElementById(id);
-
-        moveBack(playbackControls, [
-            byId('play-button'), byId('loop-button'),
-            byId('chords-toggle'), byId('voices-toggle'), byId('metronome-toggle'),
-            document.querySelector('.tempo-control'), byId('mobile-tempo-button'),
-            byId('tuning-button'),
-            byId('transpose-up'), byId('transpose-down'),
-        ]);
-        moveBack(fingeringControls, [byId('show-fingering'), byId('system-toggle'), byId('chart-toggle')]);
-
-        const fileControls = document.querySelector('.file-controls');
-        const selector = document.querySelector('.file-selector-container');
-        moveBack(selector, [byId('files-button'), byId('random-abc-button'), byId('theme-toggle'), byId('help-button')]);
-        moveBack(fileControls, [selector, document.querySelector('.tune-navigation')]);
-        moveBack(settingsControls, [byId('settings-button'), byId('reload-button')]);
-        moveBack(notationControls, [byId('copy-button'), byId('paste-button'), byId('share-button'), fileControls]);
-
-        // The inline tag button is owned by the desktop control bar directly
-        moveBack(controlBar, [byId('inline-tag-button')]);
-    }
-
-    /**
-     * Set up handlers for screen size/orientation changes
-     */
-    setupScreenChangeHandlers() {
-        const onChange = () => {
-            const wasMobile = this.player.isMobile;
-            this.updateMobileState();
-            if (wasMobile !== this.player.isMobile) {
-                this.createMobileLayout();
-            }
-            this.applyMobileState();
-        };
-
-        window.addEventListener('resize', onChange);
-        window.addEventListener('orientationchange', () => setTimeout(onChange, 100));
     }
 
     /**
