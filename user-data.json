@@ -1405,8 +1405,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T09:37:11.808Z",
-      "playCount": 28,
+      "lastPlayed": "2026-10-09T06:05:48.501Z",
+      "playCount": 29,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/balquidder_lasses.abc": {
@@ -1745,6 +1745,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/atholl_braes_1.abc",
+      "timestamp": "2026-10-09T06:05:48.501Z"
+    },
+    {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-08T07:30:00.704Z"
     },
@@ -1819,10 +1823,6 @@
     {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-10-08T02:47:56.179Z"
-    },
-    {
-      "filePath": "scottish/fang_fiddlers.abc",
-      "timestamp": "2026-10-08T02:40:32.387Z"
     }
   ],
   "settings": {}
