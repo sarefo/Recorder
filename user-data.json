@@ -785,8 +785,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-04T10:36:29.536Z",
-      "playCount": 24,
+      "lastPlayed": "2026-10-09T06:07:45.265Z",
+      "playCount": 25,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "film/hisaishi/summer.abc": {
@@ -1745,6 +1745,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/hisaishi/mononoke.abc",
+      "timestamp": "2026-10-09T06:07:45.265Z"
+    },
+    {
       "filePath": "scottish/atholl_braes_1.abc",
       "timestamp": "2026-10-09T06:05:48.501Z"
     },
@@ -1819,10 +1823,6 @@
     {
       "filePath": "italian/tarantella napoletana.abc",
       "timestamp": "2026-10-08T02:51:48.282Z"
-    },
-    {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-10-08T02:47:56.179Z"
     }
   ],
   "settings": {}
