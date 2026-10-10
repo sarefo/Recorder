@@ -732,7 +732,7 @@ class AbcFileList {
                 "name": "The Wild Rover",
                 "file": "irish/the wild rover.abc",
                 "category": "irish",
-                "hash": "0fea105720"
+                "hash": "35988b1bd3"
         },
         {
                 "name": "Hava Nagila",
