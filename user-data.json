@@ -400,8 +400,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-30T03:43:09.140Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-10T10:09:29.222Z",
+      "playCount": 3,
       "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/nun bitten wir den heiligen geist.abc": {
@@ -1745,6 +1745,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/chorales/meine seele erhebet den herrn.abc",
+      "timestamp": "2026-10-10T10:09:29.222Z"
+    },
+    {
       "filePath": "cajun/madame sosthene.abc",
       "timestamp": "2026-10-10T09:45:44.519Z"
     },
@@ -1819,10 +1823,6 @@
     {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-10-08T07:23:53.282Z"
-    },
-    {
-      "filePath": "austrian/es wird scho gleich dumpa.abc",
-      "timestamp": "2026-10-08T07:23:51.131Z"
     }
   ],
   "settings": {}
