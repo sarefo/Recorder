@@ -977,8 +977,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-02T10:00:41.250Z",
-      "playCount": 13,
+      "lastPlayed": "2026-10-10T09:21:57.191Z",
+      "playCount": 14,
       "createdAt": "2026-07-30T09:51:53.099Z"
     },
     "irish/the wild rover.abc": {
@@ -1745,6 +1745,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "irish/johnny i hardly knew ya.abc",
+      "timestamp": "2026-10-10T09:21:57.191Z"
+    },
+    {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-10-10T09:20:29.871Z"
     },
@@ -1819,10 +1823,6 @@
     {
       "filePath": "finnish/maamme.abc",
       "timestamp": "2026-10-08T07:19:46.735Z"
-    },
-    {
-      "filePath": "philippine/pamulinawen.abc",
-      "timestamp": "2026-10-08T07:17:53.960Z"
     }
   ],
   "settings": {}
