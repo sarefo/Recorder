@@ -116,6 +116,35 @@ See `reference/abc-syntax.md` for the syntax and this repo's conventions —
 octave letters, durations under `L:1/8`, headers, and the recorder range the
 fingering diagrams support.
 
+### Line layout: no staff line may overflow the screen
+
+The app renders with `staffwidth = window.innerWidth - 60` and
+`responsive: "resize"`. When one staff line cannot fit in that width, abcjs
+makes the SVG wider and the browser shrinks the **whole sheet** to fit, so the
+notes, chords and text all get small. Sitsiritsit Alibangbang (4 bars per line,
+a syllable under nearly every note) rendered at 38%; The Wild Rover (10 bars per
+line) at 86%. Target is Pixel 7a landscape, 915x412.
+
+- **Lyrics set the width.** With a syllable under most notes, use about 2 bars
+  and 15 notes per line. Without lyrics, 4 bars of eighths per line is fine.
+- **Aim for about 4 staff lines** so the whole piece shows at a glance. Put the
+  leftover short bar on the last line (3 bars) instead of giving it its own line.
+- **`w:` lines attach to the music line directly above them.** Put each
+  verse's `w:` right after the line it belongs to. Two `w:` lines after the
+  second of two music lines are both stacked under that second line and the
+  first line gets none (this was the Wild Rover bug).
+- A tied note's continuation takes no syllable. Count syllables against notes
+  that start a tie or stand alone, and check that every `w:` line ends exactly
+  at the last note of its music line.
+- Fingering diagrams overlapping syllables is normal for this app; ignore it.
+
+Check by rendering in the browser (see the `recorder-testing` skill) and
+reading the SVG: the `viewBox` width should equal `staffwidth + 30` (885 at
+915 wide). A larger viewBox means a line overflowed. Do not judge by
+`svg.getBoundingClientRect().width / viewBox` in a test container; that only
+measures the container. Fetch the tune with a `?v=Date.now()` query, since the
+service worker caches the plain URL.
+
 ## Moving a tune to a playable key
 
 `scripts/transpose_abc.py` rewrites the music lines (notes, accidentals, chord
