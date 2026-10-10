@@ -10,11 +10,11 @@ N: a fifth for recorder range; the chords are what the lower three voices sing.
 L: 1/8
 Q: 3/8=106
 M: 6/8
-K: Bm
-|:"Bm"Bcd edc |"Bm"B3 cde |"D"fed "Em"dec |"Bm"d2c "A"BA2 |
-"Bm"Bcd edc |"Bm"B2 d2 "A"c2 |"Bm"B4 "F#m"A2 |"Bm"B6 :|
-|:"Bm"f3 efg |"D"f4 f2 |"A"agf edc |"Bm"d3 cB2 |
-"D"f3 efg |"D"f2e "A"dc2 |"Bm"B4 "F#m"A2 |"Bm"B6 :|
+K: Dm
+|:"Dm"DEF GFE |"Dm"D3 EFG |"F"AGF "Gm"FGE |"Dm"F2E "C"DC2 |
+"Dm"DEF GFE |"Dm"D2 F2 "C"E2 |"Dm"D4 "Am"C2 |"Dm"D6 :|
+|:"Dm"A3 GAB |"F"A4 A2 |"C"cBA GFE |"Dm"F3 ED2 |
+"F"A3 GAB |"F"A2G "C"FE2 |"Dm"D4 "Am"C2 |"Dm"D6 :|
 
 % Quand je bois du vin clairet, ami, tout tourne, tourne, tourne,
 % aussi desormais je bois Anjou ou Arbois.
