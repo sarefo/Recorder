@@ -633,8 +633,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-10T09:16:03.372Z",
+      "playCount": 1,
       "createdAt": "2026-10-04T07:32:12.381Z"
     },
     "classical/chopin/nocturne op 55 no 1.abc": {
@@ -705,8 +705,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-07-27T04:57:31.010Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-10T09:16:07.440Z",
+      "playCount": 2,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "congolese/amawole.abc": {
@@ -881,8 +881,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T07:23:55.077Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-10T09:16:45.188Z",
+      "playCount": 7,
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/j'ai vu le loup.abc": {
@@ -1083,8 +1083,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-10T09:16:14.574Z",
+      "playCount": 1,
       "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "korean/arirang.abc": {
@@ -1211,8 +1211,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T08:23:44.511Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-10T09:16:05.696Z",
+      "playCount": 4,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "philippine/bahay kubo.abc": {
@@ -1688,8 +1688,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-10T09:16:09.237Z",
+      "playCount": 1,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "vietnamese/beo dat may troi.abc": {
@@ -1745,6 +1745,30 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-10-10T09:16:45.188Z"
+    },
+    {
+      "filePath": "kenyan/jambo bwana.abc",
+      "timestamp": "2026-10-10T09:16:14.574Z"
+    },
+    {
+      "filePath": "unsorted/test.abc",
+      "timestamp": "2026-10-10T09:16:09.237Z"
+    },
+    {
+      "filePath": "classical/tchaikovsky/swan lake theme.abc",
+      "timestamp": "2026-10-10T09:16:07.440Z"
+    },
+    {
+      "filePath": "peruvian/el condor pasa.abc",
+      "timestamp": "2026-10-10T09:16:05.696Z"
+    },
+    {
+      "filePath": "classical/chopin/nocturne op 37 no 1.abc",
+      "timestamp": "2026-10-10T09:16:03.372Z"
+    },
+    {
       "filePath": "film/hisaishi/mononoke.abc",
       "timestamp": "2026-10-09T06:07:45.265Z"
     },
@@ -1763,10 +1787,6 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-08T07:27:04.035Z"
-    },
-    {
-      "filePath": "french/douce dame jolie.abc",
-      "timestamp": "2026-10-08T07:23:55.077Z"
     },
     {
       "filePath": "breton/toutouic.abc",
@@ -1803,26 +1823,6 @@
     {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-10-08T07:13:14.483Z"
-    },
-    {
-      "filePath": "philippine/ili-ili tulog anay.abc",
-      "timestamp": "2026-10-08T07:06:18.944Z"
-    },
-    {
-      "filePath": "classical/chopin/valse op 69 no 2.abc",
-      "timestamp": "2026-10-08T07:05:49.533Z"
-    },
-    {
-      "filePath": "scottish/birkhall.abc",
-      "timestamp": "2026-10-08T06:55:34.439Z"
-    },
-    {
-      "filePath": "chinese/molihua.abc",
-      "timestamp": "2026-10-08T06:42:10.957Z"
-    },
-    {
-      "filePath": "italian/tarantella napoletana.abc",
-      "timestamp": "2026-10-08T02:51:48.282Z"
     }
   ],
   "settings": {}
