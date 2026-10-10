@@ -3,7 +3,7 @@
  * Handles offline caching of app shell and ABC music files
  */
 
-const CACHE_VERSION = 'abc-player-v3-2026-10-08-8';
+const CACHE_VERSION = 'abc-player-v3-2026-10-10';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 // Not keyed by CACHE_VERSION: a deploy used to wipe every cached tune, so
 // after each one all tunes were downloaded again and a tune the user opened
@@ -11,6 +11,7 @@ const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 // abc-file-list.js instead, and only tunes whose hash changed are refetched.
 const ABC_FILES_CACHE = 'abc-player-abc-files';
 const ABC_HASH_HEADER = 'X-Abc-Hash';
+const SOUNDFONT_CACHE = 'abc-player-soundfonts';
 
 // App shell files to cache on install
 const APP_SHELL_FILES = [
@@ -101,7 +102,8 @@ self.addEventListener('activate', (event) => {
                         // Delete old cache versions
                         if (cacheName.startsWith('abc-player-') &&
                             cacheName !== APP_SHELL_CACHE &&
-                            cacheName !== ABC_FILES_CACHE) {
+                            cacheName !== ABC_FILES_CACHE &&
+                            cacheName !== SOUNDFONT_CACHE) {
                             console.log('[Service Worker] Deleting old cache:', cacheName);
                             return caches.delete(cacheName);
                         }
@@ -143,8 +145,12 @@ self.addEventListener('fetch', (event) => {
 
     // Handle MIDI soundfont requests (required for offline MIDI playback)
     // ABCJS loads instrument samples from this domain
+    // Own cache, not keyed by CACHE_VERSION: the samples are megabytes and never
+    // change, but living in APP_SHELL_CACHE they were deleted on every deploy
+    // and the first Play afterwards downloaded them again (30+ seconds on
+    // mobile data).
     if (url.hostname === 'paulrosen.github.io') {
-        event.respondWith(cacheFirstStrategy(request, APP_SHELL_CACHE));
+        event.respondWith(cacheFirstStrategy(request, SOUNDFONT_CACHE));
         return;
     }
 
@@ -169,8 +175,10 @@ async function cacheFirstStrategy(request, cacheName) {
         // If not in cache, fetch from network and cache it
         const networkResponse = await fetch(request);
 
-        // Only cache successful responses
-        if (networkResponse && networkResponse.status === 200) {
+        // Only cache successful responses. Opaque ones (status 0) come from
+        // no-cors requests such as script tags; they can't be inspected but
+        // are valid to replay.
+        if (networkResponse && (networkResponse.status === 200 || networkResponse.type === 'opaque')) {
             const cache = await caches.open(cacheName);
             cache.put(request, networkResponse.clone());
         }
