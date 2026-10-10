@@ -897,8 +897,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-25T08:24:02.739Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-10T10:11:41.547Z",
+      "playCount": 2,
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "georgian/gandagana.abc": {
@@ -1115,8 +1115,8 @@
       "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-10T10:11:34.987Z",
+      "playCount": 1,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "mexican/cielito lindo.abc": {
@@ -1745,6 +1745,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/tourdion.abc",
+      "timestamp": "2026-10-10T10:11:41.547Z"
+    },
+    {
+      "filePath": "maori/te hokinga mai.abc",
+      "timestamp": "2026-10-10T10:11:34.987Z"
+    },
+    {
       "filePath": "classical/bach/chorales/meine seele erhebet den herrn.abc",
       "timestamp": "2026-10-10T10:09:29.222Z"
     },
@@ -1815,14 +1823,6 @@
     {
       "filePath": "trinidadian/matilda.abc",
       "timestamp": "2026-10-08T07:27:06.609Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-10-08T07:27:04.035Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-10-08T07:23:53.282Z"
     }
   ],
   "settings": {}
