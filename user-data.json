@@ -1261,8 +1261,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-28T10:54:05.640Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-10T09:25:30.911Z",
+      "playCount": 6,
       "createdAt": "2026-08-12T01:39:41.139Z"
     },
     "polish/dwa serduszka.abc": {
@@ -1745,6 +1745,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "philippine/sitsiritsit alibangbang.abc",
+      "timestamp": "2026-10-10T09:25:30.911Z"
+    },
+    {
       "filePath": "irish/johnny i hardly knew ya.abc",
       "timestamp": "2026-10-10T09:21:57.191Z"
     },
@@ -1819,10 +1823,6 @@
     {
       "filePath": "pop/game/mario theme.abc",
       "timestamp": "2026-10-08T07:20:13.024Z"
-    },
-    {
-      "filePath": "finnish/maamme.abc",
-      "timestamp": "2026-10-08T07:19:46.735Z"
     }
   ],
   "settings": {}
