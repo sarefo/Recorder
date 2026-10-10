@@ -1043,8 +1043,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T08:08:46.487Z",
-      "playCount": 4,
+      "lastPlayed": "2026-10-10T09:20:29.871Z",
+      "playCount": 5,
       "createdAt": "2026-08-31T18:32:58.388Z"
     },
     "japanese/kojo no tsuki.abc": {
@@ -1745,6 +1745,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hashire kotaro.abc",
+      "timestamp": "2026-10-10T09:20:29.871Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-10-10T09:16:45.188Z"
     },
@@ -1819,10 +1823,6 @@
     {
       "filePath": "philippine/pamulinawen.abc",
       "timestamp": "2026-10-08T07:17:53.960Z"
-    },
-    {
-      "filePath": "classical/bach/badinerie.abc",
-      "timestamp": "2026-10-08T07:13:14.483Z"
     }
   ],
   "settings": {}
