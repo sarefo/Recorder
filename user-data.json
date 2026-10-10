@@ -5,8 +5,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-03T10:42:24.224Z",
-      "playCount": 10,
+      "lastPlayed": "2026-10-10T09:45:38.211Z",
+      "playCount": 12,
       "createdAt": "2026-07-28T06:53:46.507Z"
     },
     "american/which side are you on.abc": {
@@ -144,8 +144,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T10:33:03.847Z",
-      "playCount": 10,
+      "lastPlayed": "2026-10-10T09:45:44.519Z",
+      "playCount": 11,
       "createdAt": "2026-09-27T06:51:55.209Z"
     },
     "chinese/670_songs.abc": {
@@ -881,8 +881,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-10T09:16:45.188Z",
-      "playCount": 7,
+      "lastPlayed": "2026-10-10T09:45:27.561Z",
+      "playCount": 8,
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/j'ai vu le loup.abc": {
@@ -1445,8 +1445,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-10T09:28:44.434Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-10T09:45:42.662Z",
+      "playCount": 6,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/fairy_dance.abc": {
@@ -1745,12 +1745,24 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-10-10T09:42:08.936Z"
+      "filePath": "cajun/madame sosthene.abc",
+      "timestamp": "2026-10-10T09:45:44.519Z"
     },
     {
       "filePath": "scottish/clanranald.abc",
-      "timestamp": "2026-10-10T09:28:44.434Z"
+      "timestamp": "2026-10-10T09:45:42.662Z"
+    },
+    {
+      "filePath": "american/when johnny comes marching home.abc",
+      "timestamp": "2026-10-10T09:45:38.211Z"
+    },
+    {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-10-10T09:45:27.561Z"
+    },
+    {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-10-10T09:42:08.936Z"
     },
     {
       "filePath": "philippine/sitsiritsit alibangbang.abc",
@@ -1763,10 +1775,6 @@
     {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-10-10T09:20:29.871Z"
-    },
-    {
-      "filePath": "french/douce dame jolie.abc",
-      "timestamp": "2026-10-10T09:16:45.188Z"
     },
     {
       "filePath": "kenyan/jambo bwana.abc",
@@ -1815,14 +1823,6 @@
     {
       "filePath": "austrian/es wird scho gleich dumpa.abc",
       "timestamp": "2026-10-08T07:23:51.131Z"
-    },
-    {
-      "filePath": "occitan/ai vist lo lop.abc",
-      "timestamp": "2026-10-08T07:23:48.006Z"
-    },
-    {
-      "filePath": "classical/bach/chorales/wer nur den lieben gott laesst walten.abc",
-      "timestamp": "2026-10-08T07:20:25.409Z"
     }
   ],
   "settings": {}
