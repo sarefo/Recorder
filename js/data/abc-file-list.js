@@ -936,7 +936,7 @@ class AbcFileList {
                 "name": "Sitsiritsit Alibangbang",
                 "file": "philippine/sitsiritsit alibangbang.abc",
                 "category": "philippine",
-                "hash": "59076cb8fa"
+                "hash": "02b870bd2d"
         },
         {
                 "name": "Dwa serduszka",
