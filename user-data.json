@@ -1413,8 +1413,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T02:47:56.179Z",
-      "playCount": 43,
+      "lastPlayed": "2026-10-10T09:42:08.936Z",
+      "playCount": 44,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -1745,6 +1745,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-10-10T09:42:08.936Z"
+    },
+    {
       "filePath": "scottish/clanranald.abc",
       "timestamp": "2026-10-10T09:28:44.434Z"
     },
@@ -1819,10 +1823,6 @@
     {
       "filePath": "classical/bach/chorales/wer nur den lieben gott laesst walten.abc",
       "timestamp": "2026-10-08T07:20:25.409Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-10-08T07:20:22.834Z"
     }
   ],
   "settings": {}
