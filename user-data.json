@@ -232,8 +232,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T06:42:10.957Z",
-      "playCount": 25,
+      "lastPlayed": "2026-10-11T05:29:34.038Z",
+      "playCount": 26,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/na jiushi wo.abc": {
@@ -1749,6 +1749,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/molihua.abc",
+      "timestamp": "2026-10-11T05:29:34.038Z"
+    },
+    {
       "filePath": "latino/por una cabeza.abc",
       "timestamp": "2026-10-11T05:02:31.152Z"
     },
@@ -1823,10 +1827,6 @@
     {
       "filePath": "peruvian/el condor pasa.abc",
       "timestamp": "2026-10-10T09:16:05.696Z"
-    },
-    {
-      "filePath": "classical/chopin/nocturne op 37 no 1.abc",
-      "timestamp": "2026-10-10T09:16:03.372Z"
     }
   ],
   "settings": {}
