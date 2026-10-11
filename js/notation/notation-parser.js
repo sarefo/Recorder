@@ -113,12 +113,35 @@ z A, ^A, B, |C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
         visualObj.lines.forEach(line => {
             if (line.staff) {
                 line.staff.forEach(staff => {
+                    // Follow the staff's own key so a mid-tune K: change
+                    // carries over to the lines after it
+                    this._applyKeyObject(staff.key, keyAccidentals);
                     staff.voices.forEach(voice => {
                         let currentMeasure = -1;
                         this._processVoice(voice, notes, measureAccidentals, currentMeasure, keyAccidentals);
                     });
                 });
             }
+        });
+    }
+
+    /**
+     * Replaces the contents of keyAccidentals with those of an abcjs key
+     * object, in place. Reading the parsed accidentals (not the K: text)
+     * keeps modal keys and mid-tune key changes correct. Does nothing if
+     * the object carries no accidentals array.
+     * @private
+     * @param {Object} key - abcjs key object with an accidentals array
+     * @param {Object} keyAccidentals - Letter to '^'/'_' map, mutated
+     */
+    _applyKeyObject(key, keyAccidentals) {
+        if (!key || !Array.isArray(key.accidentals)) return;
+
+        Object.keys(keyAccidentals).forEach(letter => delete keyAccidentals[letter]);
+        key.accidentals.forEach(acc => {
+            const letter = acc.note.charAt(0).toUpperCase();
+            if (acc.acc === 'sharp') keyAccidentals[letter] = '^';
+            else if (acc.acc === 'flat') keyAccidentals[letter] = '_';
         });
     }
 
@@ -139,6 +162,11 @@ z A, ^A, B, |C ^C D ^D | E F ^F G | ^G A ^A B |c ^c d ^d | e f ^f g |^g a z2 |`;
                 });
 
                 currentMeasure++;
+                return;
+            }
+
+            if (element.el_type === "key") {
+                this._applyKeyObject(element, keyAccidentals);
                 return;
             }
 
