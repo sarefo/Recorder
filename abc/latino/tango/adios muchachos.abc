@@ -1,0 +1,29 @@
+X: 1
+T: Adiós Muchachos
+C: Julio César Sanders (music), César Vedani (lyrics), 1927
+O: Argentina
+R: Tango
+N: "Goodbye, boys": a dying man takes leave of his friends. Recorded by
+N: Carlos Gardel in 1928 and one of the most widely played tangos since.
+N: Melody and chords from mu-tech.org (WorldTrad/Adios_muchachos): the
+N: arrangement MIDI and the printed lead sheet agree; this ABC renders back
+N: to the arrangement's melody exactly (after transposition). In bar 12 the lead
+N: sheet prints c-e-G; both of mu-tech's MIDIs play c-c-G, used here.
+N: mu-tech's plain melody MIDI plays the eighths with a shuffle; the lead sheet
+N: writes them straight, as here.
+N: Transposed up a fourth from C to F to fit the recorder (range E4 to A5);
+N: in C the tune dips to B3.
+N: The accompaniment uses a tango 3-3-2 pattern (%%MIDI gchord).
+L: 1/8
+Q: 1/4=92
+%%MIDI gchord bzzczzcz
+M: 4/4
+K: F
+ccc |"F"af ff "A7"ge ee |"Bb"f2 d2 zg gf |"C7"e2 e2 zf fe |"F"d2 c2 zc =Bc |
+"F"fc =Bc "Bdim7"ec Bc |"Gm7"d2 B2 zc =Bc |"C7"ec =Bc d_B AB |"F"c2 A2 zc cc |
+"F"af ff "A7"ge ee |"Bb"f2 d2 zg gf |"C7"f2 e2 zf fe |"F"d2 c2 zf fc |
+"F7"cB BA AG GF |"Bb"c2 B2 "Bbm"z_d BG |"F"GF EF "G7"A2 "C7"G2 |"F"F2 zA BA ^GA ||
+"A7"fe2A BA ^GA |"Dm"ed2c dc =Bc |"C7"fe2c de fg |"F"az zf "Faug"gf ef |
+"Bb"ag2f "Bbm"_d2 B2 |"F"gf2c "Bdim7"=Bc ed |"Gm7"dc2c "C7"=Bc ed |"F"c2 zA BA ^GA |
+"A7"fe2A BA ^GA |"Dm"ed2c dc =Bc |"C7"fe2c de fg |"F"az zf "Faug"gf ef |
+"Bb"ag2f "Bbm"_d2 B2 |"F"gf2c "Bdim7"=Bc ed |"Gm7"cB2d "C7"A2 c2 |"F"f2 z3 |]

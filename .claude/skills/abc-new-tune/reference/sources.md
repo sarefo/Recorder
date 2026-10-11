@@ -329,6 +329,26 @@ itself still serves: drop the index and add `.abc`
 are the main notated source for Cajun fiddle tunes; Jolie Blonde is only in the
 Digital Tradition (`a=sniff.numachi.com/.../abc_dtrad/JOLIBLON/0000`).
 
+## Tango set (2026-10)
+
+Added El Choclo, La Cumparsita, Adiós Muchachos and Malena under `abc/latino/tango/`.
+
+- **trillian's own folders DO list** (unlike the mirrors): `https://trillian.mit.edu/~jc/music/abc/tango/`
+  and `.../abc/Argentina/tango/` return Apache indexes of ~60 tango ABCs (John Chambers,
+  with chords). Fetch `<name>.abc` directly.
+- **Chambers' La Cumparsita is not the tune.** It writes the bandoneon's chromatic bass run
+  into the melody (bars 11-16 dive to A3). flutetunes and mu-tech agree on the real melody;
+  always diff a trillian ABC against a second source before trusting its melody.
+- **flutetunes MIDIs encode grace notes as zero-length notes** (`A#5@1.75/0`). Filter
+  `/0` durations before diffing, then decide per spot whether the other source plays them
+  as real sixteenths.
+- **mu-tech has El Choclo, La Cumparsita, Adiós muchachos** (`index_Argentine_song`). Its
+  plain melody MIDI may be played with a shuffle (Adiós muchachos); the lead sheet and the
+  `fsout` arrangement are straight.
+- Skipped: Libertango and Oblivion (no trustworthy free source; the search results are spam
+  aggregators), A Media Luz (trillian's refrain is only 4 bars long, so it looks abridged), Uno (A3-D6, too wide),
+  Youkali (written as dyads), El Entrerriano (E4-D6, one semitone wider than the recorder).
+
 ## Dead ends — do not spend calls on these
 
 | Route | What happens |

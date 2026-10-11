@@ -19,7 +19,7 @@ Lengths are what abcjs makes of the notation, which is what the app plays — so
 
 These do not loop: the join between the end and the beginning lands off the beat. Where a bar in the middle is over- or under-full, that bar is why, and retiming the last note would hide it rather than fix it.
 
-### abc/latino/chamberguito.abc — tune 2/3
+### abc/latino/tango/chamberguito.abc — tune 2/3
 
 *Villoldo Que Haces Chamberguito* · 4/8 per bar · 80 bars · one pass is 81.042 measures -- 0.0208 too long (or 0.4792 too short).
 
@@ -32,7 +32,7 @@ These do not loop: the join between the end and the beginning lands off the beat
 
 Look at bars **34** (line 32), **36** (line 32), **42** (line 34), **44** (line 34).
 
-### abc/latino/chamberguito.abc — tune 3/3
+### abc/latino/tango/chamberguito.abc — tune 3/3
 
 *Villoldo Que Haces Chamberguito* · 4/8 per bar · 80 bars · one pass is 81.042 measures -- 0.0208 too long (or 0.4792 too short).
 

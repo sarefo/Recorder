@@ -1,0 +1,32 @@
+X: 1
+T: El Choclo
+C: Ángel Villoldo, 1903
+O: Argentina
+R: Tango
+N: "The ear of corn". One of the oldest tangos still played everywhere; it
+N: was premiered in 1903 at the restaurant El Americano in Buenos Aires,
+N: billed as a "danza criolla" because the owner disliked tango.
+N: Melody and chords from John Chambers' transcription (trillian.mit.edu,
+N: Argentina/Choclo), checked bar by bar against the flute setting on
+N: flutetunes.com, which plays the same notes and writes the grace notes as
+N: sixteenth triplets. Note values doubled from the 2/4 source so the moving
+N: value is an eighth. Transposed down a tone from A minor / A major to
+N: G minor / G major to fit the recorder (range C#4 to A5).
+N: In bar 9 of the trio flutetunes has D5 where Chambers repeats bar 1 (B4).
+N: Played straight through A-B-C; the source's D.C. back to the start is left out.
+N: The accompaniment uses a tango 3-3-2 pattern (%%MIDI gchord).
+L: 1/8
+Q: 1/4=120
+%%MIDI gchord bzzczzcz
+M: 4/4
+K: Gm
+DDE |"Gm"EDDG GBBe |"Gm"e2{fe}d2 zddg |"Gm"gddB BccB |"D7"B2{cB}A2 zDDE |
+"D7"EDD^F FAAe |"D7"e2{fe}d2 zd^cd |"D7"a^ffd dccB |"Gm"A2{BA}G2 zDDE |
+"Gm"EDDG GBBe |"Gm"e2{fe}d2 zddg |"G7"gdd=B Bddf |"Cm"f2{gf}e2 zEEe |
+"Cm"eddc cBBA |"Gm"A2{BA}GG GBAG |"D7"G2{AG}^FA AcBA |"Gm"G2 z3 |: F=EF |
+"F7"ee2e fed^c |"Bb"ed2A cBAG |"F7"BA2E AGF=E |"Bb"G2F2 zD^CD |
+"D7"cc2c dcBA |"Gm"c2B2 zBcB |"Cm"AG^FG ABc^c |"D7"d2 z3 :|
+[K:G] DdB |"G"GDzB GDGB |"D7"c2{dc}A2 zDcA |"D7"FDzF DFAc |"G"B2{cB}G2 zDBA |
+"E7"^GE^DE FGAB |"Am"d2{ed}c2 zA^GA |"A7"B2{^cB}A2 zGAG |"D7"G2{AG}F2 zDdB |
+"G"GDzB GDGB |"D7"c2{dc}A2 zDcA |"D7"FDzF DFAc |"G"B2{cB}G2 zDBA |
+"E7"^GE^DE FGAB |"Am"d2{ed}c2 zEcB |"A7"{Bc}BA^GA "D7"E=GFA |"G"G2 z3 |]

@@ -813,15 +813,39 @@ class AbcFileList {
                 "hash": "0396d3450b"
         },
         {
+                "name": "Adi\u00f3s Muchachos",
+                "file": "latino/tango/adios muchachos.abc",
+                "category": "latino/tango",
+                "hash": "cd68d38265"
+        },
+        {
+                "name": "El Choclo",
+                "file": "latino/tango/el choclo.abc",
+                "category": "latino/tango",
+                "hash": "44161f621c"
+        },
+        {
+                "name": "La Cumparsita",
+                "file": "latino/tango/la cumparsita.abc",
+                "category": "latino/tango",
+                "hash": "4e94f53c36"
+        },
+        {
+                "name": "Malena",
+                "file": "latino/tango/malena.abc",
+                "category": "latino/tango",
+                "hash": "8d756b5882"
+        },
+        {
                 "name": "Por una Cabeza",
-                "file": "latino/por una cabeza.abc",
-                "category": "latino",
+                "file": "latino/tango/por una cabeza.abc",
+                "category": "latino/tango",
                 "hash": "d761eb0708"
         },
         {
                 "name": "Villoldo Que Haces Chamberguito",
-                "file": "latino/chamberguito.abc",
-                "category": "latino",
+                "file": "latino/tango/chamberguito.abc",
+                "category": "latino/tango",
                 "hash": "f23c97623f"
         },
         {

@@ -137,6 +137,10 @@ line) at 86%. Target is Pixel 7a landscape, 915x412.
   that start a tie or stand alone, and check that every `w:` line ends exactly
   at the last note of its music line.
 - Fingering diagrams overlapping syllables is normal for this app; ignore it.
+- A key change (`[K:]` inline or a `K:` line) makes abcjs draw a courtesy
+  signature at the end of the line before it, about 6px past the staff. The
+  viewBox then reads ~891 instead of 885. That is a <1% shrink and cannot be
+  suppressed; do not chase it.
 
 Check by rendering in the browser (see the `recorder-testing` skill) and
 reading the SVG: the `viewBox` width should equal `staffwidth + 30` (885 at
@@ -154,6 +158,11 @@ in E-flat becomes F-sharp in F, not G-flat):
 ```bash
 py .claude/skills/abc-new-tune/scripts/transpose_abc.py tune.abc --to F --shift -10 > tune_f.abc
 ```
+
+It rewrites only the `K:` header, **not inline `[K:]` changes**: a tune with a
+trio in another key comes out with the trio's notes moved but its signature
+stale. Transpose such a section as its own snippet (`K:A` header, `--to G`)
+and splice it back.
 
 Without `--shift` it takes the smallest move; pass `--shift` to choose the
 octave (E-flat to F is `+2` or `-10`). Then diff against the source MIDI with
