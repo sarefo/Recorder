@@ -1245,26 +1245,27 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-29T07:09:27.728Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-11T04:58:47.727Z",
+      "playCount": 3,
       "createdAt": "2026-08-01T05:59:20.044Z"
     },
     "philippine/pamulinawen.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-11T04:57:11.209Z",
       "playCount": 4,
       "createdAt": "2026-08-01T05:59:20.044Z",
-      "updatedAt": "2026-10-08T07:19:44.903Z"
+      "updatedAt": "2026-10-11T04:58:37.263Z"
     },
     "philippine/sitsiritsit alibangbang.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-10T09:25:30.911Z",
-      "playCount": 6,
-      "createdAt": "2026-08-12T01:39:41.139Z"
+      "lastPlayed": "2026-10-11T04:58:41.838Z",
+      "playCount": 7,
+      "createdAt": "2026-08-12T01:39:41.139Z",
+      "updatedAt": "2026-10-11T04:58:44.222Z"
     },
     "polish/dwa serduszka.abc": {
       "status": "needs-practice",
@@ -1746,6 +1747,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "philippine/leron leron sinta.abc",
+      "timestamp": "2026-10-11T04:58:47.727Z"
+    },
+    {
+      "filePath": "philippine/sitsiritsit alibangbang.abc",
+      "timestamp": "2026-10-11T04:58:41.838Z"
+    },
+    {
       "filePath": "philippine/pamulinawen.abc",
       "timestamp": "2026-10-11T04:57:11.209Z"
     },
@@ -1782,10 +1791,6 @@
       "timestamp": "2026-10-10T09:42:08.936Z"
     },
     {
-      "filePath": "philippine/sitsiritsit alibangbang.abc",
-      "timestamp": "2026-10-10T09:25:30.911Z"
-    },
-    {
       "filePath": "irish/johnny i hardly knew ya.abc",
       "timestamp": "2026-10-10T09:21:57.191Z"
     },
@@ -1820,10 +1825,6 @@
     {
       "filePath": "scottish/atholl_braes_1.abc",
       "timestamp": "2026-10-09T06:05:48.501Z"
-    },
-    {
-      "filePath": "scottish/hopetoun_house.abc",
-      "timestamp": "2026-10-08T07:30:00.704Z"
     }
   ],
   "settings": {}
