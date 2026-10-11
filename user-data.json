@@ -1253,8 +1253,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T07:17:53.960Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-11T04:57:11.209Z",
+      "playCount": 4,
       "createdAt": "2026-08-01T05:59:20.044Z",
       "updatedAt": "2026-10-08T07:19:44.903Z"
     },
@@ -1746,6 +1746,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "philippine/pamulinawen.abc",
+      "timestamp": "2026-10-11T04:57:11.209Z"
+    },
+    {
       "filePath": "french/tourdion.abc",
       "timestamp": "2026-10-10T10:11:41.547Z"
     },
@@ -1820,10 +1824,6 @@
     {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-08T07:30:00.704Z"
-    },
-    {
-      "filePath": "trinidadian/matilda.abc",
-      "timestamp": "2026-10-08T07:27:06.609Z"
     }
   ],
   "settings": {}
