@@ -1108,8 +1108,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T08:12:22.261Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-11T05:02:31.152Z",
+      "playCount": 10,
       "createdAt": "2026-09-26T08:25:28.534Z"
     },
     "maori/te hokinga mai.abc": {
@@ -1225,12 +1225,13 @@
       "createdAt": "2026-08-01T05:59:20.044Z"
     },
     "philippine/dandansoy.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-11T05:01:06.670Z",
       "playCount": 4,
-      "createdAt": "2026-08-01T05:59:20.044Z"
+      "createdAt": "2026-08-01T05:59:20.044Z",
+      "updatedAt": "2026-10-11T05:02:18.446Z"
     },
     "philippine/ili-ili tulog anay.abc": {
       "status": "practicing",
@@ -1748,6 +1749,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "latino/por una cabeza.abc",
+      "timestamp": "2026-10-11T05:02:31.152Z"
+    },
+    {
       "filePath": "philippine/dandansoy.abc",
       "timestamp": "2026-10-11T05:01:06.670Z"
     },
@@ -1822,10 +1827,6 @@
     {
       "filePath": "classical/chopin/nocturne op 37 no 1.abc",
       "timestamp": "2026-10-10T09:16:03.372Z"
-    },
-    {
-      "filePath": "film/hisaishi/mononoke.abc",
-      "timestamp": "2026-10-09T06:07:45.265Z"
     }
   ],
   "settings": {}
