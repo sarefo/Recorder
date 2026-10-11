@@ -1773,6 +1773,10 @@
       "timestamp": "2026-10-11T05:29:34.038Z"
     },
     {
+      "filePath": "latino/por una cabeza.abc",
+      "timestamp": "2026-10-11T05:02:31.152Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-11T05:02:31.152Z"
     },
@@ -1831,10 +1835,6 @@
     {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-10-10T09:20:29.871Z"
-    },
-    {
-      "filePath": "kenyan/jambo bwana.abc",
-      "timestamp": "2026-10-10T09:16:14.574Z"
     }
   ],
   "settings": {}
