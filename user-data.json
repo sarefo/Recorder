@@ -1667,8 +1667,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T02:34:21.100Z",
-      "playCount": 8,
+      "lastPlayed": "2026-10-11T05:36:07.841Z",
+      "playCount": 9,
       "createdAt": "2026-08-01T08:03:26.600Z",
       "updatedAt": "2026-10-08T02:37:41.304Z"
     },
@@ -1749,6 +1749,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "ukrainian/nich yaka misyachna.abc",
+      "timestamp": "2026-10-11T05:36:07.841Z"
+    },
+    {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-10-11T05:29:34.038Z"
     },
@@ -1823,10 +1827,6 @@
     {
       "filePath": "classical/tchaikovsky/swan lake theme.abc",
       "timestamp": "2026-10-10T09:16:07.440Z"
-    },
-    {
-      "filePath": "peruvian/el condor pasa.abc",
-      "timestamp": "2026-10-10T09:16:05.696Z"
     }
   ],
   "settings": {}
