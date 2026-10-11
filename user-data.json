@@ -1028,8 +1028,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T10:45:58.943Z",
-      "playCount": 13,
+      "lastPlayed": "2026-10-11T05:53:11.027Z",
+      "playCount": 14,
       "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "japanese/hana.abc": {
@@ -1092,8 +1092,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-02T10:21:28.319Z",
-      "playCount": 18,
+      "lastPlayed": "2026-10-11T05:53:12.983Z",
+      "playCount": 19,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "latino/chamberguito.abc": {
@@ -1449,8 +1449,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-08-30T03:43:44.277Z",
-      "playCount": 14,
+      "lastPlayed": "2026-10-11T05:53:15.581Z",
+      "playCount": 15,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/clanranald.abc": {
@@ -1757,6 +1757,18 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/caber_feigh.abc",
+      "timestamp": "2026-10-11T05:53:15.581Z"
+    },
+    {
+      "filePath": "korean/arirang.abc",
+      "timestamp": "2026-10-11T05:53:12.983Z"
+    },
+    {
+      "filePath": "jamaican/banana boat song.abc",
+      "timestamp": "2026-10-11T05:53:11.027Z"
+    },
+    {
       "filePath": "chinese/baobao yao shuijiao.abc",
       "timestamp": "2026-10-11T05:45:24.331Z"
     },
@@ -1823,18 +1835,6 @@
     {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-10-10T09:45:27.561Z"
-    },
-    {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-10-10T09:42:08.936Z"
-    },
-    {
-      "filePath": "irish/johnny i hardly knew ya.abc",
-      "timestamp": "2026-10-10T09:21:57.191Z"
-    },
-    {
-      "filePath": "japanese/hashire kotaro.abc",
-      "timestamp": "2026-10-10T09:20:29.871Z"
     }
   ],
   "settings": {}
