@@ -924,7 +924,7 @@ class AbcFileList {
                 "name": "Leron Leron Sinta",
                 "file": "philippine/leron leron sinta.abc",
                 "category": "philippine",
-                "hash": "5804cc4a48"
+                "hash": "09ddb179ea"
         },
         {
                 "name": "Pamulinawen",
