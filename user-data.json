@@ -1052,8 +1052,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T08:11:10.267Z",
-      "playCount": 35,
+      "lastPlayed": "2026-10-12T10:39:14.649Z",
+      "playCount": 36,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/sakura.abc": {
@@ -1797,6 +1797,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/kojo no tsuki.abc",
+      "timestamp": "2026-10-12T10:39:14.649Z"
+    },
+    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-10-12T04:15:46.399Z"
     },
@@ -1871,10 +1875,6 @@
     {
       "filePath": "classical/bach/chorales/meine seele erhebet den herrn.abc",
       "timestamp": "2026-10-10T10:09:29.222Z"
-    },
-    {
-      "filePath": "cajun/madame sosthene.abc",
-      "timestamp": "2026-10-10T09:45:44.519Z"
     }
   ],
   "settings": {}
