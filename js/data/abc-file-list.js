@@ -795,6 +795,84 @@ class AbcFileList {
                 "hash": "ed9400161d"
         },
         {
+                "name": "Autumn Leaves",
+                "file": "jazz/autumn leaves.abc",
+                "category": "jazz",
+                "hash": "d298854172"
+        },
+        {
+                "name": "Blue Moon",
+                "file": "jazz/blue moon.abc",
+                "category": "jazz",
+                "hash": "ff30729c1d"
+        },
+        {
+                "name": "Bye Bye Blackbird",
+                "file": "jazz/bye bye blackbird.abc",
+                "category": "jazz",
+                "hash": "e4e08336c2"
+        },
+        {
+                "name": "Days of Wine and Roses",
+                "file": "jazz/days of wine and roses.abc",
+                "category": "jazz",
+                "hash": "54e3004052"
+        },
+        {
+                "name": "Embraceable You",
+                "file": "jazz/embraceable you.abc",
+                "category": "jazz",
+                "hash": "8f049ffc62"
+        },
+        {
+                "name": "My Funny Valentine",
+                "file": "jazz/my funny valentine.abc",
+                "category": "jazz",
+                "hash": "4ca123751b"
+        },
+        {
+                "name": "Night and Day",
+                "file": "jazz/night and day.abc",
+                "category": "jazz",
+                "hash": "abd596f9d1"
+        },
+        {
+                "name": "Satin Doll",
+                "file": "jazz/satin doll.abc",
+                "category": "jazz",
+                "hash": "412d2470fa"
+        },
+        {
+                "name": "Summertime",
+                "file": "jazz/summertime.abc",
+                "category": "jazz",
+                "hash": "1250020348"
+        },
+        {
+                "name": "Sweet Georgia Brown",
+                "file": "jazz/sweet georgia brown.abc",
+                "category": "jazz",
+                "hash": "8746fff09c"
+        },
+        {
+                "name": "Tea for Two",
+                "file": "jazz/tea for two.abc",
+                "category": "jazz",
+                "hash": "26247d3b0b"
+        },
+        {
+                "name": "The Girl from Ipanema",
+                "file": "jazz/girl from ipanema.abc",
+                "category": "jazz",
+                "hash": "97320fbdfd"
+        },
+        {
+                "name": "The Way You Look Tonight",
+                "file": "jazz/the way you look tonight.abc",
+                "category": "jazz",
+                "hash": "f90e9fdacc"
+        },
+        {
                 "name": "Mayila",
                 "file": "kazakh/mayila.abc",
                 "category": "kazakh",

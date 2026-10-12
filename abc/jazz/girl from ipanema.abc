@@ -1,0 +1,22 @@
+X:1
+T:The Girl from Ipanema
+C:Antonio Carlos Jobim, 1962
+O:Brazil
+R:Bossa nova
+N:Garota de Ipanema, with words by Vinicius de Moraes (English words by
+N:Norman Gimbel). Melody and chords from a Real Book transcription
+N:(trillian.mit.edu, song/girl_from_Ipanema) in F, moved up a whole tone to G
+N:so the lowest note is C4. Lyrics left out.
+M:4/4
+Q:1/4=160
+L:1/8
+K:G
+|: "Gmaj7"A2 AF F2 FE | A2 AF FF EA- | "A7"A2 AF FF EA- |
+A2AF FF EG- | "Am7"G2 GE EE DF- | "Ab7"F2 FD DD CD- |
+[1 "Gmaj7"D8 | "Ab7"z8 :|[2 "Gmaj7"D8 | z8 ||
+"Abmaj7"G8- | (3G2_A2_G2 (3:2:3=F2G2F2 | "C#7"_E3 =F-F4- | =F6 z ^A- |
+"G#m7"^A8- | (3^A2B2A2 (3^G2A2G2 | "E7"F3 ^G- G4- | ^G6 z B- |
+"Am7"B8- | (3B2c2B2 (3:2:3A2B2A2 | "F7"G3 A- A4- | A4 (3z2B2c2 |
+"Bm7"(3d2D2E2 (3F2G2A2 | "E7"^A3 B3 z2 | "Am7"(3c2C2D2 (3E2F2G2 | "D7"^G3 A3 z2 ||
+"Gmaj7"A3 F FF EA- | A2 AF- FF EA- | "A7"A2 AF FF EA- | A2 AF FF EB- |
+"Am7"B2 BG GG Ed- | "Ab7"d2 dF (3F2F2E2 | "Gmaj7"F8- | F2 z6 |]

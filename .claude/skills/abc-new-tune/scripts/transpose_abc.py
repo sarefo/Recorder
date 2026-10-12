@@ -38,8 +38,13 @@ def parse_key(k):
     if minor:  # relative major sets the signature
         rel = (pc_of(tonic) + 3) % 12
         fifths = None
+        # Gb and F# major are the same pitch class: a flat-named minor tonic
+        # (Ebm) takes the flat signature, a sharp-named one (D#m) the sharp.
+        want_flat = 'b' in tonic[1:]
         for name, f in MAJOR_FIFTHS.items():
             if pc_of(name) == rel and abs(f) <= 6 or (pc_of(name) == rel and fifths is None):
+                if abs(f) == 6 and (f < 0) != want_flat:
+                    continue
                 fifths = f
                 if abs(f) <= 6:
                     break

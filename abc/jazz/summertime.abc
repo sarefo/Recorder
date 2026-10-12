@@ -1,0 +1,23 @@
+X:1
+T:Summertime
+C:George Gershwin, 1935
+N:Lullaby from the opera Porgy and Bess (words by DuBose Heyward).
+N:Melody and chords from a Real Book transcription (trillian.mit.edu,
+N:song/Summertime). The two-bar pickup is paid back by a two-beat last
+N:bar so the loop stays on the beat. Lyrics and grace notes left out.
+M:4/4
+Q:1/4=120
+L:1/4
+K:Am
+ec || "Am6"e2-"E7"e2- | "Am6"e/z/ d/c/ "E7"d/e/c | "Am6"A2"E7"E2- |
+"Am6"Ezec | "Dm"d<d-d2 | "D#dim7"zc/A/ c/A/c | "E7"B2-"B7"B2- |
+"E7"B2 z/ec/ ||
+"Am6"e/ee/-"E7"e2 | "Am6"z d/c/ "E7"d/e/c | "Am6"A2"E7"E2- |
+"Am7"E2"D7"zE | "C/G"GE/G/ "Am7"Ac | "D7"e<d"G7sus"c2 | "Am6"A4 |
+z2(3eec ||
+"Am6"ee-"E7"e2 | "Am6"z/e/d/c/ "E7"d/e/c | "Am6"A2"E7"E2- |
+"Am6"E>zec | "Dm"d/dd/-d2 | "D#dim7"zc/A/ (c/A/)c | "E7"B2-"B7"B2- |
+"E7"B2 z/e/e/c/ ||
+"Am6"e<e-"E7"e2 | "Am6"z d/c/ "E7"d/e/c | "Am6"A2"E7"E2- |
+"Am7"E2"D7"zE | "C/G"GE/G/ "Am7"Ac | "D7"e<d"G7sus"c2 | "Am6"A4 |
+z2 |]

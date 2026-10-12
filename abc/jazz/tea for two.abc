@@ -1,0 +1,19 @@
+X:1
+T:Tea for Two
+C:Vincent Youmans, 1924
+N:From the musical No, No, Nanette (words by Irving Caesar). Melody and
+N:chords from a Real Book transcription (trillian.mit.edu, song/Tea_for_two)
+N:in A-flat, moved down to F so the lowest note is C4. The bridge modulates
+N:up a major third to A.
+M:4/4
+Q:1/4=140
+L:1/4
+K:F
+"Gm7"F>D"C7"E>D|"Gm7"F>D"C7"E>C|"Fmaj7"E>C"Bb7"D>C|"Am7"E>C"D7"D2|
+"Gm7"F>D"C7"E>D|"Gm7"F>D"C7"EC|"Fmaj7"A4|z4||
+"Bm7"AA/^F/"E7"^GG/F/|"Bm7"AA/^F/"E7"^GG/E/|"Amaj7"^GG/E/"D7"^FF/E/|"C#m7"^GG/E/"F#7"^FF/F/|
+"Bm7"A^F/F/"E7"^GG/F/|"Bm7"A^F/F/"E7"^GG|"Amaj7"^C4|"D7"C4||
+"Gm7"F>D"C7"E>D|"Gm7"F>D"C7"E>C|"Fmaj7"E>C"Bb7"D>C|"Am7"E>C"D7"D>D|
+"Gm7"F>D"C7"E>D|"Gm7"F>D"C7"EC|"Am7b5"c4|"D7"z4||
+"Gm"d>d"F#dim7"c>c|"Gm"B>B"F#dim7"A>A|"F#dim7/G"c>cB"Gm7"D/F/|"Eb7"_A>F G2|
+"F/A"F>D"G#dim7"E>D|"Gm7"F>D"C7"EA|"F6"F4|z4|]

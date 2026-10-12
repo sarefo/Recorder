@@ -1,0 +1,20 @@
+X:1
+T:My Funny Valentine
+C:Richard Rodgers, 1937
+N:From the Rodgers and Hart musical Babes in Arms (words by Lorenz Hart);
+N:a standard from Chet Baker and Miles Davis onward.
+N:Melody and chords from a Real Book transcription (trillian.mit.edu,
+N:song/My_funny_valentine). Lyrics left out.
+M:4/4
+Q:1/4=60
+L:1/4
+K:Eb
+"Cm"C2DE | "Cmmaj7"D>ED2 | "Cm7"C2DE | "Cm6"D>ED2 |
+"Abmaj7"C2"Eb/G"DE | "Fm7"B2AG | "Dm7b5"F4- | "G7"F4 ||
+"Cm"E2FG | "Cmmaj7"F>GF2 | "Cm7"E2FG | "Cm6"F>GF2 |
+"Abmaj7"E2"Eb/G"FG | "Fm7"d>cB>=A | "F#m7"_A2-"B7"_A2- | "Fm7"A2"Bb7"GF ||
+"Eb6"Bz/E/ED | "Fm7"E2"Bb7"ED | "Eb6"cz/E/ED | "Fm7"E2"Bb7"ED |
+"Ebmaj7"dz/E/"G7"ED | "Cm7"E2"Bb"FG | "Abmaj7"c4- | "G7"czD2 ||
+"Cm"C2DE | "Cmmaj7"D>ED2 | "Cm7"E2FG | "Cm6"F>GF2 |
+"Abmaj7"c2de | "Dm7b5"d>e"G7"d2 | "Cm7"e2-"F7"e2- | "Bbm7"e2-"Eb7"e2 |
+"Abmaj7"E2"Eb/G"FG | "Fm7"F>G"Bb7"F2 | "Eb6"E4- | "Dm7b5"Ez"G7"z2 |]

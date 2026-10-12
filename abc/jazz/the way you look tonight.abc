@@ -1,0 +1,25 @@
+X:1
+T:The Way You Look Tonight
+C:Jerome Kern, 1936
+N:Sung by Fred Astaire in the film Swing Time (words by Dorothy Fields);
+N:it won the Academy Award for Best Original Song.
+N:Melody and chords from a Real Book transcription (trillian.mit.edu,
+N:song/way_you_look_tonight): A section twice, bridge, A section again.
+N:The final A section ends like the second ending of the first one; the
+N:source continues into a coda with chord-tone dyads, left out here. Lyrics left out.
+M:4/4
+Q:1/4=200
+L:1/4
+K:F
+|: "Fmaj7"c4 | "Dm7"F4 | "Gm7"GABA | "C7"G4 |
+"Fmaj7"ABcB | "D7"A4 | "Gm7"Bcdc | "C7"Bcde |
+"Cm7"f4 | "F7"F4 | "Bb6"GA"Gm7"cB | "C7"A2G2 |
+"F6"F2-"Dm7"F2- | "Gm7"Fz"C7"z2 | "F6"z2"Dm7"z2 |[1 "Gm7"zD"C7"EG :|[2 "Gm7"z2"C7"z2 ||
+"Abmaj7"c2c2 | "Adim7"c2c2 | "Bbm7"c_e_dB- | "Eb7"B2-"Eb7/Db"B2 |
+"Cm7"Bc_AG- | "Bdim7"G2_A2 | "Bbm7"f4- | "Eb7"f3z |
+"Abmaj7"_e2e2 | "Adim7"_e2e2 | "Bbm7"_ef_dc- | "Eb7"c2-"Eb7/Db"c2 |
+"Cm7"Bc2_A | "Bdim7"G2_A2 | "C7sus"c4- | "C7"c3z ||
+"Fmaj7"c4 | "Dm7"F4 | "Gm7"GABA | "C7"G4 |
+"Fmaj7"ABcB | "D7"A4 | "Gm7"Bcdc | "C7"Bcde |
+"Cm7"f4 | "F7"F4 | "Bb6"GA"Gm7"cB | "C7"A2G2 |
+"F6"F2-"Dm7"F2- | "Gm7"Fz"C7"z2 | "F6"z2"Dm7"z2 | "Gm7"z2"C7"z2 |]

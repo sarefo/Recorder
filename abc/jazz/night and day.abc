@@ -1,0 +1,23 @@
+X:1
+T:Night and Day
+C:Cole Porter, 1932
+N:From the musical Gay Divorce, sung there by Fred Astaire. Melody and
+N:chords from a Real Book transcription (trillian.mit.edu,
+N:song/Night_and_day) in C, moved up to F so the lowest note is C4.
+N:Lyrics left out. The last bar is two beats so the loop pays back the pickup.
+M:4/4
+Q:1/4=180
+L:1/4
+K:F
+cc/c/-||"Dbmaj7"c4-|"C7"c2 (3BA^G|"Fmaj7"A4-|A2cc/c/-|
+"Dbmaj7"cccc|"C7"cB (3BA^G|"Fmaj7"A4-|A2A>A|
+"Bm7b5"AAAA|"Bbm7"_A2- A/AA/|"Am7"GGGG|"Abdim7"G_G/F/- FE|
+"Gm7"D_D/C/-C2-|"C7"C2 cc/c/-|"Fmaj7"c4-|c2 cc/c/-||
+"Dbmaj7"c4-|"C7"c2 (3BA^G|"Fmaj7"A4-|A2cc/c/-|
+"Dbmaj7"cccc|"C7"(3^cd=c (3BA^G|"Fmaj7"A4-|A2A>A|
+"Bm7b5"AAA<A|"Bbm7"_A2- A/AA/|"Am7"GGGG|"Abdim7"G_G/F/- FE|
+"Gm7"D_D/C/- C2-|"C7"C2 cc/c/-|"Fmaj7"c4-|c2cc||
+"Abmaj7"_e4-|e2 (3cB_A|"Fmaj7"cc/c/-c2-|c2c>c|
+"Abmaj7"_e/fe/ fe/f/-|f/_ec/- (3cB_A|"Fmaj7"cc/c/- c2-|c2 A>A|
+"Bm7b5"AAAA|"Bbm7"_A2- A/AA/|"Am7"GGGG|"Abdim7"G/_G/F/e/- e/_e/d|
+"Gm7"cc/c/-c2-|"Csus7"c2 ff/f/-|"F6"f4|z2|]
