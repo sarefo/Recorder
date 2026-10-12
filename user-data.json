@@ -296,8 +296,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T07:20:22.834Z",
-      "playCount": 13,
+      "lastPlayed": "2026-10-12T04:15:46.399Z",
+      "playCount": 14,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
@@ -1797,6 +1797,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/zou xikou.abc",
+      "timestamp": "2026-10-12T04:15:46.399Z"
+    },
+    {
       "filePath": "trinidadian/matilda.abc",
       "timestamp": "2026-10-12T04:14:03.090Z"
     },
@@ -1871,10 +1875,6 @@
     {
       "filePath": "cajun/madame sosthene.abc",
       "timestamp": "2026-10-10T09:45:44.519Z"
-    },
-    {
-      "filePath": "scottish/clanranald.abc",
-      "timestamp": "2026-10-10T09:45:42.662Z"
     }
   ],
   "settings": {}
