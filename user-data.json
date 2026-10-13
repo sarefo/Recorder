@@ -1537,8 +1537,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-22T11:48:26.437Z",
-      "playCount": 15,
+      "lastPlayed": "2026-10-13T11:18:39.689Z",
+      "playCount": 16,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "russian/russian hymn.abc": {
@@ -1901,6 +1901,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "russian/korobeiniki.abc",
+      "timestamp": "2026-10-13T11:18:39.689Z"
+    },
+    {
       "filePath": "scottish/bottom_bowl.abc",
       "timestamp": "2026-10-13T11:13:39.433Z"
     },
@@ -1975,10 +1979,6 @@
     {
       "filePath": "chinese/baobao yao shuijiao.abc",
       "timestamp": "2026-10-11T05:45:24.331Z"
-    },
-    {
-      "filePath": "cajun/bosco stomp.abc",
-      "timestamp": "2026-10-11T05:38:39.287Z"
     }
   ],
   "settings": {}
