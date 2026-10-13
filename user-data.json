@@ -1416,8 +1416,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-11T04:58:41.838Z",
-      "playCount": 7,
+      "lastPlayed": "2026-10-13T11:02:45.803Z",
+      "playCount": 8,
       "createdAt": "2026-08-12T01:39:41.139Z",
       "updatedAt": "2026-10-11T04:58:44.222Z"
     },
@@ -1577,8 +1577,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T06:55:34.439Z",
-      "playCount": 21,
+      "lastPlayed": "2026-10-13T11:02:47.657Z",
+      "playCount": 22,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/bottom_bowl.abc": {
@@ -1754,8 +1754,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-12T04:14:03.090Z",
-      "playCount": 8,
+      "lastPlayed": "2026-10-13T11:02:43.988Z",
+      "playCount": 9,
       "createdAt": "2026-08-31T03:23:32.151Z",
       "updatedAt": "2026-10-08T07:29:58.605Z"
     },
@@ -1901,6 +1901,18 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/birkhall.abc",
+      "timestamp": "2026-10-13T11:02:47.657Z"
+    },
+    {
+      "filePath": "philippine/sitsiritsit alibangbang.abc",
+      "timestamp": "2026-10-13T11:02:45.803Z"
+    },
+    {
+      "filePath": "trinidadian/matilda.abc",
+      "timestamp": "2026-10-13T11:02:43.988Z"
+    },
+    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-10-13T10:58:35.277Z"
     },
@@ -1937,10 +1949,6 @@
       "timestamp": "2026-10-12T10:39:14.649Z"
     },
     {
-      "filePath": "trinidadian/matilda.abc",
-      "timestamp": "2026-10-12T04:14:03.090Z"
-    },
-    {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-10-11T05:56:27.333Z"
     },
@@ -1971,14 +1979,6 @@
     {
       "filePath": "philippine/dandansoy.abc",
       "timestamp": "2026-10-11T05:01:06.670Z"
-    },
-    {
-      "filePath": "philippine/sitsiritsit alibangbang.abc",
-      "timestamp": "2026-10-11T04:58:41.838Z"
-    },
-    {
-      "filePath": "philippine/pamulinawen.abc",
-      "timestamp": "2026-10-11T04:57:11.209Z"
     }
   ],
   "settings": {}
