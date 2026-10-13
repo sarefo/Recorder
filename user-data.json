@@ -1260,8 +1260,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-13T04:05:03.906Z",
-      "playCount": 12,
+      "lastPlayed": "2026-10-13T10:46:05.367Z",
+      "playCount": 13,
       "createdAt": "2026-09-26T08:25:28.534Z"
     },
     "maori/te hokinga mai.abc": {
@@ -1398,8 +1398,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-11T04:58:47.727Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-13T10:45:35.181Z",
+      "playCount": 4,
       "createdAt": "2026-08-01T05:59:20.044Z",
       "updatedAt": "2026-10-11T05:01:03.494Z"
     },
@@ -1902,7 +1902,11 @@
   "recentlyPlayed": [
     {
       "filePath": "latino/tango/por una cabeza.abc",
-      "timestamp": "2026-10-13T04:05:03.906Z"
+      "timestamp": "2026-10-13T10:46:05.367Z"
+    },
+    {
+      "filePath": "philippine/leron leron sinta.abc",
+      "timestamp": "2026-10-13T10:45:35.181Z"
     },
     {
       "filePath": "cajun/madame sosthene.abc",
@@ -1967,10 +1971,6 @@
     {
       "filePath": "philippine/dandansoy.abc",
       "timestamp": "2026-10-11T05:01:06.670Z"
-    },
-    {
-      "filePath": "philippine/leron leron sinta.abc",
-      "timestamp": "2026-10-11T04:58:47.727Z"
     },
     {
       "filePath": "philippine/sitsiritsit alibangbang.abc",
