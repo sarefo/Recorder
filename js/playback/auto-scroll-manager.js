@@ -76,12 +76,77 @@ class AutoScrollManager {
                 lineEndCallback: (info) => this.handleLineEnd(info)
             });
 
+            // ABCJS truncates qpm to a whole number, but the synth plays at the
+            // exact tempo (e.g. 97.2 at 90% of 108). That small difference made
+            // the highlight drift further behind the music every bar, so
+            // rebuild the note timings at the exact tempo.
+            if (this.timingCallbacks.qpm !== qpm) {
+                this.timingCallbacks.qpm = qpm;
+                this.timingCallbacks.replaceTarget(visualObj);
+            }
+            this.slaveToAudioClock(this.timingCallbacks);
+
             // Kept so the tune's last note and the loop's first note can be looked
             // up while playing; these are the same objects eventCallback receives
             this.noteTimings = this.timingCallbacks.noteTimings || [];
         } catch (error) {
             console.error('AutoScrollManager: Error initializing timing callbacks:', error);
         }
+    }
+
+    /**
+     * Makes the timing callbacks follow the audio instead of their own clock.
+     *
+     * ABCJS times the highlighting with performance.now() from the moment
+     * start() was called, while the music runs on the audio clock from the
+     * moment its buffer was scheduled. The two start apart and tick apart, so
+     * the highlight wandered off the sound. Before every timing tick this
+     * moves the callbacks' start time to where position 0 of the tune
+     * actually is, as heard through the speakers.
+     * @param {Object} timingCallbacks - The ABCJS TimingCallbacks instance
+     */
+    slaveToAudioClock(timingCallbacks) {
+        const doTiming = timingCallbacks.doTiming;
+        // ABCJS looks doTiming up on the instance for every frame and for its
+        // backup timer, so replacing it covers both
+        timingCallbacks.doTiming = (timestamp) => {
+            if (timingCallbacks.isRunning && !timingCallbacks.isPaused) {
+                const originMs = this.getAudioOriginMs();
+                if (originMs !== null) {
+                    timingCallbacks.startTime = originMs;
+                }
+            }
+            return doTiming(timestamp);
+        };
+    }
+
+    /**
+     * The performance.now() time at which tune position 0 is (or was) heard.
+     * @returns {number|null} null when no music is sounding, in which case the
+     *   timing callbacks keep their own clock (constant metronome mode)
+     */
+    getAudioOriginMs() {
+        const midiPlayer = this.player?.midiPlayer;
+        const ctx = midiPlayer?.audioContext;
+        const synth = midiPlayer?.midiPlayer;
+        if (!ctx || !synth?.isRunning || typeof synth.startTimeSec !== 'number') {
+            return null;
+        }
+
+        // getOutputTimestamp pairs an audio-clock time with the moment it
+        // leaves the speakers, which accounts for output latency (large on
+        // Android). Some browsers report zeros or nonsense until the output
+        // is running, so check it against the clock before trusting it.
+        const now = performance.now();
+        if (typeof ctx.getOutputTimestamp === 'function') {
+            const stamp = ctx.getOutputTimestamp();
+            if (stamp && stamp.contextTime > 0 && stamp.performanceTime > 0 &&
+                Math.abs(stamp.performanceTime - now) < 1000) {
+                return stamp.performanceTime - (stamp.contextTime - synth.startTimeSec) * 1000;
+            }
+        }
+        const latencySec = ctx.outputLatency || ctx.baseLatency || 0;
+        return now - (ctx.currentTime - synth.startTimeSec - latencySec) * 1000;
     }
 
     /**
