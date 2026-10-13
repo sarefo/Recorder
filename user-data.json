@@ -761,8 +761,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T10:48:22.460Z",
-      "playCount": 8,
+      "lastPlayed": "2026-10-13T03:57:44.227Z",
+      "playCount": 9,
       "createdAt": "2026-08-30T09:37:29.371Z"
     },
     "film/here's to you.abc": {
@@ -1071,6 +1071,110 @@
       "lastPlayed": "2026-02-09T22:11:22.483Z",
       "playCount": 2,
       "createdAt": "2026-01-18T20:46:38.366Z"
+    },
+    "jazz/autumn leaves.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.032Z"
+    },
+    "jazz/blue moon.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.035Z"
+    },
+    "jazz/bye bye blackbird.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.035Z"
+    },
+    "jazz/days of wine and roses.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.035Z"
+    },
+    "jazz/embraceable you.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.036Z"
+    },
+    "jazz/girl from ipanema.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.036Z"
+    },
+    "jazz/my funny valentine.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.036Z"
+    },
+    "jazz/night and day.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.036Z"
+    },
+    "jazz/satin doll.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.036Z"
+    },
+    "jazz/summertime.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.036Z"
+    },
+    "jazz/sweet georgia brown.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.036Z"
+    },
+    "jazz/tea for two.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.036Z"
+    },
+    "jazz/the way you look tonight.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-13T03:57:34.036Z"
     },
     "kazakh/mayila.abc": {
       "status": null,
@@ -1797,6 +1901,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/herbie's theme.abc",
+      "timestamp": "2026-10-13T03:57:44.227Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-12T10:45:49.814Z"
     },
@@ -1871,10 +1979,6 @@
     {
       "filePath": "maori/te hokinga mai.abc",
       "timestamp": "2026-10-10T10:11:34.987Z"
-    },
-    {
-      "filePath": "classical/bach/chorales/meine seele erhebet den herrn.abc",
-      "timestamp": "2026-10-10T10:09:29.222Z"
     }
   ],
   "settings": {}
