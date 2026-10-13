@@ -1585,8 +1585,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T09:39:13.854Z",
-      "playCount": 25,
+      "lastPlayed": "2026-10-13T11:13:39.433Z",
+      "playCount": 26,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/caber_feigh.abc": {
@@ -1901,6 +1901,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/bottom_bowl.abc",
+      "timestamp": "2026-10-13T11:13:39.433Z"
+    },
+    {
       "filePath": "scottish/atholl_braes_1.abc",
       "timestamp": "2026-10-13T11:12:17.504Z"
     },
@@ -1975,10 +1979,6 @@
     {
       "filePath": "cajun/bosco stomp.abc",
       "timestamp": "2026-10-11T05:38:39.287Z"
-    },
-    {
-      "filePath": "ukrainian/nich yaka misyachna.abc",
-      "timestamp": "2026-10-11T05:36:07.841Z"
     }
   ],
   "settings": {}
