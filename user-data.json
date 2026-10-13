@@ -144,8 +144,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-10T09:45:44.519Z",
-      "playCount": 11,
+      "lastPlayed": "2026-10-13T03:59:21.233Z",
+      "playCount": 12,
       "createdAt": "2026-09-27T06:51:55.209Z"
     },
     "chinese/670_songs.abc": {
@@ -793,8 +793,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-03T10:42:30.353Z",
-      "playCount": 20,
+      "lastPlayed": "2026-10-13T03:59:18.725Z",
+      "playCount": 21,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "film/tiersen/la valse d'amelie.abc": {
@@ -1901,6 +1901,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "cajun/madame sosthene.abc",
+      "timestamp": "2026-10-13T03:59:21.233Z"
+    },
+    {
+      "filePath": "film/hisaishi/summer.abc",
+      "timestamp": "2026-10-13T03:59:18.725Z"
+    },
+    {
       "filePath": "film/herbie's theme.abc",
       "timestamp": "2026-10-13T03:57:44.227Z"
     },
@@ -1971,14 +1979,6 @@
     {
       "filePath": "philippine/pamulinawen.abc",
       "timestamp": "2026-10-11T04:57:11.209Z"
-    },
-    {
-      "filePath": "french/tourdion.abc",
-      "timestamp": "2026-10-10T10:11:41.547Z"
-    },
-    {
-      "filePath": "maori/te hokinga mai.abc",
-      "timestamp": "2026-10-10T10:11:34.987Z"
     }
   ],
   "settings": {}
