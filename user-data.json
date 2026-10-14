@@ -1260,8 +1260,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-13T10:46:05.367Z",
-      "playCount": 13,
+      "lastPlayed": "2026-10-14T05:05:26.005Z",
+      "playCount": 14,
       "createdAt": "2026-09-26T08:25:28.534Z"
     },
     "maori/te hokinga mai.abc": {
@@ -1901,6 +1901,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "latino/tango/por una cabeza.abc",
+      "timestamp": "2026-10-14T05:05:26.005Z"
+    },
+    {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-10-14T05:00:40.713Z"
     },
@@ -1971,10 +1975,6 @@
     {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-10-13T10:55:15.485Z"
-    },
-    {
-      "filePath": "latino/tango/por una cabeza.abc",
-      "timestamp": "2026-10-13T10:46:05.367Z"
     },
     {
       "filePath": "philippine/leron leron sinta.abc",
