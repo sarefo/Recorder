@@ -5,8 +5,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-10T09:45:38.211Z",
-      "playCount": 12,
+      "lastPlayed": "2026-10-14T05:11:52.928Z",
+      "playCount": 13,
       "createdAt": "2026-07-28T06:53:46.507Z"
     },
     "american/which side are you on.abc": {
@@ -1441,8 +1441,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-02T09:47:05.391Z",
-      "playCount": 16,
+      "lastPlayed": "2026-10-14T05:11:49.750Z",
+      "playCount": 17,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/final_countdown.abc": {
@@ -1601,8 +1601,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-10T09:45:42.662Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-14T05:11:55.713Z",
+      "playCount": 7,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/fairy_dance.abc": {
@@ -1901,6 +1901,18 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/clanranald.abc",
+      "timestamp": "2026-10-14T05:11:55.713Z"
+    },
+    {
+      "filePath": "american/when johnny comes marching home.abc",
+      "timestamp": "2026-10-14T05:11:52.928Z"
+    },
+    {
+      "filePath": "pop/bert kaempfert/tootie flutie.abc",
+      "timestamp": "2026-10-14T05:11:49.750Z"
+    },
+    {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-10-14T05:11:02.240Z"
     },
@@ -1967,18 +1979,6 @@
     {
       "filePath": "trinidadian/matilda.abc",
       "timestamp": "2026-10-13T11:02:43.988Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-10-13T10:58:35.277Z"
-    },
-    {
-      "filePath": "chinese/molihua.abc",
-      "timestamp": "2026-10-13T10:55:15.485Z"
-    },
-    {
-      "filePath": "philippine/leron leron sinta.abc",
-      "timestamp": "2026-10-13T10:45:35.181Z"
     }
   ],
   "settings": {}
