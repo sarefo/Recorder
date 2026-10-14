@@ -1047,6 +1047,12 @@ class AbcFileList {
                 "hash": "8a0b111c08"
         },
         {
+                "name": "Derni\u00e8re Danse",
+                "file": "pop/derniere danse.abc",
+                "category": "pop",
+                "hash": "f953de05bd"
+        },
+        {
                 "name": "Popcorn",
                 "file": "pop/popcorn.abc",
                 "category": "pop",
