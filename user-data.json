@@ -970,8 +970,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-25T08:32:53.421Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-14T04:59:05.421Z",
+      "playCount": 2,
       "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "irish/johnny i hardly knew ya.abc": {
@@ -1641,8 +1641,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-14T04:58:47.976Z",
+      "playCount": 1,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/highland_skip.abc": {
@@ -1901,6 +1901,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "indonesian/rasa sayange.abc",
+      "timestamp": "2026-10-14T04:59:05.421Z"
+    },
+    {
+      "filePath": "scottish/highland_fling.abc",
+      "timestamp": "2026-10-14T04:58:47.976Z"
+    },
+    {
       "filePath": "classical/bach/chorales/wachet auf.abc",
       "timestamp": "2026-10-14T04:56:37.607Z"
     },
@@ -1971,14 +1979,6 @@
     {
       "filePath": "film/hisaishi/summer.abc",
       "timestamp": "2026-10-13T03:59:18.725Z"
-    },
-    {
-      "filePath": "film/herbie's theme.abc",
-      "timestamp": "2026-10-13T03:57:44.227Z"
-    },
-    {
-      "filePath": "jamaican/banana boat song.abc",
-      "timestamp": "2026-10-12T10:43:16.391Z"
     }
   ],
   "settings": {}
