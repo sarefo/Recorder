@@ -1446,12 +1446,13 @@
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/derniere danse.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-14T17:55:01.296Z",
       "playCount": 1,
-      "createdAt": "2026-10-14T17:54:41.333Z"
+      "createdAt": "2026-10-14T17:54:41.333Z",
+      "updatedAt": "2026-10-14T17:56:28.067Z"
     },
     "pop/final_countdown.abc": {
       "status": null,
