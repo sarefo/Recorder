@@ -1569,8 +1569,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-13T11:09:41.522Z",
-      "playCount": 45,
+      "lastPlayed": "2026-10-14T05:15:46.557Z",
+      "playCount": 46,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -1901,6 +1901,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-10-14T05:15:46.557Z"
+    },
+    {
       "filePath": "scottish/clanranald.abc",
       "timestamp": "2026-10-14T05:11:55.713Z"
     },
@@ -1963,10 +1967,6 @@
     {
       "filePath": "scottish/atholl_braes_1.abc",
       "timestamp": "2026-10-13T11:12:17.504Z"
-    },
-    {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-10-13T11:09:41.522Z"
     },
     {
       "filePath": "scottish/birkhall.abc",
