@@ -1100,8 +1100,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-14T04:54:18.270Z",
+      "playCount": 1,
       "createdAt": "2026-10-13T03:57:34.035Z"
     },
     "jazz/embraceable you.abc": {
@@ -1901,6 +1901,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/days of wine and roses.abc",
+      "timestamp": "2026-10-14T04:54:18.270Z"
+    },
+    {
       "filePath": "maori/te hokinga mai.abc",
       "timestamp": "2026-10-14T04:52:07.198Z"
     },
@@ -1975,10 +1979,6 @@
     {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-10-11T05:56:27.333Z"
-    },
-    {
-      "filePath": "scottish/caber_feigh.abc",
-      "timestamp": "2026-10-11T05:53:15.581Z"
     }
   ],
   "settings": {}
