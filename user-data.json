@@ -1445,6 +1445,14 @@
       "playCount": 17,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
+    "pop/derniere danse.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-10-14T17:55:01.296Z",
+      "playCount": 1,
+      "createdAt": "2026-10-14T17:54:41.333Z"
+    },
     "pop/final_countdown.abc": {
       "status": null,
       "favorite": false,
@@ -1901,6 +1909,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/derniere danse.abc",
+      "timestamp": "2026-10-14T17:55:01.296Z"
+    },
+    {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-10-14T05:15:46.557Z"
     },
@@ -1975,10 +1987,6 @@
     {
       "filePath": "philippine/sitsiritsit alibangbang.abc",
       "timestamp": "2026-10-13T11:02:45.803Z"
-    },
-    {
-      "filePath": "trinidadian/matilda.abc",
-      "timestamp": "2026-10-13T11:02:43.988Z"
     }
   ],
   "settings": {}
