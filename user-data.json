@@ -272,8 +272,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-17T10:33:09.072Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-14T04:56:18.643Z",
+      "playCount": 2,
       "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/yue er ming.abc": {
@@ -488,8 +488,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-10-06T08:46:22.330Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-14T04:56:37.607Z",
+      "playCount": 3,
       "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/was gott tut das ist wohlgetan.abc": {
@@ -1901,6 +1901,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/chorales/wachet auf.abc",
+      "timestamp": "2026-10-14T04:56:37.607Z"
+    },
+    {
+      "filePath": "chinese/xiwang de tianye.abc",
+      "timestamp": "2026-10-14T04:56:18.643Z"
+    },
+    {
       "filePath": "jazz/days of wine and roses.abc",
       "timestamp": "2026-10-14T04:54:18.270Z"
     },
@@ -1971,14 +1979,6 @@
     {
       "filePath": "jamaican/banana boat song.abc",
       "timestamp": "2026-10-12T10:43:16.391Z"
-    },
-    {
-      "filePath": "japanese/kojo no tsuki.abc",
-      "timestamp": "2026-10-12T10:39:14.649Z"
-    },
-    {
-      "filePath": "occitan/ai vist lo lop.abc",
-      "timestamp": "2026-10-11T05:56:27.333Z"
     }
   ],
   "settings": {}
