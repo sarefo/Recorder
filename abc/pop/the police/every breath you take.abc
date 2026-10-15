@@ -1,0 +1,13 @@
+X:1
+T:Every Breath You Take
+C:Sting (The Police)
+M:4/4
+O:England, 1983
+N:Verse (bars 1-8) and bridge (bars 9-16). Melody from channel 3 of a MIDI arrangement (hamienet.com, track 5129; the vocal line, E4 to B5); chords from its guitar and bass channels. Transposed down a major third from A to F, so the lowest note (E4) lands on C4 and the highest (B5) on G5. Humanized onsets snapped to the sixteenth grid. Releases a sixteenth short of the next note are filled in; the held notes (2.5 and 3.25 beats in the source) are written as 2 and 3 beats. The Eb5 in bar 15 is the source's G5, which is outside the key of A. Bar 11 is B-flat 7 because the arrangement's bass plays a natural C there (D7 in A).
+Q:1/4=115
+L:1/8
+K:F
+"F"z2 AB A2 G2 |F4 z4 |zC AB A2 G2 |"Dm"F4 z4 |
+zF F A2 B2 F |"Bb"zF F B2 A2 G |"C"zG F A2 F2 F- |"Dm"F2 z6 |
+"F"z2 F2 A2 cB |"Bb"d6 z2 |"Bb7"z2 dd c3 F |"F"A6 z2 |
+z2 fd f2 fd- |"G"df d4 z2 |zG gg _e d2 c- |"C"c c4 z3 |]

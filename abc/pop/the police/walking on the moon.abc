@@ -1,0 +1,17 @@
+X:1
+T:Walking on the Moon
+C:Sting (The Police)
+M:4/4
+O:England, 1979
+N:Verse and bridge. Melody from the vocal-line channel (channel 3) of a hamienet.com MIDI arrangement (track 352643350418132), cross-checked against a second arrangement (track 5134). Chords from its guitar and bass channels (Fsus4 Fsus4 Eb F in the verse, Eb Bb F Cm in the bridge). Transposed down a fifth from C to F mixolydian so the range is C4 to F5. The final verse note is held four beats instead of the original six to make the loop a whole number of bars. Humanized onsets snapped to the sixteenth grid.
+Q:1/4=143
+L:1/8
+K:Fmix
+"Fsus4"d d2 c z f3 |"Fsus4"d2 B2 c2 z2 |"Eb"zB3/2B3/2 A3/2A3/2G- |"F"G2 z6 |
+"Fsus4"z d2 c2 f3 |"Fsus4"d2 B2 c2 z2 |"Eb"zE3/2E3/2 E3/2E3/2F- |"F"F2 z6 |
+"Fsus4"d d2 c3/2 f2 d3/2- |"Fsus4"d4 G2 z2 |"Eb"zc3/2c3/2 B3/2B3/2A- |"F"A2 z6 |
+"Fsus4"d d2 c z f2 d- |"Fsus4"d4 G2 z2 |"Eb"B B2 G2 z3 |"F"B c2 z A2 G3/2G/- |
+"Fsus4"G8 |"Eb"G2 z4 B2 |"Bb"F2 z6 |"F"z3 F A3/2A/ A2 |
+"Cm"B4 A3 G- |"Eb"G z4z B2 |"Bb"F2 z6 |"F"z3 C A3/2A/ A2 |
+"Cm"B4 A3 G- |"Eb"G z4z B2 |"Bb"F2 z6 |"F"z3 F A3/2A/ A2 |
+"Cm"B4 A3 G- |"Eb"G z4z B2 |"Bb"F2 z4z F |"F"A3/2A/ A2 A2 z2 |]

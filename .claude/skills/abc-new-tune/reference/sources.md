@@ -318,6 +318,27 @@ recover the meter. Waltzes are often sequenced in 6/4 or 12/8 with one
 waltz bar per half-bar, so work out the scale factor against a second source
 before writing any durations.
 
+### hamienet.com — a huge pop MIDI archive with an open JSON API
+
+The site is a JS app (curl gets an empty shell), but its API answers plain
+requests and has no download limit. Found 2026-10 for The Police and Eurythmics:
+every hit single had two or more arrangements, most with a separate vocal-line
+channel. Source of `abc/pop/derniere danse.abc` too.
+
+```bash
+# search: JSON {hits:[{id,title,artist,instruments:[...]}]}
+curl -s "https://www.hamienet.com/api/tracks/advanced-search?q=message+in+a+bottle&limit=40"
+# one track: JSON with a signed midiPath; needs a browser User-Agent or it 403s
+curl -s -A "Mozilla/5.0" "https://www.hamienet.com/api/tracks/5131" | grep -o '"midiPath":"[^"]*'
+curl -sL -A "Mozilla/5.0" "https://www.hamienet.com<midiPath>" -o tune.mid
+```
+
+Many hits are the same arrangement uploaded twice under different ids, with
+only a program number or a drum flag changed, so the files are not
+byte-identical. Compare the `midi_notes.py` summaries (note counts and first
+onsets per channel) before treating two as independent sources. Titles are free text,
+so search by song title, not artist (`q=police` mostly returns Police Quest).
+
 #### Copyright-flagged tunes: go to the mirror itself
 
 abcnotation strips the notes from anything its checker flags as copyright

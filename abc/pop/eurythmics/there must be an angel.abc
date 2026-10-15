@@ -1,0 +1,14 @@
+X:1
+T:There Must Be an Angel (Playing with My Heart)
+C:Annie Lennox and Dave Stewart (Eurythmics)
+M:4/4
+O:England, 1985
+N:Second verse and first chorus. Melody from the lead-vocal channel of a MIDI arrangement (hamienet.com, track 352472840569459, channel 3) for the verse; the chorus rhythm comes from track 21337 (channel 3), because the other file's repeated chorus notes have no length. The two tracks agree on the pitches; track 21337 adds passing ornaments in the second verse, which are left out. Transposed up a fourth, from F to B-flat major, so the lowest note is D4 and the highest G5. Chords from the bass and pad channels, shifted the same way. The bar before the chorus is silent in the arrangement and is kept so the chords stay in step. The first bar holds the lead-in phrase of the verse, and the loop returns to it. The synth intro hook is not included. Zero-length glitch notes in the source are dropped.
+Q:1/4=110
+L:1/8
+K:Bb
+"F"zA AB/B3/2c/cB3/2- |"Gm"Bd fg df3 |"C"z2 =e/d/z/d/ z/cd3/2A- |"Dm"AA Ac AG/D/ GF- |
+"Bb"F2 z2 A3/2G3/2F- |"Bb"FG A3G F2- |"C"F3/2z2z/ =EF3/2G/z/F/- |"Ab"F/G/F7/2z/D/F2-F/ |
+"F"z8 |"Bb"z2 BB/z/ B/B/B/B/ cB- |"Db"B/z3/2 BB/z/ B/B/B/B/ cB- |
+"F"B/z3/2 cc/z/ c/c/c/c/ dc- |"F"c z3 z4 |"Bb"z2 BB/z/ B/B/B/B/ cB- |
+"Db"Bz BB/z/ B/B/B/B/ cB |"F"z2 cc/z/ c/c/c/c/ dc- |"F"c z3 z4 |]

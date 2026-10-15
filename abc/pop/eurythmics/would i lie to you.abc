@@ -1,0 +1,13 @@
+X:1
+T:Would I Lie to You?
+C:Annie Lennox and Dave Stewart (Eurythmics)
+M:4/4
+O:England, 1985
+N:Two verse lines and the chorus. Melody from the lead line (flute voice, channel 3) of a MIDI arrangement (hamienet.com, track 4108); chords from its bass and keyboard channels. Transposed down a major sixth from D to F so the range is C4 to A5; the chorus lines use the arrangement's C7 (here Eb7), so they carry flats. The arrangement's staccato notes are written as plain eighths, and the long gaps between sung lines are cut to one bar of rest. The tune stops after the chorus's held note with a three-beat bar that pays back the one-beat pickup.
+Q:1/4=132
+L:1/8
+K:F
+GA |"C"B2 A G4 c- |c3 B2 z GA |"Bb"B2 B B B c3 |z6 GA |
+"C"B2 A2 GG F2 |FE2 C4 B/z/ |"Bb"BB B2 BB BA |BA BA BA FA- |
+"F"A2 z2 _e2 c2 |z3 B Bc c_e |z4 _ag g_e- |_e3/2 z3/2 B2 cc_e |
+"Eb7"z3 B _ee e_d- |_d z2 B _ee e_d- |_d3/2 z2z/ _D_E GB |z4 _ec cB |"C"c4 z2 |]

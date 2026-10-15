@@ -1,0 +1,15 @@
+X:1
+T:Don't Stand So Close to Me
+C:Sting (The Police)
+M:4/4
+O:England, 1980
+N:First verse and chorus. Melody from channel 3 (the vocal line, labeled Synth Voice in a sibling file) of a hamienet.com MIDI arrangement (track 5128); chords from its bass and guitar channels (Eb Eb Gm Gm in the verse, D D Bm-A A in the chorus). Kept in the original key. The first verse is an octave lower than the chorus in the source, so it is lifted an octave here, which matches the source's own second verse. Humanized onsets snapped to the sixteenth grid.
+Q:1/4=142
+L:1/8
+K:Gm
+"Eb"z2 B2 A2 Fz |"Eb"z2 B2 A2 Fz |"Gm"z2 B2 A2 F2 |"Gm"D2 G G3 z2 |
+"Eb"z2 B2 A2 Fz |"Eb"z2 B2 A2 Fz |"Gm"z2 B2 A2 F2 |"Gm"D2 G G3 z2 |
+"Eb"z2 B2 A2 F2 |"Eb"z2 B2 A2 F2 |"Gm"z2 B2 A2 F2 |"Gm"D2 G3 G3 |
+"Eb"z2 B2 A2 F2 |"Eb"zF B2 A2 F2 |"Gm"z2 B2 A2 F2 |"Gm"D2 G G4 z |
+"D"z2 A2 A2 z2 |"D"z2 A2 A2 ^Fz |"Bm"z2 A2 "A"A2 ^F2 |"A"D2 ^F ^F3 z2 |
+"D"z2 A2 A2 z2 |"D"z2 A2 A2 ^Fz |"Bm"z2 A2 "A"A2 ^F2 |"A"D2 ^F ^F3 z2 |]

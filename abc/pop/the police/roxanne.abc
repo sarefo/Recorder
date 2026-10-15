@@ -1,0 +1,14 @@
+X:1
+T:Roxanne
+C:Sting (The Police)
+M:4/4
+O:England, 1978
+N:Verse 1 (bars 1-9) and the chorus riff (bars 10-19). Melody from channel 3 of a MIDI arrangement (hamienet.com, track 352643340026570); chords from its guitar and bass channels, none marked in bars 1, 8 and 9 because the arrangement plays none there. Not transposed: D4 is the lowest note, so G minor is already the lowest key that fits C4. The same channel carries the sustained chorus harmony pads (stacked thirds from C5 to A#5, held for 5 beats). They sound under the lead, so they are left out and every second chorus bar is a rest. Humanized onsets snapped to the sixteenth grid; releases a sixteenth short of the next note are filled in. The earlier arrangement (track 5132) agrees on every verse note. In chorus entry 2 (bar 12) the second note is A#4 (B-flat), as in that track and in the other four entries; track 352643340026570 has C5 there. Track 5132 also starts each chorus entry on the beat with a quarter-note C5, where this one starts an eighth later.
+Q:1/4=136
+L:1/8
+K:Gm
+z4 z G3 |"Gm"D4 z4 |"Dm/F"z3 B2 A GA |"Ebmaj7"G3/2AG3/2 A2 F2 |
+"Dm"z8 |"Cm7"z3 D3/2E3/2 G3/2F/- |"Gm7"FG z2 FG GF |c3/2cB3/2 G3/2GF3/2 |
+G4 z2 B2 |"Bb"zc B c3 B2 |z8 |"F"zc B c3 c2 |
+z8 |"Gm"zc B c3 B2 |z8 |"Bb"zc B c3 B2 |
+z8 |"F"zc B c3 c2 |"Gm"z8 |]

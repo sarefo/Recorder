@@ -1,0 +1,17 @@
+X:1
+T:Message in a Bottle
+C:Sting (The Police)
+M:4/4
+O:England, 1979
+N:Verse 1 (bars 1-16), the S.O.S. section (bars 17-26) and the first chorus (bars 27-34). Melody from the vocal channel (3) of a MIDI arrangement (hamienet.com, track 352675120198354); chords from its guitar and bass channels, two per bar in the verse as the bass plays them. Transposed down a semitone from C-sharp minor to C minor: the verse peaks at G#5 and the chorus ends on C#4, so a semitone down is the only shift that fits C4 to A5. Humanized onsets snapped to the sixteenth grid; releases a sixteenth short of the next note are filled in. The Db5 at the end of bars 17 and 19 is the source's natural D, which is outside the key. The earlier arrangement (track 5131) carries the same vocal an octave lower; it agrees except that those two notes are C5 there and it omits a few notes in the S.O.S. section and the last held note.
+Q:1/4=150
+L:1/8
+K:Cm
+"Cm"z3 "Ab"z2 g ee- |"Bb"e2 g "Fm"f2 z2 e |"Cm"ge z "Ab"e2 g2 f- |"Bb"f3 "Fm"g2 z3 |
+"Cm"z3 "Ab"e g e2 e- |"Bb"e2 g "Fm"f2 z3 |"Cm"g e2 "Ab"e2 g2 f- |"Bb"f3 "Fm"d3 z2 |
+"Cm"z4 "Ab"g4 |"Bb"e2 g "Fm"f2 z2 e |"Cm"g e2 "Ab"e2 g2 f- |"Bb"f3 "Fm"g3 z2 |
+"Cm"z3 "Ab"g2 e2 e- |"Bb"e g2 "Fm"f2 e2 g- |"Cm"g e2 "Ab"e2 g2 f- |"Bb"f3 "Fm"d4 z |
+"Ab"z A2 A2 A2 _d |"Db"zc B "Eb"B2 c BA |"Ab"zA z A2 A2 _d |"Db"zc B"Eb"B zc BA |
+"Fm"z A2 A2 A zA |"Db"z A2 A2 A z2 |"Fm"z A2 A2 A2 A |"Db"z A2 A2 A z2 |
+"Fm"z A2 A2 A2 A |"Db"z A2 A z A2 z |"Cm"G c2 c2 c2 A- |"Ab"A3 G3 E2 |
+"Cm"z8 |"Ab"z8 |"Cm"G c2 c2 c2 A- |"Ab"A3 G3 F2 |"Fm"C4 z4 |z8 |]

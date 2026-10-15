@@ -1,0 +1,14 @@
+X:1
+T:Here Comes the Rain Again
+C:Annie Lennox and Dave Stewart (Eurythmics)
+M:4/4
+O:England, 1984
+N:First verse and the chorus build-up. Melody from the vocal channel (a pan-flute line, channel 3) of a MIDI karaoke arrangement (hamienet.com, track 15770); the other three Rain Again files there are copies of the same data, and track 4107 has no vocal line, so there is no independent cross-check. Transposed down a fifth from C to F major, so the range is D4 to C5. Chords from the bass channel (an Am-F-G ostinato in the verse, F-C in the chorus), shifted the same way. The arrangement gates notes short (an eighth sung as a sixteenth); notes are written to the next onset when the gap is half a beat or less, and longer gaps stay as rests. The verse is followed here by the lead-in bar of the chorus; the second verse is skipped. The last bar holds the final note and the loop returns to the verse.
+Q:1/4=126
+L:1/8
+K:F
+"Dm"z2 F2 F2 FF- |"Dm"F2 EE4-E |"Bb"FF FF F2 FF |"Bb"FE2E7/2z3/2 |
+"C"EF FF F2 FF |"Bb"F2 DE2F3- |"Dm"F2 z6 |"Dm"z2 D2 E2 F2 |
+"Bb"c2 FF4-F |"Bb"z6 F2 |"F"EF2F4-F |"F"z8 |
+"Bb"c2 FF4-F |"Bb"z6 A2 |"F"EF2F4-F |"F"z8 |
+"Bb"c2 FF4-F |"Bb"z6 B2 |"F"BA2A2G F2- |"F"F3z4z |]

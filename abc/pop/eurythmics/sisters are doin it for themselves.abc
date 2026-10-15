@@ -1,0 +1,15 @@
+X:1
+T:Sisters Are Doin' It for Themselves
+C:Annie Lennox and Dave Stewart (Eurythmics)
+M:4/4
+O:England, 1985
+N:First verse, the pre-chorus and the chorus. Melody from the pan-flute lead line (channel 3) of a MIDI arrangement (hamienet.com, track 352472856584841); chords from its bass and keyboard channels (Fm | C Eb Ab Bb C in the source, here Am | E G C D E). Transposed down a minor sixth from F minor to A minor so the range is C4 to G5. The long instrumental gaps between sections are cut, and the answering notes at the end of the verse are left out. Articulation gaps (staccato, legato) are written as plain note values.
+Q:1/4=135
+L:1/8
+K:Am
+"Am"z3 E G A G/z/ A- |A6 z2 |z2 E E G2 A A- |A c4 z3 |
+z2 E E G z A G |z2 c z c3 e- |e3/2 z3/2 E G A A G |z2 c2 c A3/2 G/ E/ D/ |
+C/ z/ z7 |"E"BA BA B2 Ag |"G"z e2 d2 AA z |"C"c z c4 A2 |
+"D"GA Az GA z"E"A- |"Am"A4-A z3 |z4 G A A A |"C"c2 c2 B A3 |
+"D"z3 E G A"E"A z |"Am"c A2 A3/2 G/ E/ D/ C2 |z4 z G A z |"C"c z c4 A2 |
+"D"GA Az G"E"A2 c |"Am"A4-A z3 |]

@@ -1101,6 +1101,42 @@ class AbcFileList {
                 "hash": "ed72f42dc9"
         },
         {
+                "name": "Here Comes the Rain Again",
+                "file": "pop/eurythmics/here comes the rain again.abc",
+                "category": "pop/eurythmics",
+                "hash": "81ffd04cb2"
+        },
+        {
+                "name": "Love Is a Stranger",
+                "file": "pop/eurythmics/love is a stranger.abc",
+                "category": "pop/eurythmics",
+                "hash": "e394bc6ca5"
+        },
+        {
+                "name": "Sisters Are Doin' It for Themselves",
+                "file": "pop/eurythmics/sisters are doin it for themselves.abc",
+                "category": "pop/eurythmics",
+                "hash": "779added0b"
+        },
+        {
+                "name": "Sweet Dreams (Are Made of This)",
+                "file": "pop/eurythmics/sweet dreams.abc",
+                "category": "pop/eurythmics",
+                "hash": "f7fa9843e4"
+        },
+        {
+                "name": "There Must Be an Angel (Playing with My Heart)",
+                "file": "pop/eurythmics/there must be an angel.abc",
+                "category": "pop/eurythmics",
+                "hash": "bb074ac8b5"
+        },
+        {
+                "name": "Would I Lie to You?",
+                "file": "pop/eurythmics/would i lie to you.abc",
+                "category": "pop/eurythmics",
+                "hash": "36c13f68ab"
+        },
+        {
                 "name": "Mario Theme",
                 "file": "pop/game/mario theme.abc",
                 "category": "pop/game",
@@ -1111,6 +1147,42 @@ class AbcFileList {
                 "file": "pop/game/monkey island.abc",
                 "category": "pop/game",
                 "hash": "7b0d366eb1"
+        },
+        {
+                "name": "Don't Stand So Close to Me",
+                "file": "pop/the police/don't stand so close to me.abc",
+                "category": "pop/the police",
+                "hash": "a1e705bf9c"
+        },
+        {
+                "name": "Every Breath You Take",
+                "file": "pop/the police/every breath you take.abc",
+                "category": "pop/the police",
+                "hash": "b015710b49"
+        },
+        {
+                "name": "Every Little Thing She Does Is Magic",
+                "file": "pop/the police/every little thing she does is magic.abc",
+                "category": "pop/the police",
+                "hash": "c765dfa665"
+        },
+        {
+                "name": "Message in a Bottle",
+                "file": "pop/the police/message in a bottle.abc",
+                "category": "pop/the police",
+                "hash": "93a0dbc76c"
+        },
+        {
+                "name": "Roxanne",
+                "file": "pop/the police/roxanne.abc",
+                "category": "pop/the police",
+                "hash": "9d80d252b5"
+        },
+        {
+                "name": "Walking on the Moon",
+                "file": "pop/the police/walking on the moon.abc",
+                "category": "pop/the police",
+                "hash": "366468fc3a"
         },
         {
                 "name": "Dorme, Dorme, Meu Menino",

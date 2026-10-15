@@ -1,0 +1,12 @@
+X:1
+T:Love Is a Stranger
+C:Annie Lennox and Dave Stewart (Eurythmics)
+M:4/4
+O:England, 1982
+N:Verse and chorus tune. Melody from the lead-vocal line of a MIDI arrangement (hamienet.com, track 4110, channel 11, lowest voice of the doubled harmony; the verse also matches track 352472852771457 channel 3); chords from its keyboard and bass channels (C F, here F Bb). Transposed up a fourth from C to F so the range is C4 to A5. The long instrumental stretches between verse and chorus are cut to two beats of rest. The hook section (F F G F, 4 bars) is left out because the two arrangements disagree on its first note. Humanized onsets snapped to the sixteenth grid.
+Q:1/4=106
+L:1/8
+K:F
+"F"AA AA2 AAB |A F2 F4 C |A2 A A2 B3 |c2 c2 c2 CD- |
+"Bb"D4 z2 "F"c2 |a2 g2 f2 BA |B A B B2 c2 C |AA AA2 AAB |
+c2 c2 c2 c2 |"Bb"c D D C2 D3 |]

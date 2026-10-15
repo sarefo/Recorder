@@ -1,0 +1,13 @@
+X:1
+T:Sweet Dreams (Are Made of This)
+C:Annie Lennox and Dave Stewart (Eurythmics)
+M:4/4
+O:England, 1983
+N:Verse and chorus. Melody from the lead-vocal channel of a MIDI arrangement (hamienet.com, track 40290, channel 2), checked against track 4109 (channel 3). The original key, C minor, already sits on C4 to F4, so it is not transposed. Chords from the bass channels (Cm Ab | Cm/G). Zero-length and 1/16-length glitch notes in the source are dropped; bar 6 (track 40290 has a stray zero-length F there) takes the F E D shape that both tracks have in bar 4, and bar 8 holds the E for the full beat that track 4109 has. The chorus is sung in thirds; the lower line is written.
+Q:1/4=124
+L:1/8
+K:Cm
+"Cm"z2 E2 E2 CE- |"Ab"EE2E "Cm/G"D3z |"Cm"EE CE3 C2 |"Ab"EF3 "Cm/G"ED2 C/z/ |
+"Cm"EE CE3 EC |"Ab"EF3 "Cm/G"ED2 z |"Cm"E2 CE2 C2z |"Ab"EE FE2 "Cm/G"D2 z |
+"Cm"EE C2 EE CE |"Ab"CC2z "Cm/G"z4 |"Cm"EE C2 EE CE- |"Ab"EF3 "Cm/G"ED2 z |
+"Cm"EE C2 EE CE |"Ab"CC2z "Cm/G"z4 |"Cm"EE C2 EE CE- |"Ab"EF3 "Cm/G"ED2 z |]
