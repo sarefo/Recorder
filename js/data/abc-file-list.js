@@ -1104,37 +1104,37 @@ class AbcFileList {
                 "name": "Here Comes the Rain Again",
                 "file": "pop/eurythmics/here comes the rain again.abc",
                 "category": "pop/eurythmics",
-                "hash": "81ffd04cb2"
+                "hash": "b1f744990d"
         },
         {
                 "name": "Love Is a Stranger",
                 "file": "pop/eurythmics/love is a stranger.abc",
                 "category": "pop/eurythmics",
-                "hash": "e394bc6ca5"
+                "hash": "d5f61a96aa"
         },
         {
                 "name": "Sisters Are Doin' It for Themselves",
                 "file": "pop/eurythmics/sisters are doin it for themselves.abc",
                 "category": "pop/eurythmics",
-                "hash": "779added0b"
+                "hash": "b7d5d6621c"
         },
         {
                 "name": "Sweet Dreams (Are Made of This)",
                 "file": "pop/eurythmics/sweet dreams.abc",
                 "category": "pop/eurythmics",
-                "hash": "f7fa9843e4"
+                "hash": "9989e5b722"
         },
         {
                 "name": "There Must Be an Angel (Playing with My Heart)",
                 "file": "pop/eurythmics/there must be an angel.abc",
                 "category": "pop/eurythmics",
-                "hash": "bb074ac8b5"
+                "hash": "b6eaf9f16e"
         },
         {
                 "name": "Would I Lie to You?",
                 "file": "pop/eurythmics/would i lie to you.abc",
                 "category": "pop/eurythmics",
-                "hash": "36c13f68ab"
+                "hash": "5db171fca2"
         },
         {
                 "name": "Mario Theme",
@@ -1164,7 +1164,7 @@ class AbcFileList {
                 "name": "Every Little Thing She Does Is Magic",
                 "file": "pop/the police/every little thing she does is magic.abc",
                 "category": "pop/the police",
-                "hash": "c765dfa665"
+                "hash": "f26e86c82b"
         },
         {
                 "name": "Message in a Bottle",
@@ -1182,7 +1182,7 @@ class AbcFileList {
                 "name": "Walking on the Moon",
                 "file": "pop/the police/walking on the moon.abc",
                 "category": "pop/the police",
-                "hash": "366468fc3a"
+                "hash": "b836f062bc"
         },
         {
                 "name": "Dorme, Dorme, Meu Menino",

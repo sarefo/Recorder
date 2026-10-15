@@ -53,8 +53,19 @@ factor 2:
 | `x3` | `x6` | dotted quarter → dotted half |
 | `x4` | `x8` | half → whole |
 
-Each old bar now spans **two** bars, so rebar as you go and re-place the
-barlines by hand. Watch for:
+Each old bar now spans **two** bars, so rebar as you go. For the plain subset
+the MIDI transcriptions use (one voice, chords, notes, rests, ties, `|`), the
+script does the scaling, rebarring, tie-splitting, accidental re-marking,
+beaming and chord carry-over:
+
+```
+node .claude/skills/abc-rhythm/scripts/rescale.mjs old.abc new.abc 2
+```
+
+It copies the header unchanged, so fix `Q:` and add the `N:` line yourself.
+Factor `1` only normalizes beaming (bars and line breaks stay put), which is
+a quick cleanup for a freshly transcribed tune. Otherwise rebar by hand and
+watch for:
 
 - **Beaming — the easy one to get wrong.** Whitespace breaks beams in ABC.
   Scaling turns beamed sixteenths into eighths that must *stay* beamed, so

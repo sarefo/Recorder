@@ -61,11 +61,20 @@ function scan(abc) {
                 for (const el of voice) {
                     if (el.el_type === 'note') {
                         acc += el.duration;
-                        if (!el.rest)
-                            notes.push({
-                                pitch: el.pitches.map(p => `${p.pitch}${p.accidental || ''}`).join('+'),
-                                duration: el.duration,
-                            });
+                        if (el.rest) continue;
+                        // A tied continuation is the same sounding note: rebarring
+                        // legitimately splits notes across the new barlines.
+                        const prev = notes[notes.length - 1];
+                        if (prev && prev.tied && el.pitches.some(p => p.endTie)) {
+                            prev.duration += el.duration;
+                            prev.tied = el.pitches.some(p => p.startTie);
+                            continue;
+                        }
+                        notes.push({
+                            pitch: el.pitches.map(p => `${p.pitch}${p.accidental || ''}`).join('+'),
+                            duration: el.duration,
+                            tied: el.pitches.some(p => p.startTie),
+                        });
                     } else if (el.el_type === 'bar') {
                         if (acc > 0) bars.push(acc);
                         acc = 0;
