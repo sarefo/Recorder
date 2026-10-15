@@ -721,8 +721,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-18T06:26:23.171Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-15T10:49:17.105Z",
+      "playCount": 2,
       "createdAt": "2026-08-01T08:54:31.907Z"
     },
     "danish/er et yndigt land.abc": {
@@ -1926,8 +1926,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-13T11:20:19.623Z",
-      "playCount": 10,
+      "lastPlayed": "2026-10-15T10:49:27.068Z",
+      "playCount": 11,
       "createdAt": "2026-08-01T08:03:26.600Z",
       "updatedAt": "2026-10-08T02:37:41.304Z"
     },
@@ -2008,6 +2008,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "ukrainian/nich yaka misyachna.abc",
+      "timestamp": "2026-10-15T10:49:27.068Z"
+    },
+    {
+      "filePath": "czech/na tom bosileckym mostku.abc",
+      "timestamp": "2026-10-15T10:49:17.105Z"
+    },
+    {
       "filePath": "yiddish/dos kelbl.abc",
       "timestamp": "2026-10-15T10:47:25.305Z"
     },
@@ -2078,14 +2086,6 @@
     {
       "filePath": "american/when johnny comes marching home.abc",
       "timestamp": "2026-10-14T05:11:52.928Z"
-    },
-    {
-      "filePath": "pop/bert kaempfert/tootie flutie.abc",
-      "timestamp": "2026-10-14T05:11:49.750Z"
-    },
-    {
-      "filePath": "occitan/la cambo me fai mau.abc",
-      "timestamp": "2026-10-14T05:11:02.240Z"
     }
   ],
   "settings": {}
