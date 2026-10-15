@@ -1508,8 +1508,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-15T10:31:33.169Z",
+      "playCount": 1,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/game/mario theme.abc": {
@@ -2008,6 +2008,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/final_countdown.abc",
+      "timestamp": "2026-10-15T10:31:33.169Z"
+    },
+    {
       "filePath": "pop/the police/every breath you take.abc",
       "timestamp": "2026-10-15T10:29:56.012Z"
     },
@@ -2082,10 +2086,6 @@
     {
       "filePath": "russian/korobeiniki.abc",
       "timestamp": "2026-10-13T11:18:39.689Z"
-    },
-    {
-      "filePath": "scottish/bottom_bowl.abc",
-      "timestamp": "2026-10-13T11:13:39.433Z"
     }
   ],
   "settings": {}
