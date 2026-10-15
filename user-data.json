@@ -1073,12 +1073,13 @@
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "jazz/autumn leaves.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-15T09:44:19.845Z",
       "playCount": 1,
-      "createdAt": "2026-10-13T03:57:34.032Z"
+      "createdAt": "2026-10-13T03:57:34.032Z",
+      "updatedAt": "2026-10-15T09:48:05.144Z"
     },
     "jazz/blue moon.abc": {
       "status": null,
@@ -1260,8 +1261,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-14T05:05:26.005Z",
-      "playCount": 14,
+      "lastPlayed": "2026-10-15T09:48:19.993Z",
+      "playCount": 15,
       "createdAt": "2026-09-26T08:25:28.534Z"
     },
     "maori/te hokinga mai.abc": {
@@ -1910,6 +1911,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "latino/tango/por una cabeza.abc",
+      "timestamp": "2026-10-15T09:48:19.993Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-10-15T09:44:19.845Z"
     },
@@ -1936,10 +1941,6 @@
     {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-10-14T05:11:02.240Z"
-    },
-    {
-      "filePath": "latino/tango/por una cabeza.abc",
-      "timestamp": "2026-10-14T05:05:26.005Z"
     },
     {
       "filePath": "portuguese/dorme dorme meu menino.abc",
