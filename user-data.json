@@ -1676,8 +1676,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-14T05:15:46.557Z",
-      "playCount": 46,
+      "lastPlayed": "2026-10-15T10:34:18.461Z",
+      "playCount": 47,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -2008,6 +2008,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-10-15T10:34:18.461Z"
+    },
+    {
       "filePath": "scottish/atholl_braes_1.abc",
       "timestamp": "2026-10-15T10:33:41.779Z"
     },
@@ -2034,10 +2038,6 @@
     {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-10-15T09:39:53.965Z"
-    },
-    {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-10-14T05:15:46.557Z"
     },
     {
       "filePath": "scottish/clanranald.abc",
