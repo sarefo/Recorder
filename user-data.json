@@ -1480,12 +1480,13 @@
       "createdAt": "2026-10-15T10:27:48.810Z"
     },
     "pop/eurythmics/sweet dreams.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-10-15T10:28:02.782Z",
       "playCount": 1,
-      "createdAt": "2026-10-15T10:27:48.810Z"
+      "createdAt": "2026-10-15T10:27:48.810Z",
+      "updatedAt": "2026-10-15T10:29:43.353Z"
     },
     "pop/eurythmics/there must be an angel.abc": {
       "status": null,
@@ -1555,8 +1556,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-15T10:29:56.012Z",
+      "playCount": 1,
       "createdAt": "2026-10-15T10:27:48.810Z"
     },
     "pop/the police/every little thing she does is magic.abc": {
@@ -2007,6 +2008,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/the police/every breath you take.abc",
+      "timestamp": "2026-10-15T10:29:56.012Z"
+    },
+    {
       "filePath": "pop/eurythmics/sweet dreams.abc",
       "timestamp": "2026-10-15T10:28:02.782Z"
     },
@@ -2081,10 +2086,6 @@
     {
       "filePath": "scottish/bottom_bowl.abc",
       "timestamp": "2026-10-13T11:13:39.433Z"
-    },
-    {
-      "filePath": "scottish/atholl_braes_1.abc",
-      "timestamp": "2026-10-13T11:12:17.504Z"
     }
   ],
   "settings": {}
