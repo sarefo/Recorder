@@ -320,8 +320,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-12T04:42:06.138Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-15T10:42:34.066Z",
+      "playCount": 3,
       "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/christ lag in todesbanden.abc": {
@@ -1902,8 +1902,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-05T11:34:52.229Z",
-      "playCount": 51,
+      "lastPlayed": "2026-10-15T10:42:49.608Z",
+      "playCount": 52,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "tv/fraggle rock.abc": {
@@ -2008,6 +2008,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/detective_conan.abc",
+      "timestamp": "2026-10-15T10:42:49.608Z"
+    },
+    {
+      "filePath": "classical/bach/chorales/allein gott in der hoeh sei ehr.abc",
+      "timestamp": "2026-10-15T10:42:34.066Z"
+    },
+    {
       "filePath": "danish/er et yndigt land.abc",
       "timestamp": "2026-10-15T10:41:42.137Z"
     },
@@ -2078,14 +2086,6 @@
     {
       "filePath": "indonesian/rasa sayange.abc",
       "timestamp": "2026-10-14T04:59:05.421Z"
-    },
-    {
-      "filePath": "scottish/highland_fling.abc",
-      "timestamp": "2026-10-14T04:58:47.976Z"
-    },
-    {
-      "filePath": "classical/bach/chorales/wachet auf.abc",
-      "timestamp": "2026-10-14T04:56:37.607Z"
     }
   ],
   "settings": {}
