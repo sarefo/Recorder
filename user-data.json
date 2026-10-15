@@ -1692,8 +1692,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-13T11:13:39.433Z",
-      "playCount": 26,
+      "lastPlayed": "2026-10-15T10:36:40.496Z",
+      "playCount": 27,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/caber_feigh.abc": {
@@ -2008,6 +2008,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/bottom_bowl.abc",
+      "timestamp": "2026-10-15T10:36:40.496Z"
+    },
+    {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-10-15T10:34:18.461Z"
     },
@@ -2082,10 +2086,6 @@
     {
       "filePath": "maori/te hokinga mai.abc",
       "timestamp": "2026-10-14T04:52:07.198Z"
-    },
-    {
-      "filePath": "ukrainian/nich yaka misyachna.abc",
-      "timestamp": "2026-10-13T11:20:19.623Z"
     }
   ],
   "settings": {}
