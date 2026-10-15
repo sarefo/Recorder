@@ -1983,8 +1983,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-05T11:37:19.051Z",
-      "playCount": 25,
+      "lastPlayed": "2026-10-15T10:47:25.305Z",
+      "playCount": 26,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "yiddish/in kamf.abc": {
@@ -2007,6 +2007,10 @@
   "collections": {},
   "deletedCollections": {},
   "recentlyPlayed": [
+    {
+      "filePath": "yiddish/dos kelbl.abc",
+      "timestamp": "2026-10-15T10:47:25.305Z"
+    },
     {
       "filePath": "australian/waltzing matilda.abc",
       "timestamp": "2026-10-15T10:45:08.491Z"
@@ -2082,10 +2086,6 @@
     {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-10-14T05:11:02.240Z"
-    },
-    {
-      "filePath": "portuguese/dorme dorme meu menino.abc",
-      "timestamp": "2026-10-14T04:59:57.330Z"
     }
   ],
   "settings": {}
