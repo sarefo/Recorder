@@ -1449,8 +1449,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-15T09:32:02.238Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-15T09:39:53.965Z",
+      "playCount": 3,
       "createdAt": "2026-10-14T17:54:41.333Z",
       "updatedAt": "2026-10-14T17:56:28.067Z"
     },
@@ -1911,7 +1911,7 @@
   "recentlyPlayed": [
     {
       "filePath": "pop/derniere danse.abc",
-      "timestamp": "2026-10-15T09:32:02.238Z"
+      "timestamp": "2026-10-15T09:39:53.965Z"
     },
     {
       "filePath": "scottish/balquidder_lasses.abc",
