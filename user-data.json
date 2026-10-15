@@ -1076,8 +1076,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-15T09:44:19.845Z",
+      "playCount": 1,
       "createdAt": "2026-10-13T03:57:34.032Z"
     },
     "jazz/blue moon.abc": {
@@ -1910,6 +1910,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-10-15T09:44:19.845Z"
+    },
+    {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-10-15T09:39:53.965Z"
     },
@@ -1984,10 +1988,6 @@
     {
       "filePath": "scottish/birkhall.abc",
       "timestamp": "2026-10-13T11:02:47.657Z"
-    },
-    {
-      "filePath": "philippine/sitsiritsit alibangbang.abc",
-      "timestamp": "2026-10-13T11:02:45.803Z"
     }
   ],
   "settings": {}
