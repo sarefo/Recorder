@@ -1455,6 +1455,54 @@
       "createdAt": "2026-10-14T17:54:41.333Z",
       "updatedAt": "2026-10-14T17:56:28.067Z"
     },
+    "pop/eurythmics/here comes the rain again.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-15T10:27:48.810Z"
+    },
+    "pop/eurythmics/love is a stranger.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-15T10:27:48.810Z"
+    },
+    "pop/eurythmics/sisters are doin it for themselves.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-15T10:27:48.810Z"
+    },
+    "pop/eurythmics/sweet dreams.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-10-15T10:28:02.782Z",
+      "playCount": 1,
+      "createdAt": "2026-10-15T10:27:48.810Z"
+    },
+    "pop/eurythmics/there must be an angel.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-15T10:27:48.810Z"
+    },
+    "pop/eurythmics/would i lie to you.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-15T10:27:48.810Z"
+    },
     "pop/final_countdown.abc": {
       "status": null,
       "favorite": false,
@@ -1494,6 +1542,54 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-01-18T20:46:38.367Z"
+    },
+    "pop/the police/don't stand so close to me.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-15T10:27:48.810Z"
+    },
+    "pop/the police/every breath you take.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-15T10:27:48.810Z"
+    },
+    "pop/the police/every little thing she does is magic.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-15T10:27:48.810Z"
+    },
+    "pop/the police/message in a bottle.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-15T10:27:48.810Z"
+    },
+    "pop/the police/roxanne.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-15T10:27:48.810Z"
+    },
+    "pop/the police/walking on the moon.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-15T10:27:48.810Z"
     },
     "pop/top of the world.abc": {
       "status": null,
@@ -1911,6 +2007,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/eurythmics/sweet dreams.abc",
+      "timestamp": "2026-10-15T10:28:02.782Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-15T09:48:19.993Z"
     },
@@ -1985,10 +2085,6 @@
     {
       "filePath": "scottish/atholl_braes_1.abc",
       "timestamp": "2026-10-13T11:12:17.504Z"
-    },
-    {
-      "filePath": "scottish/birkhall.abc",
-      "timestamp": "2026-10-13T11:02:47.657Z"
     }
   ],
   "settings": {}
