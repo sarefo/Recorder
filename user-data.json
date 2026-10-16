@@ -883,8 +883,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-10T09:45:27.561Z",
-      "playCount": 8,
+      "lastPlayed": "2026-10-16T10:39:16.491Z",
+      "playCount": 9,
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/j'ai vu le loup.abc": {
@@ -2012,6 +2012,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-10-16T10:39:16.491Z"
+    },
+    {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-10-16T10:37:19.569Z"
     },
@@ -2086,10 +2090,6 @@
     {
       "filePath": "pop/the police/walking on the moon.abc",
       "timestamp": "2026-10-16T07:17:06.069Z"
-    },
-    {
-      "filePath": "egyptian/a ya zein.abc",
-      "timestamp": "2026-10-16T07:17:00.208Z"
     }
   ],
   "settings": {}
