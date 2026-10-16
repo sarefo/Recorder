@@ -1684,8 +1684,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-13T11:02:47.657Z",
-      "playCount": 22,
+      "lastPlayed": "2026-10-16T07:20:32.891Z",
+      "playCount": 23,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/bottom_bowl.abc": {
@@ -2008,6 +2008,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/birkhall.abc",
+      "timestamp": "2026-10-16T07:20:32.891Z"
+    },
+    {
       "filePath": "classical/bach/chorales/o haupt voll blut und wunden.abc",
       "timestamp": "2026-10-16T07:18:42.521Z"
     },
@@ -2082,10 +2086,6 @@
     {
       "filePath": "pop/eurythmics/sweet dreams.abc",
       "timestamp": "2026-10-15T10:28:02.782Z"
-    },
-    {
-      "filePath": "latino/tango/por una cabeza.abc",
-      "timestamp": "2026-10-15T09:48:19.993Z"
     }
   ],
   "settings": {}
