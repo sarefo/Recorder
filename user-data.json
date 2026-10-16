@@ -1332,12 +1332,13 @@
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/ai vist lo lop.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-16T10:29:44.454Z",
       "playCount": 9,
-      "createdAt": "2026-09-22T12:46:37.241Z"
+      "createdAt": "2026-09-22T12:46:37.241Z",
+      "updatedAt": "2026-10-16T10:31:04.482Z"
     },
     "occitan/la cambo me fai mau.abc": {
       "status": "practicing",
