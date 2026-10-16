@@ -1725,8 +1725,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T02:40:32.387Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-16T07:29:57.611Z",
+      "playCount": 7,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/francis_robertson.abc": {
@@ -2009,6 +2009,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/fang_fiddlers.abc",
+      "timestamp": "2026-10-16T07:29:57.611Z"
+    },
+    {
       "filePath": "scottish/bottom_bowl.abc",
       "timestamp": "2026-10-16T07:25:58.484Z"
     },
@@ -2083,10 +2087,6 @@
     {
       "filePath": "pop/the police/every breath you take.abc",
       "timestamp": "2026-10-15T10:29:56.012Z"
-    },
-    {
-      "filePath": "pop/eurythmics/sweet dreams.abc",
-      "timestamp": "2026-10-15T10:28:02.782Z"
     }
   ],
   "settings": {}
