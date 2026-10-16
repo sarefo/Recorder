@@ -36,11 +36,12 @@
     },
     "austrian/lieber augustin.abc": {
       "status": "good",
-      "favorite": false,
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-16T08:01:33.878Z",
       "playCount": 6,
-      "createdAt": "2026-01-18T20:46:38.366Z"
+      "createdAt": "2026-01-18T20:46:38.366Z",
+      "updatedAt": "2026-10-16T08:02:22.809Z"
     },
     "bartok/romanian folk dances/1 joc cu bata.abc": {
       "status": "practicing",
@@ -86,8 +87,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T07:27:04.035Z",
-      "playCount": 19,
+      "lastPlayed": "2026-10-16T08:02:29.365Z",
+      "playCount": 20,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-08T06:58:19.399Z"
     },
@@ -2009,6 +2010,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-10-16T08:02:29.365Z"
+    },
+    {
       "filePath": "austrian/lieber augustin.abc",
       "timestamp": "2026-10-16T08:01:33.878Z"
     },
@@ -2083,10 +2088,6 @@
     {
       "filePath": "indian/vande mataram.abc",
       "timestamp": "2026-10-15T10:41:42.061Z"
-    },
-    {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-10-15T10:34:18.461Z"
     }
   ],
   "settings": {}
