@@ -440,8 +440,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-16T07:18:42.521Z",
+      "playCount": 1,
       "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/o lamm gottes unschuldig.abc": {
@@ -2008,6 +2008,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/chorales/o haupt voll blut und wunden.abc",
+      "timestamp": "2026-10-16T07:18:42.521Z"
+    },
+    {
       "filePath": "pop/the police/message in a bottle.abc",
       "timestamp": "2026-10-16T07:17:32.839Z"
     },
@@ -2082,10 +2086,6 @@
     {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-15T09:48:19.993Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-10-15T09:44:19.845Z"
     }
   ],
   "settings": {}
