@@ -68,12 +68,13 @@
       "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "breton/les filles des forges de paimpont.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-22T12:46:41.492Z",
-      "playCount": 1,
-      "createdAt": "2026-09-22T12:46:37.240Z"
+      "lastPlayed": "2026-10-16T08:08:06.013Z",
+      "playCount": 2,
+      "createdAt": "2026-09-22T12:46:37.240Z",
+      "updatedAt": "2026-10-16T08:08:27.724Z"
     },
     "breton/saint patricks an dro.abc": {
       "status": null,
@@ -2010,6 +2011,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/les filles des forges de paimpont.abc",
+      "timestamp": "2026-10-16T08:08:06.013Z"
+    },
+    {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-10-16T08:06:02.946Z"
     },
@@ -2084,10 +2089,6 @@
     {
       "filePath": "tv/detective_conan.abc",
       "timestamp": "2026-10-15T10:42:49.608Z"
-    },
-    {
-      "filePath": "classical/bach/chorales/allein gott in der hoeh sei ehr.abc",
-      "timestamp": "2026-10-15T10:42:34.066Z"
     }
   ],
   "settings": {}
