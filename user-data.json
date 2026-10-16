@@ -96,8 +96,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T07:23:53.282Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-16T08:06:02.946Z",
+      "playCount": 4,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-08T07:04:50.211Z"
     },
@@ -2010,6 +2010,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-10-16T08:06:02.946Z"
+    },
+    {
       "filePath": "breton/tri martolod.abc",
       "timestamp": "2026-10-16T08:04:46.595Z"
     },
@@ -2084,10 +2088,6 @@
     {
       "filePath": "classical/bach/chorales/allein gott in der hoeh sei ehr.abc",
       "timestamp": "2026-10-15T10:42:34.066Z"
-    },
-    {
-      "filePath": "danish/er et yndigt land.abc",
-      "timestamp": "2026-10-15T10:41:42.137Z"
     }
   ],
   "settings": {}
