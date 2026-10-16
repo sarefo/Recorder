@@ -753,8 +753,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-17T10:42:22.517Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-16T07:17:00.208Z",
+      "playCount": 2,
       "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "film/herbie's theme.abc": {
@@ -1572,8 +1572,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-16T07:17:32.839Z",
+      "playCount": 1,
       "createdAt": "2026-10-15T10:27:48.810Z"
     },
     "pop/the police/roxanne.abc": {
@@ -1588,8 +1588,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-16T07:17:06.069Z",
+      "playCount": 1,
       "createdAt": "2026-10-15T10:27:48.810Z"
     },
     "pop/top of the world.abc": {
@@ -2008,6 +2008,18 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/the police/message in a bottle.abc",
+      "timestamp": "2026-10-16T07:17:32.839Z"
+    },
+    {
+      "filePath": "pop/the police/walking on the moon.abc",
+      "timestamp": "2026-10-16T07:17:06.069Z"
+    },
+    {
+      "filePath": "egyptian/a ya zein.abc",
+      "timestamp": "2026-10-16T07:17:00.208Z"
+    },
+    {
       "filePath": "scottish/caber_feigh.abc",
       "timestamp": "2026-10-16T07:11:39.244Z"
     },
@@ -2074,18 +2086,6 @@
     {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-10-15T09:44:19.845Z"
-    },
-    {
-      "filePath": "pop/derniere danse.abc",
-      "timestamp": "2026-10-15T09:39:53.965Z"
-    },
-    {
-      "filePath": "scottish/clanranald.abc",
-      "timestamp": "2026-10-14T05:11:55.713Z"
-    },
-    {
-      "filePath": "american/when johnny comes marching home.abc",
-      "timestamp": "2026-10-14T05:11:52.928Z"
     }
   ],
   "settings": {}
