@@ -6,10 +6,10 @@ N: Note values doubled from the 2/4 source so the moving value is an eighth.
 L: 1/8
 Q: 1/2=88
 M: 4/4
-K: Bm
-|:"Bm"Bc dc B2 f2 |"Bm"d2 B2 c2 f2 |"A"ef ed c2 A2 |"Bm"d2 B2 "A"c4 |
-"Bm"Bc dc B2 f2 |"Bm"d2 B2 c2 f2 |"A"ef ed c2 A2 |"Bm"dB cA B4 :|
-|:"Bm"Bc de f4 |"D"e2 a2 f2 d2 |"Bm"Bc df e2 f2 |"A"ef ed c4 |
-"Bm"Bc de f4 |"D"e2 a2 f2 d2 |"Bm"Bc df "A"e2 c2 |"Bm"dB cA B4 :|
+K: Dm
+|:"Dm"DE FE D2 A2 |"Dm"F2 D2 E2 A2 |"C"GA GF E2 C2 |"Dm"F2 D2 "C"E4 |
+"Dm"DE FE D2 A2 |"Dm"F2 D2 E2 A2 |"C"GA GF E2 C2 |"Dm"FD EC D4 :|
+|:"Dm"DE FG A4 |"F"G2 c2 A2 F2 |"Dm"DE FA G2 A2 |"C"GA GF E4 |
+"Dm"DE FG A4 |"F"G2 c2 A2 F2 |"Dm"DE FA "C"G2 E2 |"Dm"FD EC D4 :|
 
 % Source: https://www.flutetunes.com/tunes.php?id=195
