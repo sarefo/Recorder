@@ -29,8 +29,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T07:23:51.131Z",
-      "playCount": 10,
+      "lastPlayed": "2026-10-16T07:57:37.409Z",
+      "playCount": 11,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-08T02:37:54.128Z"
     },
@@ -2009,6 +2009,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "austrian/es wird scho gleich dumpa.abc",
+      "timestamp": "2026-10-16T07:57:37.409Z"
+    },
+    {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-16T07:35:25.672Z"
     },
@@ -2083,10 +2087,6 @@
     {
       "filePath": "scottish/atholl_braes_1.abc",
       "timestamp": "2026-10-15T10:33:41.779Z"
-    },
-    {
-      "filePath": "pop/final_countdown.abc",
-      "timestamp": "2026-10-15T10:31:33.169Z"
     }
   ],
   "settings": {}
