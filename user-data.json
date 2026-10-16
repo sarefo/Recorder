@@ -899,8 +899,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-10T10:11:41.547Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-16T10:42:02.110Z",
+      "playCount": 3,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-10T10:12:26.140Z"
     },
@@ -2012,6 +2012,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/tourdion.abc",
+      "timestamp": "2026-10-16T10:42:02.110Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-10-16T10:39:16.491Z"
     },
@@ -2086,10 +2090,6 @@
     {
       "filePath": "pop/the police/message in a bottle.abc",
       "timestamp": "2026-10-16T07:17:32.839Z"
-    },
-    {
-      "filePath": "pop/the police/walking on the moon.abc",
-      "timestamp": "2026-10-16T07:17:06.069Z"
     }
   ],
   "settings": {}
