@@ -29,8 +29,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T07:57:37.409Z",
-      "playCount": 11,
+      "lastPlayed": "2026-10-16T07:59:56.468Z",
+      "playCount": 12,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-08T02:37:54.128Z"
     },
@@ -2010,7 +2010,7 @@
   "recentlyPlayed": [
     {
       "filePath": "austrian/es wird scho gleich dumpa.abc",
-      "timestamp": "2026-10-16T07:57:37.409Z"
+      "timestamp": "2026-10-16T07:59:56.468Z"
     },
     {
       "filePath": "scottish/hopetoun_house.abc",
