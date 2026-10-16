@@ -38,8 +38,8 @@
       "status": "good",
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-02T10:44:53.280Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-16T08:01:33.878Z",
+      "playCount": 6,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "bartok/romanian folk dances/1 joc cu bata.abc": {
@@ -2009,6 +2009,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "austrian/lieber augustin.abc",
+      "timestamp": "2026-10-16T08:01:33.878Z"
+    },
+    {
       "filePath": "austrian/es wird scho gleich dumpa.abc",
       "timestamp": "2026-10-16T07:59:56.468Z"
     },
@@ -2083,10 +2087,6 @@
     {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-10-15T10:34:18.461Z"
-    },
-    {
-      "filePath": "scottish/atholl_braes_1.abc",
-      "timestamp": "2026-10-15T10:33:41.779Z"
     }
   ],
   "settings": {}
