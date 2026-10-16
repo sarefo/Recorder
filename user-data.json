@@ -1681,19 +1681,20 @@
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
-      "status": "good",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-16T07:20:32.891Z",
       "playCount": 23,
-      "createdAt": "2026-01-18T20:46:38.367Z"
+      "createdAt": "2026-01-18T20:46:38.367Z",
+      "updatedAt": "2026-10-16T07:25:54.141Z"
     },
     "scottish/bottom_bowl.abc": {
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-15T10:36:40.496Z",
-      "playCount": 27,
+      "lastPlayed": "2026-10-16T07:25:58.484Z",
+      "playCount": 28,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/caber_feigh.abc": {
@@ -2008,6 +2009,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/bottom_bowl.abc",
+      "timestamp": "2026-10-16T07:25:58.484Z"
+    },
+    {
       "filePath": "scottish/birkhall.abc",
       "timestamp": "2026-10-16T07:20:32.891Z"
     },
@@ -2062,10 +2067,6 @@
     {
       "filePath": "indian/vande mataram.abc",
       "timestamp": "2026-10-15T10:41:42.061Z"
-    },
-    {
-      "filePath": "scottish/bottom_bowl.abc",
-      "timestamp": "2026-10-15T10:36:40.496Z"
     },
     {
       "filePath": "scottish/balquidder_lasses.abc",
