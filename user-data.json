@@ -105,8 +105,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-22T12:59:39.518Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-16T08:04:46.595Z",
+      "playCount": 2,
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "cajun/bosco stomp.abc": {
@@ -2010,6 +2010,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/tri martolod.abc",
+      "timestamp": "2026-10-16T08:04:46.595Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-16T08:02:29.365Z"
     },
@@ -2084,10 +2088,6 @@
     {
       "filePath": "danish/er et yndigt land.abc",
       "timestamp": "2026-10-15T10:41:42.137Z"
-    },
-    {
-      "filePath": "indian/vande mataram.abc",
-      "timestamp": "2026-10-15T10:41:42.061Z"
     }
   ],
   "settings": {}
