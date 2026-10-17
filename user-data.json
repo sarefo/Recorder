@@ -298,8 +298,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-13T10:58:35.277Z",
-      "playCount": 15,
+      "lastPlayed": "2026-10-17T05:32:15.546Z",
+      "playCount": 16,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
@@ -2013,6 +2013,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/zou xikou.abc",
+      "timestamp": "2026-10-17T05:32:15.546Z"
+    },
+    {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-10-17T05:30:24.873Z"
     },
@@ -2087,10 +2091,6 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-16T08:02:29.365Z"
-    },
-    {
-      "filePath": "austrian/es wird scho gleich dumpa.abc",
-      "timestamp": "2026-10-16T07:59:56.468Z"
     }
   ],
   "settings": {}
