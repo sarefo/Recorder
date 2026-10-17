@@ -1038,17 +1038,18 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T08:07:23.391Z",
-      "playCount": 36,
+      "lastPlayed": "2026-10-17T05:30:24.873Z",
+      "playCount": 37,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/hashire kotaro.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-17T05:28:16.001Z",
       "playCount": 6,
-      "createdAt": "2026-08-31T18:32:58.388Z"
+      "createdAt": "2026-08-31T18:32:58.388Z",
+      "updatedAt": "2026-10-17T05:30:22.284Z"
     },
     "japanese/kojo no tsuki.abc": {
       "status": "good",
@@ -2012,6 +2013,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hana.abc",
+      "timestamp": "2026-10-17T05:30:24.873Z"
+    },
+    {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-10-17T05:28:16.001Z"
     },
@@ -2086,10 +2091,6 @@
     {
       "filePath": "austrian/es wird scho gleich dumpa.abc",
       "timestamp": "2026-10-16T07:59:56.468Z"
-    },
-    {
-      "filePath": "scottish/fang_fiddlers.abc",
-      "timestamp": "2026-10-16T07:29:57.611Z"
     }
   ],
   "settings": {}
