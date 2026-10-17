@@ -97,8 +97,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T10:29:33.250Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-17T05:40:57.681Z",
+      "playCount": 6,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-08T07:04:50.211Z"
     },
@@ -2013,6 +2013,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-10-17T05:40:57.681Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-17T05:37:46.198Z"
     },
@@ -2079,10 +2083,6 @@
     {
       "filePath": "scottish/francis_robertson.abc",
       "timestamp": "2026-10-16T10:29:40.645Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-10-16T10:29:33.250Z"
     },
     {
       "filePath": "breton/saint patricks an dro.abc",
