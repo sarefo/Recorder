@@ -1263,8 +1263,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-15T09:48:19.993Z",
-      "playCount": 15,
+      "lastPlayed": "2026-10-17T05:03:39.172Z",
+      "playCount": 16,
       "createdAt": "2026-09-26T08:25:28.534Z"
     },
     "maori/te hokinga mai.abc": {
@@ -2012,6 +2012,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "latino/tango/por una cabeza.abc",
+      "timestamp": "2026-10-17T05:03:39.172Z"
+    },
+    {
       "filePath": "french/tourdion.abc",
       "timestamp": "2026-10-16T10:42:02.110Z"
     },
@@ -2086,10 +2090,6 @@
     {
       "filePath": "classical/bach/chorales/o haupt voll blut und wunden.abc",
       "timestamp": "2026-10-16T07:18:42.521Z"
-    },
-    {
-      "filePath": "pop/the police/message in a bottle.abc",
-      "timestamp": "2026-10-16T07:17:32.839Z"
     }
   ],
   "settings": {}
