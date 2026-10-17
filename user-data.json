@@ -1454,8 +1454,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-15T09:39:53.965Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-17T10:42:33.762Z",
+      "playCount": 4,
       "createdAt": "2026-10-14T17:54:41.333Z",
       "updatedAt": "2026-10-14T17:56:28.067Z"
     },
@@ -2013,6 +2013,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/derniere danse.abc",
+      "timestamp": "2026-10-17T10:42:33.762Z"
+    },
+    {
       "filePath": "french/tourdion.abc",
       "timestamp": "2026-10-17T09:24:47.606Z"
     },
@@ -2087,10 +2091,6 @@
     {
       "filePath": "scottish/francis_robertson.abc",
       "timestamp": "2026-10-16T10:29:40.645Z"
-    },
-    {
-      "filePath": "breton/saint patricks an dro.abc",
-      "timestamp": "2026-10-16T08:09:58.793Z"
     }
   ],
   "settings": {}
