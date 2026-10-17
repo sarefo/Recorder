@@ -899,8 +899,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T10:42:02.110Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-17T09:24:47.606Z",
+      "playCount": 4,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-16T10:46:45.679Z"
     },
@@ -2013,6 +2013,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/tourdion.abc",
+      "timestamp": "2026-10-17T09:24:47.606Z"
+    },
+    {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-10-17T09:20:46.457Z"
     },
@@ -2059,10 +2063,6 @@
     {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-17T05:03:39.172Z"
-    },
-    {
-      "filePath": "french/tourdion.abc",
-      "timestamp": "2026-10-16T10:42:02.110Z"
     },
     {
       "filePath": "french/douce dame jolie.abc",
