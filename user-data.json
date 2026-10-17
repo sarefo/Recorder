@@ -1054,8 +1054,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-12T10:39:14.649Z",
-      "playCount": 36,
+      "lastPlayed": "2026-10-17T05:26:25.120Z",
+      "playCount": 37,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/sakura.abc": {
@@ -2012,6 +2012,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/kojo no tsuki.abc",
+      "timestamp": "2026-10-17T05:26:25.120Z"
+    },
+    {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-17T05:20:45.007Z"
     },
@@ -2086,10 +2090,6 @@
     {
       "filePath": "scottish/bottom_bowl.abc",
       "timestamp": "2026-10-16T07:25:58.484Z"
-    },
-    {
-      "filePath": "scottish/birkhall.abc",
-      "timestamp": "2026-10-16T07:20:32.891Z"
     }
   ],
   "settings": {}
