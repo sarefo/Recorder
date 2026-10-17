@@ -1046,8 +1046,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-10T09:20:29.871Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-17T05:28:16.001Z",
+      "playCount": 6,
       "createdAt": "2026-08-31T18:32:58.388Z"
     },
     "japanese/kojo no tsuki.abc": {
@@ -2012,6 +2012,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hashire kotaro.abc",
+      "timestamp": "2026-10-17T05:28:16.001Z"
+    },
+    {
       "filePath": "japanese/kojo no tsuki.abc",
       "timestamp": "2026-10-17T05:26:25.120Z"
     },
@@ -2086,10 +2090,6 @@
     {
       "filePath": "scottish/fang_fiddlers.abc",
       "timestamp": "2026-10-16T07:29:57.611Z"
-    },
-    {
-      "filePath": "scottish/bottom_bowl.abc",
-      "timestamp": "2026-10-16T07:25:58.484Z"
     }
   ],
   "settings": {}
