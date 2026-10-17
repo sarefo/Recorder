@@ -88,8 +88,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T08:02:29.365Z",
-      "playCount": 20,
+      "lastPlayed": "2026-10-17T05:37:46.198Z",
+      "playCount": 21,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-08T06:58:19.399Z"
     },
@@ -2013,6 +2013,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-10-17T05:37:46.198Z"
+    },
+    {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-10-17T05:34:19.106Z"
     },
@@ -2087,10 +2091,6 @@
     {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-10-16T08:08:06.013Z"
-    },
-    {
-      "filePath": "breton/tri martolod.abc",
-      "timestamp": "2026-10-16T08:04:46.595Z"
     }
   ],
   "settings": {}
