@@ -1768,8 +1768,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T07:35:25.672Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-17T05:20:45.007Z",
+      "playCount": 6,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-08T07:37:13.092Z"
     },
@@ -2012,6 +2012,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/hopetoun_house.abc",
+      "timestamp": "2026-10-17T05:20:45.007Z"
+    },
+    {
       "filePath": "cajun/madame sosthene.abc",
       "timestamp": "2026-10-17T05:15:47.429Z"
     },
@@ -2074,10 +2078,6 @@
     {
       "filePath": "austrian/es wird scho gleich dumpa.abc",
       "timestamp": "2026-10-16T07:59:56.468Z"
-    },
-    {
-      "filePath": "scottish/hopetoun_house.abc",
-      "timestamp": "2026-10-16T07:35:25.672Z"
     },
     {
       "filePath": "scottish/fang_fiddlers.abc",
