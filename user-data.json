@@ -1328,8 +1328,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T10:37:19.569Z",
-      "playCount": 8,
+      "lastPlayed": "2026-10-17T09:20:46.457Z",
+      "playCount": 9,
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/ai vist lo lop.abc": {
@@ -2013,6 +2013,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/adiu paure carnaval.abc",
+      "timestamp": "2026-10-17T09:20:46.457Z"
+    },
+    {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-10-17T05:42:02.698Z"
     },
@@ -2063,10 +2067,6 @@
     {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-10-16T10:39:16.491Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-10-16T10:37:19.569Z"
     },
     {
       "filePath": "occitan/la cambo me fai mau.abc",
