@@ -234,8 +234,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-13T10:55:15.485Z",
-      "playCount": 27,
+      "lastPlayed": "2026-10-17T05:34:19.106Z",
+      "playCount": 28,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/na jiushi wo.abc": {
@@ -2013,6 +2013,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/molihua.abc",
+      "timestamp": "2026-10-17T05:34:19.106Z"
+    },
+    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-10-17T05:32:15.546Z"
     },
@@ -2087,10 +2091,6 @@
     {
       "filePath": "breton/tri martolod.abc",
       "timestamp": "2026-10-16T08:04:46.595Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-10-16T08:02:29.365Z"
     }
   ],
   "settings": {}
