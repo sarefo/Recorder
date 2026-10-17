@@ -146,8 +146,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-13T03:59:21.233Z",
-      "playCount": 12,
+      "lastPlayed": "2026-10-17T05:15:47.429Z",
+      "playCount": 13,
       "createdAt": "2026-09-27T06:51:55.209Z"
     },
     "chinese/670_songs.abc": {
@@ -2012,6 +2012,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "cajun/madame sosthene.abc",
+      "timestamp": "2026-10-17T05:15:47.429Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-17T05:03:39.172Z"
     },
@@ -2086,10 +2090,6 @@
     {
       "filePath": "scottish/birkhall.abc",
       "timestamp": "2026-10-16T07:20:32.891Z"
-    },
-    {
-      "filePath": "classical/bach/chorales/o haupt voll blut und wunden.abc",
-      "timestamp": "2026-10-16T07:18:42.521Z"
     }
   ],
   "settings": {}
