@@ -234,8 +234,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-17T05:34:19.106Z",
-      "playCount": 28,
+      "lastPlayed": "2026-10-18T10:57:10.657Z",
+      "playCount": 29,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/na jiushi wo.abc": {
@@ -2014,6 +2014,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/molihua.abc",
+      "timestamp": "2026-10-18T10:57:10.657Z"
+    },
+    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-10-18T10:54:53.169Z"
     },
@@ -2060,10 +2064,6 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-17T05:37:46.198Z"
-    },
-    {
-      "filePath": "chinese/molihua.abc",
-      "timestamp": "2026-10-17T05:34:19.106Z"
     },
     {
       "filePath": "japanese/hana.abc",
