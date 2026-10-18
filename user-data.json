@@ -1021,11 +1021,12 @@
     },
     "israeli/hatikvah.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-18T11:52:56.718Z"
+      "lastPlayed": "2026-10-18T11:57:08.690Z",
+      "playCount": 1,
+      "createdAt": "2026-10-18T11:52:56.718Z",
+      "updatedAt": "2026-10-18T11:57:30.596Z"
     },
     "israeli/hava nagila.abc": {
       "status": null,
@@ -2112,6 +2113,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/hatikvah.abc",
+      "timestamp": "2026-10-18T11:57:08.690Z"
+    },
+    {
       "filePath": "israeli/erev shel shoshanim.abc",
       "timestamp": "2026-10-18T11:56:05.790Z"
     },
@@ -2186,10 +2191,6 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-17T05:37:46.198Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-10-17T05:30:24.873Z"
     }
   ],
   "settings": {}
