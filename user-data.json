@@ -1681,8 +1681,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T07:23:09.718Z",
-      "playCount": 48,
+      "lastPlayed": "2026-10-18T07:24:29.896Z",
+      "playCount": 49,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -2015,7 +2015,7 @@
   "recentlyPlayed": [
     {
       "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-10-18T07:23:09.718Z"
+      "timestamp": "2026-10-18T07:24:29.896Z"
     },
     {
       "filePath": "scottish/clanranald.abc",
