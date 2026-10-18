@@ -993,6 +993,38 @@
       "playCount": 1,
       "createdAt": "2026-07-30T09:51:53.099Z"
     },
+    "israeli/artsa alinu.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-18T11:52:56.717Z"
+    },
+    "israeli/dodi li.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-18T11:52:56.718Z"
+    },
+    "israeli/erev shel shoshanim.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-18T11:52:56.718Z"
+    },
+    "israeli/hatikvah.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-18T11:52:56.718Z"
+    },
     "israeli/hava nagila.abc": {
       "status": null,
       "favorite": false,
@@ -1000,6 +1032,70 @@
       "lastPlayed": "2026-08-23T08:02:10.862Z",
       "playCount": 2,
       "createdAt": "2026-08-01T08:03:26.600Z"
+    },
+    "israeli/hevenu shalom aleichem.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-18T11:52:56.718Z"
+    },
+    "israeli/hine ma tov.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-18T11:52:56.718Z"
+    },
+    "israeli/ma navu.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-18T11:52:56.718Z"
+    },
+    "israeli/mayim mayim.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-18T11:52:56.718Z"
+    },
+    "israeli/shalom chaverim.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-18T11:52:56.718Z"
+    },
+    "israeli/tzena tzena.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-10-18T11:53:17.512Z",
+      "playCount": 1,
+      "createdAt": "2026-10-18T11:52:56.718Z"
+    },
+    "israeli/yerushalayim shel zahav.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-18T11:52:56.718Z"
+    },
+    "israeli/zum gali gali.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-18T11:52:56.718Z"
     },
     "italian/bandiera_rossa.abc": {
       "status": "good",
@@ -2014,6 +2110,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/tzena tzena.abc",
+      "timestamp": "2026-10-18T11:53:17.512Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-10-18T11:08:58.783Z"
     },
@@ -2088,10 +2188,6 @@
     {
       "filePath": "cajun/madame sosthene.abc",
       "timestamp": "2026-10-17T05:15:47.429Z"
-    },
-    {
-      "filePath": "latino/tango/por una cabeza.abc",
-      "timestamp": "2026-10-17T05:03:39.172Z"
     }
   ],
   "settings": {}
