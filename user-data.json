@@ -1073,8 +1073,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-18T12:00:51.579Z",
+      "playCount": 1,
       "createdAt": "2026-10-18T11:52:56.718Z"
     },
     "israeli/tzena tzena.abc": {
@@ -1087,11 +1087,12 @@
     },
     "israeli/yerushalayim shel zahav.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-18T11:52:56.718Z"
+      "lastPlayed": "2026-10-18T12:01:16.093Z",
+      "playCount": 1,
+      "createdAt": "2026-10-18T11:52:56.718Z",
+      "updatedAt": "2026-10-18T12:01:43.176Z"
     },
     "israeli/zum gali gali.abc": {
       "status": null,
@@ -2114,6 +2115,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/yerushalayim shel zahav.abc",
+      "timestamp": "2026-10-18T12:01:16.093Z"
+    },
+    {
+      "filePath": "israeli/shalom chaverim.abc",
+      "timestamp": "2026-10-18T12:00:51.579Z"
+    },
+    {
       "filePath": "israeli/mayim mayim.abc",
       "timestamp": "2026-10-18T12:00:11.901Z"
     },
@@ -2184,14 +2193,6 @@
     {
       "filePath": "french/tourdion.abc",
       "timestamp": "2026-10-18T03:53:19.477Z"
-    },
-    {
-      "filePath": "pop/derniere danse.abc",
-      "timestamp": "2026-10-17T10:42:33.762Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-10-17T09:20:46.457Z"
     }
   ],
   "settings": {}
