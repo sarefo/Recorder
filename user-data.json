@@ -883,8 +883,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T10:39:16.491Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-18T03:18:43.565Z",
+      "playCount": 10,
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/j'ai vu le loup.abc": {
@@ -2013,6 +2013,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-10-18T03:18:43.565Z"
+    },
+    {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-10-17T10:42:33.762Z"
     },
@@ -2067,10 +2071,6 @@
     {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-17T05:03:39.172Z"
-    },
-    {
-      "filePath": "french/douce dame jolie.abc",
-      "timestamp": "2026-10-16T10:39:16.491Z"
     },
     {
       "filePath": "occitan/la cambo me fai mau.abc",
