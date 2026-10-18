@@ -995,19 +995,21 @@
     },
     "israeli/artsa alinu.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-18T11:54:15.419Z",
       "playCount": 1,
-      "createdAt": "2026-10-18T11:52:56.717Z"
+      "createdAt": "2026-10-18T11:52:56.717Z",
+      "updatedAt": "2026-10-18T11:55:10.684Z"
     },
     "israeli/dodi li.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-18T11:52:56.718Z"
+      "lastPlayed": "2026-10-18T11:55:13.793Z",
+      "playCount": 1,
+      "createdAt": "2026-10-18T11:52:56.718Z",
+      "updatedAt": "2026-10-18T11:55:31.779Z"
     },
     "israeli/erev shel shoshanim.abc": {
       "status": null,
@@ -2110,6 +2112,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/dodi li.abc",
+      "timestamp": "2026-10-18T11:55:13.793Z"
+    },
+    {
       "filePath": "israeli/artsa alinu.abc",
       "timestamp": "2026-10-18T11:54:15.419Z"
     },
@@ -2184,10 +2190,6 @@
     {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-10-17T05:28:16.001Z"
-    },
-    {
-      "filePath": "japanese/kojo no tsuki.abc",
-      "timestamp": "2026-10-17T05:26:25.120Z"
     }
   ],
   "settings": {}
