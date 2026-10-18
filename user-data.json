@@ -1049,8 +1049,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-18T11:59:19.963Z",
+      "playCount": 1,
       "createdAt": "2026-10-18T11:52:56.718Z"
     },
     "israeli/ma navu.abc": {
@@ -2114,6 +2114,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/hine ma tov.abc",
+      "timestamp": "2026-10-18T11:59:19.963Z"
+    },
+    {
       "filePath": "israeli/hevenu shalom aleichem.abc",
       "timestamp": "2026-10-18T11:58:24.593Z"
     },
@@ -2188,10 +2192,6 @@
     {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-10-17T05:42:02.698Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-10-17T05:40:57.681Z"
     }
   ],
   "settings": {}
