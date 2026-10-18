@@ -1932,8 +1932,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-15T10:49:27.068Z",
-      "playCount": 11,
+      "lastPlayed": "2026-10-18T11:02:13.358Z",
+      "playCount": 12,
       "createdAt": "2026-08-01T08:03:26.600Z",
       "updatedAt": "2026-10-08T02:37:41.304Z"
     },
@@ -2014,6 +2014,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "ukrainian/nich yaka misyachna.abc",
+      "timestamp": "2026-10-18T11:02:13.358Z"
+    },
+    {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-10-18T10:59:10.805Z"
     },
@@ -2088,10 +2092,6 @@
     {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-10-16T10:29:44.454Z"
-    },
-    {
-      "filePath": "chinese/baobao yao shuijiao.abc",
-      "timestamp": "2026-10-16T10:29:43.075Z"
     }
   ],
   "settings": {}
