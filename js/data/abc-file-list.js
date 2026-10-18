@@ -60,7 +60,7 @@ class AbcFileList {
                 "name": "Saint Patrick's An Dro",
                 "file": "breton/saint patricks an dro.abc",
                 "category": "breton",
-                "hash": "11d06c49dc"
+                "hash": "fec7b3d4f7"
         },
         {
                 "name": "Son ar Chistr",
@@ -735,10 +735,58 @@ class AbcFileList {
                 "hash": "35988b1bd3"
         },
         {
+                "name": "Dodi Li",
+                "file": "israeli/dodi li.abc",
+                "category": "israeli",
+                "hash": "f4ceb59607"
+        },
+        {
+                "name": "Erev Shel Shoshanim",
+                "file": "israeli/erev shel shoshanim.abc",
+                "category": "israeli",
+                "hash": "f479f72737"
+        },
+        {
+                "name": "Hatikvah",
+                "file": "israeli/hatikvah.abc",
+                "category": "israeli",
+                "hash": "feacd982bc"
+        },
+        {
                 "name": "Hava Nagila",
                 "file": "israeli/hava nagila.abc",
                 "category": "israeli",
                 "hash": "a641a5feed"
+        },
+        {
+                "name": "Hevenu Shalom Aleichem",
+                "file": "israeli/hevenu shalom aleichem.abc",
+                "category": "israeli",
+                "hash": "70aceda4b7"
+        },
+        {
+                "name": "Hine Ma Tov",
+                "file": "israeli/hine ma tov.abc",
+                "category": "israeli",
+                "hash": "c5ddb6f2f8"
+        },
+        {
+                "name": "Shalom Chaverim",
+                "file": "israeli/shalom chaverim.abc",
+                "category": "israeli",
+                "hash": "d988c8fc71"
+        },
+        {
+                "name": "Yerushalayim shel Zahav",
+                "file": "israeli/yerushalayim shel zahav.abc",
+                "category": "israeli",
+                "hash": "adb5908056"
+        },
+        {
+                "name": "Zum Gali Gali",
+                "file": "israeli/zum gali gali.abc",
+                "category": "israeli",
+                "hash": "3df0b3a1e0"
         },
         {
                 "name": "Bandiera Rossa",
