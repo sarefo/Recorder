@@ -880,12 +880,13 @@
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/douce dame jolie.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-18T03:18:43.565Z",
       "playCount": 10,
-      "createdAt": "2026-09-22T12:46:37.240Z"
+      "createdAt": "2026-09-22T12:46:37.240Z",
+      "updatedAt": "2026-10-18T03:20:14.847Z"
     },
     "french/j'ai vu le loup.abc": {
       "status": null,
