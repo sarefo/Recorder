@@ -1681,8 +1681,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-15T10:34:18.461Z",
-      "playCount": 47,
+      "lastPlayed": "2026-10-18T07:23:09.718Z",
+      "playCount": 48,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -2014,6 +2014,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-10-18T07:23:09.718Z"
+    },
+    {
       "filePath": "scottish/clanranald.abc",
       "timestamp": "2026-10-18T04:31:38.402Z"
     },
@@ -2088,10 +2092,6 @@
     {
       "filePath": "chinese/baobao yao shuijiao.abc",
       "timestamp": "2026-10-16T10:29:43.075Z"
-    },
-    {
-      "filePath": "austrian/lieber augustin.abc",
-      "timestamp": "2026-10-16T10:29:42.206Z"
     }
   ],
   "settings": {}
