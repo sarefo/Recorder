@@ -298,8 +298,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-17T05:32:15.546Z",
-      "playCount": 16,
+      "lastPlayed": "2026-10-18T10:54:53.169Z",
+      "playCount": 17,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
@@ -2014,6 +2014,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/zou xikou.abc",
+      "timestamp": "2026-10-18T10:54:53.169Z"
+    },
+    {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-10-18T10:52:21.878Z"
     },
@@ -2060,10 +2064,6 @@
     {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-10-17T05:34:19.106Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-10-17T05:32:15.546Z"
     },
     {
       "filePath": "japanese/hana.abc",
