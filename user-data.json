@@ -1038,11 +1038,12 @@
     },
     "israeli/hevenu shalom aleichem.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-18T11:52:56.718Z"
+      "lastPlayed": "2026-10-18T11:58:24.593Z",
+      "playCount": 1,
+      "createdAt": "2026-10-18T11:52:56.718Z",
+      "updatedAt": "2026-10-18T11:58:38.051Z"
     },
     "israeli/hine ma tov.abc": {
       "status": null,
@@ -2113,6 +2114,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/hevenu shalom aleichem.abc",
+      "timestamp": "2026-10-18T11:58:24.593Z"
+    },
+    {
       "filePath": "israeli/hatikvah.abc",
       "timestamp": "2026-10-18T11:57:08.690Z"
     },
@@ -2187,10 +2192,6 @@
     {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-10-17T05:40:57.681Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-10-17T05:37:46.198Z"
     }
   ],
   "settings": {}
