@@ -1015,8 +1015,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-18T11:56:05.790Z",
+      "playCount": 1,
       "createdAt": "2026-10-18T11:52:56.718Z"
     },
     "israeli/hatikvah.abc": {
@@ -2112,6 +2112,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/erev shel shoshanim.abc",
+      "timestamp": "2026-10-18T11:56:05.790Z"
+    },
+    {
       "filePath": "israeli/dodi li.abc",
       "timestamp": "2026-10-18T11:55:13.793Z"
     },
@@ -2186,10 +2190,6 @@
     {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-10-17T05:30:24.873Z"
-    },
-    {
-      "filePath": "japanese/hashire kotaro.abc",
-      "timestamp": "2026-10-17T05:28:16.001Z"
     }
   ],
   "settings": {}
