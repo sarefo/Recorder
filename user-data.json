@@ -997,8 +997,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-18T11:54:15.419Z",
+      "playCount": 1,
       "createdAt": "2026-10-18T11:52:56.717Z"
     },
     "israeli/dodi li.abc": {
@@ -2110,6 +2110,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/artsa alinu.abc",
+      "timestamp": "2026-10-18T11:54:15.419Z"
+    },
+    {
       "filePath": "israeli/tzena tzena.abc",
       "timestamp": "2026-10-18T11:53:17.512Z"
     },
@@ -2184,10 +2188,6 @@
     {
       "filePath": "japanese/kojo no tsuki.abc",
       "timestamp": "2026-10-17T05:26:25.120Z"
-    },
-    {
-      "filePath": "cajun/madame sosthene.abc",
-      "timestamp": "2026-10-17T05:15:47.429Z"
     }
   ],
   "settings": {}
