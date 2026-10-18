@@ -735,6 +735,12 @@ class AbcFileList {
                 "hash": "35988b1bd3"
         },
         {
+                "name": "Artsa Alinu",
+                "file": "israeli/artsa alinu.abc",
+                "category": "israeli",
+                "hash": "e0875e2c9c"
+        },
+        {
                 "name": "Dodi Li",
                 "file": "israeli/dodi li.abc",
                 "category": "israeli",
@@ -771,10 +777,28 @@ class AbcFileList {
                 "hash": "c5ddb6f2f8"
         },
         {
+                "name": "Ma Navu",
+                "file": "israeli/ma navu.abc",
+                "category": "israeli",
+                "hash": "5ad02d1401"
+        },
+        {
+                "name": "Mayim Mayim",
+                "file": "israeli/mayim mayim.abc",
+                "category": "israeli",
+                "hash": "ab8cbc23ca"
+        },
+        {
                 "name": "Shalom Chaverim",
                 "file": "israeli/shalom chaverim.abc",
                 "category": "israeli",
                 "hash": "d988c8fc71"
+        },
+        {
+                "name": "Tzena Tzena",
+                "file": "israeli/tzena tzena.abc",
+                "category": "israeli",
+                "hash": "2026dd612c"
         },
         {
                 "name": "Yerushalayim shel Zahav",
