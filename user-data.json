@@ -900,8 +900,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-17T09:24:47.606Z",
-      "playCount": 4,
+      "lastPlayed": "2026-10-18T03:53:19.477Z",
+      "playCount": 5,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-16T10:46:45.679Z"
     },
@@ -2014,16 +2014,16 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/tourdion.abc",
+      "timestamp": "2026-10-18T03:53:19.477Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-10-18T03:18:43.565Z"
     },
     {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-10-17T10:42:33.762Z"
-    },
-    {
-      "filePath": "french/tourdion.abc",
-      "timestamp": "2026-10-17T09:24:47.606Z"
     },
     {
       "filePath": "occitan/adiu paure carnaval.abc",
