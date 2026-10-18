@@ -883,8 +883,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T03:18:43.565Z",
-      "playCount": 10,
+      "lastPlayed": "2026-10-18T11:08:50.265Z",
+      "playCount": 11,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-18T03:20:14.847Z"
     },
@@ -2014,6 +2014,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-10-18T11:08:50.265Z"
+    },
+    {
       "filePath": "italian/tarantella napoletana.abc",
       "timestamp": "2026-10-18T11:05:56.869Z"
     },
@@ -2048,10 +2052,6 @@
     {
       "filePath": "french/tourdion.abc",
       "timestamp": "2026-10-18T03:53:19.477Z"
-    },
-    {
-      "filePath": "french/douce dame jolie.abc",
-      "timestamp": "2026-10-18T03:18:43.565Z"
     },
     {
       "filePath": "pop/derniere danse.abc",
