@@ -726,7 +726,7 @@ class AbcFileList {
                 "name": "Johnny I Hardly Knew Ya",
                 "file": "irish/johnny i hardly knew ya.abc",
                 "category": "irish",
-                "hash": "d81a5b3176"
+                "hash": "d04f8a2d69"
         },
         {
                 "name": "The Wild Rover",
