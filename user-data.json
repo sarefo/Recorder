@@ -68,13 +68,13 @@
       "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "breton/les filles des forges de paimpont.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-19T05:03:42.189Z",
-      "playCount": 4,
+      "lastPlayed": "2026-10-19T05:12:55.665Z",
+      "playCount": 5,
       "createdAt": "2026-09-22T12:46:37.240Z",
-      "updatedAt": "2026-10-16T08:08:27.724Z"
+      "updatedAt": "2026-10-19T05:12:58.508Z"
     },
     "breton/saint patricks an dro.abc": {
       "status": null,
@@ -97,8 +97,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-19T04:54:14.727Z",
-      "playCount": 7,
+      "lastPlayed": "2026-10-19T05:13:04.933Z",
+      "playCount": 8,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-17T05:42:00.320Z"
     },
@@ -2115,16 +2115,16 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-10-19T05:13:04.933Z"
+    },
+    {
       "filePath": "breton/les filles des forges de paimpont.abc",
-      "timestamp": "2026-10-19T05:03:42.189Z"
+      "timestamp": "2026-10-19T05:12:55.665Z"
     },
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-19T04:59:23.910Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-10-19T04:54:14.727Z"
     },
     {
       "filePath": "french/tourdion.abc",
