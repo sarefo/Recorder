@@ -54,7 +54,7 @@ class AbcFileList {
                 "name": "Les filles des forges de Paimpont",
                 "file": "breton/les filles des forges de paimpont.abc",
                 "category": "breton",
-                "hash": "578348e5ee"
+                "hash": "50a91791c8"
         },
         {
                 "name": "Saint Patrick's An Dro",
