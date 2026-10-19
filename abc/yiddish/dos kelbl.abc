@@ -8,6 +8,8 @@ N: pitches are confirmed by the score at en.wikipedia.org/wiki/Dona,_Dona, which
 N: this transcription matches note for note in the bars either side; its rhythm
 N: is a quarter rest and two eighths. Written here as four plain quarters, the
 N: way bar 3 of this transcription squares the same figure off. A reconstruction.
+N: Chorus bars 10-11 follow the Wikipedia rhythm (F2, then G3/2 G/), without
+N: its English pickup "they", which the Yiddish line has no syllable for.
 M: 4/4
 Q: 1/4=120
 L: 1/4
@@ -16,8 +18,8 @@ K: F
 w: אױ-פֿן פֿו-_רל | ליגט דאָס קעל-_בל | ליגט גע-בונ-דן_ | מיט אַ שטריק
    "Dm" A D "A7" E/F/ G |"Dm" A D "A7" E/F/ G |"Dm" A D "Gm" B A/G/ |"Dm" F "A7" E "Dm" D2 |
 w: הױך אין הי-_מל | פֿליט דאָס שװעל-_בל | פֿרייט זיך, דרייט זיך הין | און צו-ריק
-   "C"  c c c B |"F" A/G/ F z2 |"C"  G/ G G/ c B |"F"  A3 z |
-w: לאַכט דער ווינט אין | קאָרן _ _ | לאַכט _ און לאַכט און | לאַכט
+   "C"  c c c B |"F" A/G/ F2 z |"C"  G3/2 G/ c B |"F"  A3 z |
+w: לאַכט דער ווינט אין | קאָרן _ _ | לאַכט און לאַכט און | לאַכט
    "C"  c c c B |"F" A G F G   |"A7" A   G   F E |"Dm" D3 z |
 w: לאַכט ער אָפּ אַ | טאָג אַ גאַנ-צן | מיט אַ האַל-בע | נאַכט
    "A7" E/E/E/E/ G G |"Dm" F/G/ A3 |"C(7)" G/G/G/G/ c B |"F"  A3 z  |

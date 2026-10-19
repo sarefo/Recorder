@@ -1530,7 +1530,7 @@ class AbcFileList {
                 "name": "Dos Kelbl",
                 "file": "yiddish/dos kelbl.abc",
                 "category": "yiddish",
-                "hash": "216f435c0d"
+                "hash": "6d3c23e375"
         },
         {
                 "name": "In Kamf",
