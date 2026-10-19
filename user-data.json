@@ -900,8 +900,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T03:53:19.477Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-19T04:49:14.826Z",
+      "playCount": 6,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-16T10:46:45.679Z"
     },
@@ -2115,6 +2115,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/tourdion.abc",
+      "timestamp": "2026-10-19T04:49:14.826Z"
+    },
+    {
       "filePath": "israeli/yerushalayim shel zahav.abc",
       "timestamp": "2026-10-18T12:01:16.093Z"
     },
@@ -2189,10 +2193,6 @@
     {
       "filePath": "scottish/clanranald.abc",
       "timestamp": "2026-10-18T04:31:38.402Z"
-    },
-    {
-      "filePath": "french/tourdion.abc",
-      "timestamp": "2026-10-18T03:53:19.477Z"
     }
   ],
   "settings": {}
