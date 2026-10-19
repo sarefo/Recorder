@@ -978,12 +978,13 @@
       "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "irish/johnny i hardly knew ya.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-10T09:21:57.191Z",
-      "playCount": 14,
-      "createdAt": "2026-07-30T09:51:53.099Z"
+      "lastPlayed": "2026-10-19T05:26:29.778Z",
+      "playCount": 15,
+      "createdAt": "2026-07-30T09:51:53.099Z",
+      "updatedAt": "2026-10-19T05:26:35.640Z"
     },
     "irish/the wild rover.abc": {
       "status": null,
@@ -2115,6 +2116,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "irish/johnny i hardly knew ya.abc",
+      "timestamp": "2026-10-19T05:26:29.778Z"
+    },
+    {
       "filePath": "yiddish/dos kelbl.abc",
       "timestamp": "2026-10-19T05:21:56.091Z"
     },
@@ -2189,10 +2194,6 @@
     {
       "filePath": "ukrainian/nich yaka misyachna.abc",
       "timestamp": "2026-10-18T11:02:21.588Z"
-    },
-    {
-      "filePath": "chinese/molihua.abc",
-      "timestamp": "2026-10-18T10:59:10.805Z"
     }
   ],
   "settings": {}
