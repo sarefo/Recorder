@@ -1367,8 +1367,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-17T05:03:39.172Z",
-      "playCount": 16,
+      "lastPlayed": "2026-10-19T05:35:05.328Z",
+      "playCount": 17,
       "createdAt": "2026-09-26T08:25:28.534Z"
     },
     "maori/te hokinga mai.abc": {
@@ -2116,6 +2116,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "latino/tango/por una cabeza.abc",
+      "timestamp": "2026-10-19T05:35:05.328Z"
+    },
+    {
       "filePath": "irish/johnny i hardly knew ya.abc",
       "timestamp": "2026-10-19T05:28:26.226Z"
     },
@@ -2190,10 +2194,6 @@
     {
       "filePath": "italian/tarantella napoletana.abc",
       "timestamp": "2026-10-18T11:05:56.869Z"
-    },
-    {
-      "filePath": "ukrainian/nich yaka misyachna.abc",
-      "timestamp": "2026-10-18T11:02:21.588Z"
     }
   ],
   "settings": {}
