@@ -71,8 +71,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-17T05:42:02.698Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-19T05:03:42.189Z",
+      "playCount": 4,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-16T08:08:27.724Z"
     },
@@ -2115,6 +2115,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/les filles des forges de paimpont.abc",
+      "timestamp": "2026-10-19T05:03:42.189Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-19T04:59:23.910Z"
     },
@@ -2189,10 +2193,6 @@
     {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-10-18T10:52:21.878Z"
-    },
-    {
-      "filePath": "scottish/hopetoun_house.abc",
-      "timestamp": "2026-10-18T07:27:36.024Z"
     }
   ],
   "settings": {}
