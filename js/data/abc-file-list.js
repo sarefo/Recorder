@@ -72,7 +72,7 @@ class AbcFileList {
                 "name": "Toutouic",
                 "file": "breton/toutouic.abc",
                 "category": "breton",
-                "hash": "a3ed95227d"
+                "hash": "33e204943e"
         },
         {
                 "name": "Tri Martolod",
@@ -1050,7 +1050,7 @@ class AbcFileList {
                 "name": "Ai vist lo lop",
                 "file": "occitan/ai vist lo lop.abc",
                 "category": "occitan",
-                "hash": "99bfd0f1d6"
+                "hash": "49a5ba6957"
         },
         {
                 "name": "La cambo me fai mau",
