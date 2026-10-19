@@ -2090,8 +2090,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-15T10:47:25.305Z",
-      "playCount": 26,
+      "lastPlayed": "2026-10-19T05:21:56.091Z",
+      "playCount": 27,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "yiddish/in kamf.abc": {
@@ -2114,6 +2114,10 @@
   "collections": {},
   "deletedCollections": {},
   "recentlyPlayed": [
+    {
+      "filePath": "yiddish/dos kelbl.abc",
+      "timestamp": "2026-10-19T05:21:56.091Z"
+    },
     {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-10-19T05:16:32.713Z"
@@ -2189,10 +2193,6 @@
     {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-10-18T10:59:10.805Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-10-18T10:54:53.169Z"
     }
   ],
   "settings": {}
