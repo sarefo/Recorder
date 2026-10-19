@@ -88,8 +88,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-17T05:37:46.198Z",
-      "playCount": 21,
+      "lastPlayed": "2026-10-19T04:59:23.910Z",
+      "playCount": 22,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-08T06:58:19.399Z"
     },
@@ -2115,6 +2115,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-10-19T04:59:23.910Z"
+    },
+    {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-10-19T04:54:14.727Z"
     },
@@ -2189,10 +2193,6 @@
     {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-18T07:27:36.024Z"
-    },
-    {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-10-18T07:24:29.896Z"
     }
   ],
   "settings": {}
