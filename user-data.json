@@ -981,8 +981,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-19T05:26:29.778Z",
-      "playCount": 15,
+      "lastPlayed": "2026-10-19T05:28:26.226Z",
+      "playCount": 16,
       "createdAt": "2026-07-30T09:51:53.099Z",
       "updatedAt": "2026-10-19T05:26:35.640Z"
     },
@@ -2117,7 +2117,7 @@
   "recentlyPlayed": [
     {
       "filePath": "irish/johnny i hardly knew ya.abc",
-      "timestamp": "2026-10-19T05:26:29.778Z"
+      "timestamp": "2026-10-19T05:28:26.226Z"
     },
     {
       "filePath": "yiddish/dos kelbl.abc",
