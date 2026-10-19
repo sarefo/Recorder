@@ -97,8 +97,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-17T05:40:57.681Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-19T04:54:14.727Z",
+      "playCount": 7,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-17T05:42:00.320Z"
     },
@@ -2115,6 +2115,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-10-19T04:54:14.727Z"
+    },
+    {
       "filePath": "french/tourdion.abc",
       "timestamp": "2026-10-19T04:49:14.826Z"
     },
@@ -2189,10 +2193,6 @@
     {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-10-18T07:24:29.896Z"
-    },
-    {
-      "filePath": "scottish/clanranald.abc",
-      "timestamp": "2026-10-18T04:31:38.402Z"
     }
   ],
   "settings": {}
