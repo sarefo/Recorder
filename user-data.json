@@ -1784,8 +1784,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T07:24:29.896Z",
-      "playCount": 49,
+      "lastPlayed": "2026-10-20T06:13:37.027Z",
+      "playCount": 50,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -2117,6 +2117,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-10-20T06:13:37.027Z"
+    },
+    {
       "filePath": "french/belle qui tiens ma vie.abc",
       "timestamp": "2026-10-20T06:12:00.287Z"
     },
@@ -2191,10 +2195,6 @@
     {
       "filePath": "israeli/erev shel shoshanim.abc",
       "timestamp": "2026-10-18T11:56:05.790Z"
-    },
-    {
-      "filePath": "israeli/dodi li.abc",
-      "timestamp": "2026-10-18T11:55:13.793Z"
     }
   ],
   "settings": {}
