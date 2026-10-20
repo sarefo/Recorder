@@ -1833,8 +1833,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T07:29:57.611Z",
-      "playCount": 7,
+      "lastPlayed": "2026-10-20T11:28:17.689Z",
+      "playCount": 8,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/francis_robertson.abc": {
@@ -2117,6 +2117,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/fang_fiddlers.abc",
+      "timestamp": "2026-10-20T11:28:17.689Z"
+    },
+    {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-10-20T11:26:18.320Z"
     },
@@ -2191,10 +2195,6 @@
     {
       "filePath": "israeli/hatikvah.abc",
       "timestamp": "2026-10-18T11:57:08.690Z"
-    },
-    {
-      "filePath": "israeli/erev shel shoshanim.abc",
-      "timestamp": "2026-10-18T11:56:05.790Z"
     }
   ],
   "settings": {}
