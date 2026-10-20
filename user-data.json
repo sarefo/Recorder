@@ -1830,12 +1830,13 @@
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/fang_fiddlers.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-20T11:28:17.689Z",
       "playCount": 8,
-      "createdAt": "2026-01-18T20:46:38.367Z"
+      "createdAt": "2026-01-18T20:46:38.367Z",
+      "updatedAt": "2026-10-20T11:29:47.698Z"
     },
     "scottish/francis_robertson.abc": {
       "status": null,
