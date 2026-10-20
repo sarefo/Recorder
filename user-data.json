@@ -867,8 +867,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-20T06:12:00.287Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-20T11:17:37.000Z",
+      "playCount": 6,
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/branle des chevaux.abc": {
@@ -2117,12 +2117,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-10-20T06:13:37.027Z"
+      "filePath": "french/belle qui tiens ma vie.abc",
+      "timestamp": "2026-10-20T11:17:37.000Z"
     },
     {
-      "filePath": "french/belle qui tiens ma vie.abc",
-      "timestamp": "2026-10-20T06:12:00.287Z"
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-10-20T06:13:37.027Z"
     },
     {
       "filePath": "french/douce dame jolie.abc",
