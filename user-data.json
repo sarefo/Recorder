@@ -1445,12 +1445,13 @@
       "updatedAt": "2026-10-16T10:31:04.482Z"
     },
     "occitan/la cambo me fai mau.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-20T05:59:37.288Z",
       "playCount": 8,
-      "createdAt": "2026-09-22T12:46:37.241Z"
+      "createdAt": "2026-09-22T12:46:37.241Z",
+      "updatedAt": "2026-10-20T06:00:14.877Z"
     },
     "occitan/o magali.abc": {
       "status": "needs-practice",
