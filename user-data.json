@@ -883,8 +883,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T11:08:58.783Z",
-      "playCount": 11,
+      "lastPlayed": "2026-10-20T06:09:11.586Z",
+      "playCount": 12,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-18T03:20:14.847Z"
     },
@@ -2117,6 +2117,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-10-20T06:09:11.586Z"
+    },
+    {
       "filePath": "french/tourdion.abc",
       "timestamp": "2026-10-20T06:05:35.837Z"
     },
@@ -2191,10 +2195,6 @@
     {
       "filePath": "israeli/artsa alinu.abc",
       "timestamp": "2026-10-18T11:54:15.419Z"
-    },
-    {
-      "filePath": "israeli/tzena tzena.abc",
-      "timestamp": "2026-10-18T11:53:17.512Z"
     }
   ],
   "settings": {}
