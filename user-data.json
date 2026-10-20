@@ -900,8 +900,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-19T04:49:14.826Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-20T06:05:35.837Z",
+      "playCount": 7,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-16T10:46:45.679Z"
     },
@@ -2117,6 +2117,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/tourdion.abc",
+      "timestamp": "2026-10-20T06:05:35.837Z"
+    },
+    {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-10-20T06:03:48.758Z"
     },
@@ -2151,10 +2155,6 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-19T04:59:23.910Z"
-    },
-    {
-      "filePath": "french/tourdion.abc",
-      "timestamp": "2026-10-19T04:49:14.826Z"
     },
     {
       "filePath": "israeli/yerushalayim shel zahav.abc",
