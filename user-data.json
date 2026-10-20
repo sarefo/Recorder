@@ -1448,8 +1448,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-20T05:59:37.288Z",
-      "playCount": 8,
+      "lastPlayed": "2026-10-20T11:24:12.656Z",
+      "playCount": 9,
       "createdAt": "2026-09-22T12:46:37.241Z",
       "updatedAt": "2026-10-20T06:00:14.877Z"
     },
@@ -2117,6 +2117,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/la cambo me fai mau.abc",
+      "timestamp": "2026-10-20T11:24:12.656Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-10-20T11:22:31.431Z"
     },
@@ -2139,10 +2143,6 @@
     {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-10-20T06:02:26.592Z"
-    },
-    {
-      "filePath": "occitan/la cambo me fai mau.abc",
-      "timestamp": "2026-10-20T05:59:37.288Z"
     },
     {
       "filePath": "yiddish/dos kelbl.abc",
