@@ -2091,8 +2091,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-19T05:21:56.091Z",
-      "playCount": 27,
+      "lastPlayed": "2026-10-20T05:56:40.232Z",
+      "playCount": 28,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "yiddish/in kamf.abc": {
@@ -2116,16 +2116,16 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "yiddish/dos kelbl.abc",
+      "timestamp": "2026-10-20T05:56:40.232Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-19T05:35:05.328Z"
     },
     {
       "filePath": "irish/johnny i hardly knew ya.abc",
       "timestamp": "2026-10-19T05:28:26.226Z"
-    },
-    {
-      "filePath": "yiddish/dos kelbl.abc",
-      "timestamp": "2026-10-19T05:21:56.091Z"
     },
     {
       "filePath": "occitan/ai vist lo lop.abc",
