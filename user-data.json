@@ -1431,8 +1431,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-17T09:20:46.457Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-20T06:03:48.758Z",
+      "playCount": 10,
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/ai vist lo lop.abc": {
@@ -2117,6 +2117,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/adiu paure carnaval.abc",
+      "timestamp": "2026-10-20T06:03:48.758Z"
+    },
+    {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-10-20T06:02:26.592Z"
     },
@@ -2191,10 +2195,6 @@
     {
       "filePath": "israeli/tzena tzena.abc",
       "timestamp": "2026-10-18T11:53:17.512Z"
-    },
-    {
-      "filePath": "french/douce dame jolie.abc",
-      "timestamp": "2026-10-18T11:08:58.783Z"
     }
   ],
   "settings": {}
