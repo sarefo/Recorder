@@ -1744,8 +1744,8 @@
       "status": "good",
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-01-27T19:26:11.238Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-22T04:35:03.409Z",
+      "playCount": 2,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "russian/korobeiniki.abc": {
@@ -2118,6 +2118,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "russian/kalinka.abc",
+      "timestamp": "2026-10-22T04:35:03.409Z"
+    },
+    {
       "filePath": "scottish/fang_fiddlers.abc",
       "timestamp": "2026-10-20T11:28:17.689Z"
     },
@@ -2192,10 +2196,6 @@
     {
       "filePath": "israeli/hevenu shalom aleichem.abc",
       "timestamp": "2026-10-18T11:58:24.593Z"
-    },
-    {
-      "filePath": "israeli/hatikvah.abc",
-      "timestamp": "2026-10-18T11:57:08.690Z"
     }
   ],
   "activity": {},
