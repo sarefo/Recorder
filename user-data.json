@@ -1110,19 +1110,19 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-07-28T03:44:45.300Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-22T06:21:53.056Z",
+      "playCount": 3,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-08T02:51:46.396Z"
     },
     "italian/bella ciao.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-22T06:15:36.720Z",
       "playCount": 6,
       "createdAt": "2026-01-18T20:46:38.366Z",
-      "updatedAt": "2026-10-08T02:51:44.765Z"
+      "updatedAt": "2026-10-22T06:21:30.721Z"
     },
     "italian/tarantella napoletana.abc": {
       "status": "practicing",
@@ -2123,6 +2123,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/bandiera_rossa.abc",
+      "timestamp": "2026-10-22T06:21:53.056Z"
+    },
+    {
       "filePath": "italian/bella ciao.abc",
       "timestamp": "2026-10-22T06:15:36.720Z"
     },
@@ -2197,10 +2201,6 @@
     {
       "filePath": "irish/johnny i hardly knew ya.abc",
       "timestamp": "2026-10-19T05:28:26.226Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-10-19T05:13:04.933Z"
     }
   ],
   "activity": {
@@ -2208,7 +2208,7 @@
       "classical/bach/adams_fall.abc": 2,
       "classical/bach/badinerie.abc": 2,
       "classical/bach/tiefer_not.abc": 1,
-      "italian/bella ciao.abc": 1,
+      "italian/bella ciao.abc": 2,
       "jazz/all of me.abc": 3,
       "russian/kalinka.abc": 1
     }
@@ -2223,6 +2223,11 @@
       "path": "classical/bach/badinerie.abc",
       "status": "practicing",
       "at": "2026-10-22T05:47:42.192Z"
+    },
+    {
+      "path": "italian/bella ciao.abc",
+      "status": "good",
+      "at": "2026-10-22T06:21:30.721Z"
     }
   ],
   "marks": {
