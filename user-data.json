@@ -315,8 +315,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T07:13:14.483Z",
-      "playCount": 4,
+      "lastPlayed": "2026-10-22T05:46:51.236Z",
+      "playCount": 5,
       "createdAt": "2026-09-26T04:52:58.455Z"
     },
     "classical/bach/chorales/allein gott in der hoeh sei ehr.abc": {
@@ -2121,6 +2121,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/badinerie.abc",
+      "timestamp": "2026-10-22T05:46:51.236Z"
+    },
+    {
       "filePath": "classical/bach/adams_fall.abc",
       "timestamp": "2026-10-22T05:43:25.524Z"
     },
@@ -2195,15 +2199,12 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-19T04:59:23.910Z"
-    },
-    {
-      "filePath": "israeli/yerushalayim shel zahav.abc",
-      "timestamp": "2026-10-18T12:01:16.093Z"
     }
   ],
   "activity": {
     "2026-10-22": {
       "classical/bach/adams_fall.abc": 2,
+      "classical/bach/badinerie.abc": 1,
       "classical/bach/tiefer_not.abc": 1,
       "jazz/all of me.abc": 3,
       "russian/kalinka.abc": 1
@@ -2241,6 +2242,64 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-22T05:44:29.482Z"
+      }
+    },
+    "classical/bach/badinerie.abc": {
+      "1": {
+        "pitch": "_a",
+        "prev": "f",
+        "pitchSeen": 7,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-22T05:47:06.392Z"
+      },
+      "6": {
+        "pitch": "_A",
+        "prev": "c",
+        "pitchSeen": 35,
+        "transSeen": 7,
+        "count": 1,
+        "at": "2026-10-22T05:47:06.393Z"
+      },
+      "20": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 28,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-22T05:47:06.393Z"
+      },
+      "52": {
+        "pitch": "_e",
+        "prev": "c",
+        "pitchSeen": 13,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-10-22T05:47:06.400Z"
+      },
+      "99": {
+        "pitch": "_E",
+        "prev": "G",
+        "pitchSeen": 3,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-22T05:47:06.401Z"
+      },
+      "109": {
+        "pitch": "_d",
+        "prev": "_e",
+        "pitchSeen": 12,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-22T05:47:06.401Z"
+      },
+      "208": {
+        "pitch": "_D",
+        "prev": "C",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-22T05:47:06.402Z"
       }
     },
     "jazz/autumn leaves.abc": {
