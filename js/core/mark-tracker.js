@@ -3,9 +3,10 @@
  * notes give trouble.
  *
  * Tapping a note cycles it neutral, red, green, so a red mark that was only
- * passed through on the way to green means nothing. A mark counts once it has
- * stayed for DWELL_MS on the same tune. A green mark that stays that long
- * takes one earlier red count off the note again.
+ * passed through on the way to green means nothing. A red mark counts once it
+ * has stayed red for DWELL_MS on the same tune. Any other state ends the wait,
+ * and neither green nor neutral takes back counts already made: the record is
+ * of where trouble happened, not of whether it was fixed since.
  */
 class MarkTracker {
     static DWELL_MS = 10 * 1000;
@@ -26,35 +27,29 @@ class MarkTracker {
     onChange(noteIndex, newState) {
         clearTimeout(this.timers.get(noteIndex));
         this.timers.delete(noteIndex);
-        if (newState !== 'red' && newState !== 'green') return;
+        if (newState !== 'red') return;
 
         const path = this.player.fileManager.currentFilePath;
         if (!path) return;
         this.timers.set(noteIndex, setTimeout(
-            () => this.commit(path, noteIndex, newState), MarkTracker.DWELL_MS));
+            () => this.commit(path, noteIndex), MarkTracker.DWELL_MS));
     }
 
     /**
-     * Records a mark that has stayed long enough
+     * Records a red mark that has stayed long enough
      * @param {string} path - The tune the mark was made on
      * @param {string} noteIndex - Index of the note
-     * @param {string} state - 'red' or 'green'
      * @private
      */
-    commit(path, noteIndex, state) {
+    commit(path, noteIndex) {
         this.timers.delete(noteIndex);
-        // The tune changed or the mark was cleared in the meantime
+        // The tune changed or the mark was changed in the meantime
         if (this.player.fileManager.currentFilePath !== path) return;
         const zone = document.querySelector(`.note-marker-zone[data-note-index="${noteIndex}"]`);
-        if (zone?.getAttribute('data-state') !== state) return;
+        if (zone?.getAttribute('data-state') !== 'red') return;
 
-        const userData = this.player.userDataManager;
-        if (state === 'green') {
-            userData.settleMark(path, noteIndex);
-            return;
-        }
         const context = MarkTracker.contextFor(this.player.notationParser.extractCleanedNotes(), Number(noteIndex));
-        if (context) userData.recordMark(path, noteIndex, context);
+        if (context) this.player.userDataManager.recordMark(path, noteIndex, context);
     }
 
     /**

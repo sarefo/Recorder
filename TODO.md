@@ -12,14 +12,15 @@ and note changes keep going wrong.
 Tapping a note cycles it neutral, red, green (`fingering-manager.js`,
 `data-state` on `.note-marker-zone`). `MarkTracker` (`js/core/mark-tracker.js`)
 turns that into data:
-- A red mark counts only after it has stayed 10 seconds on the same tune
-  (`MarkTracker.DWELL_MS`). Passing through red on the way to green, clearing
-  it, or switching tunes records nothing.
-- A green mark that stays 10 seconds takes one red count off the note.
+- A red mark counts only after it has stayed red for 10 seconds on the same
+  tune (`MarkTracker.DWELL_MS`). Passing through red on the way to green,
+  clearing it, or switching tunes records nothing. Green and neutral only end
+  the wait; they never take back counts already made.
 - Each counted mark is stored in `marks[path][noteIndex]` in the user data with
   the pitch, the previous pitch (null after a rest; tied-on notes skipped), the
   count, the time, and how often that pitch and that note change occur in the
-  tune. Merged across devices, the copy changed last wins.
+  tune. Merged across devices: the copy changed last supplies the context, the
+  count is the larger of the two.
 
 ### Analysis (done, first version)
 

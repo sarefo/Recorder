@@ -142,8 +142,8 @@ class UserDataManager {
 
     /**
      * Combines two sets of trouble-spot marks (path -> note index -> mark).
-     * A mark can go down again, so a plain maximum would bring back counts
-     * that were settled; the copy changed last wins instead.
+     * The copy changed last supplies the note's context; the count is the
+     * larger of the two, since counts only go up.
      * @param {Object} [a] - One set (wins ties)
      * @param {Object} [b] - The other set
      * @returns {Object} Merged marks, paths and indexes in sorted order
@@ -160,7 +160,12 @@ class UserDataManager {
             for (const index of indexes) {
                 const l = markA[index];
                 const r = markB[index];
-                merged[path][index] = !l ? r : !r ? l : time(r.at) > time(l.at) ? r : l;
+                if (!l || !r) {
+                    merged[path][index] = l || r;
+                    continue;
+                }
+                const newer = time(r.at) > time(l.at) ? r : l;
+                merged[path][index] = { ...newer, count: Math.max(l.count || 0, r.count || 0) };
             }
         }
         return merged;
@@ -405,20 +410,6 @@ class UserDataManager {
             count: (previous?.count || 0) + 1,
             at: new Date().toISOString()
         };
-        this.saveData();
-    }
-
-    /**
-     * Takes one red count off a note that stayed green. The entry stays with
-     * a count of 0, so syncing does not bring the old count back.
-     * @param {string} filePath - Path to the song file
-     * @param {string|number} noteIndex - Index of the note
-     */
-    settleMark(filePath, noteIndex) {
-        const mark = this.data.marks[filePath]?.[noteIndex];
-        if (!mark || mark.count <= 0) return;
-        mark.count--;
-        mark.at = new Date().toISOString();
         this.saveData();
     }
 
