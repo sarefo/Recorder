@@ -2198,7 +2198,11 @@
       "timestamp": "2026-10-18T11:58:24.593Z"
     }
   ],
-  "activity": {},
+  "activity": {
+    "2026-10-22": {
+      "russian/kalinka.abc": 1
+    }
+  },
   "statusLog": [],
   "settings": {}
 }
