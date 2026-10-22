@@ -1174,8 +1174,8 @@
       "status": "practicing",
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-10-22T05:25:13.820Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-22T05:38:32.249Z",
+      "playCount": 4,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "jazz/autumn leaves.abc": {
@@ -2118,12 +2118,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-10-22T05:37:37.477Z"
+      "filePath": "jazz/all of me.abc",
+      "timestamp": "2026-10-22T05:38:32.249Z"
     },
     {
-      "filePath": "jazz/all of me.abc",
-      "timestamp": "2026-10-22T05:25:13.820Z"
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-10-22T05:37:37.477Z"
     },
     {
       "filePath": "russian/kalinka.abc",
@@ -2200,7 +2200,7 @@
   ],
   "activity": {
     "2026-10-22": {
-      "jazz/all of me.abc": 2,
+      "jazz/all of me.abc": 3,
       "russian/kalinka.abc": 1
     }
   },
