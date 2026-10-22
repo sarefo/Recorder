@@ -218,8 +218,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-17T10:02:46.872Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-22T06:45:28.935Z",
+      "playCount": 2,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/meili de caoyuan.abc": {
@@ -2123,6 +2123,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/liangshanbo.abc",
+      "timestamp": "2026-10-22T06:45:28.935Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-22T06:26:33.632Z"
     },
@@ -2197,15 +2201,12 @@
     {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-10-20T06:02:26.592Z"
-    },
-    {
-      "filePath": "yiddish/dos kelbl.abc",
-      "timestamp": "2026-10-20T05:56:40.232Z"
     }
   ],
   "activity": {
     "2026-10-22": {
       "breton/son ar chistr.abc": 1,
+      "chinese/liangshanbo.abc": 1,
       "classical/bach/adams_fall.abc": 2,
       "classical/bach/badinerie.abc": 2,
       "classical/bach/tiefer_not.abc": 1,
