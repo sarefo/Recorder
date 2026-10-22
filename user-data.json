@@ -1182,8 +1182,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-15T09:44:19.845Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-22T05:37:37.477Z",
+      "playCount": 2,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-15T09:48:05.144Z"
     },
@@ -2118,6 +2118,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-10-22T05:37:37.477Z"
+    },
+    {
       "filePath": "jazz/all of me.abc",
       "timestamp": "2026-10-22T05:25:13.820Z"
     },
@@ -2192,10 +2196,6 @@
     {
       "filePath": "israeli/mayim mayim.abc",
       "timestamp": "2026-10-18T12:00:11.901Z"
-    },
-    {
-      "filePath": "israeli/hine ma tov.abc",
-      "timestamp": "2026-10-18T11:59:19.963Z"
     }
   ],
   "activity": {
@@ -2205,6 +2205,33 @@
     }
   },
   "statusLog": [],
-  "marks": {},
+  "marks": {
+    "jazz/autumn leaves.abc": {
+      "2": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 9,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-10-22T05:37:57.124Z"
+      },
+      "3": {
+        "pitch": "_e",
+        "prev": "_B",
+        "pitchSeen": 6,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-22T05:37:57.125Z"
+      },
+      "11": {
+        "pitch": "_E",
+        "prev": "d",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-22T05:37:57.126Z"
+      }
+    }
+  },
   "settings": {}
 }
