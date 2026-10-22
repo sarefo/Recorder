@@ -304,11 +304,12 @@
     },
     "classical/bach/adams_fall.abc": {
       "status": "practicing",
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-07T10:55:50.769Z",
-      "playCount": 6,
-      "createdAt": "2026-01-18T20:46:38.366Z"
+      "lastPlayed": "2026-10-22T05:43:25.524Z",
+      "playCount": 7,
+      "createdAt": "2026-01-18T20:46:38.366Z",
+      "updatedAt": "2026-10-22T05:43:27.578Z"
     },
     "classical/bach/badinerie.abc": {
       "status": "needs-practice",
@@ -552,13 +553,13 @@
       "createdAt": "2026-10-02T09:18:25.704Z"
     },
     "classical/bach/tiefer_not.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-22T05:41:44.830Z",
       "playCount": 8,
       "createdAt": "2026-01-18T20:46:38.366Z",
-      "updatedAt": "2026-10-22T05:41:49.162Z"
+      "updatedAt": "2026-10-22T05:43:21.243Z"
     },
     "classical/brahms/hungarian dance 1.abc": {
       "status": null,
@@ -2120,6 +2121,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/adams_fall.abc",
+      "timestamp": "2026-10-22T05:43:25.524Z"
+    },
+    {
       "filePath": "classical/bach/tiefer_not.abc",
       "timestamp": "2026-10-22T05:41:44.830Z"
     },
@@ -2194,21 +2199,42 @@
     {
       "filePath": "israeli/yerushalayim shel zahav.abc",
       "timestamp": "2026-10-18T12:01:16.093Z"
-    },
-    {
-      "filePath": "israeli/shalom chaverim.abc",
-      "timestamp": "2026-10-18T12:00:51.579Z"
     }
   ],
   "activity": {
     "2026-10-22": {
+      "classical/bach/adams_fall.abc": 1,
       "classical/bach/tiefer_not.abc": 1,
       "jazz/all of me.abc": 3,
       "russian/kalinka.abc": 1
     }
   },
-  "statusLog": [],
+  "statusLog": [
+    {
+      "path": "classical/bach/tiefer_not.abc",
+      "status": "good",
+      "at": "2026-10-22T05:43:21.243Z"
+    }
+  ],
   "marks": {
+    "classical/bach/adams_fall.abc": {
+      "5": {
+        "pitch": "_E",
+        "prev": "G",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-22T05:43:40.093Z"
+      },
+      "14": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 6,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-22T05:43:40.094Z"
+      }
+    },
     "jazz/autumn leaves.abc": {
       "2": {
         "pitch": "_B",
