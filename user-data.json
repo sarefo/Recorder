@@ -88,8 +88,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-19T04:59:23.910Z",
-      "playCount": 22,
+      "lastPlayed": "2026-10-22T06:26:33.632Z",
+      "playCount": 23,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-08T06:58:19.399Z"
     },
@@ -2123,6 +2123,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-10-22T06:26:33.632Z"
+    },
+    {
       "filePath": "polish/dwa serduszka.abc",
       "timestamp": "2026-10-22T06:24:35.575Z"
     },
@@ -2197,10 +2201,6 @@
     {
       "filePath": "yiddish/dos kelbl.abc",
       "timestamp": "2026-10-20T05:56:40.232Z"
-    },
-    {
-      "filePath": "latino/tango/por una cabeza.abc",
-      "timestamp": "2026-10-19T05:35:05.328Z"
     }
   ],
   "activity": {
