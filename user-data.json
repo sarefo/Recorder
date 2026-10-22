@@ -1538,8 +1538,8 @@
       "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-18T06:26:03.840Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-22T06:24:35.575Z",
+      "playCount": 3,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/bert kaempfert/a swingin safari.abc": {
@@ -2123,6 +2123,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "polish/dwa serduszka.abc",
+      "timestamp": "2026-10-22T06:24:35.575Z"
+    },
+    {
       "filePath": "italian/bandiera_rossa.abc",
       "timestamp": "2026-10-22T06:21:53.056Z"
     },
@@ -2197,10 +2201,6 @@
     {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-19T05:35:05.328Z"
-    },
-    {
-      "filePath": "irish/johnny i hardly knew ya.abc",
-      "timestamp": "2026-10-19T05:28:26.226Z"
     }
   ],
   "activity": {
@@ -2211,6 +2211,7 @@
       "italian/bandiera_rossa.abc": 1,
       "italian/bella ciao.abc": 2,
       "jazz/all of me.abc": 3,
+      "polish/dwa serduszka.abc": 1,
       "russian/kalinka.abc": 1
     }
   },
