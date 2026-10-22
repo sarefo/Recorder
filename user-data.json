@@ -235,8 +235,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T10:59:10.805Z",
-      "playCount": 29,
+      "lastPlayed": "2026-10-22T06:49:40.395Z",
+      "playCount": 30,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/na jiushi wo.abc": {
@@ -2124,6 +2124,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/molihua.abc",
+      "timestamp": "2026-10-22T06:49:40.395Z"
+    },
+    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-10-22T06:48:01.114Z"
     },
@@ -2198,16 +2202,13 @@
     {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-10-20T06:13:37.027Z"
-    },
-    {
-      "filePath": "french/tourdion.abc",
-      "timestamp": "2026-10-20T06:05:35.837Z"
     }
   ],
   "activity": {
     "2026-10-22": {
       "breton/son ar chistr.abc": 1,
       "chinese/liangshanbo.abc": 2,
+      "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
       "classical/bach/adams_fall.abc": 2,
       "classical/bach/badinerie.abc": 2,
