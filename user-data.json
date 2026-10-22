@@ -1174,8 +1174,8 @@
       "status": "practicing",
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-02-09T22:11:22.483Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-22T05:25:13.820Z",
+      "playCount": 3,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "jazz/autumn leaves.abc": {
@@ -2118,6 +2118,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/all of me.abc",
+      "timestamp": "2026-10-22T05:25:13.820Z"
+    },
+    {
       "filePath": "russian/kalinka.abc",
       "timestamp": "2026-10-22T04:35:03.409Z"
     },
@@ -2192,10 +2196,6 @@
     {
       "filePath": "israeli/hine ma tov.abc",
       "timestamp": "2026-10-18T11:59:19.963Z"
-    },
-    {
-      "filePath": "israeli/hevenu shalom aleichem.abc",
-      "timestamp": "2026-10-18T11:58:24.593Z"
     }
   ],
   "activity": {
