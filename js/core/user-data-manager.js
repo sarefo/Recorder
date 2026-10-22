@@ -96,8 +96,57 @@ class UserDataManager {
             collections,
             deletedCollections,
             recentlyPlayed,
+            activity: UserDataManager.mergeActivity(local.activity, remote.activity),
+            statusLog: UserDataManager.mergeStatusLog(local.statusLog, remote.statusLog),
             settings: local.settings
         };
+    }
+
+    /**
+     * Combines two practice calendars (date -> path -> plays). A play is
+     * counted on one device only, so the larger count is the right one.
+     * @param {Object} [a] - One calendar
+     * @param {Object} [b] - The other calendar
+     * @returns {Object} Merged calendar, dates and paths in sorted order
+     */
+    static mergeActivity(a = {}, b = {}) {
+        const merged = {};
+        for (const date of [...new Set([...Object.keys(a), ...Object.keys(b)])].sort()) {
+            const day = {};
+            const dayA = a[date] || {};
+            const dayB = b[date] || {};
+            for (const path of [...new Set([...Object.keys(dayA), ...Object.keys(dayB)])].sort()) {
+                day[path] = Math.max(dayA[path] || 0, dayB[path] || 0);
+            }
+            merged[date] = day;
+        }
+        return merged;
+    }
+
+    /**
+     * Combines two status change logs. An entry is identified by song, status
+     * and time, so merging the same entries again changes nothing.
+     * @param {Array} [a] - One log
+     * @param {Array} [b] - The other log
+     * @returns {Array} Merged log, oldest first
+     */
+    static mergeStatusLog(a = [], b = []) {
+        const entries = new Map();
+        for (const entry of [...a, ...b]) {
+            entries.set(`${entry.path}|${entry.status}|${entry.at}`, entry);
+        }
+        return [...entries.values()].sort((x, y) =>
+            x.at.localeCompare(y.at) || x.path.localeCompare(y.path));
+    }
+
+    /**
+     * Local calendar date as YYYY-MM-DD, the key of the practice calendar
+     * @param {Date} [date] - Defaults to now
+     * @returns {string}
+     */
+    static dayKey(date = new Date()) {
+        const pad = n => String(n).padStart(2, '0');
+        return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
     }
 
     /**
@@ -111,7 +160,7 @@ class UserDataManager {
                 const data = JSON.parse(stored);
                 // Validate data structure
                 if (this.validateData(data)) {
-                    return data;
+                    return this.withHistory(data);
                 }
                 console.warn('Invalid user data structure, reinitializing');
             }
@@ -124,6 +173,17 @@ class UserDataManager {
     }
 
     /**
+     * Adds the practice history fields to data saved before they existed
+     * @param {Object} data - Valid user data
+     * @returns {Object} The same object
+     */
+    withHistory(data) {
+        data.activity = data.activity || {};
+        data.statusLog = data.statusLog || [];
+        return data;
+    }
+
+    /**
      * Get default data structure
      * @returns {Object} Default user data
      */
@@ -133,6 +193,8 @@ class UserDataManager {
             songs: {},
             collections: {},
             recentlyPlayed: [],
+            activity: {},
+            statusLog: [],
             settings: {
                 maxRecentSongs: 20,
                 defaultView: "all"
@@ -223,8 +285,24 @@ class UserDataManager {
         }
 
         const songData = this.getSongData(filePath);
+        const now = new Date().toISOString();
+        if (songData.status !== status) {
+            this.data.statusLog.push({ path: filePath, status, at: now });
+        }
         songData.status = status;
-        songData.updatedAt = new Date().toISOString();
+        songData.updatedAt = now;
+        this.saveData();
+    }
+
+    /**
+     * Counts one play of a song on today's practice calendar. Called when
+     * playback actually starts, not when a tune is merely opened.
+     * @param {string} filePath - Path to the song file
+     */
+    recordPractice(filePath) {
+        const day = UserDataManager.dayKey();
+        const plays = this.data.activity[day] = this.data.activity[day] || {};
+        plays[filePath] = (plays[filePath] || 0) + 1;
         this.saveData();
     }
 
@@ -446,11 +524,14 @@ class UserDataManager {
                     .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
                     .slice(0, this.data.settings.maxRecentSongs);
 
+                this.data.activity = UserDataManager.mergeActivity(this.data.activity, importedData.activity);
+                this.data.statusLog = UserDataManager.mergeStatusLog(this.data.statusLog, importedData.statusLog);
+
                 // Merge settings
                 Object.assign(this.data.settings, importedData.settings);
             } else {
                 // Replace all data
-                this.data = importedData;
+                this.data = this.withHistory(importedData);
             }
 
             this.saveData();

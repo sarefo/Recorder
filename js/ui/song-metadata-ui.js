@@ -420,6 +420,15 @@ class SongMetadataUI {
         title.textContent = 'User Data Management';
         menu.appendChild(title);
 
+        const dashboardButton = document.createElement('button');
+        dashboardButton.className = 'settings-menu-button';
+        dashboardButton.textContent = '📊 Practice dashboard';
+        dashboardButton.addEventListener('click', () => {
+            document.body.removeChild(overlay);
+            new PracticeDashboard(this.userDataManager, this.fileManager).show();
+        });
+        menu.appendChild(dashboardButton);
+
         // Export button
         const exportButton = document.createElement('button');
         exportButton.className = 'settings-menu-button';

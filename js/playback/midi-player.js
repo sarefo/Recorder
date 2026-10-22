@@ -766,6 +766,14 @@ class MidiPlayer {
 
             this.updateStatusDisplay("Playing");
 
+            // A fresh start counts as practice; resuming a pause does not
+            if (!isResume) {
+                const fileManager = window.app?.fileManager;
+                if (fileManager?.currentFilePath) {
+                    fileManager.userDataManager?.recordPractice(fileManager.currentFilePath);
+                }
+            }
+
             return true;
         } catch (error) {
             console.error("Error starting playback:", error);

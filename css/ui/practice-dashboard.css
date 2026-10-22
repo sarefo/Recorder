@@ -1,0 +1,190 @@
+/* Practice dashboard: opens from the settings menu, reuses its overlay */
+.practice-dashboard {
+    max-width: 720px;
+    width: 94%;
+    padding: var(--space-5) var(--space-4);
+}
+
+.practice-dashboard h3 {
+    padding-right: 40px;
+}
+
+.pd-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+}
+
+.pd-kpi {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    text-align: center;
+}
+
+.pd-kpi-value {
+    font-size: 28px;
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+}
+
+.pd-kpi-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.pd-kpi-hint {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.pd-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    margin-bottom: var(--space-3);
+}
+
+.pd-card h4 {
+    margin: 0 0 var(--space-2) 0;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+}
+
+.pd-note,
+.pd-empty {
+    margin: var(--space-2) 0 0 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.pd-empty {
+    margin: 0;
+}
+
+.pd-list,
+.pd-legend,
+.pd-regions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pd-song {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    min-height: 32px;
+}
+
+.pd-song:hover,
+.pd-song:focus-visible {
+    background: var(--color-surface-sunken);
+    outline: none;
+}
+
+.pd-song-name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pd-song-detail {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    white-space: nowrap;
+}
+
+.pd-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-full);
+    margin-right: var(--space-1);
+    flex: none;
+}
+
+.pd-song .pd-dot {
+    margin-right: 0;
+}
+
+.pd-bar {
+    display: flex;
+    height: 20px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--color-surface-sunken);
+}
+
+.pd-bar-thin {
+    height: 8px;
+}
+
+.pd-seg {
+    min-width: 0;
+}
+
+.pd-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-4);
+    margin-top: var(--space-2);
+    font-size: var(--font-size-sm);
+}
+
+.pd-regions li {
+    margin-bottom: var(--space-2);
+}
+
+.pd-region-head {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    font-size: var(--font-size-base);
+    margin-bottom: 3px;
+}
+
+.pd-region-head .pd-note {
+    margin: 0;
+}
+
+.pd-chart {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.pd-grid {
+    stroke: var(--color-border);
+    stroke-width: 1;
+}
+
+.pd-axis {
+    fill: var(--color-text-muted);
+    font-size: 10px;
+}
+
+.pd-scroll {
+    overflow-x: auto;
+}
+
+.pd-calendar {
+    width: 100%;
+    min-width: 420px;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .pd-kpis {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
