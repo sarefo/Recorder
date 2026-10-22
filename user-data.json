@@ -553,11 +553,12 @@
     },
     "classical/bach/tiefer_not.abc": {
       "status": "practicing",
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-07T10:54:08.229Z",
-      "playCount": 7,
-      "createdAt": "2026-01-18T20:46:38.366Z"
+      "lastPlayed": "2026-10-22T05:41:44.830Z",
+      "playCount": 8,
+      "createdAt": "2026-01-18T20:46:38.366Z",
+      "updatedAt": "2026-10-22T05:41:49.162Z"
     },
     "classical/brahms/hungarian dance 1.abc": {
       "status": null,
@@ -1172,11 +1173,12 @@
     },
     "jazz/all of me.abc": {
       "status": "practicing",
-      "favorite": false,
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-22T05:38:32.249Z",
       "playCount": 4,
-      "createdAt": "2026-01-18T20:46:38.366Z"
+      "createdAt": "2026-01-18T20:46:38.366Z",
+      "updatedAt": "2026-10-22T05:41:31.969Z"
     },
     "jazz/autumn leaves.abc": {
       "status": "needs-practice",
@@ -2118,6 +2120,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/tiefer_not.abc",
+      "timestamp": "2026-10-22T05:41:44.830Z"
+    },
+    {
       "filePath": "jazz/all of me.abc",
       "timestamp": "2026-10-22T05:38:32.249Z"
     },
@@ -2192,14 +2198,11 @@
     {
       "filePath": "israeli/shalom chaverim.abc",
       "timestamp": "2026-10-18T12:00:51.579Z"
-    },
-    {
-      "filePath": "israeli/mayim mayim.abc",
-      "timestamp": "2026-10-18T12:00:11.901Z"
     }
   ],
   "activity": {
     "2026-10-22": {
+      "classical/bach/tiefer_not.abc": 1,
       "jazz/all of me.abc": 3,
       "russian/kalinka.abc": 1
     }
