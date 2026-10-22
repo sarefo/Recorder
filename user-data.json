@@ -2345,7 +2345,7 @@
   },
   "markStates": {
     "classical/bach/badinerie.abc": {
-      "at": "2026-10-22T06:09:47.124Z",
+      "at": "2026-10-22T06:11:13.747Z",
       "notes": {
         "1": {
           "state": "red",
@@ -2362,6 +2362,18 @@
         "20": {
           "state": "red",
           "pitch": "_B"
+        },
+        "24": {
+          "state": "green",
+          "pitch": "f"
+        },
+        "34": {
+          "state": "green",
+          "pitch": "_A"
+        },
+        "50": {
+          "state": "green",
+          "pitch": "G"
         },
         "52": {
           "state": "red",
