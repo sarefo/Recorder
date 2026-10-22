@@ -19,6 +19,11 @@ class PracticeDashboard {
     static STALE_DAYS = 45;
     static CALENDAR_WEEKS = 26;
     static QUEUE_SIZE = 6;
+    /** A trouble spot needs this many red marks, in this many tunes, to be reported */
+    static STRUGGLE_MIN_MARKS = 3;
+    static STRUGGLE_MIN_TUNES = 2;
+    /** Days after which a red mark counts half as much */
+    static STRUGGLE_HALF_LIFE_DAYS = 60;
     static DAY_MS = 24 * 60 * 60 * 1000;
 
     /**
@@ -225,7 +230,94 @@ class PracticeDashboard {
             stale,
             mostPracticed,
             achievements: latestAchievements.slice(0, 6),
-            regions
+            regions,
+            struggles: PracticeDashboard.findStruggles(data.marks || {}, known, nameOf, now)
+        };
+    }
+
+    /**
+     * Readable name of a note written in ABC (capitals start at C4,
+     * lowercase at C5, as on a recorder part)
+     * @param {string} name - Note name as the player extracts it, e.g. "^c"
+     * @returns {string} For example "C♯5"
+     */
+    static noteLabel(name) {
+        const match = /^(\^{1,2}|_{1,2}|=)?([A-Ga-g])([,']*)$/.exec(name || '');
+        if (!match) return name;
+        const [, accidental = '', letter, octaves] = match;
+        let octave = letter === letter.toUpperCase() ? 4 : 5;
+        for (const mark of octaves) octave += mark === "'" ? 1 : -1;
+        const sign = { '^': '♯', '^^': '𝄪', '_': '♭', '__': '𝄫', '=': '♮' }[accidental] || '';
+        return letter.toUpperCase() + sign + octave;
+    }
+
+    /**
+     * Finds the notes and note changes that keep getting red marks. A spot is
+     * weighed against how often it occurs in those tunes, so a note that is
+     * simply everywhere does not win by volume, and older marks fade.
+     * Only tunes with marks are counted for "how often", so the rate leans
+     * high; the minimums keep one hard bar from standing out.
+     * @param {Object} marks - User data marks (path -> note index -> mark)
+     * @param {Map<string, Object>} known - The tune list by path
+     * @param {function(string): string} nameOf - Display name of a tune
+     * @param {Date} now - The current time
+     * @returns {{markTotal: number, markedTunes: number, notes: Array, moves: Array}}
+     */
+    static findStruggles(marks, known, nameOf, now) {
+        const patterns = new Map();
+        const markedTunes = new Set();
+        let markTotal = 0;
+
+        const add = (kind, key, entry, path, weight, seen) => {
+            const id = kind + '|' + key;
+            if (!patterns.has(id)) {
+                patterns.set(id, { kind, pitch: entry.pitch, prev: kind === 'move' ? entry.prev : null,
+                    weight: 0, marks: 0, tunes: new Map() });
+            }
+            const pattern = patterns.get(id);
+            pattern.weight += weight;
+            pattern.marks += entry.count;
+            // Occurrences are per tune; every mark in a tune reports the same figure
+            pattern.tunes.set(path, Math.max(pattern.tunes.get(path) || 0, seen));
+        };
+
+        for (const [path, byIndex] of Object.entries(marks)) {
+            if (!known.has(path)) continue;
+            for (const entry of Object.values(byIndex)) {
+                if (!(entry.count > 0)) continue;
+                markTotal += entry.count;
+                markedTunes.add(path);
+                const age = (now - new Date(entry.at)) / PracticeDashboard.DAY_MS;
+                const weight = entry.count * 0.5 ** (age / PracticeDashboard.STRUGGLE_HALF_LIFE_DAYS);
+                add('note', entry.pitch, entry, path, weight, entry.pitchSeen || 1);
+                if (entry.prev) add('move', entry.prev + '>' + entry.pitch, entry, path, weight, entry.transSeen || 1);
+            }
+        }
+
+        const ranked = [...patterns.values()]
+            .filter(p => p.marks >= PracticeDashboard.STRUGGLE_MIN_MARKS && p.tunes.size >= PracticeDashboard.STRUGGLE_MIN_TUNES)
+            .map(p => {
+                const seen = [...p.tunes.values()].reduce((sum, n) => sum + n, 0);
+                const paths = [...p.tunes.keys()];
+                return {
+                    kind: p.kind,
+                    label: p.kind === 'move'
+                        ? `${PracticeDashboard.noteLabel(p.prev)} → ${PracticeDashboard.noteLabel(p.pitch)}`
+                        : PracticeDashboard.noteLabel(p.pitch),
+                    marks: p.marks,
+                    tunes: paths.length,
+                    path: paths[0],
+                    tuneNames: paths.slice(0, 2).map(nameOf),
+                    score: p.weight / (seen + 3)
+                };
+            })
+            .sort((a, b) => b.score - a.score || a.label.localeCompare(b.label));
+
+        return {
+            markTotal,
+            markedTunes: markedTunes.size,
+            notes: ranked.filter(p => p.kind === 'note').slice(0, 3),
+            moves: ranked.filter(p => p.kind === 'move').slice(0, 3)
         };
     }
 
@@ -235,7 +327,7 @@ class PracticeDashboard {
             this.userDataManager.data, this.fileManager.fileList, new Date());
 
         const overlay = document.createElement('div');
-        overlay.className = 'settings-menu-overlay';
+        overlay.className = 'settings-menu-overlay practice-dashboard-overlay';
 
         const panel = document.createElement('div');
         panel.className = 'settings-menu practice-dashboard';
@@ -297,6 +389,8 @@ class PracticeDashboard {
             '</div>',
             section('Practice next', this.renderQueue(stats),
                 'Tunes you have not played for a while, by status: needs practice after 1 day, practicing 2, good 5, mastered 21.'),
+            section('Where you struggle', this.renderStruggles(stats),
+                'Built from notes you mark red while playing and leave marked for 10 seconds.'),
             section('Status of the library', this.renderStatusBar(stats)),
             section('Progress over time', this.renderHistory(stats),
                 stats.estimated ? `${stats.estimated} tunes got their status before history was recorded; they appear at the date of their last change.` : ''),
@@ -330,6 +424,26 @@ class PracticeDashboard {
         const ago = days => (days === Infinity ? 'never played' : days < 1.5 ? 'yesterday' : `${Math.floor(days)} days ago`);
         return '<ul class="pd-list">' +
             stats.queue.map(item => this.songRow(item, ago(item.days))).join('') + '</ul>';
+    }
+
+    /** @private */
+    renderStruggles(stats) {
+        const { notes, moves, markTotal, markedTunes } = stats.struggles;
+        if (!notes.length && !moves.length) {
+            const sofar = markTotal ? ` So far: ${markTotal} red marks in ${markedTunes} tunes.` : '';
+            return '<p class="pd-empty">Nothing stands out yet. Tap a note you stumble on until it is red and ' +
+                'leave it there for 10 seconds. Once the same notes or note changes keep coming back in ' +
+                `different tunes, they show up here.${sofar}</p>`;
+        }
+        const esc = PracticeDashboard.escape;
+        const list = (title, items) => !items.length ? '' :
+            `<h5 class="pd-sub">${title}</h5><ul class="pd-list">` + items.map(item =>
+                `<li class="pd-song" data-path="${esc(item.path)}" tabindex="0">` +
+                `<span class="pd-dot" style="background:${SongMetadataUI.STATUS_COLORS['needs-practice']}"></span>` +
+                `<span class="pd-song-name">${esc(item.label)}` +
+                `<span class="pd-song-detail"> in ${item.tuneNames.map(esc).join(', ')}${item.tunes > 2 ? ` and ${item.tunes - 2} more` : ''}</span></span>` +
+                `<span class="pd-song-detail">${item.marks} marks</span></li>`).join('') + '</ul>';
+        return list('Note changes', moves) + list('Single notes', notes);
     }
 
     /** @private */
@@ -383,12 +497,15 @@ class PracticeDashboard {
         let cells = '';
         let months = '';
         let lastMonth = -1;
+        let lastLabelColumn = -9;
         weeks.forEach((week, i) => {
             const month = week[0].date.getMonth();
-            if (month !== lastMonth) {
+            // A month that starts in the last columns has no room for its name
+            if (month !== lastMonth && i - lastLabelColumn >= 3) {
+                lastLabelColumn = i;
                 months += `<text x="${left + i * (cell + gap)}" y="9" class="pd-axis">${week[0].date.toLocaleDateString(undefined, { month: 'short' })}</text>`;
-                lastMonth = month;
             }
+            lastMonth = month;
             week.forEach((day, d) => {
                 if (day.future) return;
                 const lv = level(day.plays);

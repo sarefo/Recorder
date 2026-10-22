@@ -71,10 +71,12 @@ class AbcPlayer {
 
         // Set up callback for note marking changes (for dynamic diagram updates in 'marked' mode)
         this.fingeringManager.onNoteMarkingChanged = (noteIndex, newState, oldState) => {
+            this.markTracker?.onChange(noteIndex, newState);
             this.handleNoteMarkingChanged(noteIndex, newState, oldState);
         };
 
         this.fileManager = new FileManager(this, this.userDataManager);
+        this.markTracker = new MarkTracker(this);
         this.tuneNavigation = new TuneNavigation(this);
         this.uiControls = new UIControls(this);
         this.renderManager = new RenderManager(this);

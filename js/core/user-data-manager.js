@@ -98,6 +98,7 @@ class UserDataManager {
             recentlyPlayed,
             activity: UserDataManager.mergeActivity(local.activity, remote.activity),
             statusLog: UserDataManager.mergeStatusLog(local.statusLog, remote.statusLog),
+            marks: UserDataManager.mergeMarks(local.marks, remote.marks),
             settings: local.settings
         };
     }
@@ -137,6 +138,32 @@ class UserDataManager {
         }
         return [...entries.values()].sort((x, y) =>
             x.at.localeCompare(y.at) || x.path.localeCompare(y.path));
+    }
+
+    /**
+     * Combines two sets of trouble-spot marks (path -> note index -> mark).
+     * A mark can go down again, so a plain maximum would bring back counts
+     * that were settled; the copy changed last wins instead.
+     * @param {Object} [a] - One set (wins ties)
+     * @param {Object} [b] - The other set
+     * @returns {Object} Merged marks, paths and indexes in sorted order
+     */
+    static mergeMarks(a = {}, b = {}) {
+        const time = value => (value ? Date.parse(value) || 0 : 0);
+        const merged = {};
+        for (const path of [...new Set([...Object.keys(a), ...Object.keys(b)])].sort()) {
+            const markA = a[path] || {};
+            const markB = b[path] || {};
+            merged[path] = {};
+            const indexes = [...new Set([...Object.keys(markA), ...Object.keys(markB)])]
+                .sort((x, y) => Number(x) - Number(y));
+            for (const index of indexes) {
+                const l = markA[index];
+                const r = markB[index];
+                merged[path][index] = !l ? r : !r ? l : time(r.at) > time(l.at) ? r : l;
+            }
+        }
+        return merged;
     }
 
     /**
@@ -180,6 +207,7 @@ class UserDataManager {
     withHistory(data) {
         data.activity = data.activity || {};
         data.statusLog = data.statusLog || [];
+        data.marks = data.marks || {};
         return data;
     }
 
@@ -195,6 +223,7 @@ class UserDataManager {
             recentlyPlayed: [],
             activity: {},
             statusLog: [],
+            marks: {},
             settings: {
                 maxRecentSongs: 20,
                 defaultView: "all"
@@ -355,6 +384,41 @@ class UserDataManager {
             this.data.recentlyPlayed = this.data.recentlyPlayed.slice(0, maxRecent);
         }
 
+        this.saveData();
+    }
+
+    /**
+     * Counts one more red mark on a note of a tune, replacing the context
+     * stored with it (the latest key and fingering are the ones that matter)
+     * @param {string} filePath - Path to the song file
+     * @param {string|number} noteIndex - Index of the note in the rendered tune
+     * @param {{pitch: string, prev: string|null, pitchSeen: number, transSeen: number}} context
+     */
+    recordMark(filePath, noteIndex, context) {
+        const marks = this.data.marks[filePath] = this.data.marks[filePath] || {};
+        const previous = marks[noteIndex];
+        marks[noteIndex] = {
+            pitch: context.pitch,
+            prev: context.prev,
+            pitchSeen: context.pitchSeen,
+            transSeen: context.transSeen,
+            count: (previous?.count || 0) + 1,
+            at: new Date().toISOString()
+        };
+        this.saveData();
+    }
+
+    /**
+     * Takes one red count off a note that stayed green. The entry stays with
+     * a count of 0, so syncing does not bring the old count back.
+     * @param {string} filePath - Path to the song file
+     * @param {string|number} noteIndex - Index of the note
+     */
+    settleMark(filePath, noteIndex) {
+        const mark = this.data.marks[filePath]?.[noteIndex];
+        if (!mark || mark.count <= 0) return;
+        mark.count--;
+        mark.at = new Date().toISOString();
         this.saveData();
     }
 
@@ -526,6 +590,7 @@ class UserDataManager {
 
                 this.data.activity = UserDataManager.mergeActivity(this.data.activity, importedData.activity);
                 this.data.statusLog = UserDataManager.mergeStatusLog(this.data.statusLog, importedData.statusLog);
+                this.data.marks = UserDataManager.mergeMarks(this.data.marks, importedData.marks);
 
                 // Merge settings
                 Object.assign(this.data.settings, importedData.settings);

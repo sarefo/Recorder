@@ -188,3 +188,28 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* Paint cost: a blurred backdrop over the whole notation page is re-rendered
+   by the compositor and is slow on Windows Chrome, so the dashboard dims the
+   page without blurring it. Cards below the fold are not painted until they
+   scroll into view. */
+.practice-dashboard-overlay {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.practice-dashboard {
+    box-shadow: var(--shadow-md);
+}
+
+.pd-card {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 160px;
+}
+
+.pd-sub {
+    margin: var(--space-2) 0 var(--space-1) 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-muted);
+}
