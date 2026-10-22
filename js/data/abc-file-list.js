@@ -864,7 +864,7 @@ class AbcFileList {
                 "name": "All Of Me",
                 "file": "jazz/all of me.abc",
                 "category": "jazz",
-                "hash": "ed9400161d"
+                "hash": "5e7c032bdd"
         },
         {
                 "name": "Autumn Leaves",
