@@ -1642,11 +1642,12 @@
     },
     "pop/popcorn.abc": {
       "status": "practicing",
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-07-28T06:54:42.522Z",
-      "playCount": 3,
-      "createdAt": "2026-01-18T20:46:38.367Z"
+      "lastPlayed": "2026-10-22T06:12:46.870Z",
+      "playCount": 4,
+      "createdAt": "2026-01-18T20:46:38.367Z",
+      "updatedAt": "2026-10-22T06:12:52.362Z"
     },
     "pop/tequila.abc": {
       "status": null,
@@ -2122,6 +2123,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/popcorn.abc",
+      "timestamp": "2026-10-22T06:12:46.870Z"
+    },
+    {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-10-22T06:09:55.281Z"
     },
@@ -2196,10 +2201,6 @@
     {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-10-19T05:12:55.665Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-10-19T04:59:23.910Z"
     }
   ],
   "activity": {
@@ -2341,6 +2342,32 @@
         "count": 1,
         "at": "2026-10-22T05:37:57.126Z"
       }
+    },
+    "pop/popcorn.abc": {
+      "2": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 13,
+        "transSeen": 7,
+        "count": 1,
+        "at": "2026-10-22T06:13:06.023Z"
+      },
+      "17": {
+        "pitch": "_e",
+        "prev": "d",
+        "pitchSeen": 15,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-10-22T06:13:06.024Z"
+      },
+      "75": {
+        "pitch": "_b",
+        "prev": "a",
+        "pitchSeen": 4,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-22T06:13:06.025Z"
+      }
     }
   },
   "markStates": {
@@ -2390,6 +2417,31 @@
         "208": {
           "state": "red",
           "pitch": "_D"
+        }
+      }
+    },
+    "pop/popcorn.abc": {
+      "at": "2026-10-22T06:13:52.458Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "17": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "59": {
+          "state": "green",
+          "pitch": "g"
+        },
+        "73": {
+          "state": "green",
+          "pitch": "g"
+        },
+        "75": {
+          "state": "red",
+          "pitch": "_b"
         }
       }
     }
