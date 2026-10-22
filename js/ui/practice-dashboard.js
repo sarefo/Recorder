@@ -53,8 +53,16 @@ class PracticeDashboard {
 
         // Status of every tune in the library; a tune with no entry is untouched
         const statusOf = path => songs[path]?.status || null;
-        const counts = { 'needs-practice': 0, practicing: 0, good: 0, mastered: 0, untouched: 0 };
-        files.forEach(file => { counts[statusOf(file.file) || 'untouched']++; });
+        // Favorites are the tunes being worked on; they are counted apart from the rest
+        const emptyCounts = () => ({ 'needs-practice': 0, practicing: 0, good: 0, mastered: 0, untouched: 0 });
+        const counts = emptyCounts();
+        const favoriteCounts = emptyCounts();
+        const otherCounts = emptyCounts();
+        files.forEach(file => {
+            const status = statusOf(file.file) || 'untouched';
+            counts[status]++;
+            (songs[file.file]?.favorite === true ? favoriteCounts : otherCounts)[status]++;
+        });
 
         // --- Practice calendar and streaks ---
         const dayKey = UserDataManager.dayKey;
@@ -148,10 +156,11 @@ class PracticeDashboard {
         // --- What to practice next ---
         // A song is due once it has gone unplayed for REVIEW_DAYS of its
         // status; the more overdue, the earlier it comes. Never-played tunes
-        // that carry a status count as long overdue.
+        // that carry a status count as long overdue. Only favorites are
+        // considered: the rest of the library is not being practiced.
         const due = [];
         Object.entries(songs).forEach(([path, song]) => {
-            if (!song.status || !known.has(path)) return;
+            if (!song.favorite || !song.status || !known.has(path)) return;
             const gap = PracticeDashboard.REVIEW_DAYS[song.status];
             const overdue = daysSince(song.lastPlayed) / gap;
             if (overdue >= 1) due.push({ path, name: nameOf(path), status: song.status, overdue, days: daysSince(song.lastPlayed) });
@@ -217,6 +226,8 @@ class PracticeDashboard {
         return {
             total: files.length,
             counts,
+            favoriteCounts,
+            otherCounts,
             started: files.length - counts.untouched,
             streak,
             bestStreak,
@@ -388,7 +399,7 @@ class PracticeDashboard {
                 kpi(stats.started, 'tunes started', `${Math.round(100 * stats.started / Math.max(1, stats.total))}% of the library`) +
             '</div>',
             section('Practice next', this.renderQueue(stats),
-                'Tunes you have not played for a while, by status: needs practice after 1 day, practicing 2, good 5, mastered 21.'),
+                'Favorites you have not played for a while, by status: needs practice after 1 day, practicing 2, good 5, mastered 21.'),
             section('Where you struggle', this.renderStruggles(stats),
                 'Built from notes you mark red while playing and leave marked for 10 seconds.'),
             section('Status of the library', this.renderStatusBar(stats)),
@@ -416,10 +427,14 @@ class PracticeDashboard {
     /** @private */
     renderQueue(stats) {
         if (!stats.queue.length) {
-            const hasStatus = Object.values(stats.counts).reduce((a, b) => a + b, 0) - stats.counts.untouched > 0;
-            return `<p class="pd-empty">${hasStatus
+            const favorites = Object.values(stats.favoriteCounts).reduce((a, b) => a + b, 0);
+            const withStatus = favorites - stats.favoriteCounts.untouched;
+            const message = withStatus
                 ? 'You are caught up. Nothing is due today.'
-                : 'Mark tunes as needs practice, practicing, good or mastered (long press a tune in the file list) and they show up here when they are due.'}</p>`;
+                : favorites
+                    ? 'Your favorites have no status yet. Tap the dot beside a tune title to set one (needs practice, practicing, good or mastered).'
+                    : 'Only favorites appear here. Tap the dot beside a tune title to make a tune a favorite and give it a status.';
+            return `<p class="pd-empty">${message}</p>`;
         }
         const ago = days => (days === Infinity ? 'never played' : days < 1.5 ? 'yesterday' : `${Math.floor(days)} days ago`);
         return '<ul class="pd-list">' +
@@ -448,16 +463,30 @@ class PracticeDashboard {
 
     /** @private */
     renderStatusBar(stats) {
+        return this.renderStatusGroup('Favorites', stats.favoriteCounts) +
+            this.renderStatusGroup('Other tunes', stats.otherCounts);
+    }
+
+    /**
+     * One bar with its counts
+     * @param {string} title - Name of the group of tunes
+     * @param {Object} counts - Tunes per status, and 'untouched' for none
+     * @returns {string}
+     * @private
+     */
+    renderStatusGroup(title, counts) {
         const order = [...PracticeDashboard.STATUSES.slice().reverse(), 'untouched'];
         const color = key => (key === 'untouched' ? 'var(--color-surface-sunken)' : SongMetadataUI.STATUS_COLORS[key]);
         const label = key => (key === 'untouched' ? 'Not started' : PracticeDashboard.STATUS_LABELS[key]);
+        const total = Object.values(counts).reduce((a, b) => a + b, 0);
         const segments = order
-            .filter(key => stats.counts[key] > 0)
-            .map(key => `<div class="pd-seg" style="flex:${stats.counts[key]};background:${color(key)}" ` +
-                `title="${label(key)}: ${stats.counts[key]}"></div>`).join('');
+            .filter(key => counts[key] > 0)
+            .map(key => `<div class="pd-seg" style="flex:${counts[key]};background:${color(key)}" ` +
+                `title="${label(key)}: ${counts[key]}"></div>`).join('');
         const legend = order.map(key =>
-            `<li><span class="pd-dot" style="background:${color(key)}"></span>${label(key)} <strong>${stats.counts[key]}</strong></li>`).join('');
-        return `<div class="pd-bar">${segments}</div><ul class="pd-legend">${legend}</ul>`;
+            `<li><span class="pd-dot" style="background:${color(key)}"></span>${label(key)} <strong>${counts[key]}</strong></li>`).join('');
+        return `<div class="pd-group"><div class="pd-group-head"><span>${title}</span><span class="pd-note">${total} tunes</span></div>` +
+            `<div class="pd-bar">${segments}</div><ul class="pd-legend">${legend}</ul></div>`;
     }
 
     /** @private */

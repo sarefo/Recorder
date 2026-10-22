@@ -213,3 +213,21 @@
     font-weight: var(--font-weight-semibold);
     color: var(--color-text-muted);
 }
+
+.pd-group + .pd-group {
+    margin-top: var(--space-3);
+}
+
+.pd-group-head {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-bottom: 3px;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+}
+
+.pd-group-head .pd-note {
+    margin: 0;
+    font-weight: var(--font-weight-regular);
+}
