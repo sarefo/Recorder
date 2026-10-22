@@ -57,6 +57,9 @@ class RenderManager {
                 const notes = this.player.notationParser.extractCleanedNotes();
                 this.player.diagramRenderer.addMarkerZones(abcContainer, notes);
 
+                // Marks left on this tune earlier, before diagrams pick up their state
+                this.player.markTracker?.restore(notes);
+
                 // Add fingering diagrams if they should be shown
                 if (this.player.fingeringManager.fingeringDisplayMode !== 'off') {
                     this.player.diagramRenderer.addFingeringDiagrams(abcContainer, notes);

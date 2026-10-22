@@ -99,3 +99,19 @@
 #abc-notation .score-title-star {
     fill: #f5b301;
 }
+
+/* Clears the red/green marks; only drawn while the tune has some */
+#abc-notation .score-title-clear {
+    cursor: pointer;
+}
+
+#abc-notation .score-title-clear-shape {
+    fill: none;
+    stroke: var(--color-text-muted);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+}
+
+#abc-notation .score-title-clear:hover .score-title-clear-shape {
+    stroke: var(--color-danger);
+}

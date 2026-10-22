@@ -502,7 +502,7 @@ class MobileUI {
             });
         const clearButton = this.createIconButton('mobile-clear-marks', MobileUI.ICONS.clear,
             'Clear note marks', () => {
-                const cleared = player.fingeringManager.clearAllMarks();
+                const cleared = player.markTracker.clearAll();
                 Utils.showFeedback(cleared ? `Cleared ${cleared} marked note${cleared === 1 ? '' : 's'}` : 'No marked notes');
             });
         group([byId('inline-tag-button'), notesButton, clearButton]);

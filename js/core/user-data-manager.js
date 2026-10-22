@@ -99,6 +99,7 @@ class UserDataManager {
             activity: UserDataManager.mergeActivity(local.activity, remote.activity),
             statusLog: UserDataManager.mergeStatusLog(local.statusLog, remote.statusLog),
             marks: UserDataManager.mergeMarks(local.marks, remote.marks),
+            markStates: UserDataManager.mergeMarkStates(local.markStates, remote.markStates),
             settings: local.settings
         };
     }
@@ -172,6 +173,25 @@ class UserDataManager {
     }
 
     /**
+     * Combines the red/green marks left on tunes (path -> {at, notes}).
+     * A tune's marks are one unit: the copy changed last wins as a whole, so
+     * clearing the marks on one device clears them on the other too.
+     * @param {Object} [a] - One set (wins ties)
+     * @param {Object} [b] - The other set
+     * @returns {Object} Merged marks, paths in sorted order
+     */
+    static mergeMarkStates(a = {}, b = {}) {
+        const time = value => (value ? Date.parse(value) || 0 : 0);
+        const merged = {};
+        for (const path of [...new Set([...Object.keys(a), ...Object.keys(b)])].sort()) {
+            const l = a[path];
+            const r = b[path];
+            merged[path] = !l ? r : !r ? l : time(r.at) > time(l.at) ? r : l;
+        }
+        return merged;
+    }
+
+    /**
      * Local calendar date as YYYY-MM-DD, the key of the practice calendar
      * @param {Date} [date] - Defaults to now
      * @returns {string}
@@ -213,6 +233,7 @@ class UserDataManager {
         data.activity = data.activity || {};
         data.statusLog = data.statusLog || [];
         data.marks = data.marks || {};
+        data.markStates = data.markStates || {};
         return data;
     }
 
@@ -229,6 +250,7 @@ class UserDataManager {
             activity: {},
             statusLog: [],
             marks: {},
+            markStates: {},
             settings: {
                 maxRecentSongs: 20,
                 defaultView: "all"
@@ -414,6 +436,35 @@ class UserDataManager {
     }
 
     /**
+     * Remembers the red or green mark of one note, so it is still there when
+     * the tune is opened again. Neutral forgets it.
+     * @param {string} filePath - Path to the song file
+     * @param {string|number} noteIndex - Index of the note in the rendered tune
+     * @param {string} state - 'red', 'green' or 'neutral'
+     * @param {string} pitch - The note's pitch when marked, to recognize it later
+     */
+    setMarkState(filePath, noteIndex, state, pitch) {
+        const entry = this.data.markStates[filePath] = this.data.markStates[filePath] || { at: null, notes: {} };
+        if (state === 'neutral') {
+            delete entry.notes[noteIndex];
+        } else {
+            entry.notes[noteIndex] = { state, pitch };
+        }
+        entry.at = new Date().toISOString();
+        this.saveData();
+    }
+
+    /**
+     * Forgets every remembered mark of a tune. The entry stays, empty and
+     * dated, so syncing does not bring the old marks back from another device.
+     * @param {string} filePath - Path to the song file
+     */
+    clearMarkStates(filePath) {
+        this.data.markStates[filePath] = { at: new Date().toISOString(), notes: {} };
+        this.saveData();
+    }
+
+    /**
      * Get all favorite songs
      * @returns {Array} Array of file paths
      */
@@ -582,6 +633,7 @@ class UserDataManager {
                 this.data.activity = UserDataManager.mergeActivity(this.data.activity, importedData.activity);
                 this.data.statusLog = UserDataManager.mergeStatusLog(this.data.statusLog, importedData.statusLog);
                 this.data.marks = UserDataManager.mergeMarks(this.data.marks, importedData.marks);
+                this.data.markStates = UserDataManager.mergeMarkStates(this.data.markStates, importedData.markStates);
 
                 // Merge settings
                 Object.assign(this.data.settings, importedData.settings);

@@ -22,6 +22,19 @@ turns that into data:
   tune. Merged across devices: the copy changed last supplies the context, the
   count is the larger of the two.
 
+### Saved marks (done)
+
+The marks themselves are kept separately from the trouble record, in
+`markStates[path]` (`{at, notes: {index: {state, pitch}}}`). They are saved on
+every tap and put back on the marker zones when the tune is drawn
+(`MarkTracker.restore`), only where the note still has the pitch it had when
+marked, so an edited or transposed tune loses its marks instead of showing
+them on the wrong notes. Restoring neither saves nor counts anything. Sync
+keeps the copy changed last, as a whole per tune. Only the first tune of a
+file is kept. The x button right of the status dot beside the score title
+(and the eraser in the "..." overlay) clears the marks and leaves the trouble
+record alone.
+
 ### Analysis (done, first version)
 
 `PracticeDashboard.findStruggles` groups marks by single note and by note
@@ -41,9 +54,6 @@ total over all tunes played.
   E5"), and tunes from the library that contain a weak pattern with few other
   difficulties.
 - Generate a short drill: the pattern looped, slow.
-- Show saved red marks again when a tune is reopened. Marks are stored by note
-  index plus pitch, so after an edit or a transposition the pitch can be
-  compared and stale marks dropped.
 - Group by fingering instead of pitch name (enharmonic notes and octaves that
   share a fingering shape, and thumb hole plus several fingers changing at
   once), using `getFingeringForNote`.

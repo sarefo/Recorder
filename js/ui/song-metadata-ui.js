@@ -877,7 +877,8 @@ class SongMetadataUI {
      */
     updateScoreTitleMark() {
         const title = document.querySelector('#abc-notation .abcjs-title.score-title-taggable');
-        document.querySelectorAll('#abc-notation .score-title-mark').forEach(m => m.remove());
+        document.querySelectorAll('#abc-notation .score-title-mark, #abc-notation .score-title-clear')
+            .forEach(m => m.remove());
         const filePath = this.fileManager.currentFilePath;
         if (!title || !filePath) return;
 
@@ -931,6 +932,53 @@ class SongMetadataUI {
 
         this.bindScoreTagMenu(mark);
         title.parentNode.insertBefore(mark, title.nextSibling);
+
+        // With red or green marks on the tune, a button beside the tags clears them
+        const marked = document.querySelectorAll(
+            '.note-marker-zone[data-state="red"], .note-marker-zone[data-state="green"]').length;
+        if (marked) {
+            const x = cx + radius * (songData.favorite ? 7.6 : 4.8);
+            const clear = document.createElementNS(svgNs, 'g');
+            clear.setAttribute('class', 'score-title-clear');
+
+            const label = document.createElementNS(svgNs, 'title');
+            label.textContent = 'Clear all marks on this tune';
+            clear.appendChild(label);
+
+            const ring = document.createElementNS(svgNs, 'circle');
+            ring.setAttribute('cx', x);
+            ring.setAttribute('cy', cy);
+            ring.setAttribute('r', radius * 1.15);
+            ring.setAttribute('class', 'score-title-clear-shape');
+            clear.appendChild(ring);
+
+            const cross = document.createElementNS(svgNs, 'path');
+            const arm = radius * 0.5;
+            cross.setAttribute('d', `M${x - arm},${cy - arm}L${x + arm},${cy + arm}M${x + arm},${cy - arm}L${x - arm},${cy + arm}`);
+            cross.setAttribute('class', 'score-title-clear-shape');
+            clear.appendChild(cross);
+
+            const hit = document.createElementNS(svgNs, 'rect');
+            hit.setAttribute('x', x - radius * 2);
+            hit.setAttribute('y', bbox.y - 4);
+            hit.setAttribute('width', radius * 4);
+            hit.setAttribute('height', bbox.height + 8);
+            hit.setAttribute('fill', 'transparent');
+            hit.setAttribute('stroke', 'none');
+            clear.appendChild(hit);
+
+            clear.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const cleared = this.fileManager.player.markTracker.clearAll();
+                Utils.showFeedback(cleared ? `Cleared ${cleared} marked note${cleared === 1 ? '' : 's'}` : 'No marked notes');
+            });
+            // The score treats long-press and right-click as its own gestures
+            clear.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            mark.parentNode.insertBefore(clear, mark.nextSibling);
+        }
     }
 
     /**
