@@ -485,7 +485,7 @@ class MobileUI {
 
         // Playback
         group([document.querySelector('.tempo-control')]).classList.add('mobile-overlay-wide');
-        group([byId('chart-toggle'), byId('tuning-button')]);
+        group([byId('chart-toggle'), byId('tuning-button'), byId('dashboard-button')]);
         group([byId('chords-toggle'), byId('voices-toggle'), byId('metronome-toggle')]);
 
         // Song: status/favorite, practice notes, note marks

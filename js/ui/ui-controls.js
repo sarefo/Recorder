@@ -517,6 +517,8 @@ class UIControls {
         // Add tuning control
         playbackSection.appendChild(this.createTuningButton());
 
+        playbackSection.appendChild(this.createDashboardButton());
+
         // Add transpose buttons - MOVED FROM NOTATION SECTION
         playbackSection.appendChild(this.createTransposeUpButton());
         playbackSection.appendChild(this.createTransposeDownButton());
@@ -1068,6 +1070,25 @@ class UIControls {
             await midiPlayer.customMetronome.setTempo(midiPlayer.lastTempo);
         }
         this.player.mobileUI.updateTransposeSaveButton();
+    }
+
+    /**
+     * Creates the button that opens the practice dashboard
+     * @returns {HTMLElement} The dashboard button
+     */
+    createDashboardButton() {
+        const dashboardButton = document.createElement('button');
+        dashboardButton.id = 'dashboard-button';
+        dashboardButton.title = 'Practice dashboard';
+        dashboardButton.textContent = 'Dashboard';
+
+        dashboardButton.addEventListener('click', () => {
+            this.player.mobileUI.collapseControls();
+            const fileManager = this.player.fileManager;
+            new PracticeDashboard(fileManager.userDataManager, fileManager).show();
+        });
+
+        return dashboardButton;
     }
 
     /**
