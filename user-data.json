@@ -1170,8 +1170,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T08:05:16.355Z",
-      "playCount": 20,
+      "lastPlayed": "2026-10-23T07:52:05.085Z",
+      "playCount": 21,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "jazz/all of me.abc": {
@@ -2124,6 +2124,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/sakura.abc",
+      "timestamp": "2026-10-23T07:52:05.085Z"
+    },
+    {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-10-23T07:49:51.732Z"
     },
@@ -2198,10 +2202,6 @@
     {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-10-20T11:22:31.431Z"
-    },
-    {
-      "filePath": "french/belle qui tiens ma vie.abc",
-      "timestamp": "2026-10-20T11:17:37.000Z"
     }
   ],
   "activity": {
@@ -2220,7 +2220,8 @@
       "russian/kalinka.abc": 1
     },
     "2026-10-23": {
-      "japanese/hana.abc": 2
+      "japanese/hana.abc": 2,
+      "japanese/sakura.abc": 1
     }
   },
   "statusLog": [
