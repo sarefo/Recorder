@@ -1881,8 +1881,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T07:27:36.024Z",
-      "playCount": 7,
+      "lastPlayed": "2026-10-23T10:58:18.431Z",
+      "playCount": 8,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-08T07:37:13.092Z"
     },
@@ -2125,6 +2125,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/hopetoun_house.abc",
+      "timestamp": "2026-10-23T10:58:18.431Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-23T10:53:59.995Z"
     },
@@ -2199,10 +2203,6 @@
     {
       "filePath": "russian/kalinka.abc",
       "timestamp": "2026-10-22T04:35:03.409Z"
-    },
-    {
-      "filePath": "scottish/fang_fiddlers.abc",
-      "timestamp": "2026-10-20T11:28:17.689Z"
     }
   ],
   "activity": {
