@@ -1373,8 +1373,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-19T05:35:05.328Z",
-      "playCount": 17,
+      "lastPlayed": "2026-10-23T10:53:59.995Z",
+      "playCount": 18,
       "createdAt": "2026-09-26T08:25:28.534Z"
     },
     "maori/te hokinga mai.abc": {
@@ -2125,6 +2125,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "latino/tango/por una cabeza.abc",
+      "timestamp": "2026-10-23T10:53:59.995Z"
+    },
+    {
       "filePath": "classical/schubert/forelle.abc",
       "timestamp": "2026-10-23T07:57:02.380Z"
     },
@@ -2199,10 +2203,6 @@
     {
       "filePath": "scottish/fang_fiddlers.abc",
       "timestamp": "2026-10-20T11:28:17.689Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-10-20T11:26:18.320Z"
     }
   ],
   "activity": {
@@ -2368,6 +2368,40 @@
         "at": "2026-10-22T05:37:57.126Z"
       }
     },
+    "latino/tango/por una cabeza.abc": {
+      "0": {
+        "pitch": "^F",
+        "prev": null,
+        "pitchSeen": 5,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-10-23T10:54:13.592Z"
+      },
+      "9": {
+        "pitch": "^c",
+        "prev": "B",
+        "pitchSeen": 12,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-23T10:54:13.593Z"
+      },
+      "12": {
+        "pitch": "^f",
+        "prev": "d",
+        "pitchSeen": 8,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-23T10:54:13.593Z"
+      },
+      "110": {
+        "pitch": "_B",
+        "prev": null,
+        "pitchSeen": 6,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-10-23T10:54:13.594Z"
+      }
+    },
     "pop/popcorn.abc": {
       "2": {
         "pitch": "_B",
@@ -2442,6 +2476,27 @@
         "208": {
           "state": "red",
           "pitch": "_D"
+        }
+      }
+    },
+    "latino/tango/por una cabeza.abc": {
+      "at": "2026-10-23T10:54:03.593Z",
+      "notes": {
+        "0": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "9": {
+          "state": "red",
+          "pitch": "^c"
+        },
+        "12": {
+          "state": "red",
+          "pitch": "^f"
+        },
+        "110": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
