@@ -2255,6 +2255,32 @@
     }
   ],
   "marks": {
+    "breton/les filles des forges de paimpont.abc": {
+      "22": {
+        "pitch": "B",
+        "prev": "d",
+        "pitchSeen": 10,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-24T11:24:03.987Z"
+      },
+      "23": {
+        "pitch": "e",
+        "prev": "B",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-24T11:24:04.682Z"
+      },
+      "37": {
+        "pitch": "e",
+        "prev": "B",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-24T11:23:49.052Z"
+      }
+    },
     "classical/bach/adams_fall.abc": {
       "5": {
         "pitch": "_E",
@@ -2509,6 +2535,23 @@
     }
   },
   "markStates": {
+    "breton/les filles des forges de paimpont.abc": {
+      "at": "2026-10-24T11:23:54.680Z",
+      "notes": {
+        "22": {
+          "state": "red",
+          "pitch": "B"
+        },
+        "23": {
+          "state": "red",
+          "pitch": "e"
+        },
+        "37": {
+          "state": "red",
+          "pitch": "e"
+        }
+      }
+    },
     "classical/bach/badinerie.abc": {
       "at": "2026-10-22T06:11:13.747Z",
       "notes": {
