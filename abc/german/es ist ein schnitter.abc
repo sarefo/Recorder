@@ -1,0 +1,13 @@
+X:1
+T:Es ist ein Schnitter
+O:Germany (trad, 17th c.)
+N:Melody and chords from the lieder-archiv.de lead sheet and MIDI; the melody also matches the mu-tech.org setting note for note (written a fourth lower there). Bar 11 uses the lieder-archiv rhythm; the final bar is shortened so the pickup is repaid when the tune loops. No lyrics
+M:3/4
+Q:1/4=96
+L:1/8
+K:Gm
+G2 |"Gm" G4 B2 |"Gm" A4 G2 |"Bb" F4 "Cm" E2 |"D" D4 d2 |
+"Bb" d3 c B2 |"F" c3 B A2 |"Bb" B6 |"Bb" z4 d2 |
+"Bb" d3 c d2 |"Bb" B2 c2 d2 |"F" c3 B c2 |"D" A3 B c2 |
+"G" B3 A B2 |"Cm" G3 A B2 |"Dm" A3 G A2 |"Dm" F4 D2 |
+"Bb" d4 "F" c2 |"Gm" B2 "D" A3 A |"Gm" G4 |]

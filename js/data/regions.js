@@ -21,10 +21,12 @@ class RegionMap {
             label: 'Europe',
             accent: 210,
             categories: [
-                'austrian', 'breton', 'czech', 'dutch', 'finnish', 'french',
-                'georgian', 'german', 'hungarian', 'irish', 'italian',
-                'norwegian', 'occitan', 'polish', 'portuguese', 'russian',
-                'scottish', 'spanish', 'swedish', 'ukrainian', 'yiddish',
+                'albanian', 'austrian', 'breton', 'bulgarian', 'czech', 'dutch',
+                'english', 'finnish', 'french', 'georgian', 'german', 'greek',
+                'hungarian', 'irish', 'italian', 'lithuanian', 'macedonian',
+                'maltese', 'norwegian', 'occitan', 'polish', 'portuguese',
+                'romanian', 'russian', 'scottish', 'serbian', 'slovenian',
+                'spanish', 'swedish', 'swiss', 'ukrainian', 'yiddish',
             ],
         },
         {
@@ -32,22 +34,23 @@ class RegionMap {
             label: 'Africa',
             accent: 35,
             categories: [
-                'congolese', 'egyptian', 'ghanaian', 'kenyan', 'moroccan',
-                'south african', 'ugandan', 'zambian',
+                'algerian', 'congolese', 'egyptian', 'ghanaian', 'kenyan', 'moroccan',
+                'namibian', 'south african', 'tanzanian', 'ugandan', 'zambian',
+                'zimbabwean',
             ],
         },
         {
             id: 'middle-east',
             label: 'Middle East',
             accent: 300,
-            categories: ['israeli', 'turkish'],
+            categories: ['iranian', 'israeli', 'turkish'],
         },
         {
             id: 'asia',
             label: 'Asia',
             accent: 0,
             categories: [
-                'chinese', 'indian', 'indonesian', 'japanese', 'kazakh', 'korean',
+                'afghan', 'chinese', 'indian', 'indonesian', 'japanese', 'kazakh', 'korean', 'mongolian',
                 'philippine', 'thai', 'vietnamese',
             ],
         },
@@ -56,8 +59,9 @@ class RegionMap {
             label: 'Americas',
             accent: 145,
             categories: [
-                'american', 'brazilian', 'cajun', 'jamaican', 'latino', 'mexican',
-                'peruvian', 'trinidadian'
+                'american', 'argentine', 'bolivian', 'brazilian', 'cajun', 'canadian',
+                'cuban', 'inuit', 'jamaican', 'latino', 'mexican', 'peruvian',
+                'puerto rican', 'trinidadian', 'uruguayan'
             ],
         },
         {

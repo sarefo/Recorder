@@ -1,0 +1,14 @@
+X:1
+T:Chíu Chíu Chíu
+O:Uruguay
+N:Uruguayan folk song (the chirping of birds). Melody from the mu-tech.org WorldTrad MIDI arrangement; chords from its accompaniment. A zero-length grace A before the last note is left out.
+M:4/4
+Q:1/4=130
+L:1/8
+K:Gm
+"Gm" B3 B GG FF |"D" D D4 z3 |"Gm" B3 B GG FF |"D" A6 z2 |
+"Cm" c3 c BB GG |"D" A A3 z A AG |"Bb" F3 G"Dm" FG EF |"Gm" D6 z2 |
+"Gm" B3 B GG FF |"D" D D4 z3 |"Gm" B3 B GG FF |"D" A6 z2 |
+"Cm" c3 c BB GG |"D" A A3 z A AG |"Bb" F3 G"F" FG Ac |"Gm" B4 z F F=E |
+"Cm" E E4"Bb" F F F |"Bb" D4 z F F=E |"Cm" E E2 D E D"Dm" E F |"Gm" D4 z"Bb" F F=E |
+"Cm" E E4"Bb" F F F |"Bb" D4 z F F F |"Cm" G G2 G"Dm" A A A F |"Gm" B8 |]

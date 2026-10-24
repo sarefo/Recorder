@@ -1,0 +1,10 @@
+X:1
+T:Marko Skače
+O:Slovenia
+N:Slovenian children's song, from the mu-tech.org WorldTrad setting (melody MIDI diffed note by note; chords from its lead sheet). Source is in D major; moved down a whole tone to C to sit on C4-G4. The source stops after the half note in the last bar; the rest completes the bar so the tune loops.
+M:4/4
+Q:1/4=100
+L:1/8
+K:C
+"C"E2 G2 G2 G2 |"C"E2 G2 G2 G2 |"C"E2 E2 "G7"D2 D2 |"C"C4 C4 |
+"C"C4 "G"D4 |"C"E2 G2 G4 |"C"E2 E2 "G"D2 D2 |"C"C4 z4 |]

@@ -1,0 +1,13 @@
+X:1
+T:Guantanamera
+O:Cuba
+N:Melody from the mu-tech.org WorldTrad MIDI arrangement (filed as a Cuban folk song; score header Cuba minyo); chords from its printed lead sheet. One pass is the verse and chorus (20 bars); the source then repeats the verse. The final C is held 3 beats as in the MIDI.
+M:4/4
+Q:1/4=130
+L:1/8
+K:F
+"Gm" d2 dd dd z2 |"Gm" z4 z BdB |"F" c2 dA cc z2 |"F" z8 |
+"F" A2 Bc"Bb" d4 |"C7" c4 z dBG |"F" F2 FE"Bb" D4 |"C7" C4 z FGF |
+"Bb6" G G2 F G G2 G- |"C7" G3 z2 GAB |"F" A2 FD"Bb6" G G2 G- |"C7" G3 z2 FGF |
+"Bb6" G G2 F G G2 G- |"C7" G3 z2 ccc |"Bb6" c3 c B A2 G- |"C7" G3 z2 GAB |
+"F" c2 cc"Bb" d3 c- |"C7" c3 z2 dBG |"F" F2 FE"Bb" D4 |"C7" C6 z2 |]

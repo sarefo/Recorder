@@ -1,0 +1,10 @@
+X:1
+T:Es freit ein wilder Wassermann
+O:Germany (trad)
+N:Melody and chords from the lieder-archiv.de lead sheet and MIDI (written in D, transposed up a minor third so the opening A becomes C4); the melody also matches the mu-tech.org setting (an Eb version there). The final D is lengthened from a half note to a dotted half so the pickup is repaid when the tune loops. No lyrics
+M:4/4
+Q:1/4=96
+L:1/8
+K:F
+C2 |"F" F2 F2 A2 c2 |"Bb" f2 ed "F" c2 ff |"Bb" d2 B2 "C" GG c2 |"F" A4 z2 A2 |
+"C" cB B2 G2 G2 |"F" AG AB c2 AG |"F" FFFF "C7" AG FG |"F" F6 |]

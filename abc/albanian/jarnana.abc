@@ -1,0 +1,10 @@
+X:1
+T:Jarnana
+O:Albania
+N:Albanian folk dance song, from the mu-tech.org WorldTrad setting (melody MIDI diffed note by note; chords read from its lead sheet and accompaniment). Source note values are written at twice their length (sixteenths as eighths), so each bar here is half a bar of the source. The setting repeats the first four-bar phrase four times (one line of text each) and the second phrase twice; here each is written once inside a repeat.
+M:4/4
+Q:1/4=100
+L:1/8
+K:Dm
+|:"Dm"F2 A2 A2 A2 |"Gm"G2 D2 D2 F2 |"Gm"G4 G A G F |"Dm"D8 :|
+|:"Dm"F2 A2 A4 |"Gm"G2 D2 D4 |"Gm"F2 G2 G2 G A |"Dm"F2 D2 D4 :|]

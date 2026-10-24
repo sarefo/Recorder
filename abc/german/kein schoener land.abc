@@ -1,0 +1,11 @@
+X:1
+T:Kein schöner Land
+O:Germany (trad)
+N:Melody and chords from the lieder-archiv.de lead sheet and MIDI (written in G, transposed down a whole tone so the lowest note is C4); the melody also matches the mu-tech.org setting, which has regularized the 2/4 bars to 3/4. Source meter changes kept; the last bar is short so the pickup is repaid. No lyrics
+M:3/4
+Q:1/4=108
+L:1/8
+K:F
+C C C |"F" F2 A2 G F |"C" G3 C C C |"F" F2 A2 G F |"C" G3 A F G |
+"F" A c B A G F |[M:2/4] "C7" G B "F" A G |"Dm" F2 "C" G2 |[M:3/4] "F" A2 z A F G |"F" A c B A G F |
+[M:2/4] "C7" G B "F" A G |"Bb6" F2 "C" E2 |[M:3/4] "F" F2 z |]

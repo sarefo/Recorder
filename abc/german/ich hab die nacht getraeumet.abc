@@ -1,0 +1,10 @@
+X:1
+T:Ich hab die Nacht geträumet
+O:Germany (trad)
+N:Melody and chords from the lieder-archiv.de lead sheet and MIDI (written in D minor, transposed up a fourth so it stays above C4); the melody also matches the mu-tech.org setting (E minor, 3/4). The second half is repeated as in the source. No lyrics
+M:6/8
+Q:3/8=56
+L:1/8
+K:Gm
+D |"Gm" G2 A B3/2 A/ G |"Dm" d3 A2 c |"Gm" B3/2 A/ G "Cdim" ^F2 G |"D" A3 z2 |:
+d |"Gm" d2 d B2 G |"Eb6" g3 "Cm6" e2 c |"Gm" B3/2 A/ G "D7" A3/2 G/ ^F |"Gm" G3 z2 :|

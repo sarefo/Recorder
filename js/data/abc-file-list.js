@@ -3,6 +3,24 @@ class AbcFileList {
     static getFiles() {
         return [
         {
+                "name": "Kafir Song",
+                "file": "afghan/kafir song.abc",
+                "category": "afghan",
+                "hash": "8478dbb1bf"
+        },
+        {
+                "name": "Jarnana",
+                "file": "albanian/jarnana.abc",
+                "category": "albanian",
+                "hash": "496ac574e1"
+        },
+        {
+                "name": "Plouf Tizen Tizen",
+                "file": "algerian/plouf tizen tizen.abc",
+                "category": "algerian",
+                "hash": "15fa681766"
+        },
+        {
                 "name": "When Johnny Comes Marching Home",
                 "file": "american/when johnny comes marching home.abc",
                 "category": "american",
@@ -13,6 +31,12 @@ class AbcFileList {
                 "file": "american/which side are you on.abc",
                 "category": "american",
                 "hash": "9b49a2d7b0"
+        },
+        {
+                "name": "Dos Palomitas",
+                "file": "argentine/dos palomitas.abc",
+                "category": "argentine",
+                "hash": "46095c0045"
         },
         {
                 "name": "Waltzing Matilda",
@@ -43,6 +67,12 @@ class AbcFileList {
                 "file": "bartok/romanian folk dances/2 braul.abc",
                 "category": "bartok/romanian folk dances",
                 "hash": "57bb96e993"
+        },
+        {
+                "name": "La Mariposa",
+                "file": "bolivian/la mariposa.abc",
+                "category": "bolivian",
+                "hash": "92debb45cb"
         },
         {
                 "name": "Atirei o Pau no Gato",
@@ -81,6 +111,12 @@ class AbcFileList {
                 "hash": "17d996d0e3"
         },
         {
+                "name": "Rusi Kosi Imam",
+                "file": "bulgarian/rusi kosi imam.abc",
+                "category": "bulgarian",
+                "hash": "c257bacbf3"
+        },
+        {
                 "name": "Allons Danser Colinda",
                 "file": "cajun/colinda.abc",
                 "category": "cajun",
@@ -109,6 +145,12 @@ class AbcFileList {
                 "file": "cajun/madame sosthene.abc",
                 "category": "cajun",
                 "hash": "caa7217d70"
+        },
+        {
+                "name": "Saint Anne's Reel",
+                "file": "canadian/saint annes reel.abc",
+                "category": "canadian",
+                "hash": "48993644b2"
         },
         {
                 "name": "AAA Dongjia chimi wo chikang",
@@ -537,6 +579,12 @@ class AbcFileList {
                 "hash": "e2ec96582c"
         },
         {
+                "name": "Guantanamera",
+                "file": "cuban/guantanamera.abc",
+                "category": "cuban",
+                "hash": "16f2f451ac"
+        },
+        {
                 "name": "Na Tom Bo\u0161ileck\u00fdm Mostku",
                 "file": "czech/na tom bosileckym mostku.abc",
                 "category": "czech",
@@ -565,6 +613,12 @@ class AbcFileList {
                 "file": "egyptian/a ya zein.abc",
                 "category": "egyptian",
                 "hash": "14722f7c6e"
+        },
+        {
+                "name": "Early One Morning",
+                "file": "english/early one morning.abc",
+                "category": "english",
+                "hash": "72b60af132"
         },
         {
                 "name": "Herbie's Theme",
@@ -675,16 +729,106 @@ class AbcFileList {
                 "hash": "af042aeab5"
         },
         {
+                "name": "Ach bittrer Winter",
+                "file": "german/ach bittrer winter.abc",
+                "category": "german",
+                "hash": "a31782bed8"
+        },
+        {
+                "name": "Es freit ein wilder Wassermann",
+                "file": "german/es freit ein wilder wassermann.abc",
+                "category": "german",
+                "hash": "1586aee076"
+        },
+        {
+                "name": "Es geht eine dunkle Wolk herein",
+                "file": "german/es geht eine dunkle wolk herein.abc",
+                "category": "german",
+                "hash": "079ccf26f8"
+        },
+        {
+                "name": "Es ist ein Schnitter",
+                "file": "german/es ist ein schnitter.abc",
+                "category": "german",
+                "hash": "eb8538fa3c"
+        },
+        {
+                "name": "Es waren zwei K\u00f6nigskinder",
+                "file": "german/es waren zwei koenigskinder.abc",
+                "category": "german",
+                "hash": "e1003b0603"
+        },
+        {
+                "name": "Es zogen drei Burschen",
+                "file": "german/es zogen drei burschen.abc",
+                "category": "german",
+                "hash": "f54f35b5a7"
+        },
+        {
+                "name": "Feinsliebchen, du sollst mir nicht barfu\u00df gehn",
+                "file": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+                "category": "german",
+                "hash": "c0d746d2da"
+        },
+        {
+                "name": "Ich fahr dahin",
+                "file": "german/ich fahr dahin.abc",
+                "category": "german",
+                "hash": "52298f87e8"
+        },
+        {
+                "name": "Ich hab die Nacht getr\u00e4umet",
+                "file": "german/ich hab die nacht getraeumet.abc",
+                "category": "german",
+                "hash": "151e62b0d1"
+        },
+        {
+                "name": "Innsbruck, ich muss dich lassen",
+                "file": "german/innsbruck ich muss dich lassen.abc",
+                "category": "german",
+                "hash": "fbed3e45b9"
+        },
+        {
+                "name": "Kein sch\u00f6ner Land",
+                "file": "german/kein schoener land.abc",
+                "category": "german",
+                "hash": "da571eb6b2"
+        },
+        {
+                "name": "Maria durch ein Dornwald ging",
+                "file": "german/maria durch ein dornwald ging.abc",
+                "category": "german",
+                "hash": "5446bf07ed"
+        },
+        {
                 "name": "Muss i denn",
                 "file": "german/muss i denn.abc",
                 "category": "german",
                 "hash": "3752cbff64"
         },
         {
+                "name": "O Stra\u00dfburg, o Stra\u00dfburg",
+                "file": "german/o strassburg o strassburg.abc",
+                "category": "german",
+                "hash": "8d955b3d1b"
+        },
+        {
+                "name": "Verstohlen geht der Mond auf",
+                "file": "german/verstohlen geht der mond auf.abc",
+                "category": "german",
+                "hash": "c8b9173943"
+        },
+        {
                 "name": "Tue Tue",
                 "file": "ghanaian/tue tue.abc",
                 "category": "ghanaian",
                 "hash": "056d080272"
+        },
+        {
+                "name": "Kritikos Syrtos",
+                "file": "greek/kritikos syrtos.abc",
+                "category": "greek",
+                "hash": "2b012df455"
         },
         {
                 "name": "Aloha \u02bbOe",
@@ -721,6 +865,18 @@ class AbcFileList {
                 "file": "indonesian/rasa sayange.abc",
                 "category": "indonesian",
                 "hash": "e02c9b4349"
+        },
+        {
+                "name": "The Returning Hunter",
+                "file": "inuit/the returning hunter.abc",
+                "category": "inuit",
+                "hash": "c3b4e06bba"
+        },
+        {
+                "name": "Mamasani",
+                "file": "iranian/mamasani.abc",
+                "category": "iranian",
+                "hash": "44016db825"
         },
         {
                 "name": "Johnny I Hardly Knew Ya",
@@ -837,10 +993,70 @@ class AbcFileList {
                 "hash": "ea4cb31a37"
         },
         {
+                "name": "Akai Kutsu",
+                "file": "japanese/akai kutsu.abc",
+                "category": "japanese",
+                "hash": "6aac42c392"
+        },
+        {
+                "name": "Akatombo",
+                "file": "japanese/akatombo.abc",
+                "category": "japanese",
+                "hash": "ccd093a0dd"
+        },
+        {
+                "name": "Doko ka de Haru ga",
+                "file": "japanese/doko ka de haru ga.abc",
+                "category": "japanese",
+                "hash": "6a58ce8790"
+        },
+        {
+                "name": "Edo Komoriuta",
+                "file": "japanese/edo komoriuta.abc",
+                "category": "japanese",
+                "hash": "e6a50d75c9"
+        },
+        {
+                "name": "Furusato",
+                "file": "japanese/furusato.abc",
+                "category": "japanese",
+                "hash": "43628b6883"
+        },
+        {
+                "name": "Fuyu Keshiki",
+                "file": "japanese/fuyu keshiki.abc",
+                "category": "japanese",
+                "hash": "2a2475292f"
+        },
+        {
+                "name": "Hama Chidori",
+                "file": "japanese/hama chidori.abc",
+                "category": "japanese",
+                "hash": "b7af696e47"
+        },
+        {
+                "name": "Hamabe no Uta",
+                "file": "japanese/hamabe no uta.abc",
+                "category": "japanese",
+                "hash": "945a9ffda2"
+        },
+        {
                 "name": "Hana",
                 "file": "japanese/hana.abc",
                 "category": "japanese",
                 "hash": "9d897b4ea6"
+        },
+        {
+                "name": "Hanagasa Ondo",
+                "file": "japanese/hanagasa ondo.abc",
+                "category": "japanese",
+                "hash": "aab4161431"
+        },
+        {
+                "name": "Haru no Ogawa",
+                "file": "japanese/haru no ogawa.abc",
+                "category": "japanese",
+                "hash": "da202d8c8f"
         },
         {
                 "name": "Hashire Kotaro",
@@ -849,16 +1065,70 @@ class AbcFileList {
                 "hash": "3a5b0cfd66"
         },
         {
+                "name": "Kagome Kagome",
+                "file": "japanese/kagome kagome.abc",
+                "category": "japanese",
+                "hash": "8ffa4d6bd5"
+        },
+        {
+                "name": "Koinobori",
+                "file": "japanese/koinobori.abc",
+                "category": "japanese",
+                "hash": "13f6c05be1"
+        },
+        {
                 "name": "Kojo no Tsuki",
                 "file": "japanese/kojo no tsuki.abc",
                 "category": "japanese",
                 "hash": "b70aa9b3b8"
         },
         {
+                "name": "Momiji",
+                "file": "japanese/momiji.abc",
+                "category": "japanese",
+                "hash": "7affcd944f"
+        },
+        {
+                "name": "Oborozukiyo",
+                "file": "japanese/oborozukiyo.abc",
+                "category": "japanese",
+                "hash": "f9253105df"
+        },
+        {
                 "name": "Sakura",
                 "file": "japanese/sakura.abc",
                 "category": "japanese",
                 "hash": "1935ad5464"
+        },
+        {
+                "name": "Tinsagu nu Hana",
+                "file": "japanese/tinsagu nu hana.abc",
+                "category": "japanese",
+                "hash": "b887c3bb13"
+        },
+        {
+                "name": "Tooryanse",
+                "file": "japanese/tooryanse.abc",
+                "category": "japanese",
+                "hash": "30bf28ccb0"
+        },
+        {
+                "name": "Umi",
+                "file": "japanese/umi.abc",
+                "category": "japanese",
+                "hash": "5b4bb4331e"
+        },
+        {
+                "name": "Ureshii Hinamatsuri",
+                "file": "japanese/ureshii hinamatsuri.abc",
+                "category": "japanese",
+                "hash": "ac50b148f4"
+        },
+        {
+                "name": "Yuuhi",
+                "file": "japanese/yuuhi.abc",
+                "category": "japanese",
+                "hash": "6e840fd8a1"
         },
         {
                 "name": "All Of Me",
@@ -999,6 +1269,24 @@ class AbcFileList {
                 "hash": "f23c97623f"
         },
         {
+                "name": "A A Vaikuci",
+                "file": "lithuanian/a a vaikuci.abc",
+                "category": "lithuanian",
+                "hash": "736ae8fed7"
+        },
+        {
+                "name": "Oj Jano Jano",
+                "file": "macedonian/oj jano jano.abc",
+                "category": "macedonian",
+                "hash": "d4adde4d51"
+        },
+        {
+                "name": "Ongi Ongi Ongella",
+                "file": "maltese/ongi ongi ongella.abc",
+                "category": "maltese",
+                "hash": "62482f4dc3"
+        },
+        {
                 "name": "Te Hokinga Mai",
                 "file": "maori/te hokinga mai.abc",
                 "category": "maori",
@@ -1017,10 +1305,22 @@ class AbcFileList {
                 "hash": "29b0c7f28d"
         },
         {
+                "name": "Dagula",
+                "file": "mongolian/dagula.abc",
+                "category": "mongolian",
+                "hash": "2ed3212311"
+        },
+        {
                 "name": "A Ram Sam Sam",
                 "file": "moroccan/a ram sam sam.abc",
                 "category": "moroccan",
                 "hash": "897005df8a"
+        },
+        {
+                "name": "Meguru",
+                "file": "namibian/meguru.abc",
+                "category": "namibian",
+                "hash": "ece918a663"
         },
         {
                 "name": "Bortkomne sauen",
@@ -1269,6 +1569,18 @@ class AbcFileList {
                 "hash": "9402c1c165"
         },
         {
+                "name": "Duerme Mi Tesoro",
+                "file": "puerto rican/duerme mi tesoro.abc",
+                "category": "puerto rican",
+                "hash": "9f87935368"
+        },
+        {
+                "name": "\u021a\u0103r\u0103ncu\u021ba",
+                "file": "romanian/tarancuta.abc",
+                "category": "romanian",
+                "hash": "0760844902"
+        },
+        {
                 "name": "Kalinka",
                 "file": "russian/kalinka.abc",
                 "category": "russian",
@@ -1377,10 +1689,22 @@ class AbcFileList {
                 "hash": "048071fe71"
         },
         {
+                "name": "Ljulja Ljulja Ljuska",
+                "file": "serbian/ljulja ljulja ljuska.abc",
+                "category": "serbian",
+                "hash": "9cfece8151"
+        },
+        {
                 "name": "Grogg Mayles",
                 "file": "shanty/grogg mayles.abc",
                 "category": "shanty",
                 "hash": "e56091d96e"
+        },
+        {
+                "name": "Marko Ska\u010de",
+                "file": "slovenian/marko skace.abc",
+                "category": "slovenian",
+                "hash": "e5f1c5357b"
         },
         {
                 "name": "Shosholoza",
@@ -1423,6 +1747,18 @@ class AbcFileList {
                 "file": "swedish/i sommarens soliga dagar.abc",
                 "category": "swedish",
                 "hash": "98965060a9"
+        },
+        {
+                "name": "Holdiridia",
+                "file": "swiss/holdiridia.abc",
+                "category": "swiss",
+                "hash": "73f3b557f8"
+        },
+        {
+                "name": "Amezaliwa",
+                "file": "tanzanian/amezaliwa.abc",
+                "category": "tanzanian",
+                "hash": "f95aa040a1"
         },
         {
                 "name": "Bua Kao \u0e1a\u0e31\u0e27\u0e02\u0e32\u0e27",
@@ -1509,6 +1845,12 @@ class AbcFileList {
                 "hash": "9b2e4b4996"
         },
         {
+                "name": "Ch\u00edu Ch\u00edu Ch\u00edu",
+                "file": "uruguayan/chiu chiu chiu.abc",
+                "category": "uruguayan",
+                "hash": "ccb3c94742"
+        },
+        {
                 "name": "B\u00e8o D\u1ea1t M\u00e2y Tr\u00f4i",
                 "file": "vietnamese/beo dat may troi.abc",
                 "category": "vietnamese",
@@ -1543,6 +1885,12 @@ class AbcFileList {
                 "file": "zambian/kankuluwe.abc",
                 "category": "zambian",
                 "hash": "896de3f1ce"
+        },
+        {
+                "name": "Walk with Him",
+                "file": "zimbabwean/walk with him.abc",
+                "category": "zimbabwean",
+                "hash": "dbaf2d53d4"
         }
 ];
     }

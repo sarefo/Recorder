@@ -1,0 +1,13 @@
+X:1
+T:Akatombo
+C:Kosaku Yamada
+O:Japan
+N:No MIDI exists for this tune on mu-tech.org, so the melody and chords are read from its generated lead sheet image (key of D), twice: by eye against a pitch overlay and by an automatic notehead detector, and every bar sums to 3/4. Transposed up a minor third from D to F so the lowest note sits on C4. The lead sheet repeats the first two lines (bars 1-8) for lines 3 and 4. Lyrics left out.
+M:3/4
+Q:1/4=92
+L:1/8
+K:F
+"F"CF F3 G |"F"Ac "Bb"fd "F"c2 |"Dm"dF F2 "C"G2 |"F"A4 z2 |
+"Dm"Ad "F"c3 d |"Bb"fd "F"cd cA |"F"cA FA "C"GF |"F"F4 z2 |
+"F"CF F3 G |"F"Ac "Bb"fd "F"c2 |"Dm"dF F2 "C"G2 |"F"A4 z2 |
+"Dm"Ad "F"c3 d |"Bb"fd "F"cd cA |"F"cA FA "C"GF |"F"F4 z2 |]

@@ -1,0 +1,15 @@
+X:1
+T:Țărăncuța
+O:Romania
+N:Romanian folk song, melody and chords from the mu-tech.org WorldTrad setting (melody MIDI diffed bar by bar; chords read from its lead sheet and accompaniment). The setting's final held G is shortened to a half note plus an eighth rest so the 3-eighth pickup loops cleanly. Lead-in rests omitted.
+M:4/4
+Q:1/4=120
+L:1/8
+K:Gm
+D G B |"Gm"d2 B2"D7"c2 A2 |"Gm"B A G2 z D G B |"Gm"d2 B2"Cm"c2 e2 |
+"D"d4"Gm" z D G B |"Gm"d2 B2"D7"c2 A2 |"Gm"B A G2"Cm"e4 |"Gm"d e"D"c d"Gm"B c"D7"A B |
+"Gm"G4"F" z F G A |"Bb"B4"F" z F G A |"Bb"B4"F" z F G A |"Bb"B A c B"C"B A"F7"G A |
+"Bb"B4"F" z F G A |"Bb"B4"F" z F G A |"Bb"B B"Eb"e6 |"Gm"d e"D"c d"Gm"B c"D"A B |
+"Gm"G6 z2 |"Gm"d2 B2"D7"c2 A2 |"D7"B A"Gm"G6 |"Gm"d2 B2"Cm6"c2"D7"e2 |
+"Gm"d6 z2 |"Gm"d2 B2"D7"c2 A2 |"Eb"G G"Cm"e6 |"Gm"d e"D"c d"Cm"B c"D7"A B |
+"Gm"G4 z |]

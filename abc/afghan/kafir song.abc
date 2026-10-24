@@ -1,0 +1,11 @@
+X:1
+T:Kafir Song
+O:Afghanistan (Kafir people)
+N:Afghan folk song of the Kafir people, from the mu-tech.org WorldTrad setting (melody MIDI diffed note by note; chords read from its lead sheet and accompaniment). The opening rest and the rests ending the last bar are kept so the 11 bars loop.
+M:4/4
+Q:1/4=100
+L:1/8
+K:Dm
+"Dm"z2 c d d d d e |"F"c2 B c B A A A |"Dm"A2 c d d d d e |"F"c2 B c B A A A |
+"Dm"A F G G "Gm"G G G A |"Dm"F2 E F F E D D |"Dm"D2 D D D D D D |"Dm"D D G G "Gm"G G G A |
+"Dm"F2 E G F E D D |"Dm"D2 D D D D D D |"Dm"D2 z6 |]

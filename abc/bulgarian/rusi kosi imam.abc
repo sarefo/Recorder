@@ -1,0 +1,14 @@
+X:1
+T:Rusi Kosi Imam
+O:Bulgaria (Pirin)
+N:Bulgarian folk dance song from the Pirin region, from the mu-tech.org WorldTrad setting (melody MIDI diffed note by note; chords read from its lead sheet and accompaniment). Source is in E minor; moved down a whole tone to D minor to fit C4-A5. Source note values are written at twice their length (sixteenths as eighths), so each bar here is half a bar of the source.
+M:4/4
+Q:1/4=120
+L:1/8
+K:Dm
+|: d e f g |"Dm"a2 d d "Gm"g2 d d |"Dm"f3 e "C"d e d c |"Dm"d2 d2 "C"e d e g |
+|1 "Dm"f2 z2 :|2 "Bb"f3 e "C"f g e d |"Dm"d8 |
+|: "Dm"D3 C D2 E2 |"Dm"F4 F4 |"Gm"G2 G2 F E F G |"Dm"F3 E D2 z2 |
+"Dm"D4 D C D E |"Dm"F4 "C"F E C2 |"Dm"D2 D2 "Gm"E D E G |"Dm"F4 D E F G |
+"Dm"A3 F "C"G3 E |"Dm"F3 E "C"D E C2 |"Dm"D2 D2 "C"E D E G |"Bb"F3 E "C"F G E D |
+|1 "Dm"D4 D E F G :|2 "Dm"D4 |]
