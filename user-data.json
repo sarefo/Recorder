@@ -152,12 +152,13 @@
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "bulgarian/rusi kosi imam.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T12:19:54.674Z",
-      "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "lastPlayed": "2026-10-24T12:23:27.214Z",
+      "playCount": 2,
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T12:23:29.635Z"
     },
     "cajun/bosco stomp.abc": {
       "status": "practicing",
@@ -1132,12 +1133,13 @@
       "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "greek/kritikos syrtos.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "lastPlayed": "2026-10-24T12:23:44.454Z",
+      "playCount": 1,
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T12:24:01.834Z"
     },
     "hawaiian/aloha oe.abc": {
       "status": null,
@@ -2602,8 +2604,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "greek/kritikos syrtos.abc",
+      "timestamp": "2026-10-24T12:23:44.454Z"
+    },
+    {
       "filePath": "bulgarian/rusi kosi imam.abc",
-      "timestamp": "2026-10-24T12:19:54.674Z"
+      "timestamp": "2026-10-24T12:23:27.214Z"
     },
     {
       "filePath": "albanian/jarnana.abc",
@@ -2676,10 +2682,6 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-24T11:18:12.328Z"
-    },
-    {
-      "filePath": "scottish/hopetoun_house.abc",
-      "timestamp": "2026-10-24T07:08:59.226Z"
     }
   ],
   "activity": {
@@ -2721,6 +2723,7 @@
       "german/maria durch ein dornwald ging.abc": 4,
       "german/o strassburg o strassburg.abc": 1,
       "german/verstohlen geht der mond auf.abc": 1,
+      "greek/kritikos syrtos.abc": 1,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -2819,6 +2822,16 @@
       "path": "albanian/jarnana.abc",
       "status": "good",
       "at": "2026-10-24T12:19:25.043Z"
+    },
+    {
+      "path": "bulgarian/rusi kosi imam.abc",
+      "status": "needs-practice",
+      "at": "2026-10-24T12:23:29.635Z"
+    },
+    {
+      "path": "greek/kritikos syrtos.abc",
+      "status": "needs-practice",
+      "at": "2026-10-24T12:24:01.834Z"
     }
   ],
   "marks": {
