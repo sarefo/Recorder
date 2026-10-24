@@ -1057,8 +1057,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T12:04:33.273Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "german/ich hab die nacht getraeumet.abc": {
@@ -2596,6 +2596,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/ich fahr dahin.abc",
+      "timestamp": "2026-10-24T12:04:33.273Z"
+    },
+    {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-10-24T12:04:13.698Z"
     },
@@ -2670,10 +2674,6 @@
     {
       "filePath": "polish/dwa serduszka.abc",
       "timestamp": "2026-10-22T06:24:35.575Z"
-    },
-    {
-      "filePath": "italian/bandiera_rossa.abc",
-      "timestamp": "2026-10-22T06:21:53.056Z"
     }
   ],
   "activity": {
@@ -2707,6 +2707,7 @@
       "german/es waren zwei koenigskinder.abc": 1,
       "german/es zogen drei burschen.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
+      "german/ich fahr dahin.abc": 1,
       "scottish/hopetoun_house.abc": 16
     }
   },
