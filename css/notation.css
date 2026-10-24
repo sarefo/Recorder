@@ -115,3 +115,24 @@
 #abc-notation .score-title-clear:hover .score-title-clear-shape {
     stroke: var(--color-danger);
 }
+
+/* Logs a run played without a mistake; the owned tempo sits beside it */
+#abc-notation .score-title-clean {
+    cursor: pointer;
+}
+
+#abc-notation .score-title-clean-shape {
+    fill: none;
+    stroke: var(--color-text-muted);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+#abc-notation .score-title-clean:hover .score-title-clean-shape {
+    stroke: var(--color-success);
+}
+
+#abc-notation .score-title-clean-best {
+    fill: var(--color-success);
+}

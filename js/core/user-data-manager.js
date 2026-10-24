@@ -100,6 +100,7 @@ class UserDataManager {
             statusLog: UserDataManager.mergeStatusLog(local.statusLog, remote.statusLog),
             marks: UserDataManager.mergeMarks(local.marks, remote.marks),
             markStates: UserDataManager.mergeMarkStates(local.markStates, remote.markStates),
+            cleanRuns: UserDataManager.mergeCleanRuns(local.cleanRuns, remote.cleanRuns),
             settings: local.settings
         };
     }
@@ -139,6 +140,60 @@ class UserDataManager {
         }
         return [...entries.values()].sort((x, y) =>
             x.at.localeCompare(y.at) || x.path.localeCompare(y.path));
+    }
+
+    /**
+     * Combines two logs of clean runs. A run is identified by song and time,
+     * so merging the same runs again changes nothing.
+     * @param {Array} [a] - One log
+     * @param {Array} [b] - The other log
+     * @returns {Array} Merged log, oldest first
+     */
+    static mergeCleanRuns(a = [], b = []) {
+        const runs = new Map();
+        for (const run of [...a, ...b]) {
+            runs.set(`${run.path}|${run.at}`, run);
+        }
+        return [...runs.values()].sort((x, y) =>
+            x.at.localeCompare(y.at) || x.path.localeCompare(y.path));
+    }
+
+    /**
+     * How many clean runs in a row each run of a song completes. Runs chain
+     * on the same day as long as none was slower than the one being counted,
+     * so three runs at 70% and then one at 80% give 1 at 80%, while 80%, 80%,
+     * 70% give 3 at 70%.
+     * @param {Array<{at: string, bpm: number}>} runs - One song's runs, oldest first
+     * @returns {number[]} Streak of each run, in the same order
+     */
+    static cleanStreaks(runs) {
+        return runs.map((run, i) => {
+            const day = UserDataManager.dayKey(new Date(run.at));
+            let streak = 1;
+            for (let j = i - 1; j >= 0; j--) {
+                const earlier = runs[j];
+                if (UserDataManager.dayKey(new Date(earlier.at)) !== day || earlier.bpm < run.bpm) break;
+                streak++;
+            }
+            return streak;
+        });
+    }
+
+    /**
+     * Sums up one song's clean runs
+     * @param {Array<{at: string, percent: number, bpm: number}>} runs - Oldest first
+     * @param {number} target - Clean runs in a row it takes to own a tempo
+     * @returns {{best: number|null, last: number, lastStreak: number}|null} The
+     *   fastest owned tempo (percent), and the last run with its streak; null without runs
+     */
+    static cleanSpeed(runs, target) {
+        if (!runs.length) return null;
+        const streaks = UserDataManager.cleanStreaks(runs);
+        let best = null;
+        runs.forEach((run, i) => {
+            if (streaks[i] >= target && (best === null || run.percent > best)) best = run.percent;
+        });
+        return { best, last: runs[runs.length - 1].percent, lastStreak: streaks[streaks.length - 1] };
     }
 
     /**
@@ -234,6 +289,7 @@ class UserDataManager {
         data.statusLog = data.statusLog || [];
         data.marks = data.marks || {};
         data.markStates = data.markStates || {};
+        data.cleanRuns = data.cleanRuns || [];
         return data;
     }
 
@@ -251,6 +307,7 @@ class UserDataManager {
             statusLog: [],
             marks: {},
             markStates: {},
+            cleanRuns: [],
             settings: {
                 maxRecentSongs: 20,
                 defaultView: "all"
@@ -465,6 +522,29 @@ class UserDataManager {
     }
 
     /**
+     * Logs one run through a tune played without a mistake
+     * @param {string} filePath - Path to the song file
+     * @param {number} percent - Tempo control setting, 100 = the tune's own tempo
+     * @param {number} bpm - Tempo actually played, in the tune's beat unit
+     * @returns {number} How many clean runs in a row this one completes
+     */
+    recordCleanRun(filePath, percent, bpm) {
+        this.data.cleanRuns.push({ path: filePath, at: new Date().toISOString(), percent, bpm });
+        this.saveData();
+        const runs = this.data.cleanRuns.filter(run => run.path === filePath);
+        return UserDataManager.cleanStreaks(runs).pop();
+    }
+
+    /**
+     * @param {string} filePath - Path to the song file
+     * @param {number} target - Clean runs in a row it takes to own a tempo
+     * @returns {Object|null} See UserDataManager.cleanSpeed
+     */
+    getCleanSpeed(filePath, target) {
+        return UserDataManager.cleanSpeed(this.data.cleanRuns.filter(run => run.path === filePath), target);
+    }
+
+    /**
      * Get all favorite songs
      * @returns {Array} Array of file paths
      */
@@ -634,6 +714,7 @@ class UserDataManager {
                 this.data.statusLog = UserDataManager.mergeStatusLog(this.data.statusLog, importedData.statusLog);
                 this.data.marks = UserDataManager.mergeMarks(this.data.marks, importedData.marks);
                 this.data.markStates = UserDataManager.mergeMarkStates(this.data.markStates, importedData.markStates);
+                this.data.cleanRuns = UserDataManager.mergeCleanRuns(this.data.cleanRuns, importedData.cleanRuns);
 
                 // Merge settings
                 Object.assign(this.data.settings, importedData.settings);

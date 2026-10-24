@@ -877,7 +877,7 @@ class SongMetadataUI {
      */
     updateScoreTitleMark() {
         const title = document.querySelector('#abc-notation .abcjs-title.score-title-taggable');
-        document.querySelectorAll('#abc-notation .score-title-mark, #abc-notation .score-title-clear')
+        document.querySelectorAll('#abc-notation .score-title-mark, #abc-notation .score-title-clear, #abc-notation .score-title-clean')
             .forEach(m => m.remove());
         const filePath = this.fileManager.currentFilePath;
         if (!title || !filePath) return;
@@ -933,11 +933,14 @@ class SongMetadataUI {
         this.bindScoreTagMenu(mark);
         title.parentNode.insertBefore(mark, title.nextSibling);
 
+        // Buttons after the tags, left to right
+        let x = cx + radius * (songData.favorite ? 7.6 : 4.8);
+        let anchor = mark;
+
         // With red or green marks on the tune, a button beside the tags clears them
         const marked = document.querySelectorAll(
             '.note-marker-zone[data-state="red"], .note-marker-zone[data-state="green"]').length;
         if (marked) {
-            const x = cx + radius * (songData.favorite ? 7.6 : 4.8);
             const clear = document.createElementNS(svgNs, 'g');
             clear.setAttribute('class', 'score-title-clear');
 
@@ -978,7 +981,94 @@ class SongMetadataUI {
                 e.stopPropagation();
             });
             mark.parentNode.insertBefore(clear, mark.nextSibling);
+            anchor = clear;
+            x += radius * 4.2;
         }
+
+        this.addCleanRunButton(anchor, x, cy, radius, bbox);
+    }
+
+    /**
+     * Draws the check mark to tap after playing the tune without a mistake,
+     * with the fastest tempo already owned beside it. Only the first tune of
+     * a file is tracked, like the note marks.
+     * @param {Element} anchor - Element to insert after
+     * @param {number} x - Center of the button
+     * @param {number} cy - Vertical center of the title
+     * @param {number} radius - Size unit of the title marks
+     * @param {DOMRect} bbox - Box of the title
+     * @private
+     */
+    addCleanRunButton(anchor, x, cy, radius, bbox) {
+        const player = this.fileManager.player;
+        const filePath = player.markTracker?.persistablePath();
+        if (!filePath) return;
+
+        const svgNs = 'http://www.w3.org/2000/svg';
+        const target = PracticeDashboard.CLEAN_STREAK;
+        const speed = this.userDataManager.getCleanSpeed(filePath, target);
+
+        const button = document.createElementNS(svgNs, 'g');
+        button.setAttribute('class', 'score-title-clean');
+
+        const label = document.createElementNS(svgNs, 'title');
+        label.textContent = `Played it without a mistake at this tempo (${target} in a row makes it yours)`;
+        button.appendChild(label);
+
+        const ring = document.createElementNS(svgNs, 'circle');
+        ring.setAttribute('cx', x);
+        ring.setAttribute('cy', cy);
+        ring.setAttribute('r', radius * 1.15);
+        ring.setAttribute('class', 'score-title-clean-shape');
+        button.appendChild(ring);
+
+        const check = document.createElementNS(svgNs, 'path');
+        const arm = radius * 0.55;
+        check.setAttribute('d', `M${x - arm},${cy}L${x - arm * 0.25},${cy + arm * 0.7}L${x + arm},${cy - arm * 0.6}`);
+        check.setAttribute('class', 'score-title-clean-shape');
+        button.appendChild(check);
+
+        let width = radius * 4;
+        if (speed?.best !== null && speed?.best !== undefined) {
+            const text = document.createElementNS(svgNs, 'text');
+            text.setAttribute('x', x + radius * 1.7);
+            text.setAttribute('y', cy);
+            text.setAttribute('class', 'score-title-clean-best');
+            text.setAttribute('font-size', radius * 2);
+            text.setAttribute('dominant-baseline', 'central');
+            text.setAttribute('stroke', 'none');
+            text.textContent = `${speed.best}%`;
+            button.appendChild(text);
+            width += radius * 5;
+        }
+
+        const hit = document.createElementNS(svgNs, 'rect');
+        hit.setAttribute('x', x - radius * 2);
+        hit.setAttribute('y', bbox.y - 4);
+        hit.setAttribute('width', width);
+        hit.setAttribute('height', bbox.height + 8);
+        hit.setAttribute('fill', 'transparent');
+        hit.setAttribute('stroke', 'none');
+        button.appendChild(hit);
+
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const percent = player.midiPlayer.playbackSettings.tempo;
+            // Same tempo the player computes, so a tempo later saved into the file still compares
+            const base = player.renderManager.currentVisualObj?.getBpm?.() || 120;
+            const streak = this.userDataManager.recordCleanRun(filePath, percent, Math.round(base * percent) / 100);
+            const message = streak >= target
+                ? `Clean at ${percent}%, ${streak} in a row. ${percent >= 100 ? 'Full speed!' : `Try ${Math.min(200, percent + PracticeDashboard.SPEED_STEP)}% next.`}`
+                : `Clean at ${percent}%, ${streak} of ${target} in a row`;
+            Utils.showFeedback(message);
+            this.updateScoreTitleMark();
+        });
+        // The score treats long-press and right-click as its own gestures
+        button.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+        anchor.parentNode.insertBefore(button, anchor.nextSibling);
     }
 
     /**

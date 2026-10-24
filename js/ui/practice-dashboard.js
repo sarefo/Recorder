@@ -24,6 +24,10 @@ class PracticeDashboard {
     static STRUGGLE_MIN_TUNES = 2;
     /** Days after which a red mark counts half as much */
     static STRUGGLE_HALF_LIFE_DAYS = 60;
+    /** Clean runs in a row it takes to own a tempo */
+    static CLEAN_STREAK = 3;
+    /** Step to the next tempo to try, the same as the tempo control's snap */
+    static SPEED_STEP = 10;
     static DAY_MS = 24 * 60 * 60 * 1000;
 
     /**
@@ -209,6 +213,25 @@ class PracticeDashboard {
         const seen = new Set();
         const latestAchievements = achievements.reverse().filter(item => !seen.has(item.path) && seen.add(item.path));
 
+        // --- Speed: the fastest tempo each tune was played cleanly, several times in a row ---
+        const runsBySong = new Map();
+        (data.cleanRuns || []).forEach(run => {
+            if (!runsBySong.has(run.path)) runsBySong.set(run.path, []);
+            runsBySong.get(run.path).push(run);
+        });
+        const speeds = [];
+        runsBySong.forEach((runs, path) => {
+            if (!known.has(path)) return;
+            runs.sort((a, b) => a.at.localeCompare(b.at));
+            speeds.push({ path, name: nameOf(path), status: statusOf(path), favorite: songs[path]?.favorite === true,
+                ...UserDataManager.cleanSpeed(runs, PracticeDashboard.CLEAN_STREAK) });
+        });
+        // Favorites not yet owned at full speed, slowest first
+        const speedQueue = speeds
+            .filter(item => item.favorite && (item.best === null || item.best < 100))
+            .sort((a, b) => (a.best ?? 0) - (b.best ?? 0) || a.name.localeCompare(b.name))
+            .slice(0, PracticeDashboard.QUEUE_SIZE);
+
         // --- By region of the world ---
         const regionStats = new Map();
         files.forEach(file => {
@@ -242,6 +265,9 @@ class PracticeDashboard {
             mostPracticed,
             achievements: latestAchievements.slice(0, 6),
             regions,
+            speedQueue,
+            fullSpeed: speeds.filter(item => item.best >= 100).length,
+            timed: speeds.length,
             struggles: PracticeDashboard.findStruggles(data.marks || {}, known, nameOf, now)
         };
     }
@@ -400,6 +426,10 @@ class PracticeDashboard {
             '</div>',
             section('Practice next', this.renderQueue(stats),
                 'Favorites you have not played for a while, by status: needs practice after 1 day, practicing 2, good 5, mastered 21.'),
+            section('Speed up next', this.renderSpeed(stats),
+                `After a run without mistakes, tap the check mark by the tune title. ${PracticeDashboard.CLEAN_STREAK} clean runs in a row ` +
+                'on one day make a tempo yours; a slower run breaks the chain. Favorites below full speed, slowest first.' +
+                (stats.timed ? ` ${stats.fullSpeed} of ${stats.timed} timed tunes are at full speed.` : '')),
             section('Where you struggle', this.renderStruggles(stats),
                 'Built from notes you mark red while playing and leave marked for 10 seconds.'),
             section('Status of the library', this.renderStatusBar(stats)),
@@ -439,6 +469,25 @@ class PracticeDashboard {
         const ago = days => (days === Infinity ? 'never played' : days < 1.5 ? 'yesterday' : `${Math.floor(days)} days ago`);
         return '<ul class="pd-list">' +
             stats.queue.map(item => this.songRow(item, ago(item.days))).join('') + '</ul>';
+    }
+
+    /** @private */
+    renderSpeed(stats) {
+        if (!stats.speedQueue.length) {
+            return `<p class="pd-empty">${stats.timed
+                ? 'Every timed favorite is at full speed.'
+                : 'No clean runs logged yet. Set the tempo where you can play a favorite without mistakes and start there.'}</p>`;
+        }
+        const target = PracticeDashboard.CLEAN_STREAK;
+        const next = best => Math.min(100, best + PracticeDashboard.SPEED_STEP);
+        return '<ul class="pd-list">' + stats.speedQueue.map(item => {
+            // A chain still building above the owned tempo is the news; otherwise suggest the next step
+            const building = item.lastStreak < target && item.last > (item.best ?? 0);
+            const detail = building
+                ? `${item.best !== null ? `${item.best}% · ` : ''}${item.last}%: ${item.lastStreak} of ${target}`
+                : `${item.best}% · try ${next(item.best)}%`;
+            return this.songRow(item, detail);
+        }).join('') + '</ul>';
     }
 
     /** @private */
