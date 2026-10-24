@@ -1604,8 +1604,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T12:25:17.605Z",
+      "playCount": 1,
       "createdAt": "2026-10-13T03:57:34.036Z"
     },
     "jazz/my funny valentine.abc": {
@@ -2604,6 +2604,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/girl from ipanema.abc",
+      "timestamp": "2026-10-24T12:25:17.605Z"
+    },
+    {
       "filePath": "serbian/ljulja ljulja ljuska.abc",
       "timestamp": "2026-10-24T12:24:38.263Z"
     },
@@ -2678,10 +2682,6 @@
     {
       "filePath": "german/ach bittrer winter.abc",
       "timestamp": "2026-10-24T11:47:04.434Z"
-    },
-    {
-      "filePath": "breton/les filles des forges de paimpont.abc",
-      "timestamp": "2026-10-24T11:21:53.289Z"
     }
   ],
   "activity": {
@@ -2724,6 +2724,7 @@
       "german/o strassburg o strassburg.abc": 1,
       "german/verstohlen geht der mond auf.abc": 1,
       "greek/kritikos syrtos.abc": 1,
+      "jazz/girl from ipanema.abc": 1,
       "scottish/hopetoun_house.abc": 16,
       "serbian/ljulja ljulja ljuska.abc": 1
     }
@@ -3076,6 +3077,16 @@
         "at": "2026-10-22T05:37:57.126Z"
       }
     },
+    "jazz/girl from ipanema.abc": {
+      "2": {
+        "pitch": "^F",
+        "prev": "A",
+        "pitchSeen": 32,
+        "transSeen": 8,
+        "count": 1,
+        "at": "2026-10-24T12:25:30.706Z"
+      }
+    },
     "latino/tango/por una cabeza.abc": {
       "0": {
         "pitch": "^F",
@@ -3363,6 +3374,15 @@
         "3": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "jazz/girl from ipanema.abc": {
+      "at": "2026-10-24T12:25:20.700Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "^F"
         }
       }
     },
