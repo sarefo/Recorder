@@ -155,8 +155,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T12:19:54.674Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "cajun/bosco stomp.abc": {
@@ -2602,6 +2602,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "bulgarian/rusi kosi imam.abc",
+      "timestamp": "2026-10-24T12:19:54.674Z"
+    },
+    {
       "filePath": "albanian/jarnana.abc",
       "timestamp": "2026-10-24T12:18:06.637Z"
     },
@@ -2676,10 +2680,6 @@
     {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-24T07:08:59.226Z"
-    },
-    {
-      "filePath": "latino/tango/por una cabeza.abc",
-      "timestamp": "2026-10-23T10:53:59.995Z"
     }
   ],
   "activity": {
