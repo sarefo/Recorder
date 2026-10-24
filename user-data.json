@@ -1000,19 +1000,20 @@
       "updatedAt": "2026-10-24T11:49:16.156Z"
     },
     "german/es freit ein wilder wassermann.abc": {
-      "status": null,
+      "status": "good",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-10-24T11:49:19.882Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T11:50:57.754Z"
     },
     "german/es geht eine dunkle wolk herein.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T11:51:04.693Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "german/es ist ein schnitter.abc": {
@@ -2590,6 +2591,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es geht eine dunkle wolk herein.abc",
+      "timestamp": "2026-10-24T11:51:04.693Z"
+    },
+    {
       "filePath": "german/es freit ein wilder wassermann.abc",
       "timestamp": "2026-10-24T11:49:19.882Z"
     },
@@ -2664,10 +2669,6 @@
     {
       "filePath": "classical/bach/adams_fall.abc",
       "timestamp": "2026-10-22T06:09:51.616Z"
-    },
-    {
-      "filePath": "classical/bach/tiefer_not.abc",
-      "timestamp": "2026-10-22T05:41:44.830Z"
     }
   ],
   "activity": {
@@ -2696,6 +2697,7 @@
       "breton/son ar chistr.abc": 5,
       "german/ach bittrer winter.abc": 2,
       "german/es freit ein wilder wassermann.abc": 1,
+      "german/es geht eine dunkle wolk herein.abc": 1,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -2729,6 +2731,16 @@
       "path": "german/ach bittrer winter.abc",
       "status": "good",
       "at": "2026-10-24T11:49:16.156Z"
+    },
+    {
+      "path": "german/es freit ein wilder wassermann.abc",
+      "status": "practicing",
+      "at": "2026-10-24T11:50:54.874Z"
+    },
+    {
+      "path": "german/es freit ein wilder wassermann.abc",
+      "status": "good",
+      "at": "2026-10-24T11:50:57.754Z"
     }
   ],
   "marks": {
@@ -2858,6 +2870,16 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-24T11:49:34.023Z"
+      }
+    },
+    "german/es geht eine dunkle wolk herein.abc": {
+      "5": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 4,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-24T11:51:18.151Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -3100,6 +3122,15 @@
       "at": "2026-10-24T11:49:24.019Z",
       "notes": {
         "12": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "german/es geht eine dunkle wolk herein.abc": {
+      "at": "2026-10-24T11:51:08.147Z",
+      "notes": {
+        "5": {
           "state": "red",
           "pitch": "_B"
         }
