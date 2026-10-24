@@ -2472,6 +2472,22 @@
         "count": 1,
         "at": "2026-10-24T09:06:37.630Z"
       },
+      "74": {
+        "pitch": "F",
+        "prev": "A",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-24T11:09:15.430Z"
+      },
+      "78": {
+        "pitch": "G",
+        "prev": "E",
+        "pitchSeen": 5,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-24T11:09:21.112Z"
+      },
       "81": {
         "pitch": "f",
         "prev": "e",
@@ -2479,6 +2495,14 @@
         "transSeen": 4,
         "count": 1,
         "at": "2026-10-24T09:06:51.956Z"
+      },
+      "87": {
+        "pitch": "c",
+        "prev": "=B",
+        "pitchSeen": 12,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-24T11:09:44.510Z"
       }
     }
   },
@@ -2579,7 +2603,7 @@
       }
     },
     "scottish/hopetoun_house.abc": {
-      "at": "2026-10-24T11:09:04.428Z",
+      "at": "2026-10-24T11:09:34.508Z",
       "notes": {
         "21": {
           "state": "red",
@@ -2606,12 +2630,20 @@
           "pitch": "D"
         },
         "74": {
-          "state": "green",
+          "state": "red",
           "pitch": "F"
+        },
+        "78": {
+          "state": "red",
+          "pitch": "G"
         },
         "81": {
           "state": "red",
           "pitch": "f"
+        },
+        "87": {
+          "state": "red",
+          "pitch": "c"
         }
       }
     }
