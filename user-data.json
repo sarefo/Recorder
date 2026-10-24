@@ -2227,7 +2227,7 @@
       "japanese/sakura.abc": 1
     },
     "2026-10-24": {
-      "scottish/hopetoun_house.abc": 4
+      "scottish/hopetoun_house.abc": 6
     }
   },
   "statusLog": [
@@ -2440,6 +2440,14 @@
         "count": 1,
         "at": "2026-10-24T09:12:13.425Z"
       },
+      "24": {
+        "pitch": "d",
+        "prev": "A",
+        "pitchSeen": 13,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-24T09:12:56.185Z"
+      },
       "43": {
         "pitch": "F",
         "prev": "A",
@@ -2563,11 +2571,15 @@
       }
     },
     "scottish/hopetoun_house.abc": {
-      "at": "2026-10-24T09:12:03.422Z",
+      "at": "2026-10-24T09:12:46.182Z",
       "notes": {
         "21": {
           "state": "red",
           "pitch": "c"
+        },
+        "24": {
+          "state": "red",
+          "pitch": "d"
         },
         "43": {
           "state": "red",
