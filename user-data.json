@@ -1009,12 +1009,13 @@
       "updatedAt": "2026-10-24T11:50:57.754Z"
     },
     "german/es geht eine dunkle wolk herein.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "good",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-24T11:51:04.693Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T11:52:16.545Z"
     },
     "german/es ist ein schnitter.abc": {
       "status": null,
@@ -2697,7 +2698,7 @@
       "breton/son ar chistr.abc": 5,
       "german/ach bittrer winter.abc": 2,
       "german/es freit ein wilder wassermann.abc": 1,
-      "german/es geht eine dunkle wolk herein.abc": 1,
+      "german/es geht eine dunkle wolk herein.abc": 2,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -2741,6 +2742,11 @@
       "path": "german/es freit ein wilder wassermann.abc",
       "status": "good",
       "at": "2026-10-24T11:50:57.754Z"
+    },
+    {
+      "path": "german/es geht eine dunkle wolk herein.abc",
+      "status": "good",
+      "at": "2026-10-24T11:52:16.545Z"
     }
   ],
   "marks": {
