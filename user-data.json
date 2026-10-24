@@ -88,8 +88,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-22T06:26:33.632Z",
-      "playCount": 23,
+      "lastPlayed": "2026-10-24T11:18:12.328Z",
+      "playCount": 24,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-08T06:58:19.399Z"
     },
@@ -2125,6 +2125,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-10-24T11:18:12.328Z"
+    },
+    {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-24T07:08:59.226Z"
     },
@@ -2159,10 +2163,6 @@
     {
       "filePath": "chinese/liangshanbo.abc",
       "timestamp": "2026-10-22T06:45:28.935Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-10-22T06:26:33.632Z"
     },
     {
       "filePath": "polish/dwa serduszka.abc",
@@ -2227,6 +2227,7 @@
       "japanese/sakura.abc": 1
     },
     "2026-10-24": {
+      "breton/son ar chistr.abc": 2,
       "scottish/hopetoun_house.abc": 16
     }
   },
