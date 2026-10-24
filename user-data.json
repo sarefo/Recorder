@@ -1054,19 +1054,20 @@
       "updatedAt": "2026-10-24T12:04:18.471Z"
     },
     "german/ich fahr dahin.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-10-24T12:04:33.273Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T12:05:26.207Z"
     },
     "german/ich hab die nacht getraeumet.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T12:05:29.387Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "german/innsbruck ich muss dich lassen.abc": {
@@ -2596,6 +2597,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/ich hab die nacht getraeumet.abc",
+      "timestamp": "2026-10-24T12:05:29.387Z"
+    },
+    {
       "filePath": "german/ich fahr dahin.abc",
       "timestamp": "2026-10-24T12:04:33.273Z"
     },
@@ -2670,10 +2675,6 @@
     {
       "filePath": "chinese/liangshanbo.abc",
       "timestamp": "2026-10-22T06:45:28.935Z"
-    },
-    {
-      "filePath": "polish/dwa serduszka.abc",
-      "timestamp": "2026-10-22T06:24:35.575Z"
     }
   ],
   "activity": {
@@ -2708,6 +2709,7 @@
       "german/es zogen drei burschen.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/ich fahr dahin.abc": 1,
+      "german/ich hab die nacht getraeumet.abc": 1,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -2776,6 +2778,11 @@
       "path": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "status": "practicing",
       "at": "2026-10-24T12:04:16.983Z"
+    },
+    {
+      "path": "german/ich fahr dahin.abc",
+      "status": "practicing",
+      "at": "2026-10-24T12:05:26.207Z"
     }
   ],
   "marks": {
@@ -2943,6 +2950,24 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-24T11:57:39.477Z"
+      }
+    },
+    "german/ich hab die nacht getraeumet.abc": {
+      "3": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-24T12:05:44.529Z"
+      },
+      "22": {
+        "pitch": "_e",
+        "prev": "g",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-24T12:05:44.529Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -3218,6 +3243,19 @@
         "10": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "german/ich hab die nacht getraeumet.abc": {
+      "at": "2026-10-24T12:05:34.523Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "22": {
+          "state": "red",
+          "pitch": "_e"
         }
       }
     },
