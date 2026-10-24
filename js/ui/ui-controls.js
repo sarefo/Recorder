@@ -921,6 +921,21 @@ class UIControls {
         let overlay = null;
         let currentTempo = this.player.midiPlayer.playbackSettings.tempo;
 
+        // Dragging is relative to the starting tempo and snaps to 10% steps.
+        // Fine mode (1% steps, quarter speed) is entered by moving the finger
+        // well away from where it started vertically, or by holding still
+        // after a coarse drag.
+        const FINE_DISTANCE_PX = 60;
+        const FINE_DWELL_MS = 400;
+        const FINE_GAIN = 0.25;
+        let rawTempo = currentTempo;
+        let lastX = 0;
+        let startY = 0;
+        let dwellFine = false;
+        let movedCoarse = false;
+        let dwellTimer = null;
+        let lastFine = false;
+
         // Create overlay (hidden by default)
         const createOverlay = () => {
             overlay = document.createElement('div');
@@ -953,23 +968,56 @@ class UIControls {
             overlay.querySelector('.tempo-overlay-thumb').style.left = `${percentage}%`;
         };
 
-        // Calculate tempo from touch position
-        const getTempoFromTouch = (touchX) => {
-            const overlayContent = overlay.querySelector('.tempo-overlay-track');
-            const rect = overlayContent.getBoundingClientRect();
-            const percentage = Math.max(0, Math.min(100, ((touchX - rect.left) / rect.width) * 100));
-            return Math.round(50 + (percentage * 1.5));
+        const clearDwell = () => {
+            if (dwellTimer) {
+                clearTimeout(dwellTimer);
+                dwellTimer = null;
+            }
+        };
+
+        // Show which mode is active and tick on every value change
+        const setMode = (fine) => {
+            if (fine !== lastFine) {
+                lastFine = fine;
+                overlay.classList.toggle('fine', fine);
+                overlay.querySelector('.tempo-overlay-label').textContent = fine ? 'Tempo · fine' : 'Tempo';
+                if (fine) {
+                    // Fine-tuning starts from the snapped value on screen
+                    rawTempo = currentTempo;
+                    if (navigator.vibrate) navigator.vibrate(20);
+                }
+            }
+        };
+
+        // Holding still after a coarse drag switches to fine mode
+        const armDwell = () => {
+            clearDwell();
+            if (dwellFine || !movedCoarse) return;
+            dwellTimer = setTimeout(() => {
+                dwellTimer = null;
+                dwellFine = true;
+                setMode(true);
+            }, FINE_DWELL_MS);
         };
 
         // Handle touch start
         const handleTouchStart = (e) => {
+            const touch = e.touches[0];
             pressTimer = setTimeout(() => {
+                pressTimer = null;
                 // Long press - show overlay
                 if (!overlay) {
                     createOverlay();
                 }
                 overlay.classList.add('active');
                 currentTempo = this.player.midiPlayer.playbackSettings.tempo;
+                rawTempo = currentTempo;
+                lastX = touch.clientX;
+                startY = touch.clientY;
+                dwellFine = false;
+                movedCoarse = false;
+                lastFine = true;
+                setMode(false);
                 updateOverlay(currentTempo);
 
                 // Haptic feedback
@@ -986,8 +1034,26 @@ class UIControls {
             }
             e.preventDefault();
             const touch = e.touches[0];
-            currentTempo = getTempoFromTouch(touch.clientX);
-            updateOverlay(currentTempo);
+            const fine = dwellFine || Math.abs(touch.clientY - startY) > FINE_DISTANCE_PX;
+            setMode(fine);
+
+            // One full track width covers the whole 50-200% range
+            const trackWidth = overlay.querySelector('.tempo-overlay-track').getBoundingClientRect().width;
+            const dx = touch.clientX - lastX;
+            lastX = touch.clientX;
+            rawTempo += dx * (150 / trackWidth) * (fine ? FINE_GAIN : 1);
+            rawTempo = Math.max(50, Math.min(200, rawTempo));
+
+            const tempo = fine ? Math.round(rawTempo) : Math.round(rawTempo / 10) * 10;
+            if (!fine && dx !== 0) {
+                movedCoarse = true;
+                armDwell();
+            }
+            if (tempo !== currentTempo) {
+                currentTempo = tempo;
+                if (navigator.vibrate) navigator.vibrate(fine ? 5 : 10);
+                updateOverlay(currentTempo);
+            }
         };
 
         // Handle touch end
@@ -998,6 +1064,7 @@ class UIControls {
                 clearTimeout(pressTimer);
                 pressTimer = null;
             }
+            clearDwell();
 
             if (wasShowingOverlay) {
                 // Apply tempo change from overlay

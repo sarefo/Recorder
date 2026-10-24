@@ -211,6 +211,16 @@
     transition: left 0.05s ease;
 }
 
+/* Fine mode: 1% steps; the label changes and the thumb shrinks to show it */
+.tempo-overlay.fine .tempo-overlay-label {
+    color: var(--color-text-on-primary);
+}
+
+.tempo-overlay.fine .tempo-overlay-thumb {
+    width: 14px;
+    height: 14px;
+}
+
 .tempo-overlay-markers {
     display: flex;
     justify-content: space-between;
