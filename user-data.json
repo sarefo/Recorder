@@ -1018,19 +1018,20 @@
       "updatedAt": "2026-10-24T11:52:16.545Z"
     },
     "german/es ist ein schnitter.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-24T11:53:29.772Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T11:57:24.027Z"
     },
     "german/es waren zwei koenigskinder.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T11:57:27.209Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "german/es zogen drei burschen.abc": {
@@ -2592,6 +2593,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es waren zwei koenigskinder.abc",
+      "timestamp": "2026-10-24T11:57:27.209Z"
+    },
+    {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-10-24T11:53:29.772Z"
     },
@@ -2666,10 +2671,6 @@
     {
       "filePath": "pop/popcorn.abc",
       "timestamp": "2026-10-22T06:12:46.870Z"
-    },
-    {
-      "filePath": "classical/bach/badinerie.abc",
-      "timestamp": "2026-10-22T06:09:55.281Z"
     }
   ],
   "activity": {
@@ -2700,6 +2701,7 @@
       "german/es freit ein wilder wassermann.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 2,
       "german/es ist ein schnitter.abc": 2,
+      "german/es waren zwei koenigskinder.abc": 1,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -2748,6 +2750,11 @@
       "path": "german/es geht eine dunkle wolk herein.abc",
       "status": "good",
       "at": "2026-10-24T11:52:16.545Z"
+    },
+    {
+      "path": "german/es ist ein schnitter.abc",
+      "status": "practicing",
+      "at": "2026-10-24T11:57:24.027Z"
     }
   ],
   "marks": {
@@ -2905,6 +2912,16 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-24T11:53:42.144Z"
+      }
+    },
+    "german/es waren zwei koenigskinder.abc": {
+      "10": {
+        "pitch": "_B",
+        "prev": "C",
+        "pitchSeen": 8,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-24T11:57:39.477Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -3171,6 +3188,15 @@
         "6": {
           "state": "red",
           "pitch": "_E"
+        }
+      }
+    },
+    "german/es waren zwei koenigskinder.abc": {
+      "at": "2026-10-24T11:57:29.473Z",
+      "notes": {
+        "10": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
