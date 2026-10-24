@@ -12,7 +12,7 @@ class AbcFileList {
                 "name": "Jarnana",
                 "file": "albanian/jarnana.abc",
                 "category": "albanian",
-                "hash": "496ac574e1"
+                "hash": "a69c7cf1d1"
         },
         {
                 "name": "Plouf Tizen Tizen",
@@ -114,7 +114,7 @@ class AbcFileList {
                 "name": "Rusi Kosi Imam",
                 "file": "bulgarian/rusi kosi imam.abc",
                 "category": "bulgarian",
-                "hash": "c257bacbf3"
+                "hash": "e73e6d9b4c"
         },
         {
                 "name": "Allons Danser Colinda",
@@ -768,7 +768,7 @@ class AbcFileList {
                 "name": "Feinsliebchen, du sollst mir nicht barfu\u00df gehn",
                 "file": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
                 "category": "german",
-                "hash": "c0d746d2da"
+                "hash": "dde0f9979e"
         },
         {
                 "name": "Ich fahr dahin",
@@ -792,7 +792,7 @@ class AbcFileList {
                 "name": "Kein sch\u00f6ner Land",
                 "file": "german/kein schoener land.abc",
                 "category": "german",
-                "hash": "da571eb6b2"
+                "hash": "501e4ee276"
         },
         {
                 "name": "Maria durch ein Dornwald ging",

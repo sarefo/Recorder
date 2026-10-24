@@ -264,6 +264,11 @@ class FileManager {
         // Clear existing content
         container.innerHTML = '';
 
+        if (this.currentFilter === 'recent') {
+            container.appendChild(this.createRecentList(handleEscape));
+            return;
+        }
+
         // Sort categories alphabetically
         const sortedCategories = Object.keys(this.categorizedFiles).sort();
 
@@ -273,6 +278,37 @@ class FileManager {
             const section = this.createRegionSection(region, categories, handleEscape);
             if (section) container.appendChild(section);
         });
+    }
+
+    /**
+     * Builds the Recent view: one flat list, last played first. Folders would
+     * scatter a handful of tunes across regions and hide the order they were
+     * played in, so each row names its folder instead.
+     * @param {Function} handleEscape - Dialog's escape handler, to detach on load
+     * @returns {HTMLUListElement}
+     */
+    createRecentList(handleEscape) {
+        const list = document.createElement('ul');
+        list.className = 'files-items files-recent-list';
+        const byPath = new Map(this.fileList.map(file => [file.file, file]));
+        this.userDataManager.getRecentSongs().forEach(({ filePath }) => {
+            const file = byPath.get(filePath);
+            // A tune renamed or removed since it was played has no entry left
+            if (!file) return;
+            const item = this.createFileItem(file, handleEscape);
+            const folder = document.createElement('span');
+            folder.className = 'file-item-folder';
+            folder.textContent = file.category;
+            item.firstChild.after(folder);
+            list.appendChild(item);
+        });
+        if (!list.children.length) {
+            const empty = document.createElement('li');
+            empty.className = 'no-results-message';
+            empty.textContent = 'No recently played tunes.';
+            list.appendChild(empty);
+        }
+        return list;
     }
 
     /**
@@ -419,120 +455,7 @@ class FileManager {
             }
 
             visibleFileCount++;
-
-            const fileItem = document.createElement('li');
-            fileItem.className = 'file-item';
-
-            // Create text node for the filename
-            const textNode = document.createTextNode(file.name);
-            fileItem.appendChild(textNode);
-
-            fileItem.dataset.file = file.file;
-            fileItem.dataset.name = file.name.toLowerCase();
-            fileItem.dataset.category = category.toLowerCase();
-            if (file.file === this.currentFilePath) {
-                fileItem.classList.add('current');
-            }
-
-            // Add metadata indicators
-            const starButton = this.metadataUI.createStarButton(file.file, fileItem);
-            fileItem.appendChild(starButton);
-
-            const statusBadge = this.metadataUI.createStatusBadge(file.file);
-            if (statusBadge) {
-                // Add click handler to status badge to open status selector
-                statusBadge.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const rect = statusBadge.getBoundingClientRect();
-                    this.metadataUI.showStatusSelector(file.file, fileItem, rect.left, rect.bottom + 5);
-                });
-                fileItem.appendChild(statusBadge);
-            }
-
-            const notesIndicator = this.metadataUI.createNotesIndicator(file.file);
-            if (notesIndicator) {
-                fileItem.appendChild(notesIndicator);
-            }
-
-            // Click to load file
-            fileItem.addEventListener('click', (e) => {
-                // Don't load if clicking on metadata buttons
-                if (e.target.classList.contains('song-favorite-star') ||
-                    e.target.classList.contains('song-notes-indicator') ||
-                    e.target.classList.contains('song-status-badge')) {
-                    return;
-                }
-
-                // Don't load if long-press was triggered (context menu shown)
-                if (fileItem._longPressTriggered) {
-                    fileItem._longPressTriggered = false;
-                    return;
-                }
-
-                this.loadFile(file.file);
-                // Close dialog
-                const dialog = document.querySelector('.files-dialog-overlay');
-                if (dialog) {
-                    document.body.removeChild(dialog);
-                    document.removeEventListener('keydown', handleEscape);
-                }
-            });
-
-            // Right-click context menu (desktop)
-            fileItem.addEventListener('contextmenu', (e) => {
-                e.preventDefault();
-                this.metadataUI.showContextMenu(file.file, fileItem, e.pageX, e.pageY);
-            });
-
-            // Long-press context menu (mobile)
-            let pressTimer;
-
-            fileItem.addEventListener('touchstart', (e) => {
-                fileItem._longPressTriggered = false;
-
-                // Add visual feedback class after 300ms
-                const feedbackTimer = setTimeout(() => {
-                    fileItem.classList.add('long-pressing');
-                }, 300);
-
-                pressTimer = setTimeout(() => {
-                    fileItem._longPressTriggered = true;
-                    fileItem.classList.remove('long-pressing');
-
-                    // Trigger haptic feedback if available
-                    if (navigator.vibrate) {
-                        navigator.vibrate(50);
-                    }
-
-                    const touch = e.touches[0];
-                    this.metadataUI.showContextMenu(file.file, fileItem, touch.pageX, touch.pageY);
-                }, 500);
-
-                // Store feedback timer to clear it if needed
-                fileItem._feedbackTimer = feedbackTimer;
-            });
-
-            fileItem.addEventListener('touchend', () => {
-                clearTimeout(pressTimer);
-                clearTimeout(fileItem._feedbackTimer);
-                fileItem.classList.remove('long-pressing');
-
-                // Reset long-press flag after a short delay
-                // (to allow click handler to check it first)
-                setTimeout(() => {
-                    if (fileItem._longPressTriggered) {
-                        fileItem._longPressTriggered = false;
-                    }
-                }, 100);
-            });
-
-            fileItem.addEventListener('touchmove', () => {
-                clearTimeout(pressTimer);
-                clearTimeout(fileItem._feedbackTimer);
-                fileItem.classList.remove('long-pressing');
-            });
-
-            fileItems.appendChild(fileItem);
+            fileItems.appendChild(this.createFileItem(file, handleEscape));
         });
 
         categoryContainer.appendChild(fileItems);
@@ -543,6 +466,129 @@ class FileManager {
         }
 
         return categoryContainer;
+    }
+
+    /**
+     * Builds one tune row: name, star, status badge, notes indicator, tap to
+     * load, long-press or right-click for the context menu
+     * @param {{name: string, file: string, category: string}} file - Entry of the tune list
+     * @param {Function} handleEscape - Dialog's escape handler, to detach on load
+     * @returns {HTMLLIElement}
+     */
+    createFileItem(file, handleEscape) {
+        const fileItem = document.createElement('li');
+        fileItem.className = 'file-item';
+
+        // Create text node for the filename
+        const textNode = document.createTextNode(file.name);
+        fileItem.appendChild(textNode);
+
+        fileItem.dataset.file = file.file;
+        fileItem.dataset.name = file.name.toLowerCase();
+        fileItem.dataset.category = file.category.toLowerCase();
+        if (file.file === this.currentFilePath) {
+            fileItem.classList.add('current');
+        }
+
+        // Add metadata indicators
+        const starButton = this.metadataUI.createStarButton(file.file, fileItem);
+        fileItem.appendChild(starButton);
+
+        const statusBadge = this.metadataUI.createStatusBadge(file.file);
+        if (statusBadge) {
+            // Add click handler to status badge to open status selector
+            statusBadge.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const rect = statusBadge.getBoundingClientRect();
+                this.metadataUI.showStatusSelector(file.file, fileItem, rect.left, rect.bottom + 5);
+            });
+            fileItem.appendChild(statusBadge);
+        }
+
+        const notesIndicator = this.metadataUI.createNotesIndicator(file.file);
+        if (notesIndicator) {
+            fileItem.appendChild(notesIndicator);
+        }
+
+        // Click to load file
+        fileItem.addEventListener('click', (e) => {
+            // Don't load if clicking on metadata buttons
+            if (e.target.classList.contains('song-favorite-star') ||
+                e.target.classList.contains('song-notes-indicator') ||
+                e.target.classList.contains('song-status-badge')) {
+                return;
+            }
+
+            // Don't load if long-press was triggered (context menu shown)
+            if (fileItem._longPressTriggered) {
+                fileItem._longPressTriggered = false;
+                return;
+            }
+
+            this.loadFile(file.file);
+            // Close dialog
+            const dialog = document.querySelector('.files-dialog-overlay');
+            if (dialog) {
+                document.body.removeChild(dialog);
+                document.removeEventListener('keydown', handleEscape);
+            }
+        });
+
+        // Right-click context menu (desktop)
+        fileItem.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            this.metadataUI.showContextMenu(file.file, fileItem, e.pageX, e.pageY);
+        });
+
+        // Long-press context menu (mobile)
+        let pressTimer;
+
+        fileItem.addEventListener('touchstart', (e) => {
+            fileItem._longPressTriggered = false;
+
+            // Add visual feedback class after 300ms
+            const feedbackTimer = setTimeout(() => {
+                fileItem.classList.add('long-pressing');
+            }, 300);
+
+            pressTimer = setTimeout(() => {
+                fileItem._longPressTriggered = true;
+                fileItem.classList.remove('long-pressing');
+
+                // Trigger haptic feedback if available
+                if (navigator.vibrate) {
+                    navigator.vibrate(50);
+                }
+
+                const touch = e.touches[0];
+                this.metadataUI.showContextMenu(file.file, fileItem, touch.pageX, touch.pageY);
+            }, 500);
+
+            // Store feedback timer to clear it if needed
+            fileItem._feedbackTimer = feedbackTimer;
+        });
+
+        fileItem.addEventListener('touchend', () => {
+            clearTimeout(pressTimer);
+            clearTimeout(fileItem._feedbackTimer);
+            fileItem.classList.remove('long-pressing');
+
+            // Reset long-press flag after a short delay
+            // (to allow click handler to check it first)
+            setTimeout(() => {
+                if (fileItem._longPressTriggered) {
+                    fileItem._longPressTriggered = false;
+                }
+            }, 100);
+        });
+
+        fileItem.addEventListener('touchmove', () => {
+            clearTimeout(pressTimer);
+            clearTimeout(fileItem._feedbackTimer);
+            fileItem.classList.remove('long-pressing');
+        });
+
+        return fileItem;
     }
 
     /**
@@ -652,6 +698,14 @@ class FileManager {
         const regions = container.querySelectorAll('.files-region');
 
         let totalVisible = 0;
+
+        // The Recent view is one flat list, without regions or folders
+        container.querySelectorAll('.files-recent-list > .file-item').forEach(item => {
+            const matches = item.dataset.name.includes(lowerSearchTerm) ||
+                item.dataset.category.includes(lowerSearchTerm);
+            item.classList.toggle('hidden', !matches);
+            if (matches) totalVisible++;
+        });
 
         regions.forEach(region => {
             // A region name is a legitimate search term of its own: typing

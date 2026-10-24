@@ -363,3 +363,22 @@
     color: var(--color-primary-hover);
     font-weight: var(--font-weight-bold, 700);
 }
+
+/* Recent: one tune per row, last played first, with its folder beside the name */
+.files-recent-list {
+    flex-basis: 100%;
+    max-width: 36rem;
+    grid-template-columns: 1fr;
+}
+
+.files-recent-list > .file-item {
+    justify-content: flex-start;
+    text-align: left;
+    gap: var(--space-2);
+}
+
+.file-item-folder {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    font-weight: normal;
+}
