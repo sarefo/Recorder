@@ -1881,8 +1881,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-23T10:58:18.431Z",
-      "playCount": 8,
+      "lastPlayed": "2026-10-24T07:08:59.226Z",
+      "playCount": 9,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-08T07:37:13.092Z"
     },
@@ -2126,7 +2126,7 @@
   "recentlyPlayed": [
     {
       "filePath": "scottish/hopetoun_house.abc",
-      "timestamp": "2026-10-23T10:58:18.431Z"
+      "timestamp": "2026-10-24T07:08:59.226Z"
     },
     {
       "filePath": "latino/tango/por una cabeza.abc",
