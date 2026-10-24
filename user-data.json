@@ -1090,12 +1090,13 @@
       "updatedAt": "2026-10-24T12:10:18.189Z"
     },
     "german/maria durch ein dornwald ging.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-24T12:10:21.383Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T12:11:55.805Z"
     },
     "german/muss i denn.abc": {
       "status": null,
@@ -2715,7 +2716,7 @@
       "german/ich hab die nacht getraeumet.abc": 1,
       "german/innsbruck ich muss dich lassen.abc": 1,
       "german/kein schoener land.abc": 1,
-      "german/maria durch ein dornwald ging.abc": 1,
+      "german/maria durch ein dornwald ging.abc": 2,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -2804,6 +2805,11 @@
       "path": "german/kein schoener land.abc",
       "status": "needs-practice",
       "at": "2026-10-24T12:10:18.189Z"
+    },
+    {
+      "path": "german/maria durch ein dornwald ging.abc",
+      "status": "practicing",
+      "at": "2026-10-24T12:11:55.805Z"
     }
   ],
   "marks": {
