@@ -71,8 +71,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-19T05:12:55.665Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-24T11:21:53.289Z",
+      "playCount": 6,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-19T05:12:58.508Z"
     },
@@ -2125,6 +2125,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/les filles des forges de paimpont.abc",
+      "timestamp": "2026-10-24T11:21:53.289Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-24T11:18:12.328Z"
     },
@@ -2199,10 +2203,6 @@
     {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-10-22T05:37:37.477Z"
-    },
-    {
-      "filePath": "russian/kalinka.abc",
-      "timestamp": "2026-10-22T04:35:03.409Z"
     }
   ],
   "activity": {
@@ -2227,6 +2227,7 @@
       "japanese/sakura.abc": 1
     },
     "2026-10-24": {
+      "breton/les filles des forges de paimpont.abc": 1,
       "breton/son ar chistr.abc": 5,
       "scottish/hopetoun_house.abc": 16
     }
