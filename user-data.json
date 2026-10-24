@@ -357,8 +357,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-22T06:48:01.114Z",
-      "playCount": 18,
+      "lastPlayed": "2026-10-24T12:33:22.680Z",
+      "playCount": 19,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
@@ -2608,6 +2608,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/zou xikou.abc",
+      "timestamp": "2026-10-24T12:33:22.680Z"
+    },
+    {
       "filePath": "jazz/sweet georgia brown.abc",
       "timestamp": "2026-10-24T12:32:17.591Z"
     },
@@ -2682,10 +2686,6 @@
     {
       "filePath": "german/es waren zwei koenigskinder.abc",
       "timestamp": "2026-10-24T11:57:27.209Z"
-    },
-    {
-      "filePath": "german/es ist ein schnitter.abc",
-      "timestamp": "2026-10-24T11:53:29.772Z"
     }
   ],
   "activity": {
@@ -2713,6 +2713,7 @@
       "albanian/jarnana.abc": 1,
       "breton/les filles des forges de paimpont.abc": 1,
       "breton/son ar chistr.abc": 5,
+      "chinese/zou xikou.abc": 1,
       "german/ach bittrer winter.abc": 2,
       "german/es freit ein wilder wassermann.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 2,
