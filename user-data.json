@@ -1021,8 +1021,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T11:53:29.772Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "german/es waren zwei koenigskinder.abc": {
@@ -2592,6 +2592,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es ist ein schnitter.abc",
+      "timestamp": "2026-10-24T11:53:29.772Z"
+    },
+    {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-10-24T11:51:04.693Z"
     },
@@ -2666,10 +2670,6 @@
     {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-10-22T06:09:55.281Z"
-    },
-    {
-      "filePath": "classical/bach/adams_fall.abc",
-      "timestamp": "2026-10-22T06:09:51.616Z"
     }
   ],
   "activity": {
@@ -2699,6 +2699,7 @@
       "german/ach bittrer winter.abc": 2,
       "german/es freit ein wilder wassermann.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 2,
+      "german/es ist ein schnitter.abc": 1,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -2886,6 +2887,24 @@
         "transSeen": 3,
         "count": 1,
         "at": "2026-10-24T11:51:18.151Z"
+      }
+    },
+    "german/es ist ein schnitter.abc": {
+      "2": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 11,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-24T11:53:42.143Z"
+      },
+      "6": {
+        "pitch": "_E",
+        "prev": "F",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-24T11:53:42.144Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -3139,6 +3158,19 @@
         "5": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "german/es ist ein schnitter.abc": {
+      "at": "2026-10-24T11:53:32.140Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "6": {
+          "state": "red",
+          "pitch": "_E"
         }
       }
     },
