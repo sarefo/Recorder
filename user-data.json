@@ -3102,6 +3102,14 @@
         "transSeen": 6,
         "count": 1,
         "at": "2026-10-24T12:27:17.326Z"
+      },
+      "62": {
+        "pitch": "_e",
+        "prev": "_e",
+        "pitchSeen": 6,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-24T12:28:11.127Z"
       }
     },
     "latino/tango/por una cabeza.abc": {
@@ -3404,11 +3412,15 @@
       }
     },
     "jazz/the way you look tonight.abc": {
-      "at": "2026-10-24T12:27:07.323Z",
+      "at": "2026-10-24T12:28:01.123Z",
       "notes": {
         "4": {
           "state": "red",
           "pitch": "_B"
+        },
+        "62": {
+          "state": "red",
+          "pitch": "_e"
         }
       }
     },
