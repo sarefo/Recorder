@@ -1072,19 +1072,20 @@
       "updatedAt": "2026-10-24T12:06:24.534Z"
     },
     "german/innsbruck ich muss dich lassen.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-10-24T12:06:27.522Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T12:07:32.230Z"
     },
     "german/kein schoener land.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T12:07:35.503Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "german/maria durch ein dornwald ging.abc": {
@@ -2598,6 +2599,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/kein schoener land.abc",
+      "timestamp": "2026-10-24T12:07:35.503Z"
+    },
+    {
       "filePath": "german/innsbruck ich muss dich lassen.abc",
       "timestamp": "2026-10-24T12:06:27.522Z"
     },
@@ -2672,10 +2677,6 @@
     {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-10-22T06:49:40.395Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-10-22T06:48:01.114Z"
     }
   ],
   "activity": {
@@ -2712,6 +2713,7 @@
       "german/ich fahr dahin.abc": 1,
       "german/ich hab die nacht getraeumet.abc": 1,
       "german/innsbruck ich muss dich lassen.abc": 1,
+      "german/kein schoener land.abc": 1,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -2790,6 +2792,11 @@
       "path": "german/ich hab die nacht getraeumet.abc",
       "status": "needs-practice",
       "at": "2026-10-24T12:06:24.534Z"
+    },
+    {
+      "path": "german/innsbruck ich muss dich lassen.abc",
+      "status": "practicing",
+      "at": "2026-10-24T12:07:32.230Z"
     }
   ],
   "marks": {
