@@ -293,8 +293,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-22T06:49:40.395Z",
-      "playCount": 30,
+      "lastPlayed": "2026-10-24T12:35:11.784Z",
+      "playCount": 31,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/na jiushi wo.abc": {
@@ -2608,6 +2608,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/molihua.abc",
+      "timestamp": "2026-10-24T12:35:11.784Z"
+    },
+    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-10-24T12:33:22.680Z"
     },
@@ -2682,10 +2686,6 @@
     {
       "filePath": "german/es zogen drei burschen.abc",
       "timestamp": "2026-10-24T11:58:53.993Z"
-    },
-    {
-      "filePath": "german/es waren zwei koenigskinder.abc",
-      "timestamp": "2026-10-24T11:57:27.209Z"
     }
   ],
   "activity": {
@@ -2713,6 +2713,7 @@
       "albanian/jarnana.abc": 1,
       "breton/les filles des forges de paimpont.abc": 1,
       "breton/son ar chistr.abc": 5,
+      "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 2,
       "german/ach bittrer winter.abc": 2,
       "german/es freit ein wilder wassermann.abc": 1,
