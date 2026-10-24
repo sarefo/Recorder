@@ -2579,7 +2579,7 @@
       }
     },
     "scottish/hopetoun_house.abc": {
-      "at": "2026-10-24T09:20:44.685Z",
+      "at": "2026-10-24T11:09:04.428Z",
       "notes": {
         "21": {
           "state": "red",
@@ -2600,6 +2600,14 @@
         "58": {
           "state": "red",
           "pitch": "G"
+        },
+        "61": {
+          "state": "green",
+          "pitch": "D"
+        },
+        "74": {
+          "state": "green",
+          "pitch": "F"
         },
         "81": {
           "state": "red",
