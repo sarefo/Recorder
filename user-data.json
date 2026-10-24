@@ -1027,19 +1027,20 @@
       "updatedAt": "2026-10-24T11:57:24.027Z"
     },
     "german/es waren zwei koenigskinder.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-10-24T11:57:27.209Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T11:58:50.560Z"
     },
     "german/es zogen drei burschen.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T11:58:53.993Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": {
@@ -2593,6 +2594,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es zogen drei burschen.abc",
+      "timestamp": "2026-10-24T11:58:53.993Z"
+    },
+    {
       "filePath": "german/es waren zwei koenigskinder.abc",
       "timestamp": "2026-10-24T11:57:27.209Z"
     },
@@ -2667,10 +2672,6 @@
     {
       "filePath": "italian/bella ciao.abc",
       "timestamp": "2026-10-22T06:15:36.720Z"
-    },
-    {
-      "filePath": "pop/popcorn.abc",
-      "timestamp": "2026-10-22T06:12:46.870Z"
     }
   ],
   "activity": {
@@ -2702,6 +2703,7 @@
       "german/es geht eine dunkle wolk herein.abc": 2,
       "german/es ist ein schnitter.abc": 2,
       "german/es waren zwei koenigskinder.abc": 1,
+      "german/es zogen drei burschen.abc": 1,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -2755,6 +2757,11 @@
       "path": "german/es ist ein schnitter.abc",
       "status": "practicing",
       "at": "2026-10-24T11:57:24.027Z"
+    },
+    {
+      "path": "german/es waren zwei koenigskinder.abc",
+      "status": "practicing",
+      "at": "2026-10-24T11:58:50.560Z"
     }
   ],
   "marks": {
