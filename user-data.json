@@ -1045,12 +1045,13 @@
       "updatedAt": "2026-10-24T11:59:48.703Z"
     },
     "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T11:59:52.034Z",
-      "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "lastPlayed": "2026-10-24T12:04:13.698Z",
+      "playCount": 2,
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T12:04:18.471Z"
     },
     "german/ich fahr dahin.abc": {
       "status": null,
@@ -2596,7 +2597,7 @@
   "recentlyPlayed": [
     {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
-      "timestamp": "2026-10-24T11:59:52.034Z"
+      "timestamp": "2026-10-24T12:04:13.698Z"
     },
     {
       "filePath": "german/es zogen drei burschen.abc",
@@ -2769,6 +2770,11 @@
       "path": "german/es zogen drei burschen.abc",
       "status": "practicing",
       "at": "2026-10-24T11:59:48.703Z"
+    },
+    {
+      "path": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "status": "practicing",
+      "at": "2026-10-24T12:04:16.983Z"
     }
   ],
   "marks": {
