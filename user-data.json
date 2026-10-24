@@ -3574,6 +3574,19 @@
       }
     }
   },
-  "cleanRuns": [],
+  "cleanRuns": [
+    {
+      "path": "chinese/molihua.abc",
+      "at": "2026-10-24T18:15:14.810Z",
+      "percent": 100,
+      "bpm": 76
+    },
+    {
+      "path": "chinese/molihua.abc",
+      "at": "2026-10-24T18:15:18.986Z",
+      "percent": 100,
+      "bpm": 76
+    }
+  ],
   "settings": {}
 }
