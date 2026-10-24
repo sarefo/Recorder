@@ -991,19 +991,20 @@
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "german/ach bittrer winter.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "good",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-24T11:47:04.434Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T11:49:16.156Z"
     },
     "german/es freit ein wilder wassermann.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T11:49:19.882Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "german/es geht eine dunkle wolk herein.abc": {
@@ -2589,6 +2590,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es freit ein wilder wassermann.abc",
+      "timestamp": "2026-10-24T11:49:19.882Z"
+    },
+    {
       "filePath": "german/ach bittrer winter.abc",
       "timestamp": "2026-10-24T11:47:04.434Z"
     },
@@ -2663,10 +2668,6 @@
     {
       "filePath": "classical/bach/tiefer_not.abc",
       "timestamp": "2026-10-22T05:41:44.830Z"
-    },
-    {
-      "filePath": "jazz/all of me.abc",
-      "timestamp": "2026-10-22T05:38:32.249Z"
     }
   ],
   "activity": {
@@ -2693,7 +2694,8 @@
     "2026-10-24": {
       "breton/les filles des forges de paimpont.abc": 1,
       "breton/son ar chistr.abc": 5,
-      "german/ach bittrer winter.abc": 1,
+      "german/ach bittrer winter.abc": 2,
+      "german/es freit ein wilder wassermann.abc": 1,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -2717,6 +2719,16 @@
       "path": "chinese/liangshanbo.abc",
       "status": "practicing",
       "at": "2026-10-22T06:46:46.330Z"
+    },
+    {
+      "path": "german/ach bittrer winter.abc",
+      "status": "practicing",
+      "at": "2026-10-24T11:48:42.930Z"
+    },
+    {
+      "path": "german/ach bittrer winter.abc",
+      "status": "good",
+      "at": "2026-10-24T11:49:16.156Z"
     }
   ],
   "marks": {
@@ -2836,6 +2848,16 @@
         "transSeen": 1,
         "count": 2,
         "at": "2026-10-22T06:09:46.134Z"
+      }
+    },
+    "german/es freit ein wilder wassermann.abc": {
+      "12": {
+        "pitch": "_B",
+        "prev": "d",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-24T11:49:34.023Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -3071,6 +3093,15 @@
         "208": {
           "state": "red",
           "pitch": "_D"
+        }
+      }
+    },
+    "german/es freit ein wilder wassermann.abc": {
+      "at": "2026-10-24T11:49:24.019Z",
+      "notes": {
+        "12": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
