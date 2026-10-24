@@ -10,12 +10,13 @@
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "albanian/jarnana.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "good",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-24T12:18:06.637Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T12:19:25.043Z"
     },
     "algerian/plouf tizen tizen.abc": {
       "status": null,
@@ -2813,6 +2814,11 @@
       "path": "german/maria durch ein dornwald ging.abc",
       "status": "practicing",
       "at": "2026-10-24T12:11:55.805Z"
+    },
+    {
+      "path": "albanian/jarnana.abc",
+      "status": "good",
+      "at": "2026-10-24T12:19:25.043Z"
     }
   ],
   "marks": {
