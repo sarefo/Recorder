@@ -2432,6 +2432,14 @@
       }
     },
     "scottish/hopetoun_house.abc": {
+      "21": {
+        "pitch": "c",
+        "prev": "D",
+        "pitchSeen": 12,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-24T09:12:13.425Z"
+      },
       "43": {
         "pitch": "F",
         "prev": "A",
@@ -2555,8 +2563,12 @@
       }
     },
     "scottish/hopetoun_house.abc": {
-      "at": "2026-10-24T09:06:55.672Z",
+      "at": "2026-10-24T09:12:03.422Z",
       "notes": {
+        "21": {
+          "state": "red",
+          "pitch": "c"
+        },
         "43": {
           "state": "red",
           "pitch": "F"
