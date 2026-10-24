@@ -887,6 +887,84 @@ class UIControls {
             tempoValue.textContent = `${value}%`;
         });
 
+        const commit = () => tempoSlider.dispatchEvent(new Event('change'));
+        const setValue = (value) => {
+            tempoSlider.value = String(Math.max(50, Math.min(200, value)));
+            tempoValue.textContent = `${tempoSlider.value}%`;
+        };
+
+        // Pointer drag replaces the native one: snaps to 10%, and holding
+        // still, moving away vertically or holding Shift fine-tunes in 1% steps
+        const THUMB_PX = 16;
+        let dragStart = null;
+        const drag = this.createTempoDrag({
+            onValue: (tempo) => setValue(tempo),
+            onModeChange: (fine) => tempoSlider.classList.toggle('fine', fine)
+        });
+        const trackWidth = () => tempoSlider.getBoundingClientRect().width - THUMB_PX;
+
+        tempoSlider.addEventListener('pointerdown', (e) => {
+            if (e.button !== 0) return;
+            e.preventDefault();
+            tempoSlider.focus();
+            tempoSlider.setPointerCapture(e.pointerId);
+
+            // Grabbing the thumb keeps its value; clicking the track jumps
+            // there, snapped to 10%
+            const rect = tempoSlider.getBoundingClientRect();
+            const current = parseInt(tempoSlider.value, 10);
+            const thumbX = rect.left + THUMB_PX / 2 + ((current - 50) / 150) * trackWidth();
+            dragStart = current;
+            if (Math.abs(e.clientX - thumbX) > THUMB_PX) {
+                const fraction = (e.clientX - rect.left - THUMB_PX / 2) / trackWidth();
+                setValue(Math.round((50 + fraction * 150) / 10) * 10);
+            }
+            drag.begin(e.clientX, e.clientY, parseInt(tempoSlider.value, 10));
+        });
+
+        tempoSlider.addEventListener('pointermove', (e) => {
+            if (dragStart === null) return;
+            drag.move(e.clientX, e.clientY, trackWidth(), e.shiftKey);
+        });
+
+        const endDrag = () => {
+            if (dragStart === null) return;
+            drag.end();
+            tempoSlider.classList.remove('fine');
+            if (parseInt(tempoSlider.value, 10) !== dragStart) commit();
+            dragStart = null;
+        };
+        tempoSlider.addEventListener('pointerup', endDrag);
+        tempoSlider.addEventListener('pointercancel', endDrag);
+        // Keep the browser's own drag from starting alongside ours
+        tempoSlider.addEventListener('mousedown', (e) => e.preventDefault());
+        tempoSlider.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
+
+        // Arrow keys move 1% natively; Shift+arrows and Page Up/Down jump
+        // to the next multiple of 10
+        tempoSlider.addEventListener('keydown', (e) => {
+            const up = e.key === 'PageUp' || (e.shiftKey && (e.key === 'ArrowUp' || e.key === 'ArrowRight'));
+            const down = e.key === 'PageDown' || (e.shiftKey && (e.key === 'ArrowDown' || e.key === 'ArrowLeft'));
+            if (!up && !down) return;
+            e.preventDefault();
+            const current = parseInt(tempoSlider.value, 10);
+            setValue(up ? Math.floor(current / 10) * 10 + 10 : Math.ceil(current / 10) * 10 - 10);
+            commit();
+        });
+
+        // Mouse wheel: 1% per notch, 10% with Shift; applied once it settles
+        let wheelTimer = null;
+        tempoSlider.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY || e.deltaX;
+            if (!delta) return;
+            const current = parseInt(tempoSlider.value, 10);
+            const step = e.shiftKey ? 10 : 1;
+            setValue(current + (delta < 0 ? step : -step));
+            clearTimeout(wheelTimer);
+            wheelTimer = setTimeout(commit, 300);
+        }, { passive: false });
+
         tempoSlider.addEventListener('change', async () => {
             const value = parseInt(tempoSlider.value, 10);
             await this.player.midiPlayer.updatePlaybackSettings(
@@ -907,6 +985,78 @@ class UIControls {
     }
 
     /**
+     * Creates the coarse/fine drag logic shared by the tempo controls.
+     * Dragging is relative to the starting tempo and snaps to 10% steps.
+     * Fine mode (1% steps at quarter speed) starts when the pointer moves well
+     * away from its starting height, when the caller forces it (Shift), or
+     * when the pointer holds still after a coarse drag.
+     * @param {Object} handlers
+     * @param {Function} handlers.onValue - Called with (tempo, fine) when the shown tempo changes
+     * @param {Function} handlers.onModeChange - Called with (fine) when the mode flips
+     * @returns {{begin: Function, move: Function, end: Function}} Drag controls
+     */
+    createTempoDrag({ onValue, onModeChange }) {
+        const FINE_DISTANCE_PX = 60;
+        const FINE_DWELL_MS = 400;
+        const FINE_GAIN = 0.25;
+        let raw = 100;
+        let value = 100;
+        let lastX = 0;
+        let startY = 0;
+        let fine = false;
+        let dwellFine = false;
+        let dwellTimer = null;
+
+        const clearDwell = () => {
+            clearTimeout(dwellTimer);
+            dwellTimer = null;
+        };
+
+        const setFine = (next) => {
+            if (next === fine) return;
+            fine = next;
+            // Fine-tuning starts from the snapped value on screen
+            if (fine) raw = value;
+            onModeChange(fine);
+        };
+
+        return {
+            begin: (x, y, tempo) => {
+                raw = value = tempo;
+                lastX = x;
+                startY = y;
+                dwellFine = false;
+                clearDwell();
+                setFine(false);
+            },
+            move: (x, y, width, forceFine) => {
+                setFine(forceFine || dwellFine || Math.abs(y - startY) > FINE_DISTANCE_PX);
+
+                // One full track width covers the whole 50-200% range
+                const dx = x - lastX;
+                lastX = x;
+                raw = Math.max(50, Math.min(200, raw + dx * (150 / width) * (fine ? FINE_GAIN : 1)));
+
+                const tempo = fine ? Math.round(raw) : Math.round(raw / 10) * 10;
+                if (!fine && dx !== 0 && !dwellFine) {
+                    // Holding still after a coarse drag switches to fine mode
+                    clearDwell();
+                    dwellTimer = setTimeout(() => {
+                        dwellTimer = null;
+                        dwellFine = true;
+                        setFine(true);
+                    }, FINE_DWELL_MS);
+                }
+                if (tempo !== value) {
+                    value = tempo;
+                    onValue(tempo, fine);
+                }
+            },
+            end: clearDwell
+        };
+    }
+
+    /**
      * Creates mobile tempo button with full-screen overlay slider
      * @returns {HTMLElement} The mobile tempo button
      */
@@ -921,20 +1071,21 @@ class UIControls {
         let overlay = null;
         let currentTempo = this.player.midiPlayer.playbackSettings.tempo;
 
-        // Dragging is relative to the starting tempo and snaps to 10% steps.
-        // Fine mode (1% steps, quarter speed) is entered by moving the finger
-        // well away from where it started vertically, or by holding still
-        // after a coarse drag.
-        const FINE_DISTANCE_PX = 60;
-        const FINE_DWELL_MS = 400;
-        const FINE_GAIN = 0.25;
-        let rawTempo = currentTempo;
-        let lastX = 0;
-        let startY = 0;
-        let dwellFine = false;
-        let movedCoarse = false;
-        let dwellTimer = null;
-        let lastFine = false;
+        // Shared coarse/fine drag logic, also used by the desktop slider
+        const drag = this.createTempoDrag({
+            onValue: (tempo, fine) => {
+                currentTempo = tempo;
+                if (navigator.vibrate) navigator.vibrate(fine ? 5 : 10);
+                updateOverlay(currentTempo);
+            },
+            onModeChange: (fine) => {
+                overlay.classList.toggle('fine', fine);
+                overlay.querySelector('.tempo-overlay-label').textContent = fine ? 'Tempo · fine' : 'Tempo';
+                if (fine && navigator.vibrate) navigator.vibrate(20);
+            }
+        });
+        let touchX = 0;
+        let touchY = 0;
 
         // Create overlay (hidden by default)
         const createOverlay = () => {
@@ -968,41 +1119,10 @@ class UIControls {
             overlay.querySelector('.tempo-overlay-thumb').style.left = `${percentage}%`;
         };
 
-        const clearDwell = () => {
-            if (dwellTimer) {
-                clearTimeout(dwellTimer);
-                dwellTimer = null;
-            }
-        };
-
-        // Show which mode is active and tick on every value change
-        const setMode = (fine) => {
-            if (fine !== lastFine) {
-                lastFine = fine;
-                overlay.classList.toggle('fine', fine);
-                overlay.querySelector('.tempo-overlay-label').textContent = fine ? 'Tempo · fine' : 'Tempo';
-                if (fine) {
-                    // Fine-tuning starts from the snapped value on screen
-                    rawTempo = currentTempo;
-                    if (navigator.vibrate) navigator.vibrate(20);
-                }
-            }
-        };
-
-        // Holding still after a coarse drag switches to fine mode
-        const armDwell = () => {
-            clearDwell();
-            if (dwellFine || !movedCoarse) return;
-            dwellTimer = setTimeout(() => {
-                dwellTimer = null;
-                dwellFine = true;
-                setMode(true);
-            }, FINE_DWELL_MS);
-        };
-
         // Handle touch start
         const handleTouchStart = (e) => {
-            const touch = e.touches[0];
+            touchX = e.touches[0].clientX;
+            touchY = e.touches[0].clientY;
             pressTimer = setTimeout(() => {
                 pressTimer = null;
                 // Long press - show overlay
@@ -1011,13 +1131,7 @@ class UIControls {
                 }
                 overlay.classList.add('active');
                 currentTempo = this.player.midiPlayer.playbackSettings.tempo;
-                rawTempo = currentTempo;
-                lastX = touch.clientX;
-                startY = touch.clientY;
-                dwellFine = false;
-                movedCoarse = false;
-                lastFine = true;
-                setMode(false);
+                drag.begin(touchX, touchY, currentTempo);
                 updateOverlay(currentTempo);
 
                 // Haptic feedback
@@ -1029,31 +1143,15 @@ class UIControls {
 
         // Handle touch move (while overlay is active)
         const handleTouchMove = (e) => {
+            const touch = e.touches[0];
+            touchX = touch.clientX;
+            touchY = touch.clientY;
             if (!overlay || !overlay.classList.contains('active')) {
                 return;
             }
             e.preventDefault();
-            const touch = e.touches[0];
-            const fine = dwellFine || Math.abs(touch.clientY - startY) > FINE_DISTANCE_PX;
-            setMode(fine);
-
-            // One full track width covers the whole 50-200% range
             const trackWidth = overlay.querySelector('.tempo-overlay-track').getBoundingClientRect().width;
-            const dx = touch.clientX - lastX;
-            lastX = touch.clientX;
-            rawTempo += dx * (150 / trackWidth) * (fine ? FINE_GAIN : 1);
-            rawTempo = Math.max(50, Math.min(200, rawTempo));
-
-            const tempo = fine ? Math.round(rawTempo) : Math.round(rawTempo / 10) * 10;
-            if (!fine && dx !== 0) {
-                movedCoarse = true;
-                armDwell();
-            }
-            if (tempo !== currentTempo) {
-                currentTempo = tempo;
-                if (navigator.vibrate) navigator.vibrate(fine ? 5 : 10);
-                updateOverlay(currentTempo);
-            }
+            drag.move(touchX, touchY, trackWidth, false);
         };
 
         // Handle touch end
@@ -1064,7 +1162,7 @@ class UIControls {
                 clearTimeout(pressTimer);
                 pressTimer = null;
             }
-            clearDwell();
+            drag.end();
 
             if (wasShowingOverlay) {
                 // Apply tempo change from overlay

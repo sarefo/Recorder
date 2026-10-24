@@ -21,6 +21,7 @@
 }
 
 .tempo-control input[type="range"] {
+    touch-action: none;
     flex: 1 1 auto;
     min-width: 120px;
     height: 6px;
@@ -46,6 +47,15 @@
 
 .tempo-control input[type="range"]:hover::-webkit-slider-thumb {
     transform: scale(1.15);
+}
+
+/* Fine mode (1% steps) while dragging: a smaller thumb */
+.tempo-control input[type="range"].fine::-webkit-slider-thumb {
+    transform: scale(0.7);
+}
+
+.tempo-control input[type="range"].fine::-moz-range-thumb {
+    transform: scale(0.7);
 }
 
 .tempo-control input[type="range"]:focus-visible::-webkit-slider-thumb {
