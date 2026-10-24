@@ -13,8 +13,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T12:18:06.637Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "algerian/plouf tizen tizen.abc": {
@@ -1102,24 +1102,24 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-09-27T07:31:46.865Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-24T12:17:03.755Z",
+      "playCount": 3,
       "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "german/o strassburg o strassburg.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T12:17:08.845Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "german/verstohlen geht der mond auf.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T12:17:29.745Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "ghanaian/tue tue.abc": {
@@ -2601,6 +2601,22 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "albanian/jarnana.abc",
+      "timestamp": "2026-10-24T12:18:06.637Z"
+    },
+    {
+      "filePath": "german/verstohlen geht der mond auf.abc",
+      "timestamp": "2026-10-24T12:17:29.745Z"
+    },
+    {
+      "filePath": "german/o strassburg o strassburg.abc",
+      "timestamp": "2026-10-24T12:17:08.845Z"
+    },
+    {
+      "filePath": "german/muss i denn.abc",
+      "timestamp": "2026-10-24T12:17:03.755Z"
+    },
+    {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-10-24T12:10:21.383Z"
     },
@@ -2663,22 +2679,6 @@
     {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-23T10:53:59.995Z"
-    },
-    {
-      "filePath": "classical/schubert/forelle.abc",
-      "timestamp": "2026-10-23T07:57:02.380Z"
-    },
-    {
-      "filePath": "japanese/kojo no tsuki.abc",
-      "timestamp": "2026-10-23T07:54:48.191Z"
-    },
-    {
-      "filePath": "japanese/sakura.abc",
-      "timestamp": "2026-10-23T07:52:05.085Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-10-23T07:49:51.732Z"
     }
   ],
   "activity": {
@@ -2703,6 +2703,7 @@
       "japanese/sakura.abc": 1
     },
     "2026-10-24": {
+      "albanian/jarnana.abc": 1,
       "breton/les filles des forges de paimpont.abc": 1,
       "breton/son ar chistr.abc": 5,
       "german/ach bittrer winter.abc": 2,
@@ -2717,6 +2718,8 @@
       "german/innsbruck ich muss dich lassen.abc": 1,
       "german/kein schoener land.abc": 1,
       "german/maria durch ein dornwald ging.abc": 4,
+      "german/o strassburg o strassburg.abc": 1,
+      "german/verstohlen geht der mond auf.abc": 1,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -3015,6 +3018,16 @@
         "transSeen": 4,
         "count": 1,
         "at": "2026-10-24T12:10:33.747Z"
+      }
+    },
+    "german/verstohlen geht der mond auf.abc": {
+      "3": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-24T12:17:45.112Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -3317,6 +3330,15 @@
     },
     "german/maria durch ein dornwald ging.abc": {
       "at": "2026-10-24T12:10:23.741Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "german/verstohlen geht der mond auf.abc": {
+      "at": "2026-10-24T12:17:35.109Z",
       "notes": {
         "3": {
           "state": "red",
