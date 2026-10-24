@@ -1063,19 +1063,20 @@
       "updatedAt": "2026-10-24T12:05:26.207Z"
     },
     "german/ich hab die nacht getraeumet.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-10-24T12:05:29.387Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.430Z"
+      "createdAt": "2026-10-24T11:46:54.430Z",
+      "updatedAt": "2026-10-24T12:06:24.534Z"
     },
     "german/innsbruck ich muss dich lassen.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T12:06:27.522Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "german/kein schoener land.abc": {
@@ -2597,6 +2598,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/innsbruck ich muss dich lassen.abc",
+      "timestamp": "2026-10-24T12:06:27.522Z"
+    },
+    {
       "filePath": "german/ich hab die nacht getraeumet.abc",
       "timestamp": "2026-10-24T12:05:29.387Z"
     },
@@ -2671,10 +2676,6 @@
     {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-10-22T06:48:01.114Z"
-    },
-    {
-      "filePath": "chinese/liangshanbo.abc",
-      "timestamp": "2026-10-22T06:45:28.935Z"
     }
   ],
   "activity": {
@@ -2710,6 +2711,7 @@
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/ich fahr dahin.abc": 1,
       "german/ich hab die nacht getraeumet.abc": 1,
+      "german/innsbruck ich muss dich lassen.abc": 1,
       "scottish/hopetoun_house.abc": 16
     }
   },
@@ -2783,6 +2785,11 @@
       "path": "german/ich fahr dahin.abc",
       "status": "practicing",
       "at": "2026-10-24T12:05:26.207Z"
+    },
+    {
+      "path": "german/ich hab die nacht getraeumet.abc",
+      "status": "needs-practice",
+      "at": "2026-10-24T12:06:24.534Z"
     }
   ],
   "marks": {
@@ -2968,6 +2975,16 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-24T12:05:44.529Z"
+      }
+    },
+    "german/innsbruck ich muss dich lassen.abc": {
+      "5": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 6,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-24T12:06:42.334Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -3256,6 +3273,15 @@
         "22": {
           "state": "red",
           "pitch": "_e"
+        }
+      }
+    },
+    "german/innsbruck ich muss dich lassen.abc": {
+      "at": "2026-10-24T12:06:32.327Z",
+      "notes": {
+        "5": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
