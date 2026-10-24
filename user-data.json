@@ -2329,8 +2329,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-24T12:24:38.263Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.431Z"
     },
     "shanty/grogg mayles.abc": {
@@ -2604,6 +2604,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "serbian/ljulja ljulja ljuska.abc",
+      "timestamp": "2026-10-24T12:24:38.263Z"
+    },
+    {
       "filePath": "greek/kritikos syrtos.abc",
       "timestamp": "2026-10-24T12:23:44.454Z"
     },
@@ -2678,10 +2682,6 @@
     {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-10-24T11:21:53.289Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-10-24T11:18:12.328Z"
     }
   ],
   "activity": {
@@ -2724,7 +2724,8 @@
       "german/o strassburg o strassburg.abc": 1,
       "german/verstohlen geht der mond auf.abc": 1,
       "greek/kritikos syrtos.abc": 1,
-      "scottish/hopetoun_house.abc": 16
+      "scottish/hopetoun_house.abc": 16,
+      "serbian/ljulja ljulja ljuska.abc": 1
     }
   },
   "statusLog": [
