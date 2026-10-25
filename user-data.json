@@ -1546,27 +1546,29 @@
       "updatedAt": "2026-10-25T05:30:32.290Z"
     },
     "japanese/umi.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-10-25T05:30:34.913Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:31:28.722Z"
     },
     "japanese/ureshii hinamatsuri.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "lastPlayed": "2026-10-25T05:31:33.533Z",
+      "playCount": 1,
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:32:11.017Z"
     },
     "japanese/yuuhi.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:32:15.143Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "jazz/all of me.abc": {
@@ -2628,6 +2630,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/yuuhi.abc",
+      "timestamp": "2026-10-25T05:32:15.143Z"
+    },
+    {
+      "filePath": "japanese/ureshii hinamatsuri.abc",
+      "timestamp": "2026-10-25T05:31:33.533Z"
+    },
+    {
       "filePath": "japanese/umi.abc",
       "timestamp": "2026-10-25T05:30:34.913Z"
     },
@@ -2698,14 +2708,6 @@
     {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-10-25T05:00:43.895Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-10-25T04:58:29.629Z"
-    },
-    {
-      "filePath": "film/hisaishi/mononoke.abc",
-      "timestamp": "2026-10-25T04:55:49.862Z"
     }
   ],
   "activity": {
@@ -2783,6 +2785,8 @@
       "japanese/tinsagu nu hana.abc": 3,
       "japanese/tooryanse.abc": 1,
       "japanese/umi.abc": 1,
+      "japanese/ureshii hinamatsuri.abc": 1,
+      "japanese/yuuhi.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1
@@ -3023,6 +3027,16 @@
       "path": "japanese/tooryanse.abc",
       "status": "needs-practice",
       "at": "2026-10-25T05:30:32.290Z"
+    },
+    {
+      "path": "japanese/umi.abc",
+      "status": "practicing",
+      "at": "2026-10-25T05:31:28.722Z"
+    },
+    {
+      "path": "japanese/ureshii hinamatsuri.abc",
+      "status": "practicing",
+      "at": "2026-10-25T05:32:11.017Z"
     }
   ],
   "marks": {
@@ -3484,6 +3498,16 @@
         "transSeen": 3,
         "count": 1,
         "at": "2026-10-25T05:30:47.780Z"
+      }
+    },
+    "japanese/yuuhi.abc": {
+      "9": {
+        "pitch": "_B",
+        "prev": "d",
+        "pitchSeen": 9,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-25T05:32:28.179Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -4078,6 +4102,28 @@
       "at": "2026-10-25T05:30:37.778Z",
       "notes": {
         "11": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "japanese/ureshii hinamatsuri.abc": {
+      "at": "2026-10-25T05:31:36.277Z",
+      "notes": {
+        "7": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "14": {
+          "state": "red",
+          "pitch": "_E"
+        }
+      }
+    },
+    "japanese/yuuhi.abc": {
+      "at": "2026-10-25T05:32:18.171Z",
+      "notes": {
+        "9": {
           "state": "red",
           "pitch": "_B"
         }
