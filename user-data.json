@@ -1167,12 +1167,13 @@
       "createdAt": "2026-10-03T06:02:47.590Z"
     },
     "hungarian/tavaszi szel vizet araszt.abc": {
-      "status": "needs-practice",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T03:09:41.094Z",
       "playCount": 2,
-      "createdAt": "2026-10-03T06:02:47.590Z"
+      "createdAt": "2026-10-03T06:02:47.590Z",
+      "updatedAt": "2026-10-25T03:12:40.511Z"
     },
     "indian/vande mataram.abc": {
       "status": null,
@@ -1899,8 +1900,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-10T09:16:05.696Z",
-      "playCount": 4,
+      "lastPlayed": "2026-10-25T03:13:03.203Z",
+      "playCount": 5,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "philippine/bahay kubo.abc": {
@@ -2609,6 +2610,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "peruvian/el condor pasa.abc",
+      "timestamp": "2026-10-25T03:13:03.203Z"
+    },
+    {
       "filePath": "hungarian/tavaszi szel vizet araszt.abc",
       "timestamp": "2026-10-25T03:09:41.094Z"
     },
@@ -2683,10 +2688,6 @@
     {
       "filePath": "german/kein schoener land.abc",
       "timestamp": "2026-10-24T12:07:35.503Z"
-    },
-    {
-      "filePath": "german/innsbruck ich muss dich lassen.abc",
-      "timestamp": "2026-10-24T12:06:27.522Z"
     }
   ],
   "activity": {
@@ -2743,7 +2744,8 @@
       "classical/bach/chorales/herzliebster jesu.abc": 4,
       "hungarian/tavaszi szel vizet araszt.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
-      "occitan/la cambo me fai mau.abc": 14
+      "occitan/la cambo me fai mau.abc": 14,
+      "peruvian/el condor pasa.abc": 1
     }
   },
   "statusLog": [
@@ -2876,6 +2878,11 @@
       "path": "classical/bach/chorales/herzliebster jesu.abc",
       "status": "practicing",
       "at": "2026-10-25T03:06:08.456Z"
+    },
+    {
+      "path": "hungarian/tavaszi szel vizet araszt.abc",
+      "status": "good",
+      "at": "2026-10-25T03:12:40.511Z"
     }
   ],
   "marks": {
@@ -3261,6 +3268,40 @@
         "at": "2026-10-25T02:13:46.064Z"
       }
     },
+    "peruvian/el condor pasa.abc": {
+      "5": {
+        "pitch": "_A",
+        "prev": "G",
+        "pitchSeen": 10,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-25T03:13:18.127Z"
+      },
+      "8": {
+        "pitch": "_B",
+        "prev": "_A",
+        "pitchSeen": 5,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-25T03:13:18.129Z"
+      },
+      "10": {
+        "pitch": "_e",
+        "prev": "c",
+        "pitchSeen": 13,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T03:13:18.130Z"
+      },
+      "36": {
+        "pitch": "_a",
+        "prev": "g",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-25T03:13:18.131Z"
+      }
+    },
     "pop/popcorn.abc": {
       "2": {
         "pitch": "_B",
@@ -3633,6 +3674,27 @@
         }
       }
     },
+    "peruvian/el condor pasa.abc": {
+      "at": "2026-10-25T03:13:08.127Z",
+      "notes": {
+        "5": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "8": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "10": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "36": {
+          "state": "red",
+          "pitch": "_a"
+        }
+      }
+    },
     "pop/popcorn.abc": {
       "at": "2026-10-22T06:13:52.458Z",
       "notes": {
@@ -3800,6 +3862,24 @@
       "at": "2026-10-25T03:09:14.425Z",
       "percent": 100,
       "bpm": 100
+    },
+    {
+      "path": "hungarian/tavaszi szel vizet araszt.abc",
+      "at": "2026-10-25T03:12:41.206Z",
+      "percent": 100,
+      "bpm": 80
+    },
+    {
+      "path": "hungarian/tavaszi szel vizet araszt.abc",
+      "at": "2026-10-25T03:12:41.374Z",
+      "percent": 100,
+      "bpm": 80
+    },
+    {
+      "path": "hungarian/tavaszi szel vizet araszt.abc",
+      "at": "2026-10-25T03:12:41.542Z",
+      "percent": 100,
+      "bpm": 80
     }
   ],
   "settings": {}
