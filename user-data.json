@@ -3071,6 +3071,24 @@
         "at": "2026-10-25T03:02:14.456Z"
       }
     },
+    "classical/schubert/forelle.abc": {
+      "35": {
+        "pitch": "B",
+        "prev": "c",
+        "pitchSeen": 15,
+        "transSeen": 6,
+        "count": 1,
+        "at": "2026-10-25T03:21:26.401Z"
+      },
+      "46": {
+        "pitch": "B",
+        "prev": "d",
+        "pitchSeen": 15,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-25T03:21:36.944Z"
+      }
+    },
     "german/es freit ein wilder wassermann.abc": {
       "12": {
         "pitch": "_B",
@@ -3536,6 +3554,19 @@
         "30": {
           "state": "red",
           "pitch": "_E"
+        }
+      }
+    },
+    "classical/schubert/forelle.abc": {
+      "at": "2026-10-25T03:21:26.941Z",
+      "notes": {
+        "35": {
+          "state": "red",
+          "pitch": "B"
+        },
+        "46": {
+          "state": "red",
+          "pitch": "B"
         }
       }
     },
