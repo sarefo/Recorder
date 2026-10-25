@@ -1170,8 +1170,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-05T11:22:44.979Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-25T03:09:41.094Z",
+      "playCount": 2,
       "createdAt": "2026-10-03T06:02:47.590Z"
     },
     "indian/vande mataram.abc": {
@@ -2609,6 +2609,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "hungarian/tavaszi szel vizet araszt.abc",
+      "timestamp": "2026-10-25T03:09:41.094Z"
+    },
+    {
       "filePath": "classical/bach/chorales/herzliebster jesu.abc",
       "timestamp": "2026-10-25T03:02:01.647Z"
     },
@@ -2683,10 +2687,6 @@
     {
       "filePath": "german/innsbruck ich muss dich lassen.abc",
       "timestamp": "2026-10-24T12:06:27.522Z"
-    },
-    {
-      "filePath": "german/ich hab die nacht getraeumet.abc",
-      "timestamp": "2026-10-24T12:05:29.387Z"
     }
   ],
   "activity": {
@@ -2741,6 +2741,7 @@
     "2026-10-25": {
       "chinese/zou xikou.abc": 2,
       "classical/bach/chorales/herzliebster jesu.abc": 4,
+      "hungarian/tavaszi szel vizet araszt.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14
     }
@@ -3781,6 +3782,24 @@
       "at": "2026-10-25T03:06:03.255Z",
       "percent": 80,
       "bpm": 80
+    },
+    {
+      "path": "classical/bach/chorales/herzliebster jesu.abc",
+      "at": "2026-10-25T03:09:13.311Z",
+      "percent": 100,
+      "bpm": 100
+    },
+    {
+      "path": "classical/bach/chorales/herzliebster jesu.abc",
+      "at": "2026-10-25T03:09:13.527Z",
+      "percent": 100,
+      "bpm": 100
+    },
+    {
+      "path": "classical/bach/chorales/herzliebster jesu.abc",
+      "at": "2026-10-25T03:09:14.425Z",
+      "percent": 100,
+      "bpm": 100
     }
   ],
   "settings": {}
