@@ -1414,13 +1414,13 @@
       "updatedAt": "2026-10-25T05:10:59.919Z"
     },
     "japanese/fuyu keshiki.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T05:11:05.249Z",
       "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z",
-      "updatedAt": "2026-10-25T05:11:48.563Z"
+      "updatedAt": "2026-10-25T05:11:50.030Z"
     },
     "japanese/hama chidori.abc": {
       "status": null,
@@ -2759,7 +2759,7 @@
       "japanese/doko ka de haru ga.abc": 1,
       "japanese/edo komoriuta.abc": 1,
       "japanese/furusato.abc": 1,
-      "japanese/fuyu keshiki.abc": 1,
+      "japanese/fuyu keshiki.abc": 2,
       "japanese/hana.abc": 1,
       "japanese/hashire kotaro.abc": 3,
       "occitan/ai vist lo lop.abc": 1,
@@ -2942,6 +2942,11 @@
       "path": "japanese/furusato.abc",
       "status": "needs-practice",
       "at": "2026-10-25T05:10:59.919Z"
+    },
+    {
+      "path": "japanese/fuyu keshiki.abc",
+      "status": "practicing",
+      "at": "2026-10-25T05:11:50.030Z"
     }
   ],
   "marks": {
