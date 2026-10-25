@@ -1460,8 +1460,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-17T05:28:16.001Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-25T05:00:43.895Z",
+      "playCount": 7,
       "createdAt": "2026-08-31T18:32:58.388Z",
       "updatedAt": "2026-10-17T05:30:22.284Z"
     },
@@ -2612,6 +2612,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hashire kotaro.abc",
+      "timestamp": "2026-10-25T05:00:43.895Z"
+    },
+    {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-10-25T04:58:29.629Z"
     },
@@ -2686,10 +2690,6 @@
     {
       "filePath": "albanian/jarnana.abc",
       "timestamp": "2026-10-24T12:18:06.637Z"
-    },
-    {
-      "filePath": "german/verstohlen geht der mond auf.abc",
-      "timestamp": "2026-10-24T12:17:29.745Z"
     }
   ],
   "activity": {
@@ -2749,6 +2749,7 @@
       "film/hisaishi/mononoke.abc": 2,
       "hungarian/tavaszi szel vizet araszt.abc": 1,
       "japanese/hana.abc": 1,
+      "japanese/hashire kotaro.abc": 2,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1
@@ -4010,6 +4011,12 @@
       "at": "2026-10-25T04:58:14.505Z",
       "percent": 100,
       "bpm": 90
+    },
+    {
+      "path": "japanese/hana.abc",
+      "at": "2026-10-25T05:00:37.996Z",
+      "percent": 100,
+      "bpm": 160
     }
   ],
   "settings": {}
