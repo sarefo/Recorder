@@ -867,8 +867,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-09T06:07:45.265Z",
-      "playCount": 25,
+      "lastPlayed": "2026-10-25T04:55:49.862Z",
+      "playCount": 26,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "film/hisaishi/summer.abc": {
@@ -2611,6 +2611,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/hisaishi/mononoke.abc",
+      "timestamp": "2026-10-25T04:55:49.862Z"
+    },
+    {
       "filePath": "film/hisaishi/kiki_town.abc",
       "timestamp": "2026-10-25T04:49:13.164Z"
     },
@@ -2685,10 +2689,6 @@
     {
       "filePath": "german/o strassburg o strassburg.abc",
       "timestamp": "2026-10-24T12:17:08.845Z"
-    },
-    {
-      "filePath": "german/muss i denn.abc",
-      "timestamp": "2026-10-24T12:17:03.755Z"
     }
   ],
   "activity": {
@@ -2745,6 +2745,7 @@
       "classical/bach/chorales/herzliebster jesu.abc": 4,
       "classical/schubert/forelle.abc": 9,
       "film/hisaishi/kiki_town.abc": 7,
+      "film/hisaishi/mononoke.abc": 2,
       "hungarian/tavaszi szel vizet araszt.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
