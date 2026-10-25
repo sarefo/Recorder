@@ -2744,7 +2744,7 @@
       "chinese/zou xikou.abc": 2,
       "classical/bach/chorales/herzliebster jesu.abc": 4,
       "classical/schubert/forelle.abc": 9,
-      "film/hisaishi/kiki_town.abc": 5,
+      "film/hisaishi/kiki_town.abc": 6,
       "hungarian/tavaszi szel vizet araszt.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
@@ -3972,6 +3972,18 @@
       "at": "2026-10-25T04:51:43.123Z",
       "percent": 80,
       "bpm": 78.4
+    },
+    {
+      "path": "film/hisaishi/kiki_town.abc",
+      "at": "2026-10-25T04:53:48.730Z",
+      "percent": 90,
+      "bpm": 88.2
+    },
+    {
+      "path": "film/hisaishi/kiki_town.abc",
+      "at": "2026-10-25T04:53:49.058Z",
+      "percent": 90,
+      "bpm": 88.2
     }
   ],
   "settings": {}
