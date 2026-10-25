@@ -1564,12 +1564,13 @@
       "updatedAt": "2026-10-25T05:32:11.017Z"
     },
     "japanese/yuuhi.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T05:32:15.143Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:33:08.001Z"
     },
     "jazz/all of me.abc": {
       "status": "practicing",
@@ -2786,7 +2787,7 @@
       "japanese/tooryanse.abc": 1,
       "japanese/umi.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 1,
-      "japanese/yuuhi.abc": 1,
+      "japanese/yuuhi.abc": 2,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1
@@ -3037,6 +3038,11 @@
       "path": "japanese/ureshii hinamatsuri.abc",
       "status": "practicing",
       "at": "2026-10-25T05:32:11.017Z"
+    },
+    {
+      "path": "japanese/yuuhi.abc",
+      "status": "practicing",
+      "at": "2026-10-25T05:33:06.058Z"
     }
   ],
   "marks": {
