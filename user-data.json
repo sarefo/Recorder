@@ -1399,8 +1399,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T05:09:04.651Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-25T10:15:21.454Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:09:50.119Z"
     },
@@ -1585,8 +1585,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-22T05:37:37.477Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-25T10:15:40.381Z",
+      "playCount": 3,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-15T09:48:05.144Z"
     },
@@ -1920,8 +1920,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T03:13:03.203Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-25T10:16:12.418Z",
+      "playCount": 6,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-25T03:17:51.725Z"
     },
@@ -2279,12 +2279,13 @@
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/clanranald.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T04:31:38.402Z",
-      "playCount": 8,
-      "createdAt": "2026-01-18T20:46:38.367Z"
+      "lastPlayed": "2026-10-25T10:16:14.349Z",
+      "playCount": 9,
+      "createdAt": "2026-01-18T20:46:38.367Z",
+      "updatedAt": "2026-10-25T10:16:26.989Z"
     },
     "scottish/fairy_dance.abc": {
       "status": null,
@@ -2632,6 +2633,22 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/clanranald.abc",
+      "timestamp": "2026-10-25T10:16:14.349Z"
+    },
+    {
+      "filePath": "peruvian/el condor pasa.abc",
+      "timestamp": "2026-10-25T10:16:12.418Z"
+    },
+    {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-10-25T10:15:40.381Z"
+    },
+    {
+      "filePath": "japanese/edo komoriuta.abc",
+      "timestamp": "2026-10-25T10:15:21.454Z"
+    },
+    {
       "filePath": "film/here's to you.abc",
       "timestamp": "2026-10-25T10:09:42.028Z"
     },
@@ -2694,22 +2711,6 @@
     {
       "filePath": "japanese/haru no ogawa.abc",
       "timestamp": "2026-10-25T05:18:17.418Z"
-    },
-    {
-      "filePath": "japanese/hanagasa ondo.abc",
-      "timestamp": "2026-10-25T05:17:54.413Z"
-    },
-    {
-      "filePath": "japanese/hamabe no uta.abc",
-      "timestamp": "2026-10-25T05:17:17.616Z"
-    },
-    {
-      "filePath": "japanese/hama chidori.abc",
-      "timestamp": "2026-10-25T05:13:52.425Z"
-    },
-    {
-      "filePath": "japanese/fuyu keshiki.abc",
-      "timestamp": "2026-10-25T05:11:05.249Z"
     }
   ],
   "activity": {
@@ -2774,7 +2775,7 @@
       "japanese/akai kutsu.abc": 1,
       "japanese/akatombo.abc": 1,
       "japanese/doko ka de haru ga.abc": 1,
-      "japanese/edo komoriuta.abc": 1,
+      "japanese/edo komoriuta.abc": 2,
       "japanese/furusato.abc": 1,
       "japanese/fuyu keshiki.abc": 2,
       "japanese/hama chidori.abc": 1,
@@ -2792,9 +2793,11 @@
       "japanese/umi.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 1,
       "japanese/yuuhi.abc": 2,
+      "jazz/autumn leaves.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1,
+      "scottish/clanranald.abc": 1,
       "scottish/francis_robertson.abc": 4,
       "tv/detective_conan.abc": 2
     }
@@ -3059,6 +3062,11 @@
       "path": "scottish/francis_robertson.abc",
       "status": "practicing",
       "at": "2026-10-25T10:01:51.085Z"
+    },
+    {
+      "path": "scottish/clanranald.abc",
+      "status": "practicing",
+      "at": "2026-10-25T10:16:26.989Z"
     }
   ],
   "marks": {
@@ -3256,6 +3264,16 @@
         "transSeen": 3,
         "count": 1,
         "at": "2026-10-25T03:21:36.944Z"
+      }
+    },
+    "film/here's to you.abc": {
+      "28": {
+        "pitch": "F",
+        "prev": "A",
+        "pitchSeen": 7,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-25T10:15:19.154Z"
       }
     },
     "german/es freit ein wilder wassermann.abc": {
@@ -3538,24 +3556,24 @@
         "prev": "A",
         "pitchSeen": 9,
         "transSeen": 5,
-        "count": 1,
-        "at": "2026-10-22T05:37:57.124Z"
+        "count": 2,
+        "at": "2026-10-25T10:16:00.810Z"
       },
       "3": {
         "pitch": "_e",
         "prev": "_B",
         "pitchSeen": 6,
         "transSeen": 2,
-        "count": 1,
-        "at": "2026-10-22T05:37:57.125Z"
+        "count": 2,
+        "at": "2026-10-25T10:16:00.814Z"
       },
       "11": {
         "pitch": "_E",
         "prev": "d",
         "pitchSeen": 2,
         "transSeen": 2,
-        "count": 1,
-        "at": "2026-10-22T05:37:57.126Z"
+        "count": 2,
+        "at": "2026-10-25T10:16:00.817Z"
       }
     },
     "jazz/girl from ipanema.abc": {
@@ -3746,6 +3764,16 @@
         "transSeen": 4,
         "count": 1,
         "at": "2026-10-22T06:13:06.025Z"
+      }
+    },
+    "scottish/clanranald.abc": {
+      "20": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T10:16:30.714Z"
       }
     },
     "scottish/hopetoun_house.abc": {
@@ -3991,6 +4019,19 @@
         }
       }
     },
+    "film/here's to you.abc": {
+      "at": "2026-10-25T10:15:16.106Z",
+      "notes": {
+        "25": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "28": {
+          "state": "red",
+          "pitch": "F"
+        }
+      }
+    },
     "german/es freit ein wilder wassermann.abc": {
       "at": "2026-10-24T11:49:24.019Z",
       "notes": {
@@ -4225,6 +4266,23 @@
         }
       }
     },
+    "jazz/autumn leaves.abc": {
+      "at": "2026-10-25T10:15:50.814Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "3": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "11": {
+          "state": "red",
+          "pitch": "_E"
+        }
+      }
+    },
     "jazz/blue moon.abc": {
       "at": "2026-10-24T12:30:52.883Z",
       "notes": {
@@ -4370,6 +4428,15 @@
         "75": {
           "state": "red",
           "pitch": "_b"
+        }
+      }
+    },
+    "scottish/clanranald.abc": {
+      "at": "2026-10-25T10:16:20.705Z",
+      "notes": {
+        "20": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
@@ -4738,6 +4805,24 @@
       "at": "2026-10-25T09:54:13.421Z",
       "percent": 100,
       "bpm": 120
+    },
+    {
+      "path": "film/here's to you.abc",
+      "at": "2026-10-25T10:15:18.433Z",
+      "percent": 100,
+      "bpm": 100
+    },
+    {
+      "path": "film/here's to you.abc",
+      "at": "2026-10-25T10:15:18.592Z",
+      "percent": 100,
+      "bpm": 100
+    },
+    {
+      "path": "film/here's to you.abc",
+      "at": "2026-10-25T10:15:18.780Z",
+      "percent": 100,
+      "bpm": 100
     }
   ],
   "settings": {}
