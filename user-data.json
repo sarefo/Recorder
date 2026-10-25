@@ -2304,12 +2304,13 @@
       "updatedAt": "2026-10-20T11:29:47.698Z"
     },
     "scottish/francis_robertson.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T10:29:40.645Z",
-      "playCount": 7,
-      "createdAt": "2026-01-18T20:46:38.367Z"
+      "lastPlayed": "2026-10-25T09:54:19.235Z",
+      "playCount": 8,
+      "createdAt": "2026-01-18T20:46:38.367Z",
+      "updatedAt": "2026-10-25T09:54:27.608Z"
     },
     "scottish/franks_reel.abc": {
       "status": null,
@@ -2631,6 +2632,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/francis_robertson.abc",
+      "timestamp": "2026-10-25T09:54:19.235Z"
+    },
+    {
       "filePath": "austrian/lieber augustin.abc",
       "timestamp": "2026-10-25T09:52:24.944Z"
     },
@@ -2705,10 +2710,6 @@
     {
       "filePath": "japanese/edo komoriuta.abc",
       "timestamp": "2026-10-25T05:09:04.651Z"
-    },
-    {
-      "filePath": "japanese/doko ka de haru ga.abc",
-      "timestamp": "2026-10-25T05:08:02.384Z"
     }
   ],
   "activity": {
@@ -2792,7 +2793,8 @@
       "japanese/yuuhi.abc": 2,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
-      "peruvian/el condor pasa.abc": 1
+      "peruvian/el condor pasa.abc": 1,
+      "scottish/francis_robertson.abc": 1
     }
   },
   "statusLog": [
@@ -3045,6 +3047,11 @@
       "path": "japanese/yuuhi.abc",
       "status": "practicing",
       "at": "2026-10-25T05:33:06.058Z"
+    },
+    {
+      "path": "scottish/francis_robertson.abc",
+      "status": "needs-practice",
+      "at": "2026-10-25T09:54:27.608Z"
     }
   ],
   "marks": {
@@ -4639,6 +4646,24 @@
       "at": "2026-10-25T09:52:22.734Z",
       "percent": 100,
       "bpm": 100
+    },
+    {
+      "path": "austrian/lieber augustin.abc",
+      "at": "2026-10-25T09:54:13.046Z",
+      "percent": 100,
+      "bpm": 120
+    },
+    {
+      "path": "austrian/lieber augustin.abc",
+      "at": "2026-10-25T09:54:13.247Z",
+      "percent": 100,
+      "bpm": 120
+    },
+    {
+      "path": "austrian/lieber augustin.abc",
+      "at": "2026-10-25T09:54:13.421Z",
+      "percent": 100,
+      "bpm": 120
     }
   ],
   "settings": {}
