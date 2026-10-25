@@ -3269,6 +3269,14 @@
       }
     },
     "peruvian/el condor pasa.abc": {
+      "2": {
+        "pitch": "^G",
+        "prev": "A",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T03:14:24.986Z"
+      },
       "5": {
         "pitch": "_A",
         "prev": "G",
@@ -3293,13 +3301,21 @@
         "count": 1,
         "at": "2026-10-25T03:13:18.130Z"
       },
-      "36": {
-        "pitch": "_a",
-        "prev": "g",
+      "35": {
+        "pitch": "b",
+        "prev": "a",
         "pitchSeen": 4,
         "transSeen": 2,
         "count": 1,
-        "at": "2026-10-25T03:13:18.131Z"
+        "at": "2026-10-25T03:15:02.866Z"
+      },
+      "36": {
+        "pitch": "c'",
+        "prev": "b",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 2,
+        "at": "2026-10-25T03:15:03.345Z"
       }
     },
     "pop/popcorn.abc": {
@@ -3675,8 +3691,12 @@
       }
     },
     "peruvian/el condor pasa.abc": {
-      "at": "2026-10-25T03:13:08.127Z",
+      "at": "2026-10-25T03:14:53.342Z",
       "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "^G"
+        },
         "5": {
           "state": "red",
           "pitch": "_A"
@@ -3689,9 +3709,13 @@
           "state": "red",
           "pitch": "_e"
         },
+        "35": {
+          "state": "red",
+          "pitch": "b"
+        },
         "36": {
           "state": "red",
-          "pitch": "_a"
+          "pitch": "c'"
         }
       }
     },
