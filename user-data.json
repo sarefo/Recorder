@@ -864,12 +864,13 @@
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "film/hisaishi/mononoke.abc": {
-      "status": "good",
+      "status": "mastered",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T04:55:49.862Z",
       "playCount": 26,
-      "createdAt": "2026-01-18T20:46:38.366Z"
+      "createdAt": "2026-01-18T20:46:38.366Z",
+      "updatedAt": "2026-10-25T04:58:17.617Z"
     },
     "film/hisaishi/summer.abc": {
       "status": "practicing",
@@ -1435,8 +1436,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-23T07:49:51.732Z",
-      "playCount": 38,
+      "lastPlayed": "2026-10-25T04:58:29.629Z",
+      "playCount": 39,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/hanagasa ondo.abc": {
@@ -2611,6 +2612,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hana.abc",
+      "timestamp": "2026-10-25T04:58:29.629Z"
+    },
+    {
       "filePath": "film/hisaishi/mononoke.abc",
       "timestamp": "2026-10-25T04:55:49.862Z"
     },
@@ -2685,10 +2690,6 @@
     {
       "filePath": "german/verstohlen geht der mond auf.abc",
       "timestamp": "2026-10-24T12:17:29.745Z"
-    },
-    {
-      "filePath": "german/o strassburg o strassburg.abc",
-      "timestamp": "2026-10-24T12:17:08.845Z"
     }
   ],
   "activity": {
@@ -2747,6 +2748,7 @@
       "film/hisaishi/kiki_town.abc": 7,
       "film/hisaishi/mononoke.abc": 2,
       "hungarian/tavaszi szel vizet araszt.abc": 1,
+      "japanese/hana.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1
@@ -2897,6 +2899,11 @@
       "path": "classical/schubert/forelle.abc",
       "status": "practicing",
       "at": "2026-10-25T03:23:55.763Z"
+    },
+    {
+      "path": "film/hisaishi/mononoke.abc",
+      "status": "mastered",
+      "at": "2026-10-25T04:58:17.617Z"
     }
   ],
   "marks": {
@@ -3985,6 +3992,24 @@
       "at": "2026-10-25T04:53:49.058Z",
       "percent": 90,
       "bpm": 88.2
+    },
+    {
+      "path": "film/hisaishi/mononoke.abc",
+      "at": "2026-10-25T04:58:13.593Z",
+      "percent": 100,
+      "bpm": 90
+    },
+    {
+      "path": "film/hisaishi/mononoke.abc",
+      "at": "2026-10-25T04:58:14.001Z",
+      "percent": 100,
+      "bpm": 90
+    },
+    {
+      "path": "film/hisaishi/mononoke.abc",
+      "at": "2026-10-25T04:58:14.505Z",
+      "percent": 100,
+      "bpm": 90
     }
   ],
   "settings": {}
