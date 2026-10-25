@@ -428,7 +428,7 @@ class PracticeDashboard {
                 'Favorites you have not played for a while, by status: needs practice after 1 day, practicing 2, good 5, mastered 21.'),
             section('Speed up next', this.renderSpeed(stats),
                 `After a run without mistakes, tap the check mark by the tune title. ${PracticeDashboard.CLEAN_STREAK} clean runs in a row ` +
-                'on one day make a tempo yours; a slower run breaks the chain. Favorites below full speed, slowest first.' +
+                'within half an hour make a tempo yours; a slower run breaks the chain. Favorites below full speed, slowest first.' +
                 (stats.timed ? ` ${stats.fullSpeed} of ${stats.timed} timed tunes are at full speed.` : '')),
             section('Where you struggle', this.renderStruggles(stats),
                 'Built from notes you mark red while playing and leave marked for 10 seconds.'),

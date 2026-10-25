@@ -158,9 +158,12 @@ class UserDataManager {
             x.at.localeCompare(y.at) || x.path.localeCompare(y.path));
     }
 
+    /** A streak's earlier runs must lie within this long before its last run */
+    static CLEAN_WINDOW_MS = 30 * 60 * 1000;
+
     /**
      * How many clean runs in a row each run of a song completes. Runs chain
-     * on the same day as long as none was slower than the one being counted,
+     * within half an hour as long as none was slower than the one being counted,
      * so three runs at 70% and then one at 80% give 1 at 80%, while 80%, 80%,
      * 70% give 3 at 70%.
      * @param {Array<{at: string, bpm: number}>} runs - One song's runs, oldest first
@@ -168,11 +171,11 @@ class UserDataManager {
      */
     static cleanStreaks(runs) {
         return runs.map((run, i) => {
-            const day = UserDataManager.dayKey(new Date(run.at));
+            const end = Date.parse(run.at);
             let streak = 1;
             for (let j = i - 1; j >= 0; j--) {
                 const earlier = runs[j];
-                if (UserDataManager.dayKey(new Date(earlier.at)) !== day || earlier.bpm < run.bpm) break;
+                if (end - Date.parse(earlier.at) > UserDataManager.CLEAN_WINDOW_MS || earlier.bpm < run.bpm) break;
                 streak++;
             }
             return streak;
