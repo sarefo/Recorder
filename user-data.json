@@ -3774,6 +3774,22 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-25T10:16:30.714Z"
+      },
+      "32": {
+        "pitch": "A",
+        "prev": "d",
+        "pitchSeen": 11,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-25T10:18:46.483Z"
+      },
+      "41": {
+        "pitch": "F",
+        "prev": "G",
+        "pitchSeen": 7,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-10-25T10:18:41.251Z"
       }
     },
     "scottish/hopetoun_house.abc": {
@@ -4432,7 +4448,7 @@
       }
     },
     "scottish/clanranald.abc": {
-      "at": "2026-10-25T10:17:35.817Z",
+      "at": "2026-10-25T10:19:23.193Z",
       "notes": {
         "16": {
           "state": "green",
@@ -4441,6 +4457,22 @@
         "20": {
           "state": "red",
           "pitch": "_B"
+        },
+        "32": {
+          "state": "red",
+          "pitch": "A"
+        },
+        "41": {
+          "state": "red",
+          "pitch": "F"
+        },
+        "61": {
+          "state": "green",
+          "pitch": "e"
+        },
+        "77": {
+          "state": "green",
+          "pitch": "e"
         }
       }
     },
