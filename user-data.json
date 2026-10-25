@@ -851,8 +851,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-07T10:51:17.592Z",
-      "playCount": 8,
+      "lastPlayed": "2026-10-25T10:09:42.028Z",
+      "playCount": 9,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "film/hisaishi/kiki_town.abc": {
@@ -2632,6 +2632,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/here's to you.abc",
+      "timestamp": "2026-10-25T10:09:42.028Z"
+    },
+    {
       "filePath": "tv/detective_conan.abc",
       "timestamp": "2026-10-25T10:01:53.081Z"
     },
@@ -2706,10 +2710,6 @@
     {
       "filePath": "japanese/fuyu keshiki.abc",
       "timestamp": "2026-10-25T05:11:05.249Z"
-    },
-    {
-      "filePath": "japanese/furusato.abc",
-      "timestamp": "2026-10-25T05:09:53.967Z"
     }
   ],
   "activity": {
@@ -2767,6 +2767,7 @@
       "chinese/zou xikou.abc": 2,
       "classical/bach/chorales/herzliebster jesu.abc": 4,
       "classical/schubert/forelle.abc": 9,
+      "film/here's to you.abc": 1,
       "film/hisaishi/kiki_town.abc": 7,
       "film/hisaishi/mononoke.abc": 2,
       "hungarian/tavaszi szel vizet araszt.abc": 1,
