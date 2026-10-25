@@ -1423,20 +1423,22 @@
       "updatedAt": "2026-10-25T05:13:45.725Z"
     },
     "japanese/hama chidori.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "good",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T05:13:52.425Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:17:12.965Z"
     },
     "japanese/hamabe no uta.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "lastPlayed": "2026-10-25T05:17:17.616Z",
+      "playCount": 1,
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:17:51.006Z"
     },
     "japanese/hana.abc": {
       "status": "good",
@@ -1447,19 +1449,20 @@
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/hanagasa ondo.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "lastPlayed": "2026-10-25T05:17:54.413Z",
+      "playCount": 1,
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:18:13.661Z"
     },
     "japanese/haru no ogawa.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:18:17.418Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "japanese/hashire kotaro.abc": {
@@ -2618,6 +2621,18 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/haru no ogawa.abc",
+      "timestamp": "2026-10-25T05:18:17.418Z"
+    },
+    {
+      "filePath": "japanese/hanagasa ondo.abc",
+      "timestamp": "2026-10-25T05:17:54.413Z"
+    },
+    {
+      "filePath": "japanese/hamabe no uta.abc",
+      "timestamp": "2026-10-25T05:17:17.616Z"
+    },
+    {
       "filePath": "japanese/hama chidori.abc",
       "timestamp": "2026-10-25T05:13:52.425Z"
     },
@@ -2684,18 +2699,6 @@
     {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-10-25T02:13:24.284Z"
-    },
-    {
-      "filePath": "occitan/la cambo me fai mau.abc",
-      "timestamp": "2026-10-25T01:55:29.552Z"
-    },
-    {
-      "filePath": "chinese/molihua.abc",
-      "timestamp": "2026-10-24T18:14:58.812Z"
-    },
-    {
-      "filePath": "jazz/sweet georgia brown.abc",
-      "timestamp": "2026-10-24T12:32:17.591Z"
     }
   ],
   "activity": {
@@ -2761,7 +2764,10 @@
       "japanese/furusato.abc": 1,
       "japanese/fuyu keshiki.abc": 2,
       "japanese/hama chidori.abc": 1,
+      "japanese/hamabe no uta.abc": 1,
       "japanese/hana.abc": 1,
+      "japanese/hanagasa ondo.abc": 1,
+      "japanese/haru no ogawa.abc": 1,
       "japanese/hashire kotaro.abc": 3,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
@@ -2953,6 +2959,21 @@
       "path": "japanese/fuyu keshiki.abc",
       "status": "good",
       "at": "2026-10-25T05:13:45.725Z"
+    },
+    {
+      "path": "japanese/hama chidori.abc",
+      "status": "good",
+      "at": "2026-10-25T05:17:12.965Z"
+    },
+    {
+      "path": "japanese/hamabe no uta.abc",
+      "status": "needs-practice",
+      "at": "2026-10-25T05:17:51.006Z"
+    },
+    {
+      "path": "japanese/hanagasa ondo.abc",
+      "status": "needs-practice",
+      "at": "2026-10-25T05:18:13.661Z"
     }
   ],
   "marks": {
@@ -3328,6 +3349,26 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-25T05:11:18.166Z"
+      }
+    },
+    "japanese/hamabe no uta.abc": {
+      "46": {
+        "pitch": "_B",
+        "prev": "d",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T05:17:30.698Z"
+      }
+    },
+    "japanese/hanagasa ondo.abc": {
+      "3": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 11,
+        "transSeen": 6,
+        "count": 1,
+        "at": "2026-10-25T05:18:08.306Z"
       }
     },
     "japanese/hashire kotaro.abc": {
@@ -3866,6 +3907,24 @@
         }
       }
     },
+    "japanese/hamabe no uta.abc": {
+      "at": "2026-10-25T05:17:20.693Z",
+      "notes": {
+        "46": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "japanese/hanagasa ondo.abc": {
+      "at": "2026-10-25T05:17:58.301Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
     "japanese/hashire kotaro.abc": {
       "at": "2026-10-25T05:02:23.105Z",
       "notes": {
@@ -4245,6 +4304,24 @@
       "at": "2026-10-25T05:13:47.574Z",
       "percent": 100,
       "bpm": 80
+    },
+    {
+      "path": "japanese/hama chidori.abc",
+      "at": "2026-10-25T05:17:13.765Z",
+      "percent": 100,
+      "bpm": 92
+    },
+    {
+      "path": "japanese/hama chidori.abc",
+      "at": "2026-10-25T05:17:13.949Z",
+      "percent": 100,
+      "bpm": 92
+    },
+    {
+      "path": "japanese/hama chidori.abc",
+      "at": "2026-10-25T05:17:14.117Z",
+      "percent": 100,
+      "bpm": 92
     }
   ],
   "settings": {}
