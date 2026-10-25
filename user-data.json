@@ -3820,6 +3820,16 @@
         "count": 1,
         "at": "2026-10-24T11:09:44.510Z"
       }
+    },
+    "tv/detective_conan.abc": {
+      "135": {
+        "pitch": "^A",
+        "prev": null,
+        "pitchSeen": 1,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-10-25T10:04:12.017Z"
+      }
     }
   },
   "markStates": {
@@ -4372,6 +4382,15 @@
         "87": {
           "state": "red",
           "pitch": "c"
+        }
+      }
+    },
+    "tv/detective_conan.abc": {
+      "at": "2026-10-25T10:04:02.012Z",
+      "notes": {
+        "135": {
+          "state": "red",
+          "pitch": "^A"
         }
       }
     }
