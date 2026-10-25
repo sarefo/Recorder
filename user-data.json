@@ -1511,12 +1511,13 @@
       "updatedAt": "2026-10-25T05:25:07.083Z"
     },
     "japanese/oborozukiyo.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T05:25:12.066Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:25:54.091Z"
     },
     "japanese/sakura.abc": {
       "status": "good",
@@ -1530,8 +1531,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:25:57.208Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "japanese/tooryanse.abc": {
@@ -2625,6 +2626,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/tinsagu nu hana.abc",
+      "timestamp": "2026-10-25T05:25:57.208Z"
+    },
+    {
       "filePath": "japanese/oborozukiyo.abc",
       "timestamp": "2026-10-25T05:25:12.066Z"
     },
@@ -2699,10 +2704,6 @@
     {
       "filePath": "classical/schubert/forelle.abc",
       "timestamp": "2026-10-25T03:18:14.248Z"
-    },
-    {
-      "filePath": "classical/bach/chorales/herzliebster jesu.abc",
-      "timestamp": "2026-10-25T03:17:58.203Z"
     }
   ],
   "activity": {
@@ -2777,6 +2778,7 @@
       "japanese/koinobori.abc": 1,
       "japanese/momiji.abc": 1,
       "japanese/oborozukiyo.abc": 1,
+      "japanese/tinsagu nu hana.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1
@@ -3002,6 +3004,11 @@
       "path": "japanese/momiji.abc",
       "status": "good",
       "at": "2026-10-25T05:25:05.275Z"
+    },
+    {
+      "path": "japanese/oborozukiyo.abc",
+      "status": "practicing",
+      "at": "2026-10-25T05:25:52.221Z"
     }
   ],
   "marks": {
@@ -3417,6 +3424,32 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-25T05:23:01.838Z"
+      }
+    },
+    "japanese/tinsagu nu hana.abc": {
+      "0": {
+        "pitch": "^F",
+        "prev": null,
+        "pitchSeen": 10,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-10-25T05:26:10.585Z"
+      },
+      "6": {
+        "pitch": "^C",
+        "prev": "D",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-25T05:26:10.586Z"
+      },
+      "12": {
+        "pitch": "^c",
+        "prev": "A",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T05:26:10.586Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -3978,6 +4011,23 @@
         "37": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "japanese/tinsagu nu hana.abc": {
+      "at": "2026-10-25T05:26:00.584Z",
+      "notes": {
+        "0": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "6": {
+          "state": "red",
+          "pitch": "^C"
+        },
+        "12": {
+          "state": "red",
+          "pitch": "^c"
         }
       }
     },
