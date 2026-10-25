@@ -1378,19 +1378,20 @@
       "updatedAt": "2026-10-25T05:06:42.544Z"
     },
     "japanese/akatombo.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T05:06:45.261Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:07:58.382Z"
     },
     "japanese/doko ka de haru ga.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:08:02.384Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "japanese/edo komoriuta.abc": {
@@ -2613,6 +2614,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/doko ka de haru ga.abc",
+      "timestamp": "2026-10-25T05:08:02.384Z"
+    },
+    {
       "filePath": "japanese/akatombo.abc",
       "timestamp": "2026-10-25T05:06:45.261Z"
     },
@@ -2687,10 +2692,6 @@
     {
       "filePath": "serbian/ljulja ljulja ljuska.abc",
       "timestamp": "2026-10-24T12:24:38.263Z"
-    },
-    {
-      "filePath": "greek/kritikos syrtos.abc",
-      "timestamp": "2026-10-24T12:23:44.454Z"
     }
   ],
   "activity": {
@@ -2751,6 +2752,7 @@
       "hungarian/tavaszi szel vizet araszt.abc": 1,
       "japanese/akai kutsu.abc": 1,
       "japanese/akatombo.abc": 1,
+      "japanese/doko ka de haru ga.abc": 1,
       "japanese/hana.abc": 1,
       "japanese/hashire kotaro.abc": 3,
       "occitan/ai vist lo lop.abc": 1,
@@ -2913,6 +2915,11 @@
       "path": "japanese/akai kutsu.abc",
       "status": "practicing",
       "at": "2026-10-25T05:06:42.544Z"
+    },
+    {
+      "path": "japanese/akatombo.abc",
+      "status": "needs-practice",
+      "at": "2026-10-25T05:07:56.606Z"
     }
   ],
   "marks": {
@@ -3240,6 +3247,24 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-25T05:04:47.107Z"
+      }
+    },
+    "japanese/doko ka de haru ga.abc": {
+      "9": {
+        "pitch": "_B",
+        "prev": "F",
+        "pitchSeen": 12,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-10-25T05:08:15.053Z"
+      },
+      "63": {
+        "pitch": "_e",
+        "prev": "d",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-25T05:08:15.053Z"
       }
     },
     "japanese/hashire kotaro.abc": {
@@ -3733,6 +3758,19 @@
           "pitch": "_A"
         },
         "11": {
+          "state": "red",
+          "pitch": "_e"
+        }
+      }
+    },
+    "japanese/doko ka de haru ga.abc": {
+      "at": "2026-10-25T05:08:05.051Z",
+      "notes": {
+        "9": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "63": {
           "state": "red",
           "pitch": "_e"
         }
