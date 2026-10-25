@@ -3775,6 +3775,14 @@
         "count": 1,
         "at": "2026-10-25T10:16:30.714Z"
       },
+      "22": {
+        "pitch": "E",
+        "prev": "c",
+        "pitchSeen": 11,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T10:25:01.642Z"
+      },
       "32": {
         "pitch": "A",
         "prev": "d",
@@ -4456,7 +4464,7 @@
       }
     },
     "scottish/clanranald.abc": {
-      "at": "2026-10-25T10:20:13.944Z",
+      "at": "2026-10-25T10:24:51.639Z",
       "notes": {
         "16": {
           "state": "green",
@@ -4465,6 +4473,10 @@
         "20": {
           "state": "red",
           "pitch": "_B"
+        },
+        "22": {
+          "state": "red",
+          "pitch": "E"
         },
         "32": {
           "state": "red",
