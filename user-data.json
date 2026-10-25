@@ -436,12 +436,13 @@
       "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/herzliebster jesu.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T03:02:01.647Z",
       "playCount": 2,
-      "createdAt": "2026-09-07T16:39:38.477Z"
+      "createdAt": "2026-09-07T16:39:38.477Z",
+      "updatedAt": "2026-10-25T03:06:08.456Z"
     },
     "classical/bach/chorales/in dulci jubilo.abc": {
       "status": null,
@@ -2739,7 +2740,7 @@
     },
     "2026-10-25": {
       "chinese/zou xikou.abc": 2,
-      "classical/bach/chorales/herzliebster jesu.abc": 2,
+      "classical/bach/chorales/herzliebster jesu.abc": 3,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14
     }
@@ -2869,6 +2870,11 @@
       "path": "jazz/sweet georgia brown.abc",
       "status": "needs-practice",
       "at": "2026-10-24T12:32:30.848Z"
+    },
+    {
+      "path": "classical/bach/chorales/herzliebster jesu.abc",
+      "status": "practicing",
+      "at": "2026-10-25T03:06:08.456Z"
     }
   ],
   "marks": {
@@ -3757,6 +3763,24 @@
       "at": "2026-10-25T03:01:48.897Z",
       "percent": 100,
       "bpm": 66
+    },
+    {
+      "path": "classical/bach/chorales/herzliebster jesu.abc",
+      "at": "2026-10-25T03:06:02.920Z",
+      "percent": 80,
+      "bpm": 80
+    },
+    {
+      "path": "classical/bach/chorales/herzliebster jesu.abc",
+      "at": "2026-10-25T03:06:03.080Z",
+      "percent": 80,
+      "bpm": 80
+    },
+    {
+      "path": "classical/bach/chorales/herzliebster jesu.abc",
+      "at": "2026-10-25T03:06:03.255Z",
+      "percent": 80,
+      "bpm": 80
     }
   ],
   "settings": {}
