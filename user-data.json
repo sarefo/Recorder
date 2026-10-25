@@ -3639,6 +3639,12 @@
       "at": "2026-10-25T02:09:58.870Z",
       "percent": 100,
       "bpm": 200
+    },
+    {
+      "path": "occitan/ai vist lo lop.abc",
+      "at": "2026-10-25T02:15:09.851Z",
+      "percent": 70,
+      "bpm": 112
     }
   ],
   "settings": {}
