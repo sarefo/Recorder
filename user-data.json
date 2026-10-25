@@ -2799,7 +2799,7 @@
       "peruvian/el condor pasa.abc": 1,
       "scottish/clanranald.abc": 1,
       "scottish/francis_robertson.abc": 4,
-      "scottish/hopetoun_house.abc": 3,
+      "scottish/hopetoun_house.abc": 4,
       "tv/detective_conan.abc": 2
     }
   },
@@ -3881,6 +3881,14 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-24T11:09:44.510Z"
+      },
+      "90": {
+        "pitch": "E",
+        "prev": "G",
+        "pitchSeen": 9,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-25T10:35:39.030Z"
       }
     },
     "tv/detective_conan.abc": {
@@ -4502,7 +4510,7 @@
       }
     },
     "scottish/hopetoun_house.abc": {
-      "at": "2026-10-25T10:33:16.837Z",
+      "at": "2026-10-25T10:35:29.027Z",
       "notes": {
         "16": {
           "state": "green",
@@ -4551,6 +4559,10 @@
         "87": {
           "state": "red",
           "pitch": "c"
+        },
+        "90": {
+          "state": "red",
+          "pitch": "E"
         }
       }
     },
