@@ -13,8 +13,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T12:18:06.637Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-25T09:42:03.595Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T12:19:25.043Z"
     },
@@ -2631,6 +2631,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "albanian/jarnana.abc",
+      "timestamp": "2026-10-25T09:42:03.595Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-25T05:34:47.265Z"
     },
@@ -2705,10 +2709,6 @@
     {
       "filePath": "japanese/akatombo.abc",
       "timestamp": "2026-10-25T05:06:45.261Z"
-    },
-    {
-      "filePath": "japanese/akai kutsu.abc",
-      "timestamp": "2026-10-25T05:04:33.987Z"
     }
   ],
   "activity": {
@@ -2761,6 +2761,7 @@
       "serbian/ljulja ljulja ljuska.abc": 1
     },
     "2026-10-25": {
+      "albanian/jarnana.abc": 1,
       "chinese/zou xikou.abc": 2,
       "classical/bach/chorales/herzliebster jesu.abc": 4,
       "classical/schubert/forelle.abc": 9,
@@ -3636,6 +3637,14 @@
         "transSeen": 0,
         "count": 1,
         "at": "2026-10-23T10:54:13.594Z"
+      },
+      "126": {
+        "pitch": "f",
+        "prev": "d",
+        "pitchSeen": 12,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T09:41:45.489Z"
       }
     },
     "occitan/ai vist lo lop.abc": {
@@ -4208,7 +4217,7 @@
       }
     },
     "latino/tango/por una cabeza.abc": {
-      "at": "2026-10-25T05:36:24.320Z",
+      "at": "2026-10-25T09:41:35.483Z",
       "notes": {
         "0": {
           "state": "red",
@@ -4237,6 +4246,10 @@
         "110": {
           "state": "red",
           "pitch": "_B"
+        },
+        "126": {
+          "state": "red",
+          "pitch": "f"
         }
       }
     },
