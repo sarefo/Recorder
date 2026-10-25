@@ -71,8 +71,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T10:29:42.206Z",
-      "playCount": 7,
+      "lastPlayed": "2026-10-25T09:52:24.944Z",
+      "playCount": 8,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-16T08:02:22.809Z"
     },
@@ -2631,6 +2631,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "austrian/lieber augustin.abc",
+      "timestamp": "2026-10-25T09:52:24.944Z"
+    },
+    {
       "filePath": "albanian/jarnana.abc",
       "timestamp": "2026-10-25T09:42:03.595Z"
     },
@@ -2705,10 +2709,6 @@
     {
       "filePath": "japanese/doko ka de haru ga.abc",
       "timestamp": "2026-10-25T05:08:02.384Z"
-    },
-    {
-      "filePath": "japanese/akatombo.abc",
-      "timestamp": "2026-10-25T05:06:45.261Z"
     }
   ],
   "activity": {
@@ -2762,6 +2762,7 @@
     },
     "2026-10-25": {
       "albanian/jarnana.abc": 3,
+      "austrian/lieber augustin.abc": 2,
       "chinese/zou xikou.abc": 2,
       "classical/bach/chorales/herzliebster jesu.abc": 4,
       "classical/schubert/forelle.abc": 9,
@@ -4620,6 +4621,24 @@
       "at": "2026-10-25T05:29:28.266Z",
       "percent": 100,
       "bpm": 105
+    },
+    {
+      "path": "albanian/jarnana.abc",
+      "at": "2026-10-25T09:52:20.482Z",
+      "percent": 100,
+      "bpm": 100
+    },
+    {
+      "path": "albanian/jarnana.abc",
+      "at": "2026-10-25T09:52:22.406Z",
+      "percent": 100,
+      "bpm": 100
+    },
+    {
+      "path": "albanian/jarnana.abc",
+      "at": "2026-10-25T09:52:22.734Z",
+      "percent": 100,
+      "bpm": 100
     }
   ],
   "settings": {}
