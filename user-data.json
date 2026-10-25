@@ -439,8 +439,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-05T11:26:52.716Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-25T03:02:01.647Z",
+      "playCount": 2,
       "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/in dulci jubilo.abc": {
@@ -2608,6 +2608,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/chorales/herzliebster jesu.abc",
+      "timestamp": "2026-10-25T03:02:01.647Z"
+    },
+    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-10-25T02:56:02.407Z"
     },
@@ -2682,10 +2686,6 @@
     {
       "filePath": "german/ich hab die nacht getraeumet.abc",
       "timestamp": "2026-10-24T12:05:29.387Z"
-    },
-    {
-      "filePath": "german/ich fahr dahin.abc",
-      "timestamp": "2026-10-24T12:04:33.273Z"
     }
   ],
   "activity": {
@@ -2739,6 +2739,7 @@
     },
     "2026-10-25": {
       "chinese/zou xikou.abc": 2,
+      "classical/bach/chorales/herzliebster jesu.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14
     }
@@ -3005,6 +3006,48 @@
         "transSeen": 1,
         "count": 2,
         "at": "2026-10-22T06:09:46.134Z"
+      }
+    },
+    "classical/bach/chorales/herzliebster jesu.abc": {
+      "3": {
+        "pitch": "^F",
+        "prev": "G",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T03:02:16.165Z"
+      },
+      "7": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 8,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-25T03:02:14.454Z"
+      },
+      "18": {
+        "pitch": "_e",
+        "prev": "_B",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T03:02:14.455Z"
+      },
+      "21": {
+        "pitch": "_d",
+        "prev": "d",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T03:02:43.662Z"
+      },
+      "30": {
+        "pitch": "_E",
+        "prev": "D",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T03:02:14.456Z"
       }
     },
     "german/es freit ein wilder wassermann.abc": {
@@ -3400,6 +3443,31 @@
         }
       }
     },
+    "classical/bach/chorales/herzliebster jesu.abc": {
+      "at": "2026-10-25T03:02:33.657Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "7": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "18": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "21": {
+          "state": "red",
+          "pitch": "_d"
+        },
+        "30": {
+          "state": "red",
+          "pitch": "_E"
+        }
+      }
+    },
     "german/es freit ein wilder wassermann.abc": {
       "at": "2026-10-24T11:49:24.019Z",
       "notes": {
@@ -3677,6 +3745,18 @@
       "at": "2026-10-25T02:15:09.851Z",
       "percent": 70,
       "bpm": 112
+    },
+    {
+      "path": "chinese/zou xikou.abc",
+      "at": "2026-10-25T03:01:48.115Z",
+      "percent": 100,
+      "bpm": 66
+    },
+    {
+      "path": "chinese/zou xikou.abc",
+      "at": "2026-10-25T03:01:48.897Z",
+      "percent": 100,
+      "bpm": 66
     }
   ],
   "settings": {}
