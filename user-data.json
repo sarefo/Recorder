@@ -1414,20 +1414,20 @@
       "updatedAt": "2026-10-25T05:10:59.919Z"
     },
     "japanese/fuyu keshiki.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T05:11:05.249Z",
       "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z",
-      "updatedAt": "2026-10-25T05:11:50.030Z"
+      "updatedAt": "2026-10-25T05:13:45.725Z"
     },
     "japanese/hama chidori.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:13:52.425Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "japanese/hamabe no uta.abc": {
@@ -2618,6 +2618,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hama chidori.abc",
+      "timestamp": "2026-10-25T05:13:52.425Z"
+    },
+    {
       "filePath": "japanese/fuyu keshiki.abc",
       "timestamp": "2026-10-25T05:11:05.249Z"
     },
@@ -2692,10 +2696,6 @@
     {
       "filePath": "jazz/sweet georgia brown.abc",
       "timestamp": "2026-10-24T12:32:17.591Z"
-    },
-    {
-      "filePath": "jazz/blue moon.abc",
-      "timestamp": "2026-10-24T12:30:50.287Z"
     }
   ],
   "activity": {
@@ -2760,6 +2760,7 @@
       "japanese/edo komoriuta.abc": 1,
       "japanese/furusato.abc": 1,
       "japanese/fuyu keshiki.abc": 2,
+      "japanese/hama chidori.abc": 1,
       "japanese/hana.abc": 1,
       "japanese/hashire kotaro.abc": 3,
       "occitan/ai vist lo lop.abc": 1,
@@ -2947,6 +2948,11 @@
       "path": "japanese/fuyu keshiki.abc",
       "status": "practicing",
       "at": "2026-10-25T05:11:50.030Z"
+    },
+    {
+      "path": "japanese/fuyu keshiki.abc",
+      "status": "good",
+      "at": "2026-10-25T05:13:45.725Z"
     }
   ],
   "marks": {
@@ -4221,6 +4227,24 @@
       "at": "2026-10-25T05:00:37.996Z",
       "percent": 100,
       "bpm": 160
+    },
+    {
+      "path": "japanese/fuyu keshiki.abc",
+      "at": "2026-10-25T05:13:46.478Z",
+      "percent": 100,
+      "bpm": 80
+    },
+    {
+      "path": "japanese/fuyu keshiki.abc",
+      "at": "2026-10-25T05:13:46.734Z",
+      "percent": 100,
+      "bpm": 80
+    },
+    {
+      "path": "japanese/fuyu keshiki.abc",
+      "at": "2026-10-25T05:13:47.574Z",
+      "percent": 100,
+      "bpm": 80
     }
   ],
   "settings": {}
