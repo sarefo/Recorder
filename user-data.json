@@ -1369,19 +1369,20 @@
       "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "japanese/akai kutsu.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T05:04:33.987Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:06:42.544Z"
     },
     "japanese/akatombo.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:06:45.261Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "japanese/doko ka de haru ga.abc": {
@@ -2612,6 +2613,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/akatombo.abc",
+      "timestamp": "2026-10-25T05:06:45.261Z"
+    },
+    {
       "filePath": "japanese/akai kutsu.abc",
       "timestamp": "2026-10-25T05:04:33.987Z"
     },
@@ -2686,10 +2691,6 @@
     {
       "filePath": "greek/kritikos syrtos.abc",
       "timestamp": "2026-10-24T12:23:44.454Z"
-    },
-    {
-      "filePath": "bulgarian/rusi kosi imam.abc",
-      "timestamp": "2026-10-24T12:23:27.214Z"
     }
   ],
   "activity": {
@@ -2749,6 +2750,7 @@
       "film/hisaishi/mononoke.abc": 2,
       "hungarian/tavaszi szel vizet araszt.abc": 1,
       "japanese/akai kutsu.abc": 1,
+      "japanese/akatombo.abc": 1,
       "japanese/hana.abc": 1,
       "japanese/hashire kotaro.abc": 3,
       "occitan/ai vist lo lop.abc": 1,
@@ -2906,6 +2908,11 @@
       "path": "film/hisaishi/mononoke.abc",
       "status": "mastered",
       "at": "2026-10-25T04:58:17.617Z"
+    },
+    {
+      "path": "japanese/akai kutsu.abc",
+      "status": "practicing",
+      "at": "2026-10-25T05:06:42.544Z"
     }
   ],
   "marks": {
@@ -3209,6 +3216,14 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-25T05:04:47.106Z"
+      },
+      "3": {
+        "pitch": "F",
+        "prev": "_E",
+        "pitchSeen": 3,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T05:06:24.835Z"
       },
       "6": {
         "pitch": "_A",
@@ -3703,11 +3718,15 @@
       }
     },
     "japanese/akai kutsu.abc": {
-      "at": "2026-10-25T05:04:37.100Z",
+      "at": "2026-10-25T05:06:14.832Z",
       "notes": {
         "2": {
           "state": "red",
           "pitch": "_E"
+        },
+        "3": {
+          "state": "red",
+          "pitch": "F"
         },
         "6": {
           "state": "red",
