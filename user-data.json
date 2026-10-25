@@ -1405,20 +1405,22 @@
       "updatedAt": "2026-10-25T05:09:50.119Z"
     },
     "japanese/furusato.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-10-25T05:09:53.967Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:10:59.919Z"
     },
     "japanese/fuyu keshiki.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "lastPlayed": "2026-10-25T05:11:05.249Z",
+      "playCount": 1,
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:11:48.563Z"
     },
     "japanese/hama chidori.abc": {
       "status": null,
@@ -2616,6 +2618,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/fuyu keshiki.abc",
+      "timestamp": "2026-10-25T05:11:05.249Z"
+    },
+    {
       "filePath": "japanese/furusato.abc",
       "timestamp": "2026-10-25T05:09:53.967Z"
     },
@@ -2690,10 +2696,6 @@
     {
       "filePath": "jazz/blue moon.abc",
       "timestamp": "2026-10-24T12:30:50.287Z"
-    },
-    {
-      "filePath": "jazz/the way you look tonight.abc",
-      "timestamp": "2026-10-24T12:27:04.621Z"
     }
   ],
   "activity": {
@@ -2757,6 +2759,7 @@
       "japanese/doko ka de haru ga.abc": 1,
       "japanese/edo komoriuta.abc": 1,
       "japanese/furusato.abc": 1,
+      "japanese/fuyu keshiki.abc": 1,
       "japanese/hana.abc": 1,
       "japanese/hashire kotaro.abc": 3,
       "occitan/ai vist lo lop.abc": 1,
@@ -2934,6 +2937,11 @@
       "path": "japanese/edo komoriuta.abc",
       "status": "needs-practice",
       "at": "2026-10-25T05:09:50.119Z"
+    },
+    {
+      "path": "japanese/furusato.abc",
+      "status": "needs-practice",
+      "at": "2026-10-25T05:10:59.919Z"
     }
   ],
   "marks": {
@@ -3299,6 +3307,16 @@
         "transSeen": 5,
         "count": 1,
         "at": "2026-10-25T05:10:06.905Z"
+      }
+    },
+    "japanese/fuyu keshiki.abc": {
+      "4": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 3,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-25T05:11:18.166Z"
       }
     },
     "japanese/hashire kotaro.abc": {
@@ -3823,6 +3841,15 @@
       "at": "2026-10-25T05:09:56.903Z",
       "notes": {
         "8": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "japanese/fuyu keshiki.abc": {
+      "at": "2026-10-25T05:11:08.159Z",
+      "notes": {
+        "4": {
           "state": "red",
           "pitch": "_B"
         }
