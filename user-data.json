@@ -844,8 +844,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-13T03:57:44.227Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-25T10:56:52.366Z",
+      "playCount": 10,
       "createdAt": "2026-08-30T09:37:29.371Z"
     },
     "film/here's to you.abc": {
@@ -2634,6 +2634,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/herbie's theme.abc",
+      "timestamp": "2026-10-25T10:56:52.366Z"
+    },
+    {
       "filePath": "jamaican/banana boat song.abc",
       "timestamp": "2026-10-25T10:54:32.316Z"
     },
@@ -2708,10 +2712,6 @@
     {
       "filePath": "japanese/umi.abc",
       "timestamp": "2026-10-25T05:30:34.913Z"
-    },
-    {
-      "filePath": "japanese/tooryanse.abc",
-      "timestamp": "2026-10-25T05:29:32.958Z"
     }
   ],
   "activity": {
@@ -2770,6 +2770,7 @@
       "chinese/zou xikou.abc": 2,
       "classical/bach/chorales/herzliebster jesu.abc": 4,
       "classical/schubert/forelle.abc": 9,
+      "film/herbie's theme.abc": 1,
       "film/here's to you.abc": 2,
       "film/hisaishi/kiki_town.abc": 7,
       "film/hisaishi/mononoke.abc": 2,
