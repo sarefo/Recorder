@@ -439,8 +439,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T03:02:01.647Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-25T03:17:58.203Z",
+      "playCount": 3,
       "createdAt": "2026-09-07T16:39:38.477Z",
       "updatedAt": "2026-10-25T03:06:08.456Z"
     },
@@ -746,8 +746,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-23T07:57:02.380Z",
-      "playCount": 16,
+      "lastPlayed": "2026-10-25T03:18:14.248Z",
+      "playCount": 17,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-23T07:57:00.367Z"
     },
@@ -1897,12 +1897,13 @@
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "peruvian/el condor pasa.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T03:13:03.203Z",
       "playCount": 5,
-      "createdAt": "2026-01-18T20:46:38.367Z"
+      "createdAt": "2026-01-18T20:46:38.367Z",
+      "updatedAt": "2026-10-25T03:17:51.725Z"
     },
     "philippine/bahay kubo.abc": {
       "status": null,
@@ -2610,16 +2611,20 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/schubert/forelle.abc",
+      "timestamp": "2026-10-25T03:18:14.248Z"
+    },
+    {
+      "filePath": "classical/bach/chorales/herzliebster jesu.abc",
+      "timestamp": "2026-10-25T03:17:58.203Z"
+    },
+    {
       "filePath": "peruvian/el condor pasa.abc",
       "timestamp": "2026-10-25T03:13:03.203Z"
     },
     {
       "filePath": "hungarian/tavaszi szel vizet araszt.abc",
       "timestamp": "2026-10-25T03:09:41.094Z"
-    },
-    {
-      "filePath": "classical/bach/chorales/herzliebster jesu.abc",
-      "timestamp": "2026-10-25T03:02:01.647Z"
     },
     {
       "filePath": "chinese/zou xikou.abc",
@@ -2684,10 +2689,6 @@
     {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-10-24T12:10:21.383Z"
-    },
-    {
-      "filePath": "german/kein schoener land.abc",
-      "timestamp": "2026-10-24T12:07:35.503Z"
     }
   ],
   "activity": {
@@ -2742,6 +2743,7 @@
     "2026-10-25": {
       "chinese/zou xikou.abc": 2,
       "classical/bach/chorales/herzliebster jesu.abc": 4,
+      "classical/schubert/forelle.abc": 2,
       "hungarian/tavaszi szel vizet araszt.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
@@ -2883,6 +2885,11 @@
       "path": "hungarian/tavaszi szel vizet araszt.abc",
       "status": "good",
       "at": "2026-10-25T03:12:40.511Z"
+    },
+    {
+      "path": "peruvian/el condor pasa.abc",
+      "status": "practicing",
+      "at": "2026-10-25T03:17:51.725Z"
     }
   ],
   "marks": {
