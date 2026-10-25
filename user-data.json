@@ -3837,6 +3837,30 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-25T10:05:49.544Z"
+      },
+      "166": {
+        "pitch": "B",
+        "prev": "A",
+        "pitchSeen": 30,
+        "transSeen": 11,
+        "count": 1,
+        "at": "2026-10-25T10:08:04.805Z"
+      },
+      "167": {
+        "pitch": "c",
+        "prev": "B",
+        "pitchSeen": 9,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-25T10:07:58.003Z"
+      },
+      "168": {
+        "pitch": "d",
+        "prev": "c",
+        "pitchSeen": 8,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-25T10:08:05.630Z"
       }
     }
   },
@@ -4394,7 +4418,7 @@
       }
     },
     "tv/detective_conan.abc": {
-      "at": "2026-10-25T10:05:39.539Z",
+      "at": "2026-10-25T10:07:55.627Z",
       "notes": {
         "135": {
           "state": "red",
@@ -4403,6 +4427,18 @@
         "148": {
           "state": "red",
           "pitch": "^d"
+        },
+        "166": {
+          "state": "red",
+          "pitch": "B"
+        },
+        "167": {
+          "state": "red",
+          "pitch": "c"
+        },
+        "168": {
+          "state": "red",
+          "pitch": "d"
         }
       }
     }
