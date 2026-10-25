@@ -1537,19 +1537,20 @@
       "updatedAt": "2026-10-25T05:29:29.994Z"
     },
     "japanese/tooryanse.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-10-25T05:29:32.958Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:30:32.290Z"
     },
     "japanese/umi.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:30:34.913Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "japanese/ureshii hinamatsuri.abc": {
@@ -2627,6 +2628,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/umi.abc",
+      "timestamp": "2026-10-25T05:30:34.913Z"
+    },
+    {
       "filePath": "japanese/tooryanse.abc",
       "timestamp": "2026-10-25T05:29:32.958Z"
     },
@@ -2701,10 +2706,6 @@
     {
       "filePath": "film/hisaishi/mononoke.abc",
       "timestamp": "2026-10-25T04:55:49.862Z"
-    },
-    {
-      "filePath": "film/hisaishi/kiki_town.abc",
-      "timestamp": "2026-10-25T04:49:13.164Z"
     }
   ],
   "activity": {
@@ -2781,6 +2782,7 @@
       "japanese/oborozukiyo.abc": 1,
       "japanese/tinsagu nu hana.abc": 3,
       "japanese/tooryanse.abc": 1,
+      "japanese/umi.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1
@@ -3016,6 +3018,11 @@
       "path": "japanese/tinsagu nu hana.abc",
       "status": "practicing",
       "at": "2026-10-25T05:29:25.954Z"
+    },
+    {
+      "path": "japanese/tooryanse.abc",
+      "status": "needs-practice",
+      "at": "2026-10-25T05:30:32.290Z"
     }
   ],
   "marks": {
@@ -3467,6 +3474,16 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-25T05:29:45.447Z"
+      }
+    },
+    "japanese/umi.abc": {
+      "11": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 4,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-25T05:30:47.780Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -4052,6 +4069,15 @@
       "at": "2026-10-25T05:29:35.442Z",
       "notes": {
         "8": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "japanese/umi.abc": {
+      "at": "2026-10-25T05:30:37.778Z",
+      "notes": {
+        "11": {
           "state": "red",
           "pitch": "_B"
         }
