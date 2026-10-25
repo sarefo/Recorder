@@ -1485,12 +1485,13 @@
       "updatedAt": "2026-10-25T05:20:53.804Z"
     },
     "japanese/koinobori.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T05:20:57.465Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:22:43.771Z"
     },
     "japanese/kojo no tsuki.abc": {
       "status": "good",
@@ -1504,8 +1505,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:22:48.084Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "japanese/oborozukiyo.abc": {
@@ -2623,6 +2624,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/momiji.abc",
+      "timestamp": "2026-10-25T05:22:48.084Z"
+    },
+    {
       "filePath": "japanese/koinobori.abc",
       "timestamp": "2026-10-25T05:20:57.465Z"
     },
@@ -2697,10 +2702,6 @@
     {
       "filePath": "peruvian/el condor pasa.abc",
       "timestamp": "2026-10-25T03:13:03.203Z"
-    },
-    {
-      "filePath": "hungarian/tavaszi szel vizet araszt.abc",
-      "timestamp": "2026-10-25T03:09:41.094Z"
     }
   ],
   "activity": {
@@ -2773,6 +2774,7 @@
       "japanese/hashire kotaro.abc": 3,
       "japanese/kagome kagome.abc": 1,
       "japanese/koinobori.abc": 1,
+      "japanese/momiji.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1
@@ -2988,6 +2990,11 @@
       "path": "japanese/kagome kagome.abc",
       "status": "needs-practice",
       "at": "2026-10-25T05:20:53.804Z"
+    },
+    {
+      "path": "japanese/koinobori.abc",
+      "status": "practicing",
+      "at": "2026-10-25T05:22:43.771Z"
     }
   ],
   "marks": {
@@ -3393,6 +3400,16 @@
         "transSeen": 6,
         "count": 1,
         "at": "2026-10-25T05:02:33.111Z"
+      }
+    },
+    "japanese/momiji.abc": {
+      "37": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T05:23:01.838Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -3945,6 +3962,15 @@
         "4": {
           "state": "red",
           "pitch": "B"
+        }
+      }
+    },
+    "japanese/momiji.abc": {
+      "at": "2026-10-25T05:22:51.836Z",
+      "notes": {
+        "37": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
