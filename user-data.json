@@ -1372,8 +1372,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:04:33.987Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "japanese/akatombo.abc": {
@@ -2612,6 +2612,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/akai kutsu.abc",
+      "timestamp": "2026-10-25T05:04:33.987Z"
+    },
+    {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-10-25T05:00:43.895Z"
     },
@@ -2686,10 +2690,6 @@
     {
       "filePath": "bulgarian/rusi kosi imam.abc",
       "timestamp": "2026-10-24T12:23:27.214Z"
-    },
-    {
-      "filePath": "albanian/jarnana.abc",
-      "timestamp": "2026-10-24T12:18:06.637Z"
     }
   ],
   "activity": {
@@ -2748,6 +2748,7 @@
       "film/hisaishi/kiki_town.abc": 7,
       "film/hisaishi/mononoke.abc": 2,
       "hungarian/tavaszi szel vizet araszt.abc": 1,
+      "japanese/akai kutsu.abc": 1,
       "japanese/hana.abc": 1,
       "japanese/hashire kotaro.abc": 3,
       "occitan/ai vist lo lop.abc": 1,
@@ -3198,6 +3199,32 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-24T12:17:45.112Z"
+      }
+    },
+    "japanese/akai kutsu.abc": {
+      "2": {
+        "pitch": "_E",
+        "prev": "D",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T05:04:47.106Z"
+      },
+      "6": {
+        "pitch": "_A",
+        "prev": "G",
+        "pitchSeen": 5,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-25T05:04:47.106Z"
+      },
+      "11": {
+        "pitch": "_e",
+        "prev": "c",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-25T05:04:47.107Z"
       }
     },
     "japanese/hashire kotaro.abc": {
@@ -3672,6 +3699,23 @@
         "3": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "japanese/akai kutsu.abc": {
+      "at": "2026-10-25T05:04:37.100Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "_E"
+        },
+        "6": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "11": {
+          "state": "red",
+          "pitch": "_e"
         }
       }
     },
