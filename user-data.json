@@ -1873,8 +1873,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-20T11:24:12.656Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-25T01:55:29.552Z",
+      "playCount": 10,
       "createdAt": "2026-09-22T12:46:37.241Z",
       "updatedAt": "2026-10-20T06:00:14.877Z"
     },
@@ -2608,6 +2608,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/la cambo me fai mau.abc",
+      "timestamp": "2026-10-25T01:55:29.552Z"
+    },
+    {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-10-24T18:14:58.812Z"
     },
@@ -2682,10 +2686,6 @@
     {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-10-24T12:04:13.698Z"
-    },
-    {
-      "filePath": "german/es zogen drei burschen.abc",
-      "timestamp": "2026-10-24T11:58:53.993Z"
     }
   ],
   "activity": {
@@ -2736,6 +2736,9 @@
       "jazz/the way you look tonight.abc": 1,
       "scottish/hopetoun_house.abc": 16,
       "serbian/ljulja ljulja ljuska.abc": 1
+    },
+    "2026-10-25": {
+      "occitan/la cambo me fai mau.abc": 3
     }
   },
   "statusLog": [
