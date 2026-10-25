@@ -2738,7 +2738,7 @@
       "serbian/ljulja ljulja ljuska.abc": 1
     },
     "2026-10-25": {
-      "occitan/la cambo me fai mau.abc": 8
+      "occitan/la cambo me fai mau.abc": 10
     }
   },
   "statusLog": [
@@ -3589,6 +3589,12 @@
       "at": "2026-10-24T18:15:18.986Z",
       "percent": 100,
       "bpm": 76
+    },
+    {
+      "path": "occitan/la cambo me fai mau.abc",
+      "at": "2026-10-25T01:58:56.736Z",
+      "percent": 80,
+      "bpm": 160
     }
   ],
   "settings": {}
