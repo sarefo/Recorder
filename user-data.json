@@ -743,13 +743,13 @@
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "classical/schubert/forelle.abc": {
-      "status": "good",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T03:18:14.248Z",
       "playCount": 17,
       "createdAt": "2026-01-18T20:46:38.366Z",
-      "updatedAt": "2026-10-23T07:57:00.367Z"
+      "updatedAt": "2026-10-25T03:23:55.763Z"
     },
     "classical/schubert/impromptus/impromptus 1.abc": {
       "status": null,
@@ -2890,6 +2890,11 @@
       "path": "peruvian/el condor pasa.abc",
       "status": "practicing",
       "at": "2026-10-25T03:17:51.725Z"
+    },
+    {
+      "path": "classical/schubert/forelle.abc",
+      "status": "practicing",
+      "at": "2026-10-25T03:23:55.763Z"
     }
   ],
   "marks": {
