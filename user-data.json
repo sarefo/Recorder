@@ -225,12 +225,13 @@
       "createdAt": "2026-08-03T13:22:39.548Z"
     },
     "chinese/baobao yao shuijiao.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T10:37:31.259Z",
       "playCount": 11,
-      "createdAt": "2026-07-31T10:42:24.802Z"
+      "createdAt": "2026-07-31T10:42:24.802Z",
+      "updatedAt": "2026-10-25T10:39:00.131Z"
     },
     "chinese/caicha wuqu.abc": {
       "status": null,
@@ -1990,8 +1991,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-05T11:30:31.887Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-25T10:39:01.401Z",
+      "playCount": 10,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/bert kaempfert/tootie flutie.abc": {
@@ -2633,6 +2634,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/bert kaempfert/a swingin safari.abc",
+      "timestamp": "2026-10-25T10:39:01.401Z"
+    },
+    {
       "filePath": "chinese/baobao yao shuijiao.abc",
       "timestamp": "2026-10-25T10:37:31.259Z"
     },
@@ -2707,10 +2712,6 @@
     {
       "filePath": "japanese/momiji.abc",
       "timestamp": "2026-10-25T05:22:48.084Z"
-    },
-    {
-      "filePath": "japanese/koinobori.abc",
-      "timestamp": "2026-10-25T05:20:57.465Z"
     }
   ],
   "activity": {
@@ -2798,6 +2799,7 @@
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1,
+      "pop/bert kaempfert/a swingin safari.abc": 2,
       "scottish/clanranald.abc": 1,
       "scottish/francis_robertson.abc": 4,
       "scottish/hopetoun_house.abc": 4,
@@ -3069,6 +3071,11 @@
       "path": "scottish/clanranald.abc",
       "status": "practicing",
       "at": "2026-10-25T10:16:26.989Z"
+    },
+    {
+      "path": "chinese/baobao yao shuijiao.abc",
+      "status": "practicing",
+      "at": "2026-10-25T10:39:00.131Z"
     }
   ],
   "marks": {
