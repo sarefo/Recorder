@@ -1458,12 +1458,13 @@
       "updatedAt": "2026-10-25T05:18:13.661Z"
     },
     "japanese/haru no ogawa.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "good",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T05:18:17.418Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:20:27.180Z"
     },
     "japanese/hashire kotaro.abc": {
       "status": "good",
@@ -1475,19 +1476,20 @@
       "updatedAt": "2026-10-17T05:30:22.284Z"
     },
     "japanese/kagome kagome.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "lastPlayed": "2026-10-25T05:20:31.136Z",
+      "playCount": 1,
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:20:53.804Z"
     },
     "japanese/koinobori.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:20:57.465Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "japanese/kojo no tsuki.abc": {
@@ -2621,6 +2623,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/koinobori.abc",
+      "timestamp": "2026-10-25T05:20:57.465Z"
+    },
+    {
+      "filePath": "japanese/kagome kagome.abc",
+      "timestamp": "2026-10-25T05:20:31.136Z"
+    },
+    {
       "filePath": "japanese/haru no ogawa.abc",
       "timestamp": "2026-10-25T05:18:17.418Z"
     },
@@ -2691,14 +2701,6 @@
     {
       "filePath": "hungarian/tavaszi szel vizet araszt.abc",
       "timestamp": "2026-10-25T03:09:41.094Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-10-25T02:56:02.407Z"
-    },
-    {
-      "filePath": "occitan/ai vist lo lop.abc",
-      "timestamp": "2026-10-25T02:13:24.284Z"
     }
   ],
   "activity": {
@@ -2769,6 +2771,8 @@
       "japanese/hanagasa ondo.abc": 1,
       "japanese/haru no ogawa.abc": 1,
       "japanese/hashire kotaro.abc": 3,
+      "japanese/kagome kagome.abc": 1,
+      "japanese/koinobori.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1
@@ -2974,6 +2978,16 @@
       "path": "japanese/hanagasa ondo.abc",
       "status": "needs-practice",
       "at": "2026-10-25T05:18:13.661Z"
+    },
+    {
+      "path": "japanese/haru no ogawa.abc",
+      "status": "good",
+      "at": "2026-10-25T05:20:25.341Z"
+    },
+    {
+      "path": "japanese/kagome kagome.abc",
+      "status": "needs-practice",
+      "at": "2026-10-25T05:20:53.804Z"
     }
   ],
   "marks": {
@@ -4322,6 +4336,24 @@
       "at": "2026-10-25T05:17:14.117Z",
       "percent": 100,
       "bpm": 92
+    },
+    {
+      "path": "japanese/haru no ogawa.abc",
+      "at": "2026-10-25T05:20:21.764Z",
+      "percent": 100,
+      "bpm": 100
+    },
+    {
+      "path": "japanese/haru no ogawa.abc",
+      "at": "2026-10-25T05:20:21.916Z",
+      "percent": 100,
+      "bpm": 100
+    },
+    {
+      "path": "japanese/haru no ogawa.abc",
+      "at": "2026-10-25T05:20:22.100Z",
+      "percent": 100,
+      "bpm": 100
     }
   ],
   "settings": {}
