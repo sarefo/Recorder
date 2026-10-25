@@ -228,8 +228,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T10:29:43.075Z",
-      "playCount": 10,
+      "lastPlayed": "2026-10-25T10:37:31.259Z",
+      "playCount": 11,
       "createdAt": "2026-07-31T10:42:24.802Z"
     },
     "chinese/caicha wuqu.abc": {
@@ -2633,6 +2633,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/baobao yao shuijiao.abc",
+      "timestamp": "2026-10-25T10:37:31.259Z"
+    },
+    {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-25T10:26:00.148Z"
     },
@@ -2707,10 +2711,6 @@
     {
       "filePath": "japanese/koinobori.abc",
       "timestamp": "2026-10-25T05:20:57.465Z"
-    },
-    {
-      "filePath": "japanese/kagome kagome.abc",
-      "timestamp": "2026-10-25T05:20:31.136Z"
     }
   ],
   "activity": {
@@ -2765,6 +2765,7 @@
     "2026-10-25": {
       "albanian/jarnana.abc": 3,
       "austrian/lieber augustin.abc": 2,
+      "chinese/baobao yao shuijiao.abc": 1,
       "chinese/zou xikou.abc": 2,
       "classical/bach/chorales/herzliebster jesu.abc": 4,
       "classical/schubert/forelle.abc": 9,
