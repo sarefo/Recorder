@@ -1774,8 +1774,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-23T10:53:59.995Z",
-      "playCount": 18,
+      "lastPlayed": "2026-10-25T05:34:47.265Z",
+      "playCount": 19,
       "createdAt": "2026-09-26T08:25:28.534Z"
     },
     "lithuanian/a a vaikuci.abc": {
@@ -2631,6 +2631,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "latino/tango/por una cabeza.abc",
+      "timestamp": "2026-10-25T05:34:47.265Z"
+    },
+    {
       "filePath": "japanese/yuuhi.abc",
       "timestamp": "2026-10-25T05:32:15.143Z"
     },
@@ -2705,10 +2709,6 @@
     {
       "filePath": "japanese/akai kutsu.abc",
       "timestamp": "2026-10-25T05:04:33.987Z"
-    },
-    {
-      "filePath": "japanese/hashire kotaro.abc",
-      "timestamp": "2026-10-25T05:00:43.895Z"
     }
   ],
   "activity": {
@@ -3589,6 +3589,22 @@
         "count": 1,
         "at": "2026-10-23T10:54:13.592Z"
       },
+      "2": {
+        "pitch": "^G",
+        "prev": "G",
+        "pitchSeen": 5,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-25T05:35:35.076Z"
+      },
+      "6": {
+        "pitch": "^G",
+        "prev": "A",
+        "pitchSeen": 5,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-25T05:35:22.211Z"
+      },
       "9": {
         "pitch": "^c",
         "prev": "B",
@@ -4184,11 +4200,19 @@
       }
     },
     "latino/tango/por una cabeza.abc": {
-      "at": "2026-10-23T10:54:03.593Z",
+      "at": "2026-10-25T05:35:25.073Z",
       "notes": {
         "0": {
           "state": "red",
           "pitch": "^F"
+        },
+        "2": {
+          "state": "red",
+          "pitch": "^G"
+        },
+        "6": {
+          "state": "red",
+          "pitch": "^G"
         },
         "9": {
           "state": "red",
