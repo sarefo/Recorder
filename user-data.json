@@ -2304,13 +2304,13 @@
       "updatedAt": "2026-10-20T11:29:47.698Z"
     },
     "scottish/francis_robertson.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T09:54:19.235Z",
       "playCount": 8,
       "createdAt": "2026-01-18T20:46:38.367Z",
-      "updatedAt": "2026-10-25T09:54:27.608Z"
+      "updatedAt": "2026-10-25T10:01:51.085Z"
     },
     "scottish/franks_reel.abc": {
       "status": null,
@@ -2510,8 +2510,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-15T10:42:49.608Z",
-      "playCount": 52,
+      "lastPlayed": "2026-10-25T10:01:53.081Z",
+      "playCount": 53,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "tv/fraggle rock.abc": {
@@ -2632,6 +2632,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/detective_conan.abc",
+      "timestamp": "2026-10-25T10:01:53.081Z"
+    },
+    {
       "filePath": "scottish/francis_robertson.abc",
       "timestamp": "2026-10-25T09:54:19.235Z"
     },
@@ -2706,10 +2710,6 @@
     {
       "filePath": "japanese/furusato.abc",
       "timestamp": "2026-10-25T05:09:53.967Z"
-    },
-    {
-      "filePath": "japanese/edo komoriuta.abc",
-      "timestamp": "2026-10-25T05:09:04.651Z"
     }
   ],
   "activity": {
@@ -2794,7 +2794,8 @@
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1,
-      "scottish/francis_robertson.abc": 4
+      "scottish/francis_robertson.abc": 4,
+      "tv/detective_conan.abc": 1
     }
   },
   "statusLog": [
@@ -3052,6 +3053,11 @@
       "path": "scottish/francis_robertson.abc",
       "status": "needs-practice",
       "at": "2026-10-25T09:54:27.608Z"
+    },
+    {
+      "path": "scottish/francis_robertson.abc",
+      "status": "practicing",
+      "at": "2026-10-25T10:01:51.085Z"
     }
   ],
   "marks": {
