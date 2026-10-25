@@ -1502,19 +1502,20 @@
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/momiji.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "good",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-25T05:22:48.084Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:25:07.083Z"
     },
     "japanese/oborozukiyo.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:25:12.066Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "japanese/sakura.abc": {
@@ -2624,6 +2625,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/oborozukiyo.abc",
+      "timestamp": "2026-10-25T05:25:12.066Z"
+    },
+    {
       "filePath": "japanese/momiji.abc",
       "timestamp": "2026-10-25T05:22:48.084Z"
     },
@@ -2698,10 +2703,6 @@
     {
       "filePath": "classical/bach/chorales/herzliebster jesu.abc",
       "timestamp": "2026-10-25T03:17:58.203Z"
-    },
-    {
-      "filePath": "peruvian/el condor pasa.abc",
-      "timestamp": "2026-10-25T03:13:03.203Z"
     }
   ],
   "activity": {
@@ -2775,6 +2776,7 @@
       "japanese/kagome kagome.abc": 1,
       "japanese/koinobori.abc": 1,
       "japanese/momiji.abc": 1,
+      "japanese/oborozukiyo.abc": 1,
       "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 14,
       "peruvian/el condor pasa.abc": 1
@@ -2995,6 +2997,11 @@
       "path": "japanese/koinobori.abc",
       "status": "practicing",
       "at": "2026-10-25T05:22:43.771Z"
+    },
+    {
+      "path": "japanese/momiji.abc",
+      "status": "good",
+      "at": "2026-10-25T05:25:05.275Z"
     }
   ],
   "marks": {
@@ -4380,6 +4387,24 @@
       "at": "2026-10-25T05:20:22.100Z",
       "percent": 100,
       "bpm": 100
+    },
+    {
+      "path": "japanese/momiji.abc",
+      "at": "2026-10-25T05:25:01.403Z",
+      "percent": 100,
+      "bpm": 92
+    },
+    {
+      "path": "japanese/momiji.abc",
+      "at": "2026-10-25T05:25:01.560Z",
+      "percent": 100,
+      "bpm": 92
+    },
+    {
+      "path": "japanese/momiji.abc",
+      "at": "2026-10-25T05:25:01.725Z",
+      "percent": 100,
+      "bpm": 92
     }
   ],
   "settings": {}
