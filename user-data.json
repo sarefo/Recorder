@@ -1387,27 +1387,29 @@
       "updatedAt": "2026-10-25T05:07:58.382Z"
     },
     "japanese/doko ka de haru ga.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-10-25T05:08:02.384Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:09:01.679Z"
     },
     "japanese/edo komoriuta.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "lastPlayed": "2026-10-25T05:09:04.651Z",
+      "playCount": 1,
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-10-25T05:09:50.119Z"
     },
     "japanese/furusato.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-25T05:09:53.967Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "japanese/fuyu keshiki.abc": {
@@ -2614,6 +2616,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/furusato.abc",
+      "timestamp": "2026-10-25T05:09:53.967Z"
+    },
+    {
+      "filePath": "japanese/edo komoriuta.abc",
+      "timestamp": "2026-10-25T05:09:04.651Z"
+    },
+    {
       "filePath": "japanese/doko ka de haru ga.abc",
       "timestamp": "2026-10-25T05:08:02.384Z"
     },
@@ -2684,14 +2694,6 @@
     {
       "filePath": "jazz/the way you look tonight.abc",
       "timestamp": "2026-10-24T12:27:04.621Z"
-    },
-    {
-      "filePath": "jazz/girl from ipanema.abc",
-      "timestamp": "2026-10-24T12:25:17.605Z"
-    },
-    {
-      "filePath": "serbian/ljulja ljulja ljuska.abc",
-      "timestamp": "2026-10-24T12:24:38.263Z"
     }
   ],
   "activity": {
@@ -2753,6 +2755,8 @@
       "japanese/akai kutsu.abc": 1,
       "japanese/akatombo.abc": 1,
       "japanese/doko ka de haru ga.abc": 1,
+      "japanese/edo komoriuta.abc": 1,
+      "japanese/furusato.abc": 1,
       "japanese/hana.abc": 1,
       "japanese/hashire kotaro.abc": 3,
       "occitan/ai vist lo lop.abc": 1,
@@ -2920,6 +2924,16 @@
       "path": "japanese/akatombo.abc",
       "status": "needs-practice",
       "at": "2026-10-25T05:07:56.606Z"
+    },
+    {
+      "path": "japanese/doko ka de haru ga.abc",
+      "status": "needs-practice",
+      "at": "2026-10-25T05:09:01.679Z"
+    },
+    {
+      "path": "japanese/edo komoriuta.abc",
+      "status": "needs-practice",
+      "at": "2026-10-25T05:09:50.119Z"
     }
   ],
   "marks": {
@@ -3265,6 +3279,26 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-25T05:08:15.053Z"
+      }
+    },
+    "japanese/edo komoriuta.abc": {
+      "0": {
+        "pitch": "_B",
+        "prev": null,
+        "pitchSeen": 7,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-10-25T05:09:17.891Z"
+      }
+    },
+    "japanese/furusato.abc": {
+      "8": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 8,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-10-25T05:10:06.905Z"
       }
     },
     "japanese/hashire kotaro.abc": {
@@ -3773,6 +3807,24 @@
         "63": {
           "state": "red",
           "pitch": "_e"
+        }
+      }
+    },
+    "japanese/edo komoriuta.abc": {
+      "at": "2026-10-25T05:09:07.887Z",
+      "notes": {
+        "0": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "japanese/furusato.abc": {
+      "at": "2026-10-25T05:09:56.903Z",
+      "notes": {
+        "8": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
