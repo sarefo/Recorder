@@ -1578,8 +1578,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-22T05:38:32.249Z",
-      "playCount": 4,
+      "lastPlayed": "2026-10-26T06:32:01.661Z",
+      "playCount": 5,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T05:41:31.969Z"
     },
@@ -1587,8 +1587,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T10:15:40.381Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-26T06:32:17.918Z",
+      "playCount": 4,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-15T09:48:05.144Z"
     },
@@ -2635,6 +2635,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-10-26T06:32:17.918Z"
+    },
+    {
+      "filePath": "jazz/all of me.abc",
+      "timestamp": "2026-10-26T06:32:01.661Z"
+    },
+    {
       "filePath": "philippine/ili-ili tulog anay.abc",
       "timestamp": "2026-10-26T06:25:34.304Z"
     },
@@ -2703,16 +2711,8 @@
       "timestamp": "2026-10-25T10:16:12.418Z"
     },
     {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-10-25T10:15:40.381Z"
-    },
-    {
       "filePath": "japanese/edo komoriuta.abc",
       "timestamp": "2026-10-25T10:15:21.454Z"
-    },
-    {
-      "filePath": "film/here's to you.abc",
-      "timestamp": "2026-10-25T10:09:42.028Z"
     }
   ],
   "activity": {
@@ -2817,6 +2817,7 @@
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 3,
       "japanese/hashire kotaro.abc": 1,
+      "jazz/autumn leaves.abc": 1,
       "latino/tango/por una cabeza.abc": 14,
       "philippine/ili-ili tulog anay.abc": 1
     }
@@ -3672,6 +3673,14 @@
         "transSeen": 2,
         "count": 2,
         "at": "2026-10-25T10:16:00.817Z"
+      },
+      "18": {
+        "pitch": "^F",
+        "prev": "=E",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-26T06:32:41.081Z"
       }
     },
     "jazz/girl from ipanema.abc": {
@@ -4498,7 +4507,7 @@
       }
     },
     "jazz/autumn leaves.abc": {
-      "at": "2026-10-25T10:15:50.814Z",
+      "at": "2026-10-26T06:32:31.078Z",
       "notes": {
         "2": {
           "state": "red",
@@ -4511,6 +4520,10 @@
         "11": {
           "state": "red",
           "pitch": "_E"
+        },
+        "18": {
+          "state": "red",
+          "pitch": "^F"
         }
       }
     },
