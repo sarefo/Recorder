@@ -3681,6 +3681,22 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-26T06:32:41.081Z"
+      },
+      "24": {
+        "pitch": "_e",
+        "prev": "_B",
+        "pitchSeen": 6,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-26T06:34:34.079Z"
+      },
+      "42": {
+        "pitch": "^F",
+        "prev": null,
+        "pitchSeen": 2,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-10-26T06:34:45.035Z"
       }
     },
     "jazz/girl from ipanema.abc": {
@@ -4507,7 +4523,7 @@
       }
     },
     "jazz/autumn leaves.abc": {
-      "at": "2026-10-26T06:32:31.078Z",
+      "at": "2026-10-26T06:34:35.032Z",
       "notes": {
         "2": {
           "state": "red",
@@ -4522,6 +4538,14 @@
           "pitch": "_E"
         },
         "18": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "24": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "42": {
           "state": "red",
           "pitch": "^F"
         }
