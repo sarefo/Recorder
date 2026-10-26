@@ -1017,8 +1017,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-26T03:58:41.054Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-26T04:16:27.472Z",
+      "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:52:16.545Z"
     },
@@ -2635,7 +2635,7 @@
   "recentlyPlayed": [
     {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
-      "timestamp": "2026-10-26T03:58:41.054Z"
+      "timestamp": "2026-10-26T04:16:27.472Z"
     },
     {
       "filePath": "german/es ist ein schnitter.abc",
@@ -2810,7 +2810,7 @@
       "tv/detective_conan.abc": 2
     },
     "2026-10-26": {
-      "german/es geht eine dunkle wolk herein.abc": 2,
+      "german/es geht eine dunkle wolk herein.abc": 3,
       "german/es ist ein schnitter.abc": 1,
       "german/maria durch ein dornwald ging.abc": 3,
       "japanese/hashire kotaro.abc": 1
