@@ -1026,8 +1026,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T11:53:29.772Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-26T03:55:01.465Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:57:24.027Z"
     },
@@ -2634,6 +2634,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es ist ein schnitter.abc",
+      "timestamp": "2026-10-26T03:55:01.465Z"
+    },
+    {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-10-26T03:46:29.617Z"
     },
@@ -2708,10 +2712,6 @@
     {
       "filePath": "albanian/jarnana.abc",
       "timestamp": "2026-10-25T09:42:03.595Z"
-    },
-    {
-      "filePath": "japanese/yuuhi.abc",
-      "timestamp": "2026-10-25T05:32:15.143Z"
     }
   ],
   "activity": {
@@ -2810,6 +2810,7 @@
       "tv/detective_conan.abc": 2
     },
     "2026-10-26": {
+      "german/es ist ein schnitter.abc": 1,
       "german/maria durch ein dornwald ging.abc": 3,
       "japanese/hashire kotaro.abc": 1
     }
