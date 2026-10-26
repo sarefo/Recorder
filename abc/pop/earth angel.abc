@@ -3,17 +3,19 @@ T:Earth Angel
 C:Curtis Williams, Gaynel Hodge and Jesse Belvin, 1954
 N:Best-effort version, not verified against a second source. Melody is the
 N:lead line of a doo-wop arrangement MIDI (hamienet.com), moved up an octave
-N:to fit the recorder and quantized to sixteenths, so the triplet feel of
-N:the original shows as uneven sixteenths. Chords come from that
+N:to fit the recorder. The MIDI sets the triplet feel on a sixteenth grid;
+N:here it is written in 12/8. Where an off-beat note sat between two triplet
+N:positions it was placed on the later one. Chords come from that
 N:arrangement's piano. One pass is the 32-bar chorus (A A B A).
-M:4/4
-L:1/16
+M:12/8
+Q:3/8=80
+L:1/8
 K:G
-"G"G2 G4 d2 "Em"B2 B2 z4 | "C"z4 c c2 B "D"B2 A6 | "G"z4 G A2 B "Em"B A2 G4- G | "C"c2 c3 c2 B "D"B2 A6 |
-"G"z4 G A2 B "Em"B A2 G4- G- | "C"G2 c2 c3 B "D"A6 B2 | "G"B A2 G4- G- "Em"G8 | "C"z8 "D"z4 d e2 f |
-"G"d2 d3 B2 d "Em"B2 B2 z4 | "C"z2 c2 c c2 B "D"B2 A6 | "G"z4 G A2 B "Em"B A2 G3 G2 | "C"c6 B2 "D"B2 A6 |
-"G"z4 G A2 B "Em"B A2 G4- G- | "C"G2 c2 c3 B "D"A6 B2 | "G"B A2 G12- G | z8 "G7"z6 G2 |
-"C"c6 d2 "Cm"d2 c6- | "G"c2 B4 ^A2 "G7"B6 G2 | "C"A2 A3 A2 A "D"A2 G2 d e2 d | "G"e d2 B4- B- "G7"B6 G2 |
-"C"c6 d2 "Cm"d2 c6- | "G"c2 B4 ^A2 "Em"B4 E F2 G | "A7"B2 B4 B2 B3 A2 G3 | "D"A4 d e2 d e d2 e d B2 d |
-"G"G2 G4 d2 "Em"B2 B2 z4 | "C"z4 c c2 B "D"B2 A6 | "G"z4 G A2 B "Em"B A2 G4- G | "C"c2 c3 c2 B "D"B2 A6 |
-"G"z4 G A2 B "Em"B A2 G4- G- | "C"G2 c2 c3 B "D"A6 B2 | "G"B A2 G12- G | z8 "G7"z6 G2 |]
+"G"G2 G3 D "Em"B2 B2 z2 | "C"z3 CCB "D"B2 A4- | "G"Az2 GAB "Em"BA G4 | "C"C2 C2 CB "D"B2 A4- |
+"G"Az2 GAB "Em"BA G4 | "C"z2C C2B "D"A3- A2B | "G"BA G4- "Em"G6 | "C"z6 "D"z3 DEF |
+"G"D2 D2 BD "Em"B2 B2 z2 | "C"z2C CCB "D"B2 A4- | "G"Az2 GAB "Em"BAG z2G | "C"C3- C2B "D"B2 A4- |
+"G"Az2 GAB "Em"BA G4 | "C"z2C C2B "D"A3- A2B | "G"BA G7- G3 | z6 "G7"z3 z2G |
+"C"C3- C2D "Cm"D2 C4- | "G"C2 B3 ^A "G7"B3 z2G | "C"A2 A2 AA "D"A2G DED | "G"ED B4- "G7"B3 z2G |
+"C"C3- C2D "Cm"D2 C4- | "G"C2 B3 ^A "Em"B3 EFG | "A7"B2 B3 B B2 A2 G2 | "D"A3 DED EDE DBD |
+"G"G2 G3 D "Em"B2 B2 z2 | "C"z3 CCB "D"B2 A4- | "G"Az2 GAB "Em"BA G4 | "C"C2 C2 CB "D"B2 A4- |
+"G"Az2 GAB "Em"BA G4 | "C"z2C C2B "D"A3- A2B | "G"BA G7- G3 | z6 "G7"z3 z2G |]

@@ -1425,12 +1425,6 @@ class AbcFileList {
                 "hash": "8a0b111c08"
         },
         {
-                "name": "Bei Mir Bist Du Sch\u00f6n",
-                "file": "pop/bei mir bist du schon.abc",
-                "category": "pop",
-                "hash": "e5318bd4f2"
-        },
-        {
                 "name": "Derni\u00e8re Danse",
                 "file": "pop/derniere danse.abc",
                 "category": "pop",
@@ -1440,7 +1434,7 @@ class AbcFileList {
                 "name": "Earth Angel",
                 "file": "pop/earth angel.abc",
                 "category": "pop",
-                "hash": "ae4ca7afef"
+                "hash": "9c09e1c753"
         },
         {
                 "name": "Mr. Sandman",
@@ -1458,7 +1452,7 @@ class AbcFileList {
                 "name": "Que Sera, Sera",
                 "file": "pop/que sera sera.abc",
                 "category": "pop",
-                "hash": "c2ed20601f"
+                "hash": "a7c0763fe2"
         },
         {
                 "name": "Somebody I Used to Know",
@@ -1885,6 +1879,12 @@ class AbcFileList {
                 "file": "vietnamese/beo dat may troi.abc",
                 "category": "vietnamese",
                 "hash": "fa7d816f10"
+        },
+        {
+                "name": "Bei Mir Bist Du Sch\u00f6n",
+                "file": "yiddish/bei mir bist du schon.abc",
+                "category": "yiddish",
+                "hash": "e5318bd4f2"
         },
         {
                 "name": "Chiribim Chiribom",
