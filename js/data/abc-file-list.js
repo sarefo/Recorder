@@ -735,16 +735,34 @@ class AbcFileList {
                 "hash": "1e9bc9a8a3"
         },
         {
+                "name": "La goualante du pauvre Jean",
+                "file": "french/la goualante du pauvre jean.abc",
+                "category": "french",
+                "hash": "b1026dcb77"
+        },
+        {
                 "name": "Mistral Gagnant",
                 "file": "french/mistral gagnant.abc",
                 "category": "french",
                 "hash": "3ce838b55a"
         },
         {
+                "name": "Non, je ne regrette rien",
+                "file": "french/non je ne regrette rien.abc",
+                "category": "french",
+                "hash": "c35eb5121e"
+        },
+        {
                 "name": "Reel du r\u00e9prtoire des fr\u00e8res Pigeon",
                 "file": "french/Reel du repertoire des freres pigeon.abc",
                 "category": "french",
                 "hash": "8131dd7401"
+        },
+        {
+                "name": "Sous le ciel de Paris",
+                "file": "french/sous le ciel de paris.abc",
+                "category": "french",
+                "hash": "7322715da6"
         },
         {
                 "name": "Tourdion",

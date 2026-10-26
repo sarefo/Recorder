@@ -1,0 +1,14 @@
+X:1
+T:Sous le ciel de Paris
+C:Hubert Giraud, 1951
+N:Best-effort version. Melody is the piano line of an arrangement MIDI
+N:(hamienet.com), moved up an octave to fit the recorder range. Chords follow
+N:that arrangement's bass. One pass is the two opening strains (10 bars);
+N:later sections of the arrangement are not included.
+M:4/4
+Q:1/4=100
+L:1/8
+K:Bm
+"Bm"F2 B2 c2 d2- | "Bm"d2 e2 f2 e2 | "Bm"d2 c2 B2 A2 | "Em"G6 f2- |
+"Em"f4 e4- | "Em"e2 z6 | "F#7"F2 ^A2 B2 c2- | "F#7"c2 d2 e2 g2 |
+"F#7"f2 e2 d2 c2 | "Bm"B6 z2 |]

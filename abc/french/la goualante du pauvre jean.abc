@@ -1,0 +1,16 @@
+X:1
+T:La goualante du pauvre Jean
+C:Marguerite Monnot, 1954 (Edith Piaf); "The Poor People of Paris"
+N:Best-effort version. Melody is the lead line of a guitar arrangement MIDI
+N:(hamienet.com), moved up a minor third to E-flat to fit the recorder range,
+N:with the rhythm rounded to eighths. Chords come from that arrangement's
+N:guitar and agree with a second arrangement in the same key. The last bar
+N:is a rest before the pass repeats.
+M:4/4
+Q:1/4=150
+L:1/8
+K:Eb
+"Bb7"z4 e2 d2 | "Bb7"d2 c2 c2 =Bc- | "Bb7"c4 e2 d2 | "Bb7"d2 c2 c2 =Bc- |
+"Bb7"c4"Gm"e2 d2 | "Eb"d2 c2 c2 =Bc- | "Eb"c4"Bb7"d2 c2 | "Eb"G4"D"^F4 |
+"Eb"G4 e2 d2 | "C7"_d2 c2 G2 c2 | "Fm"B2 A4 FG | "Bb7"A2 B2 c2 d2 |
+"Eb"f3 e d2 c2 | "Bb7"B2 A2 C2 D2 | "Eb"G8 | "Bb7"z8 |]

@@ -1,0 +1,18 @@
+X:1
+T:Non, je ne regrette rien
+C:Charles Dumont, 1956 (Edith Piaf)
+N:Best-effort version. Melody is the flute line of an arrangement MIDI
+N:(hamienet.com), moved up from G to C to fit the recorder range, with the
+N:rhythm rounded to eighths. Chords are read from the arrangement's strings.
+N:One pass is the whole song (24 bars); the last bar is a rest-out before
+N:the first verse returns.
+M:12/8
+Q:3/8=87
+L:1/8
+K:C
+"C"G6-G4 AG | "G"G6-G6 | "G"G6-G BAGGF | "C"E6-E4 FG |
+"F"A6-A4 BA | "F"A6-A4 BA | "Dm"A6-A ABcBc | "G"d6-d6 |
+"C"G6-G4 AG | "G"G6-G6 | "G"G6-G BAGGF | "C"E6-E4 FG |
+"F"A6-A4 BA | "Dm"A6-A4 cB | "G"B6-B Bc"G7"dcB | "C"c6-c cGAGF |
+"C"E6-E cGAGF | "C"E6- "G7"E BFGFE | "G7"D6-D AGFE_E | "C"E6-E cGAGF |
+"C"E6-E cGAGF | "C"E6- "G7"E BFGFE | "G7"D6-D AGFED | "C"C6 z6 |]
