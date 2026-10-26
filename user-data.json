@@ -1015,8 +1015,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-26T13:35:47.802Z",
+      "playCount": 1,
       "createdAt": "2026-10-26T13:35:38.000Z"
     },
     "french/tourdion.abc": {
@@ -2716,6 +2716,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/mistral gagnant.abc",
+      "timestamp": "2026-10-26T13:35:47.802Z"
+    },
+    {
       "filePath": "pop/mr sandman.abc",
       "timestamp": "2026-10-26T11:30:24.790Z"
     },
@@ -2790,10 +2794,6 @@
     {
       "filePath": "chinese/baobao yao shuijiao.abc",
       "timestamp": "2026-10-25T10:37:31.259Z"
-    },
-    {
-      "filePath": "scottish/hopetoun_house.abc",
-      "timestamp": "2026-10-25T10:26:00.148Z"
     }
   ],
   "activity": {
@@ -2893,6 +2893,7 @@
     },
     "2026-10-26": {
       "cajun/madame sosthene.abc": 4,
+      "french/mistral gagnant.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 6,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
