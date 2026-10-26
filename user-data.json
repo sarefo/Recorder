@@ -4825,13 +4825,17 @@
       }
     },
     "pop/que sera sera.abc": {
-      "at": "2026-10-26T11:25:23.367Z",
+      "at": "2026-10-26T11:26:06.515Z",
       "notes": {
         "2": {
           "state": "red",
           "pitch": "^F"
         },
         "18": {
+          "state": "red",
+          "pitch": "^c"
+        },
+        "26": {
           "state": "red",
           "pitch": "^c"
         },
