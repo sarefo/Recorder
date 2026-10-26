@@ -2114,8 +2114,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-26T11:24:36.295Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-26T11:30:24.790Z",
+      "playCount": 2,
       "createdAt": "2026-10-26T11:24:25.705Z",
       "updatedAt": "2026-10-26T11:24:40.651Z"
     },
@@ -2676,16 +2676,16 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/mr sandman.abc",
+      "timestamp": "2026-10-26T11:30:24.790Z"
+    },
+    {
       "filePath": "pop/bei mir bist du schon.abc",
       "timestamp": "2026-10-26T11:28:31.677Z"
     },
     {
       "filePath": "pop/que sera sera.abc",
       "timestamp": "2026-10-26T11:25:03.592Z"
-    },
-    {
-      "filePath": "pop/mr sandman.abc",
-      "timestamp": "2026-10-26T11:24:36.295Z"
     },
     {
       "filePath": "jazz/autumn leaves.abc",
@@ -2862,6 +2862,7 @@
       "latino/tango/por una cabeza.abc": 14,
       "philippine/ili-ili tulog anay.abc": 1,
       "pop/bei mir bist du schon.abc": 1,
+      "pop/mr sandman.abc": 1,
       "pop/que sera sera.abc": 2
     }
   },
