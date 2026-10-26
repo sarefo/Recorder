@@ -2815,7 +2815,7 @@
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 3,
       "japanese/hashire kotaro.abc": 1,
-      "latino/tango/por una cabeza.abc": 11
+      "latino/tango/por una cabeza.abc": 12
     }
   },
   "statusLog": [
@@ -3676,8 +3676,8 @@
         "prev": null,
         "pitchSeen": 5,
         "transSeen": 0,
-        "count": 1,
-        "at": "2026-10-23T10:54:13.592Z"
+        "count": 2,
+        "at": "2026-10-26T05:51:44.028Z"
       },
       "2": {
         "pitch": "^G",
@@ -4446,10 +4446,10 @@
       }
     },
     "latino/tango/por una cabeza.abc": {
-      "at": "2026-10-26T05:41:59.142Z",
+      "at": "2026-10-26T05:51:34.024Z",
       "notes": {
         "0": {
-          "state": "green",
+          "state": "red",
           "pitch": "^F"
         },
         "2": {
