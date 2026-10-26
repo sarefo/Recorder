@@ -1050,13 +1050,13 @@
       "updatedAt": "2026-10-24T11:59:48.703Z"
     },
     "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-26T04:35:45.448Z",
       "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.430Z",
-      "updatedAt": "2026-10-24T12:04:18.471Z"
+      "updatedAt": "2026-10-26T04:37:50.809Z"
     },
     "german/ich fahr dahin.abc": {
       "status": "practicing",
@@ -1775,8 +1775,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T10:52:49.766Z",
-      "playCount": 20,
+      "lastPlayed": "2026-10-26T04:38:06.466Z",
+      "playCount": 21,
       "createdAt": "2026-09-26T08:25:28.534Z"
     },
     "lithuanian/a a vaikuci.abc": {
@@ -2634,6 +2634,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "latino/tango/por una cabeza.abc",
+      "timestamp": "2026-10-26T04:38:06.466Z"
+    },
+    {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-10-26T04:35:45.448Z"
     },
@@ -2664,10 +2668,6 @@
     {
       "filePath": "trinidadian/matilda.abc",
       "timestamp": "2026-10-25T10:52:51.839Z"
-    },
-    {
-      "filePath": "latino/tango/por una cabeza.abc",
-      "timestamp": "2026-10-25T10:52:49.766Z"
     },
     {
       "filePath": "israeli/artsa alinu.abc",
@@ -3097,6 +3097,11 @@
       "path": "german/maria durch ein dornwald ging.abc",
       "status": "good",
       "at": "2026-10-26T03:48:01.463Z"
+    },
+    {
+      "path": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "status": "good",
+      "at": "2026-10-26T04:37:50.809Z"
     }
   ],
   "marks": {
@@ -5007,6 +5012,24 @@
       "at": "2026-10-26T04:28:00.186Z",
       "percent": 150,
       "bpm": 132
+    },
+    {
+      "path": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "at": "2026-10-26T04:37:51.672Z",
+      "percent": 100,
+      "bpm": 104
+    },
+    {
+      "path": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "at": "2026-10-26T04:37:51.865Z",
+      "percent": 100,
+      "bpm": 104
+    },
+    {
+      "path": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "at": "2026-10-26T04:37:52.065Z",
+      "percent": 100,
+      "bpm": 104
     }
   ],
   "settings": {}
