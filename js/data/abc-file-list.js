@@ -1419,6 +1419,12 @@ class AbcFileList {
                 "hash": "8a0b111c08"
         },
         {
+                "name": "Bei Mir Bist Du Sch\u00f6n",
+                "file": "pop/bei mir bist du schon.abc",
+                "category": "pop",
+                "hash": "e5318bd4f2"
+        },
+        {
                 "name": "Derni\u00e8re Danse",
                 "file": "pop/derniere danse.abc",
                 "category": "pop",
@@ -1435,6 +1441,12 @@ class AbcFileList {
                 "file": "pop/popcorn.abc",
                 "category": "pop",
                 "hash": "bf7b273dfc"
+        },
+        {
+                "name": "Que Sera, Sera",
+                "file": "pop/que sera sera.abc",
+                "category": "pop",
+                "hash": "c2ed20601f"
         },
         {
                 "name": "Somebody I Used to Know",
