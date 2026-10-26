@@ -1587,8 +1587,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-26T06:32:17.918Z",
-      "playCount": 4,
+      "lastPlayed": "2026-10-26T07:39:58.880Z",
+      "playCount": 5,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-15T09:48:05.144Z"
     },
@@ -2636,7 +2636,7 @@
   "recentlyPlayed": [
     {
       "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-10-26T06:32:17.918Z"
+      "timestamp": "2026-10-26T07:39:58.880Z"
     },
     {
       "filePath": "jazz/all of me.abc",
