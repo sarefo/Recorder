@@ -1,0 +1,15 @@
+X:1
+T:La Vie en Rose
+C:Louiguy, 1945 (Edith Piaf)
+N:Best-effort version. Melody is the flute line of an arrangement MIDI
+N:(hamienet.com), moved up a semitone from E to F to fit the recorder, with the
+N:rhythm rounded to eighths. Chords are the arrangement's guitar and bass.
+N:One pass is the 15-bar verse; the middle section is not included.
+M:4/4
+Q:1/4=97
+L:1/8
+K:F
+"F"z2 FFF F2 A- | "Am"AAAAA A2 G- | "Gm"G2 z3 G G2 | "Bb"_B _B2 A G2 AC- |
+"F"C2 CCC C2 A- | "Am"AAAA A2 AG- | "Gm"G2 z4 z G | "Bb"_B3 AG F2 G- |
+"C"G3 A3 z2 | "Bb"GAGFGFDG- | "C"G3 A3 zD | "Bb"AA G2 FFDG- |
+"Gm"G3"Bb"F3 zD | "C7"GAGA F2 DF- | "F"F7 z |]

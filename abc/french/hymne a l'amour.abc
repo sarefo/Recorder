@@ -1,0 +1,13 @@
+X:1
+T:Hymne a l'amour
+C:Marguerite Monnot, 1949 (Edith Piaf)
+N:Best-effort version. Melody and chords come from an arrangement MIDI
+N:(hamienet.com): the melody is its lead instrument line, moved up from G to C
+N:to fit the recorder range. One pass is the 8-bar verse; the last bar
+N:carries the pickup into the next pass. The middle section is not included.
+M:4/4
+Q:1/4=95
+L:1/8
+K:C
+"C"E3 E"E7"E^GBd | "Am"c6 AG | "Dm"F3 FFAce | "Dm"d4- "G7"d2 ef |
+"C"g2 c2"E7"c3 B | "F"A2 f4 gf | "C"e2"Am"c2"Dm"f2 e2 | "Dm"d4- "G7"d2 GF |]

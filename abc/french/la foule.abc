@@ -1,0 +1,18 @@
+X:1
+T:La Foule
+C:Angel Cabral and Michel Rivgauche, 1957 (Edith Piaf)
+N:Best-effort version. Melody is the pan flute line of an arrangement MIDI
+N:(hamienet.com), a live-style performance with many grace notes; those were
+N:dropped and the rest rounded to eighths, so some rhythms are approximate.
+N:Chords come from the arrangement's guitar. One pass is three 8-bar strains
+N:(A B A); the last bar carries the pickup into the next pass.
+M:3/4
+Q:1/4=150
+L:1/8
+K:Em
+"Em"e4 e2 | "Em"g2 f3 e- | "Am"e2 c4 | "Am"z4 z g- |
+"D"g a2 g3 | "D7"a d2 d2 d- | "G"d4 z2 | "G"z3 B3 |
+"B"^d3 ^d3 | "B"f3 f3 | "Em"f3 e3- | "Em"e3 z3 |
+"Am"c2 z3 c | "Am"e3 efe- | "B"e ^d4-^d | "B"z3 B2 B |
+"Em"e3 e2 e- | "Em"e g2 fe^d | "Am"e3 c2 z | "Am"z2 f2 g2 |
+"D"a2 g2 gf | "D7"a3 d2 d | "G"d2 d4 | "G"z3 B2 B |]

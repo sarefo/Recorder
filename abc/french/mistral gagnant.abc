@@ -1,0 +1,19 @@
+X:1
+T:Mistral Gagnant
+C:Renaud, 1985
+N:Best-effort version. A piano arrangement MIDI (hamienet.com) was the source;
+N:its melody is mixed in with arpeggios, so the top line was pulled out and the
+N:rhythm rounded to eighths. Notes and rhythm are approximate in the second
+N:half. Moved down a fifth from B minor to E minor to fit the recorder.
+N:Chords come from the same arrangement. One pass is 27 bars.
+M:4/4
+Q:1/4=64
+L:1/8
+K:Em
+"Em"z4 E2 e2 | "Am"e2 d2 A4 | "D"F2 f2 f2 g2 | "C"f2 e4 g2 |
+"Em"g2 a2"Am"c4 | "B7"Ac f2 f2 ^d2 | "Em"e3 g3 g2- | "Em"g e3 B3 e- |
+"Em"e2 g3 e3 | "Am"Bcd c4-c | "D"e f3 d3 A- | "D"A2 d3 f3 |
+"G"d3 ABc B2- | "Em"B2 G2 g3 e- | "Em"e2 B3 e3 | "Em"g3 e3 Bc |
+"Am"d c4 B2 f- | "D"f2 d3 A3 | "D"d3 f3 d2- | "G"dABc B3 D |
+"C"GF E3 EGc | "B7"e3 c3 B2- | "Em"BFGA G2 EG- | "C"Gf g3 Gcd |
+"C"ecG E3"B7"B2- | "Em"BFGA B3 G- | "D"Gf a4-a g |]

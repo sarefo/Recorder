@@ -705,16 +705,40 @@ class AbcFileList {
                 "hash": "13375de5d7"
         },
         {
+                "name": "Hymne a l'amour",
+                "file": "french/hymne a l'amour.abc",
+                "category": "french",
+                "hash": "6b762db974"
+        },
+        {
                 "name": "J'ai vu le loup, le renard, le lievre",
                 "file": "french/j'ai vu le loup.abc",
                 "category": "french",
                 "hash": "0f23ea46a5"
         },
         {
+                "name": "La Foule",
+                "file": "french/la foule.abc",
+                "category": "french",
+                "hash": "0f0b3e422c"
+        },
+        {
                 "name": "La Mer",
                 "file": "french/la mer.abc",
                 "category": "french",
                 "hash": "18a154c2b3"
+        },
+        {
+                "name": "La Vie en Rose",
+                "file": "french/la vie en rose.abc",
+                "category": "french",
+                "hash": "1e9bc9a8a3"
+        },
+        {
+                "name": "Mistral Gagnant",
+                "file": "french/mistral gagnant.abc",
+                "category": "french",
+                "hash": "3ce838b55a"
         },
         {
                 "name": "Reel du r\u00e9prtoire des fr\u00e8res Pigeon",
