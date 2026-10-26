@@ -979,6 +979,14 @@
       "playCount": 2,
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
+    "french/la mer.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-26T11:24:25.702Z"
+    },
     "french/tourdion.abc": {
       "status": "practicing",
       "favorite": true,
@@ -1988,6 +1996,14 @@
       "playCount": 3,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
+    "pop/bei mir bist du schon.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-26T11:24:25.705Z"
+    },
     "pop/bert kaempfert/a swingin safari.abc": {
       "status": "practicing",
       "favorite": true,
@@ -2012,6 +2028,14 @@
       "playCount": 4,
       "createdAt": "2026-10-14T17:54:41.333Z",
       "updatedAt": "2026-10-17T10:46:06.768Z"
+    },
+    "pop/earth angel.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-26T11:24:25.705Z"
     },
     "pop/eurythmics/here comes the rain again.abc": {
       "status": null,
@@ -2086,6 +2110,15 @@
       "playCount": 7,
       "createdAt": "2026-08-22T02:59:38.465Z"
     },
+    "pop/mr sandman.abc": {
+      "status": "practicing",
+      "favorite": true,
+      "notes": "",
+      "lastPlayed": "2026-10-26T11:24:36.295Z",
+      "playCount": 1,
+      "createdAt": "2026-10-26T11:24:25.705Z",
+      "updatedAt": "2026-10-26T11:24:40.651Z"
+    },
     "pop/popcorn.abc": {
       "status": "practicing",
       "favorite": true,
@@ -2094,6 +2127,14 @@
       "playCount": 4,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-22T06:12:52.362Z"
+    },
+    "pop/que sera sera.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-26T11:24:25.705Z"
     },
     "pop/tequila.abc": {
       "status": null,
@@ -2635,6 +2676,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/mr sandman.abc",
+      "timestamp": "2026-10-26T11:24:36.295Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-10-26T07:39:58.880Z"
     },
@@ -2709,10 +2754,6 @@
     {
       "filePath": "peruvian/el condor pasa.abc",
       "timestamp": "2026-10-25T10:16:12.418Z"
-    },
-    {
-      "filePath": "japanese/edo komoriuta.abc",
-      "timestamp": "2026-10-25T10:15:21.454Z"
     }
   ],
   "activity": {
@@ -3112,6 +3153,11 @@
       "path": "cajun/madame sosthene.abc",
       "status": "practicing",
       "at": "2026-10-26T06:19:13.545Z"
+    },
+    {
+      "path": "pop/mr sandman.abc",
+      "status": "practicing",
+      "at": "2026-10-26T11:24:40.651Z"
     }
   ],
   "marks": {
@@ -3887,6 +3933,24 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-26T06:25:49.241Z"
+      }
+    },
+    "pop/mr sandman.abc": {
+      "12": {
+        "pitch": "_B",
+        "prev": null,
+        "pitchSeen": 17,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-10-26T11:24:54.435Z"
+      },
+      "19": {
+        "pitch": "_E",
+        "prev": "A",
+        "pitchSeen": 5,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-26T11:24:54.438Z"
       }
     },
     "pop/popcorn.abc": {
@@ -4692,6 +4756,19 @@
         "13": {
           "state": "red",
           "pitch": "_e"
+        }
+      }
+    },
+    "pop/mr sandman.abc": {
+      "at": "2026-10-26T11:24:43.911Z",
+      "notes": {
+        "12": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "19": {
+          "state": "red",
+          "pitch": "_E"
         }
       }
     },
