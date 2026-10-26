@@ -1095,13 +1095,13 @@
       "updatedAt": "2026-10-24T12:10:18.189Z"
     },
     "german/maria durch ein dornwald ging.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-26T03:46:29.617Z",
       "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.430Z",
-      "updatedAt": "2026-10-24T12:11:55.805Z"
+      "updatedAt": "2026-10-26T03:48:01.463Z"
     },
     "german/muss i denn.abc": {
       "status": null,
@@ -2810,7 +2810,7 @@
       "tv/detective_conan.abc": 2
     },
     "2026-10-26": {
-      "german/maria durch ein dornwald ging.abc": 1,
+      "german/maria durch ein dornwald ging.abc": 2,
       "japanese/hashire kotaro.abc": 1
     }
   },
@@ -3089,6 +3089,11 @@
       "path": "israeli/artsa alinu.abc",
       "status": "good",
       "at": "2026-10-25T10:50:59.432Z"
+    },
+    {
+      "path": "german/maria durch ein dornwald ging.abc",
+      "status": "good",
+      "at": "2026-10-26T03:48:01.463Z"
     }
   ],
   "marks": {
@@ -4944,6 +4949,24 @@
       "at": "2026-10-25T10:15:18.780Z",
       "percent": 100,
       "bpm": 100
+    },
+    {
+      "path": "german/maria durch ein dornwald ging.abc",
+      "at": "2026-10-26T03:47:58.491Z",
+      "percent": 100,
+      "bpm": 92
+    },
+    {
+      "path": "german/maria durch ein dornwald ging.abc",
+      "at": "2026-10-26T03:47:58.660Z",
+      "percent": 100,
+      "bpm": 92
+    },
+    {
+      "path": "german/maria durch ein dornwald ging.abc",
+      "at": "2026-10-26T03:47:58.862Z",
+      "percent": 100,
+      "bpm": 92
     }
   ],
   "settings": {}
