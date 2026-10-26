@@ -1053,8 +1053,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T12:04:13.698Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-26T04:35:45.448Z",
+      "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T12:04:18.471Z"
     },
@@ -2634,6 +2634,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "timestamp": "2026-10-26T04:35:45.448Z"
+    },
+    {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-10-26T04:16:27.472Z"
     },
@@ -2708,10 +2712,6 @@
     {
       "filePath": "scottish/francis_robertson.abc",
       "timestamp": "2026-10-25T09:54:19.235Z"
-    },
-    {
-      "filePath": "austrian/lieber augustin.abc",
-      "timestamp": "2026-10-25T09:52:24.944Z"
     }
   ],
   "activity": {
@@ -2812,6 +2812,7 @@
     "2026-10-26": {
       "german/es geht eine dunkle wolk herein.abc": 6,
       "german/es ist ein schnitter.abc": 1,
+      "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 3,
       "japanese/hashire kotaro.abc": 1
     }
@@ -3351,6 +3352,16 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-24T11:57:39.477Z"
+      }
+    },
+    "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": {
+      "4": {
+        "pitch": "^G",
+        "prev": "A",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-26T04:35:59.943Z"
       }
     },
     "german/ich hab die nacht getraeumet.abc": {
@@ -4148,6 +4159,15 @@
         "10": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": {
+      "at": "2026-10-26T04:35:49.937Z",
+      "notes": {
+        "4": {
+          "state": "red",
+          "pitch": "^G"
         }
       }
     },
