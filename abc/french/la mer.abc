@@ -1,0 +1,14 @@
+X:1
+T:La Mer
+C:Charles Trenet, 1945
+N:Best-effort version, not verified against a second source. Melody is the
+N:alto sax line of an arrangement MIDI (hamienet.com) and the rhythm is
+N:rounded to eighth notes. Chords come from that arrangement's piano, guitar
+N:and bass. One pass is the 12-bar first phrase; the bridge is left out.
+M:4/4
+Q:1/4=72
+L:1/8
+K:G
+"G"G6 "Em"z2 | "Am7"z4 "D7"F2 G A | "G"B4 "Em"z2 B2 | "Am7"A4 "D7"F2 E D |
+"G"B4 "Em"B4 | "Em"z4 "D7"A2 B c | "G"d4 "G7"G2 G G | "C"e8- |
+"Am7"e2 z e "D7"d2 B A | "Em7"G6 E G | "Am7"A8 | "Am7"D4 "D7"D z D2 |]

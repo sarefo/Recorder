@@ -711,6 +711,12 @@ class AbcFileList {
                 "hash": "0f23ea46a5"
         },
         {
+                "name": "La Mer",
+                "file": "french/la mer.abc",
+                "category": "french",
+                "hash": "18a154c2b3"
+        },
+        {
                 "name": "Reel du r\u00e9prtoire des fr\u00e8res Pigeon",
                 "file": "french/Reel du repertoire des freres pigeon.abc",
                 "category": "french",
@@ -1429,6 +1435,12 @@ class AbcFileList {
                 "file": "pop/derniere danse.abc",
                 "category": "pop",
                 "hash": "f953de05bd"
+        },
+        {
+                "name": "Earth Angel",
+                "file": "pop/earth angel.abc",
+                "category": "pop",
+                "hash": "ae4ca7afef"
         },
         {
                 "name": "Mr. Sandman",
