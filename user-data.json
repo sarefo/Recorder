@@ -196,8 +196,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-17T05:15:47.429Z",
-      "playCount": 13,
+      "lastPlayed": "2026-10-26T06:17:02.195Z",
+      "playCount": 14,
       "createdAt": "2026-09-27T06:51:55.209Z"
     },
     "canadian/saint annes reel.abc": {
@@ -2634,6 +2634,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "cajun/madame sosthene.abc",
+      "timestamp": "2026-10-26T06:17:02.195Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-26T04:38:06.466Z"
     },
@@ -2708,10 +2712,6 @@
     {
       "filePath": "tv/detective_conan.abc",
       "timestamp": "2026-10-25T10:01:53.081Z"
-    },
-    {
-      "filePath": "scottish/francis_robertson.abc",
-      "timestamp": "2026-10-25T09:54:19.235Z"
     }
   ],
   "activity": {
@@ -2810,6 +2810,7 @@
       "tv/detective_conan.abc": 2
     },
     "2026-10-26": {
+      "cajun/madame sosthene.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 6,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
