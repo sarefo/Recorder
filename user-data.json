@@ -1098,8 +1098,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T12:10:21.383Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-26T03:46:29.617Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T12:11:55.805Z"
     },
@@ -2634,6 +2634,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/maria durch ein dornwald ging.abc",
+      "timestamp": "2026-10-26T03:46:29.617Z"
+    },
+    {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-10-25T10:59:52.309Z"
     },
@@ -2708,10 +2712,6 @@
     {
       "filePath": "japanese/yuuhi.abc",
       "timestamp": "2026-10-25T05:32:15.143Z"
-    },
-    {
-      "filePath": "japanese/ureshii hinamatsuri.abc",
-      "timestamp": "2026-10-25T05:31:33.533Z"
     }
   ],
   "activity": {
@@ -2810,6 +2810,7 @@
       "tv/detective_conan.abc": 2
     },
     "2026-10-26": {
+      "german/maria durch ein dornwald ging.abc": 1,
       "japanese/hashire kotaro.abc": 1
     }
   },
