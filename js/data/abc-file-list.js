@@ -1425,6 +1425,12 @@ class AbcFileList {
                 "hash": "f953de05bd"
         },
         {
+                "name": "Mr. Sandman",
+                "file": "pop/mr sandman.abc",
+                "category": "pop",
+                "hash": "6b9835bb2b"
+        },
+        {
                 "name": "Popcorn",
                 "file": "pop/popcorn.abc",
                 "category": "pop",
