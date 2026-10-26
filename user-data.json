@@ -2810,7 +2810,7 @@
       "tv/detective_conan.abc": 2
     },
     "2026-10-26": {
-      "german/es geht eine dunkle wolk herein.abc": 4,
+      "german/es geht eine dunkle wolk herein.abc": 5,
       "german/es ist ein schnitter.abc": 1,
       "german/maria durch ein dornwald ging.abc": 3,
       "japanese/hashire kotaro.abc": 1
@@ -4969,6 +4969,24 @@
       "at": "2026-10-26T03:47:58.862Z",
       "percent": 100,
       "bpm": 92
+    },
+    {
+      "path": "german/es geht eine dunkle wolk herein.abc",
+      "at": "2026-10-26T04:27:55.762Z",
+      "percent": 150,
+      "bpm": 132
+    },
+    {
+      "path": "german/es geht eine dunkle wolk herein.abc",
+      "at": "2026-10-26T04:27:59.970Z",
+      "percent": 150,
+      "bpm": 132
+    },
+    {
+      "path": "german/es geht eine dunkle wolk herein.abc",
+      "at": "2026-10-26T04:28:00.186Z",
+      "percent": 150,
+      "bpm": 132
     }
   ],
   "settings": {}
