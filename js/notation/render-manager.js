@@ -220,13 +220,16 @@ class RenderManager {
      * @returns {number[]} Occurrence times, empty when the element has none
      */
     getNoteTimes(abcElem) {
+        // abcjs stores these at the tune's own tempo; the synth, the timing
+        // callbacks and seek() all run at the playback speed
+        const scale = 100 / (this.player?.midiPlayer?.playbackSettings?.tempo || 100);
         const ms = abcElem?.currentTrackMilliseconds;
         const times = (Array.isArray(ms) ? ms : [ms])
             .filter(t => typeof t === 'number' && !isNaN(t));
         if (times.length === 0 && typeof abcElem?.midiStartTime === 'number') {
-            return [abcElem.midiStartTime * 1000];
+            return [abcElem.midiStartTime * 1000 * scale];
         }
-        return times;
+        return times.map(t => t * scale);
     }
 
     /**

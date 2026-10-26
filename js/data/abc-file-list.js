@@ -1122,7 +1122,7 @@ class AbcFileList {
                 "name": "Ureshii Hinamatsuri",
                 "file": "japanese/ureshii hinamatsuri.abc",
                 "category": "japanese",
-                "hash": "ac50b148f4"
+                "hash": "000ede5446"
         },
         {
                 "name": "Yuuhi",
