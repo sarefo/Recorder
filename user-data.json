@@ -193,12 +193,13 @@
       "createdAt": "2026-09-27T06:51:55.209Z"
     },
     "cajun/madame sosthene.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-26T06:17:02.195Z",
       "playCount": 14,
-      "createdAt": "2026-09-27T06:51:55.209Z"
+      "createdAt": "2026-09-27T06:51:55.209Z",
+      "updatedAt": "2026-10-26T06:19:13.545Z"
     },
     "canadian/saint annes reel.abc": {
       "status": null,
@@ -2810,7 +2811,7 @@
       "tv/detective_conan.abc": 2
     },
     "2026-10-26": {
-      "cajun/madame sosthene.abc": 1,
+      "cajun/madame sosthene.abc": 3,
       "german/es geht eine dunkle wolk herein.abc": 6,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
@@ -3104,6 +3105,11 @@
       "path": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "status": "good",
       "at": "2026-10-26T04:37:50.809Z"
+    },
+    {
+      "path": "cajun/madame sosthene.abc",
+      "status": "practicing",
+      "at": "2026-10-26T06:19:13.545Z"
     }
   ],
   "marks": {
