@@ -2811,7 +2811,7 @@
       "tv/detective_conan.abc": 2
     },
     "2026-10-26": {
-      "cajun/madame sosthene.abc": 3,
+      "cajun/madame sosthene.abc": 4,
       "german/es geht eine dunkle wolk herein.abc": 6,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
@@ -4057,7 +4057,7 @@
       }
     },
     "cajun/madame sosthene.abc": {
-      "at": "2026-10-26T06:21:31.065Z",
+      "at": "2026-10-26T06:22:42.801Z",
       "notes": {
         "9": {
           "state": "green",
@@ -4086,6 +4086,18 @@
         "36": {
           "state": "green",
           "pitch": "C"
+        },
+        "45": {
+          "state": "green",
+          "pitch": "F"
+        },
+        "54": {
+          "state": "green",
+          "pitch": "C"
+        },
+        "63": {
+          "state": "green",
+          "pitch": "F"
         }
       }
     },
