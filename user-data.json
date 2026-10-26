@@ -1007,17 +1007,18 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-26T13:36:42.733Z",
+      "playCount": 1,
       "createdAt": "2026-10-26T13:35:38.000Z"
     },
     "french/mistral gagnant.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-26T13:35:47.802Z",
       "playCount": 1,
-      "createdAt": "2026-10-26T13:35:38.000Z"
+      "createdAt": "2026-10-26T13:35:38.000Z",
+      "updatedAt": "2026-10-26T13:36:36.628Z"
     },
     "french/tourdion.abc": {
       "status": "practicing",
@@ -2716,6 +2717,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/la vie en rose.abc",
+      "timestamp": "2026-10-26T13:36:42.733Z"
+    },
+    {
       "filePath": "french/mistral gagnant.abc",
       "timestamp": "2026-10-26T13:35:47.802Z"
     },
@@ -2790,10 +2795,6 @@
     {
       "filePath": "pop/bert kaempfert/a swingin safari.abc",
       "timestamp": "2026-10-25T10:39:01.401Z"
-    },
-    {
-      "filePath": "chinese/baobao yao shuijiao.abc",
-      "timestamp": "2026-10-25T10:37:31.259Z"
     }
   ],
   "activity": {
@@ -2893,6 +2894,7 @@
     },
     "2026-10-26": {
       "cajun/madame sosthene.abc": 4,
+      "french/la vie en rose.abc": 1,
       "french/mistral gagnant.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 6,
       "german/es ist ein schnitter.abc": 1,
@@ -3202,6 +3204,11 @@
       "path": "pop/mr sandman.abc",
       "status": "practicing",
       "at": "2026-10-26T11:24:40.651Z"
+    },
+    {
+      "path": "french/mistral gagnant.abc",
+      "status": "needs-practice",
+      "at": "2026-10-26T13:36:36.628Z"
     }
   ],
   "marks": {
