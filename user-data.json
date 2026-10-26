@@ -2000,8 +2000,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-26T11:28:31.677Z",
+      "playCount": 1,
       "createdAt": "2026-10-26T11:24:25.705Z"
     },
     "pop/bert kaempfert/a swingin safari.abc": {
@@ -2676,6 +2676,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/bei mir bist du schon.abc",
+      "timestamp": "2026-10-26T11:28:31.677Z"
+    },
+    {
       "filePath": "pop/que sera sera.abc",
       "timestamp": "2026-10-26T11:25:03.592Z"
     },
@@ -2750,10 +2754,6 @@
     {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-25T10:26:00.148Z"
-    },
-    {
-      "filePath": "scottish/clanranald.abc",
-      "timestamp": "2026-10-25T10:16:14.349Z"
     }
   ],
   "activity": {
@@ -2861,6 +2861,7 @@
       "jazz/autumn leaves.abc": 1,
       "latino/tango/por una cabeza.abc": 14,
       "philippine/ili-ili tulog anay.abc": 1,
+      "pop/bei mir bist du schon.abc": 1,
       "pop/que sera sera.abc": 2
     }
   },
