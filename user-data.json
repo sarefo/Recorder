@@ -1948,8 +1948,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-08T07:06:18.944Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-26T06:25:34.304Z",
+      "playCount": 4,
       "createdAt": "2026-08-01T05:59:20.044Z",
       "updatedAt": "2026-10-08T07:07:55.162Z"
     },
@@ -2635,6 +2635,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "philippine/ili-ili tulog anay.abc",
+      "timestamp": "2026-10-26T06:25:34.304Z"
+    },
+    {
       "filePath": "cajun/madame sosthene.abc",
       "timestamp": "2026-10-26T06:17:02.195Z"
     },
@@ -2709,10 +2713,6 @@
     {
       "filePath": "film/here's to you.abc",
       "timestamp": "2026-10-25T10:09:42.028Z"
-    },
-    {
-      "filePath": "tv/detective_conan.abc",
-      "timestamp": "2026-10-25T10:01:53.081Z"
     }
   ],
   "activity": {
@@ -2817,7 +2817,8 @@
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 3,
       "japanese/hashire kotaro.abc": 1,
-      "latino/tango/por una cabeza.abc": 14
+      "latino/tango/por una cabeza.abc": 14,
+      "philippine/ili-ili tulog anay.abc": 1
     }
   },
   "statusLog": [
@@ -3845,6 +3846,24 @@
         "at": "2026-10-25T03:17:20.154Z"
       }
     },
+    "philippine/ili-ili tulog anay.abc": {
+      "2": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 6,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-26T06:25:49.238Z"
+      },
+      "13": {
+        "pitch": "_e",
+        "prev": "c",
+        "pitchSeen": 3,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-26T06:25:49.241Z"
+      }
+    },
     "pop/popcorn.abc": {
       "2": {
         "pitch": "_B",
@@ -4623,6 +4642,19 @@
         "36": {
           "state": "red",
           "pitch": "_a"
+        }
+      }
+    },
+    "philippine/ili-ili tulog anay.abc": {
+      "at": "2026-10-26T06:25:39.236Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "13": {
+          "state": "red",
+          "pitch": "_e"
         }
       }
     },
