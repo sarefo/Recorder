@@ -18,6 +18,14 @@
     fill: var(--color-primary);
 }
 
+/* Notes that fit the scale shown in the scale ribbon. Only the note shapes:
+   the chord symbol sits in the same group and must keep its color */
+.abcjs-note.scale-fit:not(.playing) path,
+.abcjs-note.scale-fit:not(.playing) rect {
+    fill: var(--color-scale-fit, #2e9e5b);
+    stroke: var(--color-scale-fit, #2e9e5b);
+}
+
 /* Currently-playing note (auto-scroll). !important is justified here:
    abcjs sets fill/stroke inline on its SVG nodes, so we need to win
    without depending on selector specificity. */

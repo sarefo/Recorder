@@ -157,6 +157,8 @@ class AutoScrollManager {
     handleNoteEvent(ev) {
         if (!ev) return;
 
+        this.player?.scaleRuler?.onNoteEvent(ev);
+
         // A-B practice region: the first event past the end anchor means the
         // end note has finished — wrap to the start anchor (loop) or stop
         if (typeof ev.milliseconds === 'number') {

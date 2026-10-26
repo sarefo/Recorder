@@ -121,7 +121,22 @@ class UIControls {
         // Add chart toggle button (simplified)
         fingeringSection.appendChild(this.createChartToggleButton());
 
+        fingeringSection.appendChild(this.createScaleToggleButton());
+
         return fingeringSection;
+    }
+
+    /**
+     * Creates the button that shows the scale strip for the current chord
+     * @returns {HTMLElement} The scale toggle button
+     */
+    createScaleToggleButton() {
+        const scaleToggle = document.createElement('button');
+        scaleToggle.id = 'scale-toggle';
+        scaleToggle.title = 'Show the scale for the current chord';
+        scaleToggle.textContent = 'Scale';
+        scaleToggle.addEventListener('click', () => this.player.scaleRuler?.toggle());
+        return scaleToggle;
     }
 
     /**

@@ -49,6 +49,8 @@ class RenderManager {
                 this.player.keySignatureHighlighter?.reset();
             }
 
+            this.player.scaleRuler?.onRender(this.currentVisualObj);
+
             // Initialize MIDI player
             this.player.midiPlayer.init(this.currentVisualObj);
 

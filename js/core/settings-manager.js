@@ -9,6 +9,10 @@ class SettingsManager {
             metronomeOn: true,
             loopEnabled: true,
             autoScrollEnabled: true,
+            scaleRulerVisible: false,
+            scaleHighlightNotes: false,
+            scaleStaffVisible: false,
+            scaleChordOrder: 'pitch',   // 'pitch' (C to B) or 'play' (order of appearance)
             theme: 'auto'   // 'auto' follows the OS; 'light' / 'dark' override it
         };
         this.settings = {};

@@ -81,6 +81,8 @@ class AbcPlayer {
         this.uiControls = new UIControls(this);
         this.renderManager = new RenderManager(this);
         this.keySignatureHighlighter = new KeySignatureHighlighter(this);
+        this.scaleRuler = new ScaleRuler(this);
+        this.scaleRuler.setup();
         this.mobileUI = new MobileUI(this);
         this.swipeHandler = new SwipeHandler(this);
 
