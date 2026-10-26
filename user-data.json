@@ -2132,8 +2132,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-26T11:25:03.592Z",
+      "playCount": 1,
       "createdAt": "2026-10-26T11:24:25.705Z"
     },
     "pop/tequila.abc": {
@@ -2676,6 +2676,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/que sera sera.abc",
+      "timestamp": "2026-10-26T11:25:03.592Z"
+    },
+    {
       "filePath": "pop/mr sandman.abc",
       "timestamp": "2026-10-26T11:24:36.295Z"
     },
@@ -2750,10 +2754,6 @@
     {
       "filePath": "scottish/clanranald.abc",
       "timestamp": "2026-10-25T10:16:14.349Z"
-    },
-    {
-      "filePath": "peruvian/el condor pasa.abc",
-      "timestamp": "2026-10-25T10:16:12.418Z"
     }
   ],
   "activity": {
@@ -2860,7 +2860,8 @@
       "japanese/hashire kotaro.abc": 1,
       "jazz/autumn leaves.abc": 1,
       "latino/tango/por una cabeza.abc": 14,
-      "philippine/ili-ili tulog anay.abc": 1
+      "philippine/ili-ili tulog anay.abc": 1,
+      "pop/que sera sera.abc": 1
     }
   },
   "statusLog": [
@@ -3979,6 +3980,32 @@
         "at": "2026-10-22T06:13:06.025Z"
       }
     },
+    "pop/que sera sera.abc": {
+      "2": {
+        "pitch": "^F",
+        "prev": "E",
+        "pitchSeen": 6,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-26T11:25:33.366Z"
+      },
+      "18": {
+        "pitch": "^c",
+        "prev": "G",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-26T11:25:33.368Z"
+      },
+      "31": {
+        "pitch": "^C",
+        "prev": "A",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-26T11:25:33.369Z"
+      }
+    },
     "scottish/clanranald.abc": {
       "20": {
         "pitch": "_B",
@@ -4794,6 +4821,23 @@
         "75": {
           "state": "red",
           "pitch": "_b"
+        }
+      }
+    },
+    "pop/que sera sera.abc": {
+      "at": "2026-10-26T11:25:23.367Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "18": {
+          "state": "red",
+          "pitch": "^c"
+        },
+        "31": {
+          "state": "red",
+          "pitch": "^C"
         }
       }
     },
