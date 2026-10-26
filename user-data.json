@@ -1017,8 +1017,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T11:51:04.693Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-26T03:58:41.054Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:52:16.545Z"
     },
@@ -2634,6 +2634,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es geht eine dunkle wolk herein.abc",
+      "timestamp": "2026-10-26T03:58:41.054Z"
+    },
+    {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-10-26T03:55:01.465Z"
     },
@@ -2708,10 +2712,6 @@
     {
       "filePath": "austrian/lieber augustin.abc",
       "timestamp": "2026-10-25T09:52:24.944Z"
-    },
-    {
-      "filePath": "albanian/jarnana.abc",
-      "timestamp": "2026-10-25T09:42:03.595Z"
     }
   ],
   "activity": {
@@ -2810,6 +2810,7 @@
       "tv/detective_conan.abc": 2
     },
     "2026-10-26": {
+      "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
       "german/maria durch ein dornwald ging.abc": 3,
       "japanese/hashire kotaro.abc": 1
