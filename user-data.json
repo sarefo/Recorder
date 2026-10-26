@@ -3711,6 +3711,14 @@
         "count": 1,
         "at": "2026-10-23T10:54:13.593Z"
       },
+      "35": {
+        "pitch": "^d",
+        "prev": "d",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-26T06:06:02.593Z"
+      },
       "73": {
         "pitch": "^F",
         "prev": "G",
@@ -4446,7 +4454,7 @@
       }
     },
     "latino/tango/por una cabeza.abc": {
-      "at": "2026-10-26T05:51:34.024Z",
+      "at": "2026-10-26T06:05:52.588Z",
       "notes": {
         "0": {
           "state": "red",
@@ -4471,6 +4479,10 @@
         "23": {
           "state": "green",
           "pitch": "g"
+        },
+        "35": {
+          "state": "red",
+          "pitch": "^d"
         },
         "73": {
           "state": "red",
