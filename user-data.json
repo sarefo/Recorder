@@ -3139,6 +3139,32 @@
         "at": "2026-10-24T11:23:49.052Z"
       }
     },
+    "cajun/madame sosthene.abc": {
+      "31": {
+        "pitch": "A",
+        "prev": "_B",
+        "pitchSeen": 20,
+        "transSeen": 6,
+        "count": 1,
+        "at": "2026-10-26T06:21:34.268Z"
+      },
+      "32": {
+        "pitch": "c",
+        "prev": "A",
+        "pitchSeen": 11,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-26T06:21:34.611Z"
+      },
+      "33": {
+        "pitch": "G",
+        "prev": "c",
+        "pitchSeen": 11,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-26T06:21:41.070Z"
+      }
+    },
     "chinese/zou xikou.abc": {
       "30": {
         "pitch": "B",
@@ -4027,6 +4053,39 @@
         "37": {
           "state": "red",
           "pitch": "e"
+        }
+      }
+    },
+    "cajun/madame sosthene.abc": {
+      "at": "2026-10-26T06:21:31.065Z",
+      "notes": {
+        "9": {
+          "state": "green",
+          "pitch": "F"
+        },
+        "18": {
+          "state": "green",
+          "pitch": "F"
+        },
+        "27": {
+          "state": "green",
+          "pitch": "F"
+        },
+        "31": {
+          "state": "red",
+          "pitch": "A"
+        },
+        "32": {
+          "state": "red",
+          "pitch": "c"
+        },
+        "33": {
+          "state": "red",
+          "pitch": "G"
+        },
+        "36": {
+          "state": "green",
+          "pitch": "C"
         }
       }
     },
