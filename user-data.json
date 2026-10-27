@@ -2171,8 +2171,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-26T11:30:24.790Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-27T13:59:09.740Z",
+      "playCount": 3,
       "createdAt": "2026-10-26T11:24:25.705Z",
       "updatedAt": "2026-10-26T11:24:40.651Z"
     },
@@ -2741,6 +2741,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/mr sandman.abc",
+      "timestamp": "2026-10-27T13:59:09.740Z"
+    },
+    {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-10-27T13:59:01.816Z"
     },
@@ -2779,10 +2783,6 @@
     {
       "filePath": "french/mistral gagnant.abc",
       "timestamp": "2026-10-26T13:35:47.802Z"
-    },
-    {
-      "filePath": "pop/mr sandman.abc",
-      "timestamp": "2026-10-26T11:30:24.790Z"
     },
     {
       "filePath": "pop/bei mir bist du schon.abc",
