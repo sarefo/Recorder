@@ -1479,6 +1479,12 @@ class AbcFileList {
                 "hash": "9c09e1c753"
         },
         {
+                "name": "Enjoy the Silence",
+                "file": "pop/enjoy the silence.abc",
+                "category": "pop",
+                "hash": "33e43ee67c"
+        },
+        {
                 "name": "Mad World",
                 "file": "pop/mad world.abc",
                 "category": "pop",
