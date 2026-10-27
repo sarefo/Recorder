@@ -47,12 +47,12 @@
     stroke: var(--color-keysig) !important;
 }
 
-/* A key-signature note that also fits the scale on show reads green: the
-   fit mark wins over the key-signature blue */
+/* A key-signature note that also fits the scale on show gets a teal between
+   the key-signature blue and the fit green */
 .abcjs-note.keysig-affected.scale-fit:not(.playing),
 .abcjs-note.keysig-affected.scale-fit:not(.playing) path {
-    fill: var(--color-scale-fit, #2e9e5b) !important;
-    stroke: var(--color-scale-fit, #2e9e5b) !important;
+    fill: var(--color-keysig-fit, #24899f) !important;
+    stroke: var(--color-keysig-fit, #24899f) !important;
 }
 
 /* The key signature is tappable (toggles the highlight above) */
