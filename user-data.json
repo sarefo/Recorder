@@ -2094,6 +2094,14 @@
       "playCount": 0,
       "createdAt": "2026-10-26T11:24:25.705Z"
     },
+    "pop/enjoy the silence.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-10-27T14:44:18.946Z",
+      "playCount": 1,
+      "createdAt": "2026-10-27T14:44:09.443Z"
+    },
     "pop/eurythmics/here comes the rain again.abc": {
       "status": null,
       "favorite": false,
@@ -2750,6 +2758,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/enjoy the silence.abc",
+      "timestamp": "2026-10-27T14:44:18.946Z"
+    },
+    {
       "filePath": "pop/mad world.abc",
       "timestamp": "2026-10-27T14:06:22.215Z"
     },
@@ -2824,10 +2836,6 @@
     {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-10-26T03:55:01.465Z"
-    },
-    {
-      "filePath": "german/maria durch ein dornwald ging.abc",
-      "timestamp": "2026-10-26T03:46:29.617Z"
     }
   ],
   "activity": {
@@ -2950,6 +2958,7 @@
       "jazz/all of me.abc": 2,
       "jazz/autumn leaves.abc": 8,
       "latino/tango/por una cabeza.abc": 10,
+      "pop/enjoy the silence.abc": 1,
       "pop/mad world.abc": 3
     }
   },
@@ -4100,6 +4109,32 @@
         "at": "2026-10-26T06:25:49.241Z"
       }
     },
+    "pop/enjoy the silence.abc": {
+      "4": {
+        "pitch": "_A",
+        "prev": "G",
+        "pitchSeen": 13,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-27T14:44:33.429Z"
+      },
+      "15": {
+        "pitch": "_E",
+        "prev": null,
+        "pitchSeen": 23,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-10-27T14:44:33.430Z"
+      },
+      "65": {
+        "pitch": "_B",
+        "prev": "_A",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-27T14:44:33.432Z"
+      }
+    },
     "pop/mr sandman.abc": {
       "12": {
         "pitch": "_B",
@@ -5006,6 +5041,23 @@
         "13": {
           "state": "red",
           "pitch": "_e"
+        }
+      }
+    },
+    "pop/enjoy the silence.abc": {
+      "at": "2026-10-27T14:44:23.430Z",
+      "notes": {
+        "4": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "15": {
+          "state": "red",
+          "pitch": "_E"
+        },
+        "65": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
