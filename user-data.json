@@ -2231,8 +2231,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-27T14:46:53.835Z",
+      "playCount": 1,
       "createdAt": "2026-10-15T10:27:48.810Z"
     },
     "pop/the police/every breath you take.abc": {
@@ -2767,6 +2767,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/the police/don't stand so close to me.abc",
+      "timestamp": "2026-10-27T14:46:53.835Z"
+    },
+    {
       "filePath": "pop/personal jesus.abc",
       "timestamp": "2026-10-27T14:46:14.756Z"
     },
@@ -2841,10 +2845,6 @@
     {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-10-26T04:35:45.448Z"
-    },
-    {
-      "filePath": "german/es geht eine dunkle wolk herein.abc",
-      "timestamp": "2026-10-26T04:16:27.472Z"
     }
   ],
   "activity": {
@@ -2969,7 +2969,8 @@
       "latino/tango/por una cabeza.abc": 10,
       "pop/enjoy the silence.abc": 1,
       "pop/mad world.abc": 3,
-      "pop/personal jesus.abc": 1
+      "pop/personal jesus.abc": 1,
+      "pop/the police/don't stand so close to me.abc": 1
     }
   },
   "statusLog": [
