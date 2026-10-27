@@ -1652,8 +1652,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T08:12:43.692Z",
-      "playCount": 8,
+      "lastPlayed": "2026-10-27T10:26:59.434Z",
+      "playCount": 9,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-15T09:48:05.144Z"
     },
@@ -2741,6 +2741,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-10-27T10:26:59.434Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-27T09:23:41.779Z"
     },
@@ -2755,10 +2759,6 @@
     {
       "filePath": "film/hisaishi/mononoke.abc",
       "timestamp": "2026-10-27T08:28:10.360Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-10-27T08:12:43.692Z"
     },
     {
       "filePath": "jazz/all of me.abc",
@@ -2937,7 +2937,7 @@
       "film/hisaishi/kiki_town.abc": 2,
       "film/hisaishi/mononoke.abc": 2,
       "jazz/all of me.abc": 2,
-      "jazz/autumn leaves.abc": 6,
+      "jazz/autumn leaves.abc": 7,
       "latino/tango/por una cabeza.abc": 10
     }
   },
@@ -3838,24 +3838,24 @@
         "prev": "A",
         "pitchSeen": 9,
         "transSeen": 5,
-        "count": 2,
-        "at": "2026-10-25T10:16:00.810Z"
+        "count": 3,
+        "at": "2026-10-27T10:27:14.636Z"
       },
       "3": {
         "pitch": "_e",
         "prev": "_B",
         "pitchSeen": 6,
         "transSeen": 2,
-        "count": 2,
-        "at": "2026-10-25T10:16:00.814Z"
+        "count": 3,
+        "at": "2026-10-27T10:27:14.638Z"
       },
       "11": {
         "pitch": "_E",
         "prev": "d",
         "pitchSeen": 2,
         "transSeen": 2,
-        "count": 2,
-        "at": "2026-10-25T10:16:00.817Z"
+        "count": 3,
+        "at": "2026-10-27T10:27:14.639Z"
       },
       "18": {
         "pitch": "^F",
@@ -4797,7 +4797,7 @@
       }
     },
     "jazz/autumn leaves.abc": {
-      "at": "2026-10-27T06:45:31.734Z",
+      "at": "2026-10-27T10:27:04.635Z",
       "notes": {
         "2": {
           "state": "red",
