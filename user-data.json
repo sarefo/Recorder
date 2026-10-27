@@ -1652,8 +1652,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T06:39:48.952Z",
-      "playCount": 7,
+      "lastPlayed": "2026-10-27T08:12:43.692Z",
+      "playCount": 8,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-15T09:48:05.144Z"
     },
@@ -2741,12 +2741,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
-      "filePath": "jazz/all of me.abc",
-      "timestamp": "2026-10-27T08:10:19.063Z"
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-10-27T08:12:43.692Z"
     },
     {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-10-27T06:39:48.952Z"
+      "filePath": "jazz/all of me.abc",
+      "timestamp": "2026-10-27T08:10:19.063Z"
     },
     {
       "filePath": "french/la vie en rose.abc",
@@ -2934,7 +2934,7 @@
     },
     "2026-10-27": {
       "jazz/all of me.abc": 2,
-      "jazz/autumn leaves.abc": 1
+      "jazz/autumn leaves.abc": 4
     }
   },
   "statusLog": [
