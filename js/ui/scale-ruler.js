@@ -138,17 +138,20 @@ class ScaleRuler {
 
     /**
      * Draws the scale on show as sheet music, starting on the root and
-     * wrapping to the low C past B, with the chord tones in the accent color.
+     * ascending from the root (placed A3 to G#4), with the chord tones in the
+     * accent color.
      */
     renderStaff() {
         const sug = this.suggestion;
         if (!this.staffEl || this.staffEl.hidden || !sug || typeof ABCJS === 'undefined') return;
         try {
-            // Starts on the root and stays within C4 to B4: past B it wraps
-            // to the low C, so every scale note appears once
+            // Always ascends from the root, which sits between A3 and G#4 so
+            // the whole scale stays on and around the staff lines
             const rootMidi = 60 + ScaleAdvisor.LETTER_PC[sug.rootLetter] + sug.rootAcc;
-            const tones = sug.degrees.map(d =>
-                ScaleAdvisor.abcNote(sug, d, rootMidi + d.interval - d.acc >= 72 ? -1 : 0));
+            const lowestRoot = 57;
+            const target = lowestRoot + (((rootMidi - lowestRoot) % 12) + 12) % 12;
+            const shift = Math.round((target - rootMidi) / 12);
+            const tones = sug.degrees.map(d => ScaleAdvisor.abcNote(sug, d, shift));
             // M:none and no bar lines: just the notes after the clef
             ABCJS.renderAbc(this.staffEl, `X:1
 M:none
