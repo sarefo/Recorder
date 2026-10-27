@@ -2933,7 +2933,7 @@
       "pop/que sera sera.abc": 2
     },
     "2026-10-27": {
-      "jazz/all of me.abc": 1,
+      "jazz/all of me.abc": 2,
       "jazz/autumn leaves.abc": 1
     }
   },
@@ -3772,6 +3772,40 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-25T05:32:28.179Z"
+      }
+    },
+    "jazz/all of me.abc": {
+      "8": {
+        "pitch": "^G",
+        "prev": "B",
+        "pitchSeen": 3,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-27T08:11:33.751Z"
+      },
+      "15": {
+        "pitch": "^D",
+        "prev": "E",
+        "pitchSeen": 3,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-27T08:11:35.530Z"
+      },
+      "27": {
+        "pitch": "^G",
+        "prev": "E",
+        "pitchSeen": 3,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-27T08:11:40.447Z"
+      },
+      "33": {
+        "pitch": "_B",
+        "prev": "B",
+        "pitchSeen": 3,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-27T08:11:28.981Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -4694,6 +4728,27 @@
       "at": "2026-10-25T05:32:18.171Z",
       "notes": {
         "9": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "jazz/all of me.abc": {
+      "at": "2026-10-27T08:11:30.443Z",
+      "notes": {
+        "8": {
+          "state": "red",
+          "pitch": "^G"
+        },
+        "15": {
+          "state": "red",
+          "pitch": "^D"
+        },
+        "27": {
+          "state": "red",
+          "pitch": "^G"
+        },
+        "33": {
           "state": "red",
           "pitch": "_B"
         }
