@@ -995,6 +995,14 @@
       "playCount": 0,
       "createdAt": "2026-10-26T13:35:38.000Z"
     },
+    "french/la goualante du pauvre jean.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-27T06:33:51.241Z"
+    },
     "french/la mer.abc": {
       "status": null,
       "favorite": false,
@@ -1019,6 +1027,22 @@
       "playCount": 1,
       "createdAt": "2026-10-26T13:35:38.000Z",
       "updatedAt": "2026-10-26T13:36:36.628Z"
+    },
+    "french/non je ne regrette rien.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-27T06:33:51.243Z"
+    },
+    "french/sous le ciel de paris.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-10-27T06:33:51.243Z"
     },
     "french/tourdion.abc": {
       "status": "practicing",
@@ -1628,8 +1652,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-26T07:39:58.880Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-27T06:33:57.004Z",
+      "playCount": 6,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-15T09:48:05.144Z"
     },
@@ -2717,6 +2741,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-10-27T06:33:57.004Z"
+    },
+    {
       "filePath": "french/la vie en rose.abc",
       "timestamp": "2026-10-26T13:36:42.733Z"
     },
@@ -2735,10 +2763,6 @@
     {
       "filePath": "pop/que sera sera.abc",
       "timestamp": "2026-10-26T11:25:03.592Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-10-26T07:39:58.880Z"
     },
     {
       "filePath": "jazz/all of me.abc",
