@@ -23,7 +23,7 @@
     /* Notes silently altered by the key signature (see notation.css).
        Blue: clear of the red/green markers and orange playing note. */
     --color-keysig:           #1a73e8;
-    --color-keysig-fit:       #24899f;
+    --color-keysig-fit:       #0aa5e8;
 
     /* ----- Colors: Neutrals (light mode) ----- */
     --color-bg:               #ffffff;
@@ -156,7 +156,7 @@
         --color-primary-soft:   rgba(66, 133, 244, 0.18);
 
         --color-keysig:         #64b5f6;
-        --color-keysig-fit:     #49aaa8;
+        --color-keysig-fit:     #29b6f6;
 
         --color-overlay:        rgba(0, 0, 0, 0.65);
         --color-overlay-strong: rgba(0, 0, 0, 0.85);
@@ -189,7 +189,7 @@
     --color-primary-soft:   rgba(66, 133, 244, 0.18);
 
     --color-keysig:         #64b5f6;
-    --color-keysig-fit:     #49aaa8;
+    --color-keysig-fit:     #29b6f6;
 
     --color-overlay:        rgba(0, 0, 0, 0.65);
     --color-overlay-strong: rgba(0, 0, 0, 0.85);

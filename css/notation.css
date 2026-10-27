@@ -51,8 +51,8 @@
    the key-signature blue and the fit green */
 .abcjs-note.keysig-affected.scale-fit:not(.playing),
 .abcjs-note.keysig-affected.scale-fit:not(.playing) path {
-    fill: var(--color-keysig-fit, #24899f) !important;
-    stroke: var(--color-keysig-fit, #24899f) !important;
+    fill: var(--color-keysig-fit, #0aa5e8) !important;
+    stroke: var(--color-keysig-fit, #0aa5e8) !important;
 }
 
 /* The key signature is tappable (toggles the highlight above) */
