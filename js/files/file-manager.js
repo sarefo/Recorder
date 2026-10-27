@@ -9,9 +9,21 @@ class FileManager {
         this.fileList = AbcFileList.getFiles();
         this.categorizedFiles = this.categorizeFiles();
         this.currentFilter = 'favorites'; // Current filter: 'all', 'favorites', 'needs-practice', 'practicing', 'good', 'mastered', 'recent', 'collection'
+        this.filterChosen = false; // True once the user picks a filter tab
         this.currentCollectionId = null; // Active collection ID when viewing collection
         this.currentFilePath = null; // Currently loaded file path (null when loaded from paste/share)
         this.lastOpenRegion = null; // Region left expanded, so reopening the dialog resumes there
+    }
+
+    /**
+     * Fall back from the default Favorites filter to All while there are no
+     * favorites, unless the user picked a filter themselves. Checked on use,
+     * since favorites may arrive later from sync.
+     */
+    applyDefaultFilter() {
+        if (this.filterChosen) return;
+        const hasFavorites = this.userDataManager.getFavoriteSongs().length > 0;
+        this.currentFilter = hasFavorites ? 'favorites' : 'all';
     }
 
     /**
@@ -128,6 +140,7 @@ class FileManager {
 
         // Add event listener to the random button
         randomButton.addEventListener('click', () => {
+            this.applyDefaultFilter();
             const filteredFiles = this.getFilteredFiles();
             if (filteredFiles && filteredFiles.length > 0) {
                 const randomIndex = Math.floor(Math.random() * filteredFiles.length);
@@ -163,6 +176,7 @@ class FileManager {
     }
 
     openFilesDialog() {
+        this.applyDefaultFilter();
         // Create dialog overlay
         const dialogOverlay = document.createElement('div');
         dialogOverlay.className = 'files-dialog-overlay';
@@ -235,6 +249,7 @@ class FileManager {
         filterContainer.className = 'filter-container';
         this.metadataUI.createFilterTabs(filterContainer, (filter) => {
             this.currentFilter = filter;
+            this.filterChosen = true;
             this.populateFilesList(filesList, handleEscape);
         });
 
