@@ -1643,8 +1643,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-26T06:32:01.661Z",
-      "playCount": 5,
+      "lastPlayed": "2026-10-27T07:48:27.191Z",
+      "playCount": 6,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T05:41:31.969Z"
     },
@@ -2741,6 +2741,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/all of me.abc",
+      "timestamp": "2026-10-27T07:48:27.191Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-10-27T06:39:48.952Z"
     },
@@ -2763,10 +2767,6 @@
     {
       "filePath": "pop/que sera sera.abc",
       "timestamp": "2026-10-26T11:25:03.592Z"
-    },
-    {
-      "filePath": "jazz/all of me.abc",
-      "timestamp": "2026-10-26T06:32:01.661Z"
     },
     {
       "filePath": "philippine/ili-ili tulog anay.abc",
