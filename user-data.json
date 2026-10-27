@@ -2194,6 +2194,14 @@
       "createdAt": "2026-10-26T11:24:25.705Z",
       "updatedAt": "2026-10-26T11:24:40.651Z"
     },
+    "pop/personal jesus.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-10-27T14:46:14.756Z",
+      "playCount": 1,
+      "createdAt": "2026-10-27T14:46:08.102Z"
+    },
     "pop/popcorn.abc": {
       "status": "practicing",
       "favorite": true,
@@ -2759,6 +2767,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/personal jesus.abc",
+      "timestamp": "2026-10-27T14:46:14.756Z"
+    },
+    {
       "filePath": "pop/enjoy the silence.abc",
       "timestamp": "2026-10-27T14:46:04.910Z"
     },
@@ -2833,10 +2845,6 @@
     {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-10-26T04:16:27.472Z"
-    },
-    {
-      "filePath": "german/es ist ein schnitter.abc",
-      "timestamp": "2026-10-26T03:55:01.465Z"
     }
   ],
   "activity": {
@@ -2960,7 +2968,8 @@
       "jazz/autumn leaves.abc": 8,
       "latino/tango/por una cabeza.abc": 10,
       "pop/enjoy the silence.abc": 1,
-      "pop/mad world.abc": 3
+      "pop/mad world.abc": 3,
+      "pop/personal jesus.abc": 1
     }
   },
   "statusLog": [
