@@ -1652,8 +1652,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T06:33:57.004Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-27T06:39:48.952Z",
+      "playCount": 7,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-15T09:48:05.144Z"
     },
@@ -2742,7 +2742,7 @@
   "recentlyPlayed": [
     {
       "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-10-27T06:33:57.004Z"
+      "timestamp": "2026-10-27T06:39:48.952Z"
     },
     {
       "filePath": "french/la vie en rose.abc",
