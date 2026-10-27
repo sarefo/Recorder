@@ -138,17 +138,17 @@ class ScaleRuler {
 
     /**
      * Draws the scale on show as sheet music, starting on the root and
-     * ascending from the root (placed A3 to G#4), with the chord tones in the
+     * ascending from the root (placed C4 to B4), with the chord tones in the
      * accent color.
      */
     renderStaff() {
         const sug = this.suggestion;
         if (!this.staffEl || this.staffEl.hidden || !sug || typeof ABCJS === 'undefined') return;
         try {
-            // Always ascends from the root, which sits between A3 and G#4 so
+            // Always ascends from the root, which sits between C4 and B4 so
             // the whole scale stays on and around the staff lines
             const rootMidi = 60 + ScaleAdvisor.LETTER_PC[sug.rootLetter] + sug.rootAcc;
-            const lowestRoot = 57;
+            const lowestRoot = 60;
             const target = lowestRoot + (((rootMidi - lowestRoot) % 12) + 12) % 12;
             const shift = Math.round((target - rootMidi) / 12);
             const tones = sug.degrees.map(d => ScaleAdvisor.abcNote(sug, d, shift));
