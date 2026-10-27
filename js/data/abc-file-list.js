@@ -1479,6 +1479,12 @@ class AbcFileList {
                 "hash": "9c09e1c753"
         },
         {
+                "name": "Mad World",
+                "file": "pop/mad world.abc",
+                "category": "pop",
+                "hash": "1b00fdb9c6"
+        },
+        {
                 "name": "Mr. Sandman",
                 "file": "pop/mr sandman.abc",
                 "category": "pop",
