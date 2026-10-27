@@ -2937,7 +2937,7 @@
       "film/hisaishi/kiki_town.abc": 2,
       "film/hisaishi/mononoke.abc": 2,
       "jazz/all of me.abc": 2,
-      "jazz/autumn leaves.abc": 7,
+      "jazz/autumn leaves.abc": 8,
       "latino/tango/por una cabeza.abc": 10
     }
   },
@@ -3865,6 +3865,14 @@
         "count": 1,
         "at": "2026-10-26T06:32:41.081Z"
       },
+      "23": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 9,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-10-27T10:29:30.638Z"
+      },
       "24": {
         "pitch": "_e",
         "prev": "_B",
@@ -3872,6 +3880,14 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-26T06:34:34.079Z"
+      },
+      "32": {
+        "pitch": "_E",
+        "prev": "d",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-27T10:29:29.386Z"
       },
       "42": {
         "pitch": "^F",
@@ -4797,7 +4813,7 @@
       }
     },
     "jazz/autumn leaves.abc": {
-      "at": "2026-10-27T10:27:04.635Z",
+      "at": "2026-10-27T10:29:20.635Z",
       "notes": {
         "2": {
           "state": "red",
@@ -4819,9 +4835,17 @@
           "state": "red",
           "pitch": "^F"
         },
+        "23": {
+          "state": "red",
+          "pitch": "_B"
+        },
         "24": {
           "state": "red",
           "pitch": "_e"
+        },
+        "32": {
+          "state": "red",
+          "pitch": "_E"
         },
         "42": {
           "state": "red",
