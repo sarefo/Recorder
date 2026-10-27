@@ -861,8 +861,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T04:49:13.164Z",
-      "playCount": 22,
+      "lastPlayed": "2026-10-27T08:34:02.273Z",
+      "playCount": 23,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "film/hisaishi/mononoke.abc": {
@@ -2741,6 +2741,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/hisaishi/kiki_town.abc",
+      "timestamp": "2026-10-27T08:34:02.273Z"
+    },
+    {
       "filePath": "film/hisaishi/mononoke.abc",
       "timestamp": "2026-10-27T08:28:10.360Z"
     },
@@ -2815,10 +2819,6 @@
     {
       "filePath": "trinidadian/matilda.abc",
       "timestamp": "2026-10-25T10:52:51.839Z"
-    },
-    {
-      "filePath": "israeli/artsa alinu.abc",
-      "timestamp": "2026-10-25T10:40:26.400Z"
     }
   ],
   "activity": {
@@ -2933,6 +2933,7 @@
       "pop/que sera sera.abc": 2
     },
     "2026-10-27": {
+      "film/hisaishi/kiki_town.abc": 1,
       "film/hisaishi/mononoke.abc": 2,
       "jazz/all of me.abc": 2,
       "jazz/autumn leaves.abc": 6
