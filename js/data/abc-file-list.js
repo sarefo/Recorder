@@ -1497,6 +1497,12 @@ class AbcFileList {
                 "hash": "6b9835bb2b"
         },
         {
+                "name": "Personal Jesus",
+                "file": "pop/personal jesus.abc",
+                "category": "pop",
+                "hash": "cebfc294f5"
+        },
+        {
                 "name": "Popcorn",
                 "file": "pop/popcorn.abc",
                 "category": "pop",

@@ -1,0 +1,12 @@
+X: 1
+T: Personal Jesus
+C: Martin Gore
+O: Depeche Mode
+N: Best effort, riff and hook only. None of the MIDIs found has the sung verses or chorus on a channel of its own, so those are left out.
+N: Bars 1-2 are the guitar riff (two sources agree on it, a whole tone apart). Bars 3-4 are a lead-synth hook phrase from a hamienet.com arrangement, and bars 5-6 are the guitar riff moved to the A and F# chords.
+N: Moved to the original key (E) and up two octaves so the riff sits between E4 and G5. The one-sixteenth E at the end of bar 4 is the start of a note that runs into bar 5 in the MIDI, cut short here.
+M: 4/4
+Q: 1/4=130
+L: 1/16
+K: Em
+"E5"E4 G3 E e4 G3 E-|E3 E G3 E e4 G4|D z2 D D z2 D2 z3 D2 z2|E6 z2 D z2 D D z2 E|"A5"A4 c3 A a4 c4|"F#5"G4 G3 G F4 F4|]
