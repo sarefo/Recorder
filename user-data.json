@@ -869,8 +869,8 @@
       "status": "mastered",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T04:55:49.862Z",
-      "playCount": 26,
+      "lastPlayed": "2026-10-27T08:28:10.360Z",
+      "playCount": 27,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-25T04:58:17.617Z"
     },
@@ -2741,6 +2741,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/hisaishi/mononoke.abc",
+      "timestamp": "2026-10-27T08:28:10.360Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-10-27T08:12:43.692Z"
     },
@@ -2815,10 +2819,6 @@
     {
       "filePath": "israeli/artsa alinu.abc",
       "timestamp": "2026-10-25T10:40:26.400Z"
-    },
-    {
-      "filePath": "pop/bert kaempfert/a swingin safari.abc",
-      "timestamp": "2026-10-25T10:39:01.401Z"
     }
   ],
   "activity": {
