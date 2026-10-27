@@ -1482,7 +1482,7 @@ class AbcFileList {
                 "name": "Enjoy the Silence",
                 "file": "pop/enjoy the silence.abc",
                 "category": "pop",
-                "hash": "33e43ee67c"
+                "hash": "52e26f9bbd"
         },
         {
                 "name": "Mad World",
@@ -1500,7 +1500,7 @@ class AbcFileList {
                 "name": "Personal Jesus",
                 "file": "pop/personal jesus.abc",
                 "category": "pop",
-                "hash": "cebfc294f5"
+                "hash": "a2ca5d2f9d"
         },
         {
                 "name": "Popcorn",
