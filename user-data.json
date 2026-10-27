@@ -2169,11 +2169,12 @@
     },
     "pop/mad world.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T14:01:53.440Z",
-      "playCount": 1,
-      "createdAt": "2026-10-27T14:01:49.066Z"
+      "lastPlayed": "2026-10-27T14:06:22.215Z",
+      "playCount": 2,
+      "createdAt": "2026-10-27T14:01:49.066Z",
+      "updatedAt": "2026-10-27T14:06:21.070Z"
     },
     "pop/mr sandman.abc": {
       "status": "practicing",
@@ -2750,7 +2751,7 @@
   "recentlyPlayed": [
     {
       "filePath": "pop/mad world.abc",
-      "timestamp": "2026-10-27T14:01:53.440Z"
+      "timestamp": "2026-10-27T14:06:22.215Z"
     },
     {
       "filePath": "pop/mr sandman.abc",
@@ -2949,7 +2950,7 @@
       "jazz/all of me.abc": 2,
       "jazz/autumn leaves.abc": 8,
       "latino/tango/por una cabeza.abc": 10,
-      "pop/mad world.abc": 2
+      "pop/mad world.abc": 3
     }
   },
   "statusLog": [
