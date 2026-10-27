@@ -2095,12 +2095,13 @@
       "createdAt": "2026-10-26T11:24:25.705Z"
     },
     "pop/enjoy the silence.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T14:44:18.946Z",
-      "playCount": 1,
-      "createdAt": "2026-10-27T14:44:09.443Z"
+      "lastPlayed": "2026-10-27T14:46:04.910Z",
+      "playCount": 2,
+      "createdAt": "2026-10-27T14:44:09.443Z",
+      "updatedAt": "2026-10-27T14:45:51.220Z"
     },
     "pop/eurythmics/here comes the rain again.abc": {
       "status": null,
@@ -2759,7 +2760,7 @@
   "recentlyPlayed": [
     {
       "filePath": "pop/enjoy the silence.abc",
-      "timestamp": "2026-10-27T14:44:18.946Z"
+      "timestamp": "2026-10-27T14:46:04.910Z"
     },
     {
       "filePath": "pop/mad world.abc",
@@ -3262,6 +3263,11 @@
       "path": "french/mistral gagnant.abc",
       "status": "needs-practice",
       "at": "2026-10-26T13:36:36.628Z"
+    },
+    {
+      "path": "pop/enjoy the silence.abc",
+      "status": "needs-practice",
+      "at": "2026-10-27T14:45:51.220Z"
     }
   ],
   "marks": {
