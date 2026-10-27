@@ -8,7 +8,7 @@ class FileManager {
         this.metadataUI = new SongMetadataUI(userDataManager, this);
         this.fileList = AbcFileList.getFiles();
         this.categorizedFiles = this.categorizeFiles();
-        this.currentFilter = 'all'; // Current filter: 'all', 'favorites', 'needs-practice', 'practicing', 'good', 'mastered', 'recent', 'collection'
+        this.currentFilter = 'favorites'; // Current filter: 'all', 'favorites', 'needs-practice', 'practicing', 'good', 'mastered', 'recent', 'collection'
         this.currentCollectionId = null; // Active collection ID when viewing collection
         this.currentFilePath = null; // Currently loaded file path (null when loaded from paste/share)
         this.lastOpenRegion = null; // Region left expanded, so reopening the dialog resumes there
