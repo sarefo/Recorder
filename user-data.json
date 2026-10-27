@@ -359,8 +359,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T02:56:02.407Z",
-      "playCount": 20,
+      "lastPlayed": "2026-10-27T10:33:15.162Z",
+      "playCount": 21,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
@@ -2741,6 +2741,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/zou xikou.abc",
+      "timestamp": "2026-10-27T10:33:15.162Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-10-27T10:26:59.434Z"
     },
@@ -2815,10 +2819,6 @@
     {
       "filePath": "film/herbie's theme.abc",
       "timestamp": "2026-10-25T10:56:52.366Z"
-    },
-    {
-      "filePath": "jamaican/banana boat song.abc",
-      "timestamp": "2026-10-25T10:54:32.316Z"
     }
   ],
   "activity": {
@@ -2934,6 +2934,7 @@
     },
     "2026-10-27": {
       "australian/waltzing matilda.abc": 4,
+      "chinese/zou xikou.abc": 1,
       "film/hisaishi/kiki_town.abc": 2,
       "film/hisaishi/mononoke.abc": 2,
       "jazz/all of me.abc": 2,
