@@ -54,8 +54,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-15T10:45:08.491Z",
-      "playCount": 30,
+      "lastPlayed": "2026-10-27T09:06:33.018Z",
+      "playCount": 31,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "austrian/es wird scho gleich dumpa.abc": {
@@ -2741,6 +2741,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "australian/waltzing matilda.abc",
+      "timestamp": "2026-10-27T09:06:33.018Z"
+    },
+    {
       "filePath": "film/hisaishi/kiki_town.abc",
       "timestamp": "2026-10-27T08:34:02.273Z"
     },
@@ -2815,10 +2819,6 @@
     {
       "filePath": "jamaican/banana boat song.abc",
       "timestamp": "2026-10-25T10:54:32.316Z"
-    },
-    {
-      "filePath": "trinidadian/matilda.abc",
-      "timestamp": "2026-10-25T10:52:51.839Z"
     }
   ],
   "activity": {
@@ -2933,6 +2933,7 @@
       "pop/que sera sera.abc": 2
     },
     "2026-10-27": {
+      "australian/waltzing matilda.abc": 1,
       "film/hisaishi/kiki_town.abc": 2,
       "film/hisaishi/mononoke.abc": 2,
       "jazz/all of me.abc": 2,
@@ -3242,6 +3243,16 @@
     }
   ],
   "marks": {
+    "australian/waltzing matilda.abc": {
+      "20": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 4,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-27T09:06:48.274Z"
+      }
+    },
     "breton/les filles des forges de paimpont.abc": {
       "22": {
         "pitch": "B",
@@ -4306,6 +4317,15 @@
     }
   },
   "markStates": {
+    "australian/waltzing matilda.abc": {
+      "at": "2026-10-27T09:06:38.271Z",
+      "notes": {
+        "20": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
     "breton/les filles des forges de paimpont.abc": {
       "at": "2026-10-24T11:46:34.435Z",
       "notes": {
