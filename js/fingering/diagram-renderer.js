@@ -136,7 +136,7 @@ class DiagramRenderer {
         // Set the bottom position for each staff line
         staffMap.forEach(staff => {
             // Find the staff element related to this line
-            const staffEl = document.querySelector(`.abcjs-staff.abcjs-l${staff.lineNumber}`);
+            const staffEl = document.querySelector(`#abc-notation .abcjs-staff.abcjs-l${staff.lineNumber}`);
             if (staffEl) {
                 const staffRect = staffEl.getBoundingClientRect();
                 staff.bottom = staffRect.bottom;
@@ -165,8 +165,10 @@ class DiagramRenderer {
             // Sort notes by horizontal position within each staff
             staff.notes.sort((a, b) => a.left - b.left);
 
-            // Find the top position of the staff
-            const staffEl = document.querySelector(`.abcjs-staff.abcjs-l${staff.lineNumber}`);
+            // Find the top position of the staff (scoped to the score: the
+            // scale ribbon's staff carries the same abcjs-l0 class and comes
+            // first in the document)
+            const staffEl = document.querySelector(`#abc-notation .abcjs-staff.abcjs-l${staff.lineNumber}`);
             if (!staffEl) return;
 
             const staffRect = staffEl.getBoundingClientRect();
@@ -324,7 +326,7 @@ class DiagramRenderer {
             staff.notes.sort((a, b) => a.left - b.left);
 
             // Find the top position of the staff
-            const staffEl = document.querySelector(`.abcjs-staff.abcjs-l${staff.lineNumber}`);
+            const staffEl = document.querySelector(`#abc-notation .abcjs-staff.abcjs-l${staff.lineNumber}`);
             if (!staffEl) return;
 
             const staffRect = staffEl.getBoundingClientRect();
@@ -360,7 +362,7 @@ class DiagramRenderer {
         const noteIndexInt = parseInt(noteIndex, 10);
 
         // Find the note element with this index
-        const noteElement = document.querySelector(`.abcjs-note[data-index="${noteIndex}"]`);
+        const noteElement = document.querySelector(`#abc-notation .abcjs-note[data-index="${noteIndex}"]`);
         if (!noteElement) return;
 
         // Get note data
@@ -377,7 +379,7 @@ class DiagramRenderer {
         if (!lineClass) return;
 
         const lineNumber = parseInt(lineClass.replace('abcjs-l', ''), 10);
-        const staffEl = document.querySelector(`.abcjs-staff.abcjs-l${lineNumber}`);
+        const staffEl = document.querySelector(`#abc-notation .abcjs-staff.abcjs-l${lineNumber}`);
         if (!staffEl) return;
 
         // Calculate positions
