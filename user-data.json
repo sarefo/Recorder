@@ -4699,7 +4699,7 @@
       }
     },
     "jazz/autumn leaves.abc": {
-      "at": "2026-10-26T06:34:35.032Z",
+      "at": "2026-10-27T06:45:31.734Z",
       "notes": {
         "2": {
           "state": "red",
@@ -4712,6 +4712,10 @@
         "11": {
           "state": "red",
           "pitch": "_E"
+        },
+        "17": {
+          "state": "green",
+          "pitch": "=E"
         },
         "18": {
           "state": "red",
