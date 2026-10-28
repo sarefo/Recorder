@@ -1530,7 +1530,7 @@ class AbcFileList {
                 "name": "The Final Countdown",
                 "file": "pop/final_countdown.abc",
                 "category": "pop",
-                "hash": "39ab3b25b5"
+                "hash": "7242c95d1d"
         },
         {
                 "name": "Top of the world",
