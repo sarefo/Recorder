@@ -364,20 +364,20 @@
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-28T03:42:29.245Z",
       "playCount": 9,
       "createdAt": "2026-01-18T20:46:38.366Z",
-      "updatedAt": "2026-10-22T05:43:27.578Z"
+      "updatedAt": "2026-10-28T03:46:50.733Z"
     },
     "classical/bach/badinerie.abc": {
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-22T06:09:55.281Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-28T03:47:02.316Z",
+      "playCount": 7,
       "createdAt": "2026-09-26T04:52:58.455Z",
       "updatedAt": "2026-10-22T05:47:42.192Z"
     },
@@ -2768,6 +2768,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/badinerie.abc",
+      "timestamp": "2026-10-28T03:47:02.316Z"
+    },
+    {
       "filePath": "classical/bach/adams_fall.abc",
       "timestamp": "2026-10-28T03:42:29.245Z"
     },
@@ -2842,10 +2846,6 @@
     {
       "filePath": "film/hisaishi/kiki_town.abc",
       "timestamp": "2026-10-27T08:34:02.273Z"
-    },
-    {
-      "filePath": "film/hisaishi/mononoke.abc",
-      "timestamp": "2026-10-27T08:28:10.360Z"
     }
   ],
   "activity": {
@@ -3305,6 +3305,11 @@
       "path": "pop/mad world.abc",
       "status": "good",
       "at": "2026-10-28T02:44:12.110Z"
+    },
+    {
+      "path": "classical/bach/adams_fall.abc",
+      "status": "good",
+      "at": "2026-10-28T03:46:50.733Z"
     }
   ],
   "marks": {
@@ -5815,6 +5820,18 @@
       "at": "2026-10-28T03:42:24.136Z",
       "percent": 100,
       "bpm": 104
+    },
+    {
+      "path": "classical/bach/adams_fall.abc",
+      "at": "2026-10-28T03:46:51.941Z",
+      "percent": 100,
+      "bpm": 126
+    },
+    {
+      "path": "classical/bach/adams_fall.abc",
+      "at": "2026-10-28T03:46:52.116Z",
+      "percent": 100,
+      "bpm": 126
     }
   ],
   "settings": {}
