@@ -2979,7 +2979,8 @@
       "classical/bach/tiefer_not.abc": 5,
       "japanese/fuyu keshiki.abc": 1,
       "pop/final_countdown.abc": 6,
-      "pop/mad world.abc": 4
+      "pop/mad world.abc": 4,
+      "scottish/caber_feigh.abc": 3
     }
   },
   "statusLog": [
@@ -4271,6 +4272,16 @@
         "at": "2026-10-26T11:25:33.369Z"
       }
     },
+    "scottish/caber_feigh.abc": {
+      "76": {
+        "pitch": "b",
+        "prev": "d",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-28T03:16:24.209Z"
+      }
+    },
     "scottish/clanranald.abc": {
       "20": {
         "pitch": "_B",
@@ -5188,6 +5199,15 @@
         "31": {
           "state": "red",
           "pitch": "^C"
+        }
+      }
+    },
+    "scottish/caber_feigh.abc": {
+      "at": "2026-10-28T03:16:14.206Z",
+      "notes": {
+        "76": {
+          "state": "red",
+          "pitch": "b"
         }
       }
     },
