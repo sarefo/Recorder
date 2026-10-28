@@ -196,8 +196,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-26T06:17:02.195Z",
-      "playCount": 14,
+      "lastPlayed": "2026-10-28T02:51:33.791Z",
+      "playCount": 15,
       "createdAt": "2026-09-27T06:51:55.209Z",
       "updatedAt": "2026-10-26T06:19:13.545Z"
     },
@@ -2768,6 +2768,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "cajun/madame sosthene.abc",
+      "timestamp": "2026-10-28T02:51:33.791Z"
+    },
+    {
       "filePath": "japanese/fuyu keshiki.abc",
       "timestamp": "2026-10-28T02:49:23.289Z"
     },
@@ -2842,10 +2846,6 @@
     {
       "filePath": "french/mistral gagnant.abc",
       "timestamp": "2026-10-26T13:35:47.802Z"
-    },
-    {
-      "filePath": "pop/bei mir bist du schon.abc",
-      "timestamp": "2026-10-26T11:28:31.677Z"
     }
   ],
   "activity": {
@@ -2975,6 +2975,7 @@
       "pop/the police/don't stand so close to me.abc": 1
     },
     "2026-10-28": {
+      "cajun/madame sosthene.abc": 1,
       "classical/bach/tiefer_not.abc": 5,
       "japanese/fuyu keshiki.abc": 1,
       "pop/final_countdown.abc": 6,
@@ -5724,6 +5725,24 @@
       "at": "2026-10-28T02:48:33.954Z",
       "percent": 100,
       "bpm": 104
+    },
+    {
+      "path": "japanese/fuyu keshiki.abc",
+      "at": "2026-10-28T02:51:24.257Z",
+      "percent": 100,
+      "bpm": 80
+    },
+    {
+      "path": "japanese/fuyu keshiki.abc",
+      "at": "2026-10-28T02:51:25.873Z",
+      "percent": 100,
+      "bpm": 80
+    },
+    {
+      "path": "japanese/fuyu keshiki.abc",
+      "at": "2026-10-28T02:51:26.337Z",
+      "percent": 100,
+      "bpm": 80
     }
   ],
   "settings": {}
