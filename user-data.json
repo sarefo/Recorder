@@ -2393,8 +2393,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T07:20:32.891Z",
-      "playCount": 23,
+      "lastPlayed": "2026-10-28T07:43:26.345Z",
+      "playCount": 24,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-16T07:25:54.141Z"
     },
@@ -2777,6 +2777,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/birkhall.abc",
+      "timestamp": "2026-10-28T07:43:26.345Z"
+    },
+    {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-28T07:31:57.652Z"
     },
@@ -2851,10 +2855,6 @@
     {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-10-27T13:59:01.816Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-10-27T10:33:15.162Z"
     }
   ],
   "activity": {
@@ -2995,6 +2995,7 @@
       "pop/final_countdown.abc": 6,
       "pop/mad world.abc": 5,
       "scottish/balquidder_lasses.abc": 2,
+      "scottish/birkhall.abc": 1,
       "scottish/caber_feigh.abc": 3,
       "scottish/hopetoun_house.abc": 5
     }
