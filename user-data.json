@@ -2975,7 +2975,7 @@
       "pop/the police/don't stand so close to me.abc": 1
     },
     "2026-10-28": {
-      "classical/bach/tiefer_not.abc": 4,
+      "classical/bach/tiefer_not.abc": 5,
       "pop/final_countdown.abc": 6,
       "pop/mad world.abc": 4
     }
@@ -5705,6 +5705,24 @@
       "at": "2026-10-28T02:45:19.618Z",
       "percent": 100,
       "bpm": 92
+    },
+    {
+      "path": "classical/bach/tiefer_not.abc",
+      "at": "2026-10-28T02:48:33.610Z",
+      "percent": 100,
+      "bpm": 104
+    },
+    {
+      "path": "classical/bach/tiefer_not.abc",
+      "at": "2026-10-28T02:48:33.771Z",
+      "percent": 100,
+      "bpm": 104
+    },
+    {
+      "path": "classical/bach/tiefer_not.abc",
+      "at": "2026-10-28T02:48:33.954Z",
+      "percent": 100,
+      "bpm": 104
     }
   ],
   "settings": {}
