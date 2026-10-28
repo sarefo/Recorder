@@ -276,13 +276,13 @@ class AbcFileList {
                 "name": "100. Durch Adams Fall ist ganz verderbt",
                 "file": "classical/bach/adams_fall.abc",
                 "category": "classical/bach",
-                "hash": "f9594aa63a"
+                "hash": "47e39d7912"
         },
         {
-                "name": "Air on the G String",
-                "file": "classical/bach/air_on_the_g_string.abc",
+                "name": "Air (Orchestral Suite No. 3)",
+                "file": "classical/bach/air.abc",
                 "category": "classical/bach",
-                "hash": "93ceb0ab10"
+                "hash": "4fc5e9d11b"
         },
         {
                 "name": "Badinerie",
@@ -1494,7 +1494,7 @@ class AbcFileList {
                 "name": "Mad World",
                 "file": "pop/mad world.abc",
                 "category": "pop",
-                "hash": "02d69a4c5e"
+                "hash": "e99d86db00"
         },
         {
                 "name": "Mr. Sandman",
