@@ -417,8 +417,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-10-28T03:29:18.170Z",
+      "playCount": 1,
       "createdAt": "2026-09-07T16:39:38.477Z"
     },
     "classical/bach/chorales/freu dich sehr o meine seele.abc": {
@@ -2768,6 +2768,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/chorales/es ist genug.abc",
+      "timestamp": "2026-10-28T03:29:18.170Z"
+    },
+    {
       "filePath": "pop/mad world.abc",
       "timestamp": "2026-10-28T03:18:52.491Z"
     },
@@ -2842,10 +2846,6 @@
     {
       "filePath": "jazz/all of me.abc",
       "timestamp": "2026-10-27T08:10:19.063Z"
-    },
-    {
-      "filePath": "french/la vie en rose.abc",
-      "timestamp": "2026-10-26T13:36:42.733Z"
     }
   ],
   "activity": {
@@ -2976,6 +2976,7 @@
     },
     "2026-10-28": {
       "cajun/madame sosthene.abc": 1,
+      "classical/bach/chorales/es ist genug.abc": 1,
       "classical/bach/tiefer_not.abc": 5,
       "japanese/fuyu keshiki.abc": 1,
       "pop/final_countdown.abc": 6,
@@ -3484,6 +3485,16 @@
         "transSeen": 1,
         "count": 2,
         "at": "2026-10-22T06:09:46.134Z"
+      }
+    },
+    "classical/bach/chorales/es ist genug.abc": {
+      "3": {
+        "pitch": "^c",
+        "prev": "B",
+        "pitchSeen": 8,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-28T03:30:07.494Z"
       }
     },
     "classical/bach/chorales/herzliebster jesu.abc": {
@@ -4592,6 +4603,15 @@
         "208": {
           "state": "red",
           "pitch": "_D"
+        }
+      }
+    },
+    "classical/bach/chorales/es ist genug.abc": {
+      "at": "2026-10-28T03:29:57.490Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "^c"
         }
       }
     },
