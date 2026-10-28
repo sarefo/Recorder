@@ -116,6 +116,25 @@ See `reference/abc-syntax.md` for the syntax and this repo's conventions —
 octave letters, durations under `L:1/8`, headers, and the recorder range the
 fingering diagrams support.
 
+### Beam the short notes by beat
+
+Whitespace breaks a beam, so a tune written one note per word (`A2 d B G F E F`,
+which is how it comes out of a note-by-note transcription) renders every sixteenth
+and eighth on its own flag and looks terrible. Write notes shorter than a quarter
+with no space inside a beat and a space between beats: `A2dB GFEF E4 DC3`. Quarters
+and longer are never beamed, so they stay spaced. This is in the repo's CLAUDE.md
+too; do it for every new tune before committing, not as a later cleanup.
+
+`scripts/beam_abc.py` does it in place (it reads `L:` to find the beat) and is
+idempotent. Run it after writing the notes, then confirm the MIDI is unchanged:
+
+```bash
+py .claude/skills/abc-new-tune/scripts/beam_abc.py abc/classical/bach/air.abc
+```
+
+It handles plain notes, ties, accidentals, chord symbols, `T` and barlines. It does
+not handle tuplets, grace groups or inline fields: beam those by hand.
+
 ### Line layout: no staff line may overflow the screen
 
 The app renders with `staffwidth = window.innerWidth - 60` and
