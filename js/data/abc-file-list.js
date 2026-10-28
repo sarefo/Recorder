@@ -279,6 +279,12 @@ class AbcFileList {
                 "hash": "f9594aa63a"
         },
         {
+                "name": "Air on the G String",
+                "file": "classical/bach/air_on_the_g_string.abc",
+                "category": "classical/bach",
+                "hash": "93ceb0ab10"
+        },
+        {
                 "name": "Badinerie",
                 "file": "classical/bach/badinerie.abc",
                 "category": "classical/bach",
@@ -324,7 +330,7 @@ class AbcFileList {
                 "name": "Es ist genug",
                 "file": "classical/bach/chorales/es ist genug.abc",
                 "category": "classical/bach/chorales",
-                "hash": "8de1b365cb"
+                "hash": "2791bfb419"
         },
         {
                 "name": "Freu dich sehr, o meine Seele (Genevan Psalm 42)",

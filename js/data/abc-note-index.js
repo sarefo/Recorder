@@ -48,6 +48,7 @@ class AbcNoteIndex {
         "chinese/yueguang ge.abc": [64,67,69,71,72,74,76],
         "chinese/zou xikou.abc": [62,64,67,69,71,72,74,76],
         "classical/bach/adams_fall.abc": [60,62,63,65,67,68,69,70,71,72,74],
+        "classical/bach/air_on_the_g_string.abc": [60,61,62,63,64,65,66,67,69,70,71,72,74,75],
         "classical/bach/badinerie.abc": [60,61,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,79,80],
         "classical/bach/chorales/allein gott in der hoeh sei ehr.abc": [64,66,67,69,71,72,74],
         "classical/bach/chorales/christ lag in todesbanden.abc": [62,64,65,67,68,69,70,71,72,73,74,76],
