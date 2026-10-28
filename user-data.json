@@ -2181,8 +2181,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T02:36:33.031Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-28T03:18:52.491Z",
+      "playCount": 4,
       "createdAt": "2026-10-27T14:01:49.066Z",
       "updatedAt": "2026-10-28T02:44:12.110Z"
     },
@@ -2768,6 +2768,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/mad world.abc",
+      "timestamp": "2026-10-28T03:18:52.491Z"
+    },
+    {
       "filePath": "scottish/caber_feigh.abc",
       "timestamp": "2026-10-28T03:15:30.630Z"
     },
@@ -2782,10 +2786,6 @@
     {
       "filePath": "classical/bach/tiefer_not.abc",
       "timestamp": "2026-10-28T02:45:22.869Z"
-    },
-    {
-      "filePath": "pop/mad world.abc",
-      "timestamp": "2026-10-28T02:36:33.031Z"
     },
     {
       "filePath": "pop/final_countdown.abc",
