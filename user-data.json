@@ -2401,8 +2401,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T07:11:39.244Z",
-      "playCount": 17,
+      "lastPlayed": "2026-10-28T03:15:30.630Z",
+      "playCount": 18,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/clanranald.abc": {
@@ -2768,6 +2768,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/caber_feigh.abc",
+      "timestamp": "2026-10-28T03:15:30.630Z"
+    },
+    {
       "filePath": "cajun/madame sosthene.abc",
       "timestamp": "2026-10-28T03:14:59.793Z"
     },
@@ -2842,10 +2846,6 @@
     {
       "filePath": "french/la vie en rose.abc",
       "timestamp": "2026-10-26T13:36:42.733Z"
-    },
-    {
-      "filePath": "french/mistral gagnant.abc",
-      "timestamp": "2026-10-26T13:35:47.802Z"
     }
   ],
   "activity": {
