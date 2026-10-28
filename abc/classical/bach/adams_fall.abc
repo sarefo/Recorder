@@ -5,6 +5,7 @@ N: Chords derived from Bach's own four-part setting.
 C: Johann Sebastian Bach
 L: 1/4
 M: C
+Q:1/4=126
 K: Bb
 G | "Cm" G G "F7" F "G" G | "Cm" E D !fermata!C G/A/ | "G" =B "Cm" c G "Adim" A | "D+" B "D7" A "G" !fermata!G :|]  
 "Gm" B [I:setbarnb 5]| "Bb" B B/_A/ "Eb" G/F/ "Cm" E/F/ | "Eb" G "Bb" F "Eb" !fermata!E G | "G" G "Cm" G "Fm" F "Fm7" E/D/ | "Cm" D2 !fermata!C "G" G |
