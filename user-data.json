@@ -2987,7 +2987,7 @@
       "cajun/madame sosthene.abc": 1,
       "classical/bach/adams_fall.abc": 6,
       "classical/bach/air.abc": 1,
-      "classical/bach/badinerie.abc": 1,
+      "classical/bach/badinerie.abc": 2,
       "classical/bach/chorales/es ist genug.abc": 1,
       "classical/bach/tiefer_not.abc": 8,
       "japanese/fuyu keshiki.abc": 1,
@@ -3454,6 +3454,14 @@
         "transSeen": 7,
         "count": 2,
         "at": "2026-10-22T06:09:46.116Z"
+      },
+      "9": {
+        "pitch": "F",
+        "prev": "_A",
+        "pitchSeen": 13,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-10-28T04:07:32.749Z"
       },
       "20": {
         "pitch": "_B",
@@ -4588,7 +4596,7 @@
       }
     },
     "classical/bach/badinerie.abc": {
-      "at": "2026-10-22T06:11:13.747Z",
+      "at": "2026-10-28T04:07:22.745Z",
       "notes": {
         "1": {
           "state": "red",
@@ -4597,6 +4605,10 @@
         "6": {
           "state": "red",
           "pitch": "_A"
+        },
+        "9": {
+          "state": "red",
+          "pitch": "F"
         },
         "10": {
           "state": "green",
