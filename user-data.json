@@ -2156,8 +2156,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T14:49:07.161Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-28T02:05:28.730Z",
+      "playCount": 3,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-28T02:01:16.631Z"
     },
@@ -2207,8 +2207,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-22T06:12:46.870Z",
-      "playCount": 4,
+      "lastPlayed": "2026-10-28T02:05:25.115Z",
+      "playCount": 5,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-22T06:12:52.362Z"
     },
@@ -2769,7 +2769,11 @@
   "recentlyPlayed": [
     {
       "filePath": "pop/final_countdown.abc",
-      "timestamp": "2026-10-27T14:49:07.161Z"
+      "timestamp": "2026-10-28T02:05:28.730Z"
+    },
+    {
+      "filePath": "pop/popcorn.abc",
+      "timestamp": "2026-10-28T02:05:25.115Z"
     },
     {
       "filePath": "pop/the police/don't stand so close to me.abc",
@@ -2842,10 +2846,6 @@
     {
       "filePath": "philippine/ili-ili tulog anay.abc",
       "timestamp": "2026-10-26T06:25:34.304Z"
-    },
-    {
-      "filePath": "cajun/madame sosthene.abc",
-      "timestamp": "2026-10-26T06:17:02.195Z"
     }
   ],
   "activity": {
@@ -2975,7 +2975,7 @@
       "pop/the police/don't stand so close to me.abc": 1
     },
     "2026-10-28": {
-      "pop/final_countdown.abc": 2
+      "pop/final_countdown.abc": 4
     }
   },
   "statusLog": [
