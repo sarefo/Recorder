@@ -506,6 +506,7 @@
 /* A selected black key stays dark-edged, so it still reads against a
    selected white key behind it */
 .note-key.black.selected {
+    background: var(--color-primary-hover);
     box-shadow: 0 0 0 2px var(--color-text);
 }
 
