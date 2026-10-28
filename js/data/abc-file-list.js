@@ -282,7 +282,7 @@ class AbcFileList {
                 "name": "Air (Orchestral Suite No. 3)",
                 "file": "classical/bach/air.abc",
                 "category": "classical/bach",
-                "hash": "4fc5e9d11b"
+                "hash": "eb46a6d072"
         },
         {
                 "name": "Badinerie",
