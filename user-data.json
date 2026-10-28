@@ -2385,8 +2385,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-20T06:13:37.027Z",
-      "playCount": 50,
+      "lastPlayed": "2026-10-28T07:29:33.456Z",
+      "playCount": 51,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -2777,6 +2777,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-10-28T07:29:33.456Z"
+    },
+    {
       "filePath": "pop/mr sandman.abc",
       "timestamp": "2026-10-28T07:23:25.564Z"
     },
@@ -2851,10 +2855,6 @@
     {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-10-27T10:26:59.434Z"
-    },
-    {
-      "filePath": "australian/waltzing matilda.abc",
-      "timestamp": "2026-10-27T09:16:09.247Z"
     }
   ],
   "activity": {
@@ -2994,6 +2994,7 @@
       "latino/tango/por una cabeza.abc": 3,
       "pop/final_countdown.abc": 6,
       "pop/mad world.abc": 5,
+      "scottish/balquidder_lasses.abc": 2,
       "scottish/caber_feigh.abc": 3
     }
   },
