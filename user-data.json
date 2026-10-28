@@ -2181,8 +2181,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T14:06:22.215Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-28T02:36:33.031Z",
+      "playCount": 3,
       "createdAt": "2026-10-27T14:01:49.066Z",
       "updatedAt": "2026-10-27T14:06:21.070Z"
     },
@@ -2768,6 +2768,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/mad world.abc",
+      "timestamp": "2026-10-28T02:36:33.031Z"
+    },
+    {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-10-28T02:05:28.730Z"
     },
@@ -2786,10 +2790,6 @@
     {
       "filePath": "pop/enjoy the silence.abc",
       "timestamp": "2026-10-27T14:46:04.910Z"
-    },
-    {
-      "filePath": "pop/mad world.abc",
-      "timestamp": "2026-10-27T14:06:22.215Z"
     },
     {
       "filePath": "pop/mr sandman.abc",
@@ -2975,7 +2975,8 @@
       "pop/the police/don't stand so close to me.abc": 1
     },
     "2026-10-28": {
-      "pop/final_countdown.abc": 6
+      "pop/final_countdown.abc": 6,
+      "pop/mad world.abc": 1
     }
   },
   "statusLog": [
@@ -4166,6 +4167,24 @@
         "at": "2026-10-27T14:44:33.432Z"
       }
     },
+    "pop/mad world.abc": {
+      "3": {
+        "pitch": "_A",
+        "prev": "F",
+        "pitchSeen": 14,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-10-28T02:36:48.601Z"
+      },
+      "11": {
+        "pitch": "_B",
+        "prev": "_A",
+        "pitchSeen": 22,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-28T02:36:48.602Z"
+      }
+    },
     "pop/mr sandman.abc": {
       "12": {
         "pitch": "_B",
@@ -5087,6 +5106,19 @@
           "pitch": "_E"
         },
         "65": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "pop/mad world.abc": {
+      "at": "2026-10-28T02:36:38.596Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "11": {
           "state": "red",
           "pitch": "_B"
         }
