@@ -2178,13 +2178,13 @@
       "createdAt": "2026-08-22T02:59:38.465Z"
     },
     "pop/mad world.abc": {
-      "status": null,
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-28T02:36:33.031Z",
       "playCount": 3,
       "createdAt": "2026-10-27T14:01:49.066Z",
-      "updatedAt": "2026-10-27T14:06:21.070Z"
+      "updatedAt": "2026-10-28T02:44:12.110Z"
     },
     "pop/mr sandman.abc": {
       "status": "practicing",
@@ -2976,7 +2976,7 @@
     },
     "2026-10-28": {
       "pop/final_countdown.abc": 6,
-      "pop/mad world.abc": 2
+      "pop/mad world.abc": 4
     }
   },
   "statusLog": [
@@ -3294,6 +3294,11 @@
       "path": "pop/final_countdown.abc",
       "status": "practicing",
       "at": "2026-10-28T02:01:16.631Z"
+    },
+    {
+      "path": "pop/mad world.abc",
+      "status": "good",
+      "at": "2026-10-28T02:44:12.110Z"
     }
   ],
   "marks": {
