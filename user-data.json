@@ -3487,6 +3487,14 @@
         "count": 1,
         "at": "2026-10-22T05:50:31.816Z"
       },
+      "79": {
+        "pitch": "_a",
+        "prev": "c",
+        "pitchSeen": 7,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-28T04:09:13.079Z"
+      },
       "99": {
         "pitch": "_E",
         "prev": "G",
@@ -4596,7 +4604,7 @@
       }
     },
     "classical/bach/badinerie.abc": {
-      "at": "2026-10-28T04:07:22.745Z",
+      "at": "2026-10-28T04:09:03.074Z",
       "notes": {
         "1": {
           "state": "red",
@@ -4633,6 +4641,10 @@
         "52": {
           "state": "red",
           "pitch": "_e"
+        },
+        "79": {
+          "state": "red",
+          "pitch": "_a"
         },
         "99": {
           "state": "red",
