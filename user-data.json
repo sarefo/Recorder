@@ -619,8 +619,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-22T05:41:44.830Z",
-      "playCount": 8,
+      "lastPlayed": "2026-10-28T02:45:22.869Z",
+      "playCount": 9,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T05:43:21.243Z"
     },
@@ -2768,6 +2768,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/tiefer_not.abc",
+      "timestamp": "2026-10-28T02:45:22.869Z"
+    },
+    {
       "filePath": "pop/mad world.abc",
       "timestamp": "2026-10-28T02:36:33.031Z"
     },
@@ -2842,10 +2846,6 @@
     {
       "filePath": "pop/que sera sera.abc",
       "timestamp": "2026-10-26T11:25:03.592Z"
-    },
-    {
-      "filePath": "philippine/ili-ili tulog anay.abc",
-      "timestamp": "2026-10-26T06:25:34.304Z"
     }
   ],
   "activity": {
@@ -2975,6 +2975,7 @@
       "pop/the police/don't stand so close to me.abc": 1
     },
     "2026-10-28": {
+      "classical/bach/tiefer_not.abc": 4,
       "pop/final_countdown.abc": 6,
       "pop/mad world.abc": 4
     }
@@ -5698,6 +5699,12 @@
       "at": "2026-10-28T02:32:15.983Z",
       "percent": 80,
       "bpm": 96
+    },
+    {
+      "path": "pop/mad world.abc",
+      "at": "2026-10-28T02:45:19.618Z",
+      "percent": 100,
+      "bpm": 92
     }
   ],
   "settings": {}
