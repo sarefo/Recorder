@@ -16,6 +16,7 @@ class FileManager {
         this.noteIndex = AbcNoteIndex.get(); // file path -> written MIDI pitches the tune uses
         this.selectedNotes = new Set(); // MIDI pitches picked in the note filter
         this.noteMode = 'contains'; // 'contains' (has all picked) or 'only' (uses nothing else)
+        this.noteView = 'piano'; // note picker layout: 'piano' or 'fingering'
     }
 
     /**
@@ -314,8 +315,10 @@ class FileManager {
     }
 
     /**
-     * Builds the collapsible note picker: a keyboard spanning the recorder's
-     * range (C4 to D6, the extent of the fingering charts) and a mode switch.
+     * Builds the collapsible note picker: the recorder's range (C4 to D6, the
+     * extent of the fingering charts) as a piano keyboard or as fingering
+     * diagrams, plus a mode switch. Shift-click picks the whole span from the
+     * last picked note.
      * @param {Function} onChange - Called after the selection or mode changes
      * @returns {HTMLElement}
      */
@@ -324,11 +327,42 @@ class FileManager {
         const BLACK = new Set([1, 3, 6, 8, 10]);
         const SHARP_NAMES = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
         const FLAT_NAMES = ['C', 'D♭', 'D', 'E♭', 'E', 'F', 'G♭', 'G', 'A♭', 'A', 'B♭', 'B'];
+        // ABC spelling of each pitch class, for looking up fingerings
+        const ABC_NAMES = ['C', '^C', 'D', '^D', 'E', 'F', '^F', 'G', '^G', 'A', '^A', 'B'];
+        const abcName = (midi) => {
+            const pc = ABC_NAMES[midi % 12];
+            const octave = Math.floor(midi / 12) - 1;
+            if (octave === 5) return pc.replace(/[A-G]/, c => c.toLowerCase());
+            if (octave === 6) return pc.replace(/[A-G]/, c => c.toLowerCase()) + "'";
+            return pc;
+        };
+        const noteName = (midi) => `${SHARP_NAMES[midi % 12]}${Math.floor(midi / 12) - 1}`;
 
         const panel = document.createElement('div');
         panel.className = 'note-picker';
         if (this.selectedNotes.size > 0) panel.classList.add('open');
 
+        const cells = new Map(); // midi -> every element standing for that note
+        const register = (midi, el) => {
+            if (!cells.has(midi)) cells.set(midi, []);
+            cells.get(midi).push(el);
+            el.addEventListener('click', (e) => pick(midi, e.shiftKey));
+        };
+        let lastPicked = null;
+        const pick = (midi, span) => {
+            if (span && lastPicked !== null) {
+                const [from, to] = [lastPicked, midi].sort((a, b) => a - b);
+                for (let m = from; m <= to; m++) this.selectedNotes.add(m);
+            } else if (this.selectedNotes.has(midi)) {
+                this.selectedNotes.delete(midi);
+            } else {
+                this.selectedNotes.add(midi);
+            }
+            lastPicked = midi;
+            refresh();
+        };
+
+        // Piano view
         const keyboard = document.createElement('div');
         keyboard.className = 'note-keyboard';
         let whiteCount = 0;
@@ -355,54 +389,97 @@ class FileManager {
                 whiteIndex++;
                 if (pc === 0) key.textContent = `C${octave}`;
             }
-            key.classList.toggle('selected', this.selectedNotes.has(midi));
-            key.addEventListener('click', () => {
-                if (this.selectedNotes.has(midi)) this.selectedNotes.delete(midi);
-                else this.selectedNotes.add(midi);
-                key.classList.toggle('selected', this.selectedNotes.has(midi));
-                refresh();
-            });
+            register(midi, key);
             keyboard.appendChild(key);
         }
+
+        // Fingering view: built on first use, since it needs the fingering
+        // tables and most people will stay on the piano
+        const fingerings = document.createElement('div');
+        fingerings.className = 'note-fingerings';
+        const buildFingerings = () => {
+            const fm = this.player.fingeringManager;
+            // Tunes are written for recorder, so show recorder fingerings
+            // even while the app is set to dizi
+            const system = fm.currentFingeringSystem;
+            if (system === 'diziD') fm.currentFingeringSystem = 'german';
+            for (let midi = LOW; midi <= HIGH; midi++) {
+                const data = fm.getFingeringForNote(abcName(midi));
+                if (!data) continue;
+                const cell = document.createElement('button');
+                cell.type = 'button';
+                cell.className = 'note-fingering';
+                cell.title = BLACK.has(midi % 12)
+                    ? `${SHARP_NAMES[midi % 12]}${Math.floor(midi / 12) - 1} / ${FLAT_NAMES[midi % 12]}${Math.floor(midi / 12) - 1}`
+                    : noteName(midi);
+                const label = document.createElement('span');
+                label.textContent = noteName(midi);
+                cell.appendChild(label);
+                cell.appendChild(fm._createSimpleFingeringDiagram(data, abcName(midi)));
+                register(midi, cell);
+                fingerings.appendChild(cell);
+            }
+            fm.currentFingeringSystem = system;
+            sync();
+        };
 
         const controls = document.createElement('div');
         controls.className = 'note-picker-controls';
 
-        const modes = [
-            ['contains', 'Contains', 'Tunes that use every picked note, and maybe more'],
-            ['only', 'Only these', 'Tunes that use nothing but the picked notes']
-        ];
-        const modeButtons = modes.map(([mode, label, title]) => {
+        const addButton = (className, text, title, onClick) => {
             const button = document.createElement('button');
             button.type = 'button';
-            button.className = 'note-mode';
-            button.textContent = label;
-            button.title = title;
-            button.addEventListener('click', () => {
+            button.className = className;
+            button.textContent = text;
+            if (title) button.title = title;
+            button.addEventListener('click', onClick);
+            controls.appendChild(button);
+            return button;
+        };
+
+        const views = [['piano', 'Piano'], ['fingering', 'Fingering']];
+        const viewButtons = views.map(([view, label]) => [view,
+            addButton('note-mode', label, '', () => {
+                this.noteView = view;
+                if (view === 'fingering' && !fingerings.children.length) buildFingerings();
+                refresh(false);
+            })]);
+
+        const modes = [
+            ['contains', 'Contains', 'Tunes that use every picked note, and maybe more'],
+            ['only', 'Only these', 'Tunes that use no note outside the picked ones; they need not use all of them']
+        ];
+        const modeButtons = modes.map(([mode, label, title]) => [mode,
+            addButton('note-mode', label, title, () => {
                 this.noteMode = mode;
                 refresh();
-            });
-            controls.appendChild(button);
-            return [mode, button];
-        });
+            })]);
 
-        const clear = document.createElement('button');
-        clear.type = 'button';
-        clear.className = 'note-clear';
-        clear.textContent = 'Clear';
-        clear.addEventListener('click', () => {
+        const clear = addButton('note-clear', 'Clear', '', () => {
             this.selectedNotes.clear();
-            keyboard.querySelectorAll('.note-key.selected')
-                .forEach(k => k.classList.remove('selected'));
+            lastPicked = null;
             refresh();
         });
-        controls.appendChild(clear);
 
         const count = document.createElement('span');
         count.className = 'note-count';
         controls.appendChild(count);
 
+        // Separate the view switch from the mode switch
+        modeButtons[0][1].classList.add('note-group-start');
+
+        const sync = () => {
+            cells.forEach((els, midi) => {
+                els.forEach(el => el.classList.toggle('selected', this.selectedNotes.has(midi)));
+            });
+        };
         const update = () => {
+            sync();
+            viewButtons.forEach(([view, button]) => {
+                button.classList.toggle('active', view === this.noteView);
+            });
+            keyboard.hidden = this.noteView !== 'piano';
+            fingerings.hidden = this.noteView !== 'fingering';
             modeButtons.forEach(([mode, button]) => {
                 button.classList.toggle('active', mode === this.noteMode);
             });
@@ -414,14 +491,16 @@ class FileManager {
                 count.textContent = `${matching} tune${matching === 1 ? '' : 's'}`;
             }
         };
-        const refresh = () => {
+        const refresh = (changed = true) => {
             update();
-            onChange();
+            if (changed) onChange();
         };
-        update();
 
         panel.appendChild(keyboard);
+        panel.appendChild(fingerings);
         panel.appendChild(controls);
+        if (this.noteView === 'fingering') buildFingerings();
+        update();
         return panel;
     }
 

@@ -502,3 +502,48 @@
         margin-right: var(--space-1);
     }
 }
+
+/* A selected black key stays dark-edged, so it still reads against a
+   selected white key behind it */
+.note-key.black.selected {
+    box-shadow: 0 0 0 2px var(--color-text);
+}
+
+.note-keyboard[hidden],
+.note-fingerings[hidden] {
+    display: none;
+}
+
+.note-fingerings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-1);
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.note-fingering {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: var(--space-1);
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+}
+
+.note-fingering.selected {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.note-group-start {
+    margin-left: var(--space-3);
+}
