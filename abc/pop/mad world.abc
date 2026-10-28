@@ -7,8 +7,8 @@ N: One pass is a verse couplet played twice (the source plays it four times, eac
 M: 4/4
 Q: 1/4=92
 L: 1/8
-K: Fdor
-|:"Fm"z2 FF AA FF|"Ab"cc2 c2 A3|"Eb"BB2 B2 G3|"Bb"BB2 B2 AGF:|
-"Fm"z2 FF AA cc|"Bb"dB2 F dd BB|"Fm"F3 F AA cc|"Bb"dBBB dd BB|
-"Fm"F3 F AA cc|"Bb"dB2 F dd BB|"Fm"F3 F AA cc|"Bb"dBBB dd BB|
-"Fm"z4 A3 F-|"Bb"F4 z4|"Fm"z8|"Bb"z4 A3 F-|"Fm"F4 z4|]
+K: Ddor
+|:"Dm"z2 DD FF DD|"F"AA2 A2 F3|"C"GG2 G2 E3|"G"GG2 G2 FED:|
+"Dm"z2 DD FF AA|"G"BG2 D BB GG|"Dm"D3 D FF AA|"G"BGGG BB GG|
+"Dm"D3 D FF AA|"G"BG2 D BB GG|"Dm"D3 D FF AA|"G"BGGG BB GG|
+"Dm"z4 F3 D-|"G"D4 z4|"Dm"z8|"G"z4 F3 D-|"Dm"D4 z4|]
