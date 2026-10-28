@@ -619,8 +619,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T02:45:22.869Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-28T03:38:47.323Z",
+      "playCount": 10,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T05:43:21.243Z"
     },
@@ -2768,6 +2768,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/tiefer_not.abc",
+      "timestamp": "2026-10-28T03:38:47.323Z"
+    },
+    {
       "filePath": "classical/bach/chorales/es ist genug.abc",
       "timestamp": "2026-10-28T03:29:18.170Z"
     },
@@ -2786,10 +2790,6 @@
     {
       "filePath": "japanese/fuyu keshiki.abc",
       "timestamp": "2026-10-28T02:49:23.289Z"
-    },
-    {
-      "filePath": "classical/bach/tiefer_not.abc",
-      "timestamp": "2026-10-28T02:45:22.869Z"
     },
     {
       "filePath": "pop/final_countdown.abc",
@@ -2977,7 +2977,7 @@
     "2026-10-28": {
       "cajun/madame sosthene.abc": 1,
       "classical/bach/chorales/es ist genug.abc": 1,
-      "classical/bach/tiefer_not.abc": 5,
+      "classical/bach/tiefer_not.abc": 6,
       "japanese/fuyu keshiki.abc": 1,
       "pop/final_countdown.abc": 6,
       "pop/mad world.abc": 5,
