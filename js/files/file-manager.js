@@ -13,6 +13,9 @@ class FileManager {
         this.currentCollectionId = null; // Active collection ID when viewing collection
         this.currentFilePath = null; // Currently loaded file path (null when loaded from paste/share)
         this.lastOpenRegion = null; // Region left expanded, so reopening the dialog resumes there
+        this.noteIndex = AbcNoteIndex.get(); // file path -> written MIDI pitches the tune uses
+        this.selectedNotes = new Set(); // MIDI pitches picked in the note filter
+        this.noteMode = 'contains'; // 'contains' (has all picked) or 'only' (uses nothing else)
     }
 
     /**
@@ -234,6 +237,20 @@ class FileManager {
         searchContainer.appendChild(searchInput);
         header.appendChild(searchContainer);
 
+        const noteToggle = document.createElement('button');
+        const notePicker = this.createNotePicker(() => {
+            noteToggle.classList.toggle('active', this.selectedNotes.size > 0);
+            this.filterFilesList(searchInput.value, filesList);
+        });
+        noteToggle.className = 'files-note-toggle';
+        noteToggle.textContent = '♪';
+        noteToggle.title = 'Find tunes by the notes they use';
+        noteToggle.classList.toggle('active', this.selectedNotes.size > 0);
+        noteToggle.addEventListener('click', () => {
+            notePicker.classList.toggle('open');
+        });
+        header.appendChild(noteToggle);
+
         // Create close button
         const closeButton = document.createElement('button');
         closeButton.className = 'files-dialog-close';
@@ -251,6 +268,7 @@ class FileManager {
             this.currentFilter = filter;
             this.filterChosen = true;
             this.populateFilesList(filesList, handleEscape);
+            this.filterFilesList(searchInput.value, filesList);
         });
 
         // Create files list container
@@ -259,9 +277,11 @@ class FileManager {
 
         // Populate files list by category
         this.populateFilesList(filesList, handleEscape);
+        this.filterFilesList(searchInput.value, filesList);
 
         // Assemble dialog
         dialog.appendChild(header);
+        dialog.appendChild(notePicker);
         dialog.appendChild(filterContainer);
         dialog.appendChild(filesList);
         dialogOverlay.appendChild(dialog);
@@ -273,6 +293,136 @@ class FileManager {
 
         // Focus search input after a brief delay (for mobile keyboard)
         //setTimeout(() => searchInput.focus(), 100);
+    }
+
+    /**
+     * Whether a tune passes the note filter. With nothing picked every tune
+     * passes. 'contains' wants every picked note in the tune; 'only' wants the
+     * tune to use nothing outside the picked notes. Pitches are written ones,
+     * octave included, so C4 and C5 differ.
+     * @param {string} filePath - Path to the file
+     * @returns {boolean}
+     */
+    matchesNoteFilter(filePath) {
+        if (this.selectedNotes.size === 0) return true;
+        const pitches = this.noteIndex[filePath];
+        if (!pitches) return false;
+        if (this.noteMode === 'only') {
+            return pitches.every(p => this.selectedNotes.has(p));
+        }
+        return [...this.selectedNotes].every(p => pitches.includes(p));
+    }
+
+    /**
+     * Builds the collapsible note picker: a keyboard spanning the recorder's
+     * range (C4 to D6, the extent of the fingering charts) and a mode switch.
+     * @param {Function} onChange - Called after the selection or mode changes
+     * @returns {HTMLElement}
+     */
+    createNotePicker(onChange) {
+        const LOW = 60, HIGH = 86;
+        const BLACK = new Set([1, 3, 6, 8, 10]);
+        const SHARP_NAMES = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
+        const FLAT_NAMES = ['C', 'D♭', 'D', 'E♭', 'E', 'F', 'G♭', 'G', 'A♭', 'A', 'B♭', 'B'];
+
+        const panel = document.createElement('div');
+        panel.className = 'note-picker';
+        if (this.selectedNotes.size > 0) panel.classList.add('open');
+
+        const keyboard = document.createElement('div');
+        keyboard.className = 'note-keyboard';
+        let whiteCount = 0;
+        for (let midi = LOW; midi <= HIGH; midi++) {
+            if (!BLACK.has(midi % 12)) whiteCount++;
+        }
+        keyboard.style.setProperty('--white-keys', whiteCount);
+
+        let whiteIndex = 0;
+        for (let midi = LOW; midi <= HIGH; midi++) {
+            const pc = midi % 12;
+            const octave = Math.floor(midi / 12) - 1;
+            const key = document.createElement('button');
+            key.type = 'button';
+            key.className = 'note-key ' + (BLACK.has(pc) ? 'black' : 'white');
+            key.title = BLACK.has(pc)
+                ? `${SHARP_NAMES[pc]}${octave} / ${FLAT_NAMES[pc]}${octave}`
+                : `${SHARP_NAMES[pc]}${octave}`;
+            if (BLACK.has(pc)) {
+                // Straddles the boundary after the previous white key
+                key.style.setProperty('--after', whiteIndex);
+            } else {
+                key.style.setProperty('--index', whiteIndex);
+                whiteIndex++;
+                if (pc === 0) key.textContent = `C${octave}`;
+            }
+            key.classList.toggle('selected', this.selectedNotes.has(midi));
+            key.addEventListener('click', () => {
+                if (this.selectedNotes.has(midi)) this.selectedNotes.delete(midi);
+                else this.selectedNotes.add(midi);
+                key.classList.toggle('selected', this.selectedNotes.has(midi));
+                refresh();
+            });
+            keyboard.appendChild(key);
+        }
+
+        const controls = document.createElement('div');
+        controls.className = 'note-picker-controls';
+
+        const modes = [
+            ['contains', 'Contains', 'Tunes that use every picked note, and maybe more'],
+            ['only', 'Only these', 'Tunes that use nothing but the picked notes']
+        ];
+        const modeButtons = modes.map(([mode, label, title]) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'note-mode';
+            button.textContent = label;
+            button.title = title;
+            button.addEventListener('click', () => {
+                this.noteMode = mode;
+                refresh();
+            });
+            controls.appendChild(button);
+            return [mode, button];
+        });
+
+        const clear = document.createElement('button');
+        clear.type = 'button';
+        clear.className = 'note-clear';
+        clear.textContent = 'Clear';
+        clear.addEventListener('click', () => {
+            this.selectedNotes.clear();
+            keyboard.querySelectorAll('.note-key.selected')
+                .forEach(k => k.classList.remove('selected'));
+            refresh();
+        });
+        controls.appendChild(clear);
+
+        const count = document.createElement('span');
+        count.className = 'note-count';
+        controls.appendChild(count);
+
+        const update = () => {
+            modeButtons.forEach(([mode, button]) => {
+                button.classList.toggle('active', mode === this.noteMode);
+            });
+            clear.disabled = this.selectedNotes.size === 0;
+            if (this.selectedNotes.size === 0) {
+                count.textContent = 'Pick notes to filter';
+            } else {
+                const matching = this.fileList.filter(f => this.matchesNoteFilter(f.file)).length;
+                count.textContent = `${matching} tune${matching === 1 ? '' : 's'}`;
+            }
+        };
+        const refresh = () => {
+            update();
+            onChange();
+        };
+        update();
+
+        panel.appendChild(keyboard);
+        panel.appendChild(controls);
+        return panel;
     }
 
     populateFilesList(container, handleEscape) {
@@ -711,13 +861,17 @@ class FileManager {
     filterFilesList(searchTerm, container) {
         const lowerSearchTerm = searchTerm.toLowerCase();
         const regions = container.querySelectorAll('.files-region');
+        // Picked notes narrow the list the way a search term does, so they
+        // open the matching folders too
+        const filtering = lowerSearchTerm !== '' || this.selectedNotes.size > 0;
 
         let totalVisible = 0;
 
         // The Recent view is one flat list, without regions or folders
         container.querySelectorAll('.files-recent-list > .file-item').forEach(item => {
-            const matches = item.dataset.name.includes(lowerSearchTerm) ||
-                item.dataset.category.includes(lowerSearchTerm);
+            const matches = (item.dataset.name.includes(lowerSearchTerm) ||
+                item.dataset.category.includes(lowerSearchTerm)) &&
+                this.matchesNoteFilter(item.dataset.file);
             item.classList.toggle('hidden', !matches);
             if (matches) totalVisible++;
         });
@@ -737,11 +891,12 @@ class FileManager {
                     const fileName = item.dataset.name;
                     const categoryName = item.dataset.category;
 
-                    const matches = regionMatches ||
+                    const matches = (regionMatches ||
                         fileName.includes(lowerSearchTerm) ||
-                        categoryName.includes(lowerSearchTerm);
+                        categoryName.includes(lowerSearchTerm)) &&
+                        this.matchesNoteFilter(item.dataset.file);
 
-                    if (matches || lowerSearchTerm === '') {
+                    if (matches) {
                         item.classList.remove('hidden');
                         visibleInCategory++;
                         totalVisible++;
@@ -763,8 +918,8 @@ class FileManager {
             // matching folders — a hit buried inside a collapsed section reads
             // as no hit at all. Clearing the box restores the accordion.
             region.classList.toggle('hidden', visibleInRegion === 0);
-            region.classList.toggle('searching', lowerSearchTerm !== '');
-            if (lowerSearchTerm === '') {
+            region.classList.toggle('searching', filtering);
+            if (!filtering) {
                 const header = region.querySelector('.region-button');
                 const stillOpen = region.dataset.region === this.lastOpenRegion;
                 region.classList.toggle('expanded', stillOpen);
@@ -790,7 +945,7 @@ class FileManager {
         // Show a "no results" message if needed
         let noResults = container.querySelector('.no-results-message');
 
-        if (totalVisible === 0 && searchTerm !== '') {
+        if (totalVisible === 0 && filtering) {
             if (!noResults) {
                 noResults = document.createElement('div');
                 noResults.className = 'no-results-message';

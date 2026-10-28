@@ -382,3 +382,123 @@
     font-size: var(--font-size-sm);
     font-weight: normal;
 }
+
+/* Note filter: a keyboard over the recorder's range (C4-D6). Picking keys
+   narrows the list to tunes that use them. */
+.files-note-toggle {
+    margin-right: var(--space-3);
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-lg);
+    cursor: pointer;
+}
+
+.files-note-toggle.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+}
+
+.note-picker {
+    display: none;
+    padding: var(--space-2) var(--space-5);
+    border-bottom: 1px solid var(--color-border-subtle);
+    background: var(--color-surface);
+}
+
+.note-picker.open {
+    display: block;
+}
+
+.note-keyboard {
+    position: relative;
+    height: 84px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.note-key {
+    position: absolute;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    border: 1px solid var(--color-border-strong);
+}
+
+.note-key.white {
+    top: 0;
+    height: 100%;
+    left: calc(var(--index) * 100% / var(--white-keys));
+    width: calc(100% / var(--white-keys));
+    background: var(--color-bg);
+    color: var(--color-text-muted);
+    border-radius: 0 0 var(--radius-sm, 3px) var(--radius-sm, 3px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+}
+
+.note-key.black {
+    top: 0;
+    height: 58%;
+    width: calc(60% / var(--white-keys));
+    left: calc(var(--after) * 100% / var(--white-keys) - 30% / var(--white-keys));
+    background: var(--color-text);
+    z-index: 1;
+    border-radius: 0 0 3px 3px;
+}
+
+.note-key.selected {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+}
+
+.note-picker-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+}
+
+.note-mode,
+.note-clear {
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.note-mode.active {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+}
+
+.note-clear:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.note-count {
+    margin-left: auto;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+@media (max-width: 600px) {
+    .note-picker {
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .files-note-toggle {
+        margin-right: var(--space-1);
+    }
+}

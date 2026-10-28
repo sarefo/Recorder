@@ -24,6 +24,7 @@ TOUCHED_FILES = [
     SW_JS,
     MAIN_JS,
     os.path.join(PROJECT_DIR, "js", "data", "abc-file-list.js"),
+    os.path.join(PROJECT_DIR, "js", "data", "abc-note-index.js"),
     os.path.join(PROJECT_DIR, "js", "data", "docs-file-list.js"),
 ]
 

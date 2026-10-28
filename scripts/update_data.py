@@ -3,6 +3,7 @@ import os
 import re
 import json
 import hashlib
+import subprocess
 
 def is_valid_abc_file(abc_file_path):
     """Check if ABC file has a valid X: field with a number."""
@@ -157,6 +158,16 @@ def generate_docs_file_list():
     
     print(f"Generated docs file list with {len(file_list)} markdown files")
 
+def generate_note_index():
+    """Index the pitches each tune uses (needs Node; the files dialog filters on it)."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    try:
+        subprocess.run(["node", os.path.join(script_dir, "build_note_index.mjs")],
+                       check=True, cwd=os.path.dirname(script_dir))
+    except (OSError, subprocess.CalledProcessError) as e:
+        print(f"Note index not regenerated: {e}")
+
 if __name__ == "__main__":
     generate_abc_file_list()
     generate_docs_file_list()
+    generate_note_index()

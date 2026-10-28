@@ -24,4 +24,5 @@ fi
 git add "$root/sw.js" \
         "$root/js/core/main.js" \
         "$root/js/data/abc-file-list.js" \
+        "$root/js/data/abc-note-index.js" \
         "$root/js/data/docs-file-list.js"
