@@ -1500,7 +1500,7 @@ class AbcFileList {
                 "name": "Mr. Sandman",
                 "file": "pop/mr sandman.abc",
                 "category": "pop",
-                "hash": "6b9835bb2b"
+                "hash": "fdc62f7324"
         },
         {
                 "name": "Personal Jesus",
