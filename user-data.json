@@ -196,8 +196,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T02:51:33.791Z",
-      "playCount": 15,
+      "lastPlayed": "2026-10-28T03:14:36.997Z",
+      "playCount": 16,
       "createdAt": "2026-09-27T06:51:55.209Z",
       "updatedAt": "2026-10-26T06:19:13.545Z"
     },
@@ -2769,7 +2769,7 @@
   "recentlyPlayed": [
     {
       "filePath": "cajun/madame sosthene.abc",
-      "timestamp": "2026-10-28T02:51:33.791Z"
+      "timestamp": "2026-10-28T03:14:36.997Z"
     },
     {
       "filePath": "japanese/fuyu keshiki.abc",
