@@ -5655,6 +5655,12 @@
       "at": "2026-10-28T02:31:18.446Z",
       "percent": 80,
       "bpm": 96
+    },
+    {
+      "path": "pop/final_countdown.abc",
+      "at": "2026-10-28T02:32:15.983Z",
+      "percent": 80,
+      "bpm": 96
     }
   ],
   "settings": {}
