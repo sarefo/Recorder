@@ -2165,8 +2165,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T02:05:28.730Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-29T03:20:47.419Z",
+      "playCount": 4,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-28T02:01:16.631Z"
     },
@@ -2777,6 +2777,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/final_countdown.abc",
+      "timestamp": "2026-10-29T03:20:47.419Z"
+    },
+    {
       "filePath": "pop/mr sandman.abc",
       "timestamp": "2026-10-29T03:17:35.445Z"
     },
@@ -2831,10 +2835,6 @@
     {
       "filePath": "japanese/fuyu keshiki.abc",
       "timestamp": "2026-10-28T02:49:23.289Z"
-    },
-    {
-      "filePath": "pop/final_countdown.abc",
-      "timestamp": "2026-10-28T02:05:28.730Z"
     },
     {
       "filePath": "pop/popcorn.abc",
@@ -3000,6 +3000,7 @@
       "scottish/hopetoun_house.abc": 5
     },
     "2026-10-29": {
+      "pop/final_countdown.abc": 4,
       "pop/mad world.abc": 1,
       "pop/mr sandman.abc": 1
     }
@@ -4228,6 +4229,24 @@
         "at": "2026-10-27T14:44:33.432Z"
       }
     },
+    "pop/final_countdown.abc": {
+      "8": {
+        "pitch": "_e",
+        "prev": null,
+        "pitchSeen": 10,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-10-29T03:21:00.721Z"
+      },
+      "22": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 9,
+        "transSeen": 8,
+        "count": 1,
+        "at": "2026-10-29T03:21:00.723Z"
+      }
+    },
     "pop/mad world.abc": {
       "3": {
         "pitch": "_A",
@@ -5207,6 +5226,19 @@
           "pitch": "_E"
         },
         "65": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "pop/final_countdown.abc": {
+      "at": "2026-10-29T03:20:50.720Z",
+      "notes": {
+        "8": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "22": {
           "state": "red",
           "pitch": "_B"
         }
