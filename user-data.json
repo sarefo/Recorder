@@ -385,8 +385,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T04:04:44.758Z",
-      "playCount": 8,
+      "lastPlayed": "2026-10-29T03:46:35.986Z",
+      "playCount": 9,
       "createdAt": "2026-09-26T04:52:58.455Z",
       "updatedAt": "2026-10-22T05:47:42.192Z"
     },
@@ -2777,6 +2777,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/badinerie.abc",
+      "timestamp": "2026-10-29T03:46:35.986Z"
+    },
+    {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-10-29T03:34:28.566Z"
     },
@@ -2807,10 +2811,6 @@
     {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-28T07:14:47.609Z"
-    },
-    {
-      "filePath": "classical/bach/badinerie.abc",
-      "timestamp": "2026-10-28T04:04:44.758Z"
     },
     {
       "filePath": "classical/bach/air.abc",
@@ -5242,8 +5242,12 @@
       }
     },
     "pop/derniere danse.abc": {
-      "at": "2026-10-29T03:35:15.094Z",
+      "at": "2026-10-29T03:46:35.622Z",
       "notes": {
+        "6": {
+          "state": "red",
+          "pitch": "A"
+        },
         "8": {
           "state": "red",
           "pitch": "_B"
