@@ -2162,13 +2162,13 @@
       "createdAt": "2026-10-15T10:27:48.810Z"
     },
     "pop/final_countdown.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-29T07:23:48.070Z",
       "playCount": 5,
       "createdAt": "2026-01-18T20:46:38.367Z",
-      "updatedAt": "2026-10-28T02:01:16.631Z"
+      "updatedAt": "2026-10-29T07:31:46.377Z"
     },
     "pop/game/mario theme.abc": {
       "status": null,
@@ -3345,6 +3345,11 @@
       "path": "yiddish/bei mir bist du schon.abc",
       "status": "practicing",
       "at": "2026-10-29T04:31:35.722Z"
+    },
+    {
+      "path": "pop/final_countdown.abc",
+      "status": "good",
+      "at": "2026-10-29T07:31:46.377Z"
     }
   ],
   "marks": {
