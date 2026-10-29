@@ -3000,7 +3000,7 @@
       "scottish/hopetoun_house.abc": 5
     },
     "2026-10-29": {
-      "pop/final_countdown.abc": 6,
+      "pop/final_countdown.abc": 7,
       "pop/mad world.abc": 1,
       "pop/mr sandman.abc": 1
     }
@@ -4238,6 +4238,14 @@
         "count": 1,
         "at": "2026-10-29T03:21:00.721Z"
       },
+      "19": {
+        "pitch": "^F",
+        "prev": "E",
+        "pitchSeen": 6,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-29T03:30:12.325Z"
+      },
       "22": {
         "pitch": "_B",
         "prev": "c",
@@ -5232,11 +5240,15 @@
       }
     },
     "pop/final_countdown.abc": {
-      "at": "2026-10-29T03:20:50.720Z",
+      "at": "2026-10-29T03:30:02.322Z",
       "notes": {
         "8": {
           "state": "red",
           "pitch": "_e"
+        },
+        "19": {
+          "state": "red",
+          "pitch": "^F"
         },
         "22": {
           "state": "red",
