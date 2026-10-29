@@ -628,8 +628,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T03:38:47.323Z",
-      "playCount": 10,
+      "lastPlayed": "2026-10-29T04:12:52.047Z",
+      "playCount": 11,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T05:43:21.243Z"
     },
@@ -2777,6 +2777,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/tiefer_not.abc",
+      "timestamp": "2026-10-29T04:12:52.047Z"
+    },
+    {
       "filePath": "classical/bach/adams_fall.abc",
       "timestamp": "2026-10-29T04:10:23.201Z"
     },
@@ -2819,10 +2823,6 @@
     {
       "filePath": "classical/bach/air.abc",
       "timestamp": "2026-10-28T04:01:09.783Z"
-    },
-    {
-      "filePath": "classical/bach/tiefer_not.abc",
-      "timestamp": "2026-10-28T03:38:47.323Z"
     },
     {
       "filePath": "classical/bach/chorales/es ist genug.abc",
@@ -3002,6 +3002,7 @@
     "2026-10-29": {
       "classical/bach/adams_fall.abc": 2,
       "classical/bach/badinerie.abc": 1,
+      "classical/bach/tiefer_not.abc": 3,
       "pop/derniere danse.abc": 2,
       "pop/final_countdown.abc": 7,
       "pop/mad world.abc": 1,
