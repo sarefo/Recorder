@@ -2745,8 +2745,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-29T04:30:12.603Z",
-      "playCount": 29,
+      "lastPlayed": "2026-10-29T04:33:39.224Z",
+      "playCount": 30,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "yiddish/in kamf.abc": {
@@ -2778,12 +2778,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
-      "filePath": "yiddish/bei mir bist du schon.abc",
-      "timestamp": "2026-10-29T04:30:22.378Z"
+      "filePath": "yiddish/dos kelbl.abc",
+      "timestamp": "2026-10-29T04:33:39.224Z"
     },
     {
-      "filePath": "yiddish/dos kelbl.abc",
-      "timestamp": "2026-10-29T04:30:12.603Z"
+      "filePath": "yiddish/bei mir bist du schon.abc",
+      "timestamp": "2026-10-29T04:30:22.378Z"
     },
     {
       "filePath": "breton/son ar chistr.abc",
@@ -3011,7 +3011,8 @@
       "pop/final_countdown.abc": 7,
       "pop/mad world.abc": 1,
       "pop/mr sandman.abc": 1,
-      "yiddish/bei mir bist du schon.abc": 2
+      "yiddish/bei mir bist du schon.abc": 2,
+      "yiddish/dos kelbl.abc": 1
     }
   },
   "statusLog": [
