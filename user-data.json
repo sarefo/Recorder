@@ -2718,11 +2718,12 @@
     },
     "yiddish/bei mir bist du schon.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-26T13:35:38.000Z"
+      "lastPlayed": "2026-10-29T04:30:22.378Z",
+      "playCount": 1,
+      "createdAt": "2026-10-26T13:35:38.000Z",
+      "updatedAt": "2026-10-29T04:30:25.522Z"
     },
     "yiddish/chiribim.abc": {
       "status": null,
@@ -2744,8 +2745,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-20T05:56:40.232Z",
-      "playCount": 28,
+      "lastPlayed": "2026-10-29T04:30:12.603Z",
+      "playCount": 29,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "yiddish/in kamf.abc": {
@@ -2776,6 +2777,14 @@
   "collections": {},
   "deletedCollections": {},
   "recentlyPlayed": [
+    {
+      "filePath": "yiddish/bei mir bist du schon.abc",
+      "timestamp": "2026-10-29T04:30:22.378Z"
+    },
+    {
+      "filePath": "yiddish/dos kelbl.abc",
+      "timestamp": "2026-10-29T04:30:12.603Z"
+    },
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-29T04:24:04.189Z"
@@ -2847,14 +2856,6 @@
     {
       "filePath": "cajun/madame sosthene.abc",
       "timestamp": "2026-10-28T03:14:59.793Z"
-    },
-    {
-      "filePath": "japanese/fuyu keshiki.abc",
-      "timestamp": "2026-10-28T02:49:23.289Z"
-    },
-    {
-      "filePath": "pop/popcorn.abc",
-      "timestamp": "2026-10-28T02:05:25.115Z"
     }
   ],
   "activity": {
@@ -3009,7 +3010,8 @@
       "pop/derniere danse.abc": 2,
       "pop/final_countdown.abc": 7,
       "pop/mad world.abc": 1,
-      "pop/mr sandman.abc": 1
+      "pop/mr sandman.abc": 1,
+      "yiddish/bei mir bist du schon.abc": 1
     }
   },
   "statusLog": [
@@ -6149,6 +6151,24 @@
       "at": "2026-10-29T04:28:32.283Z",
       "percent": 90,
       "bpm": 244.8
+    },
+    {
+      "path": "breton/son ar chistr.abc",
+      "at": "2026-10-29T04:29:56.203Z",
+      "percent": 100,
+      "bpm": 272
+    },
+    {
+      "path": "breton/son ar chistr.abc",
+      "at": "2026-10-29T04:29:56.347Z",
+      "percent": 100,
+      "bpm": 272
+    },
+    {
+      "path": "breton/son ar chistr.abc",
+      "at": "2026-10-29T04:29:56.540Z",
+      "percent": 100,
+      "bpm": 272
     }
   ],
   "settings": {}
