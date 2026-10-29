@@ -3451,20 +3451,20 @@
     },
     "classical/bach/badinerie.abc": {
       "1": {
-        "pitch": "_a",
-        "prev": "f",
+        "pitch": "_b",
+        "prev": "g",
         "pitchSeen": 7,
         "transSeen": 3,
-        "count": 2,
-        "at": "2026-10-22T06:09:46.115Z"
+        "count": 3,
+        "at": "2026-10-29T03:59:23.283Z"
       },
       "6": {
-        "pitch": "_A",
-        "prev": "c",
+        "pitch": "_B",
+        "prev": "d",
         "pitchSeen": 35,
         "transSeen": 7,
-        "count": 2,
-        "at": "2026-10-22T06:09:46.116Z"
+        "count": 3,
+        "at": "2026-10-29T03:59:23.286Z"
       },
       "9": {
         "pitch": "F",
@@ -3523,12 +3523,12 @@
         "at": "2026-10-29T03:51:09.537Z"
       },
       "109": {
-        "pitch": "_d",
-        "prev": "_e",
+        "pitch": "_e",
+        "prev": "f",
         "pitchSeen": 12,
         "transSeen": 4,
-        "count": 2,
-        "at": "2026-10-22T06:09:46.132Z"
+        "count": 3,
+        "at": "2026-10-29T03:59:23.289Z"
       },
       "111": {
         "pitch": "_d",
@@ -3547,12 +3547,12 @@
         "at": "2026-10-29T03:51:46.319Z"
       },
       "208": {
-        "pitch": "_D",
-        "prev": "C",
+        "pitch": "_E",
+        "prev": "D",
         "pitchSeen": 1,
         "transSeen": 1,
-        "count": 2,
-        "at": "2026-10-22T06:09:46.134Z"
+        "count": 3,
+        "at": "2026-10-29T03:59:23.291Z"
       }
     },
     "classical/bach/chorales/es ist genug.abc": {
@@ -4683,15 +4683,15 @@
       }
     },
     "classical/bach/badinerie.abc": {
-      "at": "2026-10-29T03:51:36.316Z",
+      "at": "2026-10-29T03:59:13.288Z",
       "notes": {
         "1": {
           "state": "red",
-          "pitch": "_a"
+          "pitch": "_b"
         },
         "6": {
           "state": "red",
-          "pitch": "_A"
+          "pitch": "_B"
         },
         "9": {
           "state": "red",
@@ -4735,7 +4735,7 @@
         },
         "109": {
           "state": "red",
-          "pitch": "_d"
+          "pitch": "_e"
         },
         "111": {
           "state": "red",
@@ -4747,7 +4747,7 @@
         },
         "208": {
           "state": "red",
-          "pitch": "_D"
+          "pitch": "_E"
         }
       }
     },
