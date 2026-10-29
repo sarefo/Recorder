@@ -3000,6 +3000,7 @@
       "scottish/hopetoun_house.abc": 5
     },
     "2026-10-29": {
+      "classical/bach/badinerie.abc": 1,
       "pop/derniere danse.abc": 2,
       "pop/final_countdown.abc": 7,
       "pop/mad world.abc": 1,
@@ -3513,6 +3514,14 @@
         "count": 2,
         "at": "2026-10-22T06:09:46.131Z"
       },
+      "103": {
+        "pitch": "_G",
+        "prev": "C",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-29T03:51:09.537Z"
+      },
       "109": {
         "pitch": "_d",
         "prev": "_e",
@@ -3520,6 +3529,22 @@
         "transSeen": 4,
         "count": 2,
         "at": "2026-10-22T06:09:46.132Z"
+      },
+      "111": {
+        "pitch": "_d",
+        "prev": "c",
+        "pitchSeen": 12,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-29T03:51:23.904Z"
+      },
+      "124": {
+        "pitch": "_A",
+        "prev": "_E",
+        "pitchSeen": 35,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-29T03:51:46.319Z"
       },
       "208": {
         "pitch": "_D",
@@ -4658,7 +4683,7 @@
       }
     },
     "classical/bach/badinerie.abc": {
-      "at": "2026-10-28T04:09:03.074Z",
+      "at": "2026-10-29T03:51:36.316Z",
       "notes": {
         "1": {
           "state": "red",
@@ -4704,9 +4729,21 @@
           "state": "red",
           "pitch": "_E"
         },
+        "103": {
+          "state": "red",
+          "pitch": "_G"
+        },
         "109": {
           "state": "red",
           "pitch": "_d"
+        },
+        "111": {
+          "state": "red",
+          "pitch": "_d"
+        },
+        "124": {
+          "state": "red",
+          "pitch": "_A"
         },
         "208": {
           "state": "red",
