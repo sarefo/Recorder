@@ -2090,8 +2090,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-17T10:42:33.762Z",
-      "playCount": 4,
+      "lastPlayed": "2026-10-29T03:34:28.566Z",
+      "playCount": 5,
       "createdAt": "2026-10-14T17:54:41.333Z",
       "updatedAt": "2026-10-17T10:46:06.768Z"
     },
@@ -2777,6 +2777,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/derniere danse.abc",
+      "timestamp": "2026-10-29T03:34:28.566Z"
+    },
+    {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-10-29T03:20:47.419Z"
     },
@@ -2851,10 +2855,6 @@
     {
       "filePath": "pop/enjoy the silence.abc",
       "timestamp": "2026-10-27T14:46:04.910Z"
-    },
-    {
-      "filePath": "chinese/molihua.abc",
-      "timestamp": "2026-10-27T13:59:01.816Z"
     }
   ],
   "activity": {
@@ -3000,6 +3000,7 @@
       "scottish/hopetoun_house.abc": 5
     },
     "2026-10-29": {
+      "pop/derniere danse.abc": 1,
       "pop/final_countdown.abc": 7,
       "pop/mad world.abc": 1,
       "pop/mr sandman.abc": 1
