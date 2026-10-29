@@ -4204,6 +4204,24 @@
         "at": "2026-10-26T06:25:49.241Z"
       }
     },
+    "pop/derniere danse.abc": {
+      "8": {
+        "pitch": "_B",
+        "prev": null,
+        "pitchSeen": 28,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-10-29T03:35:25.095Z"
+      },
+      "83": {
+        "pitch": "_e",
+        "prev": "d",
+        "pitchSeen": 12,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-10-29T03:35:25.098Z"
+      }
+    },
     "pop/enjoy the silence.abc": {
       "4": {
         "pitch": "_A",
@@ -5218,6 +5236,19 @@
           "pitch": "_B"
         },
         "13": {
+          "state": "red",
+          "pitch": "_e"
+        }
+      }
+    },
+    "pop/derniere danse.abc": {
+      "at": "2026-10-29T03:35:15.094Z",
+      "notes": {
+        "8": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "83": {
           "state": "red",
           "pitch": "_e"
         }
