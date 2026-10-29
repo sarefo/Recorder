@@ -367,8 +367,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T03:42:29.245Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-29T04:10:23.201Z",
+      "playCount": 10,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-28T03:46:50.733Z"
     },
@@ -2777,6 +2777,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/adams_fall.abc",
+      "timestamp": "2026-10-29T04:10:23.201Z"
+    },
+    {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-10-29T04:08:25.628Z"
     },
@@ -2815,10 +2819,6 @@
     {
       "filePath": "classical/bach/air.abc",
       "timestamp": "2026-10-28T04:01:09.783Z"
-    },
-    {
-      "filePath": "classical/bach/adams_fall.abc",
-      "timestamp": "2026-10-28T03:42:29.245Z"
     },
     {
       "filePath": "classical/bach/tiefer_not.abc",
@@ -3000,6 +3000,7 @@
       "scottish/hopetoun_house.abc": 5
     },
     "2026-10-29": {
+      "classical/bach/adams_fall.abc": 1,
       "classical/bach/badinerie.abc": 1,
       "pop/derniere danse.abc": 2,
       "pop/final_countdown.abc": 7,
@@ -3522,6 +3523,14 @@
         "count": 2,
         "at": "2026-10-22T06:09:46.123Z"
       },
+      "58": {
+        "pitch": "^c",
+        "prev": "d",
+        "pitchSeen": 6,
+        "transSeen": 6,
+        "count": 1,
+        "at": "2026-10-29T04:09:37.020Z"
+      },
       "62": {
         "pitch": "_e",
         "prev": "=d",
@@ -3530,13 +3539,21 @@
         "count": 1,
         "at": "2026-10-22T05:50:31.816Z"
       },
+      "75": {
+        "pitch": "a",
+        "prev": "d",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-29T04:09:54.427Z"
+      },
       "79": {
-        "pitch": "_a",
-        "prev": "c",
+        "pitch": "_b",
+        "prev": "d",
         "pitchSeen": 7,
         "transSeen": 4,
-        "count": 1,
-        "at": "2026-10-28T04:09:13.079Z"
+        "count": 2,
+        "at": "2026-10-29T04:10:02.955Z"
       },
       "99": {
         "pitch": "_E",
@@ -4739,7 +4756,7 @@
       }
     },
     "classical/bach/badinerie.abc": {
-      "at": "2026-10-29T04:07:37.930Z",
+      "at": "2026-10-29T04:09:52.952Z",
       "notes": {
         "1": {
           "state": "red",
@@ -4783,15 +4800,23 @@
         },
         "50": {
           "state": "green",
-          "pitch": "G"
+          "pitch": "A"
         },
         "52": {
           "state": "red",
           "pitch": "_e"
         },
+        "58": {
+          "state": "red",
+          "pitch": "^c"
+        },
+        "75": {
+          "state": "red",
+          "pitch": "a"
+        },
         "79": {
           "state": "red",
-          "pitch": "_a"
+          "pitch": "_b"
         },
         "99": {
           "state": "red",
