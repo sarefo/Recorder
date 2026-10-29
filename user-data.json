@@ -3451,20 +3451,20 @@
     },
     "classical/bach/badinerie.abc": {
       "1": {
-        "pitch": "c'",
-        "prev": "a",
+        "pitch": "_b",
+        "prev": "g",
         "pitchSeen": 7,
         "transSeen": 3,
-        "count": 4,
-        "at": "2026-10-29T04:03:16.006Z"
+        "count": 7,
+        "at": "2026-10-29T04:06:38.216Z"
       },
       "6": {
         "pitch": "_B",
         "prev": "d",
         "pitchSeen": 35,
         "transSeen": 7,
-        "count": 3,
-        "at": "2026-10-29T03:59:23.286Z"
+        "count": 6,
+        "at": "2026-10-29T04:06:38.221Z"
       },
       "9": {
         "pitch": "F",
@@ -3481,6 +3481,22 @@
         "transSeen": 4,
         "count": 2,
         "at": "2026-10-22T06:09:46.117Z"
+      },
+      "46": {
+        "pitch": "_a",
+        "prev": "c",
+        "pitchSeen": 7,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-29T04:05:25.061Z"
+      },
+      "49": {
+        "pitch": "^c",
+        "prev": "d",
+        "pitchSeen": 6,
+        "transSeen": 6,
+        "count": 2,
+        "at": "2026-10-29T04:06:41.150Z"
       },
       "52": {
         "pitch": "_e",
@@ -3519,16 +3535,16 @@
         "prev": "D",
         "pitchSeen": 4,
         "transSeen": 1,
-        "count": 2,
-        "at": "2026-10-29T04:00:56.742Z"
+        "count": 4,
+        "at": "2026-10-29T04:06:47.756Z"
       },
       "109": {
         "pitch": "_e",
         "prev": "f",
         "pitchSeen": 12,
         "transSeen": 4,
-        "count": 3,
-        "at": "2026-10-29T03:59:23.289Z"
+        "count": 6,
+        "at": "2026-10-29T04:06:38.227Z"
       },
       "111": {
         "pitch": "_d",
@@ -3575,8 +3591,8 @@
         "prev": "D",
         "pitchSeen": 1,
         "transSeen": 1,
-        "count": 3,
-        "at": "2026-10-29T03:59:23.291Z"
+        "count": 6,
+        "at": "2026-10-29T04:06:38.232Z"
       }
     },
     "classical/bach/chorales/es ist genug.abc": {
@@ -4707,11 +4723,11 @@
       }
     },
     "classical/bach/badinerie.abc": {
-      "at": "2026-10-29T04:03:06.001Z",
+      "at": "2026-10-29T04:06:37.754Z",
       "notes": {
         "1": {
           "state": "red",
-          "pitch": "c'"
+          "pitch": "_b"
         },
         "6": {
           "state": "red",
@@ -4736,6 +4752,14 @@
         "34": {
           "state": "green",
           "pitch": "_A"
+        },
+        "46": {
+          "state": "red",
+          "pitch": "_a"
+        },
+        "49": {
+          "state": "red",
+          "pitch": "^c"
         },
         "50": {
           "state": "green",
