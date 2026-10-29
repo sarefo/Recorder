@@ -3546,6 +3546,30 @@
         "count": 1,
         "at": "2026-10-29T03:51:46.319Z"
       },
+      "170": {
+        "pitch": "_b",
+        "prev": "d",
+        "pitchSeen": 7,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-10-29T04:01:52.838Z"
+      },
+      "194": {
+        "pitch": "_e",
+        "prev": "c",
+        "pitchSeen": 12,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-10-29T04:02:22.830Z"
+      },
+      "198": {
+        "pitch": "_A",
+        "prev": "_B",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-10-29T04:02:27.829Z"
+      },
       "208": {
         "pitch": "_E",
         "prev": "D",
@@ -4683,7 +4707,7 @@
       }
     },
     "classical/bach/badinerie.abc": {
-      "at": "2026-10-29T04:00:46.738Z",
+      "at": "2026-10-29T04:02:17.825Z",
       "notes": {
         "1": {
           "state": "red",
@@ -4742,6 +4766,18 @@
           "pitch": "_d"
         },
         "124": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "170": {
+          "state": "red",
+          "pitch": "_b"
+        },
+        "194": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "198": {
           "state": "red",
           "pitch": "_A"
         },
