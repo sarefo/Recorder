@@ -112,8 +112,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T11:21:53.289Z",
-      "playCount": 6,
+      "lastPlayed": "2026-10-29T04:21:23.592Z",
+      "playCount": 7,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-19T05:12:58.508Z"
     },
@@ -2777,6 +2777,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/les filles des forges de paimpont.abc",
+      "timestamp": "2026-10-29T04:21:23.592Z"
+    },
+    {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-10-29T04:15:21.197Z"
     },
@@ -2851,10 +2855,6 @@
     {
       "filePath": "pop/the police/don't stand so close to me.abc",
       "timestamp": "2026-10-27T14:46:53.835Z"
-    },
-    {
-      "filePath": "pop/personal jesus.abc",
-      "timestamp": "2026-10-27T14:46:14.756Z"
     }
   ],
   "activity": {
@@ -3000,6 +3000,7 @@
       "scottish/hopetoun_house.abc": 5
     },
     "2026-10-29": {
+      "breton/les filles des forges de paimpont.abc": 1,
       "breton/toutouic.abc": 4,
       "classical/bach/adams_fall.abc": 2,
       "classical/bach/badinerie.abc": 1,
