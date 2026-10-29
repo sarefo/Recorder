@@ -385,8 +385,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-29T03:46:35.986Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-29T04:08:25.628Z",
+      "playCount": 10,
       "createdAt": "2026-09-26T04:52:58.455Z",
       "updatedAt": "2026-10-22T05:47:42.192Z"
     },
@@ -2778,7 +2778,7 @@
   "recentlyPlayed": [
     {
       "filePath": "classical/bach/badinerie.abc",
-      "timestamp": "2026-10-29T03:46:35.986Z"
+      "timestamp": "2026-10-29T04:08:25.628Z"
     },
     {
       "filePath": "pop/derniere danse.abc",
