@@ -3001,7 +3001,7 @@
     },
     "2026-10-29": {
       "breton/les filles des forges de paimpont.abc": 3,
-      "breton/son ar chistr.abc": 4,
+      "breton/son ar chistr.abc": 5,
       "breton/toutouic.abc": 4,
       "classical/bach/adams_fall.abc": 2,
       "classical/bach/badinerie.abc": 1,
@@ -6131,6 +6131,24 @@
       "at": "2026-10-29T04:24:00.860Z",
       "percent": 80,
       "bpm": 88
+    },
+    {
+      "path": "breton/son ar chistr.abc",
+      "at": "2026-10-29T04:28:31.916Z",
+      "percent": 90,
+      "bpm": 244.8
+    },
+    {
+      "path": "breton/son ar chistr.abc",
+      "at": "2026-10-29T04:28:32.092Z",
+      "percent": 90,
+      "bpm": 244.8
+    },
+    {
+      "path": "breton/son ar chistr.abc",
+      "at": "2026-10-29T04:28:32.283Z",
+      "percent": 90,
+      "bpm": 244.8
     }
   ],
   "settings": {}
