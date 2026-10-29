@@ -2717,13 +2717,13 @@
       "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "yiddish/bei mir bist du schon.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-29T04:30:22.378Z",
       "playCount": 1,
       "createdAt": "2026-10-26T13:35:38.000Z",
-      "updatedAt": "2026-10-29T04:30:25.522Z"
+      "updatedAt": "2026-10-29T04:31:35.722Z"
     },
     "yiddish/chiribim.abc": {
       "status": null,
@@ -3011,7 +3011,7 @@
       "pop/final_countdown.abc": 7,
       "pop/mad world.abc": 1,
       "pop/mr sandman.abc": 1,
-      "yiddish/bei mir bist du schon.abc": 1
+      "yiddish/bei mir bist du schon.abc": 2
     }
   },
   "statusLog": [
@@ -3339,6 +3339,11 @@
       "path": "classical/bach/adams_fall.abc",
       "status": "good",
       "at": "2026-10-28T03:46:50.733Z"
+    },
+    {
+      "path": "yiddish/bei mir bist du schon.abc",
+      "status": "practicing",
+      "at": "2026-10-29T04:31:35.722Z"
     }
   ],
   "marks": {
@@ -4649,6 +4654,16 @@
         "count": 1,
         "at": "2026-10-25T10:08:05.630Z"
       }
+    },
+    "yiddish/bei mir bist du schon.abc": {
+      "13": {
+        "pitch": "^G",
+        "prev": "B",
+        "pitchSeen": 3,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-29T04:31:14.313Z"
+      }
     }
   },
   "markStates": {
@@ -5637,6 +5652,15 @@
         "168": {
           "state": "red",
           "pitch": "d"
+        }
+      }
+    },
+    "yiddish/bei mir bist du schon.abc": {
+      "at": "2026-10-29T04:31:04.306Z",
+      "notes": {
+        "13": {
+          "state": "red",
+          "pitch": "^G"
         }
       }
     }
