@@ -129,8 +129,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T11:18:12.328Z",
-      "playCount": 24,
+      "lastPlayed": "2026-10-29T04:24:04.189Z",
+      "playCount": 25,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-08T06:58:19.399Z"
     },
@@ -2777,6 +2777,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-10-29T04:24:04.189Z"
+    },
+    {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-10-29T04:21:23.592Z"
     },
@@ -2851,10 +2855,6 @@
     {
       "filePath": "pop/popcorn.abc",
       "timestamp": "2026-10-28T02:05:25.115Z"
-    },
-    {
-      "filePath": "pop/the police/don't stand so close to me.abc",
-      "timestamp": "2026-10-27T14:46:53.835Z"
     }
   ],
   "activity": {
@@ -6118,6 +6118,18 @@
       "at": "2026-10-29T04:15:11.359Z",
       "percent": 100,
       "bpm": 104
+    },
+    {
+      "path": "breton/les filles des forges de paimpont.abc",
+      "at": "2026-10-29T04:24:00.684Z",
+      "percent": 80,
+      "bpm": 88
+    },
+    {
+      "path": "breton/les filles des forges de paimpont.abc",
+      "at": "2026-10-29T04:24:00.860Z",
+      "percent": 80,
+      "bpm": 88
     }
   ],
   "settings": {}
