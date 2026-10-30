@@ -1520,8 +1520,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T04:58:29.629Z",
-      "playCount": 39,
+      "lastPlayed": "2026-10-30T02:51:26.864Z",
+      "playCount": 40,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/hanagasa ondo.abc": {
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hana.abc",
+      "timestamp": "2026-10-30T02:51:26.864Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-10-30T02:48:30.818Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "classical/bach/air.abc",
       "timestamp": "2026-10-28T04:01:09.783Z"
-    },
-    {
-      "filePath": "classical/bach/chorales/es ist genug.abc",
-      "timestamp": "2026-10-28T03:29:18.170Z"
     }
   ],
   "activity": {
@@ -3017,6 +3017,7 @@
     "2026-10-30": {
       "french/douce dame jolie.abc": 1,
       "israeli/dodi li.abc": 2,
+      "japanese/hana.abc": 1,
       "pop/final_countdown.abc": 2
     }
   },
@@ -6235,6 +6236,12 @@
       "at": "2026-10-29T04:29:56.540Z",
       "percent": 100,
       "bpm": 272
+    },
+    {
+      "path": "french/douce dame jolie.abc",
+      "at": "2026-10-30T02:51:20.718Z",
+      "percent": 100,
+      "bpm": 112
     }
   ],
   "settings": {}
