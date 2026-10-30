@@ -975,8 +975,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-20T11:22:31.431Z",
-      "playCount": 13,
+      "lastPlayed": "2026-10-30T02:48:30.818Z",
+      "playCount": 14,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-18T03:20:14.847Z"
     },
@@ -1314,8 +1314,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-30T02:44:29.452Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-30T02:48:27.222Z",
+      "playCount": 3,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-10-18T11:55:31.779Z"
     },
@@ -2778,8 +2778,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-10-30T02:48:30.818Z"
+    },
+    {
       "filePath": "israeli/dodi li.abc",
-      "timestamp": "2026-10-30T02:44:29.452Z"
+      "timestamp": "2026-10-30T02:48:27.222Z"
     },
     {
       "filePath": "pop/final_countdown.abc",
@@ -2852,10 +2856,6 @@
     {
       "filePath": "classical/bach/chorales/es ist genug.abc",
       "timestamp": "2026-10-28T03:29:18.170Z"
-    },
-    {
-      "filePath": "scottish/caber_feigh.abc",
-      "timestamp": "2026-10-28T03:15:30.630Z"
     }
   ],
   "activity": {
@@ -3737,6 +3737,24 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-27T08:34:48.329Z"
+      }
+    },
+    "french/douce dame jolie.abc": {
+      "5": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 10,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-10-30T02:48:45.419Z"
+      },
+      "44": {
+        "pitch": "_e",
+        "prev": "d",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-30T02:48:45.421Z"
       }
     },
     "german/es freit ein wilder wassermann.abc": {
@@ -4953,6 +4971,19 @@
         "10": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "french/douce dame jolie.abc": {
+      "at": "2026-10-30T02:48:35.419Z",
+      "notes": {
+        "5": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "44": {
+          "state": "red",
+          "pitch": "_e"
         }
       }
     },
