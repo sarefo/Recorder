@@ -196,8 +196,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T03:14:59.793Z",
-      "playCount": 17,
+      "lastPlayed": "2026-10-30T02:52:47.923Z",
+      "playCount": 18,
       "createdAt": "2026-09-27T06:51:55.209Z",
       "updatedAt": "2026-10-26T06:19:13.545Z"
     },
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "cajun/madame sosthene.abc",
+      "timestamp": "2026-10-30T02:52:47.923Z"
+    },
+    {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-10-30T02:51:26.864Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-10-28T07:14:47.609Z"
-    },
-    {
-      "filePath": "classical/bach/air.abc",
-      "timestamp": "2026-10-28T04:01:09.783Z"
     }
   ],
   "activity": {
@@ -6242,6 +6242,12 @@
       "at": "2026-10-30T02:51:20.718Z",
       "percent": 100,
       "bpm": 112
+    },
+    {
+      "path": "japanese/hana.abc",
+      "at": "2026-10-30T02:52:46.230Z",
+      "percent": 100,
+      "bpm": 160
     }
   ],
   "settings": {}
