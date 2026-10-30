@@ -1092,19 +1092,19 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-26T04:16:27.472Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-30T05:10:10.233Z",
+      "playCount": 4,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:52:16.545Z"
     },
     "german/es ist ein schnitter.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-30T05:08:03.803Z",
       "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.430Z",
-      "updatedAt": "2026-10-24T11:57:24.027Z"
+      "updatedAt": "2026-10-30T05:10:04.894Z"
     },
     "german/es waren zwei koenigskinder.abc": {
       "status": "practicing",
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es geht eine dunkle wolk herein.abc",
+      "timestamp": "2026-10-30T05:10:10.233Z"
+    },
+    {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-10-30T05:08:03.803Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "classical/bach/adams_fall.abc",
       "timestamp": "2026-10-29T04:10:23.201Z"
-    },
-    {
-      "filePath": "pop/derniere danse.abc",
-      "timestamp": "2026-10-29T03:34:28.566Z"
     }
   ],
   "activity": {
@@ -3020,6 +3020,7 @@
       "classical/bach/tiefer_not.abc": 4,
       "french/douce dame jolie.abc": 1,
       "german/ach bittrer winter.abc": 1,
+      "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
       "israeli/dodi li.abc": 2,
@@ -3380,6 +3381,11 @@
       "path": "occitan/ai vist lo lop.abc",
       "status": "good",
       "at": "2026-10-30T05:03:16.906Z"
+    },
+    {
+      "path": "german/es ist ein schnitter.abc",
+      "status": "good",
+      "at": "2026-10-30T05:10:04.894Z"
     }
   ],
   "marks": {
@@ -6314,6 +6320,24 @@
       "at": "2026-10-30T05:07:58.831Z",
       "percent": 100,
       "bpm": 104
+    },
+    {
+      "path": "german/es ist ein schnitter.abc",
+      "at": "2026-10-30T05:10:06.366Z",
+      "percent": 100,
+      "bpm": 96
+    },
+    {
+      "path": "german/es ist ein schnitter.abc",
+      "at": "2026-10-30T05:10:06.542Z",
+      "percent": 100,
+      "bpm": 96
+    },
+    {
+      "path": "german/es ist ein schnitter.abc",
+      "at": "2026-10-30T05:10:06.678Z",
+      "percent": 100,
+      "bpm": 96
     }
   ],
   "settings": {}
