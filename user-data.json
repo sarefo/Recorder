@@ -628,8 +628,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-29T04:12:52.047Z",
-      "playCount": 11,
+      "lastPlayed": "2026-10-30T04:50:10.625Z",
+      "playCount": 12,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T05:43:21.243Z"
     },
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/tiefer_not.abc",
+      "timestamp": "2026-10-30T04:50:10.625Z"
+    },
+    {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-10-30T02:56:57.469Z"
     },
@@ -2820,10 +2824,6 @@
     {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-10-29T04:15:21.197Z"
-    },
-    {
-      "filePath": "classical/bach/tiefer_not.abc",
-      "timestamp": "2026-10-29T04:12:52.047Z"
     },
     {
       "filePath": "classical/bach/adams_fall.abc",
@@ -3017,6 +3017,7 @@
     "2026-10-30": {
       "cajun/madame sosthene.abc": 1,
       "classical/bach/badinerie.abc": 2,
+      "classical/bach/tiefer_not.abc": 3,
       "french/douce dame jolie.abc": 1,
       "israeli/dodi li.abc": 2,
       "japanese/hana.abc": 1,
