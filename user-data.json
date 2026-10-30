@@ -3016,7 +3016,7 @@
     },
     "2026-10-30": {
       "cajun/madame sosthene.abc": 1,
-      "classical/bach/badinerie.abc": 1,
+      "classical/bach/badinerie.abc": 2,
       "french/douce dame jolie.abc": 1,
       "israeli/dodi li.abc": 2,
       "japanese/hana.abc": 1,
@@ -4805,8 +4805,12 @@
       }
     },
     "classical/bach/badinerie.abc": {
-      "at": "2026-10-29T04:09:52.952Z",
+      "at": "2026-10-30T04:46:30.797Z",
       "notes": {
+        "0": {
+          "state": "green",
+          "pitch": "g"
+        },
         "1": {
           "state": "red",
           "pitch": "_b"
