@@ -1971,8 +1971,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T01:55:29.552Z",
-      "playCount": 10,
+      "lastPlayed": "2026-10-30T04:53:15.967Z",
+      "playCount": 11,
       "createdAt": "2026-09-22T12:46:37.241Z",
       "updatedAt": "2026-10-20T06:00:14.877Z"
     },
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/la cambo me fai mau.abc",
+      "timestamp": "2026-10-30T04:53:15.967Z"
+    },
+    {
       "filePath": "classical/bach/tiefer_not.abc",
       "timestamp": "2026-10-30T04:50:10.625Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-10-28T07:29:33.456Z"
-    },
-    {
-      "filePath": "latino/tango/por una cabeza.abc",
-      "timestamp": "2026-10-28T07:14:47.609Z"
     }
   ],
   "activity": {
@@ -3021,6 +3021,7 @@
       "french/douce dame jolie.abc": 1,
       "israeli/dodi li.abc": 2,
       "japanese/hana.abc": 1,
+      "occitan/la cambo me fai mau.abc": 1,
       "pop/final_countdown.abc": 2
     }
   },
