@@ -1658,13 +1658,13 @@
       "updatedAt": "2026-10-22T05:41:31.969Z"
     },
     "jazz/autumn leaves.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-30T04:54:53.351Z",
       "playCount": 10,
       "createdAt": "2026-10-13T03:57:34.032Z",
-      "updatedAt": "2026-10-30T04:59:29.048Z"
+      "updatedAt": "2026-10-30T05:00:26.736Z"
     },
     "jazz/blue moon.abc": {
       "status": "needs-practice",
@@ -3366,6 +3366,11 @@
       "path": "jazz/autumn leaves.abc",
       "status": "practicing",
       "at": "2026-10-30T04:59:29.048Z"
+    },
+    {
+      "path": "jazz/autumn leaves.abc",
+      "status": "good",
+      "at": "2026-10-30T05:00:26.736Z"
     }
   ],
   "marks": {
