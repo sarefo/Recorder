@@ -1173,8 +1173,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-26T03:46:29.617Z",
-      "playCount": 2,
+      "lastPlayed": "2026-10-30T05:03:26.063Z",
+      "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-26T03:48:01.463Z"
     },
@@ -1959,13 +1959,13 @@
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/ai vist lo lop.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-30T05:01:20.542Z",
       "playCount": 13,
       "createdAt": "2026-09-22T12:46:37.241Z",
-      "updatedAt": "2026-10-16T10:31:04.482Z"
+      "updatedAt": "2026-10-30T05:03:16.906Z"
     },
     "occitan/la cambo me fai mau.abc": {
       "status": "good",
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/maria durch ein dornwald ging.abc",
+      "timestamp": "2026-10-30T05:03:26.063Z"
+    },
+    {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-10-30T05:01:20.542Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "pop/mad world.abc",
       "timestamp": "2026-10-28T11:45:35.565Z"
-    },
-    {
-      "filePath": "scottish/birkhall.abc",
-      "timestamp": "2026-10-28T07:43:26.345Z"
     }
   ],
   "activity": {
@@ -3019,6 +3019,7 @@
       "classical/bach/badinerie.abc": 2,
       "classical/bach/tiefer_not.abc": 4,
       "french/douce dame jolie.abc": 1,
+      "german/maria durch ein dornwald ging.abc": 1,
       "israeli/dodi li.abc": 2,
       "japanese/hana.abc": 1,
       "jazz/autumn leaves.abc": 2,
@@ -3372,6 +3373,11 @@
       "path": "jazz/autumn leaves.abc",
       "status": "good",
       "at": "2026-10-30T05:00:26.736Z"
+    },
+    {
+      "path": "occitan/ai vist lo lop.abc",
+      "status": "good",
+      "at": "2026-10-30T05:03:16.906Z"
     }
   ],
   "marks": {
@@ -6270,6 +6276,24 @@
       "at": "2026-10-30T05:01:18.161Z",
       "percent": 100,
       "bpm": 150
+    },
+    {
+      "path": "occitan/ai vist lo lop.abc",
+      "at": "2026-10-30T05:03:17.855Z",
+      "percent": 100,
+      "bpm": 160
+    },
+    {
+      "path": "occitan/ai vist lo lop.abc",
+      "at": "2026-10-30T05:03:18.015Z",
+      "percent": 100,
+      "bpm": 160
+    },
+    {
+      "path": "occitan/ai vist lo lop.abc",
+      "at": "2026-10-30T05:03:18.175Z",
+      "percent": 100,
+      "bpm": 160
     }
   ],
   "settings": {}
