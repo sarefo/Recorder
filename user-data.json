@@ -1658,13 +1658,13 @@
       "updatedAt": "2026-10-22T05:41:31.969Z"
     },
     "jazz/autumn leaves.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-30T04:54:53.351Z",
       "playCount": 10,
       "createdAt": "2026-10-13T03:57:34.032Z",
-      "updatedAt": "2026-10-15T09:48:05.144Z"
+      "updatedAt": "2026-10-30T04:59:29.048Z"
     },
     "jazz/blue moon.abc": {
       "status": "needs-practice",
@@ -3021,7 +3021,7 @@
       "french/douce dame jolie.abc": 1,
       "israeli/dodi li.abc": 2,
       "japanese/hana.abc": 1,
-      "jazz/autumn leaves.abc": 1,
+      "jazz/autumn leaves.abc": 2,
       "occitan/la cambo me fai mau.abc": 1,
       "pop/final_countdown.abc": 2
     }
@@ -3361,6 +3361,11 @@
       "path": "pop/final_countdown.abc",
       "status": "good",
       "at": "2026-10-29T07:31:46.377Z"
+    },
+    {
+      "path": "jazz/autumn leaves.abc",
+      "status": "practicing",
+      "at": "2026-10-30T04:59:29.048Z"
     }
   ],
   "marks": {
