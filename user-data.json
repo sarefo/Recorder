@@ -1962,8 +1962,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T02:13:24.284Z",
-      "playCount": 12,
+      "lastPlayed": "2026-10-30T05:01:20.542Z",
+      "playCount": 13,
       "createdAt": "2026-09-22T12:46:37.241Z",
       "updatedAt": "2026-10-16T10:31:04.482Z"
     },
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/ai vist lo lop.abc",
+      "timestamp": "2026-10-30T05:01:20.542Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-10-30T04:54:53.351Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "scottish/birkhall.abc",
       "timestamp": "2026-10-28T07:43:26.345Z"
-    },
-    {
-      "filePath": "scottish/hopetoun_house.abc",
-      "timestamp": "2026-10-28T07:31:57.652Z"
     }
   ],
   "activity": {
@@ -3022,6 +3022,7 @@
       "israeli/dodi li.abc": 2,
       "japanese/hana.abc": 1,
       "jazz/autumn leaves.abc": 2,
+      "occitan/ai vist lo lop.abc": 1,
       "occitan/la cambo me fai mau.abc": 1,
       "pop/final_countdown.abc": 2
     }
@@ -6263,6 +6264,12 @@
       "at": "2026-10-30T02:52:46.230Z",
       "percent": 100,
       "bpm": 160
+    },
+    {
+      "path": "jazz/autumn leaves.abc",
+      "at": "2026-10-30T05:01:18.161Z",
+      "percent": 100,
+      "bpm": 150
     }
   ],
   "settings": {}
