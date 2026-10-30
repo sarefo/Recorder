@@ -1314,8 +1314,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T11:55:13.793Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-30T02:44:29.452Z",
+      "playCount": 2,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-10-18T11:55:31.779Z"
     },
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/dodi li.abc",
+      "timestamp": "2026-10-30T02:44:29.452Z"
+    },
+    {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-10-29T07:23:48.070Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "scottish/caber_feigh.abc",
       "timestamp": "2026-10-28T03:15:30.630Z"
-    },
-    {
-      "filePath": "cajun/madame sosthene.abc",
-      "timestamp": "2026-10-28T03:14:59.793Z"
     }
   ],
   "activity": {
@@ -3015,6 +3015,7 @@
       "yiddish/dos kelbl.abc": 1
     },
     "2026-10-30": {
+      "israeli/dodi li.abc": 1,
       "pop/final_countdown.abc": 2
     }
   },
