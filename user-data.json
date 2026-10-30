@@ -1074,8 +1074,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T11:47:04.434Z",
-      "playCount": 1,
+      "lastPlayed": "2026-10-30T05:05:51.583Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:49:16.156Z"
     },
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/ach bittrer winter.abc",
+      "timestamp": "2026-10-30T05:05:51.583Z"
+    },
+    {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-10-30T05:03:26.063Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "pop/mr sandman.abc",
       "timestamp": "2026-10-29T03:17:35.445Z"
-    },
-    {
-      "filePath": "pop/mad world.abc",
-      "timestamp": "2026-10-28T11:45:35.565Z"
     }
   ],
   "activity": {
@@ -3019,6 +3019,7 @@
       "classical/bach/badinerie.abc": 2,
       "classical/bach/tiefer_not.abc": 4,
       "french/douce dame jolie.abc": 1,
+      "german/ach bittrer winter.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
       "israeli/dodi li.abc": 2,
       "japanese/hana.abc": 1,
