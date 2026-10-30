@@ -1661,8 +1661,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T10:26:59.434Z",
-      "playCount": 9,
+      "lastPlayed": "2026-10-30T04:54:53.351Z",
+      "playCount": 10,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-15T09:48:05.144Z"
     },
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-10-30T04:54:53.351Z"
+    },
+    {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-10-30T04:53:15.967Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-28T07:31:57.652Z"
-    },
-    {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-10-28T07:29:33.456Z"
     }
   ],
   "activity": {
