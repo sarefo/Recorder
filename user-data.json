@@ -129,8 +129,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-29T04:24:04.189Z",
-      "playCount": 25,
+      "lastPlayed": "2026-10-31T05:11:14.455Z",
+      "playCount": 26,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-08T06:58:19.399Z"
     },
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-10-31T05:11:14.455Z"
+    },
+    {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-10-31T05:06:29.511Z"
     },
@@ -2848,10 +2852,6 @@
     {
       "filePath": "yiddish/bei mir bist du schon.abc",
       "timestamp": "2026-10-29T04:30:22.378Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-10-29T04:24:04.189Z"
     },
     {
       "filePath": "breton/toutouic.abc",
@@ -3032,6 +3032,7 @@
     },
     "2026-10-31": {
       "breton/les filles des forges de paimpont.abc": 3,
+      "breton/son ar chistr.abc": 1,
       "german/ach bittrer winter.abc": 3,
       "german/es geht eine dunkle wolk herein.abc": 2,
       "german/es ist ein schnitter.abc": 1,
