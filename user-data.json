@@ -1440,8 +1440,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T10:54:32.316Z",
-      "playCount": 16,
+      "lastPlayed": "2026-10-31T08:16:43.079Z",
+      "playCount": 17,
       "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "japanese/akai kutsu.abc": {
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jamaican/banana boat song.abc",
+      "timestamp": "2026-10-31T08:16:43.079Z"
+    },
+    {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-10-31T05:19:51.703Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "yiddish/dos kelbl.abc",
       "timestamp": "2026-10-29T04:33:39.224Z"
-    },
-    {
-      "filePath": "yiddish/bei mir bist du schon.abc",
-      "timestamp": "2026-10-29T04:30:22.378Z"
     }
   ],
   "activity": {
@@ -3038,7 +3038,8 @@
       "german/es geht eine dunkle wolk herein.abc": 2,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 2,
-      "german/maria durch ein dornwald ging.abc": 1
+      "german/maria durch ein dornwald ging.abc": 1,
+      "jamaican/banana boat song.abc": 1
     }
   },
   "statusLog": [
