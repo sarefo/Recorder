@@ -854,8 +854,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T10:56:52.366Z",
-      "playCount": 10,
+      "lastPlayed": "2026-10-31T08:19:25.866Z",
+      "playCount": 11,
       "createdAt": "2026-08-30T09:37:29.371Z"
     },
     "film/here's to you.abc": {
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/herbie's theme.abc",
+      "timestamp": "2026-10-31T08:19:25.866Z"
+    },
+    {
       "filePath": "jamaican/banana boat song.abc",
       "timestamp": "2026-10-31T08:16:43.079Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-10-29T07:23:48.070Z"
-    },
-    {
-      "filePath": "yiddish/dos kelbl.abc",
-      "timestamp": "2026-10-29T04:33:39.224Z"
     }
   ],
   "activity": {
@@ -3034,6 +3034,7 @@
       "breton/les filles des forges de paimpont.abc": 3,
       "breton/son ar chistr.abc": 1,
       "breton/toutouic.abc": 7,
+      "film/herbie's theme.abc": 1,
       "german/ach bittrer winter.abc": 3,
       "german/es geht eine dunkle wolk herein.abc": 2,
       "german/es ist ein schnitter.abc": 1,
