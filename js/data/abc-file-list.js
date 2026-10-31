@@ -288,7 +288,7 @@ class AbcFileList {
                 "name": "Badinerie",
                 "file": "classical/bach/badinerie.abc",
                 "category": "classical/bach",
-                "hash": "95ef2e9c52"
+                "hash": "a2ec6d3e7d"
         },
         {
                 "name": "Minuet in G Major",
@@ -625,6 +625,12 @@ class AbcFileList {
                 "file": "english/early one morning.abc",
                 "category": "english",
                 "hash": "72b60af132"
+        },
+        {
+                "name": "Anything Goes",
+                "file": "film/anything goes.abc",
+                "category": "film",
+                "hash": "e9c952a23d"
         },
         {
                 "name": "Herbie's Theme",
@@ -1536,7 +1542,7 @@ class AbcFileList {
                 "name": "The Final Countdown",
                 "file": "pop/final_countdown.abc",
                 "category": "pop",
-                "hash": "7242c95d1d"
+                "hash": "decde8758e"
         },
         {
                 "name": "Top of the world",
