@@ -851,12 +851,13 @@
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "film/herbie's theme.abc": {
-      "status": null,
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-10-31T08:19:25.866Z",
       "playCount": 11,
-      "createdAt": "2026-08-30T09:37:29.371Z"
+      "createdAt": "2026-08-30T09:37:29.371Z",
+      "updatedAt": "2026-10-31T08:21:20.627Z"
     },
     "film/here's to you.abc": {
       "status": "good",
@@ -2040,8 +2041,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-11T04:57:11.209Z",
-      "playCount": 4,
+      "lastPlayed": "2026-10-31T08:21:40.984Z",
+      "playCount": 5,
       "createdAt": "2026-08-01T05:59:20.044Z",
       "updatedAt": "2026-10-11T04:58:37.263Z"
     },
@@ -2778,6 +2779,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "philippine/pamulinawen.abc",
+      "timestamp": "2026-10-31T08:21:40.984Z"
+    },
+    {
       "filePath": "film/herbie's theme.abc",
       "timestamp": "2026-10-31T08:19:25.866Z"
     },
@@ -2852,10 +2857,6 @@
     {
       "filePath": "israeli/dodi li.abc",
       "timestamp": "2026-10-30T02:48:27.222Z"
-    },
-    {
-      "filePath": "pop/final_countdown.abc",
-      "timestamp": "2026-10-29T07:23:48.070Z"
     }
   ],
   "activity": {
@@ -3040,7 +3041,8 @@
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 2,
       "german/maria durch ein dornwald ging.abc": 1,
-      "jamaican/banana boat song.abc": 1
+      "jamaican/banana boat song.abc": 1,
+      "philippine/pamulinawen.abc": 1
     }
   },
   "statusLog": [
@@ -3398,6 +3400,11 @@
       "path": "german/es ist ein schnitter.abc",
       "status": "good",
       "at": "2026-10-30T05:10:04.894Z"
+    },
+    {
+      "path": "film/herbie's theme.abc",
+      "status": "good",
+      "at": "2026-10-31T08:21:20.627Z"
     }
   ],
   "marks": {
@@ -6419,6 +6426,12 @@
       "at": "2026-10-31T05:15:49.496Z",
       "percent": 80,
       "bpm": 75.2
+    },
+    {
+      "path": "film/herbie's theme.abc",
+      "at": "2026-10-31T08:21:22.531Z",
+      "percent": 100,
+      "bpm": 160
     }
   ],
   "settings": {}
