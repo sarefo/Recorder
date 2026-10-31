@@ -1101,8 +1101,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-30T05:08:03.803Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-31T05:00:59.243Z",
+      "playCount": 4,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-30T05:10:04.894Z"
     },
@@ -2778,16 +2778,16 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es ist ein schnitter.abc",
+      "timestamp": "2026-10-31T05:00:59.243Z"
+    },
+    {
       "filePath": "german/ach bittrer winter.abc",
       "timestamp": "2026-10-31T04:59:29.081Z"
     },
     {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-10-30T05:10:10.233Z"
-    },
-    {
-      "filePath": "german/es ist ein schnitter.abc",
-      "timestamp": "2026-10-30T05:08:03.803Z"
     },
     {
       "filePath": "german/maria durch ein dornwald ging.abc",
@@ -3032,7 +3032,8 @@
     },
     "2026-10-31": {
       "german/ach bittrer winter.abc": 3,
-      "german/es geht eine dunkle wolk herein.abc": 2
+      "german/es geht eine dunkle wolk herein.abc": 2,
+      "german/es ist ein schnitter.abc": 1
     }
   },
   "statusLog": [
