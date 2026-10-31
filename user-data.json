@@ -3033,7 +3033,7 @@
     "2026-10-31": {
       "breton/les filles des forges de paimpont.abc": 3,
       "breton/son ar chistr.abc": 1,
-      "breton/toutouic.abc": 3,
+      "breton/toutouic.abc": 4,
       "german/ach bittrer winter.abc": 3,
       "german/es geht eine dunkle wolk herein.abc": 2,
       "german/es ist ein schnitter.abc": 1,
@@ -3433,6 +3433,16 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-24T11:23:49.052Z"
+      }
+    },
+    "breton/toutouic.abc": {
+      "23": {
+        "pitch": "A",
+        "prev": "c",
+        "pitchSeen": 12,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-10-31T05:15:38.222Z"
       }
     },
     "cajun/madame sosthene.abc": {
@@ -4768,6 +4778,15 @@
         "37": {
           "state": "red",
           "pitch": "e"
+        }
+      }
+    },
+    "breton/toutouic.abc": {
+      "at": "2026-10-31T05:15:28.208Z",
+      "notes": {
+        "23": {
+          "state": "red",
+          "pitch": "A"
         }
       }
     },
@@ -6348,6 +6367,12 @@
       "at": "2026-10-30T05:10:06.678Z",
       "percent": 100,
       "bpm": 96
+    },
+    {
+      "path": "breton/toutouic.abc",
+      "at": "2026-10-31T05:15:49.496Z",
+      "percent": 80,
+      "bpm": 75.2
     }
   ],
   "settings": {}
