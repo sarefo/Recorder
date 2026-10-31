@@ -1129,8 +1129,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-31T05:04:33.229Z",
-      "playCount": 4,
+      "lastPlayed": "2026-10-31T08:25:23.293Z",
+      "playCount": 5,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-26T04:37:50.809Z"
     },
@@ -2779,6 +2779,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "timestamp": "2026-10-31T08:25:23.293Z"
+    },
+    {
       "filePath": "philippine/pamulinawen.abc",
       "timestamp": "2026-10-31T08:21:40.984Z"
     },
@@ -2805,10 +2809,6 @@
     {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-10-31T05:06:29.511Z"
-    },
-    {
-      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
-      "timestamp": "2026-10-31T05:04:33.229Z"
     },
     {
       "filePath": "german/maria durch ein dornwald ging.abc",
@@ -3039,7 +3039,7 @@
       "german/ach bittrer winter.abc": 3,
       "german/es geht eine dunkle wolk herein.abc": 2,
       "german/es ist ein schnitter.abc": 1,
-      "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 2,
+      "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 3,
       "german/maria durch ein dornwald ging.abc": 1,
       "jamaican/banana boat song.abc": 1,
       "philippine/pamulinawen.abc": 2
