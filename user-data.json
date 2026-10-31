@@ -1128,8 +1128,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-26T04:35:45.448Z",
-      "playCount": 3,
+      "lastPlayed": "2026-10-31T05:04:33.229Z",
+      "playCount": 4,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-26T04:37:50.809Z"
     },
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "timestamp": "2026-10-31T05:04:33.229Z"
+    },
+    {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-10-31T05:03:01.052Z"
     },
@@ -2852,10 +2856,6 @@
     {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-10-29T04:15:21.197Z"
-    },
-    {
-      "filePath": "classical/bach/adams_fall.abc",
-      "timestamp": "2026-10-29T04:10:23.201Z"
     }
   ],
   "activity": {
@@ -3034,6 +3034,7 @@
       "german/ach bittrer winter.abc": 3,
       "german/es geht eine dunkle wolk herein.abc": 2,
       "german/es ist ein schnitter.abc": 1,
+      "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1
     }
   },
