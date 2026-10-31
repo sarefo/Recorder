@@ -112,8 +112,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-29T04:21:23.592Z",
-      "playCount": 7,
+      "lastPlayed": "2026-10-31T05:06:29.511Z",
+      "playCount": 8,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-19T05:12:58.508Z"
     },
@@ -2778,6 +2778,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/les filles des forges de paimpont.abc",
+      "timestamp": "2026-10-31T05:06:29.511Z"
+    },
+    {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-10-31T05:04:33.229Z"
     },
@@ -2848,10 +2852,6 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-29T04:24:04.189Z"
-    },
-    {
-      "filePath": "breton/les filles des forges de paimpont.abc",
-      "timestamp": "2026-10-29T04:21:23.592Z"
     },
     {
       "filePath": "breton/toutouic.abc",
@@ -3031,6 +3031,7 @@
       "pop/final_countdown.abc": 2
     },
     "2026-10-31": {
+      "breton/les filles des forges de paimpont.abc": 1,
       "german/ach bittrer winter.abc": 3,
       "german/es geht eine dunkle wolk herein.abc": 2,
       "german/es ist ein schnitter.abc": 1,
