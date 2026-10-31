@@ -2478,8 +2478,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T07:31:57.652Z",
-      "playCount": 11,
+      "lastPlayed": "2026-10-31T08:43:48.718Z",
+      "playCount": 12,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-08T07:37:13.092Z"
     },
@@ -2779,6 +2779,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/hopetoun_house.abc",
+      "timestamp": "2026-10-31T08:43:48.718Z"
+    },
+    {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-10-31T08:25:23.293Z"
     },
@@ -2853,10 +2857,6 @@
     {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-10-30T02:48:30.818Z"
-    },
-    {
-      "filePath": "israeli/dodi li.abc",
-      "timestamp": "2026-10-30T02:48:27.222Z"
     }
   ],
   "activity": {
