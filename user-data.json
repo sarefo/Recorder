@@ -862,8 +862,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:02:16.597Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-01T10:05:40.977Z",
+      "playCount": 4,
       "createdAt": "2026-11-01T02:08:18.261Z",
       "updatedAt": "2026-11-01T02:19:13.542Z"
     },
@@ -2036,12 +2036,13 @@
       "updatedAt": "2026-10-25T03:17:51.725Z"
     },
     "philippine/bahay kubo.abc": {
-      "status": null,
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-01T10:02:35.687Z",
       "playCount": 15,
-      "createdAt": "2026-08-01T05:59:20.044Z"
+      "createdAt": "2026-08-01T05:59:20.044Z",
+      "updatedAt": "2026-11-01T10:05:28.377Z"
     },
     "philippine/dandansoy.abc": {
       "status": "practicing",
@@ -2813,6 +2814,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/anything goes.abc",
+      "timestamp": "2026-11-01T10:05:40.977Z"
+    },
+    {
       "filePath": "philippine/bahay kubo.abc",
       "timestamp": "2026-11-01T10:02:35.687Z"
     },
@@ -2851,10 +2856,6 @@
     {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-01T03:17:32.423Z"
-    },
-    {
-      "filePath": "film/anything goes.abc",
-      "timestamp": "2026-11-01T03:02:16.597Z"
     },
     {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
@@ -3080,7 +3081,7 @@
       "scottish/hopetoun_house.abc": 4
     },
     "2026-11-01": {
-      "film/anything goes.abc": 7,
+      "film/anything goes.abc": 8,
       "jazz/autumn leaves.abc": 2,
       "jazz/blue moon.abc": 3,
       "jazz/girl from ipanema.abc": 2,
@@ -3477,6 +3478,11 @@
       "path": "trinidadian/jump in the line.abc",
       "status": "practicing",
       "at": "2026-11-01T04:32:22.445Z"
+    },
+    {
+      "path": "philippine/bahay kubo.abc",
+      "status": "good",
+      "at": "2026-11-01T10:05:28.377Z"
     }
   ],
   "marks": {
@@ -6793,6 +6799,30 @@
       "at": "2026-11-01T03:19:53.033Z",
       "percent": 100,
       "bpm": 120
+    },
+    {
+      "path": "philippine/bahay kubo.abc",
+      "at": "2026-11-01T10:05:29.066Z",
+      "percent": 100,
+      "bpm": 132
+    },
+    {
+      "path": "philippine/bahay kubo.abc",
+      "at": "2026-11-01T10:05:29.233Z",
+      "percent": 100,
+      "bpm": 132
+    },
+    {
+      "path": "philippine/bahay kubo.abc",
+      "at": "2026-11-01T10:05:29.369Z",
+      "percent": 100,
+      "bpm": 132
+    },
+    {
+      "path": "philippine/bahay kubo.abc",
+      "at": "2026-11-01T10:05:29.505Z",
+      "percent": 100,
+      "bpm": 132
     }
   ],
   "settings": {}
