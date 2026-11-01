@@ -4331,6 +4331,30 @@
         "count": 1,
         "at": "2026-10-24T12:25:30.706Z"
       },
+      "47": {
+        "pitch": "_A",
+        "prev": "G",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-01T03:32:34.739Z"
+      },
+      "48": {
+        "pitch": "_G",
+        "prev": "_A",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-01T03:32:35.661Z"
+      },
+      "52": {
+        "pitch": "_E",
+        "prev": "=F",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-01T03:32:38.667Z"
+      },
       "57": {
         "pitch": "^A",
         "prev": null,
@@ -4346,6 +4370,22 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-11-01T03:31:43.290Z"
+      },
+      "66": {
+        "pitch": "^G",
+        "prev": "^F",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-01T03:33:10.711Z"
+      },
+      "91": {
+        "pitch": "^A",
+        "prev": "A",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-01T03:33:25.320Z"
       }
     },
     "jazz/night and day.abc": {
@@ -5582,11 +5622,23 @@
       }
     },
     "jazz/girl from ipanema.abc": {
-      "at": "2026-11-01T03:31:33.284Z",
+      "at": "2026-11-01T03:33:15.316Z",
       "notes": {
         "2": {
           "state": "red",
           "pitch": "^F"
+        },
+        "47": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "48": {
+          "state": "red",
+          "pitch": "_G"
+        },
+        "52": {
+          "state": "red",
+          "pitch": "_E"
         },
         "57": {
           "state": "red",
@@ -5595,6 +5647,14 @@
         "62": {
           "state": "red",
           "pitch": "^G"
+        },
+        "66": {
+          "state": "red",
+          "pitch": "^G"
+        },
+        "91": {
+          "state": "red",
+          "pitch": "^A"
         }
       }
     },
