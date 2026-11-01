@@ -25,6 +25,11 @@
     --color-keysig:           #1a73e8;
     --color-keysig-fit:       #0aa5e8;
 
+    /* Notes a chord changes against its home scale (scale ribbon, score).
+       Pink: clear of the fit green, keysig blue and orange playing note. */
+    --color-scale-change:     #d81b60;
+    --color-scale-change-soft: rgba(216, 27, 96, 0.14);
+
     /* ----- Colors: Neutrals (light mode) ----- */
     --color-bg:               #ffffff;
     --color-surface:          #f8f9fa;
@@ -157,6 +162,10 @@
 
         --color-keysig:         #64b5f6;
         --color-keysig-fit:     #29b6f6;
+    --color-scale-change:   #f06292;
+    --color-scale-change-soft: rgba(240, 98, 146, 0.18);
+        --color-scale-change:   #f06292;
+        --color-scale-change-soft: rgba(240, 98, 146, 0.18);
 
         --color-overlay:        rgba(0, 0, 0, 0.65);
         --color-overlay-strong: rgba(0, 0, 0, 0.85);

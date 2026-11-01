@@ -55,6 +55,27 @@
     stroke: var(--color-keysig-fit, #0aa5e8) !important;
 }
 
+/* A note the chord at that point changes against the home scale (the F♯
+   under a D7 in C). Wins over the key-signature blue: it says more */
+.abcjs-note.scale-changed:not(.playing) path,
+.abcjs-note.scale-changed:not(.playing) rect {
+    fill: var(--color-scale-change) !important;
+    stroke: var(--color-scale-change) !important;
+}
+
+/* Chord symbols in the score while the scale ribbon is on: pink where the
+   chord changes notes against the home, bold where a new home begins */
+.abcjs-note.scale-chord-change .abcjs-chord,
+.abcjs-rest.scale-chord-change .abcjs-chord {
+    fill: var(--color-scale-change);
+}
+
+.abcjs-note.scale-chord-home .abcjs-chord,
+.abcjs-rest.scale-chord-home .abcjs-chord {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 /* The key signature is tappable (toggles the highlight above) */
 .abcjs-key-signature {
     cursor: pointer;

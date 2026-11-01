@@ -3,6 +3,12 @@
  * Notes that belong to the scale for the current chord stay bright (chord
  * tones marked); the rest are grayed out. During playback it follows the
  * chord under the playing note.
+ *
+ * The tune is split into stretches with one home scale each (see
+ * ScaleAdvisor.analyze). The ribbon names the home and marks only what the
+ * current chord changes against it: notes it brings in, home notes it
+ * leaves out, and the notes the next chord will change, so a change can be
+ * seen coming.
  */
 class ScaleRuler {
     static SETTING = 'scaleRulerVisible';
@@ -27,10 +33,14 @@ class ScaleRuler {
         this.fitNotes = !!player.settingsManager?.get(ScaleRuler.FIT_SETTING);
         this.cells = []; // [{ cell, label, pc }] in pitch order
         this.cellsSystem = null; // fingering system the cells were built for
-        this.chordTimeline = []; // [{ startChar, chord }] in score order
-        this.keyPcs = null;
+        this.chordTimeline = []; // analyzed entries (ScaleAdvisor.analyze) in score order
+        this.analysis = null;
+        this.keyHome = null;
         this.keyText = '';
         this.currentChord = null;
+        this.entryIndex = -1; // index into chordTimeline on show, -1 for none
+        this.charOfNote = new Map(); // score SVG element → startChar
+        this.noteAtChar = new Map(); // startChar → score SVG element
         this.visible = !!player.settingsManager?.get(ScaleRuler.SETTING);
     }
 
@@ -51,7 +61,7 @@ class ScaleRuler {
         this.chordsEl.setAttribute('aria-label', 'Chords in this tune');
         this.chordsEl.addEventListener('click', (e) => {
             const chip = e.target.closest('.scale-ribbon-chord');
-            if (chip) this.showChord(chip.dataset.chord);
+            if (chip) this.showChordByName(chip.dataset.chord);
         });
         this.orderBtn = document.createElement('button');
         this.orderBtn.type = 'button';
@@ -63,7 +73,8 @@ class ScaleRuler {
         this.fitBtn.type = 'button';
         this.fitBtn.className = 'scale-ribbon-order';
         this.fitBtn.textContent = '◉ Fit';
-        this.fitBtn.title = 'Experimental: color every note in the tune that fits this scale';
+        this.fitBtn.title = 'Color each note against the scale at its point in the tune: '
+            + 'green fits, pink is a changed note';
         this.fitBtn.addEventListener('click', () => this.toggleFit());
 
         // The scale as sheet music, under the fingering row
@@ -111,10 +122,17 @@ class ScaleRuler {
         this.player.settingsManager?.set(ScaleRuler.SETTING, this.visible);
         this.applyVisibility();
         if (this.visible) {
-            this.currentChord = null;
-            this.showChord(this.chordTimeline[0]?.chord || this.keyChord());
+            this.showStart();
             this.centerOnRoot();
         }
+    }
+
+    /** Shows the first chord, or the key's own scale in a tune without chords. */
+    showStart() {
+        this.currentChord = null;
+        this.entryIndex = -1;
+        if (this.chordTimeline.length) this.showEntry(0);
+        else this.showKeyScale();
     }
 
     applyVisibility() {
@@ -127,6 +145,7 @@ class ScaleRuler {
         this.staffBtn?.setAttribute('aria-pressed', String(this.staffVisible));
         if (this.staffEl) this.staffEl.hidden = !(this.visible && this.staffVisible);
         this.markFittingNotes();
+        this.markScoreChords();
         this.renderStaff();
     }
 
@@ -184,12 +203,15 @@ ${tones.join(' ')}|]
     }
 
     /**
-     * Colors every note in the score whose pitch class is in the scale on
-     * show. Clears the marks when the option or the ribbon is off.
+     * Colors each note of the score against the scale at its own point in
+     * the tune: green when it is in the scale, pink when it is one of the
+     * notes the chord there changes against the home. Notes outside the
+     * scale (passing tones) keep their normal color. Clears the marks when
+     * the option or the ribbon is off.
      */
     markFittingNotes() {
         const notes = document.querySelectorAll('#abc-notation .abcjs-note');
-        const on = this.visible && this.fitNotes && this.scalePcs;
+        const on = this.visible && this.fitNotes && (this.chordTimeline.length || this.keyHome);
         if (on && !this.noteNames) {
             try {
                 // Same list the fingering diagrams use; data-index points into it
@@ -202,45 +224,110 @@ ${tones.join(' ')}|]
         }
         for (const el of notes) {
             let fits = false;
+            let changed = false;
             if (on) {
                 const name = this.noteNames[parseInt(el.getAttribute('data-index'), 10)];
-                fits = !!name && name !== 'rest' && this.scalePcs.has(ScaleRuler.pitchClass(name));
+                if (name && name !== 'rest') {
+                    const pc = ScaleRuler.pitchClass(name);
+                    const entry = this.entryAt(this.charOfNote.get(el));
+                    const pcs = entry ? entry.pcs : this.keyHome?.pcs;
+                    changed = !!entry && entry.added.has(pc);
+                    fits = !changed && !!pcs?.has(pc);
+                }
             }
             el.classList.toggle('scale-fit', fits);
+            el.classList.toggle('scale-changed', changed);
         }
     }
 
     /**
-     * Called after every render: reads the chords and key from the new score.
+     * Marks the chord symbols in the score: pink where the chord changes
+     * notes against the home, bold where a new home begins.
+     */
+    markScoreChords() {
+        document.querySelectorAll('#abc-notation .scale-chord-change, #abc-notation .scale-chord-home')
+            .forEach(el => el.classList.remove('scale-chord-change', 'scale-chord-home'));
+        if (!this.visible || !this.analysis) return;
+        const homeStarts = new Set(this.analysis.stretches.length > 1
+            ? this.analysis.stretches.map(st => st.start) : []);
+        this.chordTimeline.forEach((entry, i) => {
+            const el = this.noteAtChar.get(entry.startChar);
+            if (!el) return;
+            el.classList.toggle('scale-chord-change', entry.added.size > 0);
+            el.classList.toggle('scale-chord-home', homeStarts.has(i));
+        });
+    }
+
+    /**
+     * The chord entry sounding at a point of the ABC text.
+     * @param {number|undefined} char - Offset into the ABC text
+     * @returns {Object|null}
+     */
+    entryAt(char) {
+        if (typeof char !== 'number' || !this.chordTimeline.length) return null;
+        return this.chordTimeline[this.entryIndexAt(char)];
+    }
+
+    /** Index of the last chord entry at or before char (the first if none). */
+    entryIndexAt(char) {
+        let index = 0;
+        for (let i = 0; i < this.chordTimeline.length; i++) {
+            if (this.chordTimeline[i].startChar > char) break;
+            index = i;
+        }
+        return index;
+    }
+
+    /**
+     * Called after every render: reads the chords and key from the new score
+     * and splits it into home stretches.
      * @param {Object} visualObj - The abcjs visual object
      */
     onRender(visualObj) {
         this.chordTimeline = [];
+        this.analysis = null;
         this.currentChord = null;
+        this.entryIndex = -1;
         this.noteNames = null;
+        this.charOfNote = new Map();
+        this.noteAtChar = new Map();
         try {
             const abc = this.player.notationParser?.currentAbc || '';
             this.keyText = (/^K:\s*(.*)$/m.exec(abc)?.[1] || '').split('%')[0].trim();
-            this.keyPcs = ScaleAdvisor.keyPitchClasses(this.keyText);
+            this.keyHome = ScaleAdvisor.homeFromKey(this.keyText);
 
+            // Score SVG elements ↔ positions in the ABC text
             for (const line of visualObj?.lines || []) {
                 for (const staff of line.staff || []) {
-                    for (const el of (staff.voices?.[0] || [])) {
-                        const chord = el.chord?.find(c => c.position === 'default' && c.name)?.name
-                            || el.chord?.[0]?.name;
-                        if (chord && typeof el.startChar === 'number') {
-                            this.chordTimeline.push({ startChar: el.startChar, chord });
+                    for (const voice of staff.voices || []) {
+                        for (const el of voice) {
+                            if (typeof el.startChar !== 'number') continue;
+                            for (const svg of el.abselem?.elemset || []) {
+                                this.charOfNote.set(svg, el.startChar);
+                                if (!this.noteAtChar.has(el.startChar)) {
+                                    this.noteAtChar.set(el.startChar, svg);
+                                }
+                            }
                         }
                     }
                 }
             }
-            this.chordTimeline.sort((a, b) => a.startChar - b.startChar);
+
+            this.analysis = ScaleAdvisor.analyze(ScaleAdvisor.readChords(visualObj), this.keyText);
+            this.chordTimeline = this.analysis.entries.filter(e => e.suggestion);
+            for (const e of this.chordTimeline) e.pcs = new Set(e.suggestion.degrees.map(d => d.pc));
+            this.chordTimeline.forEach(e => {
+                e.home = this.analysis.stretches[e.stretch].home;
+            });
         } catch (error) {
             console.error('ScaleRuler: could not read chords:', error);
+            this.chordTimeline = [];
         }
         this.buildChordChips();
+        this.markScoreChords();
+        this.markFittingNotes();
         if (this.visible) {
-            this.showChord(this.chordTimeline[0]?.chord || this.keyChord());
+            this.showStart();
             this.centerOnRoot();
         }
     }
@@ -283,6 +370,11 @@ ${tones.join(' ')}|]
             chip.className = 'scale-ribbon-chord';
             chip.dataset.chord = chord;
             chip.textContent = chord;
+            // A chord that changes notes against its home gets a pink mark
+            const changes = [...new Set(this.chordTimeline
+                .filter(e => e.chord === chord && e.change).map(e => e.change))];
+            chip.classList.toggle('changes', changes.length > 0);
+            if (changes.length) chip.title = `${chord}: ${changes.join(', ')}`;
             this.chordsEl.appendChild(chip);
         }
     }
@@ -304,22 +396,54 @@ ${tones.join(' ')}|]
         if (!this.visible || !this.chordTimeline.length) return;
         const char = ev?.startCharArray?.[0];
         if (typeof char !== 'number') return;
-        let chord = this.chordTimeline[0].chord;
-        for (const entry of this.chordTimeline) {
-            if (entry.startChar > char) break;
-            chord = entry.chord;
-        }
-        this.showChord(chord);
+        this.showEntry(this.entryIndexAt(char));
     }
 
-    /** @param {string|null} chord - Chord symbol to show the scale of */
-    showChord(chord) {
-        if (!this.element || !chord || chord === this.currentChord) return;
-        const suggestion = ScaleAdvisor.suggest(chord, this.keyPcs);
+    /**
+     * A tapped chip: the chord where it occurs in the stretch on show, else
+     * its first occurrence.
+     * @param {string} chord - Chord symbol
+     */
+    showChordByName(chord) {
+        const stretch = this.chordTimeline[this.entryIndex]?.stretch;
+        let index = this.chordTimeline.findIndex(e => e.chord === chord && e.stretch === stretch);
+        if (index < 0) index = this.chordTimeline.findIndex(e => e.chord === chord);
+        if (index >= 0) this.showEntry(index, true);
+    }
+
+    /**
+     * Shows one chord of the tune against its home.
+     * @param {number} index - Index into chordTimeline
+     * @param {boolean} [force] - Repaint even if this chord is already on show
+     */
+    showEntry(index, force = false) {
+        const entry = this.chordTimeline[index];
+        if (!this.element || !entry) return;
+        if (!force && index === this.entryIndex) return;
+        this.entryIndex = index;
+        this.currentChord = entry.chord;
+        // Tunes loop, so the last chord leads back to the first
+        const next = this.chordTimeline[(index + 1) % this.chordTimeline.length];
+        this.ensureCells();
+        this.paint(entry, next === entry ? null : next);
+        this.markActiveChip();
+    }
+
+    /** A tune without chords: the key's home scale, tonic chord marked. */
+    showKeyScale() {
+        const chord = this.keyChord();
+        if (!this.element || !chord || !this.keyHome) return;
+        const suggestion = ScaleAdvisor.suggest(chord, this.keyHome.pcs);
         if (!suggestion) return;
         this.currentChord = chord;
         this.ensureCells();
-        this.paint(suggestion);
+        this.paint({
+            chord: null,
+            suggestion,
+            home: this.keyHome,
+            pcs: new Set(suggestion.degrees.map(d => d.pc)),
+            ...ScaleAdvisor.changes(suggestion, this.keyHome)
+        }, null);
         this.markActiveChip();
     }
 
@@ -377,28 +501,57 @@ ${tones.join(' ')}|]
         return (ScaleAdvisor.LETTER_PC[letter] + acc + 12) % 12;
     }
 
-    /** Lights the scale's notes and grays out the others. */
-    paint(suggestion) {
+    /**
+     * Lights the chord's scale and grays out the rest. Against the home:
+     * notes the chord brings in are pink, home notes it leaves out are
+     * struck through. Notes the next chord brings in get a dashed outline.
+     * @param {Object} entry - Analyzed chord: suggestion, home, pcs, added, dropped, change
+     * @param {Object|null} next - The chord after it
+     */
+    paint(entry, next) {
+        const { suggestion, home } = entry;
         const root = suggestion.degrees[0];
         this.titleEl.replaceChildren();
-        const scale = document.createElement('strong');
-        scale.textContent = `${ScaleAdvisor.label(root)} ${suggestion.scaleName}`;
-        const over = document.createElement('span');
-        over.textContent = ` over ${suggestion.chord}`;
-        this.titleEl.append(scale, over);
+        const homeEl = document.createElement('strong');
+        homeEl.textContent = home.name;
+        homeEl.title = 'Home scale of this part of the tune';
+        const line = document.createElement('span');
+        const scaleName = `${ScaleAdvisor.label(root)} ${suggestion.scaleName}`;
+        line.textContent = entry.chord ? `${entry.chord}: ${scaleName}` : 'no chords';
+        // Next to the home, where a narrow screen still shows it. Long lists
+        // (a chord far outside the home) read worse than the scale name
+        if (entry.change && entry.change.split(' ').length <= 3) {
+            const change = document.createElement('em');
+            change.className = 'scale-ribbon-change';
+            change.textContent = ` ${entry.change}`;
+            homeEl.append(change);
+        }
+        this.titleEl.append(homeEl, line);
 
         const byPc = new Map(suggestion.degrees.map(d => [d.pc, d]));
+        const homeByPc = new Map(home.degrees.map(d => [d.pc, d]));
+        const coming = new Set();
+        // Only the notes coming in: marking the ones going out as well
+        // doubles the outlines for one change
+        if (next) for (const pc of next.pcs) if (!entry.pcs.has(pc)) coming.add(pc);
         for (const { cell, label, pc } of this.cells) {
             const degree = byPc.get(pc);
+            const dropped = entry.dropped.has(pc);
+            const tone = !!degree && suggestion.chordTones.has(degree.interval);
             cell.classList.toggle('in-scale', !!degree);
-            cell.classList.toggle('chord-tone', !!degree && suggestion.chordTones.has(degree.interval));
+            cell.classList.toggle('chord-tone', tone);
+            // 3rds and 7ths say which chord it is: the notes to aim for in jazz
+            cell.classList.toggle('guide-tone', tone && [3, 4, 10, 11].includes(degree.interval));
             cell.classList.toggle('root', !!degree && degree.interval === 0);
-            label.textContent = degree ? ScaleAdvisor.label(degree) : '';
+            cell.classList.toggle('changed', entry.added.has(pc));
+            cell.classList.toggle('dropped', dropped);
+            cell.classList.toggle('coming', coming.has(pc));
+            label.textContent = degree ? ScaleAdvisor.label(degree)
+                : dropped ? ScaleAdvisor.label(homeByPc.get(pc)) : '';
         }
         this.frameOctave(root.pc);
         this.scalePcs = new Set(byPc.keys());
         this.suggestion = suggestion;
-        this.markFittingNotes();
         this.renderStaff();
     }
 

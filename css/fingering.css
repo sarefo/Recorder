@@ -283,11 +283,13 @@ body.mobile-controls-active.scale-ribbon-on:not(.mobile-bar-hidden):not(.mobile-
     display: block;
 }
 
-/* Chord strip centered on the page. The columns on both sides are equal:
-   the scale name is centered in the left one, the order button starts the right one */
+/* Chord strip centered on the page. The columns on both sides share what
+   is left: the scale name is centered in the left one, the order button
+   starts the right one. A long chord strip scrolls instead of squeezing
+   the home name or the buttons out */
 .scale-ribbon-header {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-columns: minmax(10em, 1fr) minmax(0, max-content) minmax(max-content, 1fr);
     align-items: center;
     gap: var(--space-1) var(--space-2);
 }
@@ -387,6 +389,10 @@ body.mobile-controls-active.scale-ribbon-on:not(.mobile-bar-hidden):not(.mobile-
         display: inline;
     }
 
+    .scale-ribbon-title > span::before {
+        content: ' · ';
+    }
+
     .scale-ribbon-chords {
         flex: 1 1 0;
     }
@@ -483,4 +489,62 @@ body.mobile-controls-active.scale-ribbon-on:not(.mobile-bar-hidden):not(.mobile-
 
 .scale-ribbon-cell.root .scale-ribbon-label {
     color: var(--color-primary);
+}
+
+/* 3rd and 7th of the chord: a thicker bar, the notes that define the chord */
+.scale-ribbon-cell.guide-tone {
+    box-shadow: inset 0 -5px 0 var(--color-primary);
+}
+
+/* A note the chord brings in that is not in the home scale */
+.scale-ribbon-cell.changed {
+    background: var(--color-scale-change-soft);
+    box-shadow: inset 0 0 0 2px var(--color-scale-change);
+}
+
+.scale-ribbon-cell.changed.chord-tone {
+    box-shadow: inset 0 0 0 2px var(--color-scale-change),
+                inset 0 -5px 0 var(--color-primary);
+}
+
+.scale-ribbon-cell.changed .scale-ribbon-label {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-scale-change);
+}
+
+/* A home note this chord leaves out: dim, its name struck through */
+.scale-ribbon-cell.dropped {
+    opacity: 0.45;
+}
+
+.scale-ribbon-cell.dropped .scale-ribbon-label {
+    color: var(--color-scale-change);
+    text-decoration: line-through;
+}
+
+/* Notes the next chord changes: a dashed outline as a heads-up */
+.scale-ribbon-cell.coming::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px dashed var(--color-scale-change);
+    border-radius: var(--radius-sm);
+    pointer-events: none;
+}
+
+/* A note coming in with the next chord shows a little clearer already */
+.scale-ribbon-cell.coming:not(.in-scale) {
+    opacity: 0.6;
+    filter: none;
+}
+
+/* Chord chips that change notes against the home: a pink underline */
+.scale-ribbon-chord.changes {
+    box-shadow: inset 0 -2px 0 var(--color-scale-change);
+}
+
+.scale-ribbon-change {
+    font-style: normal;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-scale-change);
 }
