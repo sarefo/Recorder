@@ -6823,6 +6823,12 @@
       "at": "2026-11-01T10:05:29.505Z",
       "percent": 100,
       "bpm": 132
+    },
+    {
+      "path": "film/anything goes.abc",
+      "at": "2026-11-01T10:10:06.410Z",
+      "percent": 100,
+      "bpm": 160
     }
   ],
   "settings": {}
