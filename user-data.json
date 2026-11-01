@@ -1466,8 +1466,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T11:05:56.869Z",
-      "playCount": 41,
+      "lastPlayed": "2026-11-01T10:38:44.552Z",
+      "playCount": 42,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "jamaican/banana boat song.abc": {
@@ -2815,6 +2815,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/tarantella napoletana.abc",
+      "timestamp": "2026-11-01T10:38:44.552Z"
+    },
+    {
       "filePath": "italian/bella ciao.abc",
       "timestamp": "2026-11-01T10:36:37.949Z"
     },
@@ -2889,10 +2893,6 @@
     {
       "filePath": "film/herbie's theme.abc",
       "timestamp": "2026-10-31T08:19:25.866Z"
-    },
-    {
-      "filePath": "classical/bach/badinerie.abc",
-      "timestamp": "2026-10-31T05:19:51.703Z"
     }
   ],
   "activity": {
@@ -3086,6 +3086,7 @@
       "film/anything goes.abc": 9,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "italian/bella ciao.abc": 5,
+      "italian/tarantella napoletana.abc": 2,
       "jamaican/banana boat song.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 1,
       "jazz/autumn leaves.abc": 2,
@@ -4079,6 +4080,16 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-24T12:17:45.112Z"
+      }
+    },
+    "italian/tarantella napoletana.abc": {
+      "8": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 16,
+        "transSeen": 6,
+        "count": 1,
+        "at": "2026-11-01T10:38:54.700Z"
       }
     },
     "jamaican/banana boat song.abc": {
@@ -5497,6 +5508,15 @@
       "at": "2026-10-24T12:17:35.109Z",
       "notes": {
         "3": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "italian/tarantella napoletana.abc": {
+      "at": "2026-11-01T10:38:44.696Z",
+      "notes": {
+        "8": {
           "state": "red",
           "pitch": "_B"
         }
