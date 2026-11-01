@@ -1457,8 +1457,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T10:20:26.622Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-01T10:36:37.949Z",
+      "playCount": 8,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T06:21:30.721Z"
     },
@@ -2816,7 +2816,7 @@
   "recentlyPlayed": [
     {
       "filePath": "italian/bella ciao.abc",
-      "timestamp": "2026-11-01T10:20:26.622Z"
+      "timestamp": "2026-11-01T10:36:37.949Z"
     },
     {
       "filePath": "classical/bach/air.abc",
@@ -3085,7 +3085,7 @@
       "austrian/es wird scho gleich dumpa.abc": 1,
       "film/anything goes.abc": 9,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
-      "italian/bella ciao.abc": 3,
+      "italian/bella ciao.abc": 5,
       "jamaican/banana boat song.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 1,
       "jazz/autumn leaves.abc": 2,
