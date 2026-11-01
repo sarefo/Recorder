@@ -917,6 +917,14 @@
       "playCount": 0,
       "createdAt": "2026-11-01T03:02:11.849Z"
     },
+    "film/singin in the rain.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-01T03:17:30.923Z"
+    },
     "film/tiersen/la valse d'amelie.abc": {
       "status": null,
       "favorite": false,
@@ -1687,8 +1695,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:02:29.219Z",
-      "playCount": 11,
+      "lastPlayed": "2026-11-01T03:17:32.423Z",
+      "playCount": 12,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -1696,8 +1704,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:16:25.619Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-01T03:17:34.956Z",
+      "playCount": 4,
       "createdAt": "2026-10-13T03:57:34.035Z",
       "updatedAt": "2026-11-01T03:16:56.776Z"
     },
@@ -2805,11 +2813,11 @@
   "recentlyPlayed": [
     {
       "filePath": "jazz/blue moon.abc",
-      "timestamp": "2026-11-01T03:16:25.619Z"
+      "timestamp": "2026-11-01T03:17:34.956Z"
     },
     {
       "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-11-01T03:02:29.219Z"
+      "timestamp": "2026-11-01T03:17:32.423Z"
     },
     {
       "filePath": "film/anything goes.abc",
@@ -3073,7 +3081,7 @@
     "2026-11-01": {
       "film/anything goes.abc": 7,
       "jazz/autumn leaves.abc": 2,
-      "jazz/blue moon.abc": 2
+      "jazz/blue moon.abc": 3
     }
   },
   "statusLog": [
