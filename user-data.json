@@ -2039,8 +2039,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-06T08:58:12.594Z",
-      "playCount": 14,
+      "lastPlayed": "2026-11-01T10:02:35.687Z",
+      "playCount": 15,
       "createdAt": "2026-08-01T05:59:20.044Z"
     },
     "philippine/dandansoy.abc": {
@@ -2813,6 +2813,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "philippine/bahay kubo.abc",
+      "timestamp": "2026-11-01T10:02:35.687Z"
+    },
+    {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-11-01T04:32:28.287Z"
     },
@@ -2887,10 +2891,6 @@
     {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-10-31T05:03:01.052Z"
-    },
-    {
-      "filePath": "german/es ist ein schnitter.abc",
-      "timestamp": "2026-10-31T05:00:59.243Z"
     }
   ],
   "activity": {
