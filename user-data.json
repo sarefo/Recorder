@@ -1688,8 +1688,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T08:10:19.063Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-01T10:41:31.558Z",
+      "playCount": 8,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T05:41:31.969Z"
     },
@@ -2816,6 +2816,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/all of me.abc",
+      "timestamp": "2026-11-01T10:41:31.558Z"
+    },
+    {
       "filePath": "italian/tarantella napoletana.abc",
       "timestamp": "2026-11-01T10:38:44.552Z"
     },
@@ -2890,10 +2894,6 @@
     {
       "filePath": "philippine/pamulinawen.abc",
       "timestamp": "2026-10-31T08:21:40.984Z"
-    },
-    {
-      "filePath": "film/herbie's theme.abc",
-      "timestamp": "2026-10-31T08:19:25.866Z"
     }
   ],
   "activity": {
@@ -3090,6 +3090,7 @@
       "italian/tarantella napoletana.abc": 2,
       "jamaican/banana boat song.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 1,
+      "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 2,
       "jazz/blue moon.abc": 3,
       "jazz/girl from ipanema.abc": 2,
