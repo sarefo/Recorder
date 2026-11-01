@@ -1737,8 +1737,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:46:44.157Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-01T04:30:45.767Z",
+      "playCount": 6,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-01T03:42:21.250Z"
     },
@@ -2632,8 +2632,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-18T06:39:33.327Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-01T04:30:47.566Z",
+      "playCount": 9,
       "createdAt": "2026-08-31T03:23:32.148Z"
     },
     "trinidadian/matilda.abc": {
@@ -2812,12 +2812,16 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
-      "filePath": "jazz/the way you look tonight.abc",
-      "timestamp": "2026-11-01T04:18:37.875Z"
+      "filePath": "trinidadian/jump in the line.abc",
+      "timestamp": "2026-11-01T04:30:47.566Z"
     },
     {
       "filePath": "jazz/girl from ipanema.abc",
-      "timestamp": "2026-11-01T03:46:44.157Z"
+      "timestamp": "2026-11-01T04:30:45.767Z"
+    },
+    {
+      "filePath": "jazz/the way you look tonight.abc",
+      "timestamp": "2026-11-01T04:18:37.875Z"
     },
     {
       "filePath": "jazz/sweet georgia brown.abc",
@@ -2886,10 +2890,6 @@
     {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-10-31T05:00:59.243Z"
-    },
-    {
-      "filePath": "german/ach bittrer winter.abc",
-      "timestamp": "2026-10-31T04:59:29.081Z"
     }
   ],
   "activity": {
@@ -3085,7 +3085,8 @@
       "jazz/girl from ipanema.abc": 2,
       "jazz/night and day.abc": 1,
       "jazz/summertime.abc": 1,
-      "jazz/the way you look tonight.abc": 4
+      "jazz/the way you look tonight.abc": 4,
+      "trinidadian/jump in the line.abc": 1
     }
   },
   "statusLog": [
