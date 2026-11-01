@@ -270,7 +270,7 @@ class AbcFileList {
                 "name": "10. Aus tiefer Not schrei ich zu dir",
                 "file": "classical/bach/tiefer_not.abc",
                 "category": "classical/bach",
-                "hash": "247b520b77"
+                "hash": "28b8d81028"
         },
         {
                 "name": "100. Durch Adams Fall ist ganz verderbt",
@@ -288,7 +288,7 @@ class AbcFileList {
                 "name": "Badinerie",
                 "file": "classical/bach/badinerie.abc",
                 "category": "classical/bach",
-                "hash": "95ef2e9c52"
+                "hash": "a2ec6d3e7d"
         },
         {
                 "name": "Minuet in G Major",
@@ -786,7 +786,7 @@ class AbcFileList {
                 "name": "Ach bittrer Winter",
                 "file": "german/ach bittrer winter.abc",
                 "category": "german",
-                "hash": "a31782bed8"
+                "hash": "469a9bcccb"
         },
         {
                 "name": "Es freit ein wilder Wassermann",
@@ -954,7 +954,7 @@ class AbcFileList {
                 "name": "Dodi Li",
                 "file": "israeli/dodi li.abc",
                 "category": "israeli",
-                "hash": "f4ceb59607"
+                "hash": "612a0fe09a"
         },
         {
                 "name": "Erev Shel Shoshanim",
@@ -1536,7 +1536,7 @@ class AbcFileList {
                 "name": "The Final Countdown",
                 "file": "pop/final_countdown.abc",
                 "category": "pop",
-                "hash": "7242c95d1d"
+                "hash": "07ea84bc5a"
         },
         {
                 "name": "Top of the world",
