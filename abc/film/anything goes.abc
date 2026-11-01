@@ -1,0 +1,24 @@
+X:1
+T:Anything Goes
+C:Cole Porter, 1934
+O:Indiana Jones and the Temple of Doom (1984), opening number
+N:Title song of the 1934 musical; sung by Kate Capshaw over the opening
+N:credits of the film. Refrain only (AABA, 32 bars), lyrics left out.
+N:Melody from the French-horn line of a ragtime MIDI arrangement in C
+N:(hamienet.com track 2659), cross-checked against a guitar-book ABC in G
+N:(SPUDS tuneswap X:23) and a big-band MIDI (hamienet 352320144290334).
+N:The guitar book holds bar 2 of the bridge on B; both MIDIs climb a step
+N:there (B C# D D#), which is followed here. Chords from the ragtime
+N:piano and bass. "An-y-thing" is played straight, not dotted.
+M:4/4
+Q:1/4=160
+L:1/8
+K:C
+G2 |"C" G2 A2 E2 G2 | A2 GA2G E2 | GA2E G2Ac- |cA c2 "C7"d2 e2 |
+"F6" d8- |"Fm6" d2 z2 cc c2 |"C" c8- | c2 z2 "G7" z2 G2 |
+"C" G2 A2 E2 G2 | A2 GA2G E2 | GA2E G2Ac- |cA c2 "C7"d2 e2 |
+"F6" d8- |"Fm6" d2 z2 cc c2 |"C" c8- | c2 "B7" BB2B B2 ||
+"E" B2 BB2B B2 |"B7" ^c2 BB2B B2 |"E7" d2 BB2B B2 |"B7" ^d2 BB2B B2 |
+"Em" e2 B B2 ^AB^A | B2 EE2^D E2 |"C#dim" EE "B7"^D2 "C#dim"E2 "G7"G2- | G4 z2 G2 ||
+"C" G2 A2 E2 G2 | A2 GA2G E2 | GA2E G2Ac- |cA c2 "C7"d2 e2 |
+"F6" d8- |"Dm7" d2 z2 ed c2 |"C" c8- | c6 |]

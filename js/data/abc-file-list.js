@@ -627,6 +627,12 @@ class AbcFileList {
                 "hash": "72b60af132"
         },
         {
+                "name": "Anything Goes",
+                "file": "film/anything goes.abc",
+                "category": "film",
+                "hash": "e9c952a23d"
+        },
+        {
                 "name": "Herbie's Theme",
                 "file": "film/herbie's theme.abc",
                 "category": "film",
@@ -1536,7 +1542,7 @@ class AbcFileList {
                 "name": "The Final Countdown",
                 "file": "pop/final_countdown.abc",
                 "category": "pop",
-                "hash": "07ea84bc5a"
+                "hash": "decde8758e"
         },
         {
                 "name": "Top of the world",
