@@ -376,8 +376,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T04:01:09.783Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-01T10:20:24.583Z",
+      "playCount": 2,
       "createdAt": "2026-10-28T04:01:03.232Z",
       "updatedAt": "2026-10-28T04:04:43.513Z"
     },
@@ -1457,8 +1457,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-22T06:15:36.720Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-01T10:20:26.622Z",
+      "playCount": 7,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T06:21:30.721Z"
     },
@@ -2815,6 +2815,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/bella ciao.abc",
+      "timestamp": "2026-11-01T10:20:26.622Z"
+    },
+    {
+      "filePath": "classical/bach/air.abc",
+      "timestamp": "2026-11-01T10:20:24.583Z"
+    },
+    {
       "filePath": "austrian/es wird scho gleich dumpa.abc",
       "timestamp": "2026-11-01T10:18:59.534Z"
     },
@@ -2885,14 +2893,6 @@
     {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-10-31T05:19:51.703Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-10-31T05:12:41.885Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-10-31T05:11:14.455Z"
     }
   ],
   "activity": {
@@ -3085,6 +3085,7 @@
       "austrian/es wird scho gleich dumpa.abc": 1,
       "film/anything goes.abc": 9,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
+      "italian/bella ciao.abc": 2,
       "jamaican/banana boat song.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 1,
       "jazz/autumn leaves.abc": 2,
@@ -5170,6 +5171,15 @@
           "pitch": "_E"
         },
         "14": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "classical/bach/air.abc": {
+      "at": "2026-11-01T10:20:24.743Z",
+      "notes": {
+        "3": {
           "state": "red",
           "pitch": "_B"
         }
