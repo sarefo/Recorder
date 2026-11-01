@@ -1463,12 +1463,13 @@
       "updatedAt": "2026-10-22T06:21:30.721Z"
     },
     "italian/tarantella napoletana.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-01T10:38:44.552Z",
       "playCount": 42,
-      "createdAt": "2026-01-18T20:46:38.366Z"
+      "createdAt": "2026-01-18T20:46:38.366Z",
+      "updatedAt": "2026-11-01T10:41:02.824Z"
     },
     "jamaican/banana boat song.abc": {
       "status": "good",
@@ -3495,6 +3496,11 @@
       "path": "jamaican/banana boat song.abc",
       "status": "good",
       "at": "2026-11-01T10:15:51.983Z"
+    },
+    {
+      "path": "italian/tarantella napoletana.abc",
+      "status": "good",
+      "at": "2026-11-01T10:41:02.824Z"
     }
   ],
   "marks": {
