@@ -1770,8 +1770,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-01T03:20:04.514Z",
+      "playCount": 1,
       "createdAt": "2026-10-13T03:57:34.036Z"
     },
     "jazz/sweet georgia brown.abc": {
@@ -2812,6 +2812,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/summertime.abc",
+      "timestamp": "2026-11-01T03:20:04.514Z"
+    },
+    {
       "filePath": "jazz/blue moon.abc",
       "timestamp": "2026-11-01T03:17:34.956Z"
     },
@@ -2886,10 +2890,6 @@
     {
       "filePath": "classical/bach/tiefer_not.abc",
       "timestamp": "2026-10-30T04:50:10.625Z"
-    },
-    {
-      "filePath": "cajun/madame sosthene.abc",
-      "timestamp": "2026-10-30T02:52:47.923Z"
     }
   ],
   "activity": {
@@ -3081,7 +3081,8 @@
     "2026-11-01": {
       "film/anything goes.abc": 7,
       "jazz/autumn leaves.abc": 2,
-      "jazz/blue moon.abc": 3
+      "jazz/blue moon.abc": 3,
+      "jazz/summertime.abc": 1
     }
   },
   "statusLog": [
@@ -6560,6 +6561,12 @@
       "at": "2026-11-01T03:08:35.195Z",
       "percent": 100,
       "bpm": 150
+    },
+    {
+      "path": "jazz/blue moon.abc",
+      "at": "2026-11-01T03:19:53.033Z",
+      "percent": 100,
+      "bpm": 120
     }
   ],
   "settings": {}
