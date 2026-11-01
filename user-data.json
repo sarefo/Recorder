@@ -1696,8 +1696,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T12:30:50.287Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-01T03:08:44.318Z",
+      "playCount": 2,
       "createdAt": "2026-10-13T03:57:34.035Z",
       "updatedAt": "2026-10-24T12:32:14.480Z"
     },
@@ -2804,6 +2804,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/blue moon.abc",
+      "timestamp": "2026-11-01T03:08:44.318Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-01T03:02:29.219Z"
     },
@@ -2878,10 +2882,6 @@
     {
       "filePath": "cajun/madame sosthene.abc",
       "timestamp": "2026-10-30T02:52:47.923Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-10-30T02:51:26.864Z"
     }
   ],
   "activity": {
@@ -3072,7 +3072,8 @@
     },
     "2026-11-01": {
       "film/anything goes.abc": 7,
-      "jazz/autumn leaves.abc": 2
+      "jazz/autumn leaves.abc": 2,
+      "jazz/blue moon.abc": 1
     }
   },
   "statusLog": [
@@ -6540,6 +6541,12 @@
       "at": "2026-11-01T03:02:18.299Z",
       "percent": 100,
       "bpm": 160
+    },
+    {
+      "path": "jazz/autumn leaves.abc",
+      "at": "2026-11-01T03:08:35.195Z",
+      "percent": 100,
+      "bpm": 150
     }
   ],
   "settings": {}
