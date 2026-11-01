@@ -1792,13 +1792,13 @@
       "createdAt": "2026-10-13T03:57:34.036Z"
     },
     "jazz/the way you look tonight.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-01T04:18:37.875Z",
       "playCount": 2,
       "createdAt": "2026-10-13T03:57:34.036Z",
-      "updatedAt": "2026-10-24T12:30:45.489Z"
+      "updatedAt": "2026-11-01T04:24:22.969Z"
     },
     "kazakh/mayila.abc": {
       "status": null,
@@ -3463,6 +3463,11 @@
       "path": "jazz/girl from ipanema.abc",
       "status": "practicing",
       "at": "2026-11-01T03:42:21.250Z"
+    },
+    {
+      "path": "jazz/the way you look tonight.abc",
+      "status": "practicing",
+      "at": "2026-11-01T04:24:22.969Z"
     }
   ],
   "marks": {
@@ -4447,6 +4452,22 @@
         "count": 1,
         "at": "2026-10-24T12:27:17.326Z"
       },
+      "46": {
+        "pitch": "_e",
+        "prev": "c",
+        "pitchSeen": 6,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-01T04:25:04.986Z"
+      },
+      "47": {
+        "pitch": "_d",
+        "prev": "_e",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-01T04:24:58.924Z"
+      },
       "53": {
         "pitch": "_A",
         "prev": "c",
@@ -4454,6 +4475,14 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-11-01T04:22:34.604Z"
+      },
+      "56": {
+        "pitch": "_A",
+        "prev": "G",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-01T04:25:18.573Z"
       },
       "60": {
         "pitch": "_e",
@@ -5719,13 +5748,25 @@
       }
     },
     "jazz/the way you look tonight.abc": {
-      "at": "2026-11-01T04:22:42.208Z",
+      "at": "2026-11-01T04:25:08.559Z",
       "notes": {
         "4": {
           "state": "red",
           "pitch": "_B"
         },
+        "46": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "47": {
+          "state": "red",
+          "pitch": "_d"
+        },
         "53": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "56": {
           "state": "red",
           "pitch": "_A"
         },
