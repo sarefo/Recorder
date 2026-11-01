@@ -555,6 +555,12 @@ class AbcFileList {
                 "hash": "614efb6cd7"
         },
         {
+                "name": "Galop Infernal",
+                "file": "classical/offenbach/galop infernal.abc",
+                "category": "classical/offenbach",
+                "hash": "89a7f13304"
+        },
+        {
                 "name": "Die Forelle",
                 "file": "classical/schubert/forelle.abc",
                 "category": "classical/schubert",

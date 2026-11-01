@@ -1,0 +1,19 @@
+X:1
+T:Galop Infernal
+C:Jacques Offenbach, 1858
+O:Orpheus in the Underworld (Orphee aux enfers), the Can-Can
+N:Pitches and rhythm from two matching ABC transcriptions (J. Chambers,
+N:trillian.mit.edu; T. Traub, terrytraub.org), checked against a sequenced
+N:MIDI arrangement (hamienet.com track 79379). Grace notes left out.
+N:The ABC files agree on the tune's own octave, which fits the recorder;
+N:the MIDI doubles the B strain an octave up. Second ending of strain A
+N:follows the ABC files (the MIDI plays F E F E D D D2 there).
+M:2/4
+Q:1/4=150
+L:1/8
+K:D
+A4 | A4 | A2 A2 | A2 A2 ||
+|: AEEF | EDDF | GBdB | BA A2 | BCCB | ADDF |1 FEFE | FEFE :|2 E2 FE | ED D2 ||
+|: f2 d2 | B2 A2 | AEFG | FE D2 | f2 d2 | B2 A2 |1 ^GABc | ed d2 :|2 ^GABc ||
+dAcA | dAcA | dAcA | dAcA | d>d d>d | d>d d>d | d>d d>d | d>d d>d ||
+|: G4 | A=cBA | d2 d2 | de B=c | A2 A2 | A=cBA |1 Ggfe | d=cBA :|2 GdAB | G4 |]

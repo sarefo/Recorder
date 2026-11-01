@@ -95,6 +95,7 @@ class AbcNoteIndex {
         "classical/chopin/valse in a minor.abc": [62,67,69,70,72,73,74,75,76,77,79,81],
         "classical/chopin/valse op 69 no 2.abc": [60,61,62,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,81],
         "classical/dowland/pavane lachrimae.abc": [62,64,65,67,69,70,71,72,73,74,75,76,77],
+        "classical/offenbach/galop infernal.abc": [61,62,64,66,67,68,69,71,72,73,74,76,78,79],
         "classical/schubert/forelle.abc": [66,67,69,71,72,74,76,77],
         "classical/schubert/impromptus/impromptus 1.abc": [62,63,64,65,66,67,68,69,71,73],
         "classical/shostakovich/waltz 2.abc": [60,64,65,67,68,70,71,72,73,75,76,77,78,79,80,82,83,84,85,86,87,88,89,90,91,92,94,96],
