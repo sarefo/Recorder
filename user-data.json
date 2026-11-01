@@ -4332,6 +4332,14 @@
       }
     },
     "jazz/night and day.abc": {
+      "5": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 7,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-11-01T03:28:26.327Z"
+      },
       "7": {
         "pitch": "^G",
         "prev": "A",
@@ -4339,6 +4347,14 @@
         "transSeen": 4,
         "count": 1,
         "at": "2026-11-01T03:27:20.380Z"
+      },
+      "30": {
+        "pitch": "_A",
+        "prev": "A",
+        "pitchSeen": 11,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-01T03:28:46.162Z"
       }
     },
     "jazz/sweet georgia brown.abc": {
@@ -5558,11 +5574,19 @@
       }
     },
     "jazz/night and day.abc": {
-      "at": "2026-11-01T03:27:10.374Z",
+      "at": "2026-11-01T03:28:36.159Z",
       "notes": {
+        "5": {
+          "state": "red",
+          "pitch": "_B"
+        },
         "7": {
           "state": "red",
           "pitch": "^G"
+        },
+        "30": {
+          "state": "red",
+          "pitch": "_A"
         }
       }
     },
