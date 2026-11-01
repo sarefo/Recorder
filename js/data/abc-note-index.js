@@ -115,6 +115,7 @@ class AbcNoteIndex {
         "film/hisaishi/mononoke.abc": [62,65,67,69,72,74],
         "film/hisaishi/summer.abc": [60,64,65,67,69,70,72,74],
         "film/lets call the whole thing off.abc": [62,64,66,67,69,71,72,73,74,76],
+        "film/singin in the rain.abc": [60,62,64,65,67,69,72],
         "film/tiersen/la valse d'amelie.abc": [64,69,71,72,74,76],
         "finnish/ievan_polkka.abc": [64,67,69,71,72,74,76],
         "finnish/maamme.abc": [61,62,64,66,68,69,71,73],

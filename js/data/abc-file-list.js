@@ -657,6 +657,12 @@ class AbcFileList {
                 "hash": "d62ea20e35"
         },
         {
+                "name": "Singin' in the Rain",
+                "file": "film/singin in the rain.abc",
+                "category": "film",
+                "hash": "310c4a0146"
+        },
+        {
                 "name": "A Town with an Ocean view",
                 "file": "film/hisaishi/kiki_town.abc",
                 "category": "film/hisaishi",
