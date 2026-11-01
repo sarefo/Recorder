@@ -1162,8 +1162,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-31T08:25:23.293Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-01T10:17:11.678Z",
+      "playCount": 6,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-26T04:37:50.809Z"
     },
@@ -2815,6 +2815,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "timestamp": "2026-11-01T10:17:11.678Z"
+    },
+    {
       "filePath": "japanese/ureshii hinamatsuri.abc",
       "timestamp": "2026-11-01T10:15:56.875Z"
     },
@@ -2865,10 +2869,6 @@
     {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-01T03:17:32.423Z"
-    },
-    {
-      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
-      "timestamp": "2026-10-31T08:25:23.293Z"
     },
     {
       "filePath": "philippine/pamulinawen.abc",
@@ -3083,6 +3083,7 @@
     },
     "2026-11-01": {
       "film/anything goes.abc": 9,
+      "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "jamaican/banana boat song.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 1,
       "jazz/autumn leaves.abc": 2,
