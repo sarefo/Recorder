@@ -3085,7 +3085,7 @@
       "jazz/girl from ipanema.abc": 2,
       "jazz/night and day.abc": 1,
       "jazz/summertime.abc": 1,
-      "jazz/the way you look tonight.abc": 2
+      "jazz/the way you look tonight.abc": 3
     }
   },
   "statusLog": [
@@ -4447,6 +4447,22 @@
         "count": 1,
         "at": "2026-10-24T12:27:17.326Z"
       },
+      "53": {
+        "pitch": "_A",
+        "prev": "c",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-01T04:22:34.604Z"
+      },
+      "60": {
+        "pitch": "_e",
+        "prev": null,
+        "pitchSeen": 6,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-01T04:22:50.139Z"
+      },
       "62": {
         "pitch": "_e",
         "prev": "_e",
@@ -5703,13 +5719,17 @@
       }
     },
     "jazz/the way you look tonight.abc": {
-      "at": "2026-10-24T12:28:01.123Z",
+      "at": "2026-11-01T04:22:42.208Z",
       "notes": {
         "4": {
           "state": "red",
           "pitch": "_B"
         },
-        "62": {
+        "53": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "60": {
           "state": "red",
           "pitch": "_e"
         }
