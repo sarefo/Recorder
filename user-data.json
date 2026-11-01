@@ -4330,6 +4330,22 @@
         "transSeen": 8,
         "count": 1,
         "at": "2026-10-24T12:25:30.706Z"
+      },
+      "57": {
+        "pitch": "^A",
+        "prev": null,
+        "pitchSeen": 4,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-01T03:31:40.075Z"
+      },
+      "62": {
+        "pitch": "^G",
+        "prev": "^A",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-01T03:31:43.290Z"
       }
     },
     "jazz/night and day.abc": {
@@ -5566,11 +5582,19 @@
       }
     },
     "jazz/girl from ipanema.abc": {
-      "at": "2026-10-24T12:25:20.700Z",
+      "at": "2026-11-01T03:31:33.284Z",
       "notes": {
         "2": {
           "state": "red",
           "pitch": "^F"
+        },
+        "57": {
+          "state": "red",
+          "pitch": "^A"
+        },
+        "62": {
+          "state": "red",
+          "pitch": "^G"
         }
       }
     },
