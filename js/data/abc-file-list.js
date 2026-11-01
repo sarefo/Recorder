@@ -1056,7 +1056,7 @@ class AbcFileList {
                 "name": "Bella Ciao",
                 "file": "italian/bella ciao.abc",
                 "category": "italian",
-                "hash": "3155914bd2"
+                "hash": "00c769be51"
         },
         {
                 "name": "Tarantella Napoletana",
