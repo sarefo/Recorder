@@ -1224,7 +1224,7 @@ class AbcFileList {
                 "name": "Blue Moon",
                 "file": "jazz/blue moon.abc",
                 "category": "jazz",
-                "hash": "ff30729c1d"
+                "hash": "f984d8e4bc"
         },
         {
                 "name": "Bye Bye Blackbird",
