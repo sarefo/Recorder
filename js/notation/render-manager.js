@@ -45,7 +45,7 @@ class RenderManager {
                     this.player.midiPlayer.isFirstPlay = true;
                 }
 
-                // The key-signature highlight toggle is per tune, default off
+                // The key-signature highlight toggle is per tune, default on
                 this.player.keySignatureHighlighter?.reset();
             }
 

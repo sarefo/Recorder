@@ -206,7 +206,7 @@ class AbcNoteIndex {
         "japanese/yuuhi.abc": [62,67,69,70,72,74],
         "jazz/all of me.abc": [62,63,64,65,67,68,69,70,71,72,74,76],
         "jazz/autumn leaves.abc": [62,63,64,65,66,67,69,70,72,73,74,75,77],
-        "jazz/blue moon.abc": [61,62,63,65,67,68,70,72],
+        "jazz/blue moon.abc": [65,66,67,69,71,72,74,76],
         "jazz/bye bye blackbird.abc": [62,64,65,66,67,69,70,72],
         "jazz/days of wine and roses.abc": [60,61,62,64,65,67,69,70,72,74,76],
         "jazz/embraceable you.abc": [60,62,64,65,67,69,70,71,72,73],

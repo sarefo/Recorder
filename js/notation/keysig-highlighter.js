@@ -1,8 +1,8 @@
 /**
  * Highlights the notes that the key signature silently alters — e.g. with
  * one sharp, every printed F sounds as F# without showing an accidental.
- * Toggled by tapping the key signature at the start of a line; off by
- * default and reset when a different tune is loaded.
+ * Toggled by tapping the key signature at the start of a line; on by
+ * default and reset to on when a different tune is loaded.
  *
  * Turning it on also marks the first occurrence of each altered pitch red,
  * so its fingering diagram shows in 'marked' fingering mode; turning it
@@ -13,7 +13,8 @@ class KeySignatureHighlighter {
 
     constructor(player) {
         this.player = player;
-        this.enabled = false;
+        this.enabled = true;
+        this.pendingAutoMark = true;
         // Note indices this highlighter marked red, so toggling off only
         // clears its own marks
         this.markedIndices = new Set();
@@ -23,7 +24,8 @@ class KeySignatureHighlighter {
      * Forgets the toggle state (called when a different tune is loaded)
      */
     reset() {
-        this.enabled = false;
+        this.enabled = true;
+        this.pendingAutoMark = true;
         this.markedIndices.clear();
     }
 
@@ -45,6 +47,12 @@ class KeySignatureHighlighter {
         });
 
         this.apply();
+
+        // Freshly loaded tune: marker zones now exist, so add the red marks
+        if (this.pendingAutoMark) {
+            this.pendingAutoMark = false;
+            if (this.enabled) this.markFirstOccurrences();
+        }
     }
 
     /**
