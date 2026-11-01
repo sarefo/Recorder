@@ -1471,12 +1471,13 @@
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "jamaican/banana boat song.abc": {
-      "status": null,
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-01T10:10:24.095Z",
       "playCount": 18,
-      "createdAt": "2026-08-01T08:54:31.908Z"
+      "createdAt": "2026-08-01T08:54:31.908Z",
+      "updatedAt": "2026-11-01T10:15:51.983Z"
     },
     "japanese/akai kutsu.abc": {
       "status": "practicing",
@@ -1668,8 +1669,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T05:31:33.533Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-01T10:15:56.875Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:32:11.017Z"
     },
@@ -2814,6 +2815,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/ureshii hinamatsuri.abc",
+      "timestamp": "2026-11-01T10:15:56.875Z"
+    },
+    {
       "filePath": "jamaican/banana boat song.abc",
       "timestamp": "2026-11-01T10:10:24.095Z"
     },
@@ -2888,10 +2893,6 @@
     {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-10-31T05:06:29.511Z"
-    },
-    {
-      "filePath": "german/maria durch ein dornwald ging.abc",
-      "timestamp": "2026-10-31T05:03:01.052Z"
     }
   ],
   "activity": {
@@ -3083,6 +3084,7 @@
     "2026-11-01": {
       "film/anything goes.abc": 9,
       "jamaican/banana boat song.abc": 1,
+      "japanese/ureshii hinamatsuri.abc": 1,
       "jazz/autumn leaves.abc": 2,
       "jazz/blue moon.abc": 3,
       "jazz/girl from ipanema.abc": 2,
@@ -3484,6 +3486,11 @@
       "path": "philippine/bahay kubo.abc",
       "status": "good",
       "at": "2026-11-01T10:05:28.377Z"
+    },
+    {
+      "path": "jamaican/banana boat song.abc",
+      "status": "good",
+      "at": "2026-11-01T10:15:51.983Z"
     }
   ],
   "marks": {
@@ -4237,6 +4244,16 @@
         "transSeen": 3,
         "count": 1,
         "at": "2026-10-25T05:30:47.780Z"
+      }
+    },
+    "japanese/ureshii hinamatsuri.abc": {
+      "7": {
+        "pitch": "_B",
+        "prev": "d",
+        "pitchSeen": 6,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-01T10:16:06.992Z"
       }
     },
     "japanese/yuuhi.abc": {
@@ -5596,11 +5613,11 @@
       }
     },
     "japanese/ureshii hinamatsuri.abc": {
-      "at": "2026-10-25T05:31:36.277Z",
+      "at": "2026-11-01T10:15:56.987Z",
       "notes": {
         "7": {
           "state": "red",
-          "pitch": "_A"
+          "pitch": "_B"
         },
         "14": {
           "state": "red",
@@ -6830,6 +6847,24 @@
       "at": "2026-11-01T10:10:06.410Z",
       "percent": 100,
       "bpm": 160
+    },
+    {
+      "path": "jamaican/banana boat song.abc",
+      "at": "2026-11-01T10:15:53.230Z",
+      "percent": 100,
+      "bpm": 120
+    },
+    {
+      "path": "jamaican/banana boat song.abc",
+      "at": "2026-11-01T10:15:55.159Z",
+      "percent": 100,
+      "bpm": 120
+    },
+    {
+      "path": "jamaican/banana boat song.abc",
+      "at": "2026-11-01T10:15:55.343Z",
+      "percent": 100,
+      "bpm": 120
     }
   ],
   "settings": {}
