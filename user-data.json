@@ -1693,13 +1693,13 @@
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
     "jazz/blue moon.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:08:44.318Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-01T03:16:25.619Z",
+      "playCount": 3,
       "createdAt": "2026-10-13T03:57:34.035Z",
-      "updatedAt": "2026-10-24T12:32:14.480Z"
+      "updatedAt": "2026-11-01T03:16:56.776Z"
     },
     "jazz/bye bye blackbird.abc": {
       "status": null,
@@ -2805,7 +2805,7 @@
   "recentlyPlayed": [
     {
       "filePath": "jazz/blue moon.abc",
-      "timestamp": "2026-11-01T03:08:44.318Z"
+      "timestamp": "2026-11-01T03:16:25.619Z"
     },
     {
       "filePath": "jazz/autumn leaves.abc",
@@ -3441,6 +3441,11 @@
       "path": "film/anything goes.abc",
       "status": "good",
       "at": "2026-11-01T02:19:13.542Z"
+    },
+    {
+      "path": "jazz/blue moon.abc",
+      "status": "practicing",
+      "at": "2026-11-01T03:16:56.776Z"
     }
   ],
   "marks": {
