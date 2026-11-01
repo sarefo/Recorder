@@ -1,0 +1,23 @@
+X:1
+T:Let's Call the Whole Thing Off
+C:George Gershwin, 1937
+O:Shall We Dance (1937), Fred Astaire and Ginger Rogers
+N:Lyrics by Ira Gershwin. Melody taken from the horn line of a sequenced
+N:MIDI arrangement (hamienet.com track 12091, a second channel doubles it),
+N:one chorus with its tag. The arrangement varies the rhythm of the second
+N:and third "A" sections slightly; those variants are kept as played.
+N:Chords simplified from the arrangement's piano and bass. Single source,
+N:not cross-checked against a second transcription.
+M:4/4
+Q:1/4=132
+L:1/8
+K:G
+"G"G2 E F2 F2"Em" E |"Am7"G2 A B2"D7" B3 |"G"G2 E F2 F2"Em" E |"Am7"G2 A B2"D7" B3 |
+"G"d G3 d"G7" G3 |"C"d G3 d"Cm" G3 |"G"d2 c3/2 B/"Em" A2 G2 |"Am7"A4-"D7" A4 |
+"G"G G2 E F F2"Em" E |"Am7"G G2 A B B3 |"G"G G2 E F F2"Em" E |"Am7"G G2 A B B2"D7" B |
+"G"d G2 G d G2 G |"C"d G2 G d"Cm" G3 |"G"d2 c3/2 B/"Em" A2 G2 |"G"G6"D7" G2 |
+"Em"e8 |"D"d3/2 ^c/ B3/2 ^c/ d2 d2 |"Bm"B2 B2"Am" c2 c2 |"Am"A6"E7" E2 |
+"Em"e8 |"D"d3/2 ^c/ B3/2 ^c/ d2 d2 |"Bm"B2 B2"Am" c2 c2 |"Am"A6"D7" D3/2 D/ |
+"G"G G2 E F F2"Em" E |"Am7"G G2 A B B3 |"G"G G2 E F F2"Em" E |"Am7"G G2 A B B3 |
+"G"d G3 d"G7" G3 |"C"d3/2 d/ G3/2 G/"Cm" d G3 |"G"d3/2 d/ c3/2 B/ c3/2 B/"Em" A2 |"G"B4-"D7" B4 |
+"Em"e2 d3/2 c/"Am7" B2 A2 |"G"G8 |]
