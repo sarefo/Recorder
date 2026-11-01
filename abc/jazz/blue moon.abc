@@ -7,12 +7,12 @@ N:eighths so the loop pays back the pickup.
 M:4/4
 Q:1/4=120
 L:1/8
-K:Eb
-B2 || "Eb6"B4- "Cm7"B4- | "Fm7"BABc "Bb7"BBAB- | "Eb6"B4- "Cm7"B4- |
-"Fm7"BFGA "Bb7"GGFG- | "Eb6"G4- "C7"G4- | "Fm7"GEFG "Bb7"EEEE- | "Eb6"E8- | E4 z2B2 ||
-"Eb6"B4- "Cm7"B4- | "Fm7"BABc "Bb7"BBAB- | "Eb6"BB3- "Cm7"B4- |
-"Fm7"BFGA "Bb7"GGFG- | "Eb6"GG3- "C7"G4- | "Fm7"GEFG "Bb7"EEEE- | "Eb6"EE3- "Abm6"E4- | "Eb6"E4 "C7"zEEE ||
-"Fm7"FFFF "Bb7"G2G2 | "Eb6"EE3- EEEE | "Fm7"FFFF "Bb7"G2G2 |
-"Eb6"E4- EEEE | "Abm7"EEEE "Db7"F2F2 | "Gbmaj7"_DD3- DDDD | "Bb/F"=DDDD "F7"F2F2 | "Fm7"B4- "Bb7"B2B2 ||
-"Eb6"B4- "Cm7"B4- | "Fm7"BABc "Bb7"BBAB- | "Eb6"B4- "Cm7"B4- |
-"Fm7"BFGA "Bb7"GGFG- | "Eb6"G4- "C7"G4- | "Fm7"GEFG "Bb7"EEEE- | "Eb6"E8- | E4 z2 |]
+K:F
+c2 || "F6"c4- "Dm7"c4- | "Gm7"cBcd "C7"ccBc- | "F6"c4- "Dm7"c4- |
+"Gm7"cGAB "C7"AAGA- | "F6"A4- "D7"A4- | "Gm7"AFGA "C7"FFFF- | "F6"F8- | F4 z2c2 ||
+"F6"c4- "Dm7"c4- | "Gm7"cBcd "C7"ccBc- | "F6"cc3- "Dm7"c4- |
+"Gm7"cGAB "C7"AAGA- | "F6"AA3- "D7"A4- | "Gm7"AFGA "C7"FFFF- | "F6"FF3- "Bbm6"F4- | "F6"F4 "D7"zFFF ||
+"Gm7"GGGG "C7"A2A2 | "F6"FF3- FFFF | "Gm7"GGGG "C7"A2A2 |
+"F6"F4- FFFF | "Bbm7"FFFF "Eb7"G2G2 | "Abmaj7"_EE3- EEEE | "C/G"=EEEE "G7"G2G2 | "Gm7"c4- "C7"c2c2 ||
+"F6"c4- "Dm7"c4- | "Gm7"cBcd "C7"ccBc- | "F6"c4- "Dm7"c4- |
+"Gm7"cGAB "C7"AAGA- | "F6"A4- "D7"A4- | "Gm7"AFGA "C7"FFFF- | "F6"F8- | F4 z2 |]
