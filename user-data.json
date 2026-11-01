@@ -862,8 +862,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T02:45:59.077Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-01T03:02:16.597Z",
+      "playCount": 3,
       "createdAt": "2026-11-01T02:08:18.261Z",
       "updatedAt": "2026-11-01T02:19:13.542Z"
     },
@@ -908,6 +908,14 @@
       "lastPlayed": "2026-10-13T03:59:18.725Z",
       "playCount": 21,
       "createdAt": "2026-01-18T20:46:38.366Z"
+    },
+    "film/lets call the whole thing off.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-01T03:02:11.849Z"
     },
     "film/tiersen/la valse d'amelie.abc": {
       "status": null,
@@ -1679,8 +1687,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-30T04:54:53.351Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-01T03:02:29.219Z",
+      "playCount": 11,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -2796,8 +2804,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-11-01T03:02:29.219Z"
+    },
+    {
       "filePath": "film/anything goes.abc",
-      "timestamp": "2026-11-01T02:45:59.077Z"
+      "timestamp": "2026-11-01T03:02:16.597Z"
     },
     {
       "filePath": "scottish/hopetoun_house.abc",
@@ -2854,10 +2866,6 @@
     {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-10-30T05:01:20.542Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-10-30T04:54:53.351Z"
     },
     {
       "filePath": "occitan/la cambo me fai mau.abc",
@@ -6511,6 +6519,24 @@
     {
       "path": "film/herbie's theme.abc",
       "at": "2026-10-31T08:21:22.531Z",
+      "percent": 100,
+      "bpm": 160
+    },
+    {
+      "path": "film/anything goes.abc",
+      "at": "2026-11-01T03:02:17.980Z",
+      "percent": 100,
+      "bpm": 160
+    },
+    {
+      "path": "film/anything goes.abc",
+      "at": "2026-11-01T03:02:18.147Z",
+      "percent": 100,
+      "bpm": 160
+    },
+    {
+      "path": "film/anything goes.abc",
+      "at": "2026-11-01T03:02:18.299Z",
       "percent": 100,
       "bpm": 160
     }
