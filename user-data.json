@@ -753,6 +753,14 @@
       "playCount": 0,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
+    "classical/offenbach/galop infernal.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-01T02:45:53.727Z"
+    },
     "classical/schubert/forelle.abc": {
       "status": "practicing",
       "favorite": true,
@@ -854,8 +862,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T02:08:37.540Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-01T02:45:59.077Z",
+      "playCount": 2,
       "createdAt": "2026-11-01T02:08:18.261Z",
       "updatedAt": "2026-11-01T02:19:13.542Z"
     },
@@ -2789,7 +2797,7 @@
   "recentlyPlayed": [
     {
       "filePath": "film/anything goes.abc",
-      "timestamp": "2026-11-01T02:08:37.540Z"
+      "timestamp": "2026-11-01T02:45:59.077Z"
     },
     {
       "filePath": "scottish/hopetoun_house.abc",
@@ -3055,7 +3063,7 @@
       "scottish/hopetoun_house.abc": 4
     },
     "2026-11-01": {
-      "film/anything goes.abc": 4
+      "film/anything goes.abc": 5
     }
   },
   "statusLog": [
