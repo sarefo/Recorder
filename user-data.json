@@ -1795,8 +1795,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T12:27:04.621Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-01T04:18:37.875Z",
+      "playCount": 2,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-10-24T12:30:45.489Z"
     },
@@ -2812,6 +2812,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/the way you look tonight.abc",
+      "timestamp": "2026-11-01T04:18:37.875Z"
+    },
+    {
       "filePath": "jazz/girl from ipanema.abc",
       "timestamp": "2026-11-01T03:46:44.157Z"
     },
@@ -2886,10 +2890,6 @@
     {
       "filePath": "german/ach bittrer winter.abc",
       "timestamp": "2026-10-31T04:59:29.081Z"
-    },
-    {
-      "filePath": "german/es geht eine dunkle wolk herein.abc",
-      "timestamp": "2026-10-30T05:10:10.233Z"
     }
   ],
   "activity": {
@@ -3084,7 +3084,8 @@
       "jazz/blue moon.abc": 3,
       "jazz/girl from ipanema.abc": 2,
       "jazz/night and day.abc": 1,
-      "jazz/summertime.abc": 1
+      "jazz/summertime.abc": 1,
+      "jazz/the way you look tonight.abc": 1
     }
   },
   "statusLog": [
