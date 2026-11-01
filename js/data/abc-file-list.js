@@ -1266,7 +1266,7 @@ class AbcFileList {
                 "name": "Summertime",
                 "file": "jazz/summertime.abc",
                 "category": "jazz",
-                "hash": "1250020348"
+                "hash": "8e9986d39a"
         },
         {
                 "name": "Sweet Georgia Brown",
@@ -1284,7 +1284,7 @@ class AbcFileList {
                 "name": "The Girl from Ipanema",
                 "file": "jazz/girl from ipanema.abc",
                 "category": "jazz",
-                "hash": "97320fbdfd"
+                "hash": "7c8ff49509"
         },
         {
                 "name": "The Way You Look Tonight",
