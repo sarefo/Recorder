@@ -1474,8 +1474,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-31T08:16:43.079Z",
-      "playCount": 17,
+      "lastPlayed": "2026-11-01T10:10:24.095Z",
+      "playCount": 18,
       "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "japanese/akai kutsu.abc": {
@@ -2814,6 +2814,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jamaican/banana boat song.abc",
+      "timestamp": "2026-11-01T10:10:24.095Z"
+    },
+    {
       "filePath": "film/anything goes.abc",
       "timestamp": "2026-11-01T10:05:40.977Z"
     },
@@ -2868,10 +2872,6 @@
     {
       "filePath": "film/herbie's theme.abc",
       "timestamp": "2026-10-31T08:19:25.866Z"
-    },
-    {
-      "filePath": "jamaican/banana boat song.abc",
-      "timestamp": "2026-10-31T08:16:43.079Z"
     },
     {
       "filePath": "classical/bach/badinerie.abc",
@@ -3082,6 +3082,7 @@
     },
     "2026-11-01": {
       "film/anything goes.abc": 9,
+      "jamaican/banana boat song.abc": 1,
       "jazz/autumn leaves.abc": 2,
       "jazz/blue moon.abc": 3,
       "jazz/girl from ipanema.abc": 2,
