@@ -850,6 +850,14 @@
       "playCount": 0,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
+    "film/anything goes.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-11-01T02:08:37.540Z",
+      "playCount": 1,
+      "createdAt": "2026-11-01T02:08:18.261Z"
+    },
     "film/herbie's theme.abc": {
       "status": "good",
       "favorite": true,
@@ -2779,6 +2787,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/anything goes.abc",
+      "timestamp": "2026-11-01T02:08:37.540Z"
+    },
+    {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-10-31T08:43:48.718Z"
     },
@@ -2853,10 +2865,6 @@
     {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-10-30T02:51:26.864Z"
-    },
-    {
-      "filePath": "french/douce dame jolie.abc",
-      "timestamp": "2026-10-30T02:48:30.818Z"
     }
   ],
   "activity": {
@@ -3044,6 +3052,9 @@
       "jamaican/banana boat song.abc": 1,
       "philippine/pamulinawen.abc": 2,
       "scottish/hopetoun_house.abc": 4
+    },
+    "2026-11-01": {
+      "film/anything goes.abc": 1
     }
   },
   "statusLog": [
