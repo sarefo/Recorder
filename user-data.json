@@ -1704,8 +1704,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:17:34.956Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-01T03:42:00.845Z",
+      "playCount": 5,
       "createdAt": "2026-10-13T03:57:34.035Z",
       "updatedAt": "2026-11-01T03:16:56.776Z"
     },
@@ -1734,13 +1734,13 @@
       "createdAt": "2026-10-13T03:57:34.036Z"
     },
     "jazz/girl from ipanema.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:30:43.729Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-01T03:42:18.901Z",
+      "playCount": 3,
       "createdAt": "2026-10-13T03:57:34.036Z",
-      "updatedAt": "2026-10-24T12:27:00.209Z"
+      "updatedAt": "2026-11-01T03:42:21.250Z"
     },
     "jazz/my funny valentine.abc": {
       "status": null,
@@ -2813,7 +2813,11 @@
   "recentlyPlayed": [
     {
       "filePath": "jazz/girl from ipanema.abc",
-      "timestamp": "2026-11-01T03:30:43.729Z"
+      "timestamp": "2026-11-01T03:42:18.901Z"
+    },
+    {
+      "filePath": "jazz/blue moon.abc",
+      "timestamp": "2026-11-01T03:42:00.845Z"
     },
     {
       "filePath": "jazz/night and day.abc",
@@ -2822,10 +2826,6 @@
     {
       "filePath": "jazz/summertime.abc",
       "timestamp": "2026-11-01T03:20:04.514Z"
-    },
-    {
-      "filePath": "jazz/blue moon.abc",
-      "timestamp": "2026-11-01T03:17:34.956Z"
     },
     {
       "filePath": "jazz/autumn leaves.abc",
@@ -3457,6 +3457,11 @@
       "path": "jazz/blue moon.abc",
       "status": "practicing",
       "at": "2026-11-01T03:16:56.776Z"
+    },
+    {
+      "path": "jazz/girl from ipanema.abc",
+      "status": "practicing",
+      "at": "2026-11-01T03:42:21.250Z"
     }
   ],
   "marks": {
