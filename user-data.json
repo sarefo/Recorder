@@ -1737,8 +1737,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:42:18.901Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-01T03:44:20.737Z",
+      "playCount": 4,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-01T03:42:21.250Z"
     },
@@ -2813,7 +2813,7 @@
   "recentlyPlayed": [
     {
       "filePath": "jazz/girl from ipanema.abc",
-      "timestamp": "2026-11-01T03:42:18.901Z"
+      "timestamp": "2026-11-01T03:44:20.737Z"
     },
     {
       "filePath": "jazz/blue moon.abc",
