@@ -851,12 +851,13 @@
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
     "film/anything goes.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "good",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-01T02:08:37.540Z",
       "playCount": 1,
-      "createdAt": "2026-11-01T02:08:18.261Z"
+      "createdAt": "2026-11-01T02:08:18.261Z",
+      "updatedAt": "2026-11-01T02:19:13.542Z"
     },
     "film/herbie's theme.abc": {
       "status": "good",
@@ -3417,6 +3418,11 @@
       "path": "film/herbie's theme.abc",
       "status": "good",
       "at": "2026-10-31T08:21:20.627Z"
+    },
+    {
+      "path": "film/anything goes.abc",
+      "status": "good",
+      "at": "2026-11-01T02:19:13.542Z"
     }
   ],
   "marks": {
