@@ -62,8 +62,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T07:59:56.468Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-01T10:18:59.534Z",
+      "playCount": 13,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-08T02:37:54.128Z"
     },
@@ -862,8 +862,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T10:05:40.977Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-01T10:18:57.710Z",
+      "playCount": 5,
       "createdAt": "2026-11-01T02:08:18.261Z",
       "updatedAt": "2026-11-01T02:19:13.542Z"
     },
@@ -2815,6 +2815,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "austrian/es wird scho gleich dumpa.abc",
+      "timestamp": "2026-11-01T10:18:59.534Z"
+    },
+    {
+      "filePath": "film/anything goes.abc",
+      "timestamp": "2026-11-01T10:18:57.710Z"
+    },
+    {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-11-01T10:17:11.678Z"
     },
@@ -2825,10 +2833,6 @@
     {
       "filePath": "jamaican/banana boat song.abc",
       "timestamp": "2026-11-01T10:10:24.095Z"
-    },
-    {
-      "filePath": "film/anything goes.abc",
-      "timestamp": "2026-11-01T10:05:40.977Z"
     },
     {
       "filePath": "philippine/bahay kubo.abc",
@@ -2889,10 +2893,6 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-10-31T05:11:14.455Z"
-    },
-    {
-      "filePath": "breton/les filles des forges de paimpont.abc",
-      "timestamp": "2026-10-31T05:06:29.511Z"
     }
   ],
   "activity": {
@@ -3082,6 +3082,7 @@
       "scottish/hopetoun_house.abc": 4
     },
     "2026-11-01": {
+      "austrian/es wird scho gleich dumpa.abc": 1,
       "film/anything goes.abc": 9,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "jamaican/banana boat song.abc": 1,
@@ -3503,6 +3504,16 @@
         "transSeen": 4,
         "count": 1,
         "at": "2026-10-27T09:06:48.274Z"
+      }
+    },
+    "austrian/es wird scho gleich dumpa.abc": {
+      "8": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 6,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-01T10:19:09.644Z"
       }
     },
     "breton/les filles des forges de paimpont.abc": {
@@ -5045,6 +5056,15 @@
       "at": "2026-10-27T09:06:38.271Z",
       "notes": {
         "20": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "austrian/es wird scho gleich dumpa.abc": {
+      "at": "2026-11-01T10:18:59.642Z",
+      "notes": {
+        "8": {
           "state": "red",
           "pitch": "_B"
         }
