@@ -2226,6 +2226,46 @@
       "playCount": 7,
       "createdAt": "2026-08-22T02:59:38.465Z"
     },
+    "pop/jamiroquai/canned heat.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-02T12:53:18.132Z"
+    },
+    "pop/jamiroquai/deeper underground.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-02T12:53:18.132Z"
+    },
+    "pop/jamiroquai/love foolosophy.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-02T12:53:18.132Z"
+    },
+    "pop/jamiroquai/space cowboy.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-02T12:53:18.132Z"
+    },
+    "pop/jamiroquai/virtual insanity.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-11-02T12:53:29.268Z",
+      "playCount": 1,
+      "createdAt": "2026-11-02T12:53:18.132Z"
+    },
     "pop/mad world.abc": {
       "status": "good",
       "favorite": true,
@@ -2828,6 +2868,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/jamiroquai/virtual insanity.abc",
+      "timestamp": "2026-11-02T12:53:29.268Z"
+    },
+    {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-11-02T12:42:12.540Z"
     },
@@ -2902,10 +2946,6 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-11-02T07:09:38.151Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-11-02T07:07:59.742Z"
     }
   ],
   "activity": {
@@ -3139,6 +3179,7 @@
       "occitan/adiu paure carnaval.abc": 1,
       "occitan/ai vist lo lop.abc": 2,
       "occitan/la cambo me fai mau.abc": 5,
+      "pop/jamiroquai/virtual insanity.abc": 1,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/hopetoun_house.abc": 2
     }
