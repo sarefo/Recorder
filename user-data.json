@@ -1688,8 +1688,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T10:41:31.558Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-02T12:11:43.130Z",
+      "playCount": 9,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T05:41:31.969Z"
     },
@@ -2825,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/all of me.abc",
+      "timestamp": "2026-11-02T12:11:43.130Z"
+    },
+    {
       "filePath": "japanese/kojo no tsuki.abc",
       "timestamp": "2026-11-02T09:58:32.902Z"
     },
@@ -2899,10 +2903,6 @@
     {
       "filePath": "albanian/jarnana.abc",
       "timestamp": "2026-11-02T06:10:38.098Z"
-    },
-    {
-      "filePath": "greek/kritikos syrtos.abc",
-      "timestamp": "2026-11-02T06:08:00.617Z"
     }
   ],
   "activity": {
@@ -3124,7 +3124,7 @@
       "japanese/hashire kotaro.abc": 1,
       "japanese/kojo no tsuki.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 4,
-      "jazz/all of me.abc": 7,
+      "jazz/all of me.abc": 8,
       "jazz/autumn leaves.abc": 2,
       "jazz/girl from ipanema.abc": 4,
       "jazz/sweet georgia brown.abc": 3,
