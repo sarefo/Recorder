@@ -1686,7 +1686,7 @@ class AbcFileList {
                 "name": "Who Wants to Live Forever",
                 "file": "pop/queen/who wants to live forever.abc",
                 "category": "pop/queen",
-                "hash": "88f4534d5e"
+                "hash": "3bb501f0a8"
         },
         {
                 "name": "Eternal Flame",
