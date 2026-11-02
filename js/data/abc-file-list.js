@@ -1272,7 +1272,7 @@ class AbcFileList {
                 "name": "Sweet Georgia Brown",
                 "file": "jazz/sweet georgia brown.abc",
                 "category": "jazz",
-                "hash": "541b893e53"
+                "hash": "78e63eab61"
         },
         {
                 "name": "Tea for Two",
@@ -1798,7 +1798,7 @@ class AbcFileList {
         },
         {
                 "name": "Sweet Molly",
-                "file": "scottish/hopetoun_house.abc",
+                "file": "scottish/sweet_molly.abc",
                 "category": "scottish",
                 "hash": "048071fe71"
         },
