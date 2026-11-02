@@ -2130,8 +2130,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-29T03:34:28.566Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-02T13:08:33.005Z",
+      "playCount": 6,
       "createdAt": "2026-10-14T17:54:41.333Z",
       "updatedAt": "2026-10-17T10:46:06.768Z"
     },
@@ -2872,6 +2872,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/derniere danse.abc",
+      "timestamp": "2026-11-02T13:08:33.005Z"
+    },
+    {
       "filePath": "pop/mad world.abc",
       "timestamp": "2026-11-02T13:06:10.112Z"
     },
@@ -2946,10 +2950,6 @@
     {
       "filePath": "french/tourdion.abc",
       "timestamp": "2026-11-02T09:35:39.950Z"
-    },
-    {
-      "filePath": "french/douce dame jolie.abc",
-      "timestamp": "2026-11-02T09:33:28.857Z"
     }
   ],
   "activity": {
@@ -3183,6 +3183,7 @@
       "occitan/adiu paure carnaval.abc": 1,
       "occitan/ai vist lo lop.abc": 2,
       "occitan/la cambo me fai mau.abc": 5,
+      "pop/derniere danse.abc": 1,
       "pop/jamiroquai/canned heat.abc": 1,
       "pop/jamiroquai/deeper underground.abc": 1,
       "pop/jamiroquai/love foolosophy.abc": 1,
