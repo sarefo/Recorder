@@ -1748,8 +1748,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-02T12:26:20.821Z",
+      "playCount": 2,
       "createdAt": "2026-10-13T03:57:34.036Z"
     },
     "jazz/night and day.abc": {
@@ -1769,12 +1769,13 @@
       "createdAt": "2026-10-13T03:57:34.036Z"
     },
     "jazz/summertime.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T12:21:36.460Z",
-      "playCount": 2,
-      "createdAt": "2026-10-13T03:57:34.036Z"
+      "lastPlayed": "2026-11-02T12:26:12.337Z",
+      "playCount": 3,
+      "createdAt": "2026-10-13T03:57:34.036Z",
+      "updatedAt": "2026-11-02T12:26:17.727Z"
     },
     "jazz/sweet georgia brown.abc": {
       "status": "needs-practice",
@@ -2825,8 +2826,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/my funny valentine.abc",
+      "timestamp": "2026-11-02T12:26:20.821Z"
+    },
+    {
       "filePath": "jazz/summertime.abc",
-      "timestamp": "2026-11-02T12:21:36.460Z"
+      "timestamp": "2026-11-02T12:26:12.337Z"
     },
     {
       "filePath": "jazz/blue moon.abc",
@@ -2899,10 +2904,6 @@
     {
       "filePath": "italian/bella ciao.abc",
       "timestamp": "2026-11-02T07:00:46.499Z"
-    },
-    {
-      "filePath": "scottish/sweet_molly.abc",
-      "timestamp": "2026-11-02T07:00:30.179Z"
     }
   ],
   "activity": {
@@ -3128,6 +3129,7 @@
       "jazz/autumn leaves.abc": 3,
       "jazz/blue moon.abc": 1,
       "jazz/girl from ipanema.abc": 4,
+      "jazz/my funny valentine.abc": 2,
       "jazz/summertime.abc": 1,
       "jazz/sweet georgia brown.abc": 3,
       "occitan/adiu paure carnaval.abc": 1,
@@ -3562,6 +3564,11 @@
       "path": "jazz/blue moon.abc",
       "status": "good",
       "at": "2026-11-02T12:21:24.056Z"
+    },
+    {
+      "path": "jazz/summertime.abc",
+      "status": "practicing",
+      "at": "2026-11-02T12:26:17.727Z"
     }
   ],
   "marks": {
@@ -6012,6 +6019,27 @@
         "91": {
           "state": "red",
           "pitch": "^A"
+        }
+      }
+    },
+    "jazz/my funny valentine.abc": {
+      "at": "2026-11-02T12:26:09.747Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "_E"
+        },
+        "15": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "16": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "86": {
+          "state": "red",
+          "pitch": "_e"
         }
       }
     },
