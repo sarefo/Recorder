@@ -2235,19 +2235,20 @@
       "createdAt": "2026-11-02T12:53:18.132Z"
     },
     "pop/jamiroquai/deeper underground.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-11-02T13:03:41.233Z",
       "playCount": 1,
-      "createdAt": "2026-11-02T12:53:18.132Z"
+      "createdAt": "2026-11-02T12:53:18.132Z",
+      "updatedAt": "2026-11-02T13:04:10.662Z"
     },
     "pop/jamiroquai/love foolosophy.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-02T13:04:16.664Z",
+      "playCount": 1,
       "createdAt": "2026-11-02T12:53:18.132Z"
     },
     "pop/jamiroquai/space cowboy.abc": {
@@ -2869,6 +2870,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/jamiroquai/love foolosophy.abc",
+      "timestamp": "2026-11-02T13:04:16.664Z"
+    },
+    {
       "filePath": "pop/jamiroquai/deeper underground.abc",
       "timestamp": "2026-11-02T13:03:41.233Z"
     },
@@ -2943,10 +2948,6 @@
     {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-11-02T09:26:56.857Z"
-    },
-    {
-      "filePath": "occitan/la cambo me fai mau.abc",
-      "timestamp": "2026-11-02T09:19:59.560Z"
     }
   ],
   "activity": {
@@ -3181,6 +3182,7 @@
       "occitan/ai vist lo lop.abc": 2,
       "occitan/la cambo me fai mau.abc": 5,
       "pop/jamiroquai/deeper underground.abc": 1,
+      "pop/jamiroquai/love foolosophy.abc": 1,
       "pop/jamiroquai/virtual insanity.abc": 1,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/hopetoun_house.abc": 2
@@ -3631,6 +3633,11 @@
       "path": "pop/jamiroquai/virtual insanity.abc",
       "status": "needs-practice",
       "at": "2026-11-02T13:03:37.063Z"
+    },
+    {
+      "path": "pop/jamiroquai/deeper underground.abc",
+      "status": "needs-practice",
+      "at": "2026-11-02T13:04:10.662Z"
     }
   ],
   "marks": {
@@ -5034,6 +5041,16 @@
         "at": "2026-10-29T03:21:00.723Z"
       }
     },
+    "pop/jamiroquai/love foolosophy.abc": {
+      "8": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 6,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-02T13:04:26.773Z"
+      }
+    },
     "pop/jamiroquai/virtual insanity.abc": {
       "50": {
         "pitch": "^d",
@@ -6373,6 +6390,15 @@
           "pitch": "^F"
         },
         "22": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "pop/jamiroquai/love foolosophy.abc": {
+      "at": "2026-11-02T13:04:16.771Z",
+      "notes": {
+        "8": {
           "state": "red",
           "pitch": "_B"
         }
