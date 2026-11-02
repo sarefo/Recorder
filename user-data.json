@@ -1670,8 +1670,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T10:15:56.875Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-02T09:53:40.148Z",
+      "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:32:11.017Z"
     },
@@ -2825,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/ureshii hinamatsuri.abc",
+      "timestamp": "2026-11-02T09:53:40.148Z"
+    },
+    {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-11-02T09:50:17.834Z"
     },
@@ -2899,10 +2903,6 @@
     {
       "filePath": "jazz/girl from ipanema.abc",
       "timestamp": "2026-11-02T06:03:44.558Z"
-    },
-    {
-      "filePath": "jazz/blue moon.abc",
-      "timestamp": "2026-11-02T06:03:31.519Z"
     }
   ],
   "activity": {
@@ -3121,6 +3121,7 @@
       "italian/bella ciao.abc": 4,
       "japanese/hana.abc": 1,
       "japanese/hashire kotaro.abc": 1,
+      "japanese/ureshii hinamatsuri.abc": 1,
       "jazz/all of me.abc": 7,
       "jazz/autumn leaves.abc": 2,
       "jazz/girl from ipanema.abc": 4,
