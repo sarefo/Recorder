@@ -2156,8 +2156,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-02T14:00:11.015Z",
+      "playCount": 1,
       "createdAt": "2026-11-02T13:49:53.793Z"
     },
     "pop/eric clapton/tears in heaven.abc": {
@@ -2916,6 +2916,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/eric clapton/layla.abc",
+      "timestamp": "2026-11-02T14:00:11.015Z"
+    },
+    {
       "filePath": "pop/eric clapton/tears in heaven.abc",
       "timestamp": "2026-11-02T13:58:00.848Z"
     },
@@ -2990,10 +2994,6 @@
     {
       "filePath": "jazz/all of me.abc",
       "timestamp": "2026-11-02T12:11:43.130Z"
-    },
-    {
-      "filePath": "japanese/kojo no tsuki.abc",
-      "timestamp": "2026-11-02T09:58:32.902Z"
     }
   ],
   "activity": {
@@ -6576,6 +6576,23 @@
         "65": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "pop/eric clapton/layla.abc": {
+      "at": "2026-11-02T14:00:11.127Z",
+      "notes": {
+        "56": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "57": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "101": {
+          "state": "red",
+          "pitch": "_E"
         }
       }
     },
