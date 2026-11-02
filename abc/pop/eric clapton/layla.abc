@@ -1,0 +1,19 @@
+X:1
+T:Layla
+C:Eric Clapton and Jim Gordon (Derek and the Dominos)
+O:UK/USA, 1970
+N:BEST EFFORT, not a clean transcription. Verse and chorus of the sung melody, moved up a minor third from the original (verse C# minor, chorus D minor) so the low B3 lands on D4. The verse is therefore E minor and the chorus F minor. The piano coda and the guitar riff are left out.
+N:Source: two hamienet.com MIDI arrangements that disagree in places. The vocal line "Lead 8" (track 15986, same sequence as 352394748805756) was followed for the verse and for most chorus rhythm; the tenor sax doubling the vocal (track 352471435629290) was used for chorus pitches and as a cross-check. Both are loosely sequenced (zero-length notes, dropped repeated notes), so rhythms are rounded to sixteenths and short notes were lengthened to the next note.
+N:Disputed spots. (1) Chorus opening: sax A-A-G-F, Lead 8 G-G#-G-F. A-A-G-F was used (the chords are Dm over F, and Lead 8's G# in the later chorus lines lines up with the sax's A). (2) Verse line 2 ending, "by your side": sax falls C#-B, Lead 8 holds E; Lead 8 used. (3) Lead 8 plays a G natural (written Bb here) in three places; the sax has G# at two, so those two are G# (B) and the one with no sax note, the F#-G-F# in "hiding much too long", was kept. (4) Verse line 3 end: sax C#, Lead 8 low B (the lowest note here); Lead 8 used. (5) Chorus line 2, "I'm begging darling please": Lead 8 puts its A about 1.25 beats after the sax's, so both are kept as two A notes and the exact timing is a guess. (6) The final long note: the sax starts the high D a beat earlier with no C-D lead-in; Lead 8's C-D-D was used. (7) Chorus line 3 start (E-D) is Lead 8 only.
+N:Length: the source repeats the verse after 62 beats; this pass is padded with rests to 16 bars (64 beats) so it loops on the beat. Chords are from the arrangement's organ and bass tracks, simplified to bar level.
+M:4/4
+Q:1/4=116
+L:1/8
+K:Em
+B/B/B/B/ |
+"Em"zB AG "Bm7"A3/2B z3/2 |"Bm7"z4 "Em7"z2 B/B/B/B/- |"Eb7"BG "F7"GA- "G7"A G3 |"G"z4 "Am7"z2 G/GA/- |
+"D"AA zA "G"BB/A _B/A/G/ |"C"A D2 z2 z/G/ G/GA/- |"D"A/A/B AG "G"z G2 z |
+K:Fm
+"C"c4 "Fm"c/B/ A3- |
+"Db"A z2 z/A/ "Eb"BA/B Bc/- |"Fm"cz cz B A3- |"Db"A2 z3/2A/ "Eb"BA/B BA/ |"Fm"G/Fz/ c3/2z/ c/B/ A3- |
+"Db"A2- A/z3/2 "Eb"BA BA |"Fm"cB A/B3/2 AE/F3/2 f- |"Db"f4 "Eb"z4 |z6 |]

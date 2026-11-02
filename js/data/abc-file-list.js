@@ -1587,6 +1587,18 @@ class AbcFileList {
                 "hash": "ed72f42dc9"
         },
         {
+                "name": "Layla",
+                "file": "pop/eric clapton/layla.abc",
+                "category": "pop/eric clapton",
+                "hash": "473b67f86e"
+        },
+        {
+                "name": "Tears in Heaven",
+                "file": "pop/eric clapton/tears in heaven.abc",
+                "category": "pop/eric clapton",
+                "hash": "ed2503c396"
+        },
+        {
                 "name": "Here Comes the Rain Again",
                 "file": "pop/eurythmics/here comes the rain again.abc",
                 "category": "pop/eurythmics",
@@ -1671,10 +1683,16 @@ class AbcFileList {
                 "hash": "88ef719473"
         },
         {
+                "name": "Who Wants to Live Forever",
+                "file": "pop/queen/who wants to live forever.abc",
+                "category": "pop/queen",
+                "hash": "88f4534d5e"
+        },
+        {
                 "name": "Eternal Flame",
                 "file": "pop/the bangles/eternal flame.abc",
                 "category": "pop/the bangles",
-                "hash": "787a26cbab"
+                "hash": "d22f1b14c5"
         },
         {
                 "name": "Don't Stand So Close to Me",

@@ -1,0 +1,15 @@
+X:1
+T:Who Wants to Live Forever
+C:Queen (Brian May)
+N:From a sequenced MIDI vocal line (hamienet.com). Written 6 semitones above the source (A major to E-flat) to fit C4-A5. Re-attacks of held notes were merged, a sixteenth-note flourish near the end of the chorus was dropped (it would go above A5), and the second verse and outro are left out. One pass is verse plus chorus; the final 2-beat bar pays back the 2-beat pickup so it loops.
+M:4/4
+L:1/8
+Q:1/4=77
+K:Eb
+C2 F2 |"Abmaj7"G3 A4- A |"Abmaj7"z4 "Fm6"c3/2B3/2 A |"Ebmaj7"A/ G2- G/F G4 |"Ebmaj7"z4 "Cm"zG cd |
+"Eb"e4- eB BG |"Cm"c4- "Fm7"cG FE |"Eb"G7 F |"Bb"F8 |"Ab"A4 "Eb"B4 |
+"Ab"c8 |"Ab"c4 "Eb"d4 |"Ab"e8 |"Eb"c7 B/c/ |"Bb"B8- |
+"Bb"B4- Bc de |"Cm"e4- ee de |"Ab"e6 de |"Cm"fg/e/ f e3 e/e/f/g/ |"Ab"f e7 |
+"Eb"e4 "Bb"f4 |"Cm"g15/2 B/ |"Eb"e3 "Bb"f4- f |"Cm"g8 |"Cm"g2- g/f/e/f/ f "Fm7"e2 B |
+"Eb"c3 B4- B- |"Eb"B8- |"Gb"B6 z3/2e/ |"Ab"A4 "Eb"B4 |"Ab"c8 |
+"Ab"c4 "Eb"d4 |"Ab"e8 |"Eb"e4 "Bb"d2 e2 |"Ab"e8- |"Fm7"e4 |]
