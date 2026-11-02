@@ -1457,8 +1457,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T10:36:37.949Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-02T07:00:46.499Z",
+      "playCount": 9,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T06:21:30.721Z"
     },
@@ -2528,13 +2528,13 @@
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/sweet_molly.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T06:52:29.104Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-02T07:00:30.179Z",
+      "playCount": 2,
       "createdAt": "2026-11-02T06:52:05.628Z",
-      "updatedAt": "2026-11-02T06:52:27.978Z"
+      "updatedAt": "2026-11-02T07:00:33.911Z"
     },
     "serbian/ljulja ljulja ljuska.abc": {
       "status": null,
@@ -2825,8 +2825,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/bella ciao.abc",
+      "timestamp": "2026-11-02T07:00:46.499Z"
+    },
+    {
       "filePath": "scottish/sweet_molly.abc",
-      "timestamp": "2026-11-02T06:52:29.104Z"
+      "timestamp": "2026-11-02T07:00:30.179Z"
     },
     {
       "filePath": "scottish/hopetoun_house.abc",
@@ -2867,10 +2871,6 @@
     {
       "filePath": "italian/tarantella napoletana.abc",
       "timestamp": "2026-11-01T10:38:44.552Z"
-    },
-    {
-      "filePath": "italian/bella ciao.abc",
-      "timestamp": "2026-11-01T10:36:37.949Z"
     },
     {
       "filePath": "classical/bach/air.abc",
@@ -3112,6 +3112,7 @@
     },
     "2026-11-02": {
       "greek/kritikos syrtos.abc": 3,
+      "italian/bella ciao.abc": 1,
       "jazz/all of me.abc": 7,
       "jazz/autumn leaves.abc": 2,
       "jazz/girl from ipanema.abc": 4,
@@ -3525,6 +3526,11 @@
       "path": "greek/kritikos syrtos.abc",
       "status": "practicing",
       "at": "2026-11-02T06:08:35.579Z"
+    },
+    {
+      "path": "scottish/sweet_molly.abc",
+      "status": "practicing",
+      "at": "2026-11-02T07:00:33.911Z"
     }
   ],
   "marks": {
