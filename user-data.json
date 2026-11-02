@@ -2152,6 +2152,22 @@
       "createdAt": "2026-10-27T14:44:09.443Z",
       "updatedAt": "2026-10-27T14:45:51.220Z"
     },
+    "pop/eric clapton/layla.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-02T13:49:53.793Z"
+    },
+    "pop/eric clapton/tears in heaven.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-02T13:49:53.793Z"
+    },
     "pop/eurythmics/here comes the rain again.abc": {
       "status": null,
       "favorite": false,
@@ -2321,6 +2337,14 @@
       "lastPlayed": "2026-11-02T13:15:22.883Z",
       "playCount": 2,
       "createdAt": "2026-10-26T11:24:25.705Z"
+    },
+    "pop/queen/who wants to live forever.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-11-02T13:50:11.427Z",
+      "playCount": 1,
+      "createdAt": "2026-11-02T13:49:53.793Z"
     },
     "pop/tequila.abc": {
       "status": null,
@@ -2890,6 +2914,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/queen/who wants to live forever.abc",
+      "timestamp": "2026-11-02T13:50:11.427Z"
+    },
+    {
       "filePath": "pop/the bangles/eternal flame.abc",
       "timestamp": "2026-11-02T13:26:40.519Z"
     },
@@ -2964,10 +2992,6 @@
     {
       "filePath": "japanese/akatombo.abc",
       "timestamp": "2026-11-02T09:58:14.136Z"
-    },
-    {
-      "filePath": "japanese/ureshii hinamatsuri.abc",
-      "timestamp": "2026-11-02T09:53:40.148Z"
     }
   ],
   "activity": {
@@ -3209,6 +3233,7 @@
       "pop/jamiroquai/virtual insanity.abc": 1,
       "pop/mad world.abc": 1,
       "pop/no doubt/don't speak.abc": 1,
+      "pop/queen/who wants to live forever.abc": 1,
       "pop/the bangles/eternal flame.abc": 1,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/hopetoun_house.abc": 2
@@ -5276,6 +5301,40 @@
         "at": "2026-10-26T11:25:33.369Z"
       }
     },
+    "pop/queen/who wants to live forever.abc": {
+      "3": {
+        "pitch": "_A",
+        "prev": "G",
+        "pitchSeen": 5,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-02T13:50:21.559Z"
+      },
+      "7": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 10,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-02T13:50:21.562Z"
+      },
+      "19": {
+        "pitch": "_e",
+        "prev": "d",
+        "pitchSeen": 22,
+        "transSeen": 7,
+        "count": 1,
+        "at": "2026-11-02T13:50:21.563Z"
+      },
+      "28": {
+        "pitch": "_E",
+        "prev": "F",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-02T13:50:21.564Z"
+      }
+    },
     "scottish/caber_feigh.abc": {
       "76": {
         "pitch": "b",
@@ -6643,6 +6702,27 @@
         "31": {
           "state": "red",
           "pitch": "^C"
+        }
+      }
+    },
+    "pop/queen/who wants to live forever.abc": {
+      "at": "2026-11-02T13:50:11.563Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "7": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "19": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "28": {
+          "state": "red",
+          "pitch": "_E"
         }
       }
     },
