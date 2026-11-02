@@ -1582,8 +1582,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T10:59:52.309Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-02T09:47:33.546Z",
+      "playCount": 9,
       "createdAt": "2026-08-31T18:32:58.388Z",
       "updatedAt": "2026-10-17T05:30:22.284Z"
     },
@@ -2825,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hashire kotaro.abc",
+      "timestamp": "2026-11-02T09:47:33.546Z"
+    },
+    {
       "filePath": "irish/johnny i hardly knew ya.abc",
       "timestamp": "2026-11-02T09:43:54.843Z"
     },
@@ -2899,10 +2903,6 @@
     {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-02T05:38:27.909Z"
-    },
-    {
-      "filePath": "jazz/all of me.abc",
-      "timestamp": "2026-11-01T10:41:31.558Z"
     }
   ],
   "activity": {
@@ -3119,6 +3119,7 @@
       "greek/kritikos syrtos.abc": 3,
       "irish/johnny i hardly knew ya.abc": 2,
       "italian/bella ciao.abc": 4,
+      "japanese/hashire kotaro.abc": 1,
       "jazz/all of me.abc": 7,
       "jazz/autumn leaves.abc": 2,
       "jazz/girl from ipanema.abc": 4,
