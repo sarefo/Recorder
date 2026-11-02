@@ -2331,13 +2331,13 @@
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/the bangles/eternal flame.abc": {
-      "status": "needs-practice",
+      "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T13:18:55.284Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-02T13:26:40.519Z",
+      "playCount": 2,
       "createdAt": "2026-11-02T13:15:10.953Z",
-      "updatedAt": "2026-11-02T13:18:58.322Z"
+      "updatedAt": "2026-11-02T13:26:44.368Z"
     },
     "pop/the police/don't stand so close to me.abc": {
       "status": null,
@@ -2891,7 +2891,7 @@
   "recentlyPlayed": [
     {
       "filePath": "pop/the bangles/eternal flame.abc",
-      "timestamp": "2026-11-02T13:18:55.284Z"
+      "timestamp": "2026-11-02T13:26:40.519Z"
     },
     {
       "filePath": "pop/no doubt/don't speak.abc",
@@ -3684,6 +3684,11 @@
       "path": "pop/the bangles/eternal flame.abc",
       "status": "needs-practice",
       "at": "2026-11-02T13:18:58.322Z"
+    },
+    {
+      "path": "pop/the bangles/eternal flame.abc",
+      "status": "good",
+      "at": "2026-11-02T13:26:44.368Z"
     }
   ],
   "marks": {
