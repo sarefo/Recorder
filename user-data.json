@@ -1780,8 +1780,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:46:40.298Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-02T05:58:22.512Z",
+      "playCount": 3,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-10-24T12:32:30.848Z"
     },
@@ -2816,6 +2816,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/sweet georgia brown.abc",
+      "timestamp": "2026-11-02T05:58:22.512Z"
+    },
+    {
       "filePath": "jazz/girl from ipanema.abc",
       "timestamp": "2026-11-02T05:46:24.594Z"
     },
@@ -2874,10 +2878,6 @@
     {
       "filePath": "jazz/the way you look tonight.abc",
       "timestamp": "2026-11-01T04:18:37.875Z"
-    },
-    {
-      "filePath": "jazz/sweet georgia brown.abc",
-      "timestamp": "2026-11-01T03:46:40.298Z"
     },
     {
       "filePath": "jazz/blue moon.abc",
