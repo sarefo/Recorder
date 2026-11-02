@@ -1703,13 +1703,13 @@
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
     "jazz/blue moon.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-02T12:19:08.726Z",
       "playCount": 7,
       "createdAt": "2026-10-13T03:57:34.035Z",
-      "updatedAt": "2026-11-01T03:16:56.776Z"
+      "updatedAt": "2026-11-02T12:21:24.056Z"
     },
     "jazz/bye bye blackbird.abc": {
       "status": null,
@@ -1772,8 +1772,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:20:04.514Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-02T12:21:36.460Z",
+      "playCount": 2,
       "createdAt": "2026-10-13T03:57:34.036Z"
     },
     "jazz/sweet georgia brown.abc": {
@@ -2825,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/summertime.abc",
+      "timestamp": "2026-11-02T12:21:36.460Z"
+    },
+    {
       "filePath": "jazz/blue moon.abc",
       "timestamp": "2026-11-02T12:19:08.726Z"
     },
@@ -2899,10 +2903,6 @@
     {
       "filePath": "scottish/sweet_molly.abc",
       "timestamp": "2026-11-02T07:00:30.179Z"
-    },
-    {
-      "filePath": "scottish/hopetoun_house.abc",
-      "timestamp": "2026-11-02T06:13:41.012Z"
     }
   ],
   "activity": {
@@ -3128,6 +3128,7 @@
       "jazz/autumn leaves.abc": 3,
       "jazz/blue moon.abc": 1,
       "jazz/girl from ipanema.abc": 4,
+      "jazz/summertime.abc": 1,
       "jazz/sweet georgia brown.abc": 3,
       "occitan/adiu paure carnaval.abc": 1,
       "occitan/ai vist lo lop.abc": 2,
@@ -3556,6 +3557,11 @@
       "path": "jazz/all of me.abc",
       "status": "good",
       "at": "2026-11-02T12:15:59.746Z"
+    },
+    {
+      "path": "jazz/blue moon.abc",
+      "status": "good",
+      "at": "2026-11-02T12:21:24.056Z"
     }
   ],
   "marks": {
