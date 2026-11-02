@@ -112,8 +112,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-31T05:06:29.511Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-02T07:05:02.981Z",
+      "playCount": 9,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-19T05:12:58.508Z"
     },
@@ -2825,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/les filles des forges de paimpont.abc",
+      "timestamp": "2026-11-02T07:05:02.981Z"
+    },
+    {
       "filePath": "italian/bella ciao.abc",
       "timestamp": "2026-11-02T07:00:46.499Z"
     },
@@ -2899,10 +2903,6 @@
     {
       "filePath": "philippine/bahay kubo.abc",
       "timestamp": "2026-11-01T10:02:35.687Z"
-    },
-    {
-      "filePath": "trinidadian/jump in the line.abc",
-      "timestamp": "2026-11-01T04:30:47.566Z"
     }
   ],
   "activity": {
@@ -3111,6 +3111,7 @@
       "trinidadian/jump in the line.abc": 1
     },
     "2026-11-02": {
+      "breton/les filles des forges de paimpont.abc": 1,
       "greek/kritikos syrtos.abc": 3,
       "italian/bella ciao.abc": 4,
       "jazz/all of me.abc": 7,
