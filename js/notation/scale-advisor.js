@@ -73,6 +73,9 @@ class ScaleAdvisor {
     static AWAY_COST = 1;
     // A home must last this many bars, or its chords count as changes
     static MIN_STRETCH_BARS = 4;
+    // Whole-note fraction a melody pitch must be held under a chord to count
+    // when picking its scale (a dotted quarter's worth)
+    static HELD_NOTE = 0.375;
 
     /**
      * Reads a root such as "Bb" or "F#" into a letter and a semitone offset.
@@ -153,20 +156,42 @@ class ScaleAdvisor {
         const entries = [];
         let time = 0;
         let tuplet = 1;
+        let keyAcc = {};
+        let carried = new Map();
         for (const line of tune?.lines || []) {
             // The first voice of the first staff carries the chords
-            const voice = line.staff?.[0]?.voices?.[0] || [];
+            const staff = line.staff?.[0];
+            keyAcc = {};
+            for (const a of staff?.key?.accidentals || []) {
+                keyAcc[String(a.note).toUpperCase()] = a.acc === 'flat' ? -1 : a.acc === 'sharp' ? 1 : 0;
+            }
+            const voice = staff?.voices?.[0] || [];
             for (const el of voice) {
                 const chord = el.chord?.find(c => c.position === 'default' && c.name)?.name
                     || el.chord?.[0]?.name;
                 if (chord && typeof el.startChar === 'number') {
-                    entries.push({ chord, startChar: el.startChar, time });
+                    entries.push({ chord, startChar: el.startChar, time, melody: new Map() });
                 }
+                if (el.el_type === 'bar') carried = new Map();
                 if (el.el_type === 'note' && typeof el.duration === 'number') {
                     // abcjs leaves tuplet notes at written length
                     if (el.startTriplet) tuplet = el.tripletMultiplier ?? 2 / 3;
-                    time += el.duration * tuplet;
+                    const length = el.duration * tuplet;
+                    time += length;
                     if (el.endTriplet) tuplet = 1;
+
+                    const current = entries[entries.length - 1];
+                    for (const p of el.rest ? [] : el.pitches || []) {
+                        const letter = String(p.name || '').replace(/[^A-Ga-g]/g, '').toUpperCase();
+                        if (!(letter in ScaleAdvisor.LETTER_PC)) continue;
+                        // An accidental holds for that pitch until the barline
+                        const explicit = { sharp: 1, flat: -1, natural: 0, dblsharp: 2, dblflat: -2 }[p.accidental];
+                        if (explicit !== undefined) carried.set(p.pitch, explicit);
+                        if (!current) continue;
+                        const acc = carried.get(p.pitch) ?? keyAcc[letter] ?? 0;
+                        const pc = (ScaleAdvisor.LETTER_PC[letter] + acc + 12) % 12;
+                        current.melody.set(pc, (current.melody.get(pc) || 0) + length);
+                    }
                 }
             }
         }
@@ -199,20 +224,33 @@ class ScaleAdvisor {
         const sets = Array.from({ length: 12 }, (_, s) =>
             new Set(ScaleAdvisor.SCALES.ionian[1].map(x => (s + x) % 12)));
         const cache = new Map();
-        const suggestIn = (chord, s) => {
-            const key = `${chord}|${s}`;
-            if (!cache.has(key)) cache.set(key, ScaleAdvisor.suggest(chord, sets[s]));
+        // The melody under the chord helps choose between its candidate scales
+        const suggestIn = (i, s) => {
+            const key = `${i}|${s}`;
+            if (!cache.has(key)) {
+                cache.set(key, ScaleAdvisor.suggest(entries[i].chord, sets[s], entries[i].melody));
+            }
             return cache.get(key);
         };
 
         const n = entries.length;
         if (!n) return { keyHome, stretches: [], entries: [] };
 
+        // A chord with no melody under it (a rest) borrows the melody the
+        // same chord has elsewhere, so it gets the scale its twin does
+        const pooled = new Map();
+        for (const e of entries) {
+            const pool = pooled.get(e.chord) || new Map();
+            for (const [pc, length] of e.melody || []) pool.set(pc, (pool.get(pc) || 0) + length);
+            pooled.set(e.chord, pool);
+        }
+        entries = entries.map(e => (e.melody && e.melody.size ? e : { ...e, melody: pooled.get(e.chord) }));
+
         // cost[i][s]: chord i judged against the major-scale notes on s
-        const cost = entries.map(e => {
+        const cost = entries.map((e, i) => {
             const w = Math.max(e.bars || 0, 0.25);
             return sets.map((_, s) => {
-                const sug = suggestIn(e.chord, s);
+                const sug = suggestIn(i, s);
                 if (!sug) return 0;
                 // A chord tone outside the home counts twice: it is a change
                 // you cannot dodge, a tension is one you can
@@ -268,7 +306,7 @@ class ScaleAdvisor {
         const result = entries.map((e, i) => {
             const k = stretches.findIndex(st => i >= st.start && i <= st.end);
             const home = stretches[k].home;
-            const suggestion = suggestIn(e.chord, path[i]);
+            const suggestion = suggestIn(i, path[i]);
             return { ...e, stretch: k, suggestion, ...ScaleAdvisor.changes(suggestion, home) };
         });
         return { keyHome, stretches, entries: result };
@@ -302,7 +340,8 @@ class ScaleAdvisor {
             if (!major.includes(degree)) continue;
             // A major or minor tonic chord names a key more readily (Tea for
             // Two's bridge is A major, though Bm7 E7 fills most of it)
-            const tonic = degree === 0 || degree === 9 ? 3 : 1;
+            // (a tie goes to the major tonic over its relative minor)
+            const tonic = degree === 0 ? 3.01 : degree === 9 ? 3 : 1;
             const key = `${root.letter}|${root.acc}`;
             weight.set(key, (weight.get(key) || 0) + tonic * Math.max(e.bars || 0, 0.25));
         }
@@ -373,10 +412,14 @@ class ScaleAdvisor {
      * Picks the scale for a chord.
      * @param {string} chordName - Chord symbol, e.g. "Cm7", "F7", "Ebmaj7"
      * @param {Set<number>|null} keyPcs - Pitch classes of the tune's key
+     * @param {Map<number, number>|null} melody - Pitch class to how long the
+     *   melody holds it under this chord. A candidate that leaves out a
+     *   held melody note loses to one that has it (the D under A♭7 in G
+     *   makes it Lydian dominant, not Phrygian dominant)
      * @returns {Object|null} {chord, rootLetter, rootAcc, scaleName, degrees, chordTones}
      *   where degrees lists each scale tone as {pc, letter, acc, interval}
      */
-    static suggest(chordName, keyPcs) {
+    static suggest(chordName, keyPcs, melody = null) {
         const root = ScaleAdvisor.parseRoot(chordName);
         if (!root) return null;
         const rest = chordName.slice(root.length).replace(/\/[A-G][#b]?$/, '');
@@ -400,13 +443,24 @@ class ScaleAdvisor {
             const outside = keyPcs
                 ? steps.filter(s => !keyPcs.has((rootPc + s) % 12)).length
                 : 0;
-            if (!best || outside < best.outside) best = { name, steps, outside, order };
+            // Only notes held a dotted quarter's worth count; passing tones do not
+            let missed = 0;
+            if (melody) {
+                for (const [pc, length] of melody) {
+                    if (length >= ScaleAdvisor.HELD_NOTE - 1e-9
+                        && !steps.some(s => (rootPc + s) % 12 === pc)) missed += length;
+                }
+            }
+            if (!best || missed < best.missed - 1e-9
+                || (Math.abs(missed - best.missed) <= 1e-9 && outside < best.outside)) {
+                best = { name, steps, outside, order, missed };
+            }
         });
         if (!best) {
             const name = candidates[0];
             const steps = ScaleAdvisor.SCALES[name][1];
             const outside = keyPcs ? steps.filter(s => !keyPcs.has((rootPc + s) % 12)).length : 0;
-            best = { name, steps, outside, order: 0 };
+            best = { name, steps, outside, order: 0, missed: 0 };
         }
 
         return {
