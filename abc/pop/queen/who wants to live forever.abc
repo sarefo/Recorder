@@ -5,11 +5,11 @@ N:From a sequenced MIDI vocal line (hamienet.com). Written 6 semitones above the
 M:4/4
 L:1/8
 Q:1/4=77
-K:Eb
-|:z4 C2 F2 |"Abmaj7"G3 A4- A |"Abmaj7"z4 "Fm6"c3/2B3/2 A |"Ebmaj7"A/ G2- G/F G4 |"Ebmaj7"z4 "Cm"zG cd |
-"Eb"e4- eB BG |"Cm"c4- "Fm7"cG FE |"Eb"G7 F |"Bb"F8 :|
-"Ab"A4 "Eb"B4 | "Ab"c8 |"Ab"c4 "Eb"d4 |"Ab"e8 |"Eb"c7 B/c/ |"Bb"B8- |
-"Bb"B4- Bc de |"Cm"e4- ee de |"Ab"e6 de |"Cm"fg/e/ f e3 e/e/f/g/ |"Ab"f e7 |
-"Eb"e4 "Bb"f4 |"Cm"g15/2 B/ |"Eb"e3 "Bb"f4- f |"Cm"g8 |"Cm"g2- g/f/e/f/ f "Fm7"e2 B |
-"Eb"c3 B4- B- |"Eb"B8- |"Gb"B6 z3/2e/ |"Ab"A4 "Eb"B4 |"Ab"c8 |
-"Ab"c4 "Eb"d4 |"Ab"e8 |"Eb"e4 "Bb"d2 e2 |"Ab"e8- |"Fm7"e4 |]
+K:F
+|:z4 D2 G2 |"Bbmaj7"A3 B4- B |"Bbmaj7"z4 "Gm6"d3/2c3/2 B |"Fmaj7"B/ A2- A/G A4 |"Fmaj7"z4 "Dm"zA de |
+"F"f4- fc cA |"Dm"d4- "Gm7"dA GF |"F"A7 G |"C"G8 :|
+"Bb"B4 "F"c4 | "Bb"d8 |"Bb"d4 "F"e4 |"Bb"f8 |"F"d7 c/d/ |"C"c8- |
+"C"c4- cd ef |"Dm"f4- ff ef |"Bb"f6 ef |"Dm"ga/f/ g f3 f/f/g/a/ |"Bb"g f7 |
+"F"f4 "C"g4 |"Dm"a15/2 c/ |"F"f3 "C"g4- g |"Dm"a8 |"Dm"a2- a/g/f/g/ g "Gm7"f2 c |
+"F"d3 c4- c- |"F"c8- |"Ab"c6 z3/2f/ |"Bb"B4 "F"c4 |"Bb"d8 |
+"Bb"d4 "F"e4 |"Bb"f8 |"F"f4 "C"e2 f2 |"Bb"f8- |"Gm7"f4 |]
