@@ -2342,8 +2342,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-11-02T13:50:11.427Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-02T13:56:54.629Z",
+      "playCount": 2,
       "createdAt": "2026-11-02T13:49:53.793Z"
     },
     "pop/tequila.abc": {
@@ -2915,7 +2915,7 @@
   "recentlyPlayed": [
     {
       "filePath": "pop/queen/who wants to live forever.abc",
-      "timestamp": "2026-11-02T13:50:11.427Z"
+      "timestamp": "2026-11-02T13:56:54.629Z"
     },
     {
       "filePath": "pop/the bangles/eternal flame.abc",
@@ -3233,7 +3233,7 @@
       "pop/jamiroquai/virtual insanity.abc": 1,
       "pop/mad world.abc": 1,
       "pop/no doubt/don't speak.abc": 1,
-      "pop/queen/who wants to live forever.abc": 3,
+      "pop/queen/who wants to live forever.abc": 4,
       "pop/the bangles/eternal flame.abc": 1,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/hopetoun_house.abc": 2
