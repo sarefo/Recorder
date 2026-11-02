@@ -2238,8 +2238,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-02T13:03:41.233Z",
+      "playCount": 1,
       "createdAt": "2026-11-02T12:53:18.132Z"
     },
     "pop/jamiroquai/love foolosophy.abc": {
@@ -2259,12 +2259,13 @@
       "createdAt": "2026-11-02T12:53:18.132Z"
     },
     "pop/jamiroquai/virtual insanity.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-02T12:53:29.268Z",
       "playCount": 1,
-      "createdAt": "2026-11-02T12:53:18.132Z"
+      "createdAt": "2026-11-02T12:53:18.132Z",
+      "updatedAt": "2026-11-02T13:03:37.063Z"
     },
     "pop/mad world.abc": {
       "status": "good",
@@ -2868,6 +2869,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/jamiroquai/deeper underground.abc",
+      "timestamp": "2026-11-02T13:03:41.233Z"
+    },
+    {
       "filePath": "pop/jamiroquai/virtual insanity.abc",
       "timestamp": "2026-11-02T12:53:29.268Z"
     },
@@ -2942,10 +2947,6 @@
     {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-11-02T09:19:59.560Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-11-02T07:09:38.151Z"
     }
   ],
   "activity": {
@@ -3179,6 +3180,7 @@
       "occitan/adiu paure carnaval.abc": 1,
       "occitan/ai vist lo lop.abc": 2,
       "occitan/la cambo me fai mau.abc": 5,
+      "pop/jamiroquai/deeper underground.abc": 1,
       "pop/jamiroquai/virtual insanity.abc": 1,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/hopetoun_house.abc": 2
@@ -3624,6 +3626,11 @@
       "path": "jazz/tea for two.abc",
       "status": "needs-practice",
       "at": "2026-11-02T12:41:48.707Z"
+    },
+    {
+      "path": "pop/jamiroquai/virtual insanity.abc",
+      "status": "needs-practice",
+      "at": "2026-11-02T13:03:37.063Z"
     }
   ],
   "marks": {
@@ -5027,6 +5034,16 @@
         "at": "2026-10-29T03:21:00.723Z"
       }
     },
+    "pop/jamiroquai/virtual insanity.abc": {
+      "50": {
+        "pitch": "^d",
+        "prev": "A",
+        "pitchSeen": 5,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-02T13:03:19.772Z"
+      }
+    },
     "pop/mad world.abc": {
       "3": {
         "pitch": "_A",
@@ -6358,6 +6375,15 @@
         "22": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "pop/jamiroquai/virtual insanity.abc": {
+      "at": "2026-11-02T13:03:09.766Z",
+      "notes": {
+        "50": {
+          "state": "red",
+          "pitch": "^d"
         }
       }
     },
