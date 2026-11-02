@@ -4620,6 +4620,16 @@
         "at": "2026-11-01T03:33:25.320Z"
       }
     },
+    "jazz/my funny valentine.abc": {
+      "38": {
+        "pitch": "^c",
+        "prev": "d",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-02T12:29:41.599Z"
+      }
+    },
     "jazz/night and day.abc": {
       "5": {
         "pitch": "_B",
@@ -6023,7 +6033,7 @@
       }
     },
     "jazz/my funny valentine.abc": {
-      "at": "2026-11-02T12:28:21.231Z",
+      "at": "2026-11-02T12:29:31.590Z",
       "notes": {
         "2": {
           "state": "red",
@@ -6040,6 +6050,10 @@
         "35": {
           "state": "red",
           "pitch": "b"
+        },
+        "38": {
+          "state": "red",
+          "pitch": "^c"
         },
         "86": {
           "state": "red",
