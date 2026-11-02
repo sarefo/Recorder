@@ -2227,12 +2227,13 @@
       "createdAt": "2026-08-22T02:59:38.465Z"
     },
     "pop/jamiroquai/canned heat.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-02T13:05:13.056Z",
       "playCount": 1,
-      "createdAt": "2026-11-02T12:53:18.132Z"
+      "createdAt": "2026-11-02T12:53:18.132Z",
+      "updatedAt": "2026-11-02T13:06:05.893Z"
     },
     "pop/jamiroquai/deeper underground.abc": {
       "status": "needs-practice",
@@ -2273,8 +2274,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T11:45:35.565Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-02T13:06:10.112Z",
+      "playCount": 6,
       "createdAt": "2026-10-27T14:01:49.066Z",
       "updatedAt": "2026-10-28T02:44:12.110Z"
     },
@@ -2871,6 +2872,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/mad world.abc",
+      "timestamp": "2026-11-02T13:06:10.112Z"
+    },
+    {
       "filePath": "pop/jamiroquai/canned heat.abc",
       "timestamp": "2026-11-02T13:05:13.056Z"
     },
@@ -2945,10 +2950,6 @@
     {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-11-02T09:33:28.857Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-11-02T09:31:08.889Z"
     }
   ],
   "activity": {
@@ -3186,6 +3187,7 @@
       "pop/jamiroquai/deeper underground.abc": 1,
       "pop/jamiroquai/love foolosophy.abc": 1,
       "pop/jamiroquai/virtual insanity.abc": 1,
+      "pop/mad world.abc": 1,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/hopetoun_house.abc": 2
     }
@@ -3645,6 +3647,11 @@
       "path": "pop/jamiroquai/love foolosophy.abc",
       "status": "needs-practice",
       "at": "2026-11-02T13:05:09.349Z"
+    },
+    {
+      "path": "pop/jamiroquai/canned heat.abc",
+      "status": "needs-practice",
+      "at": "2026-11-02T13:06:04.621Z"
     }
   ],
   "marks": {
