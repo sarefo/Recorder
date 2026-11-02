@@ -264,7 +264,7 @@ class AbcNoteIndex {
         "pop/eurythmics/sweet dreams.abc": [60,62,63,65],
         "pop/eurythmics/there must be an angel.abc": [62,64,65,67,69,70,72,74,76,77,79],
         "pop/eurythmics/would i lie to you.abc": [60,61,63,64,65,67,69,70,72,73,75,79,80],
-        "pop/final_countdown.abc": [61,63,64,66,68,69],
+        "pop/final_countdown.abc": [64,66,67,69,71,72],
         "pop/game/mario theme.abc": [64,67,68,69,70,71,72,74,75,76,77,78,79,81,84],
         "pop/game/monkey island.abc": [64,65,67,69,71,72,74,76,77],
         "pop/jamiroquai/canned heat.abc": [62,63,65,67,69,70,71,72,73,74,77,79],

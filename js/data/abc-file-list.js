@@ -1560,7 +1560,7 @@ class AbcFileList {
                 "name": "The Final Countdown",
                 "file": "pop/final_countdown.abc",
                 "category": "pop",
-                "hash": "decde8758e"
+                "hash": "07ea84bc5a"
         },
         {
                 "name": "Top of the world",
@@ -1692,7 +1692,7 @@ class AbcFileList {
                 "name": "Eternal Flame",
                 "file": "pop/the bangles/eternal flame.abc",
                 "category": "pop/the bangles",
-                "hash": "d22f1b14c5"
+                "hash": "b0015a95b3"
         },
         {
                 "name": "Don't Stand So Close to Me",

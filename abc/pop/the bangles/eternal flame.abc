@@ -4,10 +4,25 @@ C:The Bangles
 M:4/4
 O:USA, 1989
 N:Verse and chorus. Melody from the vocal channel of a MIDI arrangement (hamienet.com, track 30834), moved up a fourth from G major to C major so the low G3 lands on C4. A second arrangement (track 3375) gives the same pitches apart from one grace note; where its rhythm differs by a sixteenth the first was followed, except one E in bar 11 where the second was. Left out: the second verse's extension and the bridge. Chords from the arrangement's pad and bass channels.
+N:Lyrics supplied by the user. The first nine bars are sung twice (two w: lines); the echoed "(burning)" and the repeated outro are left out. A ~ puts two words under one note (verse 2 "you are" and "Or is"); a * marks a melisma note.
 Q:1/4=76
 L:1/8
 K:C
-"C"z2 EF/ "Am7"G7/2 z |"F"GG AG- "G7"G2 CD |"C"z2 EG/"Am7"c3/2 c cc- |"F"c A3 "G7"AG CD/E/- |
-"Am"E2 cc "E7"B2 ee- |"Am7"e4 "D7"AB cA |"G"d4 "Em"G4 |"Dm7"G2 G2 G G3 |"Dm7"G2 c2 B c2 "G"G |
-"G"z2 "Gm7"dd/ d7/2 z |"C/G"cc cB/"G"c B/G GA |"Gm7/Bb"_B3 d "C7"cG3/2 G/G |"F"A/_B3/2 "Am/E"A"Dm"G/G3/2 F3 |
+|:"C"z2 EF/ "Am7"G7/2 z |"F"GG AG- "G7"G2 CD |
+w:Close your eyes give me your hand * dar-ling
+w:I be-lieve it's meant to be * dar-ling
+"C"z2 EG/"Am7"c3/2 c cc- |"F"c A3 "G7"AG CD/E/- |
+w:Do you feel my heart beat * ing Do you un-der-stand
+w:I watch you when you~are sleep * ing You be-long with me
+"Am"E2 cc "E7"B2 ee- |"Am7"e4 "D7"AB cA |"G"d4 "Em"G4 |
+w:* Do you feel the same * Am I on-ly dream-ing
+w:* Do you feel the same * Am I on-ly dream-ing
+"Dm7"G2 G2 G G3 |"Dm7"G2 c2 B c2 "G"G :|
+w:Is this burn-ing an e-ter-nal flame
+w:Or~is this burn-ing an e-ter-nal flame
+"G"z2 "Gm7"dd/ d7/2 z |"C/G"cc cB/"G"c B/G GA |
+w:Say my name Sun shines through the rain A whole life so
+"Gm7/Bb"_B3 d "C7"cG3/2 G/G |"F"A/_B3/2 "Am/E"A"Dm"G/G3/2 F3 |
+w:lone-ly And then come and ease the pain * * *
 "G"z2 GA "Em"BG AB |"Bb"d3 "F"c c4 |"G"d8- |d4 z4 |]
+w:I don't want to lose this feel-ing * oh
