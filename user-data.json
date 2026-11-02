@@ -2292,8 +2292,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-02T13:16:09.116Z",
+      "playCount": 1,
       "createdAt": "2026-11-02T13:15:10.953Z"
     },
     "pop/personal jesus.abc": {
@@ -2888,6 +2888,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/no doubt/don't speak.abc",
+      "timestamp": "2026-11-02T13:16:09.116Z"
+    },
+    {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-11-02T13:15:26.682Z"
     },
@@ -2962,10 +2966,6 @@
     {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-11-02T09:50:17.834Z"
-    },
-    {
-      "filePath": "japanese/hashire kotaro.abc",
-      "timestamp": "2026-11-02T09:47:33.546Z"
     }
   ],
   "activity": {
@@ -3206,6 +3206,7 @@
       "pop/jamiroquai/love foolosophy.abc": 1,
       "pop/jamiroquai/virtual insanity.abc": 1,
       "pop/mad world.abc": 1,
+      "pop/no doubt/don't speak.abc": 1,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/hopetoun_house.abc": 2
     }
@@ -5171,6 +5172,16 @@
         "at": "2026-10-26T11:24:54.438Z"
       }
     },
+    "pop/no doubt/don't speak.abc": {
+      "1": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 11,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-02T13:16:19.228Z"
+      }
+    },
     "pop/popcorn.abc": {
       "2": {
         "pitch": "_B",
@@ -6535,6 +6546,15 @@
         "19": {
           "state": "red",
           "pitch": "_E"
+        }
+      }
+    },
+    "pop/no doubt/don't speak.abc": {
+      "at": "2026-11-02T13:16:09.225Z",
+      "notes": {
+        "1": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
