@@ -50,6 +50,14 @@
     stroke: var(--color-scale-change) !important;
 }
 
+/* Changed by the chord and also set by the key signature: the teal between
+   the key-signature blue and the change green */
+.abcjs-note.keysig-affected.scale-changed:not(.playing) path,
+.abcjs-note.keysig-affected.scale-changed:not(.playing) rect {
+    fill: var(--color-keysig-fit) !important;
+    stroke: var(--color-keysig-fit) !important;
+}
+
 .abcjs-note.scale-outside:not(.playing) path,
 .abcjs-note.scale-outside:not(.playing) rect {
     fill: var(--color-scale-outside) !important;
