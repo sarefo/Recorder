@@ -2205,8 +2205,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T13:11:36.188Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-02T13:15:26.682Z",
+      "playCount": 7,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-29T07:31:46.377Z"
     },
@@ -2288,6 +2288,14 @@
       "createdAt": "2026-10-26T11:24:25.705Z",
       "updatedAt": "2026-10-26T11:24:40.651Z"
     },
+    "pop/no doubt/don't speak.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-02T13:15:10.953Z"
+    },
     "pop/personal jesus.abc": {
       "status": null,
       "favorite": false,
@@ -2309,8 +2317,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-10-26T11:25:03.592Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-02T13:15:22.883Z",
+      "playCount": 2,
       "createdAt": "2026-10-26T11:24:25.705Z"
     },
     "pop/tequila.abc": {
@@ -2320,6 +2328,14 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-01-18T20:46:38.367Z"
+    },
+    "pop/the bangles/eternal flame.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-02T13:15:10.953Z"
     },
     "pop/the police/don't stand so close to me.abc": {
       "status": null,
@@ -2873,7 +2889,11 @@
   "recentlyPlayed": [
     {
       "filePath": "pop/final_countdown.abc",
-      "timestamp": "2026-11-02T13:11:36.188Z"
+      "timestamp": "2026-11-02T13:15:26.682Z"
+    },
+    {
+      "filePath": "pop/que sera sera.abc",
+      "timestamp": "2026-11-02T13:15:22.883Z"
     },
     {
       "filePath": "pop/derniere danse.abc",
@@ -2946,10 +2966,6 @@
     {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-11-02T09:47:33.546Z"
-    },
-    {
-      "filePath": "irish/johnny i hardly knew ya.abc",
-      "timestamp": "2026-11-02T09:43:54.843Z"
     }
   ],
   "activity": {
@@ -5065,12 +5081,12 @@
         "at": "2026-10-29T03:21:00.721Z"
       },
       "19": {
-        "pitch": "^D",
-        "prev": "^C",
+        "pitch": "^F",
+        "prev": "E",
         "pitchSeen": 6,
         "transSeen": 2,
-        "count": 2,
-        "at": "2026-11-02T13:11:46.309Z"
+        "count": 3,
+        "at": "2026-11-02T13:15:16.222Z"
       },
       "22": {
         "pitch": "_B",
