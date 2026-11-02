@@ -1248,8 +1248,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-24T12:23:44.454Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-02T06:04:17.671Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T12:24:01.834Z"
     },
@@ -1706,8 +1706,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:42:00.845Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-02T06:03:31.519Z",
+      "playCount": 6,
       "createdAt": "2026-10-13T03:57:34.035Z",
       "updatedAt": "2026-11-01T03:16:56.776Z"
     },
@@ -1739,8 +1739,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T05:46:24.594Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-02T06:03:44.558Z",
+      "playCount": 8,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-01T03:42:21.250Z"
     },
@@ -1780,8 +1780,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T05:58:22.512Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-02T06:03:53.956Z",
+      "playCount": 4,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-10-24T12:32:30.848Z"
     },
@@ -2816,12 +2816,20 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "greek/kritikos syrtos.abc",
+      "timestamp": "2026-11-02T06:04:17.671Z"
+    },
+    {
       "filePath": "jazz/sweet georgia brown.abc",
-      "timestamp": "2026-11-02T05:58:22.512Z"
+      "timestamp": "2026-11-02T06:03:53.956Z"
     },
     {
       "filePath": "jazz/girl from ipanema.abc",
-      "timestamp": "2026-11-02T05:46:24.594Z"
+      "timestamp": "2026-11-02T06:03:44.558Z"
+    },
+    {
+      "filePath": "jazz/blue moon.abc",
+      "timestamp": "2026-11-02T06:03:31.519Z"
     },
     {
       "filePath": "jazz/autumn leaves.abc",
@@ -2880,20 +2888,12 @@
       "timestamp": "2026-11-01T04:18:37.875Z"
     },
     {
-      "filePath": "jazz/blue moon.abc",
-      "timestamp": "2026-11-01T03:42:00.845Z"
-    },
-    {
       "filePath": "jazz/night and day.abc",
       "timestamp": "2026-11-01T03:27:02.353Z"
     },
     {
       "filePath": "jazz/summertime.abc",
       "timestamp": "2026-11-01T03:20:04.514Z"
-    },
-    {
-      "filePath": "philippine/pamulinawen.abc",
-      "timestamp": "2026-10-31T08:21:40.984Z"
     }
   ],
   "activity": {
@@ -3102,6 +3102,7 @@
       "trinidadian/jump in the line.abc": 1
     },
     "2026-11-02": {
+      "greek/kritikos syrtos.abc": 1,
       "jazz/all of me.abc": 7,
       "jazz/autumn leaves.abc": 2,
       "jazz/girl from ipanema.abc": 4,
@@ -4093,6 +4094,16 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-24T12:17:45.112Z"
+      }
+    },
+    "greek/kritikos syrtos.abc": {
+      "2": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 13,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-02T06:04:27.780Z"
       }
     },
     "italian/tarantella napoletana.abc": {
@@ -5537,6 +5548,15 @@
       "at": "2026-10-24T12:17:35.109Z",
       "notes": {
         "3": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "greek/kritikos syrtos.abc": {
+      "at": "2026-11-02T06:04:17.777Z",
+      "notes": {
+        "2": {
           "state": "red",
           "pitch": "_B"
         }
