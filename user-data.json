@@ -1745,12 +1745,13 @@
       "updatedAt": "2026-11-01T03:42:21.250Z"
     },
     "jazz/my funny valentine.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-02T12:26:20.821Z",
       "playCount": 2,
-      "createdAt": "2026-10-13T03:57:34.036Z"
+      "createdAt": "2026-10-13T03:57:34.036Z",
+      "updatedAt": "2026-11-02T12:32:03.829Z"
     },
     "jazz/night and day.abc": {
       "status": null,
@@ -3129,7 +3130,7 @@
       "jazz/autumn leaves.abc": 3,
       "jazz/blue moon.abc": 1,
       "jazz/girl from ipanema.abc": 4,
-      "jazz/my funny valentine.abc": 5,
+      "jazz/my funny valentine.abc": 6,
       "jazz/summertime.abc": 1,
       "jazz/sweet georgia brown.abc": 3,
       "occitan/adiu paure carnaval.abc": 1,
@@ -3569,6 +3570,11 @@
       "path": "jazz/summertime.abc",
       "status": "practicing",
       "at": "2026-11-02T12:26:17.727Z"
+    },
+    {
+      "path": "jazz/my funny valentine.abc",
+      "status": "practicing",
+      "at": "2026-11-02T12:32:03.829Z"
     }
   ],
   "marks": {
