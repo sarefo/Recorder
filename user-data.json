@@ -2289,12 +2289,13 @@
       "updatedAt": "2026-10-26T11:24:40.651Z"
     },
     "pop/no doubt/don't speak.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-02T13:16:09.116Z",
       "playCount": 1,
-      "createdAt": "2026-11-02T13:15:10.953Z"
+      "createdAt": "2026-11-02T13:15:10.953Z",
+      "updatedAt": "2026-11-02T13:18:49.234Z"
     },
     "pop/personal jesus.abc": {
       "status": null,
@@ -2330,12 +2331,13 @@
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/the bangles/eternal flame.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-02T13:15:10.953Z"
+      "lastPlayed": "2026-11-02T13:18:55.284Z",
+      "playCount": 1,
+      "createdAt": "2026-11-02T13:15:10.953Z",
+      "updatedAt": "2026-11-02T13:18:58.322Z"
     },
     "pop/the police/don't stand so close to me.abc": {
       "status": null,
@@ -2888,6 +2890,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/the bangles/eternal flame.abc",
+      "timestamp": "2026-11-02T13:18:55.284Z"
+    },
+    {
       "filePath": "pop/no doubt/don't speak.abc",
       "timestamp": "2026-11-02T13:16:09.116Z"
     },
@@ -2962,10 +2968,6 @@
     {
       "filePath": "japanese/ureshii hinamatsuri.abc",
       "timestamp": "2026-11-02T09:53:40.148Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-11-02T09:50:17.834Z"
     }
   ],
   "activity": {
@@ -3207,6 +3209,7 @@
       "pop/jamiroquai/virtual insanity.abc": 1,
       "pop/mad world.abc": 1,
       "pop/no doubt/don't speak.abc": 1,
+      "pop/the bangles/eternal flame.abc": 1,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/hopetoun_house.abc": 2
     }
@@ -3671,6 +3674,16 @@
       "path": "pop/jamiroquai/canned heat.abc",
       "status": "needs-practice",
       "at": "2026-11-02T13:06:04.621Z"
+    },
+    {
+      "path": "pop/no doubt/don't speak.abc",
+      "status": "needs-practice",
+      "at": "2026-11-02T13:18:49.234Z"
+    },
+    {
+      "path": "pop/the bangles/eternal flame.abc",
+      "status": "needs-practice",
+      "at": "2026-11-02T13:18:58.322Z"
     }
   ],
   "marks": {
