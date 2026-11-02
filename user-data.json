@@ -1091,8 +1091,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-20T06:05:35.837Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-02T09:35:39.950Z",
+      "playCount": 8,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-16T10:46:45.679Z"
     },
@@ -2825,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/tourdion.abc",
+      "timestamp": "2026-11-02T09:35:39.950Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-11-02T09:33:28.857Z"
     },
@@ -2899,10 +2903,6 @@
     {
       "filePath": "italian/tarantella napoletana.abc",
       "timestamp": "2026-11-01T10:38:44.552Z"
-    },
-    {
-      "filePath": "classical/bach/air.abc",
-      "timestamp": "2026-11-01T10:20:24.583Z"
     }
   ],
   "activity": {
@@ -3115,6 +3115,7 @@
       "breton/son ar chistr.abc": 4,
       "breton/toutouic.abc": 2,
       "french/douce dame jolie.abc": 1,
+      "french/tourdion.abc": 1,
       "greek/kritikos syrtos.abc": 3,
       "italian/bella ciao.abc": 4,
       "jazz/all of me.abc": 7,
@@ -4027,6 +4028,16 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-30T02:48:45.421Z"
+      }
+    },
+    "french/tourdion.abc": {
+      "35": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 3,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-02T09:35:50.058Z"
       }
     },
     "german/es freit ein wilder wassermann.abc": {
@@ -5527,6 +5538,15 @@
         "44": {
           "state": "red",
           "pitch": "_e"
+        }
+      }
+    },
+    "french/tourdion.abc": {
+      "at": "2026-11-02T09:35:40.055Z",
+      "notes": {
+        "35": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
