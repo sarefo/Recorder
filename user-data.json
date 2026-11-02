@@ -1248,8 +1248,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T06:04:17.671Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-02T06:08:00.617Z",
+      "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T12:24:01.834Z"
     },
@@ -2817,7 +2817,7 @@
   "recentlyPlayed": [
     {
       "filePath": "greek/kritikos syrtos.abc",
-      "timestamp": "2026-11-02T06:04:17.671Z"
+      "timestamp": "2026-11-02T06:08:00.617Z"
     },
     {
       "filePath": "jazz/sweet georgia brown.abc",
