@@ -5104,6 +5104,32 @@
         "at": "2026-10-27T14:44:33.432Z"
       }
     },
+    "pop/eric clapton/layla.abc": {
+      "56": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 14,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-02T14:00:21.185Z"
+      },
+      "57": {
+        "pitch": "_A",
+        "prev": "_B",
+        "pitchSeen": 12,
+        "transSeen": 10,
+        "count": 1,
+        "at": "2026-11-02T14:00:21.187Z"
+      },
+      "101": {
+        "pitch": "_E",
+        "prev": "_A",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-02T14:00:21.189Z"
+      }
+    },
     "pop/eric clapton/tears in heaven.abc": {
       "10": {
         "pitch": "_B",
