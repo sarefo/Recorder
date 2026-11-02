@@ -2527,6 +2527,15 @@
       "playCount": 1,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
+    "scottish/sweet_molly.abc": {
+      "status": null,
+      "favorite": true,
+      "notes": "",
+      "lastPlayed": "2026-11-02T06:52:29.104Z",
+      "playCount": 1,
+      "createdAt": "2026-11-02T06:52:05.628Z",
+      "updatedAt": "2026-11-02T06:52:27.978Z"
+    },
     "serbian/ljulja ljulja ljuska.abc": {
       "status": null,
       "favorite": false,
@@ -2816,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/sweet_molly.abc",
+      "timestamp": "2026-11-02T06:52:29.104Z"
+    },
+    {
       "filePath": "scottish/hopetoun_house.abc",
       "timestamp": "2026-11-02T06:13:41.012Z"
     },
@@ -2890,10 +2903,6 @@
     {
       "filePath": "trinidadian/jump in the line.abc",
       "timestamp": "2026-11-01T04:30:47.566Z"
-    },
-    {
-      "filePath": "jazz/the way you look tonight.abc",
-      "timestamp": "2026-11-01T04:18:37.875Z"
     }
   ],
   "activity": {
