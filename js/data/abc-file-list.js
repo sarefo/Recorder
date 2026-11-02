@@ -906,7 +906,7 @@ class AbcFileList {
                 "name": "Kritikos Syrtos",
                 "file": "greek/kritikos syrtos.abc",
                 "category": "greek",
-                "hash": "2b012df455"
+                "hash": "14d7121ad6"
         },
         {
                 "name": "Aloha \u02bbOe",
