@@ -83,6 +83,8 @@ class AbcPlayer {
         this.keySignatureHighlighter = new KeySignatureHighlighter(this);
         this.scaleRuler = new ScaleRuler(this);
         this.scaleRuler.setup();
+        // Fit marks follow the playing chord while playing, the whole score otherwise
+        this.midiPlayer.onPlayStateChange = () => this.scaleRuler.markFittingNotes();
         this.mobileUI = new MobileUI(this);
         this.swipeHandler = new SwipeHandler(this);
 

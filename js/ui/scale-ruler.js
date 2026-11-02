@@ -212,6 +212,7 @@ ${tones.join(' ')}|]
     markFittingNotes() {
         const notes = document.querySelectorAll('#abc-notation .abcjs-note');
         const on = this.visible && this.fitNotes && (this.chordTimeline.length || this.keyHome);
+        const live = !!this.player.midiPlayer?.isPlaying && this.chordTimeline.length > 0;
         if (on && !this.noteNames) {
             try {
                 // Same list the fingering diagrams use; data-index points into it
@@ -230,6 +231,11 @@ ${tones.join(' ')}|]
                 if (name && name !== 'rest') {
                     const pc = ScaleRuler.pitchClass(name);
                     const entry = this.entryAt(this.charOfNote.get(el));
+                    // While playing, only notes under the sounding chord are marked
+                    if (live && entry !== this.chordTimeline[this.entryIndex]) {
+                        el.classList.remove('scale-outside', 'scale-changed');
+                        continue;
+                    }
                     const pcs = entry ? entry.pcs : this.keyHome?.pcs;
                     changed = !!entry && entry.added.has(pc);
                     outside = !changed && !!pcs && !pcs.has(pc);
@@ -396,7 +402,10 @@ ${tones.join(' ')}|]
         if (!this.visible || !this.chordTimeline.length) return;
         const char = ev?.startCharArray?.[0];
         if (typeof char !== 'number') return;
+        const before = this.entryIndex;
         this.showEntry(this.entryIndexAt(char));
+        // While playing, the Fit marks belong to the chord now sounding
+        if (this.entryIndex !== before && this.fitNotes) this.markFittingNotes();
     }
 
     /**

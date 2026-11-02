@@ -472,6 +472,7 @@ class MidiPlayer {
      * @param {boolean} disabled - Whether the button should be disabled
      */
     updatePlayButtonState(disabled = false) {
+        this.onPlayStateChange?.();
         const playButton = document.getElementById('play-button');
         if (playButton) {
             playButton.disabled = disabled;
