@@ -2173,8 +2173,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-02T14:03:50.030Z",
+      "playCount": 1,
       "createdAt": "2026-10-15T10:27:48.810Z"
     },
     "pop/eurythmics/love is a stranger.abc": {
@@ -2195,12 +2195,12 @@
     },
     "pop/eurythmics/sweet dreams.abc": {
       "status": "needs-practice",
-      "favorite": false,
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-02T14:02:11.881Z",
       "playCount": 2,
       "createdAt": "2026-10-15T10:27:48.810Z",
-      "updatedAt": "2026-10-15T10:29:43.353Z"
+      "updatedAt": "2026-11-02T14:03:47.055Z"
     },
     "pop/eurythmics/there must be an angel.abc": {
       "status": null,
@@ -2916,6 +2916,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/eurythmics/here comes the rain again.abc",
+      "timestamp": "2026-11-02T14:03:50.030Z"
+    },
+    {
       "filePath": "pop/eurythmics/sweet dreams.abc",
       "timestamp": "2026-11-02T14:02:11.881Z"
     },
@@ -2990,10 +2994,6 @@
     {
       "filePath": "jazz/blue moon.abc",
       "timestamp": "2026-11-02T12:19:08.726Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-11-02T12:16:02.587Z"
     }
   ],
   "activity": {
@@ -3229,6 +3229,7 @@
       "occitan/la cambo me fai mau.abc": 5,
       "pop/derniere danse.abc": 1,
       "pop/eric clapton/tears in heaven.abc": 1,
+      "pop/eurythmics/here comes the rain again.abc": 1,
       "pop/eurythmics/sweet dreams.abc": 2,
       "pop/final_countdown.abc": 2,
       "pop/jamiroquai/canned heat.abc": 1,
@@ -5141,6 +5142,16 @@
         "at": "2026-11-02T13:58:10.961Z"
       }
     },
+    "pop/eurythmics/here comes the rain again.abc": {
+      "64": {
+        "pitch": "_B",
+        "prev": null,
+        "pitchSeen": 2,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-02T14:04:00.136Z"
+      }
+    },
     "pop/eurythmics/sweet dreams.abc": {
       "1": {
         "pitch": "_E",
@@ -6637,6 +6648,15 @@
       "at": "2026-11-02T13:58:00.959Z",
       "notes": {
         "10": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "pop/eurythmics/here comes the rain again.abc": {
+      "at": "2026-11-02T14:03:50.134Z",
+      "notes": {
+        "64": {
           "state": "red",
           "pitch": "_B"
         }
