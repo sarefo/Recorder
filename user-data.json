@@ -1998,8 +1998,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-30T05:01:20.542Z",
-      "playCount": 13,
+      "lastPlayed": "2026-11-02T09:26:56.857Z",
+      "playCount": 14,
       "createdAt": "2026-09-22T12:46:37.241Z",
       "updatedAt": "2026-10-30T05:03:16.906Z"
     },
@@ -2825,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/ai vist lo lop.abc",
+      "timestamp": "2026-11-02T09:26:56.857Z"
+    },
+    {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-11-02T09:19:59.560Z"
     },
@@ -2899,10 +2903,6 @@
     {
       "filePath": "film/anything goes.abc",
       "timestamp": "2026-11-01T10:18:57.710Z"
-    },
-    {
-      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
-      "timestamp": "2026-11-01T10:17:11.678Z"
     }
   ],
   "activity": {
@@ -7055,6 +7055,12 @@
       "at": "2026-11-02T06:09:07.724Z",
       "percent": 80,
       "bpm": 96
+    },
+    {
+      "path": "occitan/la cambo me fai mau.abc",
+      "at": "2026-11-02T09:26:53.149Z",
+      "percent": 100,
+      "bpm": 200
     }
   ],
   "settings": {}
