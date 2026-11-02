@@ -4419,6 +4419,14 @@
         "count": 1,
         "at": "2026-10-24T12:25:30.706Z"
       },
+      "5": {
+        "pitch": "E",
+        "prev": "^F",
+        "pitchSeen": 15,
+        "transSeen": 9,
+        "count": 1,
+        "at": "2026-11-02T05:50:33.791Z"
+      },
       "47": {
         "pitch": "_A",
         "prev": "G",
@@ -5789,11 +5797,15 @@
       }
     },
     "jazz/girl from ipanema.abc": {
-      "at": "2026-11-01T04:16:11.674Z",
+      "at": "2026-11-02T05:50:23.784Z",
       "notes": {
         "2": {
           "state": "red",
           "pitch": "^F"
+        },
+        "5": {
+          "state": "red",
+          "pitch": "E"
         },
         "47": {
           "state": "red",
