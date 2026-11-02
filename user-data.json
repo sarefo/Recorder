@@ -1697,8 +1697,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T03:17:32.423Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-02T05:38:27.909Z",
+      "playCount": 13,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -2816,6 +2816,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-11-02T05:38:27.909Z"
+    },
+    {
       "filePath": "jazz/all of me.abc",
       "timestamp": "2026-11-01T10:41:31.558Z"
     },
@@ -2886,10 +2890,6 @@
     {
       "filePath": "jazz/summertime.abc",
       "timestamp": "2026-11-01T03:20:04.514Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-11-01T03:17:32.423Z"
     },
     {
       "filePath": "philippine/pamulinawen.abc",
