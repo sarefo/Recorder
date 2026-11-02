@@ -2514,8 +2514,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T04:32:28.287Z",
-      "playCount": 13,
+      "lastPlayed": "2026-11-02T06:13:41.012Z",
+      "playCount": 14,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-08T07:37:13.092Z"
     },
@@ -2816,6 +2816,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/hopetoun_house.abc",
+      "timestamp": "2026-11-02T06:13:41.012Z"
+    },
+    {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-11-02T06:10:39.785Z"
     },
@@ -2882,10 +2886,6 @@
     {
       "filePath": "philippine/bahay kubo.abc",
       "timestamp": "2026-11-01T10:02:35.687Z"
-    },
-    {
-      "filePath": "scottish/hopetoun_house.abc",
-      "timestamp": "2026-11-01T04:32:28.287Z"
     },
     {
       "filePath": "trinidadian/jump in the line.abc",
