@@ -1322,8 +1322,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-19T05:28:26.226Z",
-      "playCount": 16,
+      "lastPlayed": "2026-11-02T09:43:54.843Z",
+      "playCount": 17,
       "createdAt": "2026-07-30T09:51:53.099Z",
       "updatedAt": "2026-10-19T05:26:35.640Z"
     },
@@ -2825,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "irish/johnny i hardly knew ya.abc",
+      "timestamp": "2026-11-02T09:43:54.843Z"
+    },
+    {
       "filePath": "french/tourdion.abc",
       "timestamp": "2026-11-02T09:35:39.950Z"
     },
@@ -2899,10 +2903,6 @@
     {
       "filePath": "jazz/all of me.abc",
       "timestamp": "2026-11-01T10:41:31.558Z"
-    },
-    {
-      "filePath": "italian/tarantella napoletana.abc",
-      "timestamp": "2026-11-01T10:38:44.552Z"
     }
   ],
   "activity": {
@@ -3117,6 +3117,7 @@
       "french/douce dame jolie.abc": 1,
       "french/tourdion.abc": 6,
       "greek/kritikos syrtos.abc": 3,
+      "irish/johnny i hardly knew ya.abc": 1,
       "italian/bella ciao.abc": 4,
       "jazz/all of me.abc": 7,
       "jazz/autumn leaves.abc": 2,
