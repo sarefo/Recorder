@@ -1791,8 +1791,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-02T12:39:05.772Z",
+      "playCount": 1,
       "createdAt": "2026-10-13T03:57:34.036Z"
     },
     "jazz/the way you look tonight.abc": {
@@ -2827,6 +2827,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/tea for two.abc",
+      "timestamp": "2026-11-02T12:39:05.772Z"
+    },
+    {
       "filePath": "jazz/my funny valentine.abc",
       "timestamp": "2026-11-02T12:26:20.821Z"
     },
@@ -2901,10 +2905,6 @@
     {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-11-02T07:05:02.981Z"
-    },
-    {
-      "filePath": "italian/bella ciao.abc",
-      "timestamp": "2026-11-02T07:00:46.499Z"
     }
   ],
   "activity": {
@@ -3133,6 +3133,7 @@
       "jazz/my funny valentine.abc": 10,
       "jazz/summertime.abc": 1,
       "jazz/sweet georgia brown.abc": 3,
+      "jazz/tea for two.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
       "occitan/ai vist lo lop.abc": 2,
       "occitan/la cambo me fai mau.abc": 5,
@@ -4672,6 +4673,16 @@
         "at": "2026-10-24T12:32:30.892Z"
       }
     },
+    "jazz/tea for two.abc": {
+      "92": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 3,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-02T12:39:15.889Z"
+      }
+    },
     "jazz/the way you look tonight.abc": {
       "4": {
         "pitch": "_B",
@@ -6090,6 +6101,15 @@
         "1": {
           "state": "red",
           "pitch": "^F"
+        }
+      }
+    },
+    "jazz/tea for two.abc": {
+      "at": "2026-11-02T12:39:05.886Z",
+      "notes": {
+        "92": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
