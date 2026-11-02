@@ -1126,8 +1126,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-30T05:10:10.233Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-02T12:42:12.540Z",
+      "playCount": 5,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:52:16.545Z"
     },
@@ -1788,12 +1788,13 @@
       "updatedAt": "2026-10-24T12:32:30.848Z"
     },
     "jazz/tea for two.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-02T12:39:05.772Z",
       "playCount": 1,
-      "createdAt": "2026-10-13T03:57:34.036Z"
+      "createdAt": "2026-10-13T03:57:34.036Z",
+      "updatedAt": "2026-11-02T12:41:48.707Z"
     },
     "jazz/the way you look tonight.abc": {
       "status": "practicing",
@@ -2827,6 +2828,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es geht eine dunkle wolk herein.abc",
+      "timestamp": "2026-11-02T12:42:12.540Z"
+    },
+    {
       "filePath": "jazz/tea for two.abc",
       "timestamp": "2026-11-02T12:39:05.772Z"
     },
@@ -2901,10 +2906,6 @@
     {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-11-02T07:07:59.742Z"
-    },
-    {
-      "filePath": "breton/les filles des forges de paimpont.abc",
-      "timestamp": "2026-11-02T07:05:02.981Z"
     }
   ],
   "activity": {
@@ -3118,6 +3119,7 @@
       "breton/toutouic.abc": 2,
       "french/douce dame jolie.abc": 1,
       "french/tourdion.abc": 6,
+      "german/es geht eine dunkle wolk herein.abc": 2,
       "greek/kritikos syrtos.abc": 3,
       "irish/johnny i hardly knew ya.abc": 2,
       "italian/bella ciao.abc": 4,
@@ -3576,6 +3578,11 @@
       "path": "jazz/my funny valentine.abc",
       "status": "practicing",
       "at": "2026-11-02T12:32:03.829Z"
+    },
+    {
+      "path": "jazz/tea for two.abc",
+      "status": "needs-practice",
+      "at": "2026-11-02T12:41:48.707Z"
     }
   ],
   "marks": {
@@ -4674,6 +4681,22 @@
       }
     },
     "jazz/tea for two.abc": {
+      "27": {
+        "pitch": "^F",
+        "prev": "A",
+        "pitchSeen": 13,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-02T12:41:38.462Z"
+      },
+      "28": {
+        "pitch": "^G",
+        "prev": "^F",
+        "pitchSeen": 12,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-02T12:41:39.197Z"
+      },
       "92": {
         "pitch": "_B",
         "prev": "c",
@@ -6105,8 +6128,16 @@
       }
     },
     "jazz/tea for two.abc": {
-      "at": "2026-11-02T12:39:05.886Z",
+      "at": "2026-11-02T12:41:29.195Z",
       "notes": {
+        "27": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "28": {
+          "state": "red",
+          "pitch": "^G"
+        },
         "92": {
           "state": "red",
           "pitch": "_B"
