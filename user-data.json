@@ -1319,13 +1319,13 @@
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "irish/johnny i hardly knew ya.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-02T09:43:54.843Z",
       "playCount": 17,
       "createdAt": "2026-07-30T09:51:53.099Z",
-      "updatedAt": "2026-10-19T05:26:35.640Z"
+      "updatedAt": "2026-11-02T09:45:05.398Z"
     },
     "irish/the wild rover.abc": {
       "status": null,
@@ -3117,7 +3117,7 @@
       "french/douce dame jolie.abc": 1,
       "french/tourdion.abc": 6,
       "greek/kritikos syrtos.abc": 3,
-      "irish/johnny i hardly knew ya.abc": 1,
+      "irish/johnny i hardly knew ya.abc": 2,
       "italian/bella ciao.abc": 4,
       "jazz/all of me.abc": 7,
       "jazz/autumn leaves.abc": 2,
@@ -3540,6 +3540,11 @@
       "path": "scottish/sweet_molly.abc",
       "status": "practicing",
       "at": "2026-11-02T07:00:33.911Z"
+    },
+    {
+      "path": "irish/johnny i hardly knew ya.abc",
+      "status": "good",
+      "at": "2026-11-02T09:45:05.398Z"
     }
   ],
   "marks": {
@@ -7085,6 +7090,12 @@
       "at": "2026-11-02T09:26:53.149Z",
       "percent": 100,
       "bpm": 200
+    },
+    {
+      "path": "irish/johnny i hardly knew ya.abc",
+      "at": "2026-11-02T09:45:06.398Z",
+      "percent": 100,
+      "bpm": 120
     }
   ],
   "settings": {}
