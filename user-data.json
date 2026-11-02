@@ -3129,7 +3129,7 @@
       "jazz/autumn leaves.abc": 3,
       "jazz/blue moon.abc": 1,
       "jazz/girl from ipanema.abc": 4,
-      "jazz/my funny valentine.abc": 2,
+      "jazz/my funny valentine.abc": 5,
       "jazz/summertime.abc": 1,
       "jazz/sweet georgia brown.abc": 3,
       "occitan/adiu paure carnaval.abc": 1,
@@ -6023,7 +6023,7 @@
       }
     },
     "jazz/my funny valentine.abc": {
-      "at": "2026-11-02T12:26:09.747Z",
+      "at": "2026-11-02T12:28:21.231Z",
       "notes": {
         "2": {
           "state": "red",
@@ -6036,6 +6036,10 @@
         "16": {
           "state": "red",
           "pitch": "_A"
+        },
+        "35": {
+          "state": "red",
+          "pitch": "b"
         },
         "86": {
           "state": "red",
