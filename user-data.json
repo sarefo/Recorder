@@ -5180,6 +5180,22 @@
         "transSeen": 3,
         "count": 1,
         "at": "2026-11-02T13:16:19.228Z"
+      },
+      "4": {
+        "pitch": "_E",
+        "prev": "D",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-02T13:17:25.798Z"
+      },
+      "14": {
+        "pitch": "^F",
+        "prev": "D",
+        "pitchSeen": 5,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-02T13:17:28.040Z"
       }
     },
     "pop/popcorn.abc": {
@@ -6550,11 +6566,19 @@
       }
     },
     "pop/no doubt/don't speak.abc": {
-      "at": "2026-11-02T13:16:09.225Z",
+      "at": "2026-11-02T13:17:18.035Z",
       "notes": {
         "1": {
           "state": "red",
           "pitch": "_B"
+        },
+        "4": {
+          "state": "red",
+          "pitch": "_E"
+        },
+        "14": {
+          "state": "red",
+          "pitch": "^F"
         }
       }
     },
