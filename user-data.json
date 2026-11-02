@@ -1685,20 +1685,20 @@
       "updatedAt": "2026-10-25T05:33:08.001Z"
     },
     "jazz/all of me.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-02T12:11:43.130Z",
       "playCount": 9,
       "createdAt": "2026-01-18T20:46:38.366Z",
-      "updatedAt": "2026-10-22T05:41:31.969Z"
+      "updatedAt": "2026-11-02T12:15:59.746Z"
     },
     "jazz/autumn leaves.abc": {
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T05:38:27.909Z",
-      "playCount": 13,
+      "lastPlayed": "2026-11-02T12:16:02.587Z",
+      "playCount": 14,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -2825,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-11-02T12:16:02.587Z"
+    },
+    {
       "filePath": "jazz/all of me.abc",
       "timestamp": "2026-11-02T12:11:43.130Z"
     },
@@ -2899,10 +2903,6 @@
     {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-11-02T06:10:39.785Z"
-    },
-    {
-      "filePath": "albanian/jarnana.abc",
-      "timestamp": "2026-11-02T06:10:38.098Z"
     }
   ],
   "activity": {
@@ -3125,7 +3125,7 @@
       "japanese/kojo no tsuki.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 4,
       "jazz/all of me.abc": 8,
-      "jazz/autumn leaves.abc": 2,
+      "jazz/autumn leaves.abc": 3,
       "jazz/girl from ipanema.abc": 4,
       "jazz/sweet georgia brown.abc": 3,
       "occitan/adiu paure carnaval.abc": 1,
@@ -3550,6 +3550,11 @@
       "path": "irish/johnny i hardly knew ya.abc",
       "status": "good",
       "at": "2026-11-02T09:45:05.398Z"
+    },
+    {
+      "path": "jazz/all of me.abc",
+      "status": "good",
+      "at": "2026-11-02T12:15:59.746Z"
     }
   ],
   "marks": {
