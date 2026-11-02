@@ -1245,13 +1245,13 @@
       "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "greek/kritikos syrtos.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-02T06:08:00.617Z",
       "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.430Z",
-      "updatedAt": "2026-10-24T12:24:01.834Z"
+      "updatedAt": "2026-11-02T06:08:35.579Z"
     },
     "hawaiian/aloha oe.abc": {
       "status": null,
@@ -3102,7 +3102,7 @@
       "trinidadian/jump in the line.abc": 1
     },
     "2026-11-02": {
-      "greek/kritikos syrtos.abc": 1,
+      "greek/kritikos syrtos.abc": 3,
       "jazz/all of me.abc": 7,
       "jazz/autumn leaves.abc": 2,
       "jazz/girl from ipanema.abc": 4,
@@ -3509,6 +3509,11 @@
       "path": "italian/tarantella napoletana.abc",
       "status": "good",
       "at": "2026-11-01T10:41:02.824Z"
+    },
+    {
+      "path": "greek/kritikos syrtos.abc",
+      "status": "practicing",
+      "at": "2026-11-02T06:08:35.579Z"
     }
   ],
   "marks": {
@@ -6973,6 +6978,12 @@
       "at": "2026-11-01T10:15:55.343Z",
       "percent": 100,
       "bpm": 120
+    },
+    {
+      "path": "greek/kritikos syrtos.abc",
+      "at": "2026-11-02T06:09:07.724Z",
+      "percent": 80,
+      "bpm": 96
     }
   ],
   "settings": {}
