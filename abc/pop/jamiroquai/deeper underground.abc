@@ -1,0 +1,14 @@
+X:1
+T:Deeper Underground
+C:Jamiroquai
+M:4/4
+O:England, 1998
+N:Second verse and chorus. Melody from the lead channel (channel 4) of a MIDI arrangement (hamienet.com, track 4494), moved down a major seventh from C-sharp minor to D minor so the lowest note lands on C4. Single source: the other arrangement found (track 353075582280359) has no lead line. The verse runs over the bass riff on the tonic, so every verse bar is Dm. The chorus is a three-bar unit sung three times; in its second and third bars the arrangement plays only a bass line (C, A, F-sharp, then E, A, A-flat in this key) with no chord on top, so no chord is marked there. Humanized onsets snapped to the sixteenth grid; releases up to an eighth short of the next note are filled in.
+Q:1/4=105
+L:1/8
+K:Dm
+"Dm"z4 z/GG/- G/F/F/D/ |"Dm"FD/F/- F/D/F D2 CD |"Dm"GF DF- F/G_A/ G/F/D/C/ |"Dm"FF F/F/G z2 CD |
+"Dm"G3/2F/- F/D/F- F/F/G/F/ G/F/G/F/ |"Dm"AD/F/- FC D/z3/2 _AG |"Dm"FD CD- D/G_A/ G/A/D/C/ |"Dm"FD D/D/F/F/ G/z3/2 zD |"Dm"FE DD/z/ z4 |
+"Dm"zC DD FD DC/D/- |D3/2z/ z6 |zC DE F/ED/- D/Fz/ |
+"Dm"zC DD FD D3/2D/- |D3/2z/ z6 |zC DE F/ED/- D/Fz/ |
+"Dm"zC DD FD DC/D/- |Dz z6 |zC DE F/ED/- D/F3/2 |]

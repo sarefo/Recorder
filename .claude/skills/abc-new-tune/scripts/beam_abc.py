@@ -7,7 +7,7 @@ longer are never beamed, so they stay space-separated.
 
 Usage: py beam_abc.py tune.abc [more.abc ...]
 
-Assumes a single-voice tune with plain notes, ties, accidentals, chord symbols,
+Assumes a single-voice tune with plain notes, rests, ties, accidentals, chord symbols,
 `T` ornaments and barlines (no tuplets, grace groups or inline fields). Check the
 result with the same MIDI diff as the transcription: the notes must not change.
 """
@@ -16,8 +16,8 @@ import sys
 from fractions import Fraction as F
 
 TOK = re.compile(
-    r'\s*(?:(?P<bar>:?\|:?|\|\]|:\|)'
-    r'|(?P<pre>(?:"[^"]*"|T|[_=^])*)(?P<n>[A-Ga-g][,\']*)(?P<d>\d*(?:/\d*)?)(?P<t>-?))'
+    r'\s*(?:(?P<bar>\|\]|:?\|:?|:\|)'
+    r'|(?P<pre>(?:"[^"]*"|T|[_=^])*)(?P<n>[A-Ga-gz][,\']*)(?P<d>\d*(?:/\d*)?)(?P<t>-?))'
 )
 
 
@@ -53,7 +53,7 @@ def beam_line(line, beat_units):
 
 
 def is_music(line):
-    return bool(line.strip()) and not re.match(r'^[A-Za-z]:', line) and bool(re.match(r'^[|:"A-Ga-g ]', line))
+    return bool(line.strip()) and not re.match(r'^[A-Za-z]:', line) and bool(re.match(r'^[|:"A-Ga-gz ]', line))
 
 
 def main(paths):

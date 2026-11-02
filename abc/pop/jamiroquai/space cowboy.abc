@@ -1,0 +1,14 @@
+X:1
+T:Space Cowboy
+C:Jamiroquai
+M:4/4
+O:England, 1994
+N:Second verse and chorus. Melody from the vocal channel (channel 3) of a MIDI arrangement (hamienet.com, track 352558320632340), moved down a minor sixth from B-flat minor to D minor so it fits the recorder (C4 to G5). Single source: a second arrangement (track 353076027281921) carries only sustained chord pads, no lead line. The second verse is used because the first one dips to C-sharp 4, which no transposition fits together with the chorus's high E-flat. Chords from the bass, piano and electric piano channels. The source's pickup into the post-chorus (two sixteenths at the end of the last bar) is left out so the tune loops. At the start of bar 8 the source sounds a sixteenth A-flat together with the G; the G is kept. Humanized onsets snapped to the sixteenth grid; releases up to an eighth short of the next note are filled in.
+Q:1/4=116
+L:1/8
+K:Dm
+"Dm"z4 CC/D/- DF |"Fmaj7"G2- G/z3/2 zc- c/B3/2 |"Em7"AG z3 B- B/A3/2 |"Ebmaj7"GD/F/- Fz z2 D/FF/- |
+"Bb"F/FD/- D/FA/- "C"A/GG/ z2 |"Fmaj7"CD FA/A/ z3 F |"Em7"d3/2c/- cG- G3/2D/ FG |"Ebmaj7"GG/G/- G2 GF/F/- Fc/c/- |
+"Ab/Bb"c/BB/- B/_AA/- "Bb/C"_A/FF/- FF |"Fm"_EF/z/ z3 B- B/_A/G |"Eb"G/F/z z4 z/B_A/- |"Bb"_A/F/z z2 DD Fg- |
+"Bb/C"g/f3/2 z2 d/dc/- c/AG/- |"Gm7"G/z3/2 z2 "C"DD A3/2G/- |"Dm"G/F/z z2 z/DF/- F/GG/- |"Gm7"G/F/z z2 "C"FF CD |
+"Dm"z2 c2 B/AG/- G/FG/- |"Gm7"G/F3/2 c2 "C"B/A3/2 GF/G/- |"Dm"G/Fz/ z2 z/A/A AD- |"Gm7"D/FG/- G/AG/- "C"G/z3/2 z2 |]

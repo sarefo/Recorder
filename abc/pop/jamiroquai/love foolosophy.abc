@@ -1,0 +1,15 @@
+X:1
+T:Love Foolosophy
+C:Jamiroquai
+M:4/4
+O:England, 2001
+N:Two verses and the chorus. Melody from the lead-vocal channel of a MIDI arrangement (hamienet.com, track 352558304645637, channel 3), moved down a major sixth from B minor to D minor so the lowest note lands on C4 (C4 to D5). Chords from its bass, guitar and electric piano channels, which push every change an eighth early; they are written on the downbeat here. A second, independent arrangement (track 353075749569224, channel 2, labeled Vocals) has the same contour but is sloppier: it often has a flat seventh (C-sharp here) and a flat fifth (A-flat) where this one has the scale note, so this channel is followed. Humanized onsets snapped to the sixteenth grid; releases up to an eighth short of the next note are filled in. The singer's syncopations (notes landing a sixteenth or an eighth before the beat) are kept as ties.
+Q:1/4=130
+L:1/8
+K:Dm
+"Dm"z2 DD FD- DA- |"Gm7"AB- BA- AD- DG- |"Ebmaj7"GF- F/z3/2 z3 D- |"Dm"D/z3/2 z6 |
+"Dm"z2 DD FD- DA- |"Gm7"AB AB AD- DG- |"Ebmaj7"GF- F3 z z2 |"Dm"zD/D/- D/z3/2 z4 |
+"Dm"zA GF GD- DA- |"Gm7"AB- BA- AD- DG- |"Ebmaj7"GF- F2- F/z3/2 z2 |"Dm"z3 A GF G2 |
+"Dm"AA/G/- G/Dz/ zA AG/D/- |"Gm7"D/z3/2 z3 C CD- |"Ebmaj7"D2 z6 |"Dm"z4 zD D2 |
+"Dm"A3/2z/ z4 zc- |"Am7"c/z3/2 z4 z=B- |"Em7"=B=B A2 GG- G_B- |"Gm7"BB A2 GF GA |
+"Dm"z6 AG- |"Am7"GF AG- GF DD- |"Em7"D3/2z/ z3 G Ad- |"Gm7"dG- G/z3/2 z3 A |]

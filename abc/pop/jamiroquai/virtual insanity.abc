@@ -1,0 +1,15 @@
+X:1
+T:Virtual Insanity
+C:Jamiroquai
+M:4/4
+O:England, 1996
+N:First verse and chorus. Melody from the vocal channel (channel 3, a harmonica sound) of a MIDI arrangement (hamienet.com, track 4497; the same arrangement with a karaoke lyric track is on midisfree.com), moved down a tritone from E-flat minor to A minor so the lowest note lands on C4. Best effort, single source. The file claims 60 bpm, but its drums show the real pulse: the snare falls every 1.318 of the file's quarters and the crashes mark the downbeats, so every onset was rescaled onto that grid (about 91 bpm) before snapping to the sixteenth. The karaoke lyrics confirm the result: "Futures made of virtual insanity" starts on the downbeat of bar 17. The vocal line in that file is loosely played (stray zero-length notes, overlapping doubles), so single sixteenths may be off. Chords from the piano and bass channels, two per bar. The verse progression does not line up with the four-bar phrases (Am7 lasts a whole bar in bar 13 only), and that is how the arrangement plays it.
+Q:1/4=91
+L:1/8
+K:Am
+z4 "E7"z2 c/d/e/e/- |"Am7"ed cG/A/- "D7"A/Ac/- c/zG/ |"G9"dd/c/- c/GA/- "Cmaj7"A/AA/- A/z3/2 |"F#m7b5"G/Ac/- c3/2E/ "Fmaj7"G/Ac/- c/zc/- |
+"E7"c/A/G/A/- A/Gc/- "Am7"c/A3/2 A/A^d/- |"Am7"^dd/d/- d/dA/- "D7"A/Ac/- c/d3/2- |"G9"d3/2G/- G/Ac/ "Cmaj7"A/cz/ z2 |"F#m7b5"G/Ac/- cz "Fmaj7"G/Ac/- c3/2c/- |
+"E7"cA G/Ac/- "Am7"c/A3/2 z3/2G/ |"D7"A/c/A/G/ EE/D/- "G9"D/C/C z3/2G/ |"Cmaj7"A/c/A/G/ EE/D/- "F#m7b5"D/E/E z3/2G/ |"Fmaj7"A/c/A/G/ EE/D/- "E7"DE/G/- G/Az/ |
+"Am7"ze- e2- e/d/c/d/- d/c/d- |"D7"dc/d/ c/z3/2 "G9"zA/c/- c/cd/- |"Cmaj7"dA/c/- c/Ac/- "F#m7b5"c/Ac/- c/Ac/- |"Fmaj7"c/Ac/- c/dd/- "E7"dc/c/- c/A3/2 |
+"Fmaj7"cA z2 "E7"B^G Fz |"Am7"GG/A/- A/Bc/- "E7"cA/A/- A/A3/2 |"Fmaj7"dc/z/ z2 "E7"B^G F3/2D/ |"Am7"c/BA/- A/Bc/- "E7"c/B/A/B/- BA |
+"Fmaj7"cA z2 "E7"B^G Fz |"Am7"G/GA/- A/Bc/- "E7"cA/A/- A/AA/- |"Fmaj7"AE/D/- D/EG/ "E7"Ez z/D/C/D/- |"Am7"D/EG/- G/Ac/- "E7"c/z3/2 A/Ad/ |]

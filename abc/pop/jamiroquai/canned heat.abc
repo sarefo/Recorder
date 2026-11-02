@@ -1,0 +1,15 @@
+X:1
+T:Canned Heat
+C:Jamiroquai
+M:4/4
+O:England, 1999
+N:Verse and chorus. Melody from the channel labeled Melody in a MIDI arrangement (hamienet.com, track 352558357619251), moved up a fourth from D minor to G minor so the low A3 lands on D4. Single source: no second arrangement was found. Chords from its Rhodes and bass channels; the turnaround at the end of each verse half is the arrangement's chromatic climb (Eb, Em7, Fm7, F#m7) up to the tonic. The flat fifth (D-flat) in bars 9 and 15 is in the source. The MIDI runs at 82 bpm; Q is set to the record's tempo instead. Humanized onsets snapped to the sixteenth grid; releases up to an eighth short of the next note are filled in.
+Q:1/4=128
+L:1/8
+K:Gm
+"Gm7"zG GG BG BG/B/- |"Gm7"B/Gz/ z6 |"Ebmaj7"zF/G/ GG GG A/GG/- |"Ebmaj7"G/BG/- G/z3/2 z4 |
+"Cm7"zF FF FF GG/B/- |"Cm7"B/Gz/ z6 |"Ebmaj7"zF/F/ GF GF GF |"Eb"c2 "Em7"B2 "Fm7"F2 "F#m7"G3/2z/ |
+"Gm7"z_d cB dc BG/B/- |"Gm7"B/Gz/ z2 B3/2A/- AG- |"Ebmaj7"G/F/G/F/ GF GF GF |"Ebmaj7"GF/G/- Gz z4 |
+"Cm7"zF FF FF GG |"Cm7"BG z6 |"Ebmaj7"z_d cB BG BG |"Eb"d2 "Em7"c2 "Fm7"B2 "F#m7"F2 |
+"G7"dz z2 "Eb"z4 |"Cm7"B/BG/- G/Bc/- "F"c/d/G- G/G/F |"G7"Gz z2 "Eb"z2 GB |"Cm7"c3/2B/- BG "F"c3/2B/- BG |
+"G7"Gz z2 "Eb"z2 zD |"Cm7"EF GB "F"d2 Bd- |"G7"d=B- BG "Eb"z4 |"Cm7"gf dc "F"BG d2 |]

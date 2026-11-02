@@ -1635,6 +1635,36 @@ class AbcFileList {
                 "hash": "7b0d366eb1"
         },
         {
+                "name": "Canned Heat",
+                "file": "pop/jamiroquai/canned heat.abc",
+                "category": "pop/jamiroquai",
+                "hash": "9c05975982"
+        },
+        {
+                "name": "Deeper Underground",
+                "file": "pop/jamiroquai/deeper underground.abc",
+                "category": "pop/jamiroquai",
+                "hash": "2b619e532b"
+        },
+        {
+                "name": "Love Foolosophy",
+                "file": "pop/jamiroquai/love foolosophy.abc",
+                "category": "pop/jamiroquai",
+                "hash": "811667c3b3"
+        },
+        {
+                "name": "Space Cowboy",
+                "file": "pop/jamiroquai/space cowboy.abc",
+                "category": "pop/jamiroquai",
+                "hash": "299fd7537d"
+        },
+        {
+                "name": "Virtual Insanity",
+                "file": "pop/jamiroquai/virtual insanity.abc",
+                "category": "pop/jamiroquai",
+                "hash": "77e3da37fe"
+        },
+        {
                 "name": "Don't Stand So Close to Me",
                 "file": "pop/the police/don't stand so close to me.abc",
                 "category": "pop/the police",
