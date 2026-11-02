@@ -1739,8 +1739,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T04:30:45.767Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-02T05:46:24.594Z",
+      "playCount": 7,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-01T03:42:21.250Z"
     },
@@ -2816,6 +2816,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/girl from ipanema.abc",
+      "timestamp": "2026-11-02T05:46:24.594Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-02T05:38:27.909Z"
     },
@@ -2866,10 +2870,6 @@
     {
       "filePath": "trinidadian/jump in the line.abc",
       "timestamp": "2026-11-01T04:30:47.566Z"
-    },
-    {
-      "filePath": "jazz/girl from ipanema.abc",
-      "timestamp": "2026-11-01T04:30:45.767Z"
     },
     {
       "filePath": "jazz/the way you look tonight.abc",
@@ -3103,7 +3103,8 @@
     },
     "2026-11-02": {
       "jazz/all of me.abc": 7,
-      "jazz/autumn leaves.abc": 2
+      "jazz/autumn leaves.abc": 2,
+      "jazz/girl from ipanema.abc": 1
     }
   },
   "statusLog": [
