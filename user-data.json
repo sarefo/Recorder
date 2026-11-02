@@ -2161,12 +2161,13 @@
       "createdAt": "2026-11-02T13:49:53.793Z"
     },
     "pop/eric clapton/tears in heaven.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-02T13:49:53.793Z"
+      "lastPlayed": "2026-11-02T13:58:00.848Z",
+      "playCount": 1,
+      "createdAt": "2026-11-02T13:49:53.793Z",
+      "updatedAt": "2026-11-02T13:58:13.792Z"
     },
     "pop/eurythmics/here comes the rain again.abc": {
       "status": null,
@@ -2339,12 +2340,13 @@
       "createdAt": "2026-10-26T11:24:25.705Z"
     },
     "pop/queen/who wants to live forever.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-02T13:56:54.629Z",
       "playCount": 2,
-      "createdAt": "2026-11-02T13:49:53.793Z"
+      "createdAt": "2026-11-02T13:49:53.793Z",
+      "updatedAt": "2026-11-02T13:57:47.953Z"
     },
     "pop/tequila.abc": {
       "status": null,
@@ -2914,6 +2916,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/eric clapton/tears in heaven.abc",
+      "timestamp": "2026-11-02T13:58:00.848Z"
+    },
+    {
       "filePath": "pop/queen/who wants to live forever.abc",
       "timestamp": "2026-11-02T13:56:54.629Z"
     },
@@ -2988,10 +2994,6 @@
     {
       "filePath": "japanese/kojo no tsuki.abc",
       "timestamp": "2026-11-02T09:58:32.902Z"
-    },
-    {
-      "filePath": "japanese/akatombo.abc",
-      "timestamp": "2026-11-02T09:58:14.136Z"
     }
   ],
   "activity": {
@@ -3226,6 +3228,7 @@
       "occitan/ai vist lo lop.abc": 2,
       "occitan/la cambo me fai mau.abc": 5,
       "pop/derniere danse.abc": 1,
+      "pop/eric clapton/tears in heaven.abc": 1,
       "pop/final_countdown.abc": 2,
       "pop/jamiroquai/canned heat.abc": 1,
       "pop/jamiroquai/deeper underground.abc": 1,
@@ -3714,6 +3717,16 @@
       "path": "pop/the bangles/eternal flame.abc",
       "status": "good",
       "at": "2026-11-02T13:26:44.368Z"
+    },
+    {
+      "path": "pop/queen/who wants to live forever.abc",
+      "status": "needs-practice",
+      "at": "2026-11-02T13:57:46.593Z"
+    },
+    {
+      "path": "pop/eric clapton/tears in heaven.abc",
+      "status": "needs-practice",
+      "at": "2026-11-02T13:58:13.792Z"
     }
   ],
   "marks": {
@@ -5089,6 +5102,16 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-27T14:44:33.432Z"
+      }
+    },
+    "pop/eric clapton/tears in heaven.abc": {
+      "10": {
+        "pitch": "_B",
+        "prev": null,
+        "pitchSeen": 3,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-02T13:58:10.961Z"
       }
     },
     "pop/final_countdown.abc": {
@@ -6551,6 +6574,15 @@
           "pitch": "_E"
         },
         "65": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "pop/eric clapton/tears in heaven.abc": {
+      "at": "2026-11-02T13:58:00.959Z",
+      "notes": {
+        "10": {
           "state": "red",
           "pitch": "_B"
         }
