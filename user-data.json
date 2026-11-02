@@ -4128,6 +4128,24 @@
         "at": "2026-11-02T06:04:27.780Z"
       }
     },
+    "italian/bella ciao.abc": {
+      "2": {
+        "pitch": "A",
+        "prev": "E",
+        "pitchSeen": 8,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-02T07:02:00.538Z"
+      },
+      "3": {
+        "pitch": "B",
+        "prev": "A",
+        "pitchSeen": 7,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-02T07:01:54.887Z"
+      }
+    },
     "italian/tarantella napoletana.abc": {
       "8": {
         "pitch": "_B",
@@ -5581,6 +5599,19 @@
         "2": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "italian/bella ciao.abc": {
+      "at": "2026-11-02T07:01:50.535Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "A"
+        },
+        "3": {
+          "state": "red",
+          "pitch": "B"
         }
       }
     },
