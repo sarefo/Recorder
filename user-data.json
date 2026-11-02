@@ -1990,8 +1990,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-20T11:26:18.320Z",
-      "playCount": 11,
+      "lastPlayed": "2026-11-02T09:31:08.889Z",
+      "playCount": 12,
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/ai vist lo lop.abc": {
@@ -2825,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/adiu paure carnaval.abc",
+      "timestamp": "2026-11-02T09:31:08.889Z"
+    },
+    {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-11-02T09:26:56.857Z"
     },
@@ -2899,10 +2903,6 @@
     {
       "filePath": "austrian/es wird scho gleich dumpa.abc",
       "timestamp": "2026-11-01T10:18:59.534Z"
-    },
-    {
-      "filePath": "film/anything goes.abc",
-      "timestamp": "2026-11-01T10:18:57.710Z"
     }
   ],
   "activity": {
@@ -3120,6 +3120,7 @@
       "jazz/autumn leaves.abc": 2,
       "jazz/girl from ipanema.abc": 4,
       "jazz/sweet georgia brown.abc": 3,
+      "occitan/adiu paure carnaval.abc": 1,
       "occitan/ai vist lo lop.abc": 2,
       "occitan/la cambo me fai mau.abc": 5,
       "scottish/balquidder_lasses.abc": 1,
