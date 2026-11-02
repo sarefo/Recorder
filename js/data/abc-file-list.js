@@ -1590,19 +1590,19 @@ class AbcFileList {
                 "name": "Layla",
                 "file": "pop/eric clapton/layla.abc",
                 "category": "pop/eric clapton",
-                "hash": "473b67f86e"
+                "hash": "d094ad848b"
         },
         {
                 "name": "Tears in Heaven",
                 "file": "pop/eric clapton/tears in heaven.abc",
                 "category": "pop/eric clapton",
-                "hash": "ed2503c396"
+                "hash": "f144b06370"
         },
         {
                 "name": "Here Comes the Rain Again",
                 "file": "pop/eurythmics/here comes the rain again.abc",
                 "category": "pop/eurythmics",
-                "hash": "b1f744990d"
+                "hash": "1b87b003d1"
         },
         {
                 "name": "Love Is a Stranger",

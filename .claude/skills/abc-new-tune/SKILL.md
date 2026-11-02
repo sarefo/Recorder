@@ -320,3 +320,11 @@ and bumps `sw.js` / `main.js`. **`Recorder` is its own repo** nested inside the
 `sarefo.github.io` working copy, and GitHub Pages serves it at
 `sarefo.github.io/Recorder` — so a tune is only live once `master` of the
 `Recorder` repo is pushed. Committing to a side branch deploys nothing.
+
+## Use repeat marks for repeated music
+
+Where a tune repeats a section (same music for verse 2, a refrain sung twice),
+write it once inside `|: ... :|` and put the second verse's words on a second
+`w:` line, instead of writing the bars out again. Written-out duplicates make
+the sheet long and hide the form. A different last bar needs a volta
+(`|1 ... :|2 ...`). The loop check must still pass: it resolves repeats itself.
