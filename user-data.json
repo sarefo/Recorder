@@ -13,8 +13,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T09:42:03.595Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-02T06:10:38.098Z",
+      "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T12:19:25.043Z"
     },
@@ -2422,8 +2422,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T07:29:33.456Z",
-      "playCount": 51,
+      "lastPlayed": "2026-11-02T06:10:39.785Z",
+      "playCount": 52,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -2816,6 +2816,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-11-02T06:10:39.785Z"
+    },
+    {
+      "filePath": "albanian/jarnana.abc",
+      "timestamp": "2026-11-02T06:10:38.098Z"
+    },
+    {
       "filePath": "greek/kritikos syrtos.abc",
       "timestamp": "2026-11-02T06:08:00.617Z"
     },
@@ -2886,14 +2894,6 @@
     {
       "filePath": "jazz/the way you look tonight.abc",
       "timestamp": "2026-11-01T04:18:37.875Z"
-    },
-    {
-      "filePath": "jazz/night and day.abc",
-      "timestamp": "2026-11-01T03:27:02.353Z"
-    },
-    {
-      "filePath": "jazz/summertime.abc",
-      "timestamp": "2026-11-01T03:20:04.514Z"
     }
   ],
   "activity": {
@@ -3106,7 +3106,8 @@
       "jazz/all of me.abc": 7,
       "jazz/autumn leaves.abc": 2,
       "jazz/girl from ipanema.abc": 4,
-      "jazz/sweet georgia brown.abc": 3
+      "jazz/sweet georgia brown.abc": 3,
+      "scottish/balquidder_lasses.abc": 1
     }
   },
   "statusLog": [
