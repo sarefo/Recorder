@@ -1,0 +1,13 @@
+X:1
+T:Don't Speak
+C:No Doubt
+M:4/4
+O:USA, 1995
+N:Verse and chorus. Melody from the lead line of a MIDI arrangement (hamienet.com, track 2585), moved down a tenth from E-flat major to F major so the low B-flat lands on C4. Single source: the other uploads of this song on that site are copies of the same arrangement, and two independent melody tracks (flute, harmonica) agree on the chorus contour but not on its rhythm or every pitch, so they were only used as a cross-check. Left out: the opening chorus. Chords from the arrangement's guitar and bass channels; the chorus has no pad in the source, so its chords follow the bass line and the opening chorus's pad. Humanized onsets snapped to the sixteenth grid; releases up to an eighth short of the next note are filled in.
+Q:1/4=76
+L:1/8
+K:F
+"Gm"GB/ z2 D/ "Cm7"_EG/A3/2 G/B/- |"F"BA z3/2C/ "D"D/^FA A/B/A/- |"Cm7"AB/z3/2 C/"D"D3/2 ^F/A3/2 F/G/- |"Gm"G3/2 z2 z/ "Eb"z2 "D"z2 |
+"Gm"GB/ z2 D/ "Cm7"_EG/ A2 B/- |"F"BA z3/2C/ "D"D^F/A A/B/A/- |"Cm7"A B2 d/"D"d3/2 c/c3/2 B/B/- |"Gm"B3/2 z2 z/ "Eb"z2 "F"z2 |
+"Dm"G/A/ G4- G z2 |"Am"G/A/ G2 F/"Gm"A3/2 D/ z2 C/ |"C"G/A/ G2 F/"Am"A3/2 D/z3/2 A- |"Gm"A G3- "C"G2 z2 |
+"Dm"G3 F/A/ "Am"z3 c- |"Gm"c2 dB/G/- "C"G4- |"F"GC/C/ G/A/G/"C"G3/2 E/C GG/- |"D"G/ ^F4 z7/2 |]

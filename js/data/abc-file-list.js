@@ -1665,6 +1665,18 @@ class AbcFileList {
                 "hash": "77e3da37fe"
         },
         {
+                "name": "Don't Speak",
+                "file": "pop/no doubt/don't speak.abc",
+                "category": "pop/no doubt",
+                "hash": "88ef719473"
+        },
+        {
+                "name": "Eternal Flame",
+                "file": "pop/the bangles/eternal flame.abc",
+                "category": "pop/the bangles",
+                "hash": "787a26cbab"
+        },
+        {
                 "name": "Don't Stand So Close to Me",
                 "file": "pop/the police/don't stand so close to me.abc",
                 "category": "pop/the police",
