@@ -138,8 +138,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-31T05:12:41.885Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-02T07:07:59.742Z",
+      "playCount": 11,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-17T05:42:00.320Z"
     },
@@ -2825,6 +2825,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-11-02T07:07:59.742Z"
+    },
+    {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-11-02T07:05:02.981Z"
     },
@@ -2899,10 +2903,6 @@
     {
       "filePath": "jamaican/banana boat song.abc",
       "timestamp": "2026-11-01T10:10:24.095Z"
-    },
-    {
-      "filePath": "philippine/bahay kubo.abc",
-      "timestamp": "2026-11-01T10:02:35.687Z"
     }
   ],
   "activity": {
@@ -3112,6 +3112,7 @@
     },
     "2026-11-02": {
       "breton/les filles des forges de paimpont.abc": 2,
+      "breton/toutouic.abc": 2,
       "greek/kritikos syrtos.abc": 3,
       "italian/bella ciao.abc": 4,
       "jazz/all of me.abc": 7,
