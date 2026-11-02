@@ -211,7 +211,7 @@ class AbcNoteIndex {
         "jazz/days of wine and roses.abc": [60,61,62,64,65,67,69,70,72,74,76],
         "jazz/embraceable you.abc": [60,62,64,65,67,69,70,71,72,73],
         "jazz/girl from ipanema.abc": [60,62,63,64,65,66,67,68,69,70,71,72,74],
-        "jazz/my funny valentine.abc": [60,62,63,65,67,68,69,70,72,74,75],
+        "jazz/my funny valentine.abc": [62,64,65,67,69,70,71,72,74,76,77],
         "jazz/night and day.abc": [60,61,62,64,65,66,67,68,69,70,72,73,74,75,76,77],
         "jazz/satin doll.abc": [60,61,62,63,64,65,67],
         "jazz/summertime.abc": [64,67,69,71,72,74,76],

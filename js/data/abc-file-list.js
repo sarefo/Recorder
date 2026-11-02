@@ -822,7 +822,7 @@ class AbcFileList {
                 "name": "Es geht eine dunkle Wolk herein",
                 "file": "german/es geht eine dunkle wolk herein.abc",
                 "category": "german",
-                "hash": "079ccf26f8"
+                "hash": "4a45dfe152"
         },
         {
                 "name": "Es ist ein Schnitter",
@@ -1248,7 +1248,7 @@ class AbcFileList {
                 "name": "My Funny Valentine",
                 "file": "jazz/my funny valentine.abc",
                 "category": "jazz",
-                "hash": "4ca123751b"
+                "hash": "96d0e9eb76"
         },
         {
                 "name": "Night and Day",
