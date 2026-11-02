@@ -2205,8 +2205,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-29T07:23:48.070Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-02T13:11:36.188Z",
+      "playCount": 6,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-29T07:31:46.377Z"
     },
@@ -2872,6 +2872,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/final_countdown.abc",
+      "timestamp": "2026-11-02T13:11:36.188Z"
+    },
+    {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-11-02T13:08:33.005Z"
     },
@@ -2946,10 +2950,6 @@
     {
       "filePath": "irish/johnny i hardly knew ya.abc",
       "timestamp": "2026-11-02T09:43:54.843Z"
-    },
-    {
-      "filePath": "french/tourdion.abc",
-      "timestamp": "2026-11-02T09:35:39.950Z"
     }
   ],
   "activity": {
@@ -3184,6 +3184,7 @@
       "occitan/ai vist lo lop.abc": 2,
       "occitan/la cambo me fai mau.abc": 5,
       "pop/derniere danse.abc": 1,
+      "pop/final_countdown.abc": 2,
       "pop/jamiroquai/canned heat.abc": 1,
       "pop/jamiroquai/deeper underground.abc": 1,
       "pop/jamiroquai/love foolosophy.abc": 1,
@@ -5031,6 +5032,30 @@
       }
     },
     "pop/final_countdown.abc": {
+      "2": {
+        "pitch": "^G",
+        "prev": null,
+        "pitchSeen": 15,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-02T13:11:46.304Z"
+      },
+      "3": {
+        "pitch": "^F",
+        "prev": "^G",
+        "pitchSeen": 14,
+        "transSeen": 6,
+        "count": 1,
+        "at": "2026-11-02T13:11:46.306Z"
+      },
+      "5": {
+        "pitch": "^C",
+        "prev": "^G",
+        "pitchSeen": 5,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-02T13:11:46.308Z"
+      },
       "8": {
         "pitch": "_e",
         "prev": null,
@@ -5040,12 +5065,12 @@
         "at": "2026-10-29T03:21:00.721Z"
       },
       "19": {
-        "pitch": "^F",
-        "prev": "E",
+        "pitch": "^D",
+        "prev": "^C",
         "pitchSeen": 6,
         "transSeen": 2,
-        "count": 1,
-        "at": "2026-10-29T03:30:12.325Z"
+        "count": 2,
+        "at": "2026-11-02T13:11:46.309Z"
       },
       "22": {
         "pitch": "_B",
@@ -6412,15 +6437,27 @@
       }
     },
     "pop/final_countdown.abc": {
-      "at": "2026-10-29T03:30:02.322Z",
+      "at": "2026-11-02T13:11:36.297Z",
       "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "^G"
+        },
+        "3": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "5": {
+          "state": "red",
+          "pitch": "^C"
+        },
         "8": {
           "state": "red",
           "pitch": "_e"
         },
         "19": {
           "state": "red",
-          "pitch": "^F"
+          "pitch": "^D"
         },
         "22": {
           "state": "red",
