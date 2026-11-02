@@ -26,9 +26,11 @@
     --color-keysig-fit:       #0aa5e8;
 
     /* Notes a chord changes against its home scale (scale ribbon, score).
-       Pink: clear of the fit green, keysig blue and orange playing note. */
-    --color-scale-change:     #d81b60;
-    --color-scale-change-soft: rgba(216, 27, 96, 0.14);
+       Green: the note to reach for under that chord. Clear of the keysig
+       blue and the orange playing note. Outside notes (passing tones) gray. */
+    --color-scale-change:     #2e9e5b;
+    --color-scale-change-soft: rgba(46, 158, 91, 0.16);
+    --color-scale-outside:    #a8a8a8;
 
     /* ----- Colors: Neutrals (light mode) ----- */
     --color-bg:               #ffffff;
@@ -162,10 +164,9 @@
 
         --color-keysig:         #64b5f6;
         --color-keysig-fit:     #29b6f6;
-    --color-scale-change:   #f06292;
-    --color-scale-change-soft: rgba(240, 98, 146, 0.18);
-        --color-scale-change:   #f06292;
-        --color-scale-change-soft: rgba(240, 98, 146, 0.18);
+        --color-scale-change:   #81c784;
+        --color-scale-change-soft: rgba(129, 199, 132, 0.18);
+        --color-scale-outside:  #6b7178;
 
         --color-overlay:        rgba(0, 0, 0, 0.65);
         --color-overlay-strong: rgba(0, 0, 0, 0.85);
@@ -199,6 +200,9 @@
 
     --color-keysig:         #64b5f6;
     --color-keysig-fit:     #29b6f6;
+    --color-scale-change:   #81c784;
+    --color-scale-change-soft: rgba(129, 199, 132, 0.18);
+    --color-scale-outside:  #6b7178;
 
     --color-overlay:        rgba(0, 0, 0, 0.65);
     --color-overlay-strong: rgba(0, 0, 0, 0.85);

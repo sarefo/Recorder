@@ -518,7 +518,7 @@ body.mobile-controls-active.scale-ribbon-on:not(.mobile-bar-hidden):not(.mobile-
 }
 
 .scale-ribbon-cell.dropped .scale-ribbon-label {
-    color: var(--color-scale-change);
+    color: var(--color-text-muted);
     text-decoration: line-through;
 }
 
@@ -538,7 +538,7 @@ body.mobile-controls-active.scale-ribbon-on:not(.mobile-bar-hidden):not(.mobile-
     filter: none;
 }
 
-/* Chord chips that change notes against the home: a pink underline */
+/* Chord chips that change notes against the home: an underline */
 .scale-ribbon-chord.changes {
     box-shadow: inset 0 -2px 0 var(--color-scale-change);
 }

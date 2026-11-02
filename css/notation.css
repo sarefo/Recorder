@@ -18,14 +18,6 @@
     fill: var(--color-primary);
 }
 
-/* Notes that fit the scale shown in the scale ribbon. Only the note shapes:
-   the chord symbol sits in the same group and must keep its color */
-.abcjs-note.scale-fit:not(.playing) path,
-.abcjs-note.scale-fit:not(.playing) rect {
-    fill: var(--color-scale-fit, #2e9e5b);
-    stroke: var(--color-scale-fit, #2e9e5b);
-}
-
 /* Currently-playing note (auto-scroll). !important is justified here:
    abcjs sets fill/stroke inline on its SVG nodes, so we need to win
    without depending on selector specificity. */
@@ -47,23 +39,24 @@
     stroke: var(--color-keysig) !important;
 }
 
-/* A key-signature note that also fits the scale on show gets a teal between
-   the key-signature blue and the fit green */
-.abcjs-note.keysig-affected.scale-fit:not(.playing),
-.abcjs-note.keysig-affected.scale-fit:not(.playing) path {
-    fill: var(--color-keysig-fit, #0aa5e8) !important;
-    stroke: var(--color-keysig-fit, #0aa5e8) !important;
-}
-
-/* A note the chord at that point changes against the home scale (the F♯
-   under a D7 in C). Wins over the key-signature blue: it says more */
+/* Scale ribbon "Fit": a note the chord at that point changes against the
+   home scale (the G♯ under E7 in C) turns green; a note outside the chord's
+   scale (a passing tone) turns gray. Home notes keep their color. Only the
+   note shapes: the chord symbol sits in the same group. Both win over the
+   key-signature blue: they say more */
 .abcjs-note.scale-changed:not(.playing) path,
 .abcjs-note.scale-changed:not(.playing) rect {
     fill: var(--color-scale-change) !important;
     stroke: var(--color-scale-change) !important;
 }
 
-/* Chord symbols in the score while the scale ribbon is on: pink where the
+.abcjs-note.scale-outside:not(.playing) path,
+.abcjs-note.scale-outside:not(.playing) rect {
+    fill: var(--color-scale-outside) !important;
+    stroke: var(--color-scale-outside) !important;
+}
+
+/* Chord symbols in the score while the scale ribbon is on: green where the
    chord changes notes against the home, bold where a new home begins */
 .abcjs-note.scale-chord-change .abcjs-chord,
 .abcjs-rest.scale-chord-change .abcjs-chord {

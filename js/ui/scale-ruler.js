@@ -74,7 +74,7 @@ class ScaleRuler {
         this.fitBtn.className = 'scale-ribbon-order';
         this.fitBtn.textContent = '◉ Fit';
         this.fitBtn.title = 'Color each note against the scale at its point in the tune: '
-            + 'green fits, pink is a changed note';
+            + 'green is a note the chord changes, gray is outside the scale';
         this.fitBtn.addEventListener('click', () => this.toggleFit());
 
         // The scale as sheet music, under the fingering row
@@ -204,10 +204,10 @@ ${tones.join(' ')}|]
 
     /**
      * Colors each note of the score against the scale at its own point in
-     * the tune: green when it is in the scale, pink when it is one of the
-     * notes the chord there changes against the home. Notes outside the
-     * scale (passing tones) keep their normal color. Clears the marks when
-     * the option or the ribbon is off.
+     * the tune. Home-scale notes keep their normal color; green marks a note
+     * the chord there changes against the home (the G♯ under E7 in C); gray
+     * marks a note outside the chord's scale (a passing tone). Clears the
+     * marks when the option or the ribbon is off.
      */
     markFittingNotes() {
         const notes = document.querySelectorAll('#abc-notation .abcjs-note');
@@ -223,7 +223,7 @@ ${tones.join(' ')}|]
             }
         }
         for (const el of notes) {
-            let fits = false;
+            let outside = false;
             let changed = false;
             if (on) {
                 const name = this.noteNames[parseInt(el.getAttribute('data-index'), 10)];
@@ -232,16 +232,16 @@ ${tones.join(' ')}|]
                     const entry = this.entryAt(this.charOfNote.get(el));
                     const pcs = entry ? entry.pcs : this.keyHome?.pcs;
                     changed = !!entry && entry.added.has(pc);
-                    fits = !changed && !!pcs?.has(pc);
+                    outside = !changed && !!pcs && !pcs.has(pc);
                 }
             }
-            el.classList.toggle('scale-fit', fits);
+            el.classList.toggle('scale-outside', outside);
             el.classList.toggle('scale-changed', changed);
         }
     }
 
     /**
-     * Marks the chord symbols in the score: pink where the chord changes
+     * Marks the chord symbols in the score: green where the chord changes
      * notes against the home, bold where a new home begins.
      */
     markScoreChords() {
@@ -370,7 +370,7 @@ ${tones.join(' ')}|]
             chip.className = 'scale-ribbon-chord';
             chip.dataset.chord = chord;
             chip.textContent = chord;
-            // A chord that changes notes against its home gets a pink mark
+            // A chord that changes notes against its home gets a green mark
             const changes = [...new Set(this.chordTimeline
                 .filter(e => e.chord === chord && e.change).map(e => e.change))];
             chip.classList.toggle('changes', changes.length > 0);
@@ -503,7 +503,7 @@ ${tones.join(' ')}|]
 
     /**
      * Lights the chord's scale and grays out the rest. Against the home:
-     * notes the chord brings in are pink, home notes it leaves out are
+     * notes the chord brings in are green, home notes it leaves out are
      * struck through. Notes the next chord brings in get a dashed outline.
      * @param {Object} entry - Analyzed chord: suggestion, home, pcs, added, dropped, change
      * @param {Object|null} next - The chord after it
