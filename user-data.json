@@ -1689,8 +1689,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T12:11:43.130Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-03T08:35:23.273Z",
+      "playCount": 10,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-11-02T12:15:59.746Z"
     },
@@ -2917,6 +2917,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/all of me.abc",
+      "timestamp": "2026-11-03T08:35:23.273Z"
+    },
+    {
       "filePath": "pop/jamiroquai/canned heat.abc",
       "timestamp": "2026-11-03T08:32:35.337Z"
     },
@@ -2991,10 +2995,6 @@
     {
       "filePath": "jazz/summertime.abc",
       "timestamp": "2026-11-03T01:41:01.374Z"
-    },
-    {
-      "filePath": "pop/eurythmics/here comes the rain again.abc",
-      "timestamp": "2026-11-02T14:03:50.030Z"
     }
   ],
   "activity": {
@@ -3258,6 +3258,7 @@
       "german/maria durch ein dornwald ging.abc": 1,
       "italian/bella ciao.abc": 9,
       "italian/tarantella napoletana.abc": 3,
+      "jazz/all of me.abc": 1,
       "jazz/summertime.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
       "pop/jamiroquai/canned heat.abc": 2,
