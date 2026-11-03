@@ -1781,8 +1781,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T13:05:22.442Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-03T13:05:49.742Z",
+      "playCount": 3,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-03T13:05:25.772Z"
     },
@@ -2975,7 +2975,7 @@
   "recentlyPlayed": [
     {
       "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-03T13:05:22.442Z"
+      "timestamp": "2026-11-03T13:05:49.742Z"
     },
     {
       "filePath": "pop/derniere danse.abc",
