@@ -862,8 +862,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T10:18:57.710Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-03T08:39:19.766Z",
+      "playCount": 6,
       "createdAt": "2026-11-01T02:08:18.261Z",
       "updatedAt": "2026-11-01T02:19:13.542Z"
     },
@@ -2917,6 +2917,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/anything goes.abc",
+      "timestamp": "2026-11-03T08:39:19.766Z"
+    },
+    {
       "filePath": "jazz/all of me.abc",
       "timestamp": "2026-11-03T08:35:23.273Z"
     },
@@ -2991,10 +2995,6 @@
     {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-11-03T01:47:41.365Z"
-    },
-    {
-      "filePath": "jazz/summertime.abc",
-      "timestamp": "2026-11-03T01:41:01.374Z"
     }
   ],
   "activity": {
@@ -3248,6 +3248,7 @@
       "breton/les filles des forges de paimpont.abc": 5,
       "breton/son ar chistr.abc": 1,
       "breton/toutouic.abc": 3,
+      "film/anything goes.abc": 1,
       "french/belle qui tiens ma vie.abc": 3,
       "french/douce dame jolie.abc": 2,
       "french/tourdion.abc": 13,
