@@ -4691,6 +4691,14 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-11-02T12:13:22.637Z"
+      },
+      "52": {
+        "pitch": "A",
+        "prev": "E",
+        "pitchSeen": 9,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-03T08:38:05.826Z"
       }
     },
     "jazz/autumn leaves.abc": {
@@ -6351,7 +6359,7 @@
       }
     },
     "jazz/all of me.abc": {
-      "at": "2026-11-02T12:13:12.627Z",
+      "at": "2026-11-03T08:37:55.823Z",
       "notes": {
         "8": {
           "state": "red",
@@ -6372,6 +6380,10 @@
         "49": {
           "state": "red",
           "pitch": "^G"
+        },
+        "52": {
+          "state": "red",
+          "pitch": "A"
         }
       }
     },
