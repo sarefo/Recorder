@@ -3244,7 +3244,7 @@
       "scottish/hopetoun_house.abc": 2
     },
     "2026-11-03": {
-      "french/tourdion.abc": 9,
+      "french/tourdion.abc": 10,
       "german/ach bittrer winter.abc": 2,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
@@ -7756,6 +7756,18 @@
     {
       "path": "french/tourdion.abc",
       "at": "2026-11-03T02:03:54.727Z",
+      "percent": 80,
+      "bpm": 84.8
+    },
+    {
+      "path": "french/tourdion.abc",
+      "at": "2026-11-03T02:05:35.599Z",
+      "percent": 80,
+      "bpm": 84.8
+    },
+    {
+      "path": "french/tourdion.abc",
+      "at": "2026-11-03T02:05:35.942Z",
       "percent": 80,
       "bpm": 84.8
     }
