@@ -2361,8 +2361,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T13:26:40.519Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-03T08:24:11.456Z",
+      "playCount": 3,
       "createdAt": "2026-11-02T13:15:10.953Z",
       "updatedAt": "2026-11-02T13:26:44.368Z"
     },
@@ -2917,6 +2917,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/the bangles/eternal flame.abc",
+      "timestamp": "2026-11-03T08:24:11.456Z"
+    },
+    {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-11-03T08:23:29.604Z"
     },
@@ -2991,10 +2995,6 @@
     {
       "filePath": "pop/eric clapton/tears in heaven.abc",
       "timestamp": "2026-11-02T13:58:00.848Z"
-    },
-    {
-      "filePath": "pop/queen/who wants to live forever.abc",
-      "timestamp": "2026-11-02T13:56:54.629Z"
     }
   ],
   "activity": {
@@ -3259,7 +3259,8 @@
       "italian/bella ciao.abc": 9,
       "italian/tarantella napoletana.abc": 3,
       "jazz/summertime.abc": 1,
-      "occitan/adiu paure carnaval.abc": 1
+      "occitan/adiu paure carnaval.abc": 1,
+      "pop/the bangles/eternal flame.abc": 2
     }
   },
   "statusLog": [
