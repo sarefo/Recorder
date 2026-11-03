@@ -1778,12 +1778,13 @@
       "createdAt": "2026-11-03T12:52:58.238Z"
     },
     "jazz/moon river.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T12:53:50.764Z",
-      "playCount": 1,
-      "createdAt": "2026-11-03T12:52:58.238Z"
+      "lastPlayed": "2026-11-03T13:05:22.442Z",
+      "playCount": 2,
+      "createdAt": "2026-11-03T12:52:58.238Z",
+      "updatedAt": "2026-11-03T13:05:25.772Z"
     },
     "jazz/my funny valentine.abc": {
       "status": "practicing",
@@ -2974,7 +2975,7 @@
   "recentlyPlayed": [
     {
       "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-03T12:53:50.764Z"
+      "timestamp": "2026-11-03T13:05:22.442Z"
     },
     {
       "filePath": "pop/derniere danse.abc",
@@ -3832,6 +3833,11 @@
       "path": "breton/les filles des forges de paimpont.abc",
       "status": "good",
       "at": "2026-11-03T08:15:34.884Z"
+    },
+    {
+      "path": "jazz/moon river.abc",
+      "status": "practicing",
+      "at": "2026-11-03T13:05:24.221Z"
     }
   ],
   "marks": {
