@@ -1135,8 +1135,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-31T05:00:59.243Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-03T01:53:07.006Z",
+      "playCount": 5,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-30T05:10:04.894Z"
     },
@@ -2916,6 +2916,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es ist ein schnitter.abc",
+      "timestamp": "2026-11-03T01:53:07.006Z"
+    },
+    {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-11-03T01:51:12.176Z"
     },
@@ -2990,10 +2994,6 @@
     {
       "filePath": "pop/jamiroquai/virtual insanity.abc",
       "timestamp": "2026-11-02T12:53:29.268Z"
-    },
-    {
-      "filePath": "jazz/tea for two.abc",
-      "timestamp": "2026-11-02T12:39:05.772Z"
     }
   ],
   "activity": {
@@ -3245,6 +3245,7 @@
     },
     "2026-11-03": {
       "german/es geht eine dunkle wolk herein.abc": 1,
+      "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
       "jazz/summertime.abc": 1
