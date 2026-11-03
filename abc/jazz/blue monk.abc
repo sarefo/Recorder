@@ -1,0 +1,16 @@
+X:1
+T:Blue Monk
+C:Thelonious Monk, 1954
+N:A 12-bar blues, first recorded by Monk's trio in 1954.
+N:Melody and chords from a Real Book transcription (trillian.mit.edu,
+N:song/Blue_Monk) in B-flat, checked against a guitar MIDI on hamienet.com
+N:(track 353365662253752), which agrees on every pitch except the low
+N:F in bars 3, 7, 10 and 11 that the Real Book has and the MIDI leaves out.
+N:Moved up a fifth to F so the low notes fit the recorder.
+M:4/4
+Q:1/4=120
+L:1/8
+K:F
+"F7"AB =Bc- c4 | "Bb7"d_e =ef- f4 | "F7"cd c=B "C7"_BC ^GA- | "F7"A_A2G- G4 |
+"Bb7"d_e =ef- f4 | "Bdim7"f^f g_a- a4 | "F7"cd c=B "C7"_BC ^GA- | "F7"A6 (3ccc |
+"C7"cC- C6 | cd c=B _BC ^GA- | "F7"A2 cd "C7"c=B _BC | "F7"^GA- A6 |]

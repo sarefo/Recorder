@@ -1,0 +1,19 @@
+X:1
+T:Blue Bossa
+C:Kenny Dorham, 1963
+N:First recorded on Joe Henderson's album Page One.
+N:Melody and chords from a Real Book transcription (trillian.mit.edu,
+N:song/Blue_Bossa), cross-checked against the saxophone-section score on
+N:abcmr.sourceforge.net and a MIDI on hamienet.com (track 352864830517808).
+N:Only the 16-bar tune is kept; the B section in the trillian file is an
+N:arranger's addition. Bar 11 takes the extra F that both other sources have.
+N:Moved down a fourth from C minor to G minor. The pickup is paid back by a
+N:short last bar.
+M:4/4
+Q:1/4=140
+L:1/8
+K:Gm
+D2 |"Gm6"d3 c BA zG- |G4 z F2 E- |"Cm7"E4 z d2 c- |"F7"c8 |
+"Am7b5"c3 B AG zF- |"D7#5"F4 z E2 D- |"Gm6"D4 z c2 B- |B8 |
+"Bbm7"B3 _A GF zE- |"Eb7"E4 z _D2 D- |"Abmaj7"_D2 C F2 C E2- |E8 |
+"Am7b5"E2 DF- F3 E |"D7#5"E2 DF- F3 E |"Gm6"D8- |D6 |]

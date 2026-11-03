@@ -720,7 +720,7 @@ class AbcFileList {
                 "name": "Belle qui tiens ma vie",
                 "file": "french/belle qui tiens ma vie.abc",
                 "category": "french",
-                "hash": "17e60646e9"
+                "hash": "b9ba8be19c"
         },
         {
                 "name": "Branle des Chevaux",
@@ -1221,6 +1221,18 @@ class AbcFileList {
                 "hash": "d298854172"
         },
         {
+                "name": "Blue Bossa",
+                "file": "jazz/blue bossa.abc",
+                "category": "jazz",
+                "hash": "95089ea344"
+        },
+        {
+                "name": "Blue Monk",
+                "file": "jazz/blue monk.abc",
+                "category": "jazz",
+                "hash": "ffa9fa8b8f"
+        },
+        {
                 "name": "Blue Moon",
                 "file": "jazz/blue moon.abc",
                 "category": "jazz",
@@ -1245,6 +1257,24 @@ class AbcFileList {
                 "hash": "8f049ffc62"
         },
         {
+                "name": "In a Mellow Tone",
+                "file": "jazz/in a mellow tone.abc",
+                "category": "jazz",
+                "hash": "ce5444c59b"
+        },
+        {
+                "name": "Lullaby of Birdland",
+                "file": "jazz/lullaby of birdland.abc",
+                "category": "jazz",
+                "hash": "44e5d8d316"
+        },
+        {
+                "name": "Moon River",
+                "file": "jazz/moon river.abc",
+                "category": "jazz",
+                "hash": "67635508fa"
+        },
+        {
                 "name": "My Funny Valentine",
                 "file": "jazz/my funny valentine.abc",
                 "category": "jazz",
@@ -1263,6 +1293,12 @@ class AbcFileList {
                 "hash": "412d2470fa"
         },
         {
+                "name": "Someone to Watch Over Me",
+                "file": "jazz/someone to watch over me.abc",
+                "category": "jazz",
+                "hash": "bc997cac55"
+        },
+        {
                 "name": "Summertime",
                 "file": "jazz/summertime.abc",
                 "category": "jazz",
@@ -1273,6 +1309,12 @@ class AbcFileList {
                 "file": "jazz/sweet georgia brown.abc",
                 "category": "jazz",
                 "hash": "78e63eab61"
+        },
+        {
+                "name": "Take the A Train",
+                "file": "jazz/take the a train.abc",
+                "category": "jazz",
+                "hash": "b0eafbfef1"
         },
         {
                 "name": "Tea for Two",

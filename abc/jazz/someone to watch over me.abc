@@ -1,0 +1,18 @@
+X:1
+T:Someone to Watch Over Me
+C:George Gershwin, words by Ira Gershwin, 1926
+N:From the musical Oh, Kay!
+N:Melody and chords from a Real Book transcription (trillian.mit.edu,
+N:song/Someone_to_watch_over_me), checked against a piano MIDI on
+N:hamienet.com (track 352502123434509), whose top line agrees with the
+N:melody apart from the pianist's fills. Lyrics left out.
+M:4/4
+Q:1/4=80
+L:1/8
+K:C
+|: "C6"z2 CD "C7"EG Ac | "F6"dd2c "Fdim7"A4 | "C/E"cc2B "Ebdim7"A4 | "G/D"BB2A "C#dim7"G4 |
+"Dm7"z2 A2 G2 F2 | "F#m7b5"c4 "G7"CD3 |1 "Cmaj7"E8- | E4 D4 :|2 "C6"C8- | C2 D2 E2 G2 ||
+"Fmaj7"B2 c2 B2 c2 | d2 c4 B2 | d2 c4 B2 | "C6"d2 c4 A2 |
+"F#m7b5"c2 "B7"B4 A2 | "E7"c2 B4 ^G2 | "A7"E8- | "Dm7"E4 "G7"D4 ||
+"C6"z2 CD "C7"EG Ac | "F6"dd2c "Fdim7"A4 | "C/E"cc2B "Ebdim7"A4 | "G/D"BB2A "C#dim7"G4 |
+"Dm7"z2 A2 G2 F2 | "F#m7b5"c4 "G7"CD3 | "C6"C8- | C2 z6 |]

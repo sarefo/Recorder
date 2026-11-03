@@ -1,0 +1,19 @@
+X:1
+T:In a Mellow Tone
+C:Duke Ellington, 1939
+N:Ellington's band recorded it in 1940; Milt Gabler added the words later.
+N:Melody and chords from a Real Book transcription (trillian.mit.edu,
+N:song/In_a_mellow_tone) in A-flat, checked against a flute MIDI on
+N:hamienet.com (track 352501627339274): every pitch agrees. Moved down a
+N:minor third to F. Form A B A C, with the two A sections under one repeat.
+N:The last bar is one eighth so the loop pays back the pickup.
+M:4/4
+Q:1/4=120
+L:1/8
+K:F
+E2 CD E2 F- |: "G7"F8 | "C7"zE2C DE2F- | "F6"F8 | zE2C DE2F- |
+"Cm7"F8 | "F7"z2 GD FG2A- | "Bbmaj7"A8 |1 zG2D FG2D- ||
+"Bbmaj7"D8 | "Eb7"z2 FG- GF2A- | "Fmaj7"A8 | "D7"zE2C DE2F- |
+"G7"F8 | z2 FA- A2 FC- | "Gm7"C8 | "C7"zE2C DE2F- :|2 z_A3 d2 AD- ||
+"Bb7"D8 | "Bdim7"z_A3 d2 AD- | "F/C"D8 | "D7"z_A3 d2 AD- |
+"G7"D8 | "C7"zE2C DE2F- | "F6"F8 | "D7"z |]
