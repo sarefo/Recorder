@@ -2257,8 +2257,8 @@
       "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-11-02T13:03:41.233Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-03T08:30:01.319Z",
+      "playCount": 2,
       "createdAt": "2026-11-02T12:53:18.132Z",
       "updatedAt": "2026-11-02T13:04:10.662Z"
     },
@@ -2283,8 +2283,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T12:53:29.268Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-03T08:30:26.745Z",
+      "playCount": 2,
       "createdAt": "2026-11-02T12:53:18.132Z",
       "updatedAt": "2026-11-02T13:03:37.063Z"
     },
@@ -2917,6 +2917,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/jamiroquai/virtual insanity.abc",
+      "timestamp": "2026-11-03T08:30:26.745Z"
+    },
+    {
+      "filePath": "pop/jamiroquai/deeper underground.abc",
+      "timestamp": "2026-11-03T08:30:01.319Z"
+    },
+    {
       "filePath": "pop/the bangles/eternal flame.abc",
       "timestamp": "2026-11-03T08:24:11.456Z"
     },
@@ -2987,14 +2995,6 @@
     {
       "filePath": "pop/eurythmics/sweet dreams.abc",
       "timestamp": "2026-11-02T14:02:11.881Z"
-    },
-    {
-      "filePath": "pop/eric clapton/layla.abc",
-      "timestamp": "2026-11-02T14:00:11.015Z"
-    },
-    {
-      "filePath": "pop/eric clapton/tears in heaven.abc",
-      "timestamp": "2026-11-02T13:58:00.848Z"
     }
   ],
   "activity": {
@@ -3260,6 +3260,8 @@
       "italian/tarantella napoletana.abc": 3,
       "jazz/summertime.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
+      "pop/jamiroquai/deeper underground.abc": 1,
+      "pop/jamiroquai/virtual insanity.abc": 1,
       "pop/the bangles/eternal flame.abc": 2
     }
   },
@@ -7868,6 +7870,24 @@
       "at": "2026-11-03T08:21:02.482Z",
       "percent": 80,
       "bpm": 75.2
+    },
+    {
+      "path": "pop/the bangles/eternal flame.abc",
+      "at": "2026-11-03T08:29:52.137Z",
+      "percent": 100,
+      "bpm": 76
+    },
+    {
+      "path": "pop/the bangles/eternal flame.abc",
+      "at": "2026-11-03T08:29:52.313Z",
+      "percent": 100,
+      "bpm": 76
+    },
+    {
+      "path": "pop/the bangles/eternal flame.abc",
+      "at": "2026-11-03T08:29:52.473Z",
+      "percent": 100,
+      "bpm": 76
     }
   ],
   "settings": {}
