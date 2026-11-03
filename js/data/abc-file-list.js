@@ -828,7 +828,7 @@ class AbcFileList {
                 "name": "Es ist ein Schnitter",
                 "file": "german/es ist ein schnitter.abc",
                 "category": "german",
-                "hash": "eb8538fa3c"
+                "hash": "04f350056e"
         },
         {
                 "name": "Es waren zwei K\u00f6nigskinder",
@@ -1620,7 +1620,7 @@ class AbcFileList {
                 "name": "Sweet Dreams (Are Made of This)",
                 "file": "pop/eurythmics/sweet dreams.abc",
                 "category": "pop/eurythmics",
-                "hash": "9989e5b722"
+                "hash": "4e57b4e6a4"
         },
         {
                 "name": "There Must Be an Angel (Playing with My Heart)",
@@ -1686,7 +1686,7 @@ class AbcFileList {
                 "name": "Who Wants to Live Forever",
                 "file": "pop/queen/who wants to live forever.abc",
                 "category": "pop/queen",
-                "hash": "3bb501f0a8"
+                "hash": "679cdc1615"
         },
         {
                 "name": "Eternal Flame",
