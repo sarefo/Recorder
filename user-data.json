@@ -138,8 +138,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T07:07:59.742Z",
-      "playCount": 11,
+      "lastPlayed": "2026-11-03T08:17:14.247Z",
+      "playCount": 12,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-17T05:42:00.320Z"
     },
@@ -2917,6 +2917,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-11-03T08:17:14.247Z"
+    },
+    {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-11-03T08:12:55.400Z"
     },
@@ -2991,10 +2995,6 @@
     {
       "filePath": "pop/no doubt/don't speak.abc",
       "timestamp": "2026-11-02T13:16:09.116Z"
-    },
-    {
-      "filePath": "pop/final_countdown.abc",
-      "timestamp": "2026-11-02T13:15:26.682Z"
     }
   ],
   "activity": {
@@ -3246,6 +3246,7 @@
     },
     "2026-11-03": {
       "breton/les filles des forges de paimpont.abc": 5,
+      "breton/toutouic.abc": 1,
       "french/belle qui tiens ma vie.abc": 3,
       "french/douce dame jolie.abc": 2,
       "french/tourdion.abc": 13,
@@ -7840,6 +7841,18 @@
       "at": "2026-11-03T08:15:36.236Z",
       "percent": 80,
       "bpm": 88
+    },
+    {
+      "path": "breton/les filles des forges de paimpont.abc",
+      "at": "2026-11-03T08:17:08.619Z",
+      "percent": 90,
+      "bpm": 99
+    },
+    {
+      "path": "breton/les filles des forges de paimpont.abc",
+      "at": "2026-11-03T08:17:08.803Z",
+      "percent": 90,
+      "bpm": 99
     }
   ],
   "settings": {}
