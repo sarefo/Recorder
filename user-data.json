@@ -109,13 +109,13 @@
       "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "breton/les filles des forges de paimpont.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-03T08:12:55.400Z",
       "playCount": 10,
       "createdAt": "2026-09-22T12:46:37.240Z",
-      "updatedAt": "2026-10-19T05:12:58.508Z"
+      "updatedAt": "2026-11-03T08:15:34.884Z"
     },
     "breton/saint patricks an dro.abc": {
       "status": null,
@@ -3245,7 +3245,7 @@
       "scottish/hopetoun_house.abc": 2
     },
     "2026-11-03": {
-      "breton/les filles des forges de paimpont.abc": 3,
+      "breton/les filles des forges de paimpont.abc": 4,
       "french/belle qui tiens ma vie.abc": 3,
       "french/douce dame jolie.abc": 2,
       "french/tourdion.abc": 13,
@@ -3759,6 +3759,11 @@
       "path": "french/belle qui tiens ma vie.abc",
       "status": "good",
       "at": "2026-11-03T05:37:31.626Z"
+    },
+    {
+      "path": "breton/les filles des forges de paimpont.abc",
+      "status": "good",
+      "at": "2026-11-03T08:15:34.884Z"
     }
   ],
   "marks": {
@@ -7817,6 +7822,24 @@
       "at": "2026-11-03T05:37:32.658Z",
       "percent": 100,
       "bpm": 112
+    },
+    {
+      "path": "breton/les filles des forges de paimpont.abc",
+      "at": "2026-11-03T08:15:35.884Z",
+      "percent": 80,
+      "bpm": 88
+    },
+    {
+      "path": "breton/les filles des forges de paimpont.abc",
+      "at": "2026-11-03T08:15:36.051Z",
+      "percent": 80,
+      "bpm": 88
+    },
+    {
+      "path": "breton/les filles des forges de paimpont.abc",
+      "at": "2026-11-03T08:15:36.236Z",
+      "percent": 80,
+      "bpm": 88
     }
   ],
   "settings": {}
