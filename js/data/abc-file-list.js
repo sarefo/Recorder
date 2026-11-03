@@ -1266,13 +1266,13 @@ class AbcFileList {
                 "name": "Lullaby of Birdland",
                 "file": "jazz/lullaby of birdland.abc",
                 "category": "jazz",
-                "hash": "44e5d8d316"
+                "hash": "b590c6dafb"
         },
         {
                 "name": "Moon River",
                 "file": "jazz/moon river.abc",
                 "category": "jazz",
-                "hash": "67635508fa"
+                "hash": "12bf3b8c97"
         },
         {
                 "name": "My Funny Valentine",

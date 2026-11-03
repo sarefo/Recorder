@@ -422,3 +422,38 @@ doubles) through `scripts/midi_to_abc_draft.py`, chords read off the generated l
   diff catches this.
 - Skipped: Gjendines bådnlåt (B3 to B5, two octaves, does not fit the recorder), Björnen sover
   (sheet and MIDI disagree on the bar structure), En elefant kom marsjerende (provenance unclear).
+
+## Jazz standards (2026-11)
+
+Added Blue Monk, In a Mellow Tone, Someone to Watch Over Me, Take the A Train,
+Lullaby of Birdland, Moon River and Blue Bossa under `abc/jazz/`.
+
+- **trillian's `song/` folder lists** (`https://trillian.mit.edu/~jc/music/abc/song/`):
+  ~150 Real Book standards, melody plus chords, often as two voices (`V:chords`
+  of `x` rests carrying the chord symbols, then `V:melody`, which comes out of
+  `abc_to_midi.mjs` as channel 1). Move the chords onto the melody. Watch for
+  junk: Take the A Train has a stray second `K:E` line that sharps every G and
+  C; Blue Bossa's B section is an arranger's addition; ties into a new bar drop
+  the accidental (`._G2 G- | G3` plays G natural).
+- **github.com/ian-hayden/abc-music-files, `Jazz songs/`**: 30 standards
+  trillian lacks (Georgia, Honeysuckle Rose, Lullaby of Birdland, Moon River,
+  Just Friends, ...). Get it through `gh api repos/ian-hayden/abc-music-files/contents/Jazz%20songs`
+  and `raw.githubusercontent.com`. Its Stella and Satin Doll are note-for-note
+  the trillian ones, so it is NOT an independent check for tunes both have.
+- **Second source: hamienet numbered "jazz" uploads** (`0134 in a mellow tone djl`,
+  artist field `jazz`) are sequenced play-alongs with a real melody channel.
+  The ids starting `1788...` and `34...` were skipped as likely piano
+  transcriptions of recordings. Jazz MIDIs swing and embellish, so compare
+  **pitch sequences only** with `scripts/pitch_compare.py` (difflib alignment,
+  top note per onset, every transposition; loop it over all channels), not
+  `midi_notes --flat` diffs. 90%+
+  with only inserts left over is a confirmation; piano arrangements stuck
+  around 35-50% even when the tune was right.
+- Block-chord (locked-hands) arrangements harmonize each melody note, so
+  `--chords` there confirms chord quality at a spot (Lullaby's Em7b5) but is
+  no bar-by-bar chord source.
+- A pitch-only check cannot see durations: Blue Bossa bar 11 passed it with
+  an eighth missing. Always run `abc_loop_check.mjs --bars` after.
+- Skipped: Take Five (G#3-F#5, 22 semitones), Stella by Starlight (no
+  independent source), Georgia (75%, source chords dubious), Perdido and
+  Mercy Mercy Mercy (only improvised arrangements found).

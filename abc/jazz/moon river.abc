@@ -6,6 +6,7 @@ N:Melody and chords from Ian Hayden's abc-music-files (github.com/ian-hayden,
 N:Jazz songs), checked against two MIDIs on hamienet.com (tracks 49241 and
 N:16090): pitches and rhythm agree. The source's F7 in bars 3 and 5 is an
 N:F major triad in the arrangement's guitar part and is written F here.
+N:The F#m7b5 in the second ending is also taken from that guitar part.
 M:3/4
 Q:1/4=90
 L:1/8
@@ -14,6 +15,6 @@ K:C
 "F"B3A GF | "Cmaj7"G4 C2 | "Bm7b5"D6- | "E7"D4 E2 |
 |1 "Am7"C6 | "C7/G"G2 E3D | "F"C6 | "Bb9"G2 E3D |
 "Am"C2 E2 G2 | "B7"c2 B3A | "Em"B2 A3"A7"G | "Dm7"A4- "G7"A2 :|
-|2 "Am7"C6 | E4 G2 | c6 | "F7"d4 c2 |
+|2 "Am7"C6 | "F#m7b5"E4 G2 | c6 | "F7"d4 c2 |
 "C"G6- | "F"G2 BA GF | "C"G6- | "F"GC BA GF |
 "C"G6 | "Am"C6 | "Dm7"F2 D4- | "G7"D4 E2 | "C"C6- | C6 |]
