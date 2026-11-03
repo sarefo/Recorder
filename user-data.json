@@ -112,8 +112,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T07:05:02.981Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-03T08:12:55.400Z",
+      "playCount": 10,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-19T05:12:58.508Z"
     },
@@ -2917,6 +2917,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/les filles des forges de paimpont.abc",
+      "timestamp": "2026-11-03T08:12:55.400Z"
+    },
+    {
       "filePath": "italian/bella ciao.abc",
       "timestamp": "2026-11-03T08:03:50.214Z"
     },
@@ -2991,10 +2995,6 @@
     {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-11-02T13:15:26.682Z"
-    },
-    {
-      "filePath": "pop/que sera sera.abc",
-      "timestamp": "2026-11-02T13:15:22.883Z"
     }
   ],
   "activity": {
@@ -3245,6 +3245,7 @@
       "scottish/hopetoun_house.abc": 2
     },
     "2026-11-03": {
+      "breton/les filles des forges de paimpont.abc": 2,
       "french/belle qui tiens ma vie.abc": 3,
       "french/douce dame jolie.abc": 2,
       "french/tourdion.abc": 13,
@@ -3253,7 +3254,7 @@
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
-      "italian/bella ciao.abc": 7,
+      "italian/bella ciao.abc": 9,
       "italian/tarantella napoletana.abc": 3,
       "jazz/summertime.abc": 1
     }
@@ -3782,6 +3783,14 @@
       }
     },
     "breton/les filles des forges de paimpont.abc": {
+      "17": {
+        "pitch": "^G",
+        "prev": "A",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-03T08:13:18.912Z"
+      },
       "22": {
         "pitch": "B",
         "prev": "d",
@@ -5660,11 +5669,15 @@
       }
     },
     "breton/les filles des forges de paimpont.abc": {
-      "at": "2026-10-24T11:46:34.435Z",
+      "at": "2026-11-03T08:13:08.909Z",
       "notes": {
         "14": {
           "state": "green",
           "pitch": "c"
+        },
+        "17": {
+          "state": "red",
+          "pitch": "^G"
         },
         "22": {
           "state": "red",
