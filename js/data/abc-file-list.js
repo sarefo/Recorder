@@ -660,7 +660,7 @@ class AbcFileList {
                 "name": "Singin' in the Rain",
                 "file": "film/singin in the rain.abc",
                 "category": "film",
-                "hash": "b8a44db0d4"
+                "hash": "e8dd4200a8"
         },
         {
                 "name": "A Town with an Ocean view",
