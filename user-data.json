@@ -1207,8 +1207,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-31T05:03:01.052Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-03T01:51:12.176Z",
+      "playCount": 5,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-26T03:48:01.463Z"
     },
@@ -2916,6 +2916,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/maria durch ein dornwald ging.abc",
+      "timestamp": "2026-11-03T01:51:12.176Z"
+    },
+    {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-11-03T01:49:25.906Z"
     },
@@ -2990,10 +2994,6 @@
     {
       "filePath": "jazz/tea for two.abc",
       "timestamp": "2026-11-02T12:39:05.772Z"
-    },
-    {
-      "filePath": "jazz/my funny valentine.abc",
-      "timestamp": "2026-11-02T12:26:20.821Z"
     }
   ],
   "activity": {
@@ -3246,6 +3246,7 @@
     "2026-11-03": {
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
+      "german/maria durch ein dornwald ging.abc": 1,
       "jazz/summertime.abc": 1
     }
   },
