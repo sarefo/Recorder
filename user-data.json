@@ -1994,8 +1994,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T09:31:08.889Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-03T08:23:29.604Z",
+      "playCount": 13,
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/ai vist lo lop.abc": {
@@ -2917,6 +2917,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/adiu paure carnaval.abc",
+      "timestamp": "2026-11-03T08:23:29.604Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-11-03T08:21:16.547Z"
     },
@@ -2991,10 +2995,6 @@
     {
       "filePath": "pop/queen/who wants to live forever.abc",
       "timestamp": "2026-11-02T13:56:54.629Z"
-    },
-    {
-      "filePath": "pop/the bangles/eternal flame.abc",
-      "timestamp": "2026-11-02T13:26:40.519Z"
     }
   ],
   "activity": {
@@ -3258,7 +3258,8 @@
       "german/maria durch ein dornwald ging.abc": 1,
       "italian/bella ciao.abc": 9,
       "italian/tarantella napoletana.abc": 3,
-      "jazz/summertime.abc": 1
+      "jazz/summertime.abc": 1,
+      "occitan/adiu paure carnaval.abc": 1
     }
   },
   "statusLog": [
