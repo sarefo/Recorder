@@ -1770,13 +1770,13 @@
       "createdAt": "2026-10-13T03:57:34.036Z"
     },
     "jazz/summertime.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-03T01:41:01.374Z",
       "playCount": 4,
       "createdAt": "2026-10-13T03:57:34.036Z",
-      "updatedAt": "2026-11-02T12:26:17.727Z"
+      "updatedAt": "2026-11-03T01:42:47.292Z"
     },
     "jazz/sweet georgia brown.abc": {
       "status": "needs-practice",
@@ -3732,6 +3732,11 @@
       "path": "pop/eric clapton/tears in heaven.abc",
       "status": "needs-practice",
       "at": "2026-11-02T13:58:13.792Z"
+    },
+    {
+      "path": "jazz/summertime.abc",
+      "status": "good",
+      "at": "2026-11-03T01:42:47.292Z"
     }
   ],
   "marks": {
