@@ -1126,8 +1126,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T12:42:12.540Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-03T01:49:25.906Z",
+      "playCount": 6,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:52:16.545Z"
     },
@@ -2916,6 +2916,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es geht eine dunkle wolk herein.abc",
+      "timestamp": "2026-11-03T01:49:25.906Z"
+    },
+    {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-11-03T01:47:41.365Z"
     },
@@ -2982,10 +2986,6 @@
     {
       "filePath": "pop/jamiroquai/virtual insanity.abc",
       "timestamp": "2026-11-02T12:53:29.268Z"
-    },
-    {
-      "filePath": "german/es geht eine dunkle wolk herein.abc",
-      "timestamp": "2026-11-02T12:42:12.540Z"
     },
     {
       "filePath": "jazz/tea for two.abc",
@@ -3244,6 +3244,7 @@
       "scottish/hopetoun_house.abc": 2
     },
     "2026-11-03": {
+      "german/es geht eine dunkle wolk herein.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "jazz/summertime.abc": 1
     }
@@ -4257,6 +4258,14 @@
         "transSeen": 3,
         "count": 1,
         "at": "2026-10-24T11:51:18.151Z"
+      },
+      "6": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 4,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-03T01:49:36.017Z"
       }
     },
     "german/es ist ein schnitter.abc": {
@@ -5991,9 +6000,13 @@
       }
     },
     "german/es geht eine dunkle wolk herein.abc": {
-      "at": "2026-10-24T11:51:08.147Z",
+      "at": "2026-11-03T01:49:26.013Z",
       "notes": {
         "5": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "6": {
           "state": "red",
           "pitch": "_B"
         }
