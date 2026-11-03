@@ -1162,8 +1162,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T10:17:11.678Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-03T01:47:41.365Z",
+      "playCount": 7,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-26T04:37:50.809Z"
     },
@@ -2916,6 +2916,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "timestamp": "2026-11-03T01:47:41.365Z"
+    },
+    {
       "filePath": "jazz/summertime.abc",
       "timestamp": "2026-11-03T01:41:01.374Z"
     },
@@ -2990,10 +2994,6 @@
     {
       "filePath": "jazz/my funny valentine.abc",
       "timestamp": "2026-11-02T12:26:20.821Z"
-    },
-    {
-      "filePath": "jazz/blue moon.abc",
-      "timestamp": "2026-11-02T12:19:08.726Z"
     }
   ],
   "activity": {
@@ -3244,6 +3244,7 @@
       "scottish/hopetoun_house.abc": 2
     },
     "2026-11-03": {
+      "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "jazz/summertime.abc": 1
     }
   },
