@@ -993,8 +993,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-20T11:17:37.000Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-03T05:34:18.261Z",
+      "playCount": 7,
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/branle des chevaux.abc": {
@@ -2916,6 +2916,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/belle qui tiens ma vie.abc",
+      "timestamp": "2026-11-03T05:34:18.261Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-11-03T02:10:45.024Z"
     },
@@ -2990,10 +2994,6 @@
     {
       "filePath": "pop/mad world.abc",
       "timestamp": "2026-11-02T13:06:10.112Z"
-    },
-    {
-      "filePath": "pop/jamiroquai/canned heat.abc",
-      "timestamp": "2026-11-02T13:05:13.056Z"
     }
   ],
   "activity": {
@@ -3244,6 +3244,7 @@
       "scottish/hopetoun_house.abc": 2
     },
     "2026-11-03": {
+      "french/belle qui tiens ma vie.abc": 1,
       "french/douce dame jolie.abc": 2,
       "french/tourdion.abc": 13,
       "german/ach bittrer winter.abc": 2,
@@ -7775,6 +7776,18 @@
     {
       "path": "french/douce dame jolie.abc",
       "at": "2026-11-03T02:12:47.973Z",
+      "percent": 100,
+      "bpm": 112
+    },
+    {
+      "path": "french/douce dame jolie.abc",
+      "at": "2026-11-03T05:34:12.723Z",
+      "percent": 100,
+      "bpm": 112
+    },
+    {
+      "path": "french/douce dame jolie.abc",
+      "at": "2026-11-03T05:34:12.891Z",
       "percent": 100,
       "bpm": 112
     }
