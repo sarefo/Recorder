@@ -2248,8 +2248,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T13:05:13.056Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-03T08:32:35.337Z",
+      "playCount": 2,
       "createdAt": "2026-11-02T12:53:18.132Z",
       "updatedAt": "2026-11-02T13:06:05.893Z"
     },
@@ -2917,6 +2917,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/jamiroquai/canned heat.abc",
+      "timestamp": "2026-11-03T08:32:35.337Z"
+    },
+    {
       "filePath": "pop/jamiroquai/virtual insanity.abc",
       "timestamp": "2026-11-03T08:30:26.745Z"
     },
@@ -2991,10 +2995,6 @@
     {
       "filePath": "pop/eurythmics/here comes the rain again.abc",
       "timestamp": "2026-11-02T14:03:50.030Z"
-    },
-    {
-      "filePath": "pop/eurythmics/sweet dreams.abc",
-      "timestamp": "2026-11-02T14:02:11.881Z"
     }
   ],
   "activity": {
@@ -3260,6 +3260,7 @@
       "italian/tarantella napoletana.abc": 3,
       "jazz/summertime.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
+      "pop/jamiroquai/canned heat.abc": 1,
       "pop/jamiroquai/deeper underground.abc": 1,
       "pop/jamiroquai/virtual insanity.abc": 1,
       "pop/the bangles/eternal flame.abc": 2
