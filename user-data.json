@@ -2131,8 +2131,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T13:08:33.005Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-03T08:50:05.660Z",
+      "playCount": 7,
       "createdAt": "2026-10-14T17:54:41.333Z",
       "updatedAt": "2026-10-17T10:46:06.768Z"
     },
@@ -2917,6 +2917,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/derniere danse.abc",
+      "timestamp": "2026-11-03T08:50:05.660Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-03T08:41:59.224Z"
     },
@@ -2991,10 +2995,6 @@
     {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-11-03T01:51:12.176Z"
-    },
-    {
-      "filePath": "german/es geht eine dunkle wolk herein.abc",
-      "timestamp": "2026-11-03T01:49:25.906Z"
     }
   ],
   "activity": {
@@ -3263,6 +3263,7 @@
       "jazz/autumn leaves.abc": 1,
       "jazz/summertime.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
+      "pop/derniere danse.abc": 1,
       "pop/jamiroquai/canned heat.abc": 2,
       "pop/jamiroquai/deeper underground.abc": 1,
       "pop/jamiroquai/virtual insanity.abc": 1,
