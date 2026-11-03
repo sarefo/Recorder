@@ -359,8 +359,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T10:33:15.162Z",
-      "playCount": 21,
+      "lastPlayed": "2026-11-03T13:17:10.635Z",
+      "playCount": 22,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/zou xikou.abc",
+      "timestamp": "2026-11-03T13:17:10.635Z"
+    },
+    {
       "filePath": "film/singin in the rain.abc",
       "timestamp": "2026-11-03T13:14:32.857Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-11-03T08:23:29.604Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-11-03T08:21:16.547Z"
     }
   ],
   "activity": {
@@ -3311,6 +3311,7 @@
       "breton/les filles des forges de paimpont.abc": 5,
       "breton/son ar chistr.abc": 1,
       "breton/toutouic.abc": 3,
+      "chinese/zou xikou.abc": 2,
       "film/anything goes.abc": 1,
       "film/herbie's theme.abc": 1,
       "film/lets call the whole thing off.abc": 1,
