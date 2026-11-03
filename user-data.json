@@ -910,19 +910,20 @@
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "film/lets call the whole thing off.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-01T03:02:11.849Z"
+      "lastPlayed": "2026-11-03T13:14:10.034Z",
+      "playCount": 1,
+      "createdAt": "2026-11-01T03:02:11.849Z",
+      "updatedAt": "2026-11-03T13:14:30.131Z"
     },
     "film/singin in the rain.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-03T13:14:32.857Z",
+      "playCount": 1,
       "createdAt": "2026-11-01T03:17:30.923Z"
     },
     "film/tiersen/la valse d'amelie.abc": {
@@ -2979,6 +2980,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/singin in the rain.abc",
+      "timestamp": "2026-11-03T13:14:32.857Z"
+    },
+    {
+      "filePath": "film/lets call the whole thing off.abc",
+      "timestamp": "2026-11-03T13:14:10.034Z"
+    },
+    {
       "filePath": "film/herbie's theme.abc",
       "timestamp": "2026-11-03T13:12:36.405Z"
     },
@@ -3049,14 +3058,6 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-11-03T08:21:16.547Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-11-03T08:17:14.247Z"
-    },
-    {
-      "filePath": "breton/les filles des forges de paimpont.abc",
-      "timestamp": "2026-11-03T08:12:55.400Z"
     }
   ],
   "activity": {
@@ -3312,6 +3313,7 @@
       "breton/toutouic.abc": 3,
       "film/anything goes.abc": 1,
       "film/herbie's theme.abc": 1,
+      "film/lets call the whole thing off.abc": 1,
       "french/belle qui tiens ma vie.abc": 3,
       "french/douce dame jolie.abc": 2,
       "french/tourdion.abc": 13,
@@ -3875,6 +3877,11 @@
       "path": "jazz/blue bossa.abc",
       "status": "needs-practice",
       "at": "2026-11-03T13:12:24.699Z"
+    },
+    {
+      "path": "film/lets call the whole thing off.abc",
+      "status": "needs-practice",
+      "at": "2026-11-03T13:14:30.131Z"
     }
   ],
   "marks": {
@@ -4364,6 +4371,16 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-27T08:34:48.329Z"
+      }
+    },
+    "film/lets call the whole thing off.abc": {
+      "2": {
+        "pitch": "^F",
+        "prev": "E",
+        "pitchSeen": 12,
+        "transSeen": 6,
+        "count": 1,
+        "at": "2026-11-03T13:14:20.156Z"
       }
     },
     "french/douce dame jolie.abc": {
@@ -6178,6 +6195,15 @@
         "10": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "film/lets call the whole thing off.abc": {
+      "at": "2026-11-03T13:14:10.149Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "^F"
         }
       }
     },
