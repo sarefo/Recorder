@@ -1698,8 +1698,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T12:16:02.587Z",
-      "playCount": 14,
+      "lastPlayed": "2026-11-03T08:41:59.224Z",
+      "playCount": 15,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -2917,6 +2917,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-11-03T08:41:59.224Z"
+    },
+    {
       "filePath": "film/anything goes.abc",
       "timestamp": "2026-11-03T08:39:19.766Z"
     },
@@ -2991,10 +2995,6 @@
     {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-11-03T01:49:25.906Z"
-    },
-    {
-      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
-      "timestamp": "2026-11-03T01:47:41.365Z"
     }
   ],
   "activity": {
