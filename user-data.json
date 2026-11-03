@@ -1703,6 +1703,22 @@
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
+    "jazz/blue bossa.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-03T12:52:58.238Z"
+    },
+    "jazz/blue monk.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-03T12:52:58.238Z"
+    },
     "jazz/blue moon.abc": {
       "status": "good",
       "favorite": true,
@@ -1745,6 +1761,30 @@
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-01T03:42:21.250Z"
     },
+    "jazz/in a mellow tone.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-03T12:52:58.238Z"
+    },
+    "jazz/lullaby of birdland.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-03T12:52:58.238Z"
+    },
+    "jazz/moon river.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-03T12:52:58.238Z"
+    },
     "jazz/my funny valentine.abc": {
       "status": "practicing",
       "favorite": true,
@@ -1770,6 +1810,14 @@
       "playCount": 0,
       "createdAt": "2026-10-13T03:57:34.036Z"
     },
+    "jazz/someone to watch over me.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-03T12:52:58.238Z"
+    },
     "jazz/summertime.abc": {
       "status": "good",
       "favorite": true,
@@ -1787,6 +1835,14 @@
       "playCount": 4,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-10-24T12:32:30.848Z"
+    },
+    "jazz/take the a train.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-03T12:52:58.238Z"
     },
     "jazz/tea for two.abc": {
       "status": "needs-practice",
