@@ -1781,8 +1781,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-03T12:53:50.764Z",
+      "playCount": 1,
       "createdAt": "2026-11-03T12:52:58.238Z"
     },
     "jazz/my funny valentine.abc": {
@@ -2973,6 +2973,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/moon river.abc",
+      "timestamp": "2026-11-03T12:53:50.764Z"
+    },
+    {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-11-03T08:50:05.660Z"
     },
@@ -3047,10 +3051,6 @@
     {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-11-03T01:53:07.006Z"
-    },
-    {
-      "filePath": "german/maria durch ein dornwald ging.abc",
-      "timestamp": "2026-11-03T01:51:12.176Z"
     }
   ],
   "activity": {
@@ -3317,6 +3317,7 @@
       "italian/tarantella napoletana.abc": 3,
       "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 1,
+      "jazz/moon river.abc": 1,
       "jazz/summertime.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
       "pop/derniere danse.abc": 1,
