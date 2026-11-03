@@ -1773,8 +1773,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T12:26:12.337Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-03T01:41:01.374Z",
+      "playCount": 4,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-02T12:26:17.727Z"
     },
@@ -2916,6 +2916,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/summertime.abc",
+      "timestamp": "2026-11-03T01:41:01.374Z"
+    },
+    {
       "filePath": "pop/eurythmics/here comes the rain again.abc",
       "timestamp": "2026-11-02T14:03:50.030Z"
     },
@@ -2986,10 +2990,6 @@
     {
       "filePath": "jazz/my funny valentine.abc",
       "timestamp": "2026-11-02T12:26:20.821Z"
-    },
-    {
-      "filePath": "jazz/summertime.abc",
-      "timestamp": "2026-11-02T12:26:12.337Z"
     },
     {
       "filePath": "jazz/blue moon.abc",
