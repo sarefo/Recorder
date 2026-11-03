@@ -2870,13 +2870,13 @@
       "createdAt": "2026-08-01T08:54:31.908Z"
     },
     "ukrainian/nich yaka misyachna.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-03T13:19:04.235Z",
       "playCount": 13,
       "createdAt": "2026-08-01T08:03:26.600Z",
-      "updatedAt": "2026-10-08T02:37:41.304Z"
+      "updatedAt": "2026-11-03T13:20:44.905Z"
     },
     "unsorted/people united.abc": {
       "status": "practicing",
@@ -3885,6 +3885,11 @@
       "path": "film/lets call the whole thing off.abc",
       "status": "needs-practice",
       "at": "2026-11-03T13:14:30.131Z"
+    },
+    {
+      "path": "ukrainian/nich yaka misyachna.abc",
+      "status": "good",
+      "at": "2026-11-03T13:20:44.905Z"
     }
   ],
   "marks": {
@@ -8134,6 +8139,12 @@
       "at": "2026-11-03T08:29:52.473Z",
       "percent": 100,
       "bpm": 76
+    },
+    {
+      "path": "ukrainian/nich yaka misyachna.abc",
+      "at": "2026-11-03T13:20:45.697Z",
+      "percent": 100,
+      "bpm": 92
     }
   ],
   "settings": {}
