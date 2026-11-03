@@ -990,12 +990,13 @@
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "french/belle qui tiens ma vie.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-03T05:34:18.261Z",
       "playCount": 7,
-      "createdAt": "2026-09-22T12:46:37.240Z"
+      "createdAt": "2026-09-22T12:46:37.240Z",
+      "updatedAt": "2026-11-03T05:37:31.626Z"
     },
     "french/branle des chevaux.abc": {
       "status": null,
@@ -1466,8 +1467,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T10:38:44.552Z",
-      "playCount": 42,
+      "lastPlayed": "2026-11-03T05:37:41.802Z",
+      "playCount": 43,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-11-01T10:41:02.824Z"
     },
@@ -2916,6 +2917,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/tarantella napoletana.abc",
+      "timestamp": "2026-11-03T05:37:41.802Z"
+    },
+    {
       "filePath": "french/belle qui tiens ma vie.abc",
       "timestamp": "2026-11-03T05:34:18.261Z"
     },
@@ -2990,10 +2995,6 @@
     {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-11-02T13:08:33.005Z"
-    },
-    {
-      "filePath": "pop/mad world.abc",
-      "timestamp": "2026-11-02T13:06:10.112Z"
     }
   ],
   "activity": {
@@ -3252,6 +3253,7 @@
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
+      "italian/tarantella napoletana.abc": 2,
       "jazz/summertime.abc": 1
     }
   },
@@ -3750,6 +3752,11 @@
       "path": "french/tourdion.abc",
       "status": "good",
       "at": "2026-11-03T02:03:53.623Z"
+    },
+    {
+      "path": "french/belle qui tiens ma vie.abc",
+      "status": "good",
+      "at": "2026-11-03T05:37:31.626Z"
     }
   ],
   "marks": {
@@ -7788,6 +7795,12 @@
     {
       "path": "french/douce dame jolie.abc",
       "at": "2026-11-03T05:34:12.891Z",
+      "percent": 100,
+      "bpm": 112
+    },
+    {
+      "path": "french/belle qui tiens ma vie.abc",
+      "at": "2026-11-03T05:37:32.658Z",
       "percent": 100,
       "bpm": 112
     }
