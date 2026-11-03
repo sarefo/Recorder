@@ -1458,8 +1458,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T07:00:46.499Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-03T08:03:50.214Z",
+      "playCount": 10,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T06:21:30.721Z"
     },
@@ -2917,6 +2917,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/bella ciao.abc",
+      "timestamp": "2026-11-03T08:03:50.214Z"
+    },
+    {
       "filePath": "italian/tarantella napoletana.abc",
       "timestamp": "2026-11-03T05:37:41.802Z"
     },
@@ -2991,10 +2995,6 @@
     {
       "filePath": "pop/que sera sera.abc",
       "timestamp": "2026-11-02T13:15:22.883Z"
-    },
-    {
-      "filePath": "pop/derniere danse.abc",
-      "timestamp": "2026-11-02T13:08:33.005Z"
     }
   ],
   "activity": {
