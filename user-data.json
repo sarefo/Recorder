@@ -1712,12 +1712,13 @@
       "createdAt": "2026-11-03T12:52:58.238Z"
     },
     "jazz/blue monk.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-03T12:52:58.238Z"
+      "lastPlayed": "2026-11-03T13:07:03.941Z",
+      "playCount": 1,
+      "createdAt": "2026-11-03T12:52:58.238Z",
+      "updatedAt": "2026-11-03T13:07:38.156Z"
     },
     "jazz/blue moon.abc": {
       "status": "good",
@@ -1805,11 +1806,12 @@
     },
     "jazz/satin doll.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-10-13T03:57:34.036Z"
+      "lastPlayed": "2026-11-03T13:07:41.925Z",
+      "playCount": 1,
+      "createdAt": "2026-10-13T03:57:34.036Z",
+      "updatedAt": "2026-11-03T13:07:52.788Z"
     },
     "jazz/someone to watch over me.abc": {
       "status": null,
@@ -2974,6 +2976,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/satin doll.abc",
+      "timestamp": "2026-11-03T13:07:41.925Z"
+    },
+    {
+      "filePath": "jazz/blue monk.abc",
+      "timestamp": "2026-11-03T13:07:03.941Z"
+    },
+    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-03T13:05:49.742Z"
     },
@@ -3044,14 +3054,6 @@
     {
       "filePath": "french/tourdion.abc",
       "timestamp": "2026-11-03T01:59:18.526Z"
-    },
-    {
-      "filePath": "german/ach bittrer winter.abc",
-      "timestamp": "2026-11-03T01:57:01.248Z"
-    },
-    {
-      "filePath": "german/es ist ein schnitter.abc",
-      "timestamp": "2026-11-03T01:53:07.006Z"
     }
   ],
   "activity": {
@@ -3318,7 +3320,9 @@
       "italian/tarantella napoletana.abc": 3,
       "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 1,
+      "jazz/blue monk.abc": 1,
       "jazz/moon river.abc": 1,
+      "jazz/satin doll.abc": 1,
       "jazz/summertime.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
       "pop/derniere danse.abc": 1,
@@ -3838,6 +3842,11 @@
       "path": "jazz/moon river.abc",
       "status": "practicing",
       "at": "2026-11-03T13:05:24.221Z"
+    },
+    {
+      "path": "jazz/blue monk.abc",
+      "status": "needs-practice",
+      "at": "2026-11-03T13:07:38.156Z"
     }
   ],
   "marks": {
@@ -4839,6 +4848,16 @@
         "transSeen": 0,
         "count": 1,
         "at": "2026-10-26T06:34:45.035Z"
+      }
+    },
+    "jazz/blue monk.abc": {
+      "1": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 5,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-03T13:07:14.049Z"
       }
     },
     "jazz/girl from ipanema.abc": {
@@ -6495,6 +6514,15 @@
         "42": {
           "state": "red",
           "pitch": "^F"
+        }
+      }
+    },
+    "jazz/blue monk.abc": {
+      "at": "2026-11-03T13:07:04.046Z",
+      "notes": {
+        "1": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
