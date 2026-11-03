@@ -1108,8 +1108,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-31T04:59:29.081Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-03T01:57:01.248Z",
+      "playCount": 5,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:49:16.156Z"
     },
@@ -2916,6 +2916,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/ach bittrer winter.abc",
+      "timestamp": "2026-11-03T01:57:01.248Z"
+    },
+    {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-11-03T01:53:07.006Z"
     },
@@ -2990,10 +2994,6 @@
     {
       "filePath": "pop/jamiroquai/deeper underground.abc",
       "timestamp": "2026-11-02T13:03:41.233Z"
-    },
-    {
-      "filePath": "pop/jamiroquai/virtual insanity.abc",
-      "timestamp": "2026-11-02T12:53:29.268Z"
     }
   ],
   "activity": {
@@ -3244,6 +3244,7 @@
       "scottish/hopetoun_house.abc": 2
     },
     "2026-11-03": {
+      "german/ach bittrer winter.abc": 2,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
@@ -4240,6 +4241,16 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-11-02T09:35:50.058Z"
+      }
+    },
+    "german/ach bittrer winter.abc": {
+      "19": {
+        "pitch": "^F",
+        "prev": "G",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-03T01:57:11.367Z"
       }
     },
     "german/es freit ein wilder wassermann.abc": {
@@ -5989,6 +6000,15 @@
         "35": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "german/ach bittrer winter.abc": {
+      "at": "2026-11-03T01:57:01.362Z",
+      "notes": {
+        "19": {
+          "state": "red",
+          "pitch": "^F"
         }
       }
     },
