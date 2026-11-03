@@ -1674,7 +1674,7 @@ class AbcFileList {
                 "name": "Virtual Insanity",
                 "file": "pop/jamiroquai/virtual insanity.abc",
                 "category": "pop/jamiroquai",
-                "hash": "77e3da37fe"
+                "hash": "6a040ee60c"
         },
         {
                 "name": "Don't Speak",
