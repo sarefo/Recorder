@@ -1784,8 +1784,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T01:51:21.445Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-04T10:07:03.840Z",
+      "playCount": 5,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-04T01:54:06.152Z"
     },
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/moon river.abc",
+      "timestamp": "2026-11-04T10:07:03.840Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-04T10:04:56.527Z"
     },
@@ -3018,10 +3022,6 @@
     {
       "filePath": "pop/queen/who wants to live forever.abc",
       "timestamp": "2026-11-04T01:58:12.388Z"
-    },
-    {
-      "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-04T01:51:21.445Z"
     },
     {
       "filePath": "jazz/all of me.abc",
@@ -3349,7 +3349,7 @@
       "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 2,
       "jazz/blue bossa.abc": 1,
-      "jazz/moon river.abc": 2,
+      "jazz/moon river.abc": 3,
       "occitan/la cambo me fai mau.abc": 2,
       "philippine/bahay kubo.abc": 1,
       "pop/final_countdown.abc": 1,
