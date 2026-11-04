@@ -2594,8 +2594,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-16T07:25:58.484Z",
-      "playCount": 28,
+      "lastPlayed": "2026-11-04T06:22:36.903Z",
+      "playCount": 29,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/caber_feigh.abc": {
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/bottom_bowl.abc",
+      "timestamp": "2026-11-04T06:22:36.903Z"
+    },
+    {
       "filePath": "scottish/atholl_braes_1.abc",
       "timestamp": "2026-11-04T06:20:03.883Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "jazz/take the a train.abc",
       "timestamp": "2026-11-03T13:11:07.703Z"
-    },
-    {
-      "filePath": "jazz/girl from ipanema.abc",
-      "timestamp": "2026-11-03T13:08:56.694Z"
     }
   ],
   "activity": {
@@ -3354,7 +3354,8 @@
       "pop/queen/who wants to live forever.abc": 1,
       "pop/the bangles/eternal flame.abc": 1,
       "scottish/atholl_braes_1.abc": 3,
-      "scottish/balquidder_lasses.abc": 2
+      "scottish/balquidder_lasses.abc": 2,
+      "scottish/bottom_bowl.abc": 1
     }
   },
   "statusLog": [
