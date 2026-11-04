@@ -1584,8 +1584,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T09:47:33.546Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-04T10:13:09.244Z",
+      "playCount": 10,
       "createdAt": "2026-08-31T18:32:58.388Z",
       "updatedAt": "2026-10-17T05:30:22.284Z"
     },
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hashire kotaro.abc",
+      "timestamp": "2026-11-04T10:13:09.244Z"
+    },
+    {
       "filePath": "japanese/kojo no tsuki.abc",
       "timestamp": "2026-11-04T10:11:18.399Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-11-03T13:17:10.635Z"
-    },
-    {
-      "filePath": "film/singin in the rain.abc",
-      "timestamp": "2026-11-03T13:14:32.857Z"
     }
   ],
   "activity": {
@@ -3346,6 +3346,7 @@
     },
     "2026-11-04": {
       "irish/johnny i hardly knew ya.abc": 2,
+      "japanese/hashire kotaro.abc": 1,
       "japanese/kojo no tsuki.abc": 2,
       "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 2,
