@@ -2108,8 +2108,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T10:02:35.687Z",
-      "playCount": 15,
+      "lastPlayed": "2026-11-04T09:58:29.998Z",
+      "playCount": 16,
       "createdAt": "2026-08-01T05:59:20.044Z",
       "updatedAt": "2026-11-01T10:05:28.377Z"
     },
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "philippine/bahay kubo.abc",
+      "timestamp": "2026-11-04T09:58:29.998Z"
+    },
+    {
       "filePath": "scottish/sweet_molly.abc",
       "timestamp": "2026-11-04T06:29:06.257Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "film/herbie's theme.abc",
       "timestamp": "2026-11-03T13:12:36.405Z"
-    },
-    {
-      "filePath": "jazz/night and day.abc",
-      "timestamp": "2026-11-03T13:11:29.807Z"
     }
   ],
   "activity": {
@@ -3351,6 +3351,7 @@
       "jazz/blue bossa.abc": 1,
       "jazz/moon river.abc": 2,
       "occitan/la cambo me fai mau.abc": 2,
+      "philippine/bahay kubo.abc": 1,
       "pop/queen/who wants to live forever.abc": 1,
       "pop/the bangles/eternal flame.abc": 1,
       "scottish/atholl_braes_1.abc": 3,
