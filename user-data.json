@@ -390,6 +390,70 @@
       "createdAt": "2026-09-26T04:52:58.455Z",
       "updatedAt": "2026-10-22T05:47:42.192Z"
     },
+    "classical/bach/brandenburg/brandenburg 1 menuet.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-11-04T15:40:08.947Z",
+      "playCount": 1,
+      "createdAt": "2026-11-04T15:39:53.916Z"
+    },
+    "classical/bach/brandenburg/brandenburg 2 allegro assai.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-11-04T15:40:34.114Z",
+      "playCount": 1,
+      "createdAt": "2026-11-04T15:39:53.916Z"
+    },
+    "classical/bach/brandenburg/brandenburg 2 allegro.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-11-04T15:41:02.533Z",
+      "playCount": 1,
+      "createdAt": "2026-11-04T15:39:53.916Z"
+    },
+    "classical/bach/brandenburg/brandenburg 3 allegro.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-11-04T15:41:34.116Z",
+      "playCount": 1,
+      "createdAt": "2026-11-04T15:39:53.916Z"
+    },
+    "classical/bach/brandenburg/brandenburg 4 allegro.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-04T15:39:53.916Z"
+    },
+    "classical/bach/brandenburg/brandenburg 4 andante.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-04T15:39:53.916Z"
+    },
+    "classical/bach/brandenburg/brandenburg 5 allegro.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-04T15:39:53.916Z"
+    },
+    "classical/bach/brandenburg/brandenburg 6 allegro.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-04T15:39:53.916Z"
+    },
     "classical/bach/chorales/allein gott in der hoeh sei ehr.abc": {
       "status": null,
       "favorite": false,
@@ -2980,6 +3044,22 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/brandenburg/brandenburg 3 allegro.abc",
+      "timestamp": "2026-11-04T15:41:34.116Z"
+    },
+    {
+      "filePath": "classical/bach/brandenburg/brandenburg 2 allegro.abc",
+      "timestamp": "2026-11-04T15:41:02.533Z"
+    },
+    {
+      "filePath": "classical/bach/brandenburg/brandenburg 2 allegro assai.abc",
+      "timestamp": "2026-11-04T15:40:34.114Z"
+    },
+    {
+      "filePath": "classical/bach/brandenburg/brandenburg 1 menuet.abc",
+      "timestamp": "2026-11-04T15:40:08.947Z"
+    },
+    {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-11-04T10:44:57.903Z"
     },
@@ -3042,22 +3122,6 @@
     {
       "filePath": "scottish/sweet_molly.abc",
       "timestamp": "2026-11-04T06:29:06.257Z"
-    },
-    {
-      "filePath": "scottish/bottom_bowl.abc",
-      "timestamp": "2026-11-04T06:22:36.903Z"
-    },
-    {
-      "filePath": "scottish/atholl_braes_1.abc",
-      "timestamp": "2026-11-04T06:20:03.883Z"
-    },
-    {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-11-04T02:02:05.470Z"
-    },
-    {
-      "filePath": "occitan/la cambo me fai mau.abc",
-      "timestamp": "2026-11-04T02:00:20.254Z"
     }
   ],
   "activity": {
@@ -3346,6 +3410,10 @@
     },
     "2026-11-04": {
       "classical/bach/badinerie.abc": 1,
+      "classical/bach/brandenburg/brandenburg 1 menuet.abc": 1,
+      "classical/bach/brandenburg/brandenburg 2 allegro assai.abc": 1,
+      "classical/bach/brandenburg/brandenburg 2 allegro.abc": 1,
+      "classical/bach/brandenburg/brandenburg 3 allegro.abc": 1,
       "classical/bach/tiefer_not.abc": 1,
       "irish/johnny i hardly knew ya.abc": 2,
       "israeli/hevenu shalom aleichem.abc": 4,
@@ -4295,6 +4363,16 @@
         "transSeen": 1,
         "count": 7,
         "at": "2026-10-31T05:20:04.779Z"
+      }
+    },
+    "classical/bach/brandenburg/brandenburg 2 allegro assai.abc": {
+      "3": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 9,
+        "transSeen": 6,
+        "count": 1,
+        "at": "2026-11-04T15:40:44.225Z"
       }
     },
     "classical/bach/chorales/es ist genug.abc": {
@@ -6190,6 +6268,15 @@
         "208": {
           "state": "red",
           "pitch": "_E"
+        }
+      }
+    },
+    "classical/bach/brandenburg/brandenburg 2 allegro assai.abc": {
+      "at": "2026-11-04T15:40:34.222Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
