@@ -416,26 +416,28 @@
     },
     "classical/bach/brandenburg/brandenburg 3 allegro.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-04T15:41:34.116Z",
       "playCount": 1,
-      "createdAt": "2026-11-04T15:39:53.916Z"
+      "createdAt": "2026-11-04T15:39:53.916Z",
+      "updatedAt": "2026-11-04T15:42:10.828Z"
     },
     "classical/bach/brandenburg/brandenburg 4 allegro.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-04T15:39:53.916Z"
+      "lastPlayed": "2026-11-04T15:42:16.707Z",
+      "playCount": 1,
+      "createdAt": "2026-11-04T15:39:53.916Z",
+      "updatedAt": "2026-11-04T15:42:34.436Z"
     },
     "classical/bach/brandenburg/brandenburg 4 andante.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-04T15:42:38.143Z",
+      "playCount": 1,
       "createdAt": "2026-11-04T15:39:53.916Z"
     },
     "classical/bach/brandenburg/brandenburg 5 allegro.abc": {
@@ -3044,6 +3046,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/brandenburg/brandenburg 4 andante.abc",
+      "timestamp": "2026-11-04T15:42:38.143Z"
+    },
+    {
+      "filePath": "classical/bach/brandenburg/brandenburg 4 allegro.abc",
+      "timestamp": "2026-11-04T15:42:16.707Z"
+    },
+    {
       "filePath": "classical/bach/brandenburg/brandenburg 3 allegro.abc",
       "timestamp": "2026-11-04T15:41:34.116Z"
     },
@@ -3114,14 +3124,6 @@
     {
       "filePath": "pop/the bangles/eternal flame.abc",
       "timestamp": "2026-11-04T10:00:10.154Z"
-    },
-    {
-      "filePath": "philippine/bahay kubo.abc",
-      "timestamp": "2026-11-04T09:58:29.998Z"
-    },
-    {
-      "filePath": "scottish/sweet_molly.abc",
-      "timestamp": "2026-11-04T06:29:06.257Z"
     }
   ],
   "activity": {
@@ -3414,6 +3416,8 @@
       "classical/bach/brandenburg/brandenburg 2 allegro assai.abc": 1,
       "classical/bach/brandenburg/brandenburg 2 allegro.abc": 1,
       "classical/bach/brandenburg/brandenburg 3 allegro.abc": 1,
+      "classical/bach/brandenburg/brandenburg 4 allegro.abc": 1,
+      "classical/bach/brandenburg/brandenburg 4 andante.abc": 1,
       "classical/bach/tiefer_not.abc": 1,
       "irish/johnny i hardly knew ya.abc": 2,
       "israeli/hevenu shalom aleichem.abc": 4,
@@ -4373,6 +4377,26 @@
         "transSeen": 6,
         "count": 1,
         "at": "2026-11-04T15:40:44.225Z"
+      }
+    },
+    "classical/bach/brandenburg/brandenburg 4 allegro.abc": {
+      "3": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-04T15:42:26.818Z"
+      }
+    },
+    "classical/bach/brandenburg/brandenburg 4 andante.abc": {
+      "2": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 6,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-04T15:42:48.249Z"
       }
     },
     "classical/bach/chorales/es ist genug.abc": {
@@ -6275,6 +6299,24 @@
       "at": "2026-11-04T15:40:34.222Z",
       "notes": {
         "3": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "classical/bach/brandenburg/brandenburg 4 allegro.abc": {
+      "at": "2026-11-04T15:42:16.816Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "classical/bach/brandenburg/brandenburg 4 andante.abc": {
+      "at": "2026-11-04T15:42:38.248Z",
+      "notes": {
+        "2": {
           "state": "red",
           "pitch": "_B"
         }
