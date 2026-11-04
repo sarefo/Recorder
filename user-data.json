@@ -1784,8 +1784,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T13:05:49.742Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-04T01:51:21.445Z",
+      "playCount": 4,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-03T13:05:25.772Z"
     },
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/moon river.abc",
+      "timestamp": "2026-11-04T01:51:21.445Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-04T01:48:34.833Z"
     },
@@ -3042,10 +3046,6 @@
     {
       "filePath": "jazz/blue monk.abc",
       "timestamp": "2026-11-03T13:07:03.941Z"
-    },
-    {
-      "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-03T13:05:49.742Z"
     },
     {
       "filePath": "pop/derniere danse.abc",
@@ -3348,7 +3348,8 @@
       "irish/johnny i hardly knew ya.abc": 2,
       "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 1,
-      "jazz/blue bossa.abc": 1
+      "jazz/blue bossa.abc": 1,
+      "jazz/moon river.abc": 2
     }
   },
   "statusLog": [
@@ -8177,6 +8178,12 @@
       "at": "2026-11-04T01:41:59.915Z",
       "percent": 100,
       "bpm": 120
+    },
+    {
+      "path": "jazz/autumn leaves.abc",
+      "at": "2026-11-04T01:51:16.194Z",
+      "percent": 100,
+      "bpm": 150
     }
   ],
   "settings": {}
