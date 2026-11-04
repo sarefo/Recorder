@@ -1690,8 +1690,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T08:35:23.273Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-04T01:45:37.344Z",
+      "playCount": 11,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-11-02T12:15:59.746Z"
     },
@@ -1705,13 +1705,13 @@
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
     "jazz/blue bossa.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-04T01:42:10.174Z",
       "playCount": 2,
       "createdAt": "2026-11-03T12:52:58.238Z",
-      "updatedAt": "2026-11-03T13:12:26.579Z"
+      "updatedAt": "2026-11-04T01:45:32.242Z"
     },
     "jazz/blue monk.abc": {
       "status": "needs-practice",
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/all of me.abc",
+      "timestamp": "2026-11-04T01:45:37.344Z"
+    },
+    {
       "filePath": "jazz/blue bossa.abc",
       "timestamp": "2026-11-04T01:42:10.174Z"
     },
@@ -3050,10 +3054,6 @@
     {
       "filePath": "film/anything goes.abc",
       "timestamp": "2026-11-03T08:39:19.766Z"
-    },
-    {
-      "filePath": "jazz/all of me.abc",
-      "timestamp": "2026-11-03T08:35:23.273Z"
     },
     {
       "filePath": "pop/jamiroquai/canned heat.abc",
@@ -3346,6 +3346,7 @@
     },
     "2026-11-04": {
       "irish/johnny i hardly knew ya.abc": 2,
+      "jazz/all of me.abc": 1,
       "jazz/blue bossa.abc": 1
     }
   },
@@ -3894,6 +3895,11 @@
       "path": "ukrainian/nich yaka misyachna.abc",
       "status": "good",
       "at": "2026-11-03T13:20:44.905Z"
+    },
+    {
+      "path": "jazz/blue bossa.abc",
+      "status": "practicing",
+      "at": "2026-11-04T01:45:32.242Z"
     }
   ],
   "marks": {
