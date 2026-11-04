@@ -2686,8 +2686,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T07:00:30.179Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-04T06:29:06.257Z",
+      "playCount": 3,
       "createdAt": "2026-11-02T06:52:05.628Z",
       "updatedAt": "2026-11-02T07:00:33.911Z"
     },
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/sweet_molly.abc",
+      "timestamp": "2026-11-04T06:29:06.257Z"
+    },
+    {
       "filePath": "scottish/bottom_bowl.abc",
       "timestamp": "2026-11-04T06:22:36.903Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "jazz/night and day.abc",
       "timestamp": "2026-11-03T13:11:29.807Z"
-    },
-    {
-      "filePath": "jazz/take the a train.abc",
-      "timestamp": "2026-11-03T13:11:07.703Z"
     }
   ],
   "activity": {
@@ -3355,7 +3355,8 @@
       "pop/the bangles/eternal flame.abc": 1,
       "scottish/atholl_braes_1.abc": 3,
       "scottish/balquidder_lasses.abc": 2,
-      "scottish/bottom_bowl.abc": 3
+      "scottish/bottom_bowl.abc": 3,
+      "scottish/sweet_molly.abc": 2
     }
   },
   "statusLog": [
