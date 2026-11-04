@@ -628,8 +628,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-30T04:50:10.625Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-04T10:21:28.785Z",
+      "playCount": 13,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T05:43:21.243Z"
     },
@@ -1341,8 +1341,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T10:40:26.400Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-04T10:21:26.177Z",
+      "playCount": 3,
       "createdAt": "2026-10-18T11:52:56.717Z",
       "updatedAt": "2026-10-25T10:50:59.432Z"
     },
@@ -2980,6 +2980,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/tiefer_not.abc",
+      "timestamp": "2026-11-04T10:21:28.785Z"
+    },
+    {
+      "filePath": "israeli/artsa alinu.abc",
+      "timestamp": "2026-11-04T10:21:26.177Z"
+    },
+    {
       "filePath": "israeli/hevenu shalom aleichem.abc",
       "timestamp": "2026-11-04T10:16:44.956Z"
     },
@@ -3050,14 +3058,6 @@
     {
       "filePath": "pop/queen/who wants to live forever.abc",
       "timestamp": "2026-11-04T01:58:12.388Z"
-    },
-    {
-      "filePath": "jazz/all of me.abc",
-      "timestamp": "2026-11-04T01:45:37.344Z"
-    },
-    {
-      "filePath": "jazz/blue bossa.abc",
-      "timestamp": "2026-11-04T01:42:10.174Z"
     }
   ],
   "activity": {
@@ -3345,6 +3345,7 @@
       "ukrainian/nich yaka misyachna.abc": 1
     },
     "2026-11-04": {
+      "classical/bach/tiefer_not.abc": 1,
       "irish/johnny i hardly knew ya.abc": 2,
       "israeli/hevenu shalom aleichem.abc": 4,
       "japanese/hana.abc": 1,
@@ -6435,6 +6436,15 @@
       "at": "2026-11-02T06:04:17.777Z",
       "notes": {
         "2": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "israeli/artsa alinu.abc": {
+      "at": "2026-11-04T10:21:26.284Z",
+      "notes": {
+        "18": {
           "state": "red",
           "pitch": "_B"
         }
