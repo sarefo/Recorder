@@ -2286,8 +2286,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T13:15:26.682Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-04T10:02:42.794Z",
+      "playCount": 8,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-29T07:31:46.377Z"
     },
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/final_countdown.abc",
+      "timestamp": "2026-11-04T10:02:42.794Z"
+    },
+    {
       "filePath": "pop/the bangles/eternal flame.abc",
       "timestamp": "2026-11-04T10:00:10.154Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "film/lets call the whole thing off.abc",
       "timestamp": "2026-11-03T13:14:10.034Z"
-    },
-    {
-      "filePath": "film/herbie's theme.abc",
-      "timestamp": "2026-11-03T13:12:36.405Z"
     }
   ],
   "activity": {
@@ -3352,6 +3352,7 @@
       "jazz/moon river.abc": 2,
       "occitan/la cambo me fai mau.abc": 2,
       "philippine/bahay kubo.abc": 1,
+      "pop/final_countdown.abc": 1,
       "pop/queen/who wants to live forever.abc": 1,
       "pop/the bangles/eternal flame.abc": 2,
       "scottish/atholl_braes_1.abc": 3,
