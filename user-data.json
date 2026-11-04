@@ -1283,8 +1283,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T03:09:41.094Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-04T01:42:05.778Z",
+      "playCount": 3,
       "createdAt": "2026-10-03T06:02:47.590Z",
       "updatedAt": "2026-10-25T03:12:40.511Z"
     },
@@ -1708,8 +1708,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T13:11:50.591Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-04T01:42:10.174Z",
+      "playCount": 2,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-03T13:12:26.579Z"
     },
@@ -2481,8 +2481,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-03T10:30:49.111Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-04T01:42:05.875Z",
+      "playCount": 4,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/used to know.abc": {
@@ -2980,6 +2980,18 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/blue bossa.abc",
+      "timestamp": "2026-11-04T01:42:10.174Z"
+    },
+    {
+      "filePath": "pop/top of the world.abc",
+      "timestamp": "2026-11-04T01:42:05.875Z"
+    },
+    {
+      "filePath": "hungarian/tavaszi szel vizet araszt.abc",
+      "timestamp": "2026-11-04T01:42:05.778Z"
+    },
+    {
       "filePath": "irish/johnny i hardly knew ya.abc",
       "timestamp": "2026-11-04T01:39:44.832Z"
     },
@@ -3002,10 +3014,6 @@
     {
       "filePath": "film/herbie's theme.abc",
       "timestamp": "2026-11-03T13:12:36.405Z"
-    },
-    {
-      "filePath": "jazz/blue bossa.abc",
-      "timestamp": "2026-11-03T13:11:50.591Z"
     },
     {
       "filePath": "jazz/night and day.abc",
@@ -3050,14 +3058,6 @@
     {
       "filePath": "pop/jamiroquai/canned heat.abc",
       "timestamp": "2026-11-03T08:32:35.337Z"
-    },
-    {
-      "filePath": "pop/jamiroquai/virtual insanity.abc",
-      "timestamp": "2026-11-03T08:30:26.745Z"
-    },
-    {
-      "filePath": "pop/jamiroquai/deeper underground.abc",
-      "timestamp": "2026-11-03T08:30:01.319Z"
     }
   ],
   "activity": {
@@ -7166,6 +7166,15 @@
         }
       }
     },
+    "pop/top of the world.abc": {
+      "at": "2026-11-04T01:42:05.910Z",
+      "notes": {
+        "11": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
     "scottish/caber_feigh.abc": {
       "at": "2026-10-28T03:16:14.206Z",
       "notes": {
@@ -8148,6 +8157,18 @@
       "at": "2026-11-03T13:20:45.697Z",
       "percent": 100,
       "bpm": 92
+    },
+    {
+      "path": "irish/johnny i hardly knew ya.abc",
+      "at": "2026-11-04T01:41:59.724Z",
+      "percent": 100,
+      "bpm": 120
+    },
+    {
+      "path": "irish/johnny i hardly knew ya.abc",
+      "at": "2026-11-04T01:41:59.915Z",
+      "percent": 100,
+      "bpm": 120
     }
   ],
   "settings": {}
