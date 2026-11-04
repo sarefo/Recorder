@@ -1611,8 +1611,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T09:58:32.902Z",
-      "playCount": 39,
+      "lastPlayed": "2026-11-04T10:11:18.399Z",
+      "playCount": 40,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/momiji.abc": {
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/kojo no tsuki.abc",
+      "timestamp": "2026-11-04T10:11:18.399Z"
+    },
+    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-04T10:07:03.840Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "film/singin in the rain.abc",
       "timestamp": "2026-11-03T13:14:32.857Z"
-    },
-    {
-      "filePath": "film/lets call the whole thing off.abc",
-      "timestamp": "2026-11-03T13:14:10.034Z"
     }
   ],
   "activity": {
@@ -3346,6 +3346,7 @@
     },
     "2026-11-04": {
       "irish/johnny i hardly knew ya.abc": 2,
+      "japanese/kojo no tsuki.abc": 2,
       "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 2,
       "jazz/blue bossa.abc": 1,
