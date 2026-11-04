@@ -1781,13 +1781,13 @@
       "createdAt": "2026-11-03T12:52:58.238Z"
     },
     "jazz/moon river.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-04T01:51:21.445Z",
       "playCount": 4,
       "createdAt": "2026-11-03T12:52:58.238Z",
-      "updatedAt": "2026-11-03T13:05:25.772Z"
+      "updatedAt": "2026-11-04T01:54:06.152Z"
     },
     "jazz/my funny valentine.abc": {
       "status": "practicing",
@@ -2424,8 +2424,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T08:24:11.456Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-04T01:54:14.806Z",
+      "playCount": 4,
       "createdAt": "2026-11-02T13:15:10.953Z",
       "updatedAt": "2026-11-02T13:26:44.368Z"
     },
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/the bangles/eternal flame.abc",
+      "timestamp": "2026-11-04T01:54:14.806Z"
+    },
+    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-04T01:51:21.445Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "film/anything goes.abc",
       "timestamp": "2026-11-03T08:39:19.766Z"
-    },
-    {
-      "filePath": "pop/jamiroquai/canned heat.abc",
-      "timestamp": "2026-11-03T08:32:35.337Z"
     }
   ],
   "activity": {
@@ -3349,7 +3349,8 @@
       "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 1,
       "jazz/blue bossa.abc": 1,
-      "jazz/moon river.abc": 2
+      "jazz/moon river.abc": 2,
+      "pop/the bangles/eternal flame.abc": 1
     }
   },
   "statusLog": [
@@ -3902,6 +3903,11 @@
       "path": "jazz/blue bossa.abc",
       "status": "practicing",
       "at": "2026-11-04T01:45:32.242Z"
+    },
+    {
+      "path": "jazz/moon river.abc",
+      "status": "good",
+      "at": "2026-11-04T01:54:06.152Z"
     }
   ],
   "marks": {
