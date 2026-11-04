@@ -324,13 +324,13 @@ class AbcFileList {
                 "name": "Brandenburg Concerto No. 3 (Allegro)",
                 "file": "classical/bach/brandenburg/brandenburg 3 allegro.abc",
                 "category": "classical/bach/brandenburg",
-                "hash": "b04d4b9da2"
+                "hash": "7ffe621b5e"
         },
         {
                 "name": "Brandenburg Concerto No. 4 (Allegro)",
                 "file": "classical/bach/brandenburg/brandenburg 4 allegro.abc",
                 "category": "classical/bach/brandenburg",
-                "hash": "cc34eae164"
+                "hash": "6171fbb98d"
         },
         {
                 "name": "Brandenburg Concerto No. 4 (Andante)",

@@ -1,13 +1,13 @@
 X:1
 T:Brandenburg Concerto No. 4 (Allegro)
 C:Johann Sebastian Bach
-O:G major, BWV 1049, 1st movement, bars 1 to 14
+O:G major, BWV 1049, 1st movement, bars 1 to 13
 N:Bach's first recorder part, moved down a ninth from G to F major (C4
 N:to F5).
 N:Notes from the kernscores urtext encoding (MIDI via hamienet.com),
 N:checked against a second sequencing.
-N:The held note in bar 14 is cut at the barline; in the score it runs a
-N:sixteenth into bar 15.
+N:Stops at the cadence in bar 13; in the score that note is held on into
+N:the next phrase.
 N:Chords read from the lower parts of the score.
 M:3/8
 Q:3/8=66
@@ -15,5 +15,4 @@ L:1/16
 K:F
 "F"c6- |"C"c6- |"F"c2B2A2 |"F"z2 ABc2 |
 "C"B2A2G2 |"C"z2 GAB2 |"F"AcfcAF |"C"EGcGEC |
-"F"A2G2F2 |"F"z2 FGA2 |"C7"G2F2E2 |"C7"z2 EFG2 |
-"F"F6- |"Dm"F6 |]
+"F"A2G2F2 |"F"z2 FGA2 |"C7"G2F2E2 |"C7"z2 EFG2 |"F"F6 |]
