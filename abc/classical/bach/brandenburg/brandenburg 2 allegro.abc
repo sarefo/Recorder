@@ -1,0 +1,19 @@
+X:1
+T:Brandenburg Concerto No. 2 (Allegro)
+C:Johann Sebastian Bach
+O:F major, BWV 1047, 1st movement, bars 1 to 9
+N:Bach's recorder part, doubled by oboe and violin here, moved down a
+N:fourth from F to C major (C4 to G5).
+N:Notes from the kernscores urtext encoding (MIDI via hamienet.com),
+N:checked against the D. L. Viens sequencing.
+N:The ritornello ends on the downbeat of bar 9, where the recorder stops
+N:and the solo violin takes over.
+N:Chords read from the lower parts of the score.
+M:2/2
+Q:1/4=100
+L:1/16
+K:C
+"C"c2G2 EFG2 EFG2 c2G2 |"C"c2G2 EFG2 EFG2 c2G2 |
+"C"c2dc defe "G"fedc BAGc |"Em"Bcdc defe "G"fedc BAGF |
+"C"EDC2 EDC2 GFE2 c2GF |"C"EDC2 EDC2 GFE2 c2GA |
+"C"Bcde fdec "Em"Gcde fdec |"G7"g2fe dcG2 B2c2 BAGF |"C"EDC2 z12 |]

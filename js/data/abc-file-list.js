@@ -303,6 +303,54 @@ class AbcFileList {
                 "hash": "3700bf744a"
         },
         {
+                "name": "Brandenburg Concerto No. 1 (Menuet)",
+                "file": "classical/bach/brandenburg/brandenburg 1 menuet.abc",
+                "category": "classical/bach/brandenburg",
+                "hash": "9b119530d4"
+        },
+        {
+                "name": "Brandenburg Concerto No. 2 (Allegro assai)",
+                "file": "classical/bach/brandenburg/brandenburg 2 allegro assai.abc",
+                "category": "classical/bach/brandenburg",
+                "hash": "bda2fec4a3"
+        },
+        {
+                "name": "Brandenburg Concerto No. 2 (Allegro)",
+                "file": "classical/bach/brandenburg/brandenburg 2 allegro.abc",
+                "category": "classical/bach/brandenburg",
+                "hash": "8c8015e7f2"
+        },
+        {
+                "name": "Brandenburg Concerto No. 3 (Allegro)",
+                "file": "classical/bach/brandenburg/brandenburg 3 allegro.abc",
+                "category": "classical/bach/brandenburg",
+                "hash": "b04d4b9da2"
+        },
+        {
+                "name": "Brandenburg Concerto No. 4 (Allegro)",
+                "file": "classical/bach/brandenburg/brandenburg 4 allegro.abc",
+                "category": "classical/bach/brandenburg",
+                "hash": "cc34eae164"
+        },
+        {
+                "name": "Brandenburg Concerto No. 4 (Andante)",
+                "file": "classical/bach/brandenburg/brandenburg 4 andante.abc",
+                "category": "classical/bach/brandenburg",
+                "hash": "d37070f7b4"
+        },
+        {
+                "name": "Brandenburg Concerto No. 5 (Allegro)",
+                "file": "classical/bach/brandenburg/brandenburg 5 allegro.abc",
+                "category": "classical/bach/brandenburg",
+                "hash": "c2b5d5f38a"
+        },
+        {
+                "name": "Brandenburg Concerto No. 6 (Allegro)",
+                "file": "classical/bach/brandenburg/brandenburg 6 allegro.abc",
+                "category": "classical/bach/brandenburg",
+                "hash": "321a08df7c"
+        },
+        {
                 "name": "Allein Gott in der H\u00f6h sei Ehr",
                 "file": "classical/bach/chorales/allein gott in der hoeh sei ehr.abc",
                 "category": "classical/bach/chorales",
@@ -1002,7 +1050,7 @@ class AbcFileList {
                 "name": "Hevenu Shalom Aleichem",
                 "file": "israeli/hevenu shalom aleichem.abc",
                 "category": "israeli",
-                "hash": "70aceda4b7"
+                "hash": "87396bd92f"
         },
         {
                 "name": "Hine Ma Tov",

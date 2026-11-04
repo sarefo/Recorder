@@ -1,0 +1,18 @@
+X:1
+T:Brandenburg Concerto No. 6 (Allegro)
+C:Johann Sebastian Bach
+O:B-flat major, BWV 1051, 3rd movement, bars 1 to 8
+N:First viola part, moved up a tone from B-flat to C major so it fits
+N:the recorder (C4 to G5).
+N:Notes from the kernscores urtext encoding (MIDI via hamienet.com),
+N:checked against a second sequencing.
+N:The sixteenth leading into bar 9 is left out so the excerpt ends on
+N:the tonic. Chords read from the lower parts of the score.
+M:12/8
+Q:3/8=76
+L:1/8
+K:C
+"C"GcB cEG ccB cEG |"G7"cdc dGB "C"ded e c2 |
+"D7"e2 A c2 ^F "Em"d2 G B2 E |"D7"c2 ^F A2 D "G"cBA BGB |
+"C"dgc e2 A "G7"f2 B d2 G |"C"e2 G c2 E G2 C EGE |
+"C"GcG A2 G c2 G A2 G |"G7"c2 A f2 B "C"gec Bc3/2 z/ |]

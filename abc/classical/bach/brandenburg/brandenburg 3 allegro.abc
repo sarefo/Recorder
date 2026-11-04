@@ -1,0 +1,17 @@
+X:1
+T:Brandenburg Concerto No. 3 (Allegro)
+C:Johann Sebastian Bach
+O:G major, BWV 1048, 1st movement, bars 1 to 8
+N:First violin part, moved up a fourth from G to C major so its low G
+N:fits the recorder (C4 to G5).
+N:Notes from the kernscores urtext encoding (MIDI via hamienet.com),
+N:checked against a second sequencing.
+N:Chords read from the viola and cello parts of the score.
+M:2/2
+Q:1/4=104
+L:1/16
+K:C
+"C"cBc2 GFG2 cBc2 EDE2 |"C"cBc2 CDE2 "G"^F2GF GAGB |
+"G"GcG^F GAGd GeGF GAGf |"G7"Gge2 dcd2 "C"cBc2 BAGc |
+"Dm"GcA2 GFEc "C"EcF2 EDCc |"D7"DcEc ^FcGB "G"GcGd GeGf |
+"G"Gge2 dcG2 B2c2 BAGF |"C"EDE2 DCG2 "G"G2 "C"C4 z2 |]

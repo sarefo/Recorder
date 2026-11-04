@@ -1,0 +1,19 @@
+X:1
+T:Brandenburg Concerto No. 4 (Andante)
+C:Johann Sebastian Bach
+O:G major, BWV 1049, 2nd movement, bars 1 to 18
+N:Bach's first recorder part, moved down a ninth from E minor to D minor
+N:(C#4 to Bb4).
+N:Notes from the kernscores urtext encoding (MIDI via hamienet.com),
+N:checked against the flutetunes.com flute trio.
+N:Stops on the cadence at the downbeat of bar 18. Chords read from the
+N:continuo and strings of the score.
+M:3/4
+Q:1/4=60
+L:1/8
+K:Dm
+"Dm"z2 AB AB |"Gm"GF "A7"GB AG |"Dm"F2 AB AB |"Dm"GF "A7"GB AG |
+"Dm"F2 FG FG |"Gm"ED "A7"EF DE |"A"^C2 "Dm"FG FG |"Gm"ED EF "Bb"DE |
+"A7"^C2 EF GE |"Dm"F2 "A"EF GE |"Dm"F2 "D7"^FG EF |"Gm"G2 "C7"^FG EF |
+"Bb"G2 "Edim"G4- |"A7"G2 "D"^F2 =F2- |"G7"F2 "C"E2 _E2- |"F7"_E2 ^C2 "Bb"D2- |
+"Gm"DE "A7"E3 D |"Dm"D2 z4 |]

@@ -1,0 +1,22 @@
+X:1
+T:Brandenburg Concerto No. 1 (Menuet)
+C:Johann Sebastian Bach
+O:F major, BWV 1046, 4th movement
+N:First oboe part, the complete Menuet, moved down a fourth from F to C
+N:major so it fits the recorder (D4 to G5).
+N:Notes from the kernscores urtext encoding (MIDI via hamienet.com); the
+N:two trios and the Polacca are left out.
+N:No second independent source was found, so this one rests on the
+N:urtext file alone.
+N:The grace note at the start of bar 21 is left out. Chords read from
+N:the lower parts of the same score.
+M:3/4
+Q:1/4=108
+L:1/8
+K:C
+|: "C"G2 _B2 A2 |"C7"G2 FE F2 |"C7"G2 _B2 A2 |"C"G4 c2 |
+"G7"F2 D2 E2 |"G7"F2 A4 |"G7"F2 ED G2 |"C"E4 D2 |
+"D7"^FG G3 F/G/ |"D7"A2 G^F G2 |"D7"cd A3 G |"G"G6 :|
+|: "G7"d2 f2 e2 |"G7"d2 cB c2 |"G7"d2 f2 e2 |"G"d4 g2 |
+"D7"c2 A2 B2 |"D7"c2 e4 |"D7"c2 BA d2 |"G"B3 c c3/2B/4c/4 |
+"G"de e3 d/e/ |"G7"f2 ed g2 |"G7"cd B3 c |"C"c6 :|

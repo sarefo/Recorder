@@ -1,0 +1,19 @@
+X:1
+T:Brandenburg Concerto No. 5 (Allegro)
+C:Johann Sebastian Bach
+O:D major, BWV 1050, 1st movement, bars 1 to 9
+N:First violin part, moved down a tone from D to C major (C4 to A5).
+N:Notes from the kernscores urtext encoding (MIDI via hamienet.com),
+N:checked against a second sequencing.
+N:The line spans 26 semitones, too wide for the recorder, so 11 low
+N:notes are raised an octave: bar 4 beats 3 and 4 up to the G, the two
+N:low Gs in bar 5, and three notes in bar 8.
+N:Chords read from the lower parts of the score.
+M:2/2
+Q:1/4=100
+L:1/16
+K:C
+"C"CCEE GGcc "G"BcBA GFED |"C"CCEE GGcc "G"d2G2 z2 d2 |
+"C"eedd ffee "F"aagg BBcc |"G7"FFEE AAGG BBcc GGFF |
+"C"EDEC DDGG "Am"CDEF GABG |"Am"ccBB ddcc "G"ffee aagg |
+"C"fedc d2GA "G7"_BGAc =BdGF |"C"ECDF EGcB "G7"AFED D3C |"C"C2 z14 |]

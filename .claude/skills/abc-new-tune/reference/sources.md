@@ -457,3 +457,31 @@ Lullaby of Birdland, Moon River and Blue Bossa under `abc/jazz/`.
 - Skipped: Take Five (G#3-F#5, 22 semitones), Stella by Starlight (no
   independent source), Georgia (75%, source chords dubious), Perdido and
   Mercy Mercy Mercy (only improvised arrangements found).
+
+## Orchestral classics: hamienet urtext MIDIs (2026-11)
+
+Added eight Brandenburg highlights under `abc/classical/bach/brandenburg/`.
+
+- **hamienet carries whole scores from kernscores.** Search results with
+  `midiMetadata.scoreSource` set to `kernscores_urtext_mei` have one named part per
+  track (`Violin`, `Soprano recorder`, `Continuo`), so melody and harmony are both
+  sourced. The API reports them as "Informational Track" with 0 notes; ignore that.
+- **Every track is on channel 0.** Run `scripts/midi_split_tracks.py in.mid out.mid`
+  first, or midi_notes.py shows one merged line.
+- **The same search turns up independent sequencings** ("0450 Bwv1047...", D. L. Viens),
+  which make the second source. They may sit a semitone off (Bwv1048a is transposed),
+  so use `pitch_compare.py`, and loop it over all channels.
+- **Movement labels can be wrong.** The No. 1 "Polacca" file is Trio I and "G." is Trio II.
+  Check the scoring and key against what the title claims.
+- **Sequencings write trills out as zero-length notes**, which pitch_compare drops,
+  so a trilled note shows up as a false "delete". Dump the bar before calling it a
+  disagreement.
+- **The default grid of 4 eats 32nds**: a two-note turn snapped to zero length and
+  vanished, leaving a rest. A rest in a bar of continuous melody is the tell;
+  check the raw durations. Use `--grid 12` for triplets.
+- **`beam_abc.py` beams by quarter**, wrong for 3/8 and 12/8. Beam those by the dotted beat.
+- **A long `O:` clips off the left of the title, and `N:` lines clip past about 75
+  characters** at 915 wide, which the viewBox check does not show. Look at a screenshot.
+- Excerpt rather than transcribe: these movements run past 100 bars and 21 semitones.
+  Cut the opening ritornello at a real cadence, read off the bass. Bar 16 of the No. 4
+  Andante looked like the end of the phrase, but it is deceptive; the cadence is bar 18.
