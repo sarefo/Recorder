@@ -1699,8 +1699,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T01:48:34.833Z",
-      "playCount": 16,
+      "lastPlayed": "2026-11-04T10:04:56.527Z",
+      "playCount": 17,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-11-04T10:04:56.527Z"
+    },
+    {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-11-04T10:02:42.794Z"
     },
@@ -3018,10 +3022,6 @@
     {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-04T01:51:21.445Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-11-04T01:48:34.833Z"
     },
     {
       "filePath": "jazz/all of me.abc",
@@ -3347,7 +3347,7 @@
     "2026-11-04": {
       "irish/johnny i hardly knew ya.abc": 2,
       "jazz/all of me.abc": 1,
-      "jazz/autumn leaves.abc": 1,
+      "jazz/autumn leaves.abc": 2,
       "jazz/blue bossa.abc": 1,
       "jazz/moon river.abc": 2,
       "occitan/la cambo me fai mau.abc": 2,
