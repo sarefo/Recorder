@@ -2569,8 +2569,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-15T10:33:41.779Z",
-      "playCount": 31,
+      "lastPlayed": "2026-11-04T06:14:02.751Z",
+      "playCount": 32,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/balquidder_lasses.abc": {
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/atholl_braes_1.abc",
+      "timestamp": "2026-11-04T06:14:02.751Z"
+    },
+    {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-11-04T02:02:05.470Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "jazz/girl from ipanema.abc",
       "timestamp": "2026-11-03T13:08:56.694Z"
-    },
-    {
-      "filePath": "jazz/satin doll.abc",
-      "timestamp": "2026-11-03T13:07:41.925Z"
     }
   ],
   "activity": {
@@ -3353,6 +3353,7 @@
       "occitan/la cambo me fai mau.abc": 2,
       "pop/queen/who wants to live forever.abc": 1,
       "pop/the bangles/eternal flame.abc": 1,
+      "scottish/atholl_braes_1.abc": 1,
       "scottish/balquidder_lasses.abc": 2
     }
   },
