@@ -1324,8 +1324,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T09:43:54.843Z",
-      "playCount": 17,
+      "lastPlayed": "2026-11-04T01:39:44.832Z",
+      "playCount": 18,
       "createdAt": "2026-07-30T09:51:53.099Z",
       "updatedAt": "2026-11-02T09:45:05.398Z"
     },
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "irish/johnny i hardly knew ya.abc",
+      "timestamp": "2026-11-04T01:39:44.832Z"
+    },
+    {
       "filePath": "ukrainian/nich yaka misyachna.abc",
       "timestamp": "2026-11-03T13:19:04.235Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "pop/jamiroquai/deeper underground.abc",
       "timestamp": "2026-11-03T08:30:01.319Z"
-    },
-    {
-      "filePath": "pop/the bangles/eternal flame.abc",
-      "timestamp": "2026-11-03T08:24:11.456Z"
     }
   ],
   "activity": {
@@ -3343,6 +3343,9 @@
       "pop/jamiroquai/virtual insanity.abc": 1,
       "pop/the bangles/eternal flame.abc": 2,
       "ukrainian/nich yaka misyachna.abc": 1
+    },
+    "2026-11-04": {
+      "irish/johnny i hardly knew ya.abc": 2
     }
   },
   "statusLog": [
