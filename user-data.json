@@ -2407,8 +2407,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T13:56:54.629Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-04T01:58:12.388Z",
+      "playCount": 3,
       "createdAt": "2026-11-02T13:49:53.793Z",
       "updatedAt": "2026-11-02T13:57:47.953Z"
     },
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/queen/who wants to live forever.abc",
+      "timestamp": "2026-11-04T01:58:12.388Z"
+    },
+    {
       "filePath": "pop/the bangles/eternal flame.abc",
       "timestamp": "2026-11-04T01:54:14.806Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-11-03T08:50:05.660Z"
-    },
-    {
-      "filePath": "film/anything goes.abc",
-      "timestamp": "2026-11-03T08:39:19.766Z"
     }
   ],
   "activity": {
@@ -3350,6 +3350,7 @@
       "jazz/autumn leaves.abc": 1,
       "jazz/blue bossa.abc": 1,
       "jazz/moon river.abc": 2,
+      "pop/queen/who wants to live forever.abc": 1,
       "pop/the bangles/eternal flame.abc": 1
     }
   },
@@ -5642,6 +5643,14 @@
         "count": 1,
         "at": "2026-11-02T13:50:21.559Z"
       },
+      "4": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 5,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-04T01:58:22.508Z"
+      },
       "7": {
         "pitch": "_B",
         "prev": "c",
@@ -7161,11 +7170,15 @@
       }
     },
     "pop/queen/who wants to live forever.abc": {
-      "at": "2026-11-02T13:50:11.563Z",
+      "at": "2026-11-04T01:58:12.505Z",
       "notes": {
         "3": {
           "state": "red",
           "pitch": "_A"
+        },
+        "4": {
+          "state": "red",
+          "pitch": "_B"
         },
         "7": {
           "state": "red",
