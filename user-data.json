@@ -2577,8 +2577,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T06:10:39.785Z",
-      "playCount": 52,
+      "lastPlayed": "2026-11-04T02:02:05.470Z",
+      "playCount": 53,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-11-04T02:02:05.470Z"
+    },
+    {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-11-04T02:00:20.254Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "jazz/satin doll.abc",
       "timestamp": "2026-11-03T13:07:41.925Z"
-    },
-    {
-      "filePath": "jazz/blue monk.abc",
-      "timestamp": "2026-11-03T13:07:03.941Z"
     }
   ],
   "activity": {
@@ -3352,7 +3352,8 @@
       "jazz/moon river.abc": 2,
       "occitan/la cambo me fai mau.abc": 2,
       "pop/queen/who wants to live forever.abc": 1,
-      "pop/the bangles/eternal flame.abc": 1
+      "pop/the bangles/eternal flame.abc": 1,
+      "scottish/balquidder_lasses.abc": 1
     }
   },
   "statusLog": [
