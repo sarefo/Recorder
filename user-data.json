@@ -2424,8 +2424,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T01:54:14.806Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-04T10:00:10.154Z",
+      "playCount": 5,
       "createdAt": "2026-11-02T13:15:10.953Z",
       "updatedAt": "2026-11-02T13:26:44.368Z"
     },
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/the bangles/eternal flame.abc",
+      "timestamp": "2026-11-04T10:00:10.154Z"
+    },
+    {
       "filePath": "philippine/bahay kubo.abc",
       "timestamp": "2026-11-04T09:58:29.998Z"
     },
@@ -3006,10 +3010,6 @@
     {
       "filePath": "pop/queen/who wants to live forever.abc",
       "timestamp": "2026-11-04T01:58:12.388Z"
-    },
-    {
-      "filePath": "pop/the bangles/eternal flame.abc",
-      "timestamp": "2026-11-04T01:54:14.806Z"
     },
     {
       "filePath": "jazz/moon river.abc",
@@ -3353,7 +3353,7 @@
       "occitan/la cambo me fai mau.abc": 2,
       "philippine/bahay kubo.abc": 1,
       "pop/queen/who wants to live forever.abc": 1,
-      "pop/the bangles/eternal flame.abc": 1,
+      "pop/the bangles/eternal flame.abc": 2,
       "scottish/atholl_braes_1.abc": 3,
       "scottish/balquidder_lasses.abc": 2,
       "scottish/bottom_bowl.abc": 3,
