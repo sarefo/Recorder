@@ -1558,8 +1558,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T09:50:17.834Z",
-      "playCount": 41,
+      "lastPlayed": "2026-11-04T10:15:11.924Z",
+      "playCount": 42,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/hanagasa ondo.abc": {
@@ -2980,6 +2980,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hana.abc",
+      "timestamp": "2026-11-04T10:15:11.924Z"
+    },
+    {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-11-04T10:13:09.244Z"
     },
@@ -3054,10 +3058,6 @@
     {
       "filePath": "ukrainian/nich yaka misyachna.abc",
       "timestamp": "2026-11-03T13:19:04.235Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-11-03T13:17:10.635Z"
     }
   ],
   "activity": {
@@ -3346,6 +3346,7 @@
     },
     "2026-11-04": {
       "irish/johnny i hardly knew ya.abc": 2,
+      "japanese/hana.abc": 1,
       "japanese/hashire kotaro.abc": 1,
       "japanese/kojo no tsuki.abc": 2,
       "jazz/all of me.abc": 1,
