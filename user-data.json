@@ -1116,12 +1116,13 @@
       "createdAt": "2026-10-27T06:33:51.241Z"
     },
     "french/la mer.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-05T10:08:22.718Z",
       "playCount": 1,
-      "createdAt": "2026-10-26T11:24:25.702Z"
+      "createdAt": "2026-10-26T11:24:25.702Z",
+      "updatedAt": "2026-11-05T10:10:17.565Z"
     },
     "french/la vie en rose.abc": {
       "status": null,
@@ -3444,7 +3445,7 @@
       "australian/waltzing matilda.abc": 1,
       "chinese/molihua.abc": 1,
       "french/hymne a l'amour.abc": 3,
-      "french/la mer.abc": 2,
+      "french/la mer.abc": 4,
       "french/sous le ciel de paris.abc": 1,
       "israeli/hatikvah.abc": 1,
       "japanese/tinsagu nu hana.abc": 1,
@@ -4025,6 +4026,11 @@
       "path": "french/hymne a l'amour.abc",
       "status": "good",
       "at": "2026-11-05T10:08:18.406Z"
+    },
+    {
+      "path": "french/la mer.abc",
+      "status": "practicing",
+      "at": "2026-11-05T10:10:16.102Z"
     }
   ],
   "marks": {
