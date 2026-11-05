@@ -6,9 +6,9 @@ N:Chords are derived from the source's accompaniment channel.
 M:2/4
 Q:1/4=72
 L:1/8
-K:Am
-E |: "Am" ABcd |"Am" e2 e2 |"Dm" fefa |"Am" e4 |
-"Dm" d2 dd |"Dm" c2 c2 |"E7" BABc |1"Am" A3 E :|2"Am" A4 |
-|: "Am" A2 a2 |"Dm" a2 a2 |"Dm" gagf |"E7" e4 :|
-|: "Dm" d2 d d |"C" c2 c2 |"Dm" defg |"Am" e2 dc |
-"Dm" d2 d2 |"C" c2 c2 |"E7" BABc |1"Am" A4 :|2"Am" A3 |]
+K:Gm
+D |: "Gm" GABc |"Gm" d2 d2 |"Cm" edeg |"Gm" d4 |
+"Cm" c2 cc |"Cm" B2 B2 |"D7" AGAB |1"Gm" G3 D :|2"Gm" G4 |
+|: "Gm" G2 g2 |"Cm" g2 g2 |"Cm" fgfe |"D7" d4 :|
+|: "Cm" c2 c c |"Bb" B2 B2 |"Cm" cdef |"Gm" d2 cB |
+"Cm" c2 c2 |"Bb" B2 B2 |"D7" AGAB |1"Gm" G4 :|2"Gm" G3 |]
