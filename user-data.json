@@ -2123,8 +2123,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T08:23:29.604Z",
-      "playCount": 13,
+      "lastPlayed": "2026-11-05T06:11:44.494Z",
+      "playCount": 14,
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/ai vist lo lop.abc": {
@@ -3046,6 +3046,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/adiu paure carnaval.abc",
+      "timestamp": "2026-11-05T06:11:44.494Z"
+    },
+    {
       "filePath": "pop/popcorn.abc",
       "timestamp": "2026-11-05T06:09:39.475Z"
     },
@@ -3120,10 +3124,6 @@
     {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-04T10:07:03.840Z"
-    },
-    {
-      "filePath": "pop/final_countdown.abc",
-      "timestamp": "2026-11-04T10:02:42.794Z"
     }
   ],
   "activity": {
@@ -3437,6 +3437,9 @@
       "scottish/balquidder_lasses.abc": 2,
       "scottish/bottom_bowl.abc": 3,
       "scottish/sweet_molly.abc": 11
+    },
+    "2026-11-05": {
+      "occitan/adiu paure carnaval.abc": 1
     }
   },
   "statusLog": [
