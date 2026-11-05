@@ -295,8 +295,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T13:59:01.816Z",
-      "playCount": 34,
+      "lastPlayed": "2026-11-05T06:15:37.988Z",
+      "playCount": 35,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/na jiushi wo.abc": {
@@ -3046,6 +3046,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/molihua.abc",
+      "timestamp": "2026-11-05T06:15:37.988Z"
+    },
+    {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-11-05T06:13:13.760Z"
     },
@@ -3120,10 +3124,6 @@
     {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-11-04T10:15:11.924Z"
-    },
-    {
-      "filePath": "japanese/hashire kotaro.abc",
-      "timestamp": "2026-11-04T10:13:09.244Z"
     }
   ],
   "activity": {
@@ -3439,6 +3439,7 @@
       "scottish/sweet_molly.abc": 11
     },
     "2026-11-05": {
+      "chinese/molihua.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
       "pop/derniere danse.abc": 1
     }
