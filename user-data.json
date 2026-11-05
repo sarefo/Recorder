@@ -2352,8 +2352,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T10:02:42.794Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-05T09:52:50.889Z",
+      "playCount": 9,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-29T07:31:46.377Z"
     },
@@ -2547,8 +2547,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T01:42:05.875Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-05T09:52:48.640Z",
+      "playCount": 5,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/used to know.abc": {
@@ -3046,6 +3046,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/final_countdown.abc",
+      "timestamp": "2026-11-05T09:52:50.889Z"
+    },
+    {
+      "filePath": "pop/top of the world.abc",
+      "timestamp": "2026-11-05T09:52:48.640Z"
+    },
+    {
       "filePath": "australian/waltzing matilda.abc",
       "timestamp": "2026-11-05T06:32:30.149Z"
     },
@@ -3116,14 +3124,6 @@
     {
       "filePath": "classical/bach/brandenburg/brandenburg 3 allegro.abc",
       "timestamp": "2026-11-04T15:41:34.116Z"
-    },
-    {
-      "filePath": "classical/bach/brandenburg/brandenburg 2 allegro.abc",
-      "timestamp": "2026-11-04T15:41:02.533Z"
-    },
-    {
-      "filePath": "classical/bach/brandenburg/brandenburg 2 allegro assai.abc",
-      "timestamp": "2026-11-04T15:40:34.114Z"
     }
   ],
   "activity": {
