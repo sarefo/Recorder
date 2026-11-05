@@ -456,6 +456,16 @@ class AbcPlayer {
                     }
                     return false;
                 }
+            } else if ((event.key === 'r' || event.key === 'R') &&
+                       !event.ctrlKey && !event.shiftKey && !event.altKey && !event.metaKey) {
+                // R - load a random tune (same as the dice button)
+                if (!isTextEntry(event.target) && !isDialogOpen()) {
+                    event.preventDefault();
+                    if (event.type === 'keydown' && !event.repeat) {
+                        document.getElementById('random-abc-button')?.click();
+                    }
+                    return false;
+                }
             } else if ((event.key === 'ArrowLeft' || event.key === 'ArrowRight') &&
                        !event.ctrlKey && !event.shiftKey && !event.altKey) {
                 if (!isArrowTarget(event.target) && !isDialogOpen()) {
