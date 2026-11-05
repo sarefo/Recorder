@@ -54,8 +54,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-27T09:16:09.247Z",
-      "playCount": 33,
+      "lastPlayed": "2026-11-05T06:32:30.149Z",
+      "playCount": 34,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "austrian/es wird scho gleich dumpa.abc": {
@@ -1433,8 +1433,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:18:16.772Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-05T06:32:19.095Z",
+      "playCount": 3,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-10-18T11:57:30.596Z"
     },
@@ -1624,8 +1624,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T10:15:11.924Z",
-      "playCount": 42,
+      "lastPlayed": "2026-11-05T06:32:27.577Z",
+      "playCount": 43,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/hanagasa ondo.abc": {
@@ -1711,8 +1711,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:30:37.922Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-05T06:32:22.364Z",
+      "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:29:29.994Z"
     },
@@ -1756,8 +1756,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T01:45:37.344Z",
-      "playCount": 11,
+      "lastPlayed": "2026-11-05T06:32:16.311Z",
+      "playCount": 12,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-11-02T12:15:59.746Z"
     },
@@ -3046,8 +3046,24 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "australian/waltzing matilda.abc",
+      "timestamp": "2026-11-05T06:32:30.149Z"
+    },
+    {
+      "filePath": "japanese/hana.abc",
+      "timestamp": "2026-11-05T06:32:27.577Z"
+    },
+    {
       "filePath": "japanese/tinsagu nu hana.abc",
-      "timestamp": "2026-11-05T06:30:37.922Z"
+      "timestamp": "2026-11-05T06:32:22.364Z"
+    },
+    {
+      "filePath": "israeli/hatikvah.abc",
+      "timestamp": "2026-11-05T06:32:19.095Z"
+    },
+    {
+      "filePath": "jazz/all of me.abc",
+      "timestamp": "2026-11-05T06:32:16.311Z"
     },
     {
       "filePath": "japanese/hashire kotaro.abc",
@@ -3064,10 +3080,6 @@
     {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-11-05T06:20:40.364Z"
-    },
-    {
-      "filePath": "israeli/hatikvah.abc",
-      "timestamp": "2026-11-05T06:18:16.772Z"
     },
     {
       "filePath": "film/herbie's theme.abc",
@@ -3112,18 +3124,6 @@
     {
       "filePath": "classical/bach/brandenburg/brandenburg 2 allegro assai.abc",
       "timestamp": "2026-11-04T15:40:34.114Z"
-    },
-    {
-      "filePath": "classical/bach/brandenburg/brandenburg 1 menuet.abc",
-      "timestamp": "2026-11-04T15:40:08.947Z"
-    },
-    {
-      "filePath": "classical/bach/tiefer_not.abc",
-      "timestamp": "2026-11-04T10:21:28.785Z"
-    },
-    {
-      "filePath": "israeli/artsa alinu.abc",
-      "timestamp": "2026-11-04T10:21:26.177Z"
     }
   ],
   "activity": {
@@ -3440,6 +3440,7 @@
     },
     "2026-11-05": {
       "albanian/jarnana.abc": 1,
+      "australian/waltzing matilda.abc": 1,
       "chinese/molihua.abc": 1,
       "israeli/hatikvah.abc": 1,
       "japanese/tinsagu nu hana.abc": 1,
@@ -6597,6 +6598,19 @@
         "18": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "israeli/hatikvah.abc": {
+      "at": "2026-11-05T06:32:19.214Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "7": {
+          "state": "red",
+          "pitch": "_e"
         }
       }
     },
