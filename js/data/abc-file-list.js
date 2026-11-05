@@ -828,7 +828,7 @@ class AbcFileList {
                 "name": "Non, je ne regrette rien",
                 "file": "french/non je ne regrette rien.abc",
                 "category": "french",
-                "hash": "c35eb5121e"
+                "hash": "b7428c65ec"
         },
         {
                 "name": "Reel du r\u00e9prtoire des fr\u00e8res Pigeon",
@@ -1038,7 +1038,7 @@ class AbcFileList {
                 "name": "Hatikvah",
                 "file": "israeli/hatikvah.abc",
                 "category": "israeli",
-                "hash": "03b394920d"
+                "hash": "55c2097221"
         },
         {
                 "name": "Hava Nagila",

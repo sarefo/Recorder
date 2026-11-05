@@ -6,8 +6,11 @@ N:(hamienet.com), moved up from G to C to fit the recorder range, with the
 N:rhythm rounded to eighths. Chords are read from the arrangement's strings.
 N:One pass is the whole song (24 bars); the last bar is a rest-out before
 N:the first verse returns.
+N:The accompaniment is a rolling arpeggio (%%MIDI gchord) instead of the default
+N:boom-chick on every beat: bass on beat 1, then the chord's root, fifth and third on beats 2 to 4.
 M:12/8
 Q:3/8=87
+%%MIDI gchord fzzgzzizzhzz
 L:1/8
 K:C
 "C"G6-G4 AG | "G"G6-G6 | "G"G6-G BAGGF | "C"E6-E4 FG |
