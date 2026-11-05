@@ -1128,8 +1128,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-10-26T13:36:42.733Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-05T10:11:42.190Z",
+      "playCount": 2,
       "createdAt": "2026-10-26T13:35:38.000Z"
     },
     "french/mistral gagnant.abc": {
@@ -3048,6 +3048,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/la vie en rose.abc",
+      "timestamp": "2026-11-05T10:11:42.190Z"
+    },
+    {
       "filePath": "french/la mer.abc",
       "timestamp": "2026-11-05T10:08:22.718Z"
     },
@@ -3122,10 +3126,6 @@
     {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-11-05T06:15:37.988Z"
-    },
-    {
-      "filePath": "philippine/ili-ili tulog anay.abc",
-      "timestamp": "2026-11-05T06:13:11.313Z"
     }
   ],
   "activity": {
@@ -3446,6 +3446,7 @@
       "chinese/molihua.abc": 1,
       "french/hymne a l'amour.abc": 3,
       "french/la mer.abc": 4,
+      "french/la vie en rose.abc": 1,
       "french/sous le ciel de paris.abc": 1,
       "israeli/hatikvah.abc": 1,
       "japanese/tinsagu nu hana.abc": 1,
