@@ -937,8 +937,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T13:12:36.405Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-05T06:18:14.915Z",
+      "playCount": 13,
       "createdAt": "2026-08-30T09:37:29.371Z",
       "updatedAt": "2026-10-31T08:21:20.627Z"
     },
@@ -1433,8 +1433,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T11:57:08.690Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-05T06:18:16.772Z",
+      "playCount": 2,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-10-18T11:57:30.596Z"
     },
@@ -2865,8 +2865,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T04:30:47.566Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-05T06:18:11.692Z",
+      "playCount": 10,
       "createdAt": "2026-08-31T03:23:32.148Z",
       "updatedAt": "2026-11-01T04:32:22.445Z"
     },
@@ -3046,6 +3046,18 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/hatikvah.abc",
+      "timestamp": "2026-11-05T06:18:16.772Z"
+    },
+    {
+      "filePath": "film/herbie's theme.abc",
+      "timestamp": "2026-11-05T06:18:14.915Z"
+    },
+    {
+      "filePath": "trinidadian/jump in the line.abc",
+      "timestamp": "2026-11-05T06:18:11.692Z"
+    },
+    {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-11-05T06:15:37.988Z"
     },
@@ -3112,18 +3124,6 @@
     {
       "filePath": "philippine/dandansoy.abc",
       "timestamp": "2026-11-04T10:16:38.378Z"
-    },
-    {
-      "filePath": "chinese/liangshanbo.abc",
-      "timestamp": "2026-11-04T10:16:35.599Z"
-    },
-    {
-      "filePath": "bulgarian/rusi kosi imam.abc",
-      "timestamp": "2026-11-04T10:16:32.540Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-11-04T10:15:11.924Z"
     }
   ],
   "activity": {
@@ -3440,6 +3440,7 @@
     },
     "2026-11-05": {
       "chinese/molihua.abc": 1,
+      "israeli/hatikvah.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
       "pop/derniere danse.abc": 1
     }
@@ -7532,8 +7533,12 @@
       }
     },
     "trinidadian/jump in the line.abc": {
-      "at": "2026-11-01T04:32:19.759Z",
+      "at": "2026-11-05T06:18:11.807Z",
       "notes": {
+        "28": {
+          "state": "red",
+          "pitch": "_B"
+        },
         "48": {
           "state": "red",
           "pitch": "_B"
