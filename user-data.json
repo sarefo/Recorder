@@ -1086,8 +1086,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-05T10:05:02.185Z",
+      "playCount": 1,
       "createdAt": "2026-10-26T13:35:37.999Z"
     },
     "french/j'ai vu le loup.abc": {
@@ -1151,8 +1151,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-05T10:04:30.246Z",
+      "playCount": 1,
       "createdAt": "2026-10-27T06:33:51.243Z"
     },
     "french/tourdion.abc": {
@@ -3046,6 +3046,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/hymne a l'amour.abc",
+      "timestamp": "2026-11-05T10:05:02.185Z"
+    },
+    {
+      "filePath": "french/sous le ciel de paris.abc",
+      "timestamp": "2026-11-05T10:04:30.246Z"
+    },
+    {
       "filePath": "jazz/the way you look tonight.abc",
       "timestamp": "2026-11-05T10:01:38.747Z"
     },
@@ -3116,14 +3124,6 @@
     {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-11-05T06:11:44.494Z"
-    },
-    {
-      "filePath": "pop/popcorn.abc",
-      "timestamp": "2026-11-05T06:09:39.475Z"
-    },
-    {
-      "filePath": "classical/bach/brandenburg/brandenburg 4 andante.abc",
-      "timestamp": "2026-11-04T15:42:38.143Z"
     }
   ],
   "activity": {
@@ -3442,6 +3442,8 @@
       "albanian/jarnana.abc": 1,
       "australian/waltzing matilda.abc": 1,
       "chinese/molihua.abc": 1,
+      "french/hymne a l'amour.abc": 2,
+      "french/sous le ciel de paris.abc": 1,
       "israeli/hatikvah.abc": 1,
       "japanese/tinsagu nu hana.abc": 1,
       "jazz/the way you look tonight.abc": 1,
@@ -4571,6 +4573,32 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-30T02:48:45.421Z"
+      }
+    },
+    "french/sous le ciel de paris.abc": {
+      "0": {
+        "pitch": "^F",
+        "prev": null,
+        "pitchSeen": 2,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-05T10:04:40.367Z"
+      },
+      "2": {
+        "pitch": "^c",
+        "prev": "B",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-05T10:04:40.369Z"
+      },
+      "6": {
+        "pitch": "^f",
+        "prev": "e",
+        "pitchSeen": 3,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-05T10:04:40.371Z"
       }
     },
     "french/tourdion.abc": {
@@ -6472,6 +6500,23 @@
         "44": {
           "state": "red",
           "pitch": "_e"
+        }
+      }
+    },
+    "french/sous le ciel de paris.abc": {
+      "at": "2026-11-05T10:04:30.367Z",
+      "notes": {
+        "0": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "2": {
+          "state": "red",
+          "pitch": "^c"
+        },
+        "6": {
+          "state": "red",
+          "pitch": "^f"
         }
       }
     },
