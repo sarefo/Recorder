@@ -1930,8 +1930,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-01T04:18:37.875Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-05T10:01:38.747Z",
+      "playCount": 3,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-01T04:24:22.969Z"
     },
@@ -3046,6 +3046,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/the way you look tonight.abc",
+      "timestamp": "2026-11-05T10:01:38.747Z"
+    },
+    {
       "filePath": "pop/mad world.abc",
       "timestamp": "2026-11-05T09:59:23.537Z"
     },
@@ -3120,10 +3124,6 @@
     {
       "filePath": "classical/bach/brandenburg/brandenburg 4 andante.abc",
       "timestamp": "2026-11-04T15:42:38.143Z"
-    },
-    {
-      "filePath": "classical/bach/brandenburg/brandenburg 4 allegro.abc",
-      "timestamp": "2026-11-04T15:42:16.707Z"
     }
   ],
   "activity": {
@@ -3444,6 +3444,7 @@
       "chinese/molihua.abc": 1,
       "israeli/hatikvah.abc": 1,
       "japanese/tinsagu nu hana.abc": 1,
+      "jazz/the way you look tonight.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
       "pop/derniere danse.abc": 1,
       "pop/final_countdown.abc": 2,
