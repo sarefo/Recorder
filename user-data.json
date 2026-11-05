@@ -2456,8 +2456,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T02:05:25.115Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-05T06:09:39.475Z",
+      "playCount": 6,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-22T06:12:52.362Z"
     },
@@ -3046,6 +3046,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/popcorn.abc",
+      "timestamp": "2026-11-05T06:09:39.475Z"
+    },
+    {
       "filePath": "classical/bach/brandenburg/brandenburg 4 andante.abc",
       "timestamp": "2026-11-04T15:42:38.143Z"
     },
@@ -3120,10 +3124,6 @@
     {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-11-04T10:02:42.794Z"
-    },
-    {
-      "filePath": "pop/the bangles/eternal flame.abc",
-      "timestamp": "2026-11-04T10:00:10.154Z"
     }
   ],
   "activity": {
@@ -4397,6 +4397,14 @@
         "transSeen": 4,
         "count": 1,
         "at": "2026-11-04T15:42:48.249Z"
+      },
+      "46": {
+        "pitch": "F",
+        "prev": "E",
+        "pitchSeen": 14,
+        "transSeen": 6,
+        "count": 1,
+        "at": "2026-11-05T06:09:19.254Z"
       }
     },
     "classical/bach/chorales/es ist genug.abc": {
@@ -6314,11 +6322,15 @@
       }
     },
     "classical/bach/brandenburg/brandenburg 4 andante.abc": {
-      "at": "2026-11-04T15:42:38.248Z",
+      "at": "2026-11-05T06:09:09.251Z",
       "notes": {
         "2": {
           "state": "red",
           "pitch": "_B"
+        },
+        "46": {
+          "state": "red",
+          "pitch": "F"
         }
       }
     },
