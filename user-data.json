@@ -385,8 +385,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T10:44:57.903Z",
-      "playCount": 13,
+      "lastPlayed": "2026-11-05T06:20:43.160Z",
+      "playCount": 14,
       "createdAt": "2026-09-26T04:52:58.455Z",
       "updatedAt": "2026-10-22T05:47:42.192Z"
     },
@@ -2260,8 +2260,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:13:13.760Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-05T06:20:40.364Z",
+      "playCount": 9,
       "createdAt": "2026-10-14T17:54:41.333Z",
       "updatedAt": "2026-10-17T10:46:06.768Z"
     },
@@ -3046,6 +3046,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/badinerie.abc",
+      "timestamp": "2026-11-05T06:20:43.160Z"
+    },
+    {
+      "filePath": "pop/derniere danse.abc",
+      "timestamp": "2026-11-05T06:20:40.364Z"
+    },
+    {
       "filePath": "israeli/hatikvah.abc",
       "timestamp": "2026-11-05T06:18:16.772Z"
     },
@@ -3060,10 +3068,6 @@
     {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-11-05T06:15:37.988Z"
-    },
-    {
-      "filePath": "pop/derniere danse.abc",
-      "timestamp": "2026-11-05T06:13:13.760Z"
     },
     {
       "filePath": "philippine/ili-ili tulog anay.abc",
@@ -3100,10 +3104,6 @@
     {
       "filePath": "classical/bach/brandenburg/brandenburg 1 menuet.abc",
       "timestamp": "2026-11-04T15:40:08.947Z"
-    },
-    {
-      "filePath": "classical/bach/badinerie.abc",
-      "timestamp": "2026-11-04T10:44:57.903Z"
     },
     {
       "filePath": "classical/bach/tiefer_not.abc",
