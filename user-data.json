@@ -1100,12 +1100,13 @@
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/la foule.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-05T10:30:26.598Z",
       "playCount": 1,
-      "createdAt": "2026-10-26T13:35:38.000Z"
+      "createdAt": "2026-10-26T13:35:38.000Z",
+      "updatedAt": "2026-11-05T10:32:06.976Z"
     },
     "french/la goualante du pauvre jean.abc": {
       "status": null,
@@ -3446,7 +3447,7 @@
       "australian/waltzing matilda.abc": 1,
       "chinese/molihua.abc": 1,
       "french/hymne a l'amour.abc": 3,
-      "french/la foule.abc": 2,
+      "french/la foule.abc": 3,
       "french/la mer.abc": 4,
       "french/la vie en rose.abc": 3,
       "french/sous le ciel de paris.abc": 1,
@@ -4039,6 +4040,11 @@
       "path": "french/la vie en rose.abc",
       "status": "practicing",
       "at": "2026-11-05T10:27:15.945Z"
+    },
+    {
+      "path": "french/la foule.abc",
+      "status": "needs-practice",
+      "at": "2026-11-05T10:32:06.976Z"
     }
   ],
   "marks": {
@@ -4614,6 +4620,14 @@
         "transSeen": 3,
         "count": 1,
         "at": "2026-11-05T10:30:36.707Z"
+      },
+      "21": {
+        "pitch": "^G",
+        "prev": "E",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-05T10:32:32.001Z"
       }
     },
     "french/la mer.abc": {
@@ -6564,11 +6578,15 @@
       }
     },
     "french/la foule.abc": {
-      "at": "2026-11-05T10:30:26.703Z",
+      "at": "2026-11-05T10:32:21.992Z",
       "notes": {
         "3": {
           "state": "red",
           "pitch": "^f"
+        },
+        "21": {
+          "state": "red",
+          "pitch": "^G"
         }
       }
     },
