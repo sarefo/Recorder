@@ -1125,12 +1125,13 @@
       "updatedAt": "2026-11-05T10:10:17.565Z"
     },
     "french/la vie en rose.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-05T10:26:05.084Z",
       "playCount": 3,
-      "createdAt": "2026-10-26T13:35:38.000Z"
+      "createdAt": "2026-10-26T13:35:38.000Z",
+      "updatedAt": "2026-11-05T10:27:15.945Z"
     },
     "french/mistral gagnant.abc": {
       "status": "needs-practice",
@@ -3446,7 +3447,7 @@
       "chinese/molihua.abc": 1,
       "french/hymne a l'amour.abc": 3,
       "french/la mer.abc": 4,
-      "french/la vie en rose.abc": 2,
+      "french/la vie en rose.abc": 3,
       "french/sous le ciel de paris.abc": 1,
       "israeli/hatikvah.abc": 1,
       "japanese/tinsagu nu hana.abc": 1,
@@ -4032,6 +4033,11 @@
       "path": "french/la mer.abc",
       "status": "practicing",
       "at": "2026-11-05T10:10:16.102Z"
+    },
+    {
+      "path": "french/la vie en rose.abc",
+      "status": "practicing",
+      "at": "2026-11-05T10:27:15.945Z"
     }
   ],
   "marks": {
