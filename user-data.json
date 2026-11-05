@@ -1083,12 +1083,13 @@
       "updatedAt": "2026-10-18T03:20:14.847Z"
     },
     "french/hymne a l'amour.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "good",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-05T10:05:02.185Z",
       "playCount": 1,
-      "createdAt": "2026-10-26T13:35:37.999Z"
+      "createdAt": "2026-10-26T13:35:37.999Z",
+      "updatedAt": "2026-11-05T10:08:18.406Z"
     },
     "french/j'ai vu le loup.abc": {
       "status": null,
@@ -1118,8 +1119,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-05T10:08:22.718Z",
+      "playCount": 1,
       "createdAt": "2026-10-26T11:24:25.702Z"
     },
     "french/la vie en rose.abc": {
@@ -3046,6 +3047,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/la mer.abc",
+      "timestamp": "2026-11-05T10:08:22.718Z"
+    },
+    {
       "filePath": "french/hymne a l'amour.abc",
       "timestamp": "2026-11-05T10:05:02.185Z"
     },
@@ -3120,10 +3125,6 @@
     {
       "filePath": "philippine/ili-ili tulog anay.abc",
       "timestamp": "2026-11-05T06:13:11.313Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-11-05T06:11:44.494Z"
     }
   ],
   "activity": {
@@ -3443,6 +3444,7 @@
       "australian/waltzing matilda.abc": 1,
       "chinese/molihua.abc": 1,
       "french/hymne a l'amour.abc": 3,
+      "french/la mer.abc": 1,
       "french/sous le ciel de paris.abc": 1,
       "israeli/hatikvah.abc": 1,
       "japanese/tinsagu nu hana.abc": 1,
@@ -4018,6 +4020,11 @@
       "path": "israeli/hevenu shalom aleichem.abc",
       "status": "practicing",
       "at": "2026-11-04T10:17:26.396Z"
+    },
+    {
+      "path": "french/hymne a l'amour.abc",
+      "status": "good",
+      "at": "2026-11-05T10:08:18.406Z"
     }
   ],
   "marks": {
@@ -4583,6 +4590,16 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-11-05T10:06:31.369Z"
+      }
+    },
+    "french/la mer.abc": {
+      "3": {
+        "pitch": "^F",
+        "prev": null,
+        "pitchSeen": 2,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-05T10:08:32.829Z"
       }
     },
     "french/sous le ciel de paris.abc": {
@@ -6519,6 +6536,15 @@
         "3": {
           "state": "red",
           "pitch": "^G"
+        }
+      }
+    },
+    "french/la mer.abc": {
+      "at": "2026-11-05T10:08:22.824Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "^F"
         }
       }
     },
@@ -8516,6 +8542,24 @@
       "at": "2026-11-04T01:51:16.194Z",
       "percent": 100,
       "bpm": 150
+    },
+    {
+      "path": "french/hymne a l'amour.abc",
+      "at": "2026-11-05T10:08:19.046Z",
+      "percent": 100,
+      "bpm": 95
+    },
+    {
+      "path": "french/hymne a l'amour.abc",
+      "at": "2026-11-05T10:08:19.190Z",
+      "percent": 100,
+      "bpm": 95
+    },
+    {
+      "path": "french/hymne a l'amour.abc",
+      "at": "2026-11-05T10:08:19.325Z",
+      "percent": 100,
+      "bpm": 95
     }
   ],
   "settings": {}
