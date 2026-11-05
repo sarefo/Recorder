@@ -810,7 +810,7 @@ class AbcFileList {
                 "name": "La Vie en Rose",
                 "file": "french/la vie en rose.abc",
                 "category": "french",
-                "hash": "1e9bc9a8a3"
+                "hash": "3a197da94f"
         },
         {
                 "name": "La goualante du pauvre Jean",

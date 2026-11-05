@@ -139,7 +139,7 @@ class AbcNoteIndex {
         "french/la foule.abc": [71,72,74,75,76,78,79,81],
         "french/la goualante du pauvre jean.abc": [60,62,65,66,67,68,70,71,72,73,74,75,77],
         "french/la mer.abc": [62,64,66,67,69,71,72,74,76],
-        "french/la vie en rose.abc": [60,62,65,67,69,70],
+        "french/la vie en rose.abc": [60,62,64,65,67,69,71,72,74,76],
         "french/mistral gagnant.abc": [62,64,66,67,69,71,72,74,75,76,78,79,81],
         "french/non je ne regrette rien.abc": [60,62,63,64,65,67,69,71,72,74],
         "french/sous le ciel de paris.abc": [66,67,69,70,71,73,74,76,78,79],

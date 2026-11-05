@@ -1,15 +1,18 @@
 X:1
 T:La Vie en Rose
 C:Louiguy, 1945 (Edith Piaf)
-N:Best-effort version. Melody is the flute line of an arrangement MIDI
-N:(hamienet.com), moved up a semitone from E to F to fit the recorder, with the
-N:rhythm rounded to eighths. Chords are the arrangement's guitar and bass.
-N:One pass is the 15-bar verse; the middle section is not included.
+N:The chorus ("Quand il me prend dans ses bras"), the part everyone knows.
+N:Melody from a public-domain MusicXML vocal line with the French lyrics, in C;
+N:the contour was cross-checked against two other scores of the song. Rhythm is
+N:rounded to eighths, and the closing flourish is replaced by a held C so the
+N:tune loops. Chords are derived from the notes, not copied from a source.
+N:The verse ("Des yeux qui font baisser les miens") is not included.
 M:4/4
-Q:1/4=97
+Q:1/4=76
 L:1/8
-K:F
-"F"z2 FFF F2 A- | "Am"AAAAA A2 G- | "Gm"G2 z3 G G2 | "Bb"_B _B2 A G2 AC- |
-"F"C2 CCC C2 A- | "Am"AAAA A2 AG- | "Gm"G2 z4 z G | "Bb"_B3 AG F2 G- |
-"C"G3 A3 z2 | "Bb"GAGFGFDG- | "C"G3 A3 zD | "Bb"AA G2 FFDG- |
-"Gm"G3"Bb"F3 zD | "C7"GAGA F2 DF- | "F"F7 z |]
+K:C
+"C"c3 B AGEc | "C"B3 A GECB | "Dm"A3 G ECCB | "Dm"A4 "G7"G4 |
+"G7"d3 c BAFc | "G7"B3 A GFDB | "G7"A3 G FEDB | "Dm"A4 "C"G4 |
+"C"c3 B AGEc | "C"B3 A GECB | "Dm"A3 G ECCc | "C"c8 |
+"G7"d d2 c d d2 c | "G7"d d2 c G4 | "G7"d d2 c d d2 c | "G7"d d2 c e2 d2 |
+"C"c3 B AGEc | "C"B3 A GECB | "Dm"A4 G A3 | "G7"B2 "C"c6 |]
