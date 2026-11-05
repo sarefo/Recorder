@@ -1650,8 +1650,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T10:13:09.244Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-05T06:30:35.548Z",
+      "playCount": 11,
       "createdAt": "2026-08-31T18:32:58.388Z",
       "updatedAt": "2026-10-17T05:30:22.284Z"
     },
@@ -1711,8 +1711,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T05:25:57.208Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-05T06:30:37.922Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:29:29.994Z"
     },
@@ -3046,6 +3046,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/tinsagu nu hana.abc",
+      "timestamp": "2026-11-05T06:30:37.922Z"
+    },
+    {
+      "filePath": "japanese/hashire kotaro.abc",
+      "timestamp": "2026-11-05T06:30:35.548Z"
+    },
+    {
       "filePath": "albanian/jarnana.abc",
       "timestamp": "2026-11-05T06:29:09.014Z"
     },
@@ -3116,14 +3124,6 @@
     {
       "filePath": "israeli/artsa alinu.abc",
       "timestamp": "2026-11-04T10:21:26.177Z"
-    },
-    {
-      "filePath": "israeli/hevenu shalom aleichem.abc",
-      "timestamp": "2026-11-04T10:16:44.956Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-11-04T10:16:43.380Z"
     }
   ],
   "activity": {
@@ -3442,6 +3442,7 @@
       "albanian/jarnana.abc": 1,
       "chinese/molihua.abc": 1,
       "israeli/hatikvah.abc": 1,
+      "japanese/tinsagu nu hana.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
       "pop/derniere danse.abc": 1
     }
