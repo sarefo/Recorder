@@ -4575,6 +4575,16 @@
         "at": "2026-10-30T02:48:45.421Z"
       }
     },
+    "french/hymne a l'amour.abc": {
+      "3": {
+        "pitch": "^G",
+        "prev": "E",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-05T10:06:31.369Z"
+      }
+    },
     "french/sous le ciel de paris.abc": {
       "0": {
         "pitch": "^F",
@@ -6500,6 +6510,15 @@
         "44": {
           "state": "red",
           "pitch": "_e"
+        }
+      }
+    },
+    "french/hymne a l'amour.abc": {
+      "at": "2026-11-05T10:06:21.351Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "^G"
         }
       }
     },
