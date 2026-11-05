@@ -2421,8 +2421,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T13:06:10.112Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-05T09:59:23.537Z",
+      "playCount": 7,
       "createdAt": "2026-10-27T14:01:49.066Z",
       "updatedAt": "2026-10-28T02:44:12.110Z"
     },
@@ -3046,6 +3046,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/mad world.abc",
+      "timestamp": "2026-11-05T09:59:23.537Z"
+    },
+    {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-11-05T09:52:50.889Z"
     },
@@ -3120,10 +3124,6 @@
     {
       "filePath": "classical/bach/brandenburg/brandenburg 4 allegro.abc",
       "timestamp": "2026-11-04T15:42:16.707Z"
-    },
-    {
-      "filePath": "classical/bach/brandenburg/brandenburg 3 allegro.abc",
-      "timestamp": "2026-11-04T15:41:34.116Z"
     }
   ],
   "activity": {
@@ -3446,7 +3446,8 @@
       "japanese/tinsagu nu hana.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
       "pop/derniere danse.abc": 1,
-      "pop/final_countdown.abc": 2
+      "pop/final_countdown.abc": 2,
+      "pop/mad world.abc": 1
     }
   },
   "statusLog": [
