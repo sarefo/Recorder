@@ -2192,8 +2192,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-26T06:25:34.304Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-05T06:13:11.313Z",
+      "playCount": 5,
       "createdAt": "2026-08-01T05:59:20.044Z",
       "updatedAt": "2026-10-08T07:07:55.162Z"
     },
@@ -2260,8 +2260,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T08:50:05.660Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-05T06:13:13.760Z",
+      "playCount": 8,
       "createdAt": "2026-10-14T17:54:41.333Z",
       "updatedAt": "2026-10-17T10:46:06.768Z"
     },
@@ -3046,6 +3046,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/derniere danse.abc",
+      "timestamp": "2026-11-05T06:13:13.760Z"
+    },
+    {
+      "filePath": "philippine/ili-ili tulog anay.abc",
+      "timestamp": "2026-11-05T06:13:11.313Z"
+    },
+    {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-11-05T06:11:44.494Z"
     },
@@ -3116,14 +3124,6 @@
     {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-11-04T10:13:09.244Z"
-    },
-    {
-      "filePath": "japanese/kojo no tsuki.abc",
-      "timestamp": "2026-11-04T10:11:18.399Z"
-    },
-    {
-      "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-04T10:07:03.840Z"
     }
   ],
   "activity": {
@@ -3439,7 +3439,8 @@
       "scottish/sweet_molly.abc": 11
     },
     "2026-11-05": {
-      "occitan/adiu paure carnaval.abc": 1
+      "occitan/adiu paure carnaval.abc": 1,
+      "pop/derniere danse.abc": 1
     }
   },
   "statusLog": [
