@@ -1147,8 +1147,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-05T10:36:03.984Z",
+      "playCount": 1,
       "createdAt": "2026-10-27T06:33:51.243Z"
     },
     "french/sous le ciel de paris.abc": {
@@ -3051,6 +3051,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/non je ne regrette rien.abc",
+      "timestamp": "2026-11-05T10:36:03.984Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-11-05T10:33:55.694Z"
     },
@@ -3125,10 +3129,6 @@
     {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-11-05T06:20:40.364Z"
-    },
-    {
-      "filePath": "film/herbie's theme.abc",
-      "timestamp": "2026-11-05T06:18:14.915Z"
     }
   ],
   "activity": {
@@ -3452,6 +3452,7 @@
       "french/la foule.abc": 3,
       "french/la mer.abc": 4,
       "french/la vie en rose.abc": 3,
+      "french/non je ne regrette rien.abc": 1,
       "french/sous le ciel de paris.abc": 2,
       "israeli/hatikvah.abc": 1,
       "japanese/tinsagu nu hana.abc": 1,
