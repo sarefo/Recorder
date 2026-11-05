@@ -13,8 +13,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T06:10:38.098Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-05T06:29:09.014Z",
+      "playCount": 4,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T12:19:25.043Z"
     },
@@ -3046,6 +3046,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "albanian/jarnana.abc",
+      "timestamp": "2026-11-05T06:29:09.014Z"
+    },
+    {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-11-05T06:20:43.160Z"
     },
@@ -3120,10 +3124,6 @@
     {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-04T10:16:43.380Z"
-    },
-    {
-      "filePath": "philippine/dandansoy.abc",
-      "timestamp": "2026-11-04T10:16:38.378Z"
     }
   ],
   "activity": {
@@ -3439,6 +3439,7 @@
       "scottish/sweet_molly.abc": 11
     },
     "2026-11-05": {
+      "albanian/jarnana.abc": 1,
       "chinese/molihua.abc": 1,
       "israeli/hatikvah.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
