@@ -1077,8 +1077,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T02:10:45.024Z",
-      "playCount": 16,
+      "lastPlayed": "2026-11-05T10:33:55.694Z",
+      "playCount": 17,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-18T03:20:14.847Z"
     },
@@ -1100,13 +1100,13 @@
       "createdAt": "2026-09-22T12:46:37.240Z"
     },
     "french/la foule.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-05T10:30:26.598Z",
       "playCount": 1,
       "createdAt": "2026-10-26T13:35:38.000Z",
-      "updatedAt": "2026-11-05T10:32:06.976Z"
+      "updatedAt": "2026-11-05T10:33:18.632Z"
     },
     "french/la goualante du pauvre jean.abc": {
       "status": null,
@@ -1152,12 +1152,13 @@
       "createdAt": "2026-10-27T06:33:51.243Z"
     },
     "french/sous le ciel de paris.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-11-05T10:04:30.246Z",
-      "playCount": 1,
-      "createdAt": "2026-10-27T06:33:51.243Z"
+      "lastPlayed": "2026-11-05T10:33:22.283Z",
+      "playCount": 2,
+      "createdAt": "2026-10-27T06:33:51.243Z",
+      "updatedAt": "2026-11-05T10:33:51.599Z"
     },
     "french/tourdion.abc": {
       "status": "good",
@@ -3050,6 +3051,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-11-05T10:33:55.694Z"
+    },
+    {
+      "filePath": "french/sous le ciel de paris.abc",
+      "timestamp": "2026-11-05T10:33:22.283Z"
+    },
+    {
       "filePath": "french/la foule.abc",
       "timestamp": "2026-11-05T10:30:26.598Z"
     },
@@ -3064,10 +3073,6 @@
     {
       "filePath": "french/hymne a l'amour.abc",
       "timestamp": "2026-11-05T10:05:02.185Z"
-    },
-    {
-      "filePath": "french/sous le ciel de paris.abc",
-      "timestamp": "2026-11-05T10:04:30.246Z"
     },
     {
       "filePath": "jazz/the way you look tonight.abc",
@@ -3124,10 +3129,6 @@
     {
       "filePath": "film/herbie's theme.abc",
       "timestamp": "2026-11-05T06:18:14.915Z"
-    },
-    {
-      "filePath": "trinidadian/jump in the line.abc",
-      "timestamp": "2026-11-05T06:18:11.692Z"
     }
   ],
   "activity": {
@@ -3446,11 +3447,12 @@
       "albanian/jarnana.abc": 1,
       "australian/waltzing matilda.abc": 1,
       "chinese/molihua.abc": 1,
+      "french/douce dame jolie.abc": 1,
       "french/hymne a l'amour.abc": 3,
       "french/la foule.abc": 3,
       "french/la mer.abc": 4,
       "french/la vie en rose.abc": 3,
-      "french/sous le ciel de paris.abc": 1,
+      "french/sous le ciel de paris.abc": 2,
       "israeli/hatikvah.abc": 1,
       "japanese/tinsagu nu hana.abc": 1,
       "jazz/the way you look tonight.abc": 1,
@@ -4045,6 +4047,16 @@
       "path": "french/la foule.abc",
       "status": "needs-practice",
       "at": "2026-11-05T10:32:06.976Z"
+    },
+    {
+      "path": "french/la foule.abc",
+      "status": "practicing",
+      "at": "2026-11-05T10:33:18.632Z"
+    },
+    {
+      "path": "french/sous le ciel de paris.abc",
+      "status": "practicing",
+      "at": "2026-11-05T10:33:51.599Z"
     }
   ],
   "marks": {
