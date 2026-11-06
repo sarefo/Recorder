@@ -1,0 +1,15 @@
+X: 1
+T: Anvil of Crom
+O: Basil Poledouris, Conan the Barbarian, 1982
+N: Track 11 of conan-mid from bitmidi.com, chords fitted from the arrangement. CHECK: the MIDI is barred in 11/8, which is probably an artifact, so the barlines need redoing by ear. Identified from the opening, not confirmed. Moved +14 semitones. 25 bars.
+L: 1/8
+Q: 1/4=100
+M: 11/8
+K: Am
+E8-|"A"E2-E/ z3/2 A6-A-|A3 A8-|"Am"A3/2 z3/2 c8-|
+"Bm"c z B8-B/ z/|z A B A G6-G-|"Em"G3/2 z3/2 A E6-E-|"E"E4-E/ z "A"z4 z3/2|
+z3 E8-|E3/2 z2 z/ A6-A-|A z2 A8-|"Am"A3/2 z2 z/ c6-c-|
+c2 z B8|z A B A G6-G-|G/ z2 z/ A8-|A z2 e8-|
+"D"e/ z2 z/ d3 c2 z B2-|"E"B8-B3/2 z3/2|"F"A6-A z B3-|"G"B3-B/ z3/2 c4 B2-|
+"Am"B2 A4-A d c B A-|"F"A8-A B2-|"G"B4-B z/"Em"z/ e4 d-|"G"d2 z c4-c z B2|
+"F"A3|]

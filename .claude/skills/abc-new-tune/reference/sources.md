@@ -285,6 +285,12 @@ key finder often picks the relative minor, so pass `key=(tonic_pc, '')` when the
 accidentals pile up. Full arrangements often span more than 21 semitones; take an
 excerpt that ends before the climax.
 
+#### Rare film music: midishow.com
+
+Holds MIDIs bitmidi lacks, such as Hisaishi's Sonatine (`/en/midi/sonatine-midi-download-204427`)
+and HANA-BI (`/en/midi/hana-bi-midi-download-204428`). Cloudflare answers curl with 403
+and it may need an account, so ask the user to download the file.
+
 #### Klezmer: one file, 783 tunes
 
 `https://ifdo.ca/~seymour/runabc/allklez.abc` is the whole collection, with

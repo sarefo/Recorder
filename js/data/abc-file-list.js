@@ -921,6 +921,18 @@ class AbcFileList {
                 "hash": "c5a179af1f"
         },
         {
+                "name": "Anvil of Crom",
+                "file": "film/poledouris/anvil of crom.abc",
+                "category": "film/poledouris",
+                "hash": "ec66c5777a"
+        },
+        {
+                "name": "RoboCop",
+                "file": "film/poledouris/robocop.abc",
+                "category": "film/poledouris",
+                "hash": "b9f2eee401"
+        },
+        {
                 "name": "La Valse d'Am\u00e9lie",
                 "file": "film/tiersen/la valse d'amelie.abc",
                 "category": "film/tiersen",
