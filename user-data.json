@@ -1831,8 +1831,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T13:08:56.694Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-06T10:43:16.799Z",
+      "playCount": 10,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-01T03:42:21.250Z"
     },
@@ -3052,6 +3052,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/girl from ipanema.abc",
+      "timestamp": "2026-11-06T10:43:16.799Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-06T10:41:25.087Z"
     },
@@ -3126,10 +3130,6 @@
     {
       "filePath": "australian/waltzing matilda.abc",
       "timestamp": "2026-11-05T06:32:30.149Z"
-    },
-    {
-      "filePath": "japanese/tinsagu nu hana.abc",
-      "timestamp": "2026-11-05T06:32:22.364Z"
     }
   ],
   "activity": {
@@ -3468,6 +3468,7 @@
       "japanese/hana.abc": 1,
       "japanese/oborozukiyo.abc": 3,
       "jazz/autumn leaves.abc": 1,
+      "jazz/girl from ipanema.abc": 2,
       "jazz/moon river.abc": 2,
       "scottish/clanranald.abc": 2
     }
