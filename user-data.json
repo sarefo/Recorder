@@ -2153,8 +2153,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-06T17:04:37.776Z",
+      "playCount": 1,
       "createdAt": "2026-11-06T17:04:02.205Z"
     },
     "klezmer/belzer nigun.abc": {
@@ -3438,6 +3438,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "klezmer/alter sher.abc",
+      "timestamp": "2026-11-06T17:04:37.776Z"
+    },
+    {
       "filePath": "tv/a-team.abc",
       "timestamp": "2026-11-06T13:07:35.928Z"
     },
@@ -3512,10 +3516,6 @@
     {
       "filePath": "french/la foule.abc",
       "timestamp": "2026-11-05T10:30:26.598Z"
-    },
-    {
-      "filePath": "french/la vie en rose.abc",
-      "timestamp": "2026-11-05T10:26:05.084Z"
     }
   ],
   "activity": {
@@ -3862,6 +3862,9 @@
       "pop/no doubt/don't speak.abc": 1,
       "pop/the bangles/eternal flame.abc": 2,
       "scottish/clanranald.abc": 2
+    },
+    "2026-11-07": {
+      "klezmer/alter sher.abc": 1
     }
   },
   "statusLog": [
@@ -5872,6 +5875,32 @@
         "at": "2026-10-24T12:28:11.127Z"
       }
     },
+    "klezmer/alter sher.abc": {
+      "4": {
+        "pitch": "_E",
+        "prev": "D",
+        "pitchSeen": 19,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-06T17:04:47.889Z"
+      },
+      "9": {
+        "pitch": "^F",
+        "prev": "C",
+        "pitchSeen": 26,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-06T17:04:47.892Z"
+      },
+      "60": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 6,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-06T17:04:47.894Z"
+      }
+    },
     "latino/tango/por una cabeza.abc": {
       "0": {
         "pitch": "^F",
@@ -7746,6 +7775,23 @@
         "60": {
           "state": "red",
           "pitch": "_e"
+        }
+      }
+    },
+    "klezmer/alter sher.abc": {
+      "at": "2026-11-06T17:04:37.891Z",
+      "notes": {
+        "4": {
+          "state": "red",
+          "pitch": "_E"
+        },
+        "9": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "60": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
