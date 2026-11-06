@@ -1456,8 +1456,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T10:16:44.956Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-06T10:33:17.292Z",
+      "playCount": 3,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-11-04T10:17:26.396Z"
     },
@@ -3052,6 +3052,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/hevenu shalom aleichem.abc",
+      "timestamp": "2026-11-06T10:33:17.292Z"
+    },
+    {
       "filePath": "pop/bert kaempfert/tootie flutie.abc",
       "timestamp": "2026-11-06T07:43:11.479Z"
     },
@@ -3126,10 +3130,6 @@
     {
       "filePath": "jazz/all of me.abc",
       "timestamp": "2026-11-05T06:32:16.311Z"
-    },
-    {
-      "filePath": "japanese/hashire kotaro.abc",
-      "timestamp": "2026-11-05T06:30:35.548Z"
     }
   ],
   "activity": {
@@ -3464,6 +3464,7 @@
       "pop/mad world.abc": 1
     },
     "2026-11-06": {
+      "israeli/hevenu shalom aleichem.abc": 2,
       "japanese/hana.abc": 1,
       "japanese/oborozukiyo.abc": 3,
       "scottish/clanranald.abc": 2
@@ -4837,6 +4838,24 @@
         "transSeen": 4,
         "count": 1,
         "at": "2026-11-02T06:04:27.780Z"
+      }
+    },
+    "israeli/hevenu shalom aleichem.abc": {
+      "2": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 7,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-06T10:33:27.404Z"
+      },
+      "13": {
+        "pitch": "_e",
+        "prev": "g",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-06T10:33:27.406Z"
       }
     },
     "italian/bella ciao.abc": {
@@ -6818,6 +6837,19 @@
           "pitch": "_B"
         },
         "7": {
+          "state": "red",
+          "pitch": "_e"
+        }
+      }
+    },
+    "israeli/hevenu shalom aleichem.abc": {
+      "at": "2026-11-06T10:33:17.400Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "13": {
           "state": "red",
           "pitch": "_e"
         }
