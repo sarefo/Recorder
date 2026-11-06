@@ -50,6 +50,14 @@
       "playCount": 0,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
+    "armenian/little partridge.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
     "australian/waltzing matilda.abc": {
       "status": "good",
       "favorite": true,
@@ -208,6 +216,14 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-10-24T11:46:54.432Z"
+    },
+    "catalan/el cant dels ocells.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.204Z"
     },
     "chinese/670_songs.abc": {
       "status": null,
@@ -868,6 +884,14 @@
       "playCount": 1,
       "createdAt": "2026-08-01T08:54:31.908Z"
     },
+    "cornish/helston furry dance.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.204Z"
+    },
     "cuban/guantanamera.abc": {
       "status": null,
       "favorite": false,
@@ -933,6 +957,30 @@
       "createdAt": "2026-11-01T02:08:18.261Z",
       "updatedAt": "2026-11-01T02:19:13.542Z"
     },
+    "film/chariots of fire.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "film/concerning hobbits.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "film/hedwigs theme.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
     "film/herbie's theme.abc": {
       "status": "good",
       "favorite": true,
@@ -983,6 +1031,14 @@
       "playCount": 1,
       "createdAt": "2026-11-01T03:02:11.849Z",
       "updatedAt": "2026-11-03T13:14:30.131Z"
+    },
+    "film/pink panther.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
     },
     "film/singin in the rain.abc": {
       "status": null,
@@ -1170,6 +1226,14 @@
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-11-03T02:03:53.623Z"
     },
+    "galician/muineira de chantada.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
     "georgian/gandagana.abc": {
       "status": null,
       "favorite": false,
@@ -1327,6 +1391,22 @@
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-11-02T06:08:35.579Z"
     },
+    "greek/misirlou.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "greek/seikilos epitaph.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
     "hawaiian/aloha oe.abc": {
       "status": null,
       "favorite": false,
@@ -1392,6 +1472,30 @@
       "playCount": 0,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
+    "irish/carolans concerto.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/drowsy maggie.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/fanny power.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
     "irish/johnny i hardly knew ya.abc": {
       "status": "good",
       "favorite": true,
@@ -1400,6 +1504,86 @@
       "playCount": 18,
       "createdAt": "2026-07-30T09:51:53.099Z",
       "updatedAt": "2026-11-02T09:45:05.398Z"
+    },
+    "irish/morrisons jig.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/planxty irwin.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/she moved through the fair.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/si bheag si mhor.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/tabhair dom do lamh.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/the banshee.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/the butterfly.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/the coolin.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/the foggy dew.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/the south wind.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
     },
     "irish/the wild rover.abc": {
       "status": null,
@@ -1544,6 +1728,14 @@
       "playCount": 43,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-11-01T10:41:02.824Z"
+    },
+    "italian/vitti na crozza.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
     },
     "jamaican/banana boat song.abc": {
       "status": "good",
@@ -1957,6 +2149,78 @@
       "playCount": 1,
       "createdAt": "2026-08-01T08:54:31.908Z"
     },
+    "klezmer/alter sher.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/belzer nigun.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/broyges tants.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/odessa bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/ot azoy.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/shnirele perele.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/shpil zhe mir a lidele.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/tants tants yidelekh.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/yidl mitn fidl.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
     "korean/arirang.abc": {
       "status": null,
       "favorite": true,
@@ -2052,6 +2316,30 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-10-24T11:46:54.431Z"
+    },
+    "manx/mylecharaine.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "manx/ny kirree fo niaghtey.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "maori/pokarekare ana.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
     },
     "maori/te hokinga mai.abc": {
       "status": "needs-practice",
@@ -2638,6 +2926,22 @@
       "playCount": 1,
       "createdAt": "2026-07-01T03:19:53.475Z"
     },
+    "scottish/ae fond kiss.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "scottish/an fhideag airgid.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
     "scottish/atholl_braes_1.abc": {
       "status": "practicing",
       "favorite": true,
@@ -2645,6 +2949,14 @@
       "lastPlayed": "2026-11-04T06:20:03.883Z",
       "playCount": 33,
       "createdAt": "2026-01-18T20:46:38.367Z"
+    },
+    "scottish/aye waukin o.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
     },
     "scottish/balquidder_lasses.abc": {
       "status": "good",
@@ -2722,6 +3034,14 @@
       "playCount": 0,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
+    "scottish/hector the hero.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
     "scottish/highland_fling.abc": {
       "status": null,
       "favorite": false,
@@ -2755,6 +3075,14 @@
       "playCount": 1,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
+    "scottish/loch lomond.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
     "scottish/sweet_molly.abc": {
       "status": "practicing",
       "favorite": true,
@@ -2763,6 +3091,14 @@
       "playCount": 3,
       "createdAt": "2026-11-02T06:52:05.628Z",
       "updatedAt": "2026-11-02T07:00:33.911Z"
+    },
+    "scottish/the skye boat song.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
     },
     "serbian/ljulja ljulja ljuska.abc": {
       "status": null,
@@ -2992,6 +3328,38 @@
       "playCount": 0,
       "createdAt": "2026-08-01T08:03:26.600Z"
     },
+    "welsh/ar hyd y nos.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "welsh/llwyn onn.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "welsh/suo gan.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "welsh/tros y garreg.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
     "yiddish/bei mir bist du schon.abc": {
       "status": "practicing",
       "favorite": true,
@@ -3032,6 +3400,22 @@
       "lastPlayed": "2026-07-14T07:05:02.808Z",
       "playCount": 1,
       "createdAt": "2026-01-18T20:46:38.367Z"
+    },
+    "yiddish/papirossen.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "yiddish/sheyn vi di levone.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-06T17:04:02.205Z"
     },
     "zambian/kankuluwe.abc": {
       "status": null,
