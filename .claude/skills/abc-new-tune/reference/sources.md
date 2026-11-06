@@ -250,6 +250,19 @@ curl -sL "https://abcnotation.com/getResource/downloads/text_/x.abc?a=thesession
 
 The `a=` key is `<collection file without its extension>/<4-digit index>`.
 
+#### thesession.org has its own JSON API
+
+Only its HTML pages return 403. The API works directly, which matters because
+abcnotation sometimes stops responding altogether (2026-11-07: every request
+timed out). Each tune carries several settings with ABC bodies and a key but no
+headers, so add `X:`/`T:`/`M:`/`L:` yourself. Pause between searches; a few
+requests in a row returned JSON with no `total` field.
+
+```bash
+curl -s "https://thesession.org/tunes/search?format=json&perpage=3&q=the+butterfly"
+curl -s "https://thesession.org/tunes/10?format=json"   # .settings[].abc, .settings[].key
+```
+
 #### Whole collections come off the trillian.mit.edu mirror
 
 Where the `a=` key points at `trillian.mit.edu/~jc/music/abc/mirror/<host>/<file>/NNNN`,
