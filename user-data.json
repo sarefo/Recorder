@@ -1771,8 +1771,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T10:16:43.380Z",
-      "playCount": 18,
+      "lastPlayed": "2026-11-06T10:41:25.087Z",
+      "playCount": 19,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -3052,6 +3052,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-11-06T10:41:25.087Z"
+    },
+    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-06T10:38:37.332Z"
     },
@@ -3126,10 +3130,6 @@
     {
       "filePath": "japanese/tinsagu nu hana.abc",
       "timestamp": "2026-11-05T06:32:22.364Z"
-    },
-    {
-      "filePath": "israeli/hatikvah.abc",
-      "timestamp": "2026-11-05T06:32:19.095Z"
     }
   ],
   "activity": {
@@ -3467,6 +3467,7 @@
       "israeli/hevenu shalom aleichem.abc": 3,
       "japanese/hana.abc": 1,
       "japanese/oborozukiyo.abc": 3,
+      "jazz/autumn leaves.abc": 1,
       "jazz/moon river.abc": 2,
       "scottish/clanranald.abc": 2
     }
@@ -8740,6 +8741,24 @@
       "at": "2026-11-05T10:08:19.325Z",
       "percent": 100,
       "bpm": 95
+    },
+    {
+      "path": "jazz/moon river.abc",
+      "at": "2026-11-06T10:41:19.007Z",
+      "percent": 100,
+      "bpm": 90
+    },
+    {
+      "path": "jazz/moon river.abc",
+      "at": "2026-11-06T10:41:19.167Z",
+      "percent": 100,
+      "bpm": 90
+    },
+    {
+      "path": "jazz/moon river.abc",
+      "at": "2026-11-06T10:41:19.327Z",
+      "percent": 100,
+      "bpm": 90
     }
   ],
   "settings": {}
