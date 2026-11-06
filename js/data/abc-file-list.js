@@ -1545,10 +1545,52 @@ class AbcFileList {
                 "hash": "744508b5ff"
         },
         {
+                "name": "Belzer Nigun",
+                "file": "klezmer/belzer nigun.abc",
+                "category": "klezmer",
+                "hash": "1f4e9f9988"
+        },
+        {
+                "name": "Broyges Tants",
+                "file": "klezmer/broyges tants.abc",
+                "category": "klezmer",
+                "hash": "dc78f50f06"
+        },
+        {
                 "name": "Odessa Bulgar",
                 "file": "klezmer/odessa bulgar.abc",
                 "category": "klezmer",
                 "hash": "46aeabcddc"
+        },
+        {
+                "name": "Ot Azoy",
+                "file": "klezmer/ot azoy.abc",
+                "category": "klezmer",
+                "hash": "64407c18bf"
+        },
+        {
+                "name": "Shnirele Perele",
+                "file": "klezmer/shnirele perele.abc",
+                "category": "klezmer",
+                "hash": "ce9b8e1cda"
+        },
+        {
+                "name": "Shpil Zhe Mir a Lidele",
+                "file": "klezmer/shpil zhe mir a lidele.abc",
+                "category": "klezmer",
+                "hash": "6ab5b5836a"
+        },
+        {
+                "name": "Tants, Tants, Yidelekh",
+                "file": "klezmer/tants tants yidelekh.abc",
+                "category": "klezmer",
+                "hash": "d7431b3ba6"
+        },
+        {
+                "name": "Yidl Mitn Fidl",
+                "file": "klezmer/yidl mitn fidl.abc",
+                "category": "klezmer",
+                "hash": "e5d07e655c"
         },
         {
                 "name": "Arirang",

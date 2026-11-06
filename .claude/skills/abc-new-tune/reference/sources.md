@@ -263,6 +263,20 @@ curl -s "https://thesession.org/tunes/search?format=json&perpage=3&q=the+butterf
 curl -s "https://thesession.org/tunes/10?format=json"   # .settings[].abc, .settings[].key
 ```
 
+#### Copyright-flagged tunes come back as headers only
+
+abcnotation's `getResource` returns just the header and a `%abc2: tune is
+copyright` comment for anything flagged, such as film themes. The file is still
+public on its origin host: for a key like `trillian.mit.edu/~jc/music/abc/England/waltz/HedwigsTheme_Em/0000`
+fetch `https://trillian.mit.edu/~jc/music/abc/England/waltz/HedwigsTheme_Em.abc`.
+
+#### Klezmer: one file, 783 tunes
+
+`https://ifdo.ca/~seymour/runabc/allklez.abc` is the whole collection, with
+chords and often a printed source. Watch for second voices (`V:2`), keys like
+`K:Dphr^F` and `K: D exp _B_e^F` (write the latter as `K:Dphr^F`), and A3 pickups
+that need the tune moved up a fifth.
+
 #### Whole collections come off the trillian.mit.edu mirror
 
 Where the `a=` key points at `trillian.mit.edu/~jc/music/abc/mirror/<host>/<file>/NNNN`,
