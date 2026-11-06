@@ -2372,12 +2372,13 @@
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/game/monkey island.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-06T10:49:58.587Z",
       "playCount": 8,
-      "createdAt": "2026-08-22T02:59:38.465Z"
+      "createdAt": "2026-08-22T02:59:38.465Z",
+      "updatedAt": "2026-11-06T10:52:54.156Z"
     },
     "pop/jamiroquai/canned heat.abc": {
       "status": "needs-practice",
@@ -2445,8 +2446,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T13:16:09.116Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-06T10:56:03.623Z",
+      "playCount": 2,
       "createdAt": "2026-11-02T13:15:10.953Z",
       "updatedAt": "2026-11-02T13:18:49.234Z"
     },
@@ -2496,8 +2497,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T10:00:10.154Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-06T10:53:02.537Z",
+      "playCount": 6,
       "createdAt": "2026-11-02T13:15:10.953Z",
       "updatedAt": "2026-11-02T13:26:44.368Z"
     },
@@ -3052,6 +3053,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/no doubt/don't speak.abc",
+      "timestamp": "2026-11-06T10:56:03.623Z"
+    },
+    {
+      "filePath": "pop/the bangles/eternal flame.abc",
+      "timestamp": "2026-11-06T10:53:02.537Z"
+    },
+    {
       "filePath": "pop/game/monkey island.abc",
       "timestamp": "2026-11-06T10:49:58.587Z"
     },
@@ -3122,14 +3131,6 @@
     {
       "filePath": "jazz/the way you look tonight.abc",
       "timestamp": "2026-11-05T10:01:38.747Z"
-    },
-    {
-      "filePath": "pop/mad world.abc",
-      "timestamp": "2026-11-05T09:59:23.537Z"
-    },
-    {
-      "filePath": "pop/top of the world.abc",
-      "timestamp": "2026-11-05T09:52:48.640Z"
     }
   ],
   "activity": {
@@ -3472,6 +3473,8 @@
       "jazz/moon river.abc": 2,
       "pop/final_countdown.abc": 1,
       "pop/game/monkey island.abc": 2,
+      "pop/no doubt/don't speak.abc": 1,
+      "pop/the bangles/eternal flame.abc": 2,
       "scottish/clanranald.abc": 2
     }
   },
@@ -4085,6 +4088,11 @@
       "path": "israeli/hevenu shalom aleichem.abc",
       "status": "good",
       "at": "2026-11-06T10:38:19.807Z"
+    },
+    {
+      "path": "pop/game/monkey island.abc",
+      "status": "practicing",
+      "at": "2026-11-06T10:52:54.156Z"
     }
   ],
   "marks": {
