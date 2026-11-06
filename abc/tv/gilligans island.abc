@@ -1,0 +1,12 @@
+X: 1
+T: The Ballad of Gilligan's Isle
+O: George Wyle and Sherwood Schwartz, 1964
+N: From a hamienet.com MIDI (id 267), channel 8, first verse.
+N: Rises a semitone in bar 5, as the source does.
+N: Chords are fitted. CHECK: 52% of pitches match a second MIDI.
+L: 1/8
+Q: 1/4=108
+M: 4/4
+K: Dm
+A2 |"Dm"DA AA/A/ "C"GE C3/2C/ |"Dm"DA AA "C"G3 A |"Dm"DA AA/A/ "C"Gc cG |"Bb"F2 EC "Dm"D3 D |
+"Ebm"_EB BB/B/ "Db"_AF _D3/2D/ |"Ebm"_EB BB "Db"_A3 B |"Ebm"_EB BB/B/ "Db"_A_d dA |"Gb"_G2 F_D "Ebm"_E2 |]

@@ -3489,6 +3489,30 @@ class AbcFileList {
                 "hash": "55388550fa"
         },
         {
+                "name": "Adventures of the Gummi Bears",
+                "file": "tv/gummi bears.abc",
+                "category": "tv",
+                "hash": "32df5d718d"
+        },
+        {
+                "name": "Angela (Theme from Taxi)",
+                "file": "tv/taxi.abc",
+                "category": "tv",
+                "hash": "848b0d7013"
+        },
+        {
+                "name": "Blackadder",
+                "file": "tv/blackadder.abc",
+                "category": "tv",
+                "hash": "3a173a83e1"
+        },
+        {
+                "name": "Dallas",
+                "file": "tv/dallas.abc",
+                "category": "tv",
+                "hash": "bc9c0a8783"
+        },
+        {
                 "name": "Detective Conan Theme",
                 "file": "tv/detective_conan.abc",
                 "category": "tv",
@@ -3499,6 +3523,72 @@ class AbcFileList {
                 "file": "tv/fraggle rock.abc",
                 "category": "tv",
                 "hash": "514c92b096"
+        },
+        {
+                "name": "Futurama",
+                "file": "tv/futurama.abc",
+                "category": "tv",
+                "hash": "e2ac9ee3c6"
+        },
+        {
+                "name": "Meet the Flintstones",
+                "file": "tv/the flintstones.abc",
+                "category": "tv",
+                "hash": "79b4f7a329"
+        },
+        {
+                "name": "Mr. Bean",
+                "file": "tv/mr bean.abc",
+                "category": "tv",
+                "hash": "782bb1b34f"
+        },
+        {
+                "name": "The Andy Griffith Show (The Fishin' Hole)",
+                "file": "tv/the andy griffith show.abc",
+                "category": "tv",
+                "hash": "cf312325ff"
+        },
+        {
+                "name": "The Ballad of Gilligan's Isle",
+                "file": "tv/gilligans island.abc",
+                "category": "tv",
+                "hash": "cb3c443b90"
+        },
+        {
+                "name": "The Brady Bunch",
+                "file": "tv/the brady bunch.abc",
+                "category": "tv",
+                "hash": "385e08f3e4"
+        },
+        {
+                "name": "The Munsters",
+                "file": "tv/the munsters.abc",
+                "category": "tv",
+                "hash": "abee7e0ac6"
+        },
+        {
+                "name": "The Muppet Show Theme",
+                "file": "tv/the muppet show.abc",
+                "category": "tv",
+                "hash": "a708dfb29f"
+        },
+        {
+                "name": "The Office Theme",
+                "file": "tv/the office.abc",
+                "category": "tv",
+                "hash": "2359a1815e"
+        },
+        {
+                "name": "The Smurfs",
+                "file": "tv/the smurfs.abc",
+                "category": "tv",
+                "hash": "f2bc96fb53"
+        },
+        {
+                "name": "Yakety Sax (The Benny Hill Show)",
+                "file": "tv/yakety sax.abc",
+                "category": "tv",
+                "hash": "450ac17c5f"
         },
         {
                 "name": "Mwana Wa Nnyabo",

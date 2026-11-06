@@ -1,0 +1,12 @@
+X: 1
+T: The Smurfs
+O: Hoyt Curtin, 1981
+N: From a hamienet.com MIDI (id 13134).
+N: 73% of pitches match a second MIDI. Chords are fitted.
+N: CHECK: the two MIDIs differ after the opening phrase.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: F
+c4 |"F"f3 c "Gm"d2 B2 |"C"G4 "F"c3 A |F2 A2 "C"G4 |z2 G/A/B/=B/ "F"c4 |
+f3 c "Gm"d2 B2 |"C"G4 "F"c3 A |"C"B2 E2 "F"F4 |z2 G/A/B/=B/ |]

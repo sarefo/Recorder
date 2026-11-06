@@ -1,0 +1,11 @@
+X: 1
+T: The Munsters
+O: Jack Marshall, 1964
+N: From a hamienet.com MIDI (id 352766977311331), -3 semitones.
+N: Chords are fitted. CHECK: 68% of pitches match a second MIDI.
+L: 1/8
+Q: 1/4=130
+M: 4/4
+K: Am
+|:"Am"A2 c2 ^de a2 |"Dm"fe d4 ed |"Am"c2 dc "E"BA G2 |"Am"A6 z2 |
+A2 c2 ^de a2 |"Dm"fe d3 z cd |"E"e2 EE E^F ^G2 |"Am"A8 :|
