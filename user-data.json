@@ -2358,8 +2358,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T09:52:50.889Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-06T10:46:12.165Z",
+      "playCount": 10,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-29T07:31:46.377Z"
     },
@@ -3052,6 +3052,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/final_countdown.abc",
+      "timestamp": "2026-11-06T10:46:12.165Z"
+    },
+    {
       "filePath": "jazz/girl from ipanema.abc",
       "timestamp": "2026-11-06T10:43:16.799Z"
     },
@@ -3118,10 +3122,6 @@
     {
       "filePath": "pop/mad world.abc",
       "timestamp": "2026-11-05T09:59:23.537Z"
-    },
-    {
-      "filePath": "pop/final_countdown.abc",
-      "timestamp": "2026-11-05T09:52:50.889Z"
     },
     {
       "filePath": "pop/top of the world.abc",
@@ -3470,6 +3470,7 @@
       "jazz/autumn leaves.abc": 1,
       "jazz/girl from ipanema.abc": 2,
       "jazz/moon river.abc": 2,
+      "pop/final_countdown.abc": 1,
       "scottish/clanranald.abc": 2
     }
   },
