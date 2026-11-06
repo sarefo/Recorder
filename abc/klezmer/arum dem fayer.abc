@@ -1,0 +1,15 @@
+X: 1
+T: Arum Dem Fayer
+O: Klezmer
+N: From the allklez collection (ifdo.ca). Moved +7 semitones for range. Opening pickup dropped so the tune loops. CHECK: some bar lengths look off.
+L: 1/8
+Q: 1/4=100
+M: 2/4
+K: Am
+|:"Am" e2 e2|"Dm" zf/e/ df|"Am" e2 e2|
+"Dm" ze dA|"Am" c2 c2|"B7" zB/c/ "E7" dB|"Am" A2 A2|
+|1 zE Ac :|2 "C7" ze fg|||:"F" (a4|"A7" a)g fe|
+"Dm" f/e/d d2|zd ef|"G" g2 g2|"G7" zf ed|
+"C" e/d/(c c2)|zc de|"Dm" (f4|f)e dc|
+"B7" d/c/(B B2)|zB cd|"E7" (e4|e)d cB|
+"Am" c/B/(A A2)|1 "C7" ze fg :|2 z|]

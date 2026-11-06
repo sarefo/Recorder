@@ -3,6 +3,10 @@ class DocsFileList {
     static getFiles() {
         return [
         {
+                "name": "Busking with the repertoire",
+                "file": "busking.md"
+        },
+        {
                 "name": "Information Fields",
                 "file": "info_fields.md"
         },

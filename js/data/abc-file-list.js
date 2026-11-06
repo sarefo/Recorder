@@ -63,6 +63,12 @@ class AbcFileList {
                 "hash": "446fc19f7f"
         },
         {
+                "name": "Amar Shonar Bangla",
+                "file": "bangladeshi/amar shonar bangla.abc",
+                "category": "bangladeshi",
+                "hash": "8f3e2b45eb"
+        },
+        {
                 "name": "1 Joc cu bata",
                 "file": "bartok/romanian folk dances/1 joc cu bata.abc",
                 "category": "bartok/romanian folk dances",
@@ -79,6 +85,12 @@ class AbcFileList {
                 "file": "bolivian/la mariposa.abc",
                 "category": "bolivian",
                 "hash": "92debb45cb"
+        },
+        {
+                "name": "Kad Ja Po\u0111oh Na Bemba\u0161u",
+                "file": "bosnian/kad ja podoh na bembasu.abc",
+                "category": "bosnian",
+                "hash": "1146f3b151"
         },
         {
                 "name": "Atirei o Pau no Gato",
@@ -699,6 +711,12 @@ class AbcFileList {
                 "hash": "72b60af132"
         },
         {
+                "name": "Isa Lei",
+                "file": "fijian/isa lei.abc",
+                "category": "fijian",
+                "hash": "d413bfc9ce"
+        },
+        {
                 "name": "A Whole New World",
                 "file": "film/a whole new world.abc",
                 "category": "film",
@@ -745,6 +763,12 @@ class AbcFileList {
                 "file": "film/edelweiss.abc",
                 "category": "film",
                 "hash": "56c74e7768"
+        },
+        {
+                "name": "Ghostbusters",
+                "file": "film/ghostbusters.abc",
+                "category": "film",
+                "hash": "2f05b2da93"
         },
         {
                 "name": "He's a Pirate",
@@ -807,10 +831,28 @@ class AbcFileList {
                 "hash": "c366fc1fdf"
         },
         {
+                "name": "Oh, Pretty Woman",
+                "file": "film/oh pretty woman.abc",
+                "category": "film",
+                "hash": "ce05da5e6f"
+        },
+        {
+                "name": "Once Upon a Time in the West",
+                "file": "film/once upon a time in the west.abc",
+                "category": "film",
+                "hash": "9f2728e309"
+        },
+        {
                 "name": "Over the Rainbow",
                 "file": "film/over the rainbow.abc",
                 "category": "film",
                 "hash": "5e6f05ea4a"
+        },
+        {
+                "name": "Schindler's List",
+                "file": "film/schindlers list.abc",
+                "category": "film",
+                "hash": "703c348a4a"
         },
         {
                 "name": "Singin' in the Rain",
@@ -847,6 +889,12 @@ class AbcFileList {
                 "file": "film/the third man.abc",
                 "category": "film",
                 "hash": "d45263d42a"
+        },
+        {
+                "name": "Zorba the Greek",
+                "file": "film/zorba.abc",
+                "category": "film",
+                "hash": "47148f453a"
         },
         {
                 "name": "A Town with an Ocean view",
@@ -961,6 +1009,12 @@ class AbcFileList {
                 "file": "french/la goualante du pauvre jean.abc",
                 "category": "french",
                 "hash": "b1026dcb77"
+        },
+        {
+                "name": "Le Temps des Cerises",
+                "file": "french/le temps des cerises.abc",
+                "category": "french",
+                "hash": "a68154302a"
         },
         {
                 "name": "Mistral Gagnant",
@@ -1191,6 +1245,12 @@ class AbcFileList {
                 "hash": "d04f8a2d69"
         },
         {
+                "name": "Londonderry Air",
+                "file": "irish/londonderry air.abc",
+                "category": "irish",
+                "hash": "8ab40343b2"
+        },
+        {
                 "name": "Morrison's Jig",
                 "file": "irish/morrisons jig.abc",
                 "category": "irish",
@@ -1255,6 +1315,12 @@ class AbcFileList {
                 "file": "irish/the wild rover.abc",
                 "category": "irish",
                 "hash": "35988b1bd3"
+        },
+        {
+                "name": "\u00d3r\u00f3 S\u00e9 Do Bheatha 'Bhaile",
+                "file": "irish/oro se do bheatha bhaile.abc",
+                "category": "irish",
+                "hash": "4059cdbe99"
         },
         {
                 "name": "Artsa Alinu",
@@ -1641,10 +1707,124 @@ class AbcFileList {
                 "hash": "26bfbcdb24"
         },
         {
+                "name": "A Dreidele Far Alle - Freilachs",
+                "file": "klezmer/a dreidele far alle  freilachs.abc",
+                "category": "klezmer",
+                "hash": "455453a85a"
+        },
+        {
+                "name": "A Glezele L'chaym",
+                "file": "klezmer/a glezele lchaym.abc",
+                "category": "klezmer",
+                "hash": "b718621788"
+        },
+        {
+                "name": "A Glezele Yash",
+                "file": "klezmer/a glezele yash.abc",
+                "category": "klezmer",
+                "hash": "bcd8590fb3"
+        },
+        {
+                "name": "A Hoolyeh Tanz",
+                "file": "klezmer/a hoolyeh tanz.abc",
+                "category": "klezmer",
+                "hash": "3e042f9268"
+        },
+        {
+                "name": "A Laibediga Honga",
+                "file": "klezmer/a laibediga honga.abc",
+                "category": "klezmer",
+                "hash": "dc15e2020f"
+        },
+        {
+                "name": "A Nacht In Gan Eydn",
+                "file": "klezmer/a nacht in gan eydn.abc",
+                "category": "klezmer",
+                "hash": "e13618000c"
+        },
+        {
+                "name": "Abe Schwartz's Famous Sher",
+                "file": "klezmer/abe schwartzs famous sher.abc",
+                "category": "klezmer",
+                "hash": "fed3250e70"
+        },
+        {
+                "name": "Abi Gezint",
+                "file": "klezmer/abi gezint.abc",
+                "category": "klezmer",
+                "hash": "519207ecb8"
+        },
+        {
+                "name": "Alle Bruder",
+                "file": "klezmer/alle bruder.abc",
+                "category": "klezmer",
+                "hash": "70ecda3e69"
+        },
+        {
                 "name": "Alter Sher",
                 "file": "klezmer/alter sher.abc",
                 "category": "klezmer",
                 "hash": "744508b5ff"
+        },
+        {
+                "name": "Anushka",
+                "file": "klezmer/anushka.abc",
+                "category": "klezmer",
+                "hash": "9dbc9a273b"
+        },
+        {
+                "name": "Araber Tants",
+                "file": "klezmer/araber tants.abc",
+                "category": "klezmer",
+                "hash": "1039208754"
+        },
+        {
+                "name": "Arum Dem Fayer",
+                "file": "klezmer/arum dem fayer.abc",
+                "category": "klezmer",
+                "hash": "b129322420"
+        },
+        {
+                "name": "Asher Bara #1",
+                "file": "klezmer/asher bara 1.abc",
+                "category": "klezmer",
+                "hash": "e0eed72262"
+        },
+        {
+                "name": "Asher Bara #2",
+                "file": "klezmer/asher bara 2.abc",
+                "category": "klezmer",
+                "hash": "bf502e74a2"
+        },
+        {
+                "name": "Asher Bara #3",
+                "file": "klezmer/asher bara 3.abc",
+                "category": "klezmer",
+                "hash": "bababc223a"
+        },
+        {
+                "name": "Ayli Lyuli",
+                "file": "klezmer/ayli lyuli.abc",
+                "category": "klezmer",
+                "hash": "18939d8443"
+        },
+        {
+                "name": "Baym Rebin's Sude",
+                "file": "klezmer/baym rebins sude.abc",
+                "category": "klezmer",
+                "hash": "d15532edf9"
+        },
+        {
+                "name": "Baym Rebn In Palestine",
+                "file": "klezmer/baym rebn in palestine.abc",
+                "category": "klezmer",
+                "hash": "8ac9df38de"
+        },
+        {
+                "name": "Belf's Carnival",
+                "file": "klezmer/belfs carnival.abc",
+                "category": "klezmer",
+                "hash": "a522a2ccf2"
         },
         {
                 "name": "Belzer Nigun",
@@ -1653,10 +1833,622 @@ class AbcFileList {
                 "hash": "1f4e9f9988"
         },
         {
+                "name": "Bessaraber Khusidl",
+                "file": "klezmer/bessaraber khusidl.abc",
+                "category": "klezmer",
+                "hash": "3934117f25"
+        },
+        {
+                "name": "Billy's Freilach",
+                "file": "klezmer/billys freilach.abc",
+                "category": "klezmer",
+                "hash": "d73b00b209"
+        },
+        {
+                "name": "Billy's Khosidl",
+                "file": "klezmer/billys khosidl.abc",
+                "category": "klezmer",
+                "hash": "7f33199a51"
+        },
+        {
+                "name": "Bobover Wedding March",
+                "file": "klezmer/bobover wedding march.abc",
+                "category": "klezmer",
+                "hash": "e259ba8db7"
+        },
+        {
+                "name": "Boibriker Freilach",
+                "file": "klezmer/boibriker freilach.abc",
+                "category": "klezmer",
+                "hash": "b9e78af3ff"
+        },
+        {
+                "name": "Boiereasca",
+                "file": "klezmer/boiereasca.abc",
+                "category": "klezmer",
+                "hash": "543534f963"
+        },
+        {
+                "name": "Braneles Chasene",
+                "file": "klezmer/braneles chasene.abc",
+                "category": "klezmer",
+                "hash": "15275dd60d"
+        },
+        {
                 "name": "Broyges Tants",
                 "file": "klezmer/broyges tants.abc",
                 "category": "klezmer",
                 "hash": "dc78f50f06"
+        },
+        {
+                "name": "Buhusher Chosidl",
+                "file": "klezmer/buhusher chosidl.abc",
+                "category": "klezmer",
+                "hash": "703268d76c"
+        },
+        {
+                "name": "Bulgar In D",
+                "file": "klezmer/bulgar in d.abc",
+                "category": "klezmer",
+                "hash": "2cb574a9f5"
+        },
+        {
+                "name": "Carpathian Tune",
+                "file": "klezmer/carpathian tune.abc",
+                "category": "klezmer",
+                "hash": "fa8183a2e4"
+        },
+        {
+                "name": "Charles Corman's",
+                "file": "klezmer/bulgar charles cormans.abc",
+                "category": "klezmer",
+                "hash": "0985cbbf61"
+        },
+        {
+                "name": "Chasene Valtz",
+                "file": "klezmer/chasene valtz.abc",
+                "category": "klezmer",
+                "hash": "613d3b4d06"
+        },
+        {
+                "name": "Chusidl",
+                "file": "klezmer/chusidl.abc",
+                "category": "klezmer",
+                "hash": "71acada228"
+        },
+        {
+                "name": "Dem Milners Trern",
+                "file": "klezmer/dem milners trern.abc",
+                "category": "klezmer",
+                "hash": "23b9949802"
+        },
+        {
+                "name": "Dem Rebns Nign",
+                "file": "klezmer/dem rebns nign.abc",
+                "category": "klezmer",
+                "hash": "7f9abf819c"
+        },
+        {
+                "name": "Dem Trisker Rebns Khusid",
+                "file": "klezmer/dem trisker rebns khusid.abc",
+                "category": "klezmer",
+                "hash": "2356a84ece"
+        },
+        {
+                "name": "Der Alte Tziganer",
+                "file": "klezmer/der alte tziganer.abc",
+                "category": "klezmer",
+                "hash": "5c43cf7c10"
+        },
+        {
+                "name": "Der Gasn Nigun",
+                "file": "klezmer/der gasn nigun.abc",
+                "category": "klezmer",
+                "hash": "2722eb1fff"
+        },
+        {
+                "name": "Der Heyser Bulgar",
+                "file": "klezmer/der heyser bulgar.abc",
+                "category": "klezmer",
+                "hash": "9156688712"
+        },
+        {
+                "name": "Der Hoyfzinger",
+                "file": "klezmer/der hoyfzinger.abc",
+                "category": "klezmer",
+                "hash": "9878609fc8"
+        },
+        {
+                "name": "Der Mu\u017einikal",
+                "file": "klezmer/der muvzinikal.abc",
+                "category": "klezmer",
+                "hash": "0c9cd64c85"
+        },
+        {
+                "name": "Der Shtiller Bulgar",
+                "file": "klezmer/der shtiller bulgar.abc",
+                "category": "klezmer",
+                "hash": "783b25280e"
+        },
+        {
+                "name": "Di Goldene Khasene",
+                "file": "klezmer/di goldene khasene.abc",
+                "category": "klezmer",
+                "hash": "d01a41b561"
+        },
+        {
+                "name": "Di Grine Kusine",
+                "file": "klezmer/di grine kusine.abc",
+                "category": "klezmer",
+                "hash": "c1c7d7729f"
+        },
+        {
+                "name": "Di Rayze Nukh Amerike",
+                "file": "klezmer/di rayze nukh amerike.abc",
+                "category": "klezmer",
+                "hash": "1670bc30f9"
+        },
+        {
+                "name": "Die Mame Is Gegangen In Markt Areyn",
+                "file": "klezmer/die mame is gegangen in markt areyn.abc",
+                "category": "klezmer",
+                "hash": "58c4bb86dc"
+        },
+        {
+                "name": "Drey Dreydlekh",
+                "file": "klezmer/drey dreydlekh.abc",
+                "category": "klezmer",
+                "hash": "c063906ee1"
+        },
+        {
+                "name": "Drohobitsher Khusid",
+                "file": "klezmer/drohobitsher khusid.abc",
+                "category": "klezmer",
+                "hash": "12d5ef8f46"
+        },
+        {
+                "name": "Epstein Bulgar",
+                "file": "klezmer/epstein bulgar.abc",
+                "category": "klezmer",
+                "hash": "3e3a63ffed"
+        },
+        {
+                "name": "Essen Esst Zich",
+                "file": "klezmer/essen esst zich.abc",
+                "category": "klezmer",
+                "hash": "8647e8f48c"
+        },
+        {
+                "name": "Fanfara Suceava",
+                "file": "klezmer/fanfara suceava.abc",
+                "category": "klezmer",
+                "hash": "708622b944"
+        },
+        {
+                "name": "Firn Di Mekhutonim Aheym",
+                "file": "klezmer/firn di mekhutonim aheym.abc",
+                "category": "klezmer",
+                "hash": "0e513ff7f2"
+        },
+        {
+                "name": "Flatbush Waltz",
+                "file": "klezmer/flatbush waltz.abc",
+                "category": "klezmer",
+                "hash": "72c4cbb685"
+        },
+        {
+                "name": "Frailach",
+                "file": "klezmer/frailach.abc",
+                "category": "klezmer",
+                "hash": "f21ade4585"
+        },
+        {
+                "name": "Freilach: The Silver Wedding #1",
+                "file": "klezmer/freilach the silver wedding 1.abc",
+                "category": "klezmer",
+                "hash": "49ae10a92b"
+        },
+        {
+                "name": "Freilach: The Silver Wedding #2",
+                "file": "klezmer/freilach the silver wedding 2.abc",
+                "category": "klezmer",
+                "hash": "895a82bc74"
+        },
+        {
+                "name": "Freilag",
+                "file": "klezmer/freilag.abc",
+                "category": "klezmer",
+                "hash": "4ade561979"
+        },
+        {
+                "name": "Freilakhs \"Hulye Kaptsn\"",
+                "file": "klezmer/freilakhs hulye kaptsn.abc",
+                "category": "klezmer",
+                "hash": "495c0096a4"
+        },
+        {
+                "name": "Freilakhs \"Shlimazl Haysin\"",
+                "file": "klezmer/freilakhs shlimazl haysin.abc",
+                "category": "klezmer",
+                "hash": "4936ad33ef"
+        },
+        {
+                "name": "Freilechs Von Der Chuppe",
+                "file": "klezmer/freilechs von der chuppe.abc",
+                "category": "klezmer",
+                "hash": "3176110a00"
+        },
+        {
+                "name": "Freylachs",
+                "file": "klezmer/freylachs.abc",
+                "category": "klezmer",
+                "hash": "37de4c610b"
+        },
+        {
+                "name": "Freylachs \"Leybele Basyak\"",
+                "file": "klezmer/freylachs leybele basyak.abc",
+                "category": "klezmer",
+                "hash": "8d6d022b5b"
+        },
+        {
+                "name": "Freylachs In D Minor (1)",
+                "file": "klezmer/freylachs in d minor 1.abc",
+                "category": "klezmer",
+                "hash": "716a9c0afd"
+        },
+        {
+                "name": "Freylachs In D Minor (2)",
+                "file": "klezmer/freylachs in d minor 2.abc",
+                "category": "klezmer",
+                "hash": "ea5746420e"
+        },
+        {
+                "name": "Freylekhs",
+                "file": "klezmer/freylekhs.abc",
+                "category": "klezmer",
+                "hash": "234a7a4f35"
+        },
+        {
+                "name": "Fun Der Khupe",
+                "file": "klezmer/fun der khupe.abc",
+                "category": "klezmer",
+                "hash": "c97a598ab0"
+        },
+        {
+                "name": "Fun Tashlikh",
+                "file": "klezmer/fun tashlikh.abc",
+                "category": "klezmer",
+                "hash": "779d822311"
+        },
+        {
+                "name": "Garofitsa (freylach)",
+                "file": "klezmer/garofitsa freylach.abc",
+                "category": "klezmer",
+                "hash": "8cd6b6b1ee"
+        },
+        {
+                "name": "German's Freilachs",
+                "file": "klezmer/germans freilachs.abc",
+                "category": "klezmer",
+                "hash": "dfbdeb2a10"
+        },
+        {
+                "name": "Glick",
+                "file": "klezmer/glick.abc",
+                "category": "klezmer",
+                "hash": "a2a58de51d"
+        },
+        {
+                "name": "Goldenshteyn Hora",
+                "file": "klezmer/goldenshteyn hora.abc",
+                "category": "klezmer",
+                "hash": "3cdea16371"
+        },
+        {
+                "name": "Gut Morgn",
+                "file": "klezmer/gut morgn.abc",
+                "category": "klezmer",
+                "hash": "565c4626ef"
+        },
+        {
+                "name": "Gypsy Bulgar",
+                "file": "klezmer/gypsy bulgar.abc",
+                "category": "klezmer",
+                "hash": "dc428cb640"
+        },
+        {
+                "name": "Hasidic Waltz",
+                "file": "klezmer/hasidic waltz.abc",
+                "category": "klezmer",
+                "hash": "8e45f7d170"
+        },
+        {
+                "name": "Haynt Iz Purim, Brider!",
+                "file": "klezmer/haynt iz purim brider.abc",
+                "category": "klezmer",
+                "hash": "f6e19cdc06"
+        },
+        {
+                "name": "Henry Weinstein's",
+                "file": "klezmer/bulgar henry weinsteins.abc",
+                "category": "klezmer",
+                "hash": "f6a45f1e44"
+        },
+        {
+                "name": "Hob Ich Mir An Altn Dajm",
+                "file": "klezmer/hob ich mir an altn dajm.abc",
+                "category": "klezmer",
+                "hash": "9b19a85b32"
+        },
+        {
+                "name": "Hop! Mayne Homntashn!",
+                "file": "klezmer/hop mayne homntashn.abc",
+                "category": "klezmer",
+                "hash": "27cc35457a"
+        },
+        {
+                "name": "Hopkele",
+                "file": "klezmer/hopkele.abc",
+                "category": "klezmer",
+                "hash": "dc4f814d13"
+        },
+        {
+                "name": "Hora Agadati",
+                "file": "klezmer/hora agadati.abc",
+                "category": "klezmer",
+                "hash": "ddce0e50eb"
+        },
+        {
+                "name": "Hora Fetelor",
+                "file": "klezmer/hora fetelor.abc",
+                "category": "klezmer",
+                "hash": "2c7e2c692a"
+        },
+        {
+                "name": "Hora La Patru",
+                "file": "klezmer/hora la patru.abc",
+                "category": "klezmer",
+                "hash": "3ebf626b4b"
+        },
+        {
+                "name": "In Odess'",
+                "file": "klezmer/in odess.abc",
+                "category": "klezmer",
+                "hash": "7dec332ae9"
+        },
+        {
+                "name": "Ira's Sher",
+                "file": "klezmer/iras sher.abc",
+                "category": "klezmer",
+                "hash": "0dd148f1d4"
+        },
+        {
+                "name": "Itamar Freilach",
+                "file": "klezmer/itamar freilach.abc",
+                "category": "klezmer",
+                "hash": "feb8518d0e"
+        },
+        {
+                "name": "Itsik Hot Khasene Gehat",
+                "file": "klezmer/itsik hot khasene gehat.abc",
+                "category": "klezmer",
+                "hash": "c123ed2355"
+        },
+        {
+                "name": "Itzikel",
+                "file": "klezmer/itzikel.abc",
+                "category": "klezmer",
+                "hash": "50c114e040"
+        },
+        {
+                "name": "Jewish Freilakhs",
+                "file": "klezmer/jewish freilakhs.abc",
+                "category": "klezmer",
+                "hash": "d8f8787d53"
+        },
+        {
+                "name": "Joe Kutcher's #1",
+                "file": "klezmer/bulgar joe kutchers 1.abc",
+                "category": "klezmer",
+                "hash": "4ae3ae436c"
+        },
+        {
+                "name": "Joe Kutcher's #2",
+                "file": "klezmer/bulgar joe kutchers 2.abc",
+                "category": "klezmer",
+                "hash": "56a5f9c0df"
+        },
+        {
+                "name": "Kamjensl Freilach",
+                "file": "klezmer/kamjensl freilach.abc",
+                "category": "klezmer",
+                "hash": "93757b9f00"
+        },
+        {
+                "name": "Kandel's Hora",
+                "file": "klezmer/kandels hora.abc",
+                "category": "klezmer",
+                "hash": "05234d2b48"
+        },
+        {
+                "name": "Karapyet",
+                "file": "klezmer/karapyet.abc",
+                "category": "klezmer",
+                "hash": "fb3988ce4f"
+        },
+        {
+                "name": "Kasatske",
+                "file": "klezmer/kasatske dg.abc",
+                "category": "klezmer",
+                "hash": "1f164e5bbf"
+        },
+        {
+                "name": "Keshenever Bulgar",
+                "file": "klezmer/keshenever bulgar.abc",
+                "category": "klezmer",
+                "hash": "6e7f30eca2"
+        },
+        {
+                "name": "Keshever Shtikele",
+                "file": "klezmer/keshever shtikele.abc",
+                "category": "klezmer",
+                "hash": "2d72d5d96c"
+        },
+        {
+                "name": "Khasidim Tanz",
+                "file": "klezmer/khasidim tanz.abc",
+                "category": "klezmer",
+                "hash": "0c35973449"
+        },
+        {
+                "name": "Khosid Dance",
+                "file": "klezmer/khosid dance.abc",
+                "category": "klezmer",
+                "hash": "ac12f55714"
+        },
+        {
+                "name": "Khosid Wedding Dance",
+                "file": "klezmer/khosid wedding dance.abc",
+                "category": "klezmer",
+                "hash": "59af19cd44"
+        },
+        {
+                "name": "Khosidl",
+                "file": "klezmer/khosidl.abc",
+                "category": "klezmer",
+                "hash": "57eb59138a"
+        },
+        {
+                "name": "Khupa Tanz #2",
+                "file": "klezmer/khupa tanz 2.abc",
+                "category": "klezmer",
+                "hash": "b1b4c6b273"
+        },
+        {
+                "name": "Kishiniever Bulgar",
+                "file": "klezmer/kishiniever bulgar a bulgar from kishiniev.abc",
+                "category": "klezmer",
+                "hash": "46983f8608"
+        },
+        {
+                "name": "Kolomeike 1",
+                "file": "klezmer/kolomeike 1.abc",
+                "category": "klezmer",
+                "hash": "96e2e06212"
+        },
+        {
+                "name": "Kolomeike 2",
+                "file": "klezmer/kolomeike 2.abc",
+                "category": "klezmer",
+                "hash": "39538a6bbf"
+        },
+        {
+                "name": "Lebedich Un Freilech",
+                "file": "klezmer/lebedich un freilech.abc",
+                "category": "klezmer",
+                "hash": "1de0ef8b0c"
+        },
+        {
+                "name": "Leben Zol Palestina",
+                "file": "klezmer/leben zol palestina.abc",
+                "category": "klezmer",
+                "hash": "9074526c56"
+        },
+        {
+                "name": "Leybedik (Russian Bulgar)",
+                "file": "klezmer/leybedik russian bulgar.abc",
+                "category": "klezmer",
+                "hash": "b784e69906"
+        },
+        {
+                "name": "Long Live The Nigun",
+                "file": "klezmer/long live the nigun.abc",
+                "category": "klezmer",
+                "hash": "6979b8a4ef"
+        },
+        {
+                "name": "M'hera",
+                "file": "klezmer/mhera.abc",
+                "category": "klezmer",
+                "hash": "f5fff05a25"
+        },
+        {
+                "name": "Mayn Rue Platz",
+                "file": "klezmer/mayn rue platz.abc",
+                "category": "klezmer",
+                "hash": "497ed03008"
+        },
+        {
+                "name": "Mazel",
+                "file": "klezmer/mazel.abc",
+                "category": "klezmer",
+                "hash": "94ae7bf36a"
+        },
+        {
+                "name": "Mazl Tov",
+                "file": "klezmer/bulgar mazl tov.abc",
+                "category": "klezmer",
+                "hash": "032da2cddb"
+        },
+        {
+                "name": "Mein Shtet'l Yass",
+                "file": "klezmer/mein shtetl yass.abc",
+                "category": "klezmer",
+                "hash": "45c3acb9ed"
+        },
+        {
+                "name": "Melodica Bulgar",
+                "file": "klezmer/melodica bulgar.abc",
+                "category": "klezmer",
+                "hash": "3fa83c1c49"
+        },
+        {
+                "name": "Mitzvo Tants Mit Der Kale",
+                "file": "klezmer/mitzvo tants mit der kale.abc",
+                "category": "klezmer",
+                "hash": "5b9dc2f36d"
+        },
+        {
+                "name": "Moldavian Tants",
+                "file": "klezmer/moldavian tants.abc",
+                "category": "klezmer",
+                "hash": "1d73fb1f2f"
+        },
+        {
+                "name": "Monastritch",
+                "file": "klezmer/monastritch.abc",
+                "category": "klezmer",
+                "hash": "bba8d78dd2"
+        },
+        {
+                "name": "Naftule Shpil Es Nokh Amol",
+                "file": "klezmer/naftule shpil es nokh amol.abc",
+                "category": "klezmer",
+                "hash": "86db1a1aba"
+        },
+        {
+                "name": "Nakhes Fun Kinder",
+                "file": "klezmer/nakhes fun kinder.abc",
+                "category": "klezmer",
+                "hash": "02101ccab9"
+        },
+        {
+                "name": "Nifty's Freylekhs",
+                "file": "klezmer/niftys freylekhs.abc",
+                "category": "klezmer",
+                "hash": "7b9351e400"
+        },
+        {
+                "name": "Nigun Sameach",
+                "file": "klezmer/nigun sameach.abc",
+                "category": "klezmer",
+                "hash": "fd0d655948"
+        },
+        {
+                "name": "Noch A Bissel",
+                "file": "klezmer/noch a bissel.abc",
+                "category": "klezmer",
+                "hash": "f72ee699a1"
         },
         {
                 "name": "Odessa Bulgar",
@@ -1665,10 +2457,136 @@ class AbcFileList {
                 "hash": "46aeabcddc"
         },
         {
+                "name": "Oi Shloimele",
+                "file": "klezmer/oi shloimele.abc",
+                "category": "klezmer",
+                "hash": "14bf633be3"
+        },
+        {
+                "name": "Oi Tate",
+                "file": "klezmer/oi tate.abc",
+                "category": "klezmer",
+                "hash": "8c3cc06cb3"
+        },
+        {
+                "name": "Oj Dortn",
+                "file": "klezmer/oj dortn.abc",
+                "category": "klezmer",
+                "hash": "9215117a0b"
+        },
+        {
+                "name": "Ojfn Veg Stejt A Bojm",
+                "file": "klezmer/ojfn veg stejt a bojm.abc",
+                "category": "klezmer",
+                "hash": "cac63465fb"
+        },
+        {
                 "name": "Ot Azoy",
                 "file": "klezmer/ot azoy.abc",
                 "category": "klezmer",
                 "hash": "64407c18bf"
+        },
+        {
+                "name": "Patch Tanz",
+                "file": "klezmer/patch tanz.abc",
+                "category": "klezmer",
+                "hash": "a0f537f52e"
+        },
+        {
+                "name": "Regndl",
+                "file": "klezmer/regndl.abc",
+                "category": "klezmer",
+                "hash": "8fd7e854b5"
+        },
+        {
+                "name": "Rumanian Bulgar",
+                "file": "klezmer/rumanian bulgar.abc",
+                "category": "klezmer",
+                "hash": "ab341ac079"
+        },
+        {
+                "name": "Rumanian Bulgar (freylach)",
+                "file": "klezmer/rumanian bulgar freylach.abc",
+                "category": "klezmer",
+                "hash": "be96bd419b"
+        },
+        {
+                "name": "Rumshinsky Bulgur",
+                "file": "klezmer/rumshinsky bulgur.abc",
+                "category": "klezmer",
+                "hash": "6a8e473be2"
+        },
+        {
+                "name": "Russian Freilach",
+                "file": "klezmer/russian freilach.abc",
+                "category": "klezmer",
+                "hash": "7ed4fc9490"
+        },
+        {
+                "name": "Russian Sher",
+                "file": "klezmer/russian sher.abc",
+                "category": "klezmer",
+                "hash": "945ab3a9a2"
+        },
+        {
+                "name": "Sadegurer Khosid",
+                "file": "klezmer/sadegurer khosid.abc",
+                "category": "klezmer",
+                "hash": "57d622e2a0"
+        },
+        {
+                "name": "Schwartz's Sirba",
+                "file": "klezmer/schwartzs sirba.abc",
+                "category": "klezmer",
+                "hash": "bae68103c9"
+        },
+        {
+                "name": "Shabes In Vilna",
+                "file": "klezmer/shabes in vilna.abc",
+                "category": "klezmer",
+                "hash": "be18b9995e"
+        },
+        {
+                "name": "Shapiro's Korohod",
+                "file": "klezmer/shapiros korohod.abc",
+                "category": "klezmer",
+                "hash": "ed063b0cd7"
+        },
+        {
+                "name": "Sher",
+                "file": "klezmer/sher.abc",
+                "category": "klezmer",
+                "hash": "d6d5f1e842"
+        },
+        {
+                "name": "Sher (from Khevrisa)",
+                "file": "klezmer/sher from khevrisa.abc",
+                "category": "klezmer",
+                "hash": "d07d3115d4"
+        },
+        {
+                "name": "Sher 3 (\"Philadelphia\")",
+                "file": "klezmer/sher 3 philadelphia.abc",
+                "category": "klezmer",
+                "hash": "a0987ec28d"
+        },
+        {
+                "name": "Sherele",
+                "file": "klezmer/sherele.abc",
+                "category": "klezmer",
+                "hash": "8f4dd5e186"
+        },
+        {
+                "name": "Shiroh Hora",
+                "file": "klezmer/shiroh hora.abc",
+                "category": "klezmer",
+                "hash": "b36cf5df7c"
+        },
+        {
+                "name": "Shmelke's Nigun",
+                "file": "klezmer/shmelkes nigun.abc",
+                "category": "klezmer",
+                "hash": "f102510a4c"
         },
         {
                 "name": "Shnirele Perele",
@@ -1677,10 +2595,52 @@ class AbcFileList {
                 "hash": "ce9b8e1cda"
         },
         {
+                "name": "Sholem Zol Zajn",
+                "file": "klezmer/sholem zol zajn.abc",
+                "category": "klezmer",
+                "hash": "d15ace6861"
+        },
+        {
                 "name": "Shpil Zhe Mir a Lidele",
                 "file": "klezmer/shpil zhe mir a lidele.abc",
                 "category": "klezmer",
                 "hash": "6ab5b5836a"
+        },
+        {
+                "name": "Shver Un Shviger",
+                "file": "klezmer/shver un shviger.abc",
+                "category": "klezmer",
+                "hash": "3712b6b824"
+        },
+        {
+                "name": "Sidney's Ershte Bulgar",
+                "file": "klezmer/sidneys ershte bulgar.abc",
+                "category": "klezmer",
+                "hash": "3f4ca7bad4"
+        },
+        {
+                "name": "Simkhes-Toyre",
+                "file": "klezmer/simkhestoyre.abc",
+                "category": "klezmer",
+                "hash": "3b522590ca"
+        },
+        {
+                "name": "Sorele's Bat Mitsve",
+                "file": "klezmer/soreles bat mitsve.abc",
+                "category": "klezmer",
+                "hash": "90f192dc77"
+        },
+        {
+                "name": "Stanislaver Bulgar",
+                "file": "klezmer/stanislaver bulgar.abc",
+                "category": "klezmer",
+                "hash": "7f9bd0b110"
+        },
+        {
+                "name": "S\u00eerba From Carpati",
+                "file": "klezmer/sirba from carpati.abc",
+                "category": "klezmer",
+                "hash": "af959e4c82"
         },
         {
                 "name": "Tants, Tants, Yidelekh",
@@ -1689,10 +2649,94 @@ class AbcFileList {
                 "hash": "d7431b3ba6"
         },
         {
+                "name": "Tiraspoler Bulgar",
+                "file": "klezmer/tiraspoler bulgar.abc",
+                "category": "klezmer",
+                "hash": "b885e4b7d3"
+        },
+        {
+                "name": "Tish Nigun",
+                "file": "klezmer/tish nigun.abc",
+                "category": "klezmer",
+                "hash": "a6b9953d4a"
+        },
+        {
+                "name": "Tsav\u00e9",
+                "file": "klezmer/tsave.abc",
+                "category": "klezmer",
+                "hash": "e0817e9deb"
+        },
+        {
+                "name": "Unzer Toyrele",
+                "file": "klezmer/unzer toyrele.abc",
+                "category": "klezmer",
+                "hash": "0d1dd73946"
+        },
+        {
+                "name": "Varshaver Freylekhs",
+                "file": "klezmer/varshaver freylekhs.abc",
+                "category": "klezmer",
+                "hash": "ef9e4a3e79"
+        },
+        {
+                "name": "Vayn A Glezele",
+                "file": "klezmer/vayn a glezele.abc",
+                "category": "klezmer",
+                "hash": "947a559426"
+        },
+        {
+                "name": "Vi Shlekht Un Vi Biter",
+                "file": "klezmer/vi shlekht un vi biter.abc",
+                "category": "klezmer",
+                "hash": "56905336a6"
+        },
+        {
+                "name": "Vu Bist Du Geveyn Far Prohibishn",
+                "file": "klezmer/vu bist du geveyn far prohibishn.abc",
+                "category": "klezmer",
+                "hash": "1cd876e741"
+        },
+        {
+                "name": "Wedding Hora",
+                "file": "klezmer/wedding hora.abc",
+                "category": "klezmer",
+                "hash": "b4a4f16df7"
+        },
+        {
                 "name": "Yidl Mitn Fidl",
                 "file": "klezmer/yidl mitn fidl.abc",
                 "category": "klezmer",
                 "hash": "e5d07e655c"
+        },
+        {
+                "name": "Yos'l Yos'l",
+                "file": "klezmer/yosl yosl.abc",
+                "category": "klezmer",
+                "hash": "56829727ba"
+        },
+        {
+                "name": "Yoshke Fort Avek",
+                "file": "klezmer/yoshke fort avek.abc",
+                "category": "klezmer",
+                "hash": "93d553074c"
+        },
+        {
+                "name": "Yosis",
+                "file": "klezmer/yosis.abc",
+                "category": "klezmer",
+                "hash": "f555f917d9"
+        },
+        {
+                "name": "Zhok (Moldavian Dance)",
+                "file": "klezmer/zhok moldavian dance.abc",
+                "category": "klezmer",
+                "hash": "24c29d283f"
+        },
+        {
+                "name": "Zog Maran",
+                "file": "klezmer/zog maran.abc",
+                "category": "klezmer",
+                "hash": "c88d4930c0"
         },
         {
                 "name": "Arirang",
@@ -1855,6 +2899,12 @@ class AbcFileList {
                 "file": "occitan/se canta.abc",
                 "category": "occitan",
                 "hash": "0e88939dba"
+        },
+        {
+                "name": "Hey Jamalo",
+                "file": "pakistani/hey jamalo.abc",
+                "category": "pakistani",
+                "hash": "62fe3427dc"
         },
         {
                 "name": "El Condor Pasa",
@@ -2467,6 +3517,12 @@ class AbcFileList {
                 "file": "uruguayan/chiu chiu chiu.abc",
                 "category": "uruguayan",
                 "hash": "ccb3c94742"
+        },
+        {
+                "name": "Alma Llanera",
+                "file": "venezuelan/alma llanera.abc",
+                "category": "venezuelan",
+                "hash": "778b207bf9"
         },
         {
                 "name": "B\u00e8o D\u1ea1t M\u00e2y Tr\u00f4i",

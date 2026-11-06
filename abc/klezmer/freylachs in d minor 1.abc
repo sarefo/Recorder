@@ -1,0 +1,13 @@
+X: 1
+T: Freylachs In D Minor (1)
+O: Klezmer
+N: From the allklez collection (ifdo.ca). Moved +7 semitones for range. CHECK: one pass is not a whole number of bars, so the loop limps.
+L: 1/8
+Q: 1/4=100
+M: 4/4
+K: Am
+EAc|"Am"e2 ef e2 dc|"Dm"d2 d_e d2 zc|"Am"cB Bc "Gm"cA/c/ _B/A/G|
+e2 e{g}f e2 dc|"Dm"d2 d_e d2 zc|"Am"cB Bc "Gm"cA/c/ _B/A/G|"Am"A2 z3 :|
+|: EAc|"Am"e2 dc "Dm"d{e}d cB|"Am"c2 BA c/B/A "G"Gc|"Am"cB Bc cA/c/ A2 z3 :|
+|: GAB|"C"c2 "G7"d2 "C"e2 "G7"f2|"C"g6 zg|"G7"gf fg ge/g/ f/e/d|"C"e3 ^d e/=d/c c2
+|"Cm"c_e dc de2 e|"D"^f/g/a g/f/_e d2 zc|"Am"cB Bc "Gm"cA _B/A/G|"Am"A2 z3 :|

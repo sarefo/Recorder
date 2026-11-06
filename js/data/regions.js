@@ -21,7 +21,7 @@ class RegionMap {
             label: 'Europe',
             accent: 210,
             categories: [
-                'albanian', 'austrian', 'breton', 'bulgarian', 'catalan', 'cornish', 'czech', 'dutch',
+                'albanian', 'austrian', 'bosnian', 'breton', 'bulgarian', 'catalan', 'cornish', 'czech', 'dutch',
                 'english', 'finnish', 'french', 'galician', 'georgian', 'german', 'greek',
                 'hungarian', 'irish', 'italian', 'klezmer', 'lithuanian', 'macedonian',
                 'maltese', 'manx', 'norwegian', 'occitan', 'polish', 'portuguese',
@@ -50,7 +50,7 @@ class RegionMap {
             label: 'Asia',
             accent: 0,
             categories: [
-                'afghan', 'chinese', 'indian', 'indonesian', 'japanese', 'kazakh', 'korean', 'mongolian',
+                'afghan', 'bangladeshi', 'chinese', 'indian', 'indonesian', 'japanese', 'kazakh', 'korean', 'mongolian', 'pakistani',
                 'philippine', 'thai', 'vietnamese',
             ],
         },
@@ -60,7 +60,7 @@ class RegionMap {
             accent: 145,
             categories: [
                 'american', 'argentine', 'bolivian', 'brazilian', 'cajun', 'canadian',
-                'cuban', 'inuit', 'jamaican', 'latino', 'mexican', 'peruvian',
+                'cuban', 'inuit', 'jamaican', 'latino', 'mexican', 'peruvian', 'venezuelan',
                 'puerto rican', 'trinidadian', 'uruguayan'
             ],
         },
@@ -68,7 +68,7 @@ class RegionMap {
             id: 'oceania',
             label: 'Oceania',
             accent: 185,
-            categories: ['australian', 'hawaiian', 'maori'],
+            categories: ['australian', 'fijian', 'hawaiian', 'maori'],
         },
         {
             id: 'classical',

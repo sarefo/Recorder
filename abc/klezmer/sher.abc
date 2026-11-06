@@ -1,0 +1,33 @@
+X: 1
+T: Sher
+O: Klezmer
+N: From the allklez collection (ifdo.ca). CHECK: one pass is not a whole number of bars, so the loop limps.
+L: 1/16
+Q: 1/4=100
+M: 2/4
+K: APhr
+|"A"A2B2 ^c4-|cB^c2 B2A2|^c2d2 e4-|
+e2de d2^c2|"A"A2B2 ^c4-|cB^c2 B2A2|BAA2 z2 :|
+|: A2|"Dm"d4 A4|^c2d2 efdf|e4 a4|
+"Dm"d4 BAA2 z2 :|
+|: A2|"Dm"~d8|f6 ^g2|^gagf gagf|
+feed efA2|"Dm"d6 f2|a4 a4|^gagf gagf|
+feed d2 :|
+|: A2|"Gm"g3^f g3f|g6 =f2|"A"e3^d e3d|
+e6 d2|^cdef gfed|^cded cBAG|BAA2 z2 :|
+|: E2|"A"ABGB A2A2|ABGB A2A2|A2B2 ^cdcB|
+AB^c2- c4|"A"ABGB A2A2|ABGB A2A2|BAA2 z2 :|
+|: A2|"Dm"d6 A2|d6 A2|d3A d3A|
+d3A d3A|"Dm"d2ef def2|d2ef def2|fggf fggf|
+fggf fed2
+|"Dm"f2f2 {f}edef|d4 f2A2|d2fe def2|
+d2fe def2|fggf fggf|fggf fed2|"Dm"f2f2 {f}edef|
+"Dm"d6 :|
+|: E2|"A"A2a2 A2a2|A2 a6|"Gm"g3f g3f|
+"A"fee2- e4|"Gm"G2g2 G2g2|G2 g6|"A"f2e2 d2^c2|
+^cfe2- e2A2
+|AGAB ~A2G2|BAA2 z2 :|
+|: (3E^F^G|"Dm"A4 G4|"Dm"F4 "A"E4|"Dm"D3E FEFD|
+"A"E4 z2(3EF^F|"Gm"GFGE "Dm"FEFD|"A"EDFE "Dm"D4|BAA2 z2 :|
+|: D2|"Gm"G4 A4|B4 d4|G4 A4|
+B4 d4|"A"^cded ~c3B|BAA2 z2 :|

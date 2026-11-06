@@ -1,0 +1,14 @@
+X: 1
+T: Der Mužinikal
+O: Klezmer
+N: From the allklez collection (ifdo.ca). Moved -5 semitones for range. CHECK: one pass is not a whole number of bars, so the loop limps.
+L: 1/16
+Q: 1/4=100
+M: 2/4
+K: Am
+|:"E"E2e2 E2e2|dcBA TB3A|^GEGB "Am"AEAc|1,3 "E"BA^GF G3E :|2,4 "E"BA^GF E4 :|
+|:"Am"c4 c4|cBBA A4|A^GFE D4|^CDEF ^GAGF|1 "E"E2^G2 B2e2 :|2 E4|]
+|: E2|"Am"A6 Bc|A6 E2|(3A2B2c2 (3B2A2^G2|
+A6 E2|(3A2B2c2 (3B2A2^G2|A6 E2
+|"Am"ABc2 "E7"Bcd2|"Am"cde2 "Dm"def2|"Am"edc2 "E7"dcB2|c6 E2
+|"Am"ABc2 "E7"Bcd2|"Am"cde2 "Dm"def2|"Am"edc2 "E7"dcB2|"Am"A6 :|

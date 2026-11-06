@@ -1,0 +1,17 @@
+X: 1
+T: Monastritch
+O: Klezmer
+N: From the allklez collection (ifdo.ca). Moved +7 semitones for range. CHECK: one pass is not a whole number of bars, so the loop limps.
+L: 1/8
+Q: 1/4=100
+M: 2/4
+K: Am
+|: "Am"A2 c2|e2 a2|e3 d|"Dm"g/f/e/d/ ^cd|
+"Am"c d2 c|"E7"(3e^dc (3cBA|e4 ::
+"Am"A2 c2|e2 a2|e3 d|"Dm"g/f/e/d/ ^cd|
+"Am"c d2 c|"E7"(3e^dc (3cBA|"Am"A4|1 "E7"zE ^F^G :|2 "G7"zG AB
+|: "C"c4|zc dc|e4|ze fe|
+g4|zg ag|a2 "C/E"g2|"G7/D"f2 "C"e2
+|"G7"e3 d|"C"g/f/e/d/ c2|"G7"d>e fg|
+ec dB|"C"c4|1 "G7"zG AB :|2 "E7"ZE Ac
+|: "Am"e>c "Dm"d/e/f/d/|"Am"e>c "Dm"d>B|"Am"c>A "E7"B>^G|1,3 "Am"AB "E7"cd :|2 "Am"A2 "E7"z/E/A/c/ :|4 "Am"A2 z2|]

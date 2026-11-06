@@ -1,0 +1,15 @@
+X: 1
+T: Zorba the Greek
+O: Mikis Theodorakis, 1964
+N: Track 0 of zorba-mid, chords fitted from the arrangement. CHECK: the MIDI rhythm is rough, so bars may need tidying by ear. Moved +5 semitones. 25 bars.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: C
+"C"G2 z2 G2 z3/2A/|G2 z2 G2 z2|"Dm"F2 z3/2G/ F3/2 z2 z/|"C"E3/2z3/2 F/E/ "G"D3/2z3/2 E/C/|
+"C"D/ z3 z/ z4|e2 z2 e3/2 z2 f/|e2 z2 e3/2 z2 z/|"Dm"d3/2 z2 e/ d3/2 z2 B/|
+"C"c2 zf/e/ "G"d3/2z3/2 e/c/|"C"d/ z3 z/ z4|^d/e/e/e/ e/e/e/e/ e/e/e/e/ e/e/e/e/|^d/e/e/e/ e/e/e/e/ e/e/e/e/ e/e/f/e/|
+^d/e/e/e/ e/e/e/e/ e/e/e/e/ e/e/e/e/|^d/e/e/e/ e/e/e/e/ e/e/e/e/ e/e/e/e/|"Dm"^c/d/d/d/ d/d/d/d/ d/d/d/d/ d/d/e/d/|^c/d/d/d/ d/d/d/d/ d/d/d/d/ d/d/d/^d/|
+"C"^d/e/e/e/ e/e/e/e/ e/e/e/e/ e/e/e/f/|"Dm"^c/d/d/d/ d/d/d/d/ d/d/d/d/ d/d/e/d/|"C"B/c/c/c/ c/c/c/c/ c/c/c/c/ c/c/B/c/|^d/e/e/e/ e/e/e/e/ e/e/e/e/ e/e/e/e/|
+^d/e/e/e/ e/e/e/e/ e/e/e/e/ e/e/f/e/|^d/e/e/e/ e/e/e/e/ e/e/e/e/ e/e/e/e/|^d/e/e/e/ e/e/e/e/ e/e/e/e/ e/e/e/e/|^f/g/g/g/ g/g/g/g/ g/g/g/g/ g/g/g/a/|
+^f/g/g/g/ g/g/g/g/ g/g/g/g/ g/g/g/g/|]

@@ -1,0 +1,19 @@
+X: 1
+T: Joe Kutcher's #2
+O: Klezmer, Joe Kutcher (Kammen 9#14)
+N: From the allklez collection (ifdo.ca), Kammen 9 #14. CHECK: goes outside C4-A5 (C4-D6). CHECK: one pass is not a whole number of bars, so the loop limps.
+L: 1/8
+Q: 1/4=100
+M: 2/4
+K: Dm
+DFA|: "Dm"d2 Ad-         |dA (3c=BA      |^G/=B/ A3-   |
+AD FA| "Dm"d2 Ad-        |dA (3c=BA      |^G/=B/ A3-   |
+AC FA
+|  "F"[c2A2] [AF][cA]-|[cA]A "C7"(3BAG|AF "C"GE       |
+"Dm"FD "A7"E^C |"Dm"D4-      |D    :|
+"C7"c[d=B][e_B]|: "F"[f2A2] "C7"[g2B2] |"F"[a2c2] [gB][fA]|[ac] [f3-A3-]  |
+[f3A3] c|"F"[f2A2] "C7"[g2B2] |"F"[a2c2] gf    |=b c'3-      |
+c'3 c
+| "Fm"[f2_A2] "C7"[g2B2]|"Fm"[_a2c2] gf  |c'=b/d'/ (3c'=b_a|
+"C"g4|"Dm"fe ef          |fd "Cm"(3_edc  |"Dm"d4-      |
+d    :|

@@ -1,0 +1,23 @@
+X: 1
+T: Baym Rebn In Palestine
+O: Klezmer
+N: From the allklez collection (ifdo.ca). Moved +5 semitones for range. CHECK: one pass is not a whole number of bars, so the loop limps.
+L: 1/8
+Q: 1/4=100
+M: 3/4
+K: G
+|: "G"D3 GBd|^c2 d4|d2 e2 (3=fed|c2 B2 AG|
+"G"D3 GBd|^c2 d2 (3=fed|^c2 {e}d4|c2 B2 AG|
+"G"D3 GBd|^c2 d4
+|d2 e2 (3=fed|c2 B2 AG|1 "D7"A3 edc|B2 zGAF|
+"G"G2 zgdB|G2 z4 :|2"D7"A3 Bcd|B2 zGAF|"G"G2 zgdB|
+G2 z2|
+|: G2|"G"g6-|g6|a=f- f4-|
+f4 zg-|ge- e4-|e3 d (3=fed|^c2 d4-|
+d2 z2 :|
+|: "D7"D2|"G"B2 zGAB|c2 B2 (3BAG|B2 zGAB|
+c2 B2 (3BAG|"G"B2 zGAB|c6|d{e}d- d4|
+c2 B2 (3BAG
+|"G"B2 zGAB|c2 B2 (3BAG|B2 zGAB|
+c2 B2 (3BAG|"D7"A3 edc|B2 zGAF|"G"G2 zgdB|
+G2 z2 :|

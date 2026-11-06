@@ -1,0 +1,14 @@
+X: 1
+T: Dem Milners Trern
+O: Klezmer
+N: From the allklez collection (ifdo.ca). Moved +7 semitones for range. CHECK: one pass is not a whole number of bars, so the loop limps.
+L: 1/8
+Q: 1/4=100
+M: 3/4
+K: G
+DG A|"G" B2 AD GA|"D" B2 AD GA|
+"G" BG "Am" cB|"D" (A4|A) |:E AB|
+"Am" ce (e2|e)D GA|"G" Bd (d2|d)D GA|
+BG "D" AF|"G" G4|G:||:E AB|
+"Am" ce e2|eD GA|"G" Bd (d2|d)D GA|
+BG "D" AF|"G" (G4|G):|

@@ -2,6 +2,7 @@
 Grid is sixteenths. Key found by Krumhansl profile, transposed to fit C4-A5 with few accidentals.
 Chords fitted per half bar from all other pitched tracks."""
 import struct,re
+LEAD=0
 def vlq(b,i):
     v=0
     while True:
@@ -33,6 +34,8 @@ def parse(path):
                     if k==9 and v>0:on[(c,a)]=tick
                     elif k in(8,9) and (c,a) in on:
                         notes.setdefault((t,c),[]).append((on.pop((c,a)),tick,a))
+    if LEAD:
+        notes={k:[(max(0,x-LEAD),max(1,y-LEAD),p) for x,y,p in v] for k,v in notes.items()}
     return div,ts,tempo,notes
 MAJ=[6.35,2.23,3.48,2.33,4.38,4.09,2.52,5.19,2.39,3.66,2.29,2.88]
 MIN=[6.33,2.68,3.52,5.38,2.60,3.53,2.54,4.75,3.98,2.69,3.34,3.17]

@@ -1,0 +1,14 @@
+X: 1
+T: Freylachs In D Minor (2)
+O: Klezmer
+N: From the allklez collection (ifdo.ca). CHECK: goes outside C4-A5 (A3-D#5). CHECK: one pass is not a whole number of bars, so the loop limps.
+L: 1/8
+Q: 1/4=100
+M: 4/4
+K: Dm
+z2D|"Dm"DA, DE FF ED|"Gm"G G2 G "Dm"FF ED|"Gm"G G2 G "C7"FE     DE|"F"F2 A2 "A7"A/G/F F/E/D
+|"Dm"DA, DE FF ED|"Gm"G G2 G "Dm"FF ED|"Gm"G G2 G "Dm"FC "Cm"D_E|"Dm"D2 z3 :|
+|: CFG|A=G B/A/G|"F"F2 z3     CFA|"F"c>d _e/d/c e/d/c  BA|"F"=B{d}c z3 CFG
+|G2 z3 A _B=B|"F"cA  _B{A}G AF "C7"GE|1 "F"F2 z3 :|2 "Dm"F2 d4
+|:EA, ^CE GG   FE|"Dm"D/^C/D/E/ F/E/F/G/ A2 z^c
+|"Dm"d A2 A ^GA GF|"Dm"EF FF EF ED|"A7"EA, ^CE ^GA =BA|"Dm"A/G/F     F/E/D    D2 z2 :|

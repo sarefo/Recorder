@@ -1,0 +1,14 @@
+X: 1
+T: Araber Tants
+O: Klezmer
+N: From the allklez collection (ifdo.ca). Moved +7 semitones for range. CHECK: one pass is not a whole number of bars, so the loop limps.
+L: 1/8
+Q: 1/4=100
+M: 4/4
+K: Aphr ^c
+A2|"A"cde2 e2e2|"Dm"f6 ed|fede|"A"dc3 z2A2
+|"A"cde2 e2e2|"Gm"g4- gfed|"A"cde2 "Bb"fede|"A"dc3 z4
+|"A7"Aa2^g a2e2|"Dm"f3g a2g/f/e/d/|"Gm"cd3- dcBc|"A"BA3 zA (3fed
+|: "A7"c8|"Dm"d8|"A"cdec- cA"Gm"BG|"A"ABcd eaed
+| "A7"c8|"Dm"d4 zA (3fed|"A"cdec- cA"Gm"BG|1 "A"A4 zA (3fed :|2 "A"A4 za "Gm"g/f/e/d/
+|: "A"cdec- cA "Gm"B/A/B/G/|"A"ABcd ea "Gm"g/f/e/d/|"A"cdec- cA"Gm"BG|1 "A"AA2E AEA2 :|2 "A"A6|]

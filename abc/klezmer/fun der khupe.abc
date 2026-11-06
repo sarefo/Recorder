@@ -1,0 +1,17 @@
+X: 1
+T: Fun Der Khupe
+O: Klezmer
+N: From the allklez collection (ifdo.ca). Moved +7 semitones for range. CHECK: one pass is not a whole number of bars, so the loop limps.
+L: 1/16
+Q: 1/4=100
+M: 2/4
+K: Am
+|: "Am"A3E Aced|"Am"c2cc c2c2|1,3 "Am"cBA2 "Dm"d2f2|"Dm"f2ed "Am"e4 :|2,4  "C"cGGc "Bb"c_BBA|"Am"A4 z4 :|
+|:"Am"A4- AG^FG|"Am"A4- AG^FG|"Am"AG^FG AGFG|"Am"AG^FG A4|
+"Am"A_BAG ^F2G2|A4
+|"Am"A_BAG ^F2G2|A4|"C"G2AB cdef|
+"C"gece d4|"C"cGGc "Bb"c_BBA|"Am"A4 z4 :|
+|: "G7"G2|"C"cde2- e2e2|"C"e2 e4 e2|"G7"d2d2 cBAB|
+"C"c4 z2 :|
+"E7"B2|:"Am"A4- Aced|"Am"c6 B2|"Am"A^GAc "Dm"B^ABd|"Am"cBce "Dm"dcBA
+|"Am"A4- Aced|"Am"c6 B2|"C"cGGc  "Bb"c_BBA|"Am"A4 z2 :|

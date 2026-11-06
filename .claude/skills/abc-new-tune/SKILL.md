@@ -17,8 +17,9 @@ work, and it is the only part that can silently go wrong.
 **Never transcribe a tune from memory, however well you think you know it.**
 A famous folk song feels unambiguous right up to the point where you write down
 the wrong interval in bar 4 and nothing in the app will ever flag it. If no
-source can be found for a tune, say so and leave it out — a short set of correct
-tunes beats a long set with one quietly broken one.
+clean source can be found, add the best version you can get, flag what is
+approximate in `N:` with a `CHECK:`, and name it in your reply. A flawed tune can be
+fixed; a missing one is forgotten. Only an obviously wrong tune stays out.
 
 Read `reference/sources.md` for the search routes that actually pay off, which
 ones are dead ends, and the exact URL patterns.
