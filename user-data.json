@@ -2375,8 +2375,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-03T10:31:36.770Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-06T10:49:58.587Z",
+      "playCount": 8,
       "createdAt": "2026-08-22T02:59:38.465Z"
     },
     "pop/jamiroquai/canned heat.abc": {
@@ -3052,6 +3052,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/game/monkey island.abc",
+      "timestamp": "2026-11-06T10:49:58.587Z"
+    },
+    {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-11-06T10:46:12.165Z"
     },
@@ -3126,10 +3130,6 @@
     {
       "filePath": "pop/top of the world.abc",
       "timestamp": "2026-11-05T09:52:48.640Z"
-    },
-    {
-      "filePath": "australian/waltzing matilda.abc",
-      "timestamp": "2026-11-05T06:32:30.149Z"
     }
   ],
   "activity": {
@@ -3471,6 +3471,7 @@
       "jazz/girl from ipanema.abc": 2,
       "jazz/moon river.abc": 2,
       "pop/final_countdown.abc": 1,
+      "pop/game/monkey island.abc": 2,
       "scottish/clanranald.abc": 2
     }
   },
@@ -5797,6 +5798,16 @@
         "at": "2026-10-29T03:21:00.723Z"
       }
     },
+    "pop/game/monkey island.abc": {
+      "86": {
+        "pitch": "d",
+        "prev": "e",
+        "pitchSeen": 8,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-06T10:50:53.833Z"
+      }
+    },
     "pop/jamiroquai/canned heat.abc": {
       "4": {
         "pitch": "_B",
@@ -7539,6 +7550,15 @@
         "22": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "pop/game/monkey island.abc": {
+      "at": "2026-11-06T10:50:43.829Z",
+      "notes": {
+        "86": {
+          "state": "red",
+          "pitch": "d"
         }
       }
     },
