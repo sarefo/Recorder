@@ -1,0 +1,19 @@
+X: 1
+T: Carolan's Concerto
+O: Ireland, Turlough O'Carolan
+N: Said to answer the Italian concertos Carolan heard in Dublin. The pickups sit inside the repeats here; the source has them outside, which would shorten each repeat.
+N: Source: thesession.org tune #788, setting 1. Transposed -2 semitones for recorder range.
+L: 1/8
+Q: 1/4=92
+M: 4/4
+K: C
+|:(3GAB|"C"c2 cc c2 BA|"G"GAFG E2G2|"G"D2G2"C"C2G2|
+"Am"AB"C"cd cBAG|
+c2g2 efge|"G7"defd efge|fg"Am"af eceg|"G7"fedc cBAG|
+"Am"AcAc "F"fcfc|"C"Gc Gc eGeG|"F"FA"Dm"FA dedc|"G7"B2 AB G3F|
+"Em"EF"G7"GE DEFD|"Em"EF"G7"GE FGAF|"G"G2 "C"c2 edcB|c6:|
+|:(3GAB|"C"c2"Dm"a2 gfed|"C"c2"G"g2B2g2|"F"A2 fA GABc|
+"G7"dBAG"C"c2 ce|
+"G"dcBA Bggg|"F"Afff "C"Geee|"G"dcBA Bggg|"F"Afff afaf|
+"C"gege "G"dcBA|BG"Dm"AF GEFD|"C"CGEG CGEG|"Dm"FDAD FDAD|
+"C"EGcB AGFE|"G7"DEFG ABcd|G2"C"c2 edcB|c6:|

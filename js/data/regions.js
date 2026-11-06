@@ -21,12 +21,12 @@ class RegionMap {
             label: 'Europe',
             accent: 210,
             categories: [
-                'albanian', 'austrian', 'breton', 'bulgarian', 'czech', 'dutch',
-                'english', 'finnish', 'french', 'georgian', 'german', 'greek',
+                'albanian', 'austrian', 'breton', 'bulgarian', 'cornish', 'czech', 'dutch',
+                'english', 'finnish', 'french', 'galician', 'georgian', 'german', 'greek',
                 'hungarian', 'irish', 'italian', 'lithuanian', 'macedonian',
-                'maltese', 'norwegian', 'occitan', 'polish', 'portuguese',
+                'maltese', 'manx', 'norwegian', 'occitan', 'polish', 'portuguese',
                 'romanian', 'russian', 'scottish', 'serbian', 'slovenian',
-                'spanish', 'swedish', 'swiss', 'ukrainian', 'yiddish',
+                'spanish', 'swedish', 'swiss', 'ukrainian', 'welsh', 'yiddish',
             ],
         },
         {

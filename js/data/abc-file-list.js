@@ -639,6 +639,12 @@ class AbcFileList {
                 "hash": "e2ec96582c"
         },
         {
+                "name": "Helston Furry Dance",
+                "file": "cornish/helston furry dance.abc",
+                "category": "cornish",
+                "hash": "9b022a86a4"
+        },
+        {
                 "name": "Guantanamera",
                 "file": "cuban/guantanamera.abc",
                 "category": "cuban",
@@ -849,6 +855,12 @@ class AbcFileList {
                 "hash": "a4c4babd5a"
         },
         {
+                "name": "Mui\u00f1eira de Chantada",
+                "file": "galician/muineira de chantada.abc",
+                "category": "galician",
+                "hash": "55d2f3e186"
+        },
+        {
                 "name": "Gandagana",
                 "file": "georgian/gandagana.abc",
                 "category": "georgian",
@@ -1005,10 +1017,88 @@ class AbcFileList {
                 "hash": "44016db825"
         },
         {
+                "name": "Carolan's Concerto",
+                "file": "irish/carolans concerto.abc",
+                "category": "irish",
+                "hash": "7763f14bed"
+        },
+        {
+                "name": "Drowsy Maggie",
+                "file": "irish/drowsy maggie.abc",
+                "category": "irish",
+                "hash": "0260dded71"
+        },
+        {
+                "name": "Fanny Power",
+                "file": "irish/fanny power.abc",
+                "category": "irish",
+                "hash": "1538e7c574"
+        },
+        {
                 "name": "Johnny I Hardly Knew Ya",
                 "file": "irish/johnny i hardly knew ya.abc",
                 "category": "irish",
                 "hash": "d04f8a2d69"
+        },
+        {
+                "name": "Morrison's Jig",
+                "file": "irish/morrisons jig.abc",
+                "category": "irish",
+                "hash": "f1957b1ed8"
+        },
+        {
+                "name": "Planxty Irwin",
+                "file": "irish/planxty irwin.abc",
+                "category": "irish",
+                "hash": "8a97d95263"
+        },
+        {
+                "name": "She Moved Through the Fair",
+                "file": "irish/she moved through the fair.abc",
+                "category": "irish",
+                "hash": "c51c489d64"
+        },
+        {
+                "name": "S\u00ed Bheag, S\u00ed Mh\u00f3r",
+                "file": "irish/si bheag si mhor.abc",
+                "category": "irish",
+                "hash": "1adce0138b"
+        },
+        {
+                "name": "Tabhair Dom Do L\u00e1mh",
+                "file": "irish/tabhair dom do lamh.abc",
+                "category": "irish",
+                "hash": "32312e033d"
+        },
+        {
+                "name": "The Banshee",
+                "file": "irish/the banshee.abc",
+                "category": "irish",
+                "hash": "39c05a55ef"
+        },
+        {
+                "name": "The Butterfly",
+                "file": "irish/the butterfly.abc",
+                "category": "irish",
+                "hash": "6e4e4c1055"
+        },
+        {
+                "name": "The Coolin",
+                "file": "irish/the coolin.abc",
+                "category": "irish",
+                "hash": "ce00cd0dc1"
+        },
+        {
+                "name": "The Foggy Dew",
+                "file": "irish/the foggy dew.abc",
+                "category": "irish",
+                "hash": "66c118c991"
+        },
+        {
+                "name": "The South Wind",
+                "file": "irish/the south wind.abc",
+                "category": "irish",
+                "hash": "ea29e1589d"
         },
         {
                 "name": "The Wild Rover",
@@ -1455,6 +1545,18 @@ class AbcFileList {
                 "hash": "62482f4dc3"
         },
         {
+                "name": "Mylecharaine",
+                "file": "manx/mylecharaine.abc",
+                "category": "manx",
+                "hash": "119b37d10e"
+        },
+        {
+                "name": "Ny Kirree fo Niaghtey",
+                "file": "manx/ny kirree fo niaghtey.abc",
+                "category": "manx",
+                "hash": "06288c90dd"
+        },
+        {
                 "name": "Te Hokinga Mai",
                 "file": "maori/te hokinga mai.abc",
                 "category": "maori",
@@ -1869,6 +1971,12 @@ class AbcFileList {
                 "hash": "17cdae904b"
         },
         {
+                "name": "Ae Fond Kiss",
+                "file": "scottish/ae fond kiss.abc",
+                "category": "scottish",
+                "hash": "162fbb816c"
+        },
+        {
                 "name": "Atholl Braes #1",
                 "file": "scottish/atholl_braes_1.abc",
                 "category": "scottish",
@@ -1929,6 +2037,12 @@ class AbcFileList {
                 "hash": "aeb33c097f"
         },
         {
+                "name": "Hector the Hero",
+                "file": "scottish/hector the hero.abc",
+                "category": "scottish",
+                "hash": "e5b48bc621"
+        },
+        {
                 "name": "Highland Fling",
                 "file": "scottish/highland_fling.abc",
                 "category": "scottish",
@@ -1951,6 +2065,12 @@ class AbcFileList {
                 "file": "scottish/sweet_molly.abc",
                 "category": "scottish",
                 "hash": "048071fe71"
+        },
+        {
+                "name": "The Skye Boat Song",
+                "file": "scottish/the skye boat song.abc",
+                "category": "scottish",
+                "hash": "0995dd2628"
         },
         {
                 "name": "Ljulja Ljulja Ljuska",
@@ -2119,6 +2239,30 @@ class AbcFileList {
                 "file": "vietnamese/beo dat may troi.abc",
                 "category": "vietnamese",
                 "hash": "fa7d816f10"
+        },
+        {
+                "name": "Ar Hyd y Nos",
+                "file": "welsh/ar hyd y nos.abc",
+                "category": "welsh",
+                "hash": "33dbd0dd8a"
+        },
+        {
+                "name": "Llwyn Onn",
+                "file": "welsh/llwyn onn.abc",
+                "category": "welsh",
+                "hash": "a149788585"
+        },
+        {
+                "name": "Suo G\u00e2n",
+                "file": "welsh/suo gan.abc",
+                "category": "welsh",
+                "hash": "87889765b0"
+        },
+        {
+                "name": "Tros y Garreg",
+                "file": "welsh/tros y garreg.abc",
+                "category": "welsh",
+                "hash": "29764da634"
         },
         {
                 "name": "Bei Mir Bist Du Sch\u00f6n",
