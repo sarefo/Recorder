@@ -2428,8 +2428,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T09:59:23.537Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-06T10:58:48.371Z",
+      "playCount": 8,
       "createdAt": "2026-10-27T14:01:49.066Z",
       "updatedAt": "2026-10-28T02:44:12.110Z"
     },
@@ -3053,6 +3053,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/mad world.abc",
+      "timestamp": "2026-11-06T10:58:48.371Z"
+    },
+    {
       "filePath": "pop/no doubt/don't speak.abc",
       "timestamp": "2026-11-06T10:56:03.623Z"
     },
@@ -3127,10 +3131,6 @@
     {
       "filePath": "french/hymne a l'amour.abc",
       "timestamp": "2026-11-05T10:05:02.185Z"
-    },
-    {
-      "filePath": "jazz/the way you look tonight.abc",
-      "timestamp": "2026-11-05T10:01:38.747Z"
     }
   ],
   "activity": {
@@ -3473,6 +3473,7 @@
       "jazz/moon river.abc": 2,
       "pop/final_countdown.abc": 1,
       "pop/game/monkey island.abc": 2,
+      "pop/mad world.abc": 1,
       "pop/no doubt/don't speak.abc": 1,
       "pop/the bangles/eternal flame.abc": 2,
       "scottish/clanranald.abc": 2
