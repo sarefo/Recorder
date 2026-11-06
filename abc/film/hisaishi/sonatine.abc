@@ -1,0 +1,15 @@
+X: 1
+T: Sonatine
+O: Joe Hisaishi, 1993
+N: Theme from Takeshi Kitano's film. From a user-uploaded midishow.com MIDI, moved -7 semitones: the pulse figure from channel 1, then the melody from channels 0 and 14. In the original the pulse runs under the whole piece; here it is a 4-bar intro. The closing return of the theme is left to the loop. CHECK: unverified hobby arrangement; chords are fitted, with D changed to Dm because the MIDI has no third.
+L: 1/8
+Q: 1/4=100
+M: 4/4
+K: Dm
+dA eA fA gA|aA g/d/A fA/e3/2 A|dA eA fA/g3/2 A|aA g/d/A fA/e3/2 A|
+|:"Dm"A8|c8|"C"d8-|d4 "Dm"c2 d2|
+"Bb"A6 GA|E6 DE|"C"F8|1 "Dm"G8:|2 "Dm"G4 "C"C C2 C|
+"Dm"d8|c6 B2|"C"A8|E8|
+"Bb"d8|e8|"C"c8-|c3 G/F/ "Am"G F3|
+"Dm"e6 f2|g6 a2|"C"e8-|e6 c2|
+"Bb"d6-d c|d6 f2|"C"e6 fg-|"Dm"g4 "Am"e4|]

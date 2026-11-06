@@ -909,6 +909,12 @@ class AbcFileList {
                 "hash": "9184ded1d1"
         },
         {
+                "name": "Sonatine",
+                "file": "film/hisaishi/sonatine.abc",
+                "category": "film/hisaishi",
+                "hash": "9efcb24945"
+        },
+        {
                 "name": "Summer",
                 "file": "film/hisaishi/summer.abc",
                 "category": "film/hisaishi",

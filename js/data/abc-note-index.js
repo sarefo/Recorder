@@ -137,6 +137,7 @@ class AbcNoteIndex {
         "film/hes a pirate.abc": [62,65,67,69,70,72,74,75,77,79,81],
         "film/hisaishi/kiki_town.abc": [62,64,65,67,69,70,72,74,76,77,79,81],
         "film/hisaishi/mononoke.abc": [62,65,67,69,72,74],
+        "film/hisaishi/sonatine.abc": [60,62,64,65,67,69,70,72,74,76,77,79,81],
         "film/hisaishi/summer.abc": [60,64,65,67,69,70,72,74],
         "film/hisaishi/tonari no totoro.abc": [60,61,62,64,65,67,69,70,72,73],
         "film/imperial march.abc": [60,63,64,65,66,67,68,69,70,71,72,73,74,75,76],
