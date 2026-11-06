@@ -1,0 +1,12 @@
+X: 1
+T: Hedwig's Theme
+O: John Williams, Harry Potter
+N: Setting by John Chambers, double-stops reduced to their top note, moved to Am for range.
+L: 1/8
+Q: 1/4=120
+M: 3/4
+K: Am
+E|"Am"A>cB A2e|"Dm"d3 B3|"Am"A>cB "Ddim7"^G2_B|"Am"E3- "E7"E2E|
+"Am"A>cB A2e|"Cm"g2_g "Bbm"f2_d|"Dm"f>e^d "B7"B2c|"Am"A3- A2c|
+"Am"e2c e2c|f2e "F"_e2B|"Am"c>e^d "F"^D2E|"Am"e3- e2c|
+"Am"e2c e2c|"Cm"g2_g "Bbm"f2_d|"Dm"f>e^d "B7"B2c|"Am"A3- A2|]

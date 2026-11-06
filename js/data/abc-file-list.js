@@ -39,6 +39,12 @@ class AbcFileList {
                 "hash": "46095c0045"
         },
         {
+                "name": "Little Partridge",
+                "file": "armenian/little partridge.abc",
+                "category": "armenian",
+                "hash": "6a26f27d5e"
+        },
+        {
                 "name": "Waltzing Matilda",
                 "file": "australian/waltzing matilda.abc",
                 "category": "australian",
@@ -151,6 +157,12 @@ class AbcFileList {
                 "file": "canadian/saint annes reel.abc",
                 "category": "canadian",
                 "hash": "48993644b2"
+        },
+        {
+                "name": "El Cant dels Ocells",
+                "file": "catalan/el cant dels ocells.abc",
+                "category": "catalan",
+                "hash": "960e7acd79"
         },
         {
                 "name": "AAA Dongjia chimi wo chikang",
@@ -693,6 +705,24 @@ class AbcFileList {
                 "hash": "e9c952a23d"
         },
         {
+                "name": "Chariots of Fire",
+                "file": "film/chariots of fire.abc",
+                "category": "film",
+                "hash": "0752848116"
+        },
+        {
+                "name": "Concerning Hobbits",
+                "file": "film/concerning hobbits.abc",
+                "category": "film",
+                "hash": "48552dbfc7"
+        },
+        {
+                "name": "Hedwig's Theme",
+                "file": "film/hedwigs theme.abc",
+                "category": "film",
+                "hash": "d8871a9883"
+        },
+        {
                 "name": "Herbie's Theme",
                 "file": "film/herbie's theme.abc",
                 "category": "film",
@@ -715,6 +745,12 @@ class AbcFileList {
                 "file": "film/singin in the rain.abc",
                 "category": "film",
                 "hash": "e8dd4200a8"
+        },
+        {
+                "name": "The Pink Panther",
+                "file": "film/pink panther.abc",
+                "category": "film",
+                "hash": "8a3a418397"
         },
         {
                 "name": "A Town with an Ocean view",
@@ -969,6 +1005,18 @@ class AbcFileList {
                 "hash": "14d7121ad6"
         },
         {
+                "name": "Misirlou",
+                "file": "greek/misirlou.abc",
+                "category": "greek",
+                "hash": "d1089c5131"
+        },
+        {
+                "name": "Seikilos Epitaph",
+                "file": "greek/seikilos epitaph.abc",
+                "category": "greek",
+                "hash": "e65a41e45d"
+        },
+        {
                 "name": "Aloha \u02bbOe",
                 "file": "hawaiian/aloha oe.abc",
                 "category": "hawaiian",
@@ -1201,6 +1249,12 @@ class AbcFileList {
                 "file": "italian/tarantella napoletana.abc",
                 "category": "italian",
                 "hash": "e3d69a1209"
+        },
+        {
+                "name": "Vitti 'na Crozza",
+                "file": "italian/vitti na crozza.abc",
+                "category": "italian",
+                "hash": "4bb39db8fc"
         },
         {
                 "name": "Banana Boat Song (Day-O)",
@@ -1485,6 +1539,18 @@ class AbcFileList {
                 "hash": "26bfbcdb24"
         },
         {
+                "name": "Alter Sher",
+                "file": "klezmer/alter sher.abc",
+                "category": "klezmer",
+                "hash": "744508b5ff"
+        },
+        {
+                "name": "Odessa Bulgar",
+                "file": "klezmer/odessa bulgar.abc",
+                "category": "klezmer",
+                "hash": "46aeabcddc"
+        },
+        {
                 "name": "Arirang",
                 "file": "korean/arirang.abc",
                 "category": "korean",
@@ -1555,6 +1621,12 @@ class AbcFileList {
                 "file": "manx/ny kirree fo niaghtey.abc",
                 "category": "manx",
                 "hash": "06288c90dd"
+        },
+        {
+                "name": "P\u014dkarekare Ana",
+                "file": "maori/pokarekare ana.abc",
+                "category": "maori",
+                "hash": "53172159a8"
         },
         {
                 "name": "Te Hokinga Mai",
@@ -1977,10 +2049,22 @@ class AbcFileList {
                 "hash": "162fbb816c"
         },
         {
+                "name": "An Fhideag Airgid",
+                "file": "scottish/an fhideag airgid.abc",
+                "category": "scottish",
+                "hash": "30568bcd74"
+        },
+        {
                 "name": "Atholl Braes #1",
                 "file": "scottish/atholl_braes_1.abc",
                 "category": "scottish",
                 "hash": "6b6158bd8e"
+        },
+        {
+                "name": "Aye Waukin, O",
+                "file": "scottish/aye waukin o.abc",
+                "category": "scottish",
+                "hash": "5e21eda07e"
         },
         {
                 "name": "Balquidder Lasses",
@@ -2059,6 +2143,12 @@ class AbcFileList {
                 "file": "scottish/irving_steeple.abc",
                 "category": "scottish",
                 "hash": "4628a348ef"
+        },
+        {
+                "name": "Loch Lomond",
+                "file": "scottish/loch lomond.abc",
+                "category": "scottish",
+                "hash": "b9e3382eff"
         },
         {
                 "name": "Sweet Molly",
@@ -2293,6 +2383,18 @@ class AbcFileList {
                 "file": "yiddish/in kamf.abc",
                 "category": "yiddish",
                 "hash": "c4a04bee94"
+        },
+        {
+                "name": "Papirossen",
+                "file": "yiddish/papirossen.abc",
+                "category": "yiddish",
+                "hash": "251dee53a0"
+        },
+        {
+                "name": "Sheyn Vi Di Levone",
+                "file": "yiddish/sheyn vi di levone.abc",
+                "category": "yiddish",
+                "hash": "15dc43c333"
         },
         {
                 "name": "Kankuluwe",

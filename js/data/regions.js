@@ -21,9 +21,9 @@ class RegionMap {
             label: 'Europe',
             accent: 210,
             categories: [
-                'albanian', 'austrian', 'breton', 'bulgarian', 'cornish', 'czech', 'dutch',
+                'albanian', 'austrian', 'breton', 'bulgarian', 'catalan', 'cornish', 'czech', 'dutch',
                 'english', 'finnish', 'french', 'galician', 'georgian', 'german', 'greek',
-                'hungarian', 'irish', 'italian', 'lithuanian', 'macedonian',
+                'hungarian', 'irish', 'italian', 'klezmer', 'lithuanian', 'macedonian',
                 'maltese', 'manx', 'norwegian', 'occitan', 'polish', 'portuguese',
                 'romanian', 'russian', 'scottish', 'serbian', 'slovenian',
                 'spanish', 'swedish', 'swiss', 'ukrainian', 'welsh', 'yiddish',
@@ -43,7 +43,7 @@ class RegionMap {
             id: 'middle-east',
             label: 'Middle East',
             accent: 300,
-            categories: ['iranian', 'israeli', 'turkish'],
+            categories: ['armenian', 'iranian', 'israeli', 'turkish'],
         },
         {
             id: 'asia',
