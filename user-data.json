@@ -5609,6 +5609,14 @@
         "transSeen": 4,
         "count": 1,
         "at": "2026-11-06T07:43:21.595Z"
+      },
+      "75": {
+        "pitch": "d",
+        "prev": "_B",
+        "pitchSeen": 6,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-06T08:25:35.574Z"
       }
     },
     "pop/derniere danse.abc": {
@@ -7374,11 +7382,15 @@
       }
     },
     "pop/bert kaempfert/tootie flutie.abc": {
-      "at": "2026-11-06T07:43:11.586Z",
+      "at": "2026-11-06T08:25:25.561Z",
       "notes": {
         "8": {
           "state": "red",
           "pitch": "_B"
+        },
+        "75": {
+          "state": "red",
+          "pitch": "d"
         }
       }
     },
