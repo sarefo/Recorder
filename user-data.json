@@ -1120,8 +1120,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T10:08:22.718Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-06T07:43:10.050Z",
+      "playCount": 2,
       "createdAt": "2026-10-26T11:24:25.702Z",
       "updatedAt": "2026-11-05T10:10:17.565Z"
     },
@@ -2258,8 +2258,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-14T05:11:49.750Z",
-      "playCount": 17,
+      "lastPlayed": "2026-11-06T07:43:11.479Z",
+      "playCount": 18,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/derniere danse.abc": {
@@ -3052,6 +3052,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/bert kaempfert/tootie flutie.abc",
+      "timestamp": "2026-11-06T07:43:11.479Z"
+    },
+    {
+      "filePath": "french/la mer.abc",
+      "timestamp": "2026-11-06T07:43:10.050Z"
+    },
+    {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-11-06T07:41:51.966Z"
     },
@@ -3082,10 +3090,6 @@
     {
       "filePath": "french/la vie en rose.abc",
       "timestamp": "2026-11-05T10:26:05.084Z"
-    },
-    {
-      "filePath": "french/la mer.abc",
-      "timestamp": "2026-11-05T10:08:22.718Z"
     },
     {
       "filePath": "french/hymne a l'amour.abc",
@@ -3126,10 +3130,6 @@
     {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-11-05T06:30:35.548Z"
-    },
-    {
-      "filePath": "albanian/jarnana.abc",
-      "timestamp": "2026-11-05T06:29:09.014Z"
     }
   ],
   "activity": {
@@ -5601,6 +5601,16 @@
         "at": "2026-10-26T06:25:49.241Z"
       }
     },
+    "pop/bert kaempfert/tootie flutie.abc": {
+      "8": {
+        "pitch": "_B",
+        "prev": "d",
+        "pitchSeen": 8,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-06T07:43:21.595Z"
+      }
+    },
     "pop/derniere danse.abc": {
       "8": {
         "pitch": "_B",
@@ -7360,6 +7370,15 @@
         "13": {
           "state": "red",
           "pitch": "_e"
+        }
+      }
+    },
+    "pop/bert kaempfert/tootie flutie.abc": {
+      "at": "2026-11-06T07:43:11.586Z",
+      "notes": {
+        "8": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
