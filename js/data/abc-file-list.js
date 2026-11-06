@@ -3483,6 +3483,12 @@ class AbcFileList {
                 "hash": "c5c6fd3c89"
         },
         {
+                "name": "A Cruel Angel's Thesis (Neon Genesis Evangelion)",
+                "file": "tv/cruel angels thesis.abc",
+                "category": "tv",
+                "hash": "7bfc703f2e"
+        },
+        {
                 "name": "A-Team Theme",
                 "file": "tv/a-team.abc",
                 "category": "tv",
@@ -3493,6 +3499,12 @@ class AbcFileList {
                 "file": "tv/gummi bears.abc",
                 "category": "tv",
                 "hash": "32df5d718d"
+        },
+        {
+                "name": "Airwolf",
+                "file": "tv/airwolf.abc",
+                "category": "tv",
+                "hash": "864c2c4a4a"
         },
         {
                 "name": "Angela (Theme from Taxi)",
@@ -3507,6 +3519,12 @@ class AbcFileList {
                 "hash": "3a173a83e1"
         },
         {
+                "name": "Coronation Street",
+                "file": "tv/coronation street.abc",
+                "category": "tv",
+                "hash": "d13439eb82"
+        },
+        {
                 "name": "Dallas",
                 "file": "tv/dallas.abc",
                 "category": "tv",
@@ -3517,6 +3535,18 @@ class AbcFileList {
                 "file": "tv/detective_conan.abc",
                 "category": "tv",
                 "hash": "3403bf5834"
+        },
+        {
+                "name": "EastEnders",
+                "file": "tv/eastenders.abc",
+                "category": "tv",
+                "hash": "79509eccd1"
+        },
+        {
+                "name": "Fawlty Towers",
+                "file": "tv/fawlty towers.abc",
+                "category": "tv",
+                "hash": "d2fc17670a"
         },
         {
                 "name": "Fraggle Rock Theme",
@@ -3531,16 +3561,94 @@ class AbcFileList {
                 "hash": "e2ac9ee3c6"
         },
         {
+                "name": "Game of Thrones",
+                "file": "tv/game of thrones.abc",
+                "category": "tv",
+                "hash": "21dae8bda1"
+        },
+        {
+                "name": "Hawaii Five-O",
+                "file": "tv/hawaii five-o.abc",
+                "category": "tv",
+                "hash": "4184aac116"
+        },
+        {
+                "name": "Here Comes Pippi Longstocking",
+                "file": "tv/pippi longstocking.abc",
+                "category": "tv",
+                "hash": "377afbf957"
+        },
+        {
+                "name": "I Dream of Jeannie",
+                "file": "tv/i dream of jeannie.abc",
+                "category": "tv",
+                "hash": "732a182b1a"
+        },
+        {
+                "name": "Knight Rider",
+                "file": "tv/knight rider.abc",
+                "category": "tv",
+                "hash": "e63c8f3381"
+        },
+        {
+                "name": "Magnum, P.I.",
+                "file": "tv/magnum pi.abc",
+                "category": "tv",
+                "hash": "497553cf21"
+        },
+        {
                 "name": "Meet the Flintstones",
                 "file": "tv/the flintstones.abc",
                 "category": "tv",
                 "hash": "79b4f7a329"
         },
         {
+                "name": "Mission: Impossible",
+                "file": "tv/mission impossible.abc",
+                "category": "tv",
+                "hash": "499751934d"
+        },
+        {
                 "name": "Mr. Bean",
                 "file": "tv/mr bean.abc",
                 "category": "tv",
                 "hash": "782bb1b34f"
+        },
+        {
+                "name": "Pinky and the Brain",
+                "file": "tv/pinky and the brain.abc",
+                "category": "tv",
+                "hash": "91e5b07180"
+        },
+        {
+                "name": "Scooby-Doo, Where Are You!",
+                "file": "tv/scooby doo.abc",
+                "category": "tv",
+                "hash": "7f50efc0a3"
+        },
+        {
+                "name": "Sherlock",
+                "file": "tv/sherlock.abc",
+                "category": "tv",
+                "hash": "b7c399cae0"
+        },
+        {
+                "name": "Star Trek (Original Series)",
+                "file": "tv/star trek.abc",
+                "category": "tv",
+                "hash": "feb2ccd515"
+        },
+        {
+                "name": "Suicide Is Painless (M*A*S*H)",
+                "file": "tv/mash.abc",
+                "category": "tv",
+                "hash": "87a394e9c7"
+        },
+        {
+                "name": "The Addams Family",
+                "file": "tv/the addams family.abc",
+                "category": "tv",
+                "hash": "309117cbd7"
         },
         {
                 "name": "The Andy Griffith Show (The Fishin' Hole)",
@@ -3579,10 +3687,34 @@ class AbcFileList {
                 "hash": "2359a1815e"
         },
         {
+                "name": "The Simpsons",
+                "file": "tv/the simpsons.abc",
+                "category": "tv",
+                "hash": "6ce5037fa7"
+        },
+        {
                 "name": "The Smurfs",
                 "file": "tv/the smurfs.abc",
                 "category": "tv",
                 "hash": "f2bc96fb53"
+        },
+        {
+                "name": "The Woody Woodpecker Song",
+                "file": "tv/woody woodpecker.abc",
+                "category": "tv",
+                "hash": "bdc3ea06e1"
+        },
+        {
+                "name": "The X-Files",
+                "file": "tv/the x-files.abc",
+                "category": "tv",
+                "hash": "a1a031a648"
+        },
+        {
+                "name": "Where Everybody Knows Your Name (Cheers)",
+                "file": "tv/cheers.abc",
+                "category": "tv",
+                "hash": "3d688f560f"
         },
         {
                 "name": "Yakety Sax (The Benny Hill Show)",

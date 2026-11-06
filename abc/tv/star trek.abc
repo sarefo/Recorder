@@ -1,0 +1,14 @@
+X: 1
+T: Star Trek (Original Series)
+O: Alexander Courage, 1966
+N: From a hamienet.com MIDI (id 352766951797352), channel 12. No chords.
+N: The MIDI is rubato, so note values here are regularized.
+N: CHECK: pitches are the source's, rhythm is a reading of it.
+L: 1/8
+Q: 1/4=64
+M: 4/4
+K: Bb
+F4 e4-|e2 d2 (3c2B2A2|_A8-|_A6 ^F2|
+F4 f4-|f2 e2 (3d2c2B2|A8-|A6 _A2|
+G6 A2|B2 c2 (3d2e2d2|f8|_a6 g2|
+f4 G4-|G4 c4|B8-|B8|]
