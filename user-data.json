@@ -2912,11 +2912,12 @@
     },
     "tv/a-team.abc": {
       "status": "practicing",
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-06T08:34:47.451Z",
-      "playCount": 5,
-      "createdAt": "2026-01-18T20:46:38.367Z"
+      "lastPlayed": "2026-11-06T13:07:35.928Z",
+      "playCount": 6,
+      "createdAt": "2026-01-18T20:46:38.367Z",
+      "updatedAt": "2026-11-06T13:07:34.755Z"
     },
     "tv/detective_conan.abc": {
       "status": "good",
@@ -3053,6 +3054,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/a-team.abc",
+      "timestamp": "2026-11-06T13:07:35.928Z"
+    },
+    {
       "filePath": "pop/mad world.abc",
       "timestamp": "2026-11-06T10:58:48.371Z"
     },
@@ -3127,10 +3132,6 @@
     {
       "filePath": "french/la vie en rose.abc",
       "timestamp": "2026-11-05T10:26:05.084Z"
-    },
-    {
-      "filePath": "french/hymne a l'amour.abc",
-      "timestamp": "2026-11-05T10:05:02.185Z"
     }
   ],
   "activity": {
@@ -6187,6 +6188,24 @@
         "at": "2026-10-25T10:35:39.030Z"
       }
     },
+    "tv/a-team.abc": {
+      "8": {
+        "pitch": "^F",
+        "prev": "D",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-06T13:07:46.036Z"
+      },
+      "56": {
+        "pitch": "^C",
+        "prev": "D",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-06T13:07:46.037Z"
+      }
+    },
     "tv/detective_conan.abc": {
       "135": {
         "pitch": "^A",
@@ -7863,6 +7882,19 @@
         "48": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "tv/a-team.abc": {
+      "at": "2026-11-06T13:07:36.034Z",
+      "notes": {
+        "8": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "56": {
+          "state": "red",
+          "pitch": "^C"
         }
       }
     },
