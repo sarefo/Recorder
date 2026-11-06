@@ -533,3 +533,37 @@ Added eight Brandenburg highlights under `abc/classical/bach/brandenburg/`.
 - Excerpt rather than transcribe: these movements run past 100 bars and 21 semitones.
   Cut the opening ritornello at a real cadence, read off the bass. Bar 16 of the No. 4
   Andante looked like the end of the phrase, but it is deceptive; the cadence is bar 18.
+
+## TV themes (2026-11)
+
+Added 63 themes under `abc/tv/`, all from hamienet.com MIDIs.
+
+- **hamienet holds one A-Z TV theme collection in two id ranges.** Ids 223-279 and
+  12968-13176 are almost all TV themes, including titles a search misses (Seinfeld,
+  Space: 1999, The Sweeney). `GET /api/tracks/<id>` gives the title and `midiPath`.
+  Walk the ids one at a time with a short pause; six parallel workers got most
+  requests refused. Numbered uploads ("0097 Theme-From-'Dallas'-1") are a second
+  sequenced collection, so they make good second sources.
+- **A hit on a title is not the theme.** Ids starting `346...`, `351...` and `352...`
+  include folk tune collections, so "Downton Bridge", "The Woody Woodpecker",
+  "Breaking Bad" and the Northern Exposure and ER hits were jigs and reels. A tune
+  that reads like a reel, or a 3/2 or 6/8 meter on a pop theme, is the giveaway.
+- **Find the melody by agreement.** Across independent arrangements of one theme,
+  the tracks that share a long run of the same intervals are the tune. This picks
+  out the melody and supplies the second source in one step. Skip pairs whose
+  note sets mostly overlap: re-uploads differ only by a program number or a track.
+- **`build()` is a sixteenth grid.** `err` above about 0.1 in its result means the
+  track is in triplets, swings, or is rubato, and the draft will be garbled. Read
+  the raw onsets instead and write by hand. Mission: Impossible is 5/4, Game of
+  Thrones is 3/4 and Woody Woodpecker is 12/8 although each MIDI says 4/4.
+- **`pitch_compare.py` scores low for a wrong offset, not only wrong notes.** Pass
+  `--start` at the excerpt's onset. A tune with `|: :|` also plays its notes twice
+  against one pass in the source. `midi_notes.py` crashes on some MIDIs (Doraemon,
+  id 324630515032796); `midi_melody_to_abc.parse` reads them.
+- **`build()` spells in the key it finds.** A `B` in a draft with `K:Dm` is B flat.
+  Moving a draft to another key by hand is where the wrong notes came from, and
+  the diff caught it (Happy Days).
+- Skipped, no usable melody track or too garbled: Batman, Seinfeld, South Park,
+  Monty Python, Twin Peaks, Thunderbirds, MacGyver, Baywatch, Charlie's Angels,
+  Starsky and Hutch, Law & Order, Perry Mason, Lost in Space, The Golden Girls,
+  Thomas the Tank Engine, Tom and Jerry, The Love Boat and The Prisoner.

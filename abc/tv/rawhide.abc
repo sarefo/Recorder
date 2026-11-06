@@ -1,0 +1,13 @@
+X: 1
+T: Rawhide
+O: Dimitri Tiomkin, 1958
+N: From a hamienet.com MIDI (id 13109), channel 3, +7 semitones.
+N: CHECK: only one arrangement compared. Chords are fitted.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Em
+"Em"EG EG E G3 |EG EG E G3 |GB GB G B3 |GB GB GB B2 |
+e8- |e4 z4 |z8 |"B"z8 |
+"Em"EG EG E G3 |GB GB G B3 |"G"Bd Bd B d2 B |d4- d z3 |
+"Em"ed ed eB z2 |"D"d2 dc "Em"BE z2 |"D"d d2 d "C"ed GA |"B"B4- B z3 |]

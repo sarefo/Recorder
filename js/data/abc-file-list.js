@@ -3507,16 +3507,34 @@ class AbcFileList {
                 "hash": "864c2c4a4a"
         },
         {
+                "name": "Alfred Hitchcock Presents (Funeral March of a Marionette)",
+                "file": "tv/alfred hitchcock presents.abc",
+                "category": "tv",
+                "hash": "94420c80c2"
+        },
+        {
                 "name": "Angela (Theme from Taxi)",
                 "file": "tv/taxi.abc",
                 "category": "tv",
                 "hash": "848b0d7013"
         },
         {
+                "name": "Bewitched",
+                "file": "tv/bewitched.abc",
+                "category": "tv",
+                "hash": "4a793b6231"
+        },
+        {
                 "name": "Blackadder",
                 "file": "tv/blackadder.abc",
                 "category": "tv",
                 "hash": "3a173a83e1"
+        },
+        {
+                "name": "Casper the Friendly Ghost",
+                "file": "tv/casper.abc",
+                "category": "tv",
+                "hash": "713f0a319a"
         },
         {
                 "name": "Coronation Street",
@@ -3531,10 +3549,34 @@ class AbcFileList {
                 "hash": "bc9c0a8783"
         },
         {
+                "name": "Daniel Boone",
+                "file": "tv/daniel boone.abc",
+                "category": "tv",
+                "hash": "1baff04415"
+        },
+        {
                 "name": "Detective Conan Theme",
                 "file": "tv/detective_conan.abc",
                 "category": "tv",
                 "hash": "3403bf5834"
+        },
+        {
+                "name": "Diff'rent Strokes",
+                "file": "tv/diffrent strokes.abc",
+                "category": "tv",
+                "hash": "ed6172f74e"
+        },
+        {
+                "name": "Doctor Who",
+                "file": "tv/doctor who.abc",
+                "category": "tv",
+                "hash": "7289fecb96"
+        },
+        {
+                "name": "Doraemon no Uta",
+                "file": "tv/doraemon.abc",
+                "category": "tv",
+                "hash": "e122f15982"
         },
         {
                 "name": "EastEnders",
@@ -3543,10 +3585,22 @@ class AbcFileList {
                 "hash": "79509eccd1"
         },
         {
+                "name": "Fame",
+                "file": "tv/fame.abc",
+                "category": "tv",
+                "hash": "f51cde5234"
+        },
+        {
                 "name": "Fawlty Towers",
                 "file": "tv/fawlty towers.abc",
                 "category": "tv",
                 "hash": "d2fc17670a"
+        },
+        {
+                "name": "Flipper",
+                "file": "tv/flipper.abc",
+                "category": "tv",
+                "hash": "7438a2db8b"
         },
         {
                 "name": "Fraggle Rock Theme",
@@ -3567,6 +3621,18 @@ class AbcFileList {
                 "hash": "21dae8bda1"
         },
         {
+                "name": "Get Smart",
+                "file": "tv/get smart.abc",
+                "category": "tv",
+                "hash": "401c75992d"
+        },
+        {
+                "name": "Happy Days",
+                "file": "tv/happy days.abc",
+                "category": "tv",
+                "hash": "bc45b198f4"
+        },
+        {
                 "name": "Hawaii Five-O",
                 "file": "tv/hawaii five-o.abc",
                 "category": "tv",
@@ -3579,10 +3645,34 @@ class AbcFileList {
                 "hash": "377afbf957"
         },
         {
+                "name": "Hogan's Heroes March",
+                "file": "tv/hogans heroes.abc",
+                "category": "tv",
+                "hash": "3453618b7a"
+        },
+        {
+                "name": "Huckleberry Hound",
+                "file": "tv/huckleberry hound.abc",
+                "category": "tv",
+                "hash": "7dd0a14419"
+        },
+        {
                 "name": "I Dream of Jeannie",
                 "file": "tv/i dream of jeannie.abc",
                 "category": "tv",
                 "hash": "732a182b1a"
+        },
+        {
+                "name": "I'll Be There for You (Friends)",
+                "file": "tv/friends.abc",
+                "category": "tv",
+                "hash": "b4b06d49d1"
+        },
+        {
+                "name": "I'm Popeye the Sailor Man",
+                "file": "tv/popeye.abc",
+                "category": "tv",
+                "hash": "92ab8a5eee"
         },
         {
                 "name": "Knight Rider",
@@ -3591,10 +3681,22 @@ class AbcFileList {
                 "hash": "e63c8f3381"
         },
         {
+                "name": "Last of the Summer Wine",
+                "file": "tv/last of the summer wine.abc",
+                "category": "tv",
+                "hash": "38cf194208"
+        },
+        {
                 "name": "Magnum, P.I.",
                 "file": "tv/magnum pi.abc",
                 "category": "tv",
                 "hash": "497553cf21"
+        },
+        {
+                "name": "Making Our Dreams Come True (Laverne & Shirley)",
+                "file": "tv/laverne and shirley.abc",
+                "category": "tv",
+                "hash": "2086717f7c"
         },
         {
                 "name": "Meet the Flintstones",
@@ -3621,16 +3723,34 @@ class AbcFileList {
                 "hash": "91e5b07180"
         },
         {
+                "name": "Rawhide",
+                "file": "tv/rawhide.abc",
+                "category": "tv",
+                "hash": "55db98fde7"
+        },
+        {
                 "name": "Scooby-Doo, Where Are You!",
                 "file": "tv/scooby doo.abc",
                 "category": "tv",
                 "hash": "7f50efc0a3"
         },
         {
+                "name": "Sesame Street",
+                "file": "tv/sesame street.abc",
+                "category": "tv",
+                "hash": "7f1810ea4a"
+        },
+        {
                 "name": "Sherlock",
                 "file": "tv/sherlock.abc",
                 "category": "tv",
                 "hash": "b7c399cae0"
+        },
+        {
+                "name": "Spider-Man",
+                "file": "tv/spider-man.abc",
+                "category": "tv",
+                "hash": "2bf5aef8fc"
         },
         {
                 "name": "Star Trek (Original Series)",
@@ -3681,6 +3801,12 @@ class AbcFileList {
                 "hash": "a708dfb29f"
         },
         {
+                "name": "The Odd Couple",
+                "file": "tv/the odd couple.abc",
+                "category": "tv",
+                "hash": "b2f4ea1641"
+        },
+        {
                 "name": "The Office Theme",
                 "file": "tv/the office.abc",
                 "category": "tv",
@@ -3699,6 +3825,24 @@ class AbcFileList {
                 "hash": "f2bc96fb53"
         },
         {
+                "name": "The Vicar of Dibley (Psalm 23)",
+                "file": "tv/the vicar of dibley.abc",
+                "category": "tv",
+                "hash": "c51ac30c46"
+        },
+        {
+                "name": "The Waltons",
+                "file": "tv/the waltons.abc",
+                "category": "tv",
+                "hash": "af204c8155"
+        },
+        {
+                "name": "The Wombling Song (The Wombles)",
+                "file": "tv/the wombles.abc",
+                "category": "tv",
+                "hash": "e258e7dfae"
+        },
+        {
                 "name": "The Woody Woodpecker Song",
                 "file": "tv/woody woodpecker.abc",
                 "category": "tv",
@@ -3711,6 +3855,12 @@ class AbcFileList {
                 "hash": "a1a031a648"
         },
         {
+                "name": "Wallace and Gromit",
+                "file": "tv/wallace and gromit.abc",
+                "category": "tv",
+                "hash": "c288acd75c"
+        },
+        {
                 "name": "Where Everybody Knows Your Name (Cheers)",
                 "file": "tv/cheers.abc",
                 "category": "tv",
@@ -3721,6 +3871,12 @@ class AbcFileList {
                 "file": "tv/yakety sax.abc",
                 "category": "tv",
                 "hash": "450ac17c5f"
+        },
+        {
+                "name": "Yu-Gi-Oh!",
+                "file": "tv/yu-gi-oh.abc",
+                "category": "tv",
+                "hash": "3cff55db67"
         },
         {
                 "name": "Mwana Wa Nnyabo",
