@@ -1630,8 +1630,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:32:27.577Z",
-      "playCount": 43,
+      "lastPlayed": "2026-11-06T07:41:51.966Z",
+      "playCount": 44,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/hanagasa ondo.abc": {
@@ -3052,6 +3052,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hana.abc",
+      "timestamp": "2026-11-06T07:41:51.966Z"
+    },
+    {
       "filePath": "japanese/oborozukiyo.abc",
       "timestamp": "2026-11-06T07:37:28.221Z"
     },
@@ -3106,10 +3110,6 @@
     {
       "filePath": "australian/waltzing matilda.abc",
       "timestamp": "2026-11-05T06:32:30.149Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-11-05T06:32:27.577Z"
     },
     {
       "filePath": "japanese/tinsagu nu hana.abc",
@@ -3464,6 +3464,7 @@
       "pop/mad world.abc": 1
     },
     "2026-11-06": {
+      "japanese/hana.abc": 1,
       "japanese/oborozukiyo.abc": 3,
       "scottish/clanranald.abc": 2
     }
