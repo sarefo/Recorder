@@ -1700,8 +1700,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T05:25:12.066Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-06T07:37:28.221Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:25:54.091Z"
     },
@@ -3052,6 +3052,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/oborozukiyo.abc",
+      "timestamp": "2026-11-06T07:37:28.221Z"
+    },
+    {
       "filePath": "scottish/clanranald.abc",
       "timestamp": "2026-11-06T07:24:19.835Z"
     },
@@ -3126,10 +3130,6 @@
     {
       "filePath": "albanian/jarnana.abc",
       "timestamp": "2026-11-05T06:29:09.014Z"
-    },
-    {
-      "filePath": "classical/bach/badinerie.abc",
-      "timestamp": "2026-11-05T06:20:43.160Z"
     }
   ],
   "activity": {
@@ -3464,6 +3464,7 @@
       "pop/mad world.abc": 1
     },
     "2026-11-06": {
+      "japanese/oborozukiyo.abc": 1,
       "scottish/clanranald.abc": 2
     }
   },
