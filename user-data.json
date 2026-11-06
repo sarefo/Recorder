@@ -1453,13 +1453,13 @@
       "createdAt": "2026-08-01T08:03:26.600Z"
     },
     "israeli/hevenu shalom aleichem.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-06T10:33:17.292Z",
       "playCount": 3,
       "createdAt": "2026-10-18T11:52:56.718Z",
-      "updatedAt": "2026-11-04T10:17:26.396Z"
+      "updatedAt": "2026-11-06T10:38:19.807Z"
     },
     "israeli/hine ma tov.abc": {
       "status": null,
@@ -1856,8 +1856,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T10:07:03.840Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-06T10:38:37.332Z",
+      "playCount": 6,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-04T01:54:06.152Z"
     },
@@ -3052,6 +3052,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/moon river.abc",
+      "timestamp": "2026-11-06T10:38:37.332Z"
+    },
+    {
       "filePath": "israeli/hevenu shalom aleichem.abc",
       "timestamp": "2026-11-06T10:33:17.292Z"
     },
@@ -3126,10 +3130,6 @@
     {
       "filePath": "israeli/hatikvah.abc",
       "timestamp": "2026-11-05T06:32:19.095Z"
-    },
-    {
-      "filePath": "jazz/all of me.abc",
-      "timestamp": "2026-11-05T06:32:16.311Z"
     }
   ],
   "activity": {
@@ -3467,6 +3467,7 @@
       "israeli/hevenu shalom aleichem.abc": 3,
       "japanese/hana.abc": 1,
       "japanese/oborozukiyo.abc": 3,
+      "jazz/moon river.abc": 2,
       "scottish/clanranald.abc": 2
     }
   },
@@ -4075,6 +4076,11 @@
       "path": "french/non je ne regrette rien.abc",
       "status": null,
       "at": "2026-11-05T10:37:19.383Z"
+    },
+    {
+      "path": "israeli/hevenu shalom aleichem.abc",
+      "status": "good",
+      "at": "2026-11-06T10:38:19.807Z"
     }
   ],
   "marks": {
