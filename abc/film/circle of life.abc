@@ -1,0 +1,17 @@
+X: 1
+T: Circle of Life
+O: Elton John, The Lion King, 1994
+N: From a bitmidi.com MIDI (circle-of-life-from-the-lion-king-2), track 4; rhythm snapped to sixteenths, chords fitted from the arrangement. Moved +14 semitones for range. Opening 33 bars only.
+L: 1/8
+Q: 1/4=80
+M: 4/4
+K: C
+E/F/|"C"G3 E/F/ G2 G/A/G/F/-|"F"F4 z3 D|"G"FF F G3 G/A/D/E/-|
+"C"E2 z2 z3 G|"Am"cc c c4 c/c/|"Dm"cd e d2 z dd/d/-|"Bb"d3 d/e/ f3/2e c/d-|
+"G"d3 z z4|z2 EF/ G2-G/ GA/G/-|"F"G F2-F/ z/ z3 D|"G"F2 z2 GG AD/E/-|
+"C"E2-E/ z3/2 "G"z3 G|"Am"cc c c4 c/c/|"Dm"cd e d4 d/d/|"Bb"dd e f2 e cd-|
+"G"d3 G/G/ g3/2e d/c-|"C"c2-c/ z3/2 z4|z3 e/e/ f2 gf-|"Bb"fd3/2 c/ ^A3-A/ z3/2|
+z3 f/f/ "F"g2 ec-|c3-c/ z/ z4|z3 f/f/ fe dd-|"G"dB/A/ Gz z4|
+z3 G/G/ g2 e/d/e-|"C"e/d/c z2 z4|z2 e/e/ f2 g2 g-|"Dm"g f3 z4|
+z4 z2 c/c/g-|"C"g3 e/d/ c4|z3 z/ G/ f3/2e d/c-|"F"c6-c z|
+z4 z3|]

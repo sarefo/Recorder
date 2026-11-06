@@ -1,0 +1,17 @@
+X: 1
+T: Cantina Band
+O: John Williams, Star Wars, 1977
+N: From a bitmidi.com MIDI (cantina), track 3; rhythm snapped to sixteenths, chords fitted from the arrangement. Moved +2 semitones for range. Opening 33 bars only.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Em
+"Em"Bz ez Bz ez|Be z B2 ^A Bz|B^A B=A z^G A=G|"G"G3 E4-E|
+"Em"Bz ez Bz ez|Be z B2 ^A Bz|"A"Az A3 ^G Az|"C"d c2 B2 A3|
+"Em"Bz ez Bz ez|Be z B2 ^A Bz|"D"dz d3 B Az|"Gm"G3 E4-E|
+"Am"E4 "C"G4|"G"B4 "E"d4|"Am"=fz ez "Bm"^AB zG|z4 "D"z4|
+zB zG B z3|zB zG B z3|zB zG "B"^AB zG-|"Em"G3 E4-E|
+zB zG B z3|zB zG B z3|zB zG "B"^AB z=A-|"F"A4 "D"D4|
+zB zG B z3|zB zG B z3|zB zG ^AB zG-|G3 E4-E|
+"C"CE Gz "Em"^CE Gz|"G"^AB z E4-E|"Am"EG ce "G"^AB zG-|G6 z2|
+z4 "C"z4|]

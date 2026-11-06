@@ -1,0 +1,13 @@
+X: 1
+T: The Third Man
+O: Anton Karas, 1949
+N: From a bitmidi.com MIDI (harry-lime-theme-from-the-third-man-1), track 6; rhythm snapped to sixteenths, chords fitted from the arrangement. Moved +5 semitones for range. Opening 17 bars only.
+L: 1/8
+Q: 1/4=145
+M: 4/4
+K: Dm
+"F"c3/2_d/ =d3/2_d/ =d3-d/ _d/|d6-d/ z3/2|"Gm"c3/2_d/ =d3/2_d/ "C"=d3-d/ _d/|"Gm"d6-d/ z3/2|
+c3/2_d/ =d3/2_e/ "C"=e2-e/ z_e/|"Gm"e3/2_e/ =e4 z2|"F"d3-d/ _d/ =d3-d/ _d/|d6 z2|
+c3/2_d/ =d3-d/ _d/ =d3/2_d/|d6-d/ z3/2|"Gm"c3/2_d/ =d2 "C"d3/2_d/ =d3/2_d/|"Gm"d8|
+"C"c3/2_d/ =d3/2_e/ =e3-e/ _e/|e3/2_e/ =e4 a2|"F"f/z3/2 CD zE Fz|Ad z_d c3 z|
+c3/2_d/ =d3/2_d/ =d3-d/ _d/|]

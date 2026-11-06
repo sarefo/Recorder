@@ -1,0 +1,18 @@
+X: 1
+T: A Whole New World
+O: Alan Menken, Aladdin, 1992
+N: From a bitmidi.com MIDI (a-whole-new-world-theme-from-aladdin), track 4; rhythm snapped to sixteenths, chords fitted from the arrangement. Moved +7 semitones for range. Opening 37 bars only.
+L: 1/8
+Q: 1/4=108
+M: 4/4
+K: F
+"F"A2 G B2 A FC-|C6 z2|A2 G B2 A F2|"Bb"A4 "C"G3 z|
+"Gm"G2 _G A2 =G2 E|"Dm"G2 F2 "Am"E2 F2|"Bb"D2 F G3 FC-|"F"C4 z4|
+A2 G B2 A FC-|C6 z2|A2 G B2 A F2|"Dm"A4 "C"G3 z|
+"Gm"G2 _G A2 =G2 E|"Dm"G2 F3 z EF|"Bb"D2 F G3 FA-|"F"A2 zA "Bb"B2 d2|
+"C"c8-|"F"c3/2z3/2 A B2 d2|"C"c2 G B3 AA-|"F"A2 z2 A3/2B c3/2|
+"Gm"e2 d2 "F"c2 zF|"Bb"e2 f c3 zF|"Dm"A2 G F3 DF|"F"A2 GA "Gm"B2 d2|
+"C"c8|z3 A B2 d2|"C"c2 G B3 AA-|"Dm"A2 z2 "F"A3/2B c3/2|
+"Gm"e2 d c3-c/ F3/2|"Bb"e f2 c3 zF|"Dm"A2 G F3 FB-|"Eb"B2 A G3 FF-|
+"F"F4 z4|z4 z4|"Ab"c2 B _d2 c _A_E-|_E6 z2|
+c2 B _d2 c _A2|]

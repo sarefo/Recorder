@@ -699,10 +699,22 @@ class AbcFileList {
                 "hash": "72b60af132"
         },
         {
+                "name": "A Whole New World",
+                "file": "film/a whole new world.abc",
+                "category": "film",
+                "hash": "fc6b83254e"
+        },
+        {
                 "name": "Anything Goes",
                 "file": "film/anything goes.abc",
                 "category": "film",
                 "hash": "e9c952a23d"
+        },
+        {
+                "name": "Cantina Band",
+                "file": "film/cantina band.abc",
+                "category": "film",
+                "hash": "14568b7df4"
         },
         {
                 "name": "Chariots of Fire",
@@ -711,10 +723,34 @@ class AbcFileList {
                 "hash": "0752848116"
         },
         {
+                "name": "Circle of Life",
+                "file": "film/circle of life.abc",
+                "category": "film",
+                "hash": "77a76ccb3d"
+        },
+        {
+                "name": "Colonel Bogey March",
+                "file": "film/colonel bogey.abc",
+                "category": "film",
+                "hash": "6e7c8232e1"
+        },
+        {
                 "name": "Concerning Hobbits",
                 "file": "film/concerning hobbits.abc",
                 "category": "film",
                 "hash": "48552dbfc7"
+        },
+        {
+                "name": "Edelweiss",
+                "file": "film/edelweiss.abc",
+                "category": "film",
+                "hash": "56c74e7768"
+        },
+        {
+                "name": "He's a Pirate",
+                "file": "film/hes a pirate.abc",
+                "category": "film",
+                "hash": "f89098c6d4"
         },
         {
                 "name": "Hedwig's Theme",
@@ -735,10 +771,46 @@ class AbcFileList {
                 "hash": "efa8e6fe28"
         },
         {
+                "name": "Itsumo Nando Demo",
+                "file": "film/itsumo nando demo.abc",
+                "category": "film",
+                "hash": "0ac7c76d21"
+        },
+        {
+                "name": "Jurassic Park",
+                "file": "film/jurassic park.abc",
+                "category": "film",
+                "hash": "18be8bd91e"
+        },
+        {
                 "name": "Let's Call the Whole Thing Off",
                 "file": "film/lets call the whole thing off.abc",
                 "category": "film",
                 "hash": "d62ea20e35"
+        },
+        {
+                "name": "Love Story",
+                "file": "film/love story.abc",
+                "category": "film",
+                "hash": "41a9d7b187"
+        },
+        {
+                "name": "My Heart Will Go On",
+                "file": "film/my heart will go on.abc",
+                "category": "film",
+                "hash": "8619453c8a"
+        },
+        {
+                "name": "Nobody Does It Better",
+                "file": "film/nobody does it better.abc",
+                "category": "film",
+                "hash": "c366fc1fdf"
+        },
+        {
+                "name": "Over the Rainbow",
+                "file": "film/over the rainbow.abc",
+                "category": "film",
+                "hash": "5e6f05ea4a"
         },
         {
                 "name": "Singin' in the Rain",
@@ -747,10 +819,34 @@ class AbcFileList {
                 "hash": "e8dd4200a8"
         },
         {
+                "name": "The Godfather",
+                "file": "film/the godfather.abc",
+                "category": "film",
+                "hash": "5084204069"
+        },
+        {
+                "name": "The Good, the Bad and the Ugly",
+                "file": "film/the good the bad and the ugly.abc",
+                "category": "film",
+                "hash": "b6a1566bce"
+        },
+        {
+                "name": "The Imperial March",
+                "file": "film/imperial march.abc",
+                "category": "film",
+                "hash": "403d8d7d07"
+        },
+        {
                 "name": "The Pink Panther",
                 "file": "film/pink panther.abc",
                 "category": "film",
                 "hash": "8a3a418397"
+        },
+        {
+                "name": "The Third Man",
+                "file": "film/the third man.abc",
+                "category": "film",
+                "hash": "d45263d42a"
         },
         {
                 "name": "A Town with an Ocean view",
@@ -769,6 +865,12 @@ class AbcFileList {
                 "file": "film/hisaishi/summer.abc",
                 "category": "film/hisaishi",
                 "hash": "acbd8e0e83"
+        },
+        {
+                "name": "Tonari no Totoro",
+                "file": "film/hisaishi/tonari no totoro.abc",
+                "category": "film/hisaishi",
+                "hash": "c5a179af1f"
         },
         {
                 "name": "La Valse d'Am\u00e9lie",

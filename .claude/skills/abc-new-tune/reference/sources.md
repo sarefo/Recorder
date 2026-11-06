@@ -270,6 +270,21 @@ copyright` comment for anything flagged, such as film themes. The file is still
 public on its origin host: for a key like `trillian.mit.edu/~jc/music/abc/England/waltz/HedwigsTheme_Em/0000`
 fetch `https://trillian.mit.edu/~jc/music/abc/England/waltz/HedwigsTheme_Em.abc`.
 
+#### Film and pop: bitmidi.com
+
+`https://bitmidi.com/search?q=<title>` lists `/<slug>-mid` pages; each page has a
+`"downloadUrl":"/uploads/NNN.mid"`. Most arrangements have a clean one-note track,
+and a track named MELODY is usually the tune. `scripts/midi_melody_to_abc.py` has
+`build(path, track, channel, start_bar, nbars, key=...)`, which snaps to sixteenths,
+finds the key, picks a transposition for C4-A5, fits chords from the other tracks
+and ties any length abcjs cannot draw. Returns `body`, `M`, `K`, `pitches`.
+
+A clean track is not proof it is the tune. Read the opening of each draft: about
+a third of the first picks were accompaniment, a countermelody or a cadenza. The
+key finder often picks the relative minor, so pass `key=(tonic_pc, '')` when the
+accidentals pile up. Full arrangements often span more than 21 semitones; take an
+excerpt that ends before the climax.
+
 #### Klezmer: one file, 783 tunes
 
 `https://ifdo.ca/~seymour/runabc/allklez.abc` is the whole collection, with

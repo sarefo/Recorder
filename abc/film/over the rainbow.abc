@@ -1,0 +1,17 @@
+X: 1
+T: Over the Rainbow
+O: Harold Arlen, The Wizard of Oz, 1939
+N: From a bitmidi.com MIDI (over-the-rainbow), track 4; rhythm snapped to sixteenths, chords fitted from the arrangement. Moved +9 semitones for range. Opening 33 bars only.
+L: 1/8
+Q: 1/4=74
+M: 4/4
+K: F
+"F"F4|"Dm"f4 "Am"e3 c/d/|"F"e2 f2 z3 F|d4 "F"c4-|
+"Am"c2 z2 "Bb"z3 D|"Bbm"B4 "F"A3/2z FG/|"Ebm"A2 B2 "Dm"G z3|zE/F/ GA "F"F3 z|
+z4 "F"z2 F2|"Dm"f4 "Am"e3 c/d/|"Cm"e2 f6|"Bb"F2 d2 "F"c4-|
+"Am"c2 z2 "Bb"z B3-|"Bbm"B3-B/ B/ "F"A2-A/ FG/|"Ebm"A2 B2 "Dm"G3/2z3/2 E/F/|G2 A2 "F"F4-|
+F/z3/2 c2 Ac3/2 Ac/|A/c/A3/2 zc/ "Gm"Bc/z Bc/|"C"Bc B3/2c/ "F"d4|d3-d/ z/ "C"z4|
+z4 z2 c2|"F"Ac/z3/2 A/c A/c A3/2c/|"Dm"=Bd3/2 B/d "C"B/dB zd/|"Am"e4 "Bb"e4|
+"Gm"g4 "C"d4|"F"f4 "Dm"f4|"Am"e2 cd "F"e2 f2-|"Bb"f4 d2 d2-|
+"Am"d c4-c z2|z2 B4 B2|"F"A2-A/ FG/ "D"A2 B2|"G"G2-G/ EF/ "C"G2 A2|
+"F"F4|]

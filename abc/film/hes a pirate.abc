@@ -1,0 +1,13 @@
+X: 1
+T: He's a Pirate
+O: Klaus Badelt, Pirates of the Caribbean, 2003
+N: From a bitmidi.com MIDI (pirates-of-the-caribbean-hes-a-pirate-1), track 3; rhythm snapped to sixteenths, chords fitted from the arrangement. Moved +5 semitones for range. Opening 17 bars only.
+L: 1/8
+Q: 3/8=66
+M: 6/8
+K: Gm
+"Gm"G4 GA|"Eb"B4 Bc|"Dm"A4 GF|"G"FGz zDF|
+"Eb"G4 GA|B4 Bc|"Dm"A4 GF|"Gm"G3/2z3/2 "G"zDF|
+"Gm"G4 GB|"Cm"c4 cd|e4 dc|"Gm"dG3/2z/ "G"zGA|
+"Eb"B4 c2|"Gm"dG3/2z/ zGB|"D"A4 BG|A2-A/ z/ "Dm"zdf|
+"Gm"g4 ga|]

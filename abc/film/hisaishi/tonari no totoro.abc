@@ -1,0 +1,17 @@
+X: 1
+T: Tonari no Totoro
+O: Joe Hisaishi, 1988
+N: From a bitmidi.com MIDI (tonari-no-totoro-tonari-no-totoro), track 3; rhythm snapped to sixteenths, chords fitted from the arrangement. Moved -2 semitones for range. Opening 33 bars only.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: F
+F2 "F"E2 FC-|"C"C8|z2 F2 E2 FA-|"F"A8|
+"Bb"B2 A2 G2 FB-|"Bbm"B2 A2 G2 F2|"Bb"F3 G "Gm"G4-|G8|
+z2 F2 E2 FC-|"C"C8|z2 F2 E2 Fc-|"Cm"c8|
+"Gm"B2 B2 BA GB-|B4 zG AB|"F"A2 A2 AG FA-|"D"A8|
+"Bb"D2 E2 F2 GD-|DD E2 FG Fc-|"C"c6-c3/2 z/|z4 "F"FG AB|
+c2 A F2 c2 B-|"C"BG z2 z4|B2 G E2 B2 A-|"Dm"AF z2 z4|
+"Bb"_D2 F2 "Bbm"B _d2 c-|"F"c4 "Dm"F3 A|"Gm"BA BA BA FG-|G4 FG AB|
+"F"c2 A F2 c2 B-|"C"BG z2 z4|B2 G E2 B2 A-|"Dm"AF z2 z4|
+"Bb"D2|]

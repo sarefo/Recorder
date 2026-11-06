@@ -1,0 +1,15 @@
+X: 1
+T: The Good, the Bad and the Ugly
+O: Ennio Morricone, 1966
+N: From a bitmidi.com MIDI (the-good-the-bad-and-the-ugly), track 3; rhythm snapped to sixteenths, chords fitted from the arrangement. Moved -10 semitones for range. Opening 25 bars only.
+L: 1/8
+Q: 1/4=122
+M: 4/4
+K: F
+G2|"A"A2 E4-E3/2 z/|z4 z2 G2|"D"A2 d6|
+z4 z2 G2|"B"_GE D4-D/ z3/2|z4 z2 A2|"E"E8-|
+E3 z z4|z4 "Em"z2 G2|"A"A2 E4-E/ z3/2|z4 "Em"z2 G2|
+"D"A2 d4-d3/2 z/|z4 z2 G2|"Bm"_GE D4-D3/2 z/|z4 "Am"z2 A2|
+"E"E8|z4 z4|z4 "Bm"z4|z4 z4|
+z4 "G"z4|z4 z4|z4 "Bm"z4|z4 z4|
+z4 z2|]

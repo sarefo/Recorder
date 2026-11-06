@@ -1,0 +1,17 @@
+X: 1
+T: The Godfather
+O: Nino Rota, 1972
+N: From a bitmidi.com MIDI (theme-from-the-godfather), track 2; rhythm snapped to sixteenths, chords fitted from the arrangement. Moved -10 semitones for range. Opening 33 bars only.
+L: 1/8
+Q: 1/4=80
+M: 4/4
+K: Dm
+A df|"Dm"ed fd "Gm"ed3/2 Bc/|"Dm"A4-A A df|ed fd ed3/2 A_A/|
+"Gm"G4-G G B_d|"Em"e4-e G B_d|"Dm"d4-d D Fc|"Am"BA3/2 cB/ "A"BA A_D|
+"Dm"D4-D d d_d|"C"c4 e2 dB|"F"A4-A A cA|"Eb"G4-G G B_A|
+"A"A4-A A df|"Dm"ed fd "Gm"ed3/2 Bc/|"Dm"A4-A A df|ed fd "Gm"ed3/2 A_A/|
+G4 zG B_d|"Em"e4-e G B_d|"Dm"d4-d D Fc|"Am"BA cB "A"BA3/2 A_d/|
+"Dm"d4-d z3|z4 "Gm"z4|z4 z4|z4 z4|
+z4 z4|z4 z4|z4 z4|z4 "A"z4|
+z4 zd d_d|"C"c4 e2 dB|"F"A4-A A cA|"Eb"G4-G G B_A|
+"A"A4-A|]
