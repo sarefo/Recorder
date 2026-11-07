@@ -4648,8 +4648,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T06:29:06.257Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-07T03:35:53.881Z",
+      "playCount": 4,
       "createdAt": "2026-11-02T06:52:05.628Z",
       "updatedAt": "2026-11-02T07:00:33.911Z"
     },
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/sweet_molly.abc",
+      "timestamp": "2026-11-07T03:35:53.881Z"
+    },
+    {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-11-07T03:29:43.441Z"
     },
@@ -5585,10 +5589,6 @@
     {
       "filePath": "french/la mer.abc",
       "timestamp": "2026-11-06T07:43:10.050Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-11-06T07:41:51.966Z"
     }
   ],
   "activity": {
