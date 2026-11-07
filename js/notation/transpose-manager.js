@@ -1,5 +1,5 @@
 /**
- * Manages music transposition using abcjs built-in functions
+ * Manages music transposition
  */
 class TransposeManager {
     constructor() {
@@ -7,42 +7,29 @@ class TransposeManager {
     }
 
     /**
-     * Transposes the ABC notation by creating a fresh visual object
+     * Transposes the ABC notation, and proves every note moved by the shift
      * @param {string} currentAbc - The current ABC notation
      * @param {number} semitoneShift - The number of semitones to transpose
-     * @returns {string} The transposed ABC notation
+     * @returns {string} The transposed ABC notation, or the input if no spelling sounds right
      */
     transpose(currentAbc, semitoneShift) {
         try {
-            // Normalize line endings to LF (\n)
             const normalizedAbc = currentAbc.replace(/\r\n/g, '\n');
+            const original = this.getPitches(normalizedAbc);
 
-            // Create or reuse hidden div for transposition
-            const tempDiv = this.getOrCreateTempDiv();
-
-            // Create a fresh visual object with normalized ABC
-            const freshVisualObj = ABCJS.renderAbc(tempDiv.id, normalizedAbc, {
-                generateDownload: false,
-                generateInline: false
-            });
-
-            // Apply transposition
-            let transposedAbc = ABCJS.strTranspose(
-                normalizedAbc,
-                freshVisualObj,
-                semitoneShift
-            );
-
-            // Ensure proper line ending after key line
-            if (!transposedAbc.match(/K:.*\n/)) {
-                transposedAbc = transposedAbc.replace(/(K:.*?)([A-Ga-g])/, '$1\n$2');
+            for (let attempt = 0; attempt < AbcTransposer.ATTEMPTS; attempt++) {
+                const transposedAbc = AbcTransposer.transpose(normalizedAbc, semitoneShift, attempt);
+                const pitches = this.getPitches(transposedAbc);
+                if (pitches.length === original.length
+                    && pitches.every((pitch, index) => pitch - original[index] === semitoneShift)) {
+                    return transposedAbc;
+                }
             }
-
-            return transposedAbc;
+            console.error(`Transposition by ${semitoneShift} would change the tune, keeping it as it is`);
         } catch (error) {
             console.error('Transposition error:', error);
-            return currentAbc;
         }
+        return currentAbc;
     }
 
     /**
@@ -52,63 +39,74 @@ class TransposeManager {
      */
     getPitchRange(abc) {
         try {
-            // chordsOff: otherwise the generated bass line drags the low end down
-            const midi = ABCJS.synth.getMidiFile(abc.replace(/\r\n/g, '\n'),
-                { midiOutputType: 'binary', chordsOff: true })[0];
-            if (!midi) return null;
-
-            const bytes = Object.values(midi);
-            const pitches = [];
-            let p = 0;
-            const u32 = () => (bytes[p++] << 24 | bytes[p++] << 16 | bytes[p++] << 8 | bytes[p++]) >>> 0;
-            const varLen = () => {
-                let length = 0, b;
-                do { b = bytes[p++]; length = (length << 7) | (b & 0x7f); } while (b & 0x80);
-                return length;
-            };
-
-            p = 4;
-            const headerLength = u32();
-            p += headerLength;
-            while (p < bytes.length - 8) {
-                const tag = String.fromCharCode(...bytes.slice(p, p + 4));
-                p += 4;
-                const trackLength = u32();
-                const end = p + trackLength;
-                if (tag !== 'MTrk') { p = end; continue; }
-
-                let status = 0;
-                while (p < end) {
-                    varLen(); // delta time
-                    if (p >= end) break;
-                    if (bytes[p] & 0x80) status = bytes[p++];
-                    const type = status & 0xf0;
-
-                    if (status === 0xff) {
-                        p++;
-                        const metaLength = varLen();
-                        p += metaLength;
-                    } else if (status === 0xf0 || status === 0xf7) {
-                        const sysexLength = varLen();
-                        p += sysexLength;
-                    } else if (type === 0x90) {
-                        const pitch = bytes[p++], velocity = bytes[p++];
-                        if (velocity > 0 && (status & 0x0f) !== 9) pitches.push(pitch);
-                    } else if (type === 0xc0 || type === 0xd0) {
-                        p += 1;
-                    } else {
-                        p += 2;
-                    }
-                }
-                p = end;
-            }
-
+            const pitches = this.getPitches(abc);
             if (!pitches.length) return null;
             return { low: Math.min(...pitches), high: Math.max(...pitches) };
         } catch (error) {
             console.error('Pitch range error:', error);
             return null;
         }
+    }
+
+    /**
+     * Lists the sounding MIDI pitches of the melody in playing order
+     * @param {string} abc - The ABC notation
+     * @returns {number[]} The pitches
+     */
+    getPitches(abc) {
+        // chordsOff: otherwise the generated bass line drags the low end down.
+        // %%MIDI gchord is commented out because it brings chord notes back.
+        const midi = ABCJS.synth.getMidiFile(abc.replace(/\r\n/g, '\n').replace(/^%%MIDI gchord.*$/gm, '%'),
+            { midiOutputType: 'binary', chordsOff: true })[0];
+        if (!midi) return [];
+
+        const bytes = Object.values(midi);
+        const pitches = [];
+        let p = 0;
+        const u32 = () => (bytes[p++] << 24 | bytes[p++] << 16 | bytes[p++] << 8 | bytes[p++]) >>> 0;
+        const varLen = () => {
+            let length = 0, b;
+            do { b = bytes[p++]; length = (length << 7) | (b & 0x7f); } while (b & 0x80);
+            return length;
+        };
+
+        p = 4;
+        const headerLength = u32();
+        p += headerLength;
+        while (p < bytes.length - 8) {
+            const tag = String.fromCharCode(...bytes.slice(p, p + 4));
+            p += 4;
+            const trackLength = u32();
+            const end = p + trackLength;
+            if (tag !== 'MTrk') { p = end; continue; }
+
+            let status = 0;
+            while (p < end) {
+                varLen(); // delta time
+                if (p >= end) break;
+                if (bytes[p] & 0x80) status = bytes[p++];
+                const type = status & 0xf0;
+
+                if (status === 0xff) {
+                    p++;
+                    const metaLength = varLen();
+                    p += metaLength;
+                } else if (status === 0xf0 || status === 0xf7) {
+                    const sysexLength = varLen();
+                    p += sysexLength;
+                } else if (type === 0x90) {
+                    const pitch = bytes[p++], velocity = bytes[p++];
+                    if (velocity > 0 && (status & 0x0f) !== 9) pitches.push(pitch);
+                } else if (type === 0xc0 || type === 0xd0) {
+                    p += 1;
+                } else {
+                    p += 2;
+                }
+            }
+            p = end;
+        }
+
+        return pitches;
     }
 
     /**
@@ -121,22 +119,6 @@ class TransposeManager {
         const range = this.getPitchRange(abc);
         if (!range) return 0;
         return edge === 'bottom' ? 60 - range.low : 84 - range.high;
-    }
-
-    /**
-     * Gets or creates the temporary div for transposition
-     * @returns {HTMLElement} The temp div
-     * @private
-     */
-    getOrCreateTempDiv() {
-        let tempDiv = document.getElementById('transposition-temp');
-        if (!tempDiv) {
-            tempDiv = document.createElement('div');
-            tempDiv.id = 'transposition-temp';
-            tempDiv.className = 'temp-hidden';
-            document.body.appendChild(tempDiv);
-        }
-        return tempDiv;
     }
 
     /**
@@ -156,41 +138,5 @@ class TransposeManager {
 
         // Down 3 for switch to dizi, up 3 for switch from dizi
         return isDiziTo ? -this.DIZI_TRANSPOSE_SEMITONES : this.DIZI_TRANSPOSE_SEMITONES;
-    }
-
-    /**
-     * Transposes the ABC notation using abcjs's built-in transposition
-     * @param {string} abcString - The ABC notation to transpose
-     * @param {Object} visualObj - The visual object from abcjs
-     * @param {number} semitoneShift - The number of semitones to transpose
-     * @returns {string} The transposed ABC notation
-     * @deprecated Use transpose() instead
-     */
-    transposeAbc(abcString, visualObj, semitoneShift) {
-        return ABCJS.strTranspose(abcString, visualObj, semitoneShift);
-    }
-
-    /**
-     * Utility for transposing the key signature line only
-     * @param {string} keyLine - The key directive line
-     * @param {number} semitoneShift - The number of semitones to transpose
-     * @param {Object} visualObj - The visual object from abcjs
-     * @returns {string} The transposed key line
-     */
-    transposeKey(keyLine, semitoneShift, visualObj) {
-        // Extract just the key portion of the key line for processing
-        const keyLineOnly = `X:1\n${keyLine}\n`;
-        const transposed = ABCJS.strTranspose(keyLineOnly, visualObj, semitoneShift);
-
-        // Extract the transposed key line
-        const lines = transposed.split('\n');
-        for (const line of lines) {
-            if (line.trim().startsWith('K:')) {
-                return line;
-            }
-        }
-
-        // Return original if something went wrong
-        return keyLine;
     }
 }

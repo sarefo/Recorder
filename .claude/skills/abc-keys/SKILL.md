@@ -75,6 +75,29 @@ Also run the chord/bar-length check from the sibling skill:
 node .claude/skills/abc-chords/scripts/check_abc.mjs abc/pop/popcorn.abc
 ```
 
+## Custom signatures
+
+Klezmer modes have no standard signature, so they take a mode plus an explicit
+accidental: freygish is `K: Dphr ^f`, Ukrainian Dorian is `K: Ddor ^g`.
+
+Never use `exp`. abcjs adds the listed accidentals to the key instead of replacing
+it, so `K: A exp _B^c` plays F# and G# as well as Bb and C#. Rewrite it as the mode
+that gives the scale the source means (`K: Aphr ^c`). `=g` is a trap in flat keys:
+abcjs keeps both accidentals unless it is written `=G`.
+
+## Transposing
+
+The app transposes with `js/notation/abc-transposer.js`, not abcjs's `strTranspose`,
+which ignores custom signatures, loses lines after `K:` and throws on some tunes.
+`scripts/transpose_abc.mjs` here still uses `strTranspose`, so don't use it on a tune
+with a custom signature. `TransposeManager.transpose` proves every note moved by the
+shift and keeps the tune as it is otherwise. After changing either file, or adding
+unusual notation, run:
+
+```
+node .claude/skills/abc-keys/scripts/transpose_check.mjs
+```
+
 ## Notes
 
 - Both scripts share one cached abcjs bundle at

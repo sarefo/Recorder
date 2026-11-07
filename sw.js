@@ -3,7 +3,7 @@
  * Handles offline caching of app shell and ABC music files
  */
 
-const CACHE_VERSION = 'abc-player-v3-2026-11-07-12';
+const CACHE_VERSION = 'abc-player-v3-2026-11-07-13';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 // Not keyed by CACHE_VERSION: a deploy used to wipe every cached tune, so
 // after each one all tunes were downloaded again and a tune the user opened
@@ -31,6 +31,7 @@ const APP_SHELL_FILES = [
     '/Recorder/js/notation/keysig-highlighter.js',
     '/Recorder/js/notation/scale-advisor.js',
     '/Recorder/js/notation/render-manager.js',
+    '/Recorder/js/notation/abc-transposer.js',
     '/Recorder/js/notation/transpose-manager.js',
     '/Recorder/js/fingering/fingering-manager.js',
     '/Recorder/js/fingering/diagram-renderer.js',

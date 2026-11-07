@@ -1746,7 +1746,7 @@ class AbcFileList {
                 "name": "A Hoolyeh Tanz",
                 "file": "klezmer/a hoolyeh tanz.abc",
                 "category": "klezmer",
-                "hash": "3e042f9268"
+                "hash": "32b4ca2dc1"
         },
         {
                 "name": "A Laibediga Honga",
@@ -1764,7 +1764,7 @@ class AbcFileList {
                 "name": "Abe Schwartz's Famous Sher",
                 "file": "klezmer/abe schwartzs famous sher.abc",
                 "category": "klezmer",
-                "hash": "fed3250e70"
+                "hash": "60e66bb6c0"
         },
         {
                 "name": "Abi Gezint",
@@ -1782,7 +1782,7 @@ class AbcFileList {
                 "name": "Alter Sher",
                 "file": "klezmer/alter sher.abc",
                 "category": "klezmer",
-                "hash": "744508b5ff"
+                "hash": "3b29e771a0"
         },
         {
                 "name": "Anushka",
@@ -1884,7 +1884,7 @@ class AbcFileList {
                 "name": "Boiereasca",
                 "file": "klezmer/boiereasca.abc",
                 "category": "klezmer",
-                "hash": "543534f963"
+                "hash": "a4e78b166e"
         },
         {
                 "name": "Braneles Chasene",
@@ -2328,7 +2328,7 @@ class AbcFileList {
                 "name": "Khosid Wedding Dance",
                 "file": "klezmer/khosid wedding dance.abc",
                 "category": "klezmer",
-                "hash": "59af19cd44"
+                "hash": "c2fb878943"
         },
         {
                 "name": "Khosidl",
@@ -2376,7 +2376,7 @@ class AbcFileList {
                 "name": "Leybedik (Russian Bulgar)",
                 "file": "klezmer/leybedik russian bulgar.abc",
                 "category": "klezmer",
-                "hash": "b784e69906"
+                "hash": "79c75d436f"
         },
         {
                 "name": "Long Live The Nigun",
@@ -2520,13 +2520,13 @@ class AbcFileList {
                 "name": "Rumanian Bulgar",
                 "file": "klezmer/rumanian bulgar.abc",
                 "category": "klezmer",
-                "hash": "ab341ac079"
+                "hash": "611fe1f7f6"
         },
         {
                 "name": "Rumanian Bulgar (freylach)",
                 "file": "klezmer/rumanian bulgar freylach.abc",
                 "category": "klezmer",
-                "hash": "be96bd419b"
+                "hash": "87f6f54b39"
         },
         {
                 "name": "Rumshinsky Bulgur",
@@ -2694,7 +2694,7 @@ class AbcFileList {
                 "name": "Varshaver Freylekhs",
                 "file": "klezmer/varshaver freylekhs.abc",
                 "category": "klezmer",
-                "hash": "ef9e4a3e79"
+                "hash": "8a458244a0"
         },
         {
                 "name": "Vayn A Glezele",

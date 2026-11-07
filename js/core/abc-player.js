@@ -173,6 +173,8 @@ class AbcPlayer {
             if (key) {
                 Utils.showFeedback(`Key: ${key[1]}`, 1200);
             }
+        } else {
+            Utils.showFeedback('Could not transpose this tune', 2000);
         }
     }
 
