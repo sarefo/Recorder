@@ -1,22 +1,19 @@
-// Transpose an ABC file by N semitones, using the app's own abcjs.
+// Transpose an ABC file by N semitones with the app's own TransposeManager.
 //
 //   node transpose_abc.mjs abc/scottish/franks_reel.abc 5            # to stdout
 //   node transpose_abc.mjs abc/scottish/franks_reel.abc 5 --in-place
 //   node transpose_abc.mjs file.abc 5 --tune 1                       # one tune only
 //
-// abcjs rewrites the K: field, the note letters, the octave marks AND the chord
-// symbols together, which is the whole reason to use it rather than editing by
-// hand — chord symbols are what a manual transpose always forgets.
-//
-// Always confirm the result with the sibling script:
-//   node compare_pitches.mjs old.abc new.abc     (expects the shift, so use it
-//   after transposing the NEW file back by -N to prove nothing else moved)
+// This rewrites the K: field, the notes and the chord symbols together, and proves
+// every note of each tune moved by the shift. If a tune can't be transposed it
+// writes nothing and exits with status 1.
 
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(here, '..', '..', '..', '..');
 const cache = path.join(here, '..', '..', 'abc-chords', 'scripts', 'abcjs-cache.js');
 const CDN = 'https://cdn.jsdelivr.net/npm/abcjs@6.4.4/dist/abcjs-basic-min.js';
 
@@ -34,9 +31,11 @@ globalThis.document = {
     querySelector: () => null,
 };
 (0, eval)(fs.readFileSync(cache, 'utf8'));
-const abcjs = globalThis.ABCJS;
+const load = (file, name) => (0, eval)(`(()=>{${fs.readFileSync(path.join(root, file), 'utf8')};return ${name}})()`);
+globalThis.AbcTransposer = load('js/notation/abc-transposer.js', 'AbcTransposer');
+const manager = new (load('js/notation/transpose-manager.js', 'TransposeManager'))();
 
-/** Split a multi-tune ABC file at its `X:` lines (abcjs handles one at a time). */
+/** Split a multi-tune ABC file at its `X:` lines; the check only sees a file's first tune. */
 function splitTunes(text) {
     const tunes = [];
     let current = null;
@@ -56,7 +55,7 @@ const inPlace = args.includes('--in-place');
 const tuneArg = args.indexOf('--tune');
 const onlyTune = tuneArg === -1 ? null : Number(args[tuneArg + 1]);
 const positional = args.filter((a, i) =>
-    !a.startsWith('--') && !(tuneArg !== -1 && i === tuneArg + 1));
+    !(a.startsWith('--') || (tuneArg !== -1 && i === tuneArg + 1)));
 const [file, stepsRaw] = positional;
 const steps = Number(stepsRaw);
 
@@ -67,10 +66,13 @@ if (!file || Number.isNaN(steps)) {
 
 const tunes = splitTunes(fs.readFileSync(file, 'utf8'));
 const out = tunes.map((abc, i) => {
-    if (onlyTune !== null && i + 1 !== onlyTune) return abc;
-    // parseOnly, not renderAbc — strTranspose only needs the parsed key info,
-    // and renderAbc wants a real DOM that Node does not have.
-    return abcjs.strTranspose(abc, abcjs.parseOnly(abc), steps);
+    if (steps === 0 || (onlyTune !== null && i + 1 !== onlyTune)) return abc;
+    const transposed = manager.transpose(abc, steps);
+    if (transposed === abc && manager.getPitches(abc).length) {
+        console.error(`${file}: tune ${i + 1} could not be transposed, nothing written`);
+        process.exit(1);
+    }
+    return transposed;
 }).join('\n');
 
 if (inPlace) {

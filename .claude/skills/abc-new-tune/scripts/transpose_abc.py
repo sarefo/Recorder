@@ -170,6 +170,9 @@ def main():
         if l.startswith('K:'):
             src_key = l[2:].strip()
             break
+    if src_key and re.search(r'[\^_=][a-gA-G]', src_key):
+        sys.exit(f'K:{src_key} has its own accidentals, which this script would lose. '
+                 'Use .claude/skills/abc-keys/scripts/transpose_abc.mjs instead.')
     t_from, minor_from, f_from = parse_key(src_key)
     t_to, minor_to, f_to = parse_key(args.to)
     if args.shift is not None:

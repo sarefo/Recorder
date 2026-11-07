@@ -89,10 +89,9 @@ abcjs keeps both accidentals unless it is written `=G`.
 
 The app transposes with `js/notation/abc-transposer.js`, not abcjs's `strTranspose`,
 which ignores custom signatures, loses lines after `K:` and throws on some tunes.
-`scripts/transpose_abc.mjs` here still uses `strTranspose`, so don't use it on a tune
-with a custom signature. `TransposeManager.transpose` proves every note moved by the
-shift and keeps the tune as it is otherwise. After changing either file, or adding
-unusual notation, run:
+`TransposeManager.transpose` proves every note moved by the shift and keeps the tune
+as it is otherwise. `scripts/transpose_abc.mjs` does the same from the command line.
+After changing either file, or adding unusual notation, run:
 
 ```
 node .claude/skills/abc-keys/scripts/transpose_check.mjs
