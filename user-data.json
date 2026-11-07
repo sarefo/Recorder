@@ -84,6 +84,14 @@
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-16T08:02:22.809Z"
     },
+    "bangladeshi/amar shonar bangla.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.712Z"
+    },
     "bartok/romanian folk dances/1 joc cu bata.abc": {
       "status": "practicing",
       "favorite": false,
@@ -107,6 +115,14 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-10-24T11:46:54.432Z"
+    },
+    "bosnian/kad ja podoh na bembasu.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.710Z"
     },
     "brazilian/atirei o pau no gato.abc": {
       "status": null,
@@ -948,6 +964,22 @@
       "playCount": 0,
       "createdAt": "2026-10-24T11:46:54.430Z"
     },
+    "fijian/isa lei.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.712Z"
+    },
+    "film/a whole new world.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
     "film/anything goes.abc": {
       "status": "good",
       "favorite": true,
@@ -957,6 +989,14 @@
       "createdAt": "2026-11-01T02:08:18.261Z",
       "updatedAt": "2026-11-01T02:19:13.542Z"
     },
+    "film/cantina band.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
     "film/chariots of fire.abc": {
       "status": null,
       "favorite": false,
@@ -965,6 +1005,22 @@
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
     },
+    "film/circle of life.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/colonel bogey.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
     "film/concerning hobbits.abc": {
       "status": null,
       "favorite": false,
@@ -972,6 +1028,22 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "film/edelweiss.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/ghostbusters.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "film/hedwigs theme.abc": {
       "status": null,
@@ -998,6 +1070,14 @@
       "playCount": 9,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
+    "film/hes a pirate.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
     "film/hisaishi/kiki_town.abc": {
       "status": "practicing",
       "favorite": true,
@@ -1015,6 +1095,14 @@
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-25T04:58:17.617Z"
     },
+    "film/hisaishi/sonatine.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
     "film/hisaishi/summer.abc": {
       "status": "practicing",
       "favorite": true,
@@ -1022,6 +1110,38 @@
       "lastPlayed": "2026-10-13T03:59:18.725Z",
       "playCount": 21,
       "createdAt": "2026-01-18T20:46:38.366Z"
+    },
+    "film/hisaishi/tonari no totoro.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/imperial march.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/itsumo nando demo.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/jurassic park.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "film/lets call the whole thing off.abc": {
       "status": "needs-practice",
@@ -1032,6 +1152,54 @@
       "createdAt": "2026-11-01T03:02:11.849Z",
       "updatedAt": "2026-11-03T13:14:30.131Z"
     },
+    "film/love story.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/my heart will go on.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/nobody does it better.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/oh pretty woman.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/once upon a time in the west.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/over the rainbow.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
     "film/pink panther.abc": {
       "status": null,
       "favorite": false,
@@ -1039,6 +1207,30 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "film/poledouris/anvil of crom.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/poledouris/robocop.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/schindlers list.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "film/singin in the rain.abc": {
       "status": null,
@@ -1048,6 +1240,30 @@
       "playCount": 1,
       "createdAt": "2026-11-01T03:17:30.923Z"
     },
+    "film/the godfather.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/the good the bad and the ugly.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "film/the third man.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
     "film/tiersen/la valse d'amelie.abc": {
       "status": null,
       "favorite": false,
@@ -1055,6 +1271,14 @@
       "lastPlayed": "2026-09-29T07:08:50.749Z",
       "playCount": 2,
       "createdAt": "2026-09-27T05:16:22.672Z"
+    },
+    "film/zorba.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "finnish/ievan_polkka.abc": {
       "status": null,
@@ -1189,6 +1413,14 @@
       "playCount": 3,
       "createdAt": "2026-10-26T13:35:38.000Z",
       "updatedAt": "2026-11-05T10:27:15.945Z"
+    },
+    "french/le temps des cerises.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.710Z"
     },
     "french/mistral gagnant.abc": {
       "status": "needs-practice",
@@ -1505,6 +1737,14 @@
       "createdAt": "2026-07-30T09:51:53.099Z",
       "updatedAt": "2026-11-02T09:45:05.398Z"
     },
+    "irish/londonderry air.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
     "irish/morrisons jig.abc": {
       "status": null,
       "favorite": false,
@@ -1512,6 +1752,14 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "irish/oro se do bheatha bhaile.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
     },
     "irish/planxty irwin.abc": {
       "status": null,
@@ -2149,13 +2397,166 @@
       "playCount": 1,
       "createdAt": "2026-08-01T08:54:31.908Z"
     },
-    "klezmer/alter sher.abc": {
+    "klezmer/a dreidele far alle  freilachs.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/a glezele lchaym.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/a glezele yash.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/a hoolyeh tanz.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/a laibediga honga.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/a nacht in gan eydn.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/abe schwartzs famous sher.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/abi gezint.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-11-07T03:11:26.710Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/alle bruder.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/alter sher.abc": {
+      "status": null,
+      "favorite": true,
+      "notes": "",
       "lastPlayed": "2026-11-06T17:04:37.776Z",
       "playCount": 1,
-      "createdAt": "2026-11-06T17:04:02.205Z"
+      "createdAt": "2026-11-06T17:04:02.205Z",
+      "updatedAt": "2026-11-07T03:11:06.063Z"
+    },
+    "klezmer/anushka.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/araber tants.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/arum dem fayer.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/asher bara 1.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/asher bara 2.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/asher bara 3.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/ayli lyuli.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/baym rebins sude.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/baym rebn in palestine.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/belfs carnival.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
     },
     "klezmer/belzer nigun.abc": {
       "status": null,
@@ -2165,6 +2566,62 @@
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
     },
+    "klezmer/bessaraber khusidl.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/billys freilach.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/billys khosidl.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/bobover wedding march.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/boibriker freilach.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/boiereasca.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/braneles chasene.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
     "klezmer/broyges tants.abc": {
       "status": null,
       "favorite": false,
@@ -2172,6 +2629,766 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/buhusher chosidl.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/bulgar charles cormans.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/bulgar henry weinsteins.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/bulgar in d.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/bulgar joe kutchers 1.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/bulgar joe kutchers 2.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/bulgar mazl tov.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/carpathian tune.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/chasene valtz.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/chusidl.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/dem milners trern.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/dem rebns nign.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/dem trisker rebns khusid.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/der alte tziganer.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/der gasn nigun.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/der heyser bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/der hoyfzinger.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/der muvzinikal.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/der shtiller bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/di goldene khasene.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/di grine kusine.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/di rayze nukh amerike.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/die mame is gegangen in markt areyn.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/drey dreydlekh.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/drohobitsher khusid.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/epstein bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/essen esst zich.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/fanfara suceava.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/firn di mekhutonim aheym.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/flatbush waltz.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/frailach.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/freilach the silver wedding 1.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/freilach the silver wedding 2.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/freilag.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/freilakhs hulye kaptsn.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/freilakhs shlimazl haysin.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/freilechs von der chuppe.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/freylachs in d minor 1.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/freylachs in d minor 2.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/freylachs leybele basyak.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/freylachs.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/freylekhs.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/fun der khupe.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/fun tashlikh.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/garofitsa freylach.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/germans freilachs.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/glick.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/goldenshteyn hora.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/gut morgn.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/gypsy bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/hasidic waltz.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/haynt iz purim brider.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/hob ich mir an altn dajm.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/hop mayne homntashn.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/hopkele.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/hora agadati.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/hora fetelor.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/hora la patru.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/in odess.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/iras sher.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/itamar freilach.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/itsik hot khasene gehat.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/itzikel.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/jewish freilakhs.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/kamjensl freilach.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/kandels hora.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/karapyet.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/kasatske dg.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/keshenever bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/keshever shtikele.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/khasidim tanz.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/khosid dance.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/khosid wedding dance.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/khosidl.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/khupa tanz 2.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/kishiniever bulgar a bulgar from kishiniev.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/kolomeike 1.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/kolomeike 2.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/lebedich un freilech.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/leben zol palestina.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/leybedik russian bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/long live the nigun.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/mayn rue platz.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/mazel.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/mein shtetl yass.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/melodica bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/mhera.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/mitzvo tants mit der kale.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/moldavian tants.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/monastritch.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/naftule shpil es nokh amol.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/nakhes fun kinder.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/niftys freylekhs.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/nigun sameach.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/noch a bissel.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
     },
     "klezmer/odessa bulgar.abc": {
       "status": null,
@@ -2181,6 +3398,38 @@
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
     },
+    "klezmer/oi shloimele.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/oi tate.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/oj dortn.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/ojfn veg stejt a bojm.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
     "klezmer/ot azoy.abc": {
       "status": null,
       "favorite": false,
@@ -2188,6 +3437,142 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/patch tanz.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/regndl.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/rumanian bulgar freylach.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/rumanian bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/rumshinsky bulgur.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/russian freilach.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/russian sher.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/sadegurer khosid.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/schwartzs sirba.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/shabes in vilna.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/shapiros korohod.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/sher 3 philadelphia.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/sher from khevrisa.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/sher.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/sherele.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/shiroh hora.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/shmelkes nigun.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
     },
     "klezmer/shnirele perele.abc": {
       "status": null,
@@ -2197,6 +3582,14 @@
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
     },
+    "klezmer/sholem zol zajn.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
     "klezmer/shpil zhe mir a lidele.abc": {
       "status": null,
       "favorite": false,
@@ -2204,6 +3597,54 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/shver un shviger.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/sidneys ershte bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/simkhestoyre.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/sirba from carpati.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/soreles bat mitsve.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/stanislaver bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
     },
     "klezmer/tants tants yidelekh.abc": {
       "status": null,
@@ -2213,6 +3654,78 @@
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
     },
+    "klezmer/tiraspoler bulgar.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/tish nigun.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/tsave.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/unzer toyrele.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/varshaver freylekhs.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/vayn a glezele.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/vi shlekht un vi biter.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/vu bist du geveyn far prohibishn.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/wedding hora.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
     "klezmer/yidl mitn fidl.abc": {
       "status": null,
       "favorite": false,
@@ -2220,6 +3733,46 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-11-06T17:04:02.205Z"
+    },
+    "klezmer/yoshke fort avek.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/yosis.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/yosl yosl.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/zhok moldavian dance.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
+    },
+    "klezmer/zog maran.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.711Z"
     },
     "korean/arirang.abc": {
       "status": null,
@@ -2454,6 +4007,14 @@
       "lastPlayed": "2026-10-05T10:39:42.988Z",
       "playCount": 1,
       "createdAt": "2026-09-22T12:46:37.241Z"
+    },
+    "pakistani/hey jamalo.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.712Z"
     },
     "peruvian/el condor pasa.abc": {
       "status": "practicing",
@@ -3255,6 +4816,86 @@
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-11-06T13:07:34.755Z"
     },
+    "tv/airwolf.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/alfred hitchcock presents.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/bewitched.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/blackadder.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/casper.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/cheers.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/coronation street.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/cruel angels thesis.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/dallas.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/daniel boone.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
     "tv/detective_conan.abc": {
       "status": "good",
       "favorite": true,
@@ -3263,6 +4904,62 @@
       "playCount": 53,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
+    "tv/diffrent strokes.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/doctor who.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/doraemon.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/eastenders.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/fame.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/fawlty towers.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/flipper.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
     "tv/fraggle rock.abc": {
       "status": null,
       "favorite": false,
@@ -3270,6 +4967,374 @@
       "lastPlayed": "2026-01-31T23:27:04.152Z",
       "playCount": 1,
       "createdAt": "2026-01-18T20:46:38.367Z"
+    },
+    "tv/friends.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/futurama.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/game of thrones.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/get smart.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/gilligans island.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/gummi bears.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/happy days.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/hawaii five-o.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/hogans heroes.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/huckleberry hound.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/i dream of jeannie.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/knight rider.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/last of the summer wine.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/laverne and shirley.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/magnum pi.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/mash.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/mission impossible.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/mr bean.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/pinky and the brain.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/pippi longstocking.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/popeye.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/rawhide.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/scooby doo.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/sesame street.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/sherlock.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/spider-man.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/star trek.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/taxi.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the addams family.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the andy griffith show.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the brady bunch.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the flintstones.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the munsters.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the muppet show.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the odd couple.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the office.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the simpsons.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the smurfs.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the vicar of dibley.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the waltons.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the wombles.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/the x-files.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/wallace and gromit.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/woody woodpecker.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/yakety sax.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
+    },
+    "tv/yu-gi-oh.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "ugandan/mwana wa nnyabo.abc": {
       "status": null,
@@ -3319,6 +5384,14 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-10-24T11:46:54.432Z"
+    },
+    "venezuelan/alma llanera.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-07T03:10:49.712Z"
     },
     "vietnamese/beo dat may troi.abc": {
       "status": null,
@@ -3438,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "klezmer/abi gezint.abc",
+      "timestamp": "2026-11-07T03:11:26.710Z"
+    },
+    {
       "filePath": "klezmer/alter sher.abc",
       "timestamp": "2026-11-06T17:04:37.776Z"
     },
@@ -3512,10 +5589,6 @@
     {
       "filePath": "french/sous le ciel de paris.abc",
       "timestamp": "2026-11-05T10:33:22.283Z"
-    },
-    {
-      "filePath": "french/la foule.abc",
-      "timestamp": "2026-11-05T10:30:26.598Z"
     }
   ],
   "activity": {
@@ -3864,6 +5937,7 @@
       "scottish/clanranald.abc": 2
     },
     "2026-11-07": {
+      "klezmer/abi gezint.abc": 1,
       "klezmer/alter sher.abc": 2
     }
   },
