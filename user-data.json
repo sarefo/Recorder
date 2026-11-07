@@ -7779,12 +7779,8 @@
       }
     },
     "klezmer/alter sher.abc": {
-      "at": "2026-11-06T17:04:37.891Z",
+      "at": "2026-11-07T03:07:58.319Z",
       "notes": {
-        "4": {
-          "state": "red",
-          "pitch": "_E"
-        },
         "9": {
           "state": "red",
           "pitch": "^F"
