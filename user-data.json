@@ -8070,6 +8070,16 @@
         "at": "2026-10-25T02:13:46.064Z"
       }
     },
+    "occitan/la cambo me fai mau.abc": {
+      "28": {
+        "pitch": "A",
+        "prev": "c",
+        "pitchSeen": 12,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-07T03:26:36.680Z"
+      }
+    },
     "peruvian/el condor pasa.abc": {
       "2": {
         "pitch": "^G",
@@ -9936,6 +9946,15 @@
         "3": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "occitan/la cambo me fai mau.abc": {
+      "at": "2026-11-07T03:26:26.667Z",
+      "notes": {
+        "28": {
+          "state": "red",
+          "pitch": "A"
         }
       }
     },
