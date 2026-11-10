@@ -5052,8 +5052,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-10T12:04:43.179Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/knight rider.abc": {
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/i dream of jeannie.abc",
+      "timestamp": "2026-11-10T12:04:43.179Z"
+    },
+    {
       "filePath": "yiddish/dos kelbl.abc",
       "timestamp": "2026-11-10T12:02:39.377Z"
     },
@@ -5585,10 +5589,6 @@
     {
       "filePath": "scottish/sweet_molly.abc",
       "timestamp": "2026-11-07T03:35:53.881Z"
-    },
-    {
-      "filePath": "klezmer/a dreidele far alle  freilachs.abc",
-      "timestamp": "2026-11-07T03:14:04.217Z"
     }
   ],
   "activity": {
@@ -5962,6 +5962,7 @@
       "scottish/balquidder_lasses.abc": 3,
       "scottish/bottom_bowl.abc": 5,
       "scottish/sweet_molly.abc": 1,
+      "tv/i dream of jeannie.abc": 1,
       "yiddish/dos kelbl.abc": 1
     }
   },
@@ -8823,6 +8824,16 @@
         "at": "2026-10-25T10:08:05.630Z"
       }
     },
+    "tv/i dream of jeannie.abc": {
+      "58": {
+        "pitch": "_B",
+        "prev": "_d",
+        "pitchSeen": 3,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-10T12:04:53.289Z"
+      }
+    },
     "ukrainian/nich yaka misyachna.abc": {
       "16": {
         "pitch": "_B",
@@ -10570,6 +10581,15 @@
         "168": {
           "state": "red",
           "pitch": "d"
+        }
+      }
+    },
+    "tv/i dream of jeannie.abc": {
+      "at": "2026-11-10T12:04:43.285Z",
+      "notes": {
+        "58": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
