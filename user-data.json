@@ -4523,8 +4523,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T02:02:05.470Z",
-      "playCount": 53,
+      "lastPlayed": "2026-11-10T03:37:02.957Z",
+      "playCount": 54,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-11-10T03:37:02.957Z"
+    },
+    {
       "filePath": "scottish/sweet_molly.abc",
       "timestamp": "2026-11-07T03:35:53.881Z"
     },
@@ -5585,10 +5589,6 @@
     {
       "filePath": "pop/bert kaempfert/tootie flutie.abc",
       "timestamp": "2026-11-06T07:43:11.479Z"
-    },
-    {
-      "filePath": "french/la mer.abc",
-      "timestamp": "2026-11-06T07:43:10.050Z"
     }
   ],
   "activity": {
@@ -5944,6 +5944,7 @@
       "occitan/la cambo me fai mau.abc": 5
     },
     "2026-11-10": {
+      "scottish/balquidder_lasses.abc": 3,
       "scottish/sweet_molly.abc": 1
     }
   },
