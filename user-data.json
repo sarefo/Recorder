@@ -2473,8 +2473,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T17:04:37.776Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-10T12:01:31.562Z",
+      "playCount": 2,
       "createdAt": "2026-11-06T17:04:02.205Z",
       "updatedAt": "2026-11-07T03:11:06.063Z"
     },
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "klezmer/alter sher.abc",
+      "timestamp": "2026-11-10T12:01:31.562Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-11-10T11:59:12.423Z"
     },
@@ -5585,10 +5589,6 @@
     {
       "filePath": "klezmer/abi gezint.abc",
       "timestamp": "2026-11-07T03:11:26.710Z"
-    },
-    {
-      "filePath": "klezmer/alter sher.abc",
-      "timestamp": "2026-11-06T17:04:37.776Z"
     }
   ],
   "activity": {
@@ -5955,6 +5955,7 @@
       "german/maria durch ein dornwald ging.abc": 1,
       "jazz/autumn leaves.abc": 2,
       "jazz/moon river.abc": 3,
+      "klezmer/alter sher.abc": 1,
       "occitan/adiu paure carnaval.abc": 2,
       "occitan/ai vist lo lop.abc": 2,
       "occitan/la cambo me fai mau.abc": 3,
@@ -8011,8 +8012,8 @@
         "prev": "D",
         "pitchSeen": 19,
         "transSeen": 4,
-        "count": 1,
-        "at": "2026-11-06T17:04:47.889Z"
+        "count": 2,
+        "at": "2026-11-10T12:01:41.678Z"
       },
       "9": {
         "pitch": "^F",
@@ -9960,8 +9961,12 @@
       }
     },
     "klezmer/alter sher.abc": {
-      "at": "2026-11-07T03:07:58.319Z",
+      "at": "2026-11-10T12:01:31.673Z",
       "notes": {
+        "4": {
+          "state": "red",
+          "pitch": "_E"
+        },
         "9": {
           "state": "red",
           "pitch": "^F"
