@@ -1099,8 +1099,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-10T12:12:30.813Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "film/hisaishi/summer.abc": {
@@ -1221,8 +1221,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-10T12:12:02.636Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "film/schindlers list.abc": {
@@ -5515,6 +5515,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/hisaishi/sonatine.abc",
+      "timestamp": "2026-11-10T12:12:30.813Z"
+    },
+    {
+      "filePath": "film/poledouris/robocop.abc",
+      "timestamp": "2026-11-10T12:12:02.636Z"
+    },
+    {
       "filePath": "film/imperial march.abc",
       "timestamp": "2026-11-10T12:09:45.792Z"
     },
@@ -5585,14 +5593,6 @@
     {
       "filePath": "german/ach bittrer winter.abc",
       "timestamp": "2026-11-10T11:44:30.129Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-11-10T11:42:28.001Z"
-    },
-    {
-      "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-10T04:07:05.650Z"
     }
   ],
   "activity": {
@@ -5952,7 +5952,9 @@
       "breton/son ar chistr.abc": 2,
       "breton/toutouic.abc": 3,
       "film/ghostbusters.abc": 1,
+      "film/hisaishi/sonatine.abc": 1,
       "film/imperial march.abc": 1,
+      "film/poledouris/robocop.abc": 1,
       "film/schindlers list.abc": 1,
       "french/douce dame jolie.abc": 1,
       "german/ach bittrer winter.abc": 1,
@@ -7148,7 +7150,49 @@
         "at": "2026-10-27T08:34:48.329Z"
       }
     },
+    "film/hisaishi/sonatine.abc": {
+      "54": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-10T12:12:40.964Z"
+      }
+    },
     "film/imperial march.abc": {
+      "26": {
+        "pitch": "^d",
+        "prev": "e",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-10T12:11:47.700Z"
+      },
+      "28": {
+        "pitch": "^c",
+        "prev": "=d",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-10T12:11:16.601Z"
+      },
+      "33": {
+        "pitch": "^A",
+        "prev": "=F",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-10T12:11:14.364Z"
+      },
+      "35": {
+        "pitch": "^G",
+        "prev": "=A",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-10T12:11:24.452Z"
+      },
       "37": {
         "pitch": "^F",
         "prev": "G",
@@ -7166,6 +7210,16 @@
         "transSeen": 6,
         "count": 1,
         "at": "2026-11-03T13:14:20.156Z"
+      }
+    },
+    "film/poledouris/robocop.abc": {
+      "3": {
+        "pitch": "^F",
+        "prev": "E",
+        "pitchSeen": 3,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-10T12:12:12.744Z"
       }
     },
     "film/schindlers list.abc": {
@@ -9356,9 +9410,34 @@
         }
       }
     },
-    "film/imperial march.abc": {
-      "at": "2026-11-10T12:09:45.899Z",
+    "film/hisaishi/sonatine.abc": {
+      "at": "2026-11-10T12:12:30.963Z",
       "notes": {
+        "54": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "film/imperial march.abc": {
+      "at": "2026-11-10T12:11:37.697Z",
+      "notes": {
+        "26": {
+          "state": "red",
+          "pitch": "^d"
+        },
+        "28": {
+          "state": "red",
+          "pitch": "^c"
+        },
+        "33": {
+          "state": "red",
+          "pitch": "^A"
+        },
+        "35": {
+          "state": "red",
+          "pitch": "^G"
+        },
         "37": {
           "state": "red",
           "pitch": "^F"
@@ -9369,6 +9448,15 @@
       "at": "2026-11-03T13:14:10.149Z",
       "notes": {
         "2": {
+          "state": "red",
+          "pitch": "^F"
+        }
+      }
+    },
+    "film/poledouris/robocop.abc": {
+      "at": "2026-11-10T12:12:02.741Z",
+      "notes": {
+        "3": {
           "state": "red",
           "pitch": "^F"
         }
