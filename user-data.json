@@ -1041,8 +1041,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-10T12:08:43.820Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "film/hedwigs theme.abc": {
@@ -1228,8 +1228,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-10T12:09:18.067Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "film/singin in the rain.abc": {
@@ -5101,8 +5101,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-10T12:07:28.341Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/mr bean.abc": {
@@ -5178,12 +5178,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/star trek.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-10T12:07:45.952Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-10T12:08:03.953Z"
     },
     "tv/taxi.abc": {
       "status": null,
@@ -5258,12 +5259,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/the simpsons.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-10T12:08:15.133Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-10T12:08:24.793Z"
     },
     "tv/the smurfs.abc": {
       "status": null,
@@ -5512,6 +5514,26 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/schindlers list.abc",
+      "timestamp": "2026-11-10T12:09:18.067Z"
+    },
+    {
+      "filePath": "film/ghostbusters.abc",
+      "timestamp": "2026-11-10T12:08:43.820Z"
+    },
+    {
+      "filePath": "tv/the simpsons.abc",
+      "timestamp": "2026-11-10T12:08:15.133Z"
+    },
+    {
+      "filePath": "tv/star trek.abc",
+      "timestamp": "2026-11-10T12:07:45.952Z"
+    },
+    {
+      "filePath": "tv/mission impossible.abc",
+      "timestamp": "2026-11-10T12:07:28.341Z"
+    },
+    {
       "filePath": "tv/i dream of jeannie.abc",
       "timestamp": "2026-11-10T12:04:43.179Z"
     },
@@ -5570,26 +5592,6 @@
     {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-11-10T04:05:43.094Z"
-    },
-    {
-      "filePath": "occitan/ai vist lo lop.abc",
-      "timestamp": "2026-11-10T04:04:32.855Z"
-    },
-    {
-      "filePath": "occitan/la cambo me fai mau.abc",
-      "timestamp": "2026-11-10T04:02:24.229Z"
-    },
-    {
-      "filePath": "scottish/bottom_bowl.abc",
-      "timestamp": "2026-11-10T03:40:27.334Z"
-    },
-    {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-11-10T03:37:02.957Z"
-    },
-    {
-      "filePath": "scottish/sweet_molly.abc",
-      "timestamp": "2026-11-07T03:35:53.881Z"
     }
   ],
   "activity": {
@@ -5948,6 +5950,7 @@
       "breton/les filles des forges de paimpont.abc": 2,
       "breton/son ar chistr.abc": 2,
       "breton/toutouic.abc": 3,
+      "film/ghostbusters.abc": 1,
       "french/douce dame jolie.abc": 1,
       "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
@@ -5964,6 +5967,9 @@
       "scottish/bottom_bowl.abc": 5,
       "scottish/sweet_molly.abc": 1,
       "tv/i dream of jeannie.abc": 1,
+      "tv/mission impossible.abc": 1,
+      "tv/star trek.abc": 2,
+      "tv/the simpsons.abc": 1,
       "yiddish/dos kelbl.abc": 1
     }
   },
@@ -6587,6 +6593,16 @@
       "path": "tv/i dream of jeannie.abc",
       "status": "practicing",
       "at": "2026-11-10T12:06:15.331Z"
+    },
+    {
+      "path": "tv/star trek.abc",
+      "status": "needs-practice",
+      "at": "2026-11-10T12:08:03.953Z"
+    },
+    {
+      "path": "tv/the simpsons.abc",
+      "status": "practicing",
+      "at": "2026-11-10T12:08:24.793Z"
     }
   ],
   "marks": {
@@ -8840,6 +8856,34 @@
         "at": "2026-11-10T12:04:53.289Z"
       }
     },
+    "tv/mission impossible.abc": {
+      "2": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-10T12:07:38.446Z"
+      }
+    },
+    "tv/star trek.abc": {
+      "1": {
+        "pitch": "_e",
+        "prev": "F",
+        "pitchSeen": 3,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-10T12:07:56.058Z"
+      },
+      "5": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 4,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-10T12:07:56.060Z"
+      }
+    },
     "ukrainian/nich yaka misyachna.abc": {
       "16": {
         "pitch": "_B",
@@ -9290,6 +9334,15 @@
         "2": {
           "state": "red",
           "pitch": "^F"
+        }
+      }
+    },
+    "film/schindlers list.abc": {
+      "at": "2026-11-10T12:09:18.174Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
@@ -10594,6 +10647,28 @@
       "at": "2026-11-10T12:04:43.285Z",
       "notes": {
         "58": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "tv/mission impossible.abc": {
+      "at": "2026-11-10T12:07:28.444Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "tv/star trek.abc": {
+      "at": "2026-11-10T12:07:46.057Z",
+      "notes": {
+        "1": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "5": {
           "state": "red",
           "pitch": "_B"
         }
