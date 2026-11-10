@@ -417,8 +417,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:20:43.160Z",
-      "playCount": 14,
+      "lastPlayed": "2026-11-10T12:17:27.358Z",
+      "playCount": 15,
       "createdAt": "2026-09-26T04:52:58.455Z",
       "updatedAt": "2026-10-22T05:47:42.192Z"
     },
@@ -4958,8 +4958,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-10T12:16:55.887Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/fraggle rock.abc": {
@@ -5516,6 +5516,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/badinerie.abc",
+      "timestamp": "2026-11-10T12:17:27.358Z"
+    },
+    {
+      "filePath": "tv/flipper.abc",
+      "timestamp": "2026-11-10T12:16:55.887Z"
+    },
+    {
       "filePath": "tv/detective_conan.abc",
       "timestamp": "2026-11-10T12:14:41.359Z"
     },
@@ -5586,14 +5594,6 @@
     {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-11-10T11:50:49.580Z"
-    },
-    {
-      "filePath": "german/es ist ein schnitter.abc",
-      "timestamp": "2026-11-10T11:49:26.165Z"
-    },
-    {
-      "filePath": "german/es geht eine dunkle wolk herein.abc",
-      "timestamp": "2026-11-10T11:45:26.119Z"
     }
   ],
   "activity": {
@@ -5952,6 +5952,7 @@
       "breton/les filles des forges de paimpont.abc": 2,
       "breton/son ar chistr.abc": 2,
       "breton/toutouic.abc": 3,
+      "classical/bach/badinerie.abc": 1,
       "film/ghostbusters.abc": 1,
       "film/hisaishi/sonatine.abc": 1,
       "film/imperial march.abc": 1,
@@ -5973,6 +5974,7 @@
       "scottish/bottom_bowl.abc": 5,
       "scottish/sweet_molly.abc": 1,
       "tv/detective_conan.abc": 1,
+      "tv/flipper.abc": 1,
       "tv/i dream of jeannie.abc": 1,
       "tv/mission impossible.abc": 1,
       "tv/star trek.abc": 2,
