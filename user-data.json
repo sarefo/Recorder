@@ -8534,6 +8534,16 @@
         "at": "2026-11-02T13:50:21.564Z"
       }
     },
+    "scottish/balquidder_lasses.abc": {
+      "59": {
+        "pitch": "G",
+        "prev": "c",
+        "pitchSeen": 22,
+        "transSeen": 6,
+        "count": 1,
+        "at": "2026-11-10T03:39:30.098Z"
+      }
+    },
     "scottish/bottom_bowl.abc": {
       "20": {
         "pitch": "B",
@@ -10296,6 +10306,15 @@
         "11": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "scottish/balquidder_lasses.abc": {
+      "at": "2026-11-10T03:39:20.095Z",
+      "notes": {
+        "59": {
+          "state": "red",
+          "pitch": "G"
         }
       }
     },
