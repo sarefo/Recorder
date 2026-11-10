@@ -1505,8 +1505,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T01:53:07.006Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-10T11:49:26.165Z",
+      "playCount": 6,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-30T05:10:04.894Z"
     },
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es ist ein schnitter.abc",
+      "timestamp": "2026-11-10T11:49:26.165Z"
+    },
+    {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-11-10T11:45:26.119Z"
     },
@@ -5585,10 +5589,6 @@
     {
       "filePath": "pop/game/monkey island.abc",
       "timestamp": "2026-11-06T10:49:58.587Z"
-    },
-    {
-      "filePath": "pop/final_countdown.abc",
-      "timestamp": "2026-11-06T10:46:12.165Z"
     }
   ],
   "activity": {
@@ -5946,6 +5946,7 @@
     "2026-11-10": {
       "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
+      "german/es ist ein schnitter.abc": 1,
       "jazz/autumn leaves.abc": 2,
       "jazz/moon river.abc": 3,
       "occitan/adiu paure carnaval.abc": 2,
@@ -7249,6 +7250,14 @@
         "count": 1,
         "at": "2026-10-24T11:53:42.143Z"
       },
+      "3": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 11,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-10T11:49:36.273Z"
+      },
       "6": {
         "pitch": "_E",
         "prev": "F",
@@ -7256,6 +7265,14 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-24T11:53:42.144Z"
+      },
+      "7": {
+        "pitch": "_E",
+        "prev": "F",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-10T11:49:36.275Z"
       }
     },
     "german/es waren zwei koenigskinder.abc": {
@@ -9331,13 +9348,21 @@
       }
     },
     "german/es ist ein schnitter.abc": {
-      "at": "2026-10-24T11:53:32.140Z",
+      "at": "2026-11-10T11:49:26.273Z",
       "notes": {
         "2": {
           "state": "red",
           "pitch": "_B"
         },
+        "3": {
+          "state": "red",
+          "pitch": "_B"
+        },
         "6": {
+          "state": "red",
+          "pitch": "_E"
+        },
+        "7": {
           "state": "red",
           "pitch": "_E"
         }
