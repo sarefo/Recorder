@@ -1357,8 +1357,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-07T03:14:22.931Z",
-      "playCount": 18,
+      "lastPlayed": "2026-11-10T11:59:12.423Z",
+      "playCount": 19,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-18T03:20:14.847Z"
     },
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-11-10T11:59:12.423Z"
+    },
+    {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-11-10T11:56:26.689Z"
     },
@@ -5573,10 +5577,6 @@
     {
       "filePath": "scottish/sweet_molly.abc",
       "timestamp": "2026-11-07T03:35:53.881Z"
-    },
-    {
-      "filePath": "french/douce dame jolie.abc",
-      "timestamp": "2026-11-07T03:14:22.931Z"
     },
     {
       "filePath": "klezmer/a dreidele far alle  freilachs.abc",
@@ -5947,6 +5947,7 @@
       "breton/les filles des forges de paimpont.abc": 2,
       "breton/son ar chistr.abc": 2,
       "breton/toutouic.abc": 3,
+      "french/douce dame jolie.abc": 1,
       "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
