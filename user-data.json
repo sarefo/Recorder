@@ -162,8 +162,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T08:17:14.247Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-10T11:56:26.689Z",
+      "playCount": 13,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-17T05:42:00.320Z"
     },
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-11-10T11:56:26.689Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-11-10T11:54:44.351Z"
     },
@@ -5585,10 +5589,6 @@
     {
       "filePath": "klezmer/alter sher.abc",
       "timestamp": "2026-11-06T17:04:37.776Z"
-    },
-    {
-      "filePath": "tv/a-team.abc",
-      "timestamp": "2026-11-06T13:07:35.928Z"
     }
   ],
   "activity": {
@@ -5946,6 +5946,7 @@
     "2026-11-10": {
       "breton/les filles des forges de paimpont.abc": 2,
       "breton/son ar chistr.abc": 2,
+      "breton/toutouic.abc": 1,
       "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
