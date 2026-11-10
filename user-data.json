@@ -5462,8 +5462,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-29T04:33:39.224Z",
-      "playCount": 30,
+      "lastPlayed": "2026-11-10T12:02:39.377Z",
+      "playCount": 31,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "yiddish/in kamf.abc": {
@@ -5510,6 +5510,10 @@
   "collections": {},
   "deletedCollections": {},
   "recentlyPlayed": [
+    {
+      "filePath": "yiddish/dos kelbl.abc",
+      "timestamp": "2026-11-10T12:02:39.377Z"
+    },
     {
       "filePath": "klezmer/alter sher.abc",
       "timestamp": "2026-11-10T12:01:31.562Z"
@@ -5585,10 +5589,6 @@
     {
       "filePath": "klezmer/a dreidele far alle  freilachs.abc",
       "timestamp": "2026-11-07T03:14:04.217Z"
-    },
-    {
-      "filePath": "klezmer/abi gezint.abc",
-      "timestamp": "2026-11-07T03:11:26.710Z"
     }
   ],
   "activity": {
@@ -5961,7 +5961,8 @@
       "occitan/la cambo me fai mau.abc": 3,
       "scottish/balquidder_lasses.abc": 3,
       "scottish/bottom_bowl.abc": 5,
-      "scottish/sweet_molly.abc": 1
+      "scottish/sweet_molly.abc": 1,
+      "yiddish/dos kelbl.abc": 1
     }
   },
   "statusLog": [
@@ -8849,6 +8850,16 @@
         "count": 1,
         "at": "2026-10-29T04:31:14.313Z"
       }
+    },
+    "yiddish/dos kelbl.abc": {
+      "12": {
+        "pitch": "_B",
+        "prev": "D",
+        "pitchSeen": 6,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-10T12:02:49.491Z"
+      }
     }
   },
   "markStates": {
@@ -10581,6 +10592,15 @@
         "13": {
           "state": "red",
           "pitch": "^G"
+        }
+      }
+    },
+    "yiddish/dos kelbl.abc": {
+      "at": "2026-11-10T12:02:39.486Z",
+      "notes": {
+        "12": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     }
