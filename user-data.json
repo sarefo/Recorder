@@ -1577,8 +1577,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T01:51:12.176Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-10T11:51:55.658Z",
+      "playCount": 6,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-26T03:48:01.463Z"
     },
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/maria durch ein dornwald ging.abc",
+      "timestamp": "2026-11-10T11:51:55.658Z"
+    },
+    {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-11-10T11:50:49.580Z"
     },
@@ -5585,10 +5589,6 @@
     {
       "filePath": "pop/no doubt/don't speak.abc",
       "timestamp": "2026-11-06T10:56:03.623Z"
-    },
-    {
-      "filePath": "pop/the bangles/eternal flame.abc",
-      "timestamp": "2026-11-06T10:53:02.537Z"
     }
   ],
   "activity": {
@@ -5948,6 +5948,7 @@
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
+      "german/maria durch ein dornwald ging.abc": 1,
       "jazz/autumn leaves.abc": 2,
       "jazz/moon river.abc": 3,
       "occitan/adiu paure carnaval.abc": 2,
