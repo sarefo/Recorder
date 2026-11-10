@@ -3987,8 +3987,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-07T03:14:33.753Z",
-      "playCount": 14,
+      "lastPlayed": "2026-11-10T04:02:24.229Z",
+      "playCount": 15,
       "createdAt": "2026-09-22T12:46:37.241Z",
       "updatedAt": "2026-10-20T06:00:14.877Z"
     },
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/la cambo me fai mau.abc",
+      "timestamp": "2026-11-10T04:02:24.229Z"
+    },
+    {
       "filePath": "scottish/bottom_bowl.abc",
       "timestamp": "2026-11-10T03:40:27.334Z"
     },
@@ -5529,10 +5533,6 @@
     {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-11-07T03:28:11.987Z"
-    },
-    {
-      "filePath": "occitan/la cambo me fai mau.abc",
-      "timestamp": "2026-11-07T03:14:33.753Z"
     },
     {
       "filePath": "french/douce dame jolie.abc",
@@ -5944,6 +5944,7 @@
       "occitan/la cambo me fai mau.abc": 5
     },
     "2026-11-10": {
+      "occitan/la cambo me fai mau.abc": 2,
       "scottish/balquidder_lasses.abc": 3,
       "scottish/bottom_bowl.abc": 5,
       "scottish/sweet_molly.abc": 1
