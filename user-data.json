@@ -6645,6 +6645,14 @@
       }
     },
     "breton/toutouic.abc": {
+      "20": {
+        "pitch": "B",
+        "prev": "d",
+        "pitchSeen": 10,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-10T11:57:36.393Z"
+      },
       "23": {
         "pitch": "A",
         "prev": "c",
@@ -8899,8 +8907,12 @@
       }
     },
     "breton/toutouic.abc": {
-      "at": "2026-10-31T05:15:28.208Z",
+      "at": "2026-11-10T11:57:26.389Z",
       "notes": {
+        "20": {
+          "state": "red",
+          "pitch": "B"
+        },
         "23": {
           "state": "red",
           "pitch": "A"
