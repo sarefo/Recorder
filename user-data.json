@@ -1120,12 +1120,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "film/imperial march.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-10T12:09:45.792Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-10T12:10:19.521Z"
     },
     "film/itsumo nando demo.abc": {
       "status": null,
@@ -5514,6 +5515,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/imperial march.abc",
+      "timestamp": "2026-11-10T12:09:45.792Z"
+    },
+    {
       "filePath": "film/schindlers list.abc",
       "timestamp": "2026-11-10T12:09:18.067Z"
     },
@@ -5588,10 +5593,6 @@
     {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-10T04:07:05.650Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-11-10T04:05:43.094Z"
     }
   ],
   "activity": {
@@ -5951,6 +5952,8 @@
       "breton/son ar chistr.abc": 2,
       "breton/toutouic.abc": 3,
       "film/ghostbusters.abc": 1,
+      "film/imperial march.abc": 1,
+      "film/schindlers list.abc": 1,
       "french/douce dame jolie.abc": 1,
       "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
@@ -6603,6 +6606,11 @@
       "path": "tv/the simpsons.abc",
       "status": "practicing",
       "at": "2026-11-10T12:08:24.793Z"
+    },
+    {
+      "path": "film/imperial march.abc",
+      "status": "practicing",
+      "at": "2026-11-10T12:10:19.521Z"
     }
   ],
   "marks": {
@@ -7140,6 +7148,16 @@
         "at": "2026-10-27T08:34:48.329Z"
       }
     },
+    "film/imperial march.abc": {
+      "37": {
+        "pitch": "^F",
+        "prev": "G",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-10T12:09:55.902Z"
+      }
+    },
     "film/lets call the whole thing off.abc": {
       "2": {
         "pitch": "^F",
@@ -7148,6 +7166,16 @@
         "transSeen": 6,
         "count": 1,
         "at": "2026-11-03T13:14:20.156Z"
+      }
+    },
+    "film/schindlers list.abc": {
+      "2": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-10T12:09:28.176Z"
       }
     },
     "french/douce dame jolie.abc": {
@@ -9325,6 +9353,15 @@
         "10": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "film/imperial march.abc": {
+      "at": "2026-11-10T12:09:45.899Z",
+      "notes": {
+        "37": {
+          "state": "red",
+          "pitch": "^F"
         }
       }
     },
