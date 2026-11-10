@@ -1096,12 +1096,13 @@
       "updatedAt": "2026-10-25T04:58:17.617Z"
     },
     "film/hisaishi/sonatine.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-10T12:12:30.813Z",
       "playCount": 1,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-10T12:14:33.584Z"
     },
     "film/hisaishi/summer.abc": {
       "status": "practicing",
@@ -4901,8 +4902,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T10:01:53.081Z",
-      "playCount": 53,
+      "lastPlayed": "2026-11-10T12:14:41.359Z",
+      "playCount": 54,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "tv/diffrent strokes.abc": {
@@ -5515,6 +5516,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/detective_conan.abc",
+      "timestamp": "2026-11-10T12:14:41.359Z"
+    },
+    {
       "filePath": "film/hisaishi/sonatine.abc",
       "timestamp": "2026-11-10T12:12:30.813Z"
     },
@@ -5589,10 +5594,6 @@
     {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-11-10T11:45:26.119Z"
-    },
-    {
-      "filePath": "german/ach bittrer winter.abc",
-      "timestamp": "2026-11-10T11:44:30.129Z"
     }
   ],
   "activity": {
@@ -5971,6 +5972,7 @@
       "scottish/balquidder_lasses.abc": 3,
       "scottish/bottom_bowl.abc": 5,
       "scottish/sweet_molly.abc": 1,
+      "tv/detective_conan.abc": 1,
       "tv/i dream of jeannie.abc": 1,
       "tv/mission impossible.abc": 1,
       "tv/star trek.abc": 2,
@@ -6613,6 +6615,11 @@
       "path": "film/imperial march.abc",
       "status": "practicing",
       "at": "2026-11-10T12:10:19.521Z"
+    },
+    {
+      "path": "film/hisaishi/sonatine.abc",
+      "status": "needs-practice",
+      "at": "2026-11-10T12:14:33.584Z"
     }
   ],
   "marks": {
@@ -8887,6 +8894,14 @@
       }
     },
     "tv/detective_conan.abc": {
+      "5": {
+        "pitch": "^F",
+        "prev": "G",
+        "pitchSeen": 23,
+        "transSeen": 13,
+        "count": 1,
+        "at": "2026-11-10T12:14:51.543Z"
+      },
       "135": {
         "pitch": "^A",
         "prev": null,
@@ -8894,6 +8909,14 @@
         "transSeen": 0,
         "count": 1,
         "at": "2026-10-25T10:04:12.017Z"
+      },
+      "143": {
+        "pitch": "^f",
+        "prev": "g",
+        "pitchSeen": 8,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-10T12:14:51.547Z"
       },
       "148": {
         "pitch": "^d",
@@ -10744,11 +10767,19 @@
       }
     },
     "tv/detective_conan.abc": {
-      "at": "2026-10-25T10:07:55.627Z",
+      "at": "2026-11-10T12:14:41.543Z",
       "notes": {
+        "5": {
+          "state": "red",
+          "pitch": "^F"
+        },
         "135": {
           "state": "red",
           "pitch": "^A"
+        },
+        "143": {
+          "state": "red",
+          "pitch": "^f"
         },
         "148": {
           "state": "red",
