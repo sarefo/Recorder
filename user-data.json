@@ -2211,8 +2211,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T10:41:25.087Z",
-      "playCount": 19,
+      "lastPlayed": "2026-11-10T11:42:28.001Z",
+      "playCount": 20,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-11-10T11:42:28.001Z"
+    },
+    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-10T04:07:05.650Z"
     },
@@ -5581,10 +5585,6 @@
     {
       "filePath": "jazz/girl from ipanema.abc",
       "timestamp": "2026-11-06T10:43:16.799Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-11-06T10:41:25.087Z"
     },
     {
       "filePath": "israeli/hevenu shalom aleichem.abc",
@@ -5944,6 +5944,7 @@
       "occitan/la cambo me fai mau.abc": 5
     },
     "2026-11-10": {
+      "jazz/autumn leaves.abc": 2,
       "jazz/moon river.abc": 3,
       "occitan/adiu paure carnaval.abc": 2,
       "occitan/ai vist lo lop.abc": 2,
