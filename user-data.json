@@ -136,8 +136,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T08:12:55.400Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-10T11:53:00.422Z",
+      "playCount": 11,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-11-03T08:15:34.884Z"
     },
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/les filles des forges de paimpont.abc",
+      "timestamp": "2026-11-10T11:53:00.422Z"
+    },
+    {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-11-10T11:51:55.658Z"
     },
@@ -5585,10 +5589,6 @@
     {
       "filePath": "pop/mad world.abc",
       "timestamp": "2026-11-06T10:58:48.371Z"
-    },
-    {
-      "filePath": "pop/no doubt/don't speak.abc",
-      "timestamp": "2026-11-06T10:56:03.623Z"
     }
   ],
   "activity": {
@@ -5944,6 +5944,7 @@
       "occitan/la cambo me fai mau.abc": 5
     },
     "2026-11-10": {
+      "breton/les filles des forges de paimpont.abc": 1,
       "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
