@@ -4540,8 +4540,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T06:22:36.903Z",
-      "playCount": 29,
+      "lastPlayed": "2026-11-10T03:40:27.334Z",
+      "playCount": 30,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/caber_feigh.abc": {
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/bottom_bowl.abc",
+      "timestamp": "2026-11-10T03:40:27.334Z"
+    },
+    {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-11-10T03:37:02.957Z"
     },
@@ -5585,10 +5589,6 @@
     {
       "filePath": "israeli/hevenu shalom aleichem.abc",
       "timestamp": "2026-11-06T10:33:17.292Z"
-    },
-    {
-      "filePath": "pop/bert kaempfert/tootie flutie.abc",
-      "timestamp": "2026-11-06T07:43:11.479Z"
     }
   ],
   "activity": {
@@ -5945,6 +5945,7 @@
     },
     "2026-11-10": {
       "scottish/balquidder_lasses.abc": 3,
+      "scottish/bottom_bowl.abc": 1,
       "scottish/sweet_molly.abc": 1
     }
   },
