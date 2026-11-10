@@ -3970,8 +3970,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-07T03:29:43.441Z",
-      "playCount": 15,
+      "lastPlayed": "2026-11-10T04:05:43.094Z",
+      "playCount": 16,
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/ai vist lo lop.abc": {
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/adiu paure carnaval.abc",
+      "timestamp": "2026-11-10T04:05:43.094Z"
+    },
+    {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-11-10T04:04:32.855Z"
     },
@@ -5529,10 +5533,6 @@
     {
       "filePath": "scottish/sweet_molly.abc",
       "timestamp": "2026-11-07T03:35:53.881Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-11-07T03:29:43.441Z"
     },
     {
       "filePath": "french/douce dame jolie.abc",
@@ -5944,6 +5944,7 @@
       "occitan/la cambo me fai mau.abc": 5
     },
     "2026-11-10": {
+      "occitan/adiu paure carnaval.abc": 2,
       "occitan/ai vist lo lop.abc": 2,
       "occitan/la cambo me fai mau.abc": 3,
       "scottish/balquidder_lasses.abc": 3,
