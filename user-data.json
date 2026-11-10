@@ -1496,8 +1496,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T01:49:25.906Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-10T11:45:26.119Z",
+      "playCount": 7,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:52:16.545Z"
     },
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es geht eine dunkle wolk herein.abc",
+      "timestamp": "2026-11-10T11:45:26.119Z"
+    },
+    {
       "filePath": "german/ach bittrer winter.abc",
       "timestamp": "2026-11-10T11:44:30.129Z"
     },
@@ -5585,10 +5589,6 @@
     {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-11-06T10:46:12.165Z"
-    },
-    {
-      "filePath": "jazz/girl from ipanema.abc",
-      "timestamp": "2026-11-06T10:43:16.799Z"
     }
   ],
   "activity": {
@@ -5945,6 +5945,7 @@
     },
     "2026-11-10": {
       "german/ach bittrer winter.abc": 1,
+      "german/es geht eine dunkle wolk herein.abc": 1,
       "jazz/autumn leaves.abc": 2,
       "jazz/moon river.abc": 3,
       "occitan/adiu paure carnaval.abc": 2,
