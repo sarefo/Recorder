@@ -153,8 +153,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T08:21:16.547Z",
-      "playCount": 28,
+      "lastPlayed": "2026-11-10T11:54:44.351Z",
+      "playCount": 29,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-11-03T08:21:15.611Z"
     },
@@ -5511,6 +5511,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-11-10T11:54:44.351Z"
+    },
+    {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-11-10T11:53:00.422Z"
     },
@@ -5585,10 +5589,6 @@
     {
       "filePath": "tv/a-team.abc",
       "timestamp": "2026-11-06T13:07:35.928Z"
-    },
-    {
-      "filePath": "pop/mad world.abc",
-      "timestamp": "2026-11-06T10:58:48.371Z"
     }
   ],
   "activity": {
@@ -5945,6 +5945,7 @@
     },
     "2026-11-10": {
       "breton/les filles des forges de paimpont.abc": 2,
+      "breton/son ar chistr.abc": 2,
       "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
