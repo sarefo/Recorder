@@ -2273,8 +2273,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T10:43:16.799Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-11T09:59:53.512Z",
+      "playCount": 11,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-01T03:42:21.250Z"
     },
@@ -5516,6 +5516,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/girl from ipanema.abc",
+      "timestamp": "2026-11-11T09:59:53.512Z"
+    },
+    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-11T09:57:03.674Z"
     },
@@ -5590,10 +5594,6 @@
     {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-11-10T11:54:44.351Z"
-    },
-    {
-      "filePath": "breton/les filles des forges de paimpont.abc",
-      "timestamp": "2026-11-10T11:53:00.422Z"
     }
   ],
   "activity": {
@@ -5982,6 +5982,7 @@
       "yiddish/dos kelbl.abc": 1
     },
     "2026-11-11": {
+      "jazz/girl from ipanema.abc": 1,
       "jazz/moon river.abc": 2,
       "latino/tango/por una cabeza.abc": 1
     }
