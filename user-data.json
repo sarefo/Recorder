@@ -4525,8 +4525,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T03:37:02.957Z",
-      "playCount": 54,
+      "lastPlayed": "2026-11-11T10:02:37.577Z",
+      "playCount": 55,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -5516,6 +5516,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-11-11T10:02:37.577Z"
+    },
+    {
       "filePath": "jazz/girl from ipanema.abc",
       "timestamp": "2026-11-11T09:59:53.512Z"
     },
@@ -5590,10 +5594,6 @@
     {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-11-10T11:56:26.689Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-11-10T11:54:44.351Z"
     }
   ],
   "activity": {
@@ -5984,7 +5984,8 @@
     "2026-11-11": {
       "jazz/girl from ipanema.abc": 1,
       "jazz/moon river.abc": 2,
-      "latino/tango/por una cabeza.abc": 1
+      "latino/tango/por una cabeza.abc": 1,
+      "scottish/balquidder_lasses.abc": 1
     }
   },
   "statusLog": [
