@@ -2298,8 +2298,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T04:07:05.650Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-11T09:57:03.674Z",
+      "playCount": 8,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-04T01:54:06.152Z"
     },
@@ -5516,6 +5516,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/moon river.abc",
+      "timestamp": "2026-11-11T09:57:03.674Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-11-10T12:19:41.625Z"
     },
@@ -5590,10 +5594,6 @@
     {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-11-10T11:53:00.422Z"
-    },
-    {
-      "filePath": "german/maria durch ein dornwald ging.abc",
-      "timestamp": "2026-11-10T11:51:55.658Z"
     }
   ],
   "activity": {
@@ -5982,6 +5982,7 @@
       "yiddish/dos kelbl.abc": 1
     },
     "2026-11-11": {
+      "jazz/moon river.abc": 2,
       "latino/tango/por una cabeza.abc": 1
     }
   },
