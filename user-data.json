@@ -4858,8 +4858,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-12T13:45:23.510Z",
+      "playCount": 1,
       "createdAt": "2026-11-12T13:45:11.365Z"
     },
     "tv/blackadder.abc": {
@@ -5554,6 +5554,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/biene maja.abc",
+      "timestamp": "2026-11-12T13:45:23.510Z"
+    },
+    {
       "filePath": "tv/spider-man.abc",
       "timestamp": "2026-11-12T13:16:46.131Z"
     },
@@ -5628,10 +5632,6 @@
     {
       "filePath": "tv/blackadder.abc",
       "timestamp": "2026-11-12T12:52:32.067Z"
-    },
-    {
-      "filePath": "tv/bewitched.abc",
-      "timestamp": "2026-11-12T12:52:00.670Z"
     }
   ],
   "activity": {
@@ -6052,6 +6052,7 @@
       "tv/airwolf.abc": 1,
       "tv/alfred hitchcock presents.abc": 1,
       "tv/bewitched.abc": 1,
+      "tv/biene maja.abc": 1,
       "tv/blackadder.abc": 1,
       "tv/cruel angels thesis.abc": 2,
       "tv/doraemon.abc": 1,
@@ -9175,6 +9176,16 @@
         "at": "2026-11-12T12:51:25.379Z"
       }
     },
+    "tv/biene maja.abc": {
+      "13": {
+        "pitch": "_B",
+        "prev": "F",
+        "pitchSeen": 7,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-12T13:45:33.620Z"
+      }
+    },
     "tv/blackadder.abc": {
       "10": {
         "pitch": "_B",
@@ -11236,6 +11247,15 @@
         "24": {
           "state": "red",
           "pitch": "_e"
+        }
+      }
+    },
+    "tv/biene maja.abc": {
+      "at": "2026-11-12T13:45:23.617Z",
+      "notes": {
+        "13": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
