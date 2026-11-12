@@ -1498,8 +1498,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T11:45:26.119Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-12T10:18:04.987Z",
+      "playCount": 8,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:52:16.545Z"
     },
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es geht eine dunkle wolk herein.abc",
+      "timestamp": "2026-11-12T10:18:04.987Z"
+    },
+    {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-11-12T10:16:41.788Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "scottish/atholl_braes_1.abc",
       "timestamp": "2026-11-12T06:39:39.275Z"
-    },
-    {
-      "filePath": "scottish/balquidder_lasses.abc",
-      "timestamp": "2026-11-11T10:02:37.577Z"
     }
   ],
   "activity": {
@@ -5994,6 +5994,7 @@
       "breton/toutouic.abc": 4,
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
+      "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
