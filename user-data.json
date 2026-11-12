@@ -2098,8 +2098,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:30:35.548Z",
-      "playCount": 11,
+      "lastPlayed": "2026-11-12T10:00:12.920Z",
+      "playCount": 12,
       "createdAt": "2026-08-31T18:32:58.388Z",
       "updatedAt": "2026-10-17T05:30:22.284Z"
     },
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hashire kotaro.abc",
+      "timestamp": "2026-11-12T10:00:12.920Z"
+    },
+    {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-11-12T09:57:23.226Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "film/imperial march.abc",
       "timestamp": "2026-11-10T12:09:45.792Z"
-    },
-    {
-      "filePath": "film/schindlers list.abc",
-      "timestamp": "2026-11-10T12:09:18.067Z"
     }
   ],
   "activity": {
@@ -5992,6 +5992,7 @@
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
       "japanese/hana.abc": 1,
+      "japanese/hashire kotaro.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 4,
       "japanese/yuuhi.abc": 2,
       "scottish/atholl_braes_1.abc": 6,
