@@ -5,6 +5,11 @@ description: Add or fix chord symbols in the ABC tune files under abc/ — how t
 
 # Adding chords to the ABC tunes
 
+Before researching a tune, check `docs/chords.md`: it lists every tune whose
+X:1 has no chords, which ones are no-chords-by-design or deferred (with the
+reason — e.g. MIDI sources that carry no harmony), and a log of how the rest
+were chorded. Do not re-research a tune named there without a new source.
+
 Tunes live in `abc/<tradition>/<name>.abc`. Chords are plain ABC chord symbols
 in double quotes, immediately before the note they land on:
 
