@@ -1,0 +1,26 @@
+X: 1
+T: Dentist!
+O: Alan Menken, 1982
+N: Orin's rockabilly number from Little Shop of Horrors. Melody is the top
+N: voice of the piano channel in a hamienet.com MIDI (id 7939), key C minor as in
+N: the source (range D4 to Eb5); chords fitted from the piano's left hand and,
+N: for the hook (whose accompaniment in the source is melody plus drums only),
+N: from the melody's own harmony. The intro riff's G3 and A3 are folded up an
+N: octave for the recorder; the push syncopations are straightened to the eighth;
+N: pitches are the source's. The source's boogie instrumental between verse and
+N: hook is left out; its A and B naturals are written =A and =B over the C minor
+N: key.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Cm
+"Cm"C G =A C C G =A2 |"Cm"C2 B2 c =A2 G |
+"F7"G =A2 =A =A4 |"Dm7"=A4 F G2 =A |"G7"B B2 B B =A G2 |"Cm"B4 c =A2 G |
+"F7"G =A2 =A =A4 |"Dm7"=A4 F G2 =A |"G7"B B2 B B =A2 G |"C7"B2 z4 z =A |
+"Cm"B B B B3 B B |"C7"=A G2 G4 =A |"Am7"c c2 c c =A c2 |"D7"d4 d c2 =A |
+"Gm7"=A B2 B B4 |"Cm"B3 C c =A2 G |
+"G7"=A4 d =B =A2 |"Cm"=A =B2 =B =B2 =A =B |"G7"=A G3 G =A2 =B |
+"Cm"c2 c c c =B =A2 |"G7"c4 d =B2 =A |"Cm"=A =B2 =B =B2 =A =B |
+"C7"=A G3 G =A2 =B |"Cm"c c2 c c2 =B =A |"Cm"c7 =B |
+"Cm"c2 c c c =B c2 |"F7"=B =A4- =A d2 |"G7"d2 d d2 =B d2 |
+"C"=e2 d2 c2 =B2 |"Cm"=B3 c c4 |]

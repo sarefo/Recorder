@@ -1,0 +1,20 @@
+X: 1
+T: Da-Doo
+O: Alan Menken, 1982
+N: Seymour's tale of the total eclipse, from Little Shop of Horrors. Melody
+N: (channel 1) of a hamienet.com MIDI (id 7931), key Ab major as in the source,
+N: so the da-doo riff needs no accidentals; the low riff answers sit in recorder
+N: range and the descant's highest calls reach F5. Chords fitted from the
+N: accompaniment (Ab7 blues with Db7, Fm7 and Eb7). The swung eighths of the
+N: 12/8 source are straightened; pitches are the source's. One pass: the da-doo
+N: riff verses and their answers (source bars 5-27); the B natural and Gb of the
+N: last bar are the source's chromatics.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Ab
+"Ab7"z4 a2 =D E |"Ab7"z f e3 c3 |"Fm7"z3 g a2 =E F |"Fm7"z f e3 c3 |
+"Fm7"z2 C2 z2 D D |"Eb7"z3 e d2 =E F |"Db7"z F A3 B3 |"Eb7"z3 =d e2 =D E |
+"Eb7"z G B3 c3 |"Eb7"z2 E E4 z |"Eb7"e e a B "Ab7"=B2 a2 |
+"Fm7"z4 f f a B |"Fm7"c =B c6 |"Db7"z4 a a d e |"Db7"f2 d6 |"Eb7"z4 e e e2 |
+"Fm7"e f "Eb7"_g2 =g4 |]

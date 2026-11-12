@@ -1,0 +1,27 @@
+X: 1
+T: Suddenly Seymour
+O: Alan Menken, 1982
+N: The Little Shop of Horrors duet. Melody channels (verse ch 4, chorus ch 0)
+N: of a hamienet.com MIDI (id 7946), moved up three semitones from A major to C
+N: so the range fits the recorder (the final note reaches Bb5, one step over A5
+N: but within the fingering charts); chords fitted from the MIDI's accompaniment
+N: (doo-wop C7-F7 with D7-G7 lifts). Form: the verse, the two chorus phrases and
+N: the final statement, with the empty vamp bars between them compressed out;
+N: the triplet pushes and the late pickup are straightened; pitches are the
+N: source's. The source ends on the flat seventh over C7.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: C
+"C7"F2 G2 A2 G2 |"C7"z6 C2 |"C7"F2 G2 A2 G2 |"C7"z2 C2 z4 |
+"C7"A2 B2 c2 c2 |"C7"z2 C2 C2 E2 |"G7"F2 E2 D2 E2 |"C7"F2 G2 A2 G2 |
+"C7"F2 G2 A2 G2 |"C7"z2 C2 z3 C |"C7"A2 B2 c2 c2 |"C7"z7 G |
+"G7"G3 c3 B2 |"C7"c8 |
+"C7"e3 d3 c2 |"F7"c6 A2 |"F7"A2 z6 |"F7"A3 B3 c2 |
+"C7"G6 E2 |"C7"E2 z6 |"D7"E4 ^F4 |"G7"G8 |
+"C7"e8 |"C7"e3 c3 G2 |"C7"_B8 |"C7"e3 d3 c2 |
+"F7"c6 A2 |"F7"A2 z6 |"F7"F4 "D7"^F4 |"G7"G8 |"G7"G4 ^G4 |"Am7"A8 |
+"C7"e3 d3 c2 |"F7"c3 A3 z2 |"F7"A3 A3 G2 |"F7"A4 c4 |
+"F7"A3 B3 "C7"c2 |"C7"G3 E3 z2 |"C7"e3 e3 d2 |"C7"e4 g4 |
+"D7"E4 ^F4 |"G7"G8 |"G7"B3 B3 A2 |"G7"B3 d3- d2 |
+"C7"c3 c3 d2 |"C7"e3 g3 a2 |"C7"_b8 |]

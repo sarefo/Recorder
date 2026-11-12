@@ -1,0 +1,17 @@
+X: 1
+T: Feed Me (Git It!)
+O: Alan Menken, 1982
+N: The plant's demand number from Little Shop of Horrors. Melody (channel 5) of
+N: a hamienet.com MIDI (id 7942), key and octave as in the source (G4 to A5,
+N: C-centered rock); chords fitted from the accompaniment (Cm7 and C7 rock with
+N: F7-G7 answers). The 2/4 and triplet subdivisions of the source are
+N: straightened; pitches are the source's. Scope: the "Feed me!" hook and its
+N: answer (source bars 36-46), the section the rest of the song keeps circling
+N: back to; the chromatic Eb against the Am7 is the source's blues colour.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: C
+"Cm7"_B C z2 "C7"c2 d2 |"Am7"e _e =e6 |"Am7"z3 a2 z g2 |
+"C7"a2 g2 e d e2 |"C7"z6 e e |"G7"f e6 d |
+"G7"z d d d "F7"_e d c2 |"F7"z6 A G |"C7"e _e =e6 |]

@@ -1081,10 +1081,24 @@ class AbcFileList {
                 "added": "2026-11-07"
         },
         {
+                "name": "Da-Doo",
+                "file": "film/little shop of horrors/da-doo.abc",
+                "category": "film/little shop of horrors",
+                "hash": "5679d62013",
+                "added": "2026-11-12"
+        },
+        {
                 "name": "Dentist!",
                 "file": "film/little shop of horrors/dentist.abc",
                 "category": "film/little shop of horrors",
                 "hash": "ee0a2480df",
+                "added": "2026-11-12"
+        },
+        {
+                "name": "Feed Me (Git It!)",
+                "file": "film/little shop of horrors/feed me.abc",
+                "category": "film/little shop of horrors",
+                "hash": "d934384985",
                 "added": "2026-11-12"
         },
         {
@@ -1099,6 +1113,13 @@ class AbcFileList {
                 "file": "film/little shop of horrors/prologue.abc",
                 "category": "film/little shop of horrors",
                 "hash": "6c415515b4",
+                "added": "2026-11-12"
+        },
+        {
+                "name": "Skid Row",
+                "file": "film/little shop of horrors/skid row.abc",
+                "category": "film/little shop of horrors",
+                "hash": "0241368305",
                 "added": "2026-11-12"
         },
         {

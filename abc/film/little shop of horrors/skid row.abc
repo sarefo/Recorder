@@ -1,0 +1,19 @@
+X: 1
+T: Skid Row
+O: Alan Menken, 1982
+N: The opening ensemble number of Little Shop of Horrors. Melody (channel 1) of
+N: a hamienet.com MIDI (id 7927), moved down ten semitones from Bb major to C so
+N: the range fits the recorder exactly (C4 to A5); chords fitted from the
+N: accompaniment (C7 vamp, Em7-B7 lift, F7 answers, Am7 holds). The pushing
+N: offbeat entries are straightened; pitches are the source's. Scope: the
+N: "Down on Skid Row" chorus, complete with its rising sequence and hold (source
+N: bars 11-30); the Eb5 and F#4 of the lift are the source's chromatics.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: C
+"C7"z C G "G7"c B G D G |"C7"z C G c B G E G |"Em7"z E B "B7"e _e B ^F B |"Em7"z E B e _e B G B |
+"F7"z F c "C7"f e c G c |"F7"z F c "Dm7"f e c A c |"Am7"z A e a g e c A |"Am7"G8 |
+"C7"z C G "G7"c B G D G |"C7"z C G c B G E G |"Am7"z A e a g e c e |"Am7"G8 |
+"C7"z C G "G7"c B G D G |"C7"z C G c B G E G |"Em7"z E B "B7"e _e B ^F B |"Em7"z E B e _e B G B |
+"F7"z F c "C7"f e c G c |"F7"z F c "Dm7"f e c A c |"Am7"z A e a g e c A |"Am7"G8 |]
