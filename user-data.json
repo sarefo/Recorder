@@ -7756,6 +7756,14 @@
         "transSeen": 4,
         "count": 1,
         "at": "2026-11-01T10:16:06.992Z"
+      },
+      "35": {
+        "pitch": "F",
+        "prev": "A",
+        "pitchSeen": 13,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-12T07:09:23.301Z"
       }
     },
     "japanese/yuuhi.abc": {
@@ -9941,7 +9949,7 @@
       }
     },
     "japanese/ureshii hinamatsuri.abc": {
-      "at": "2026-11-01T10:15:56.987Z",
+      "at": "2026-11-12T07:09:13.295Z",
       "notes": {
         "7": {
           "state": "red",
@@ -9950,6 +9958,10 @@
         "14": {
           "state": "red",
           "pitch": "_E"
+        },
+        "35": {
+          "state": "red",
+          "pitch": "F"
         }
       }
     },
