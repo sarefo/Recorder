@@ -3750,7 +3750,7 @@ class AbcFileList {
                 "name": "Spider-Man",
                 "file": "tv/spider-man.abc",
                 "category": "tv",
-                "hash": "b9b45cdc7d"
+                "hash": "9fcfd50b65"
         },
         {
                 "name": "Star Trek (Original Series)",

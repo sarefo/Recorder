@@ -624,7 +624,7 @@ class AbcNoteIndex {
         "tv/scooby doo.abc": [72,74,76,77,78,79],
         "tv/sesame street.abc": [64,65,67,69,72],
         "tv/sherlock.abc": [62,67,68,69,70,73,74,76,77],
-        "tv/spider-man.abc": [64,67,70,71,72],
+        "tv/spider-man.abc": [62,64,67,69,70,71,72,74,76,79,81],
         "tv/star trek.abc": [65,66,67,68,69,70,72,74,75,77,79,80],
         "tv/taxi.abc": [60,62,64,67,69,70,71,72,73,74,76,79],
         "tv/the addams family.abc": [65,67,69,70,71,72],

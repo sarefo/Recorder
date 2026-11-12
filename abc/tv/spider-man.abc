@@ -1,10 +1,17 @@
 X: 1
 T: Spider-Man
 O: Bob Harris and Paul Francis Webster, 1967
-N: From a hamienet.com MIDI (id 13139), channel 5, +7 semitones.
-N: CHECK: only one arrangement compared. Chords are fitted.
+N: From a hamienet.com MIDI (id 13139): the riff from channel 5, the horn shouts from
+N: channel 0, +7 semitones. The MIDI is a riff jam — the two-bar theme under a bass
+N: drone, twice broken by a three-bar shout and a run (source bars 22-25/34-37); the
+N: sung verses are not in it. Run 2 climbs to D6/E6 in the source; those notes are
+N: folded down an octave. CHECK: only one arrangement compared. Chords are fitted.
 L: 1/8
 Q: 1/4=120
 M: 4/4
 K: C
-|:"C"E2 G c4- c |"Am"B3 ^A4- A :|
+|:"C"E2 G c4- c |"Am"B3 ^A4- A :|"C"AG/2e/2-e2 AG/2E/2-E2 |"C"AG/2e/2-e2 AG/2E/2-E2 |
+"C"AG/2e/2-e2 AG/2E/2-E2 |"C"ed/2B/2 A/2B/2A/2B/2 A/2G/2A/2G/2 E/2D-D/2 |
+|:"C"E2 G c4- c |"Am"B3 ^A4- A :|"C"AG/2e/2-e2 AG/2E/2-E2 |"C"AG/2e/2-e2 AG/2E/2-E2 |
+"C"AG/2e/2-e2 AG/2E/2-E2 |"C"e/2d/2e/2g/2 e/2g/2a/2d/2 e/2d/2B/2a/2 g/2e/2d/2G/2 |
+"C"E2 G c4- c |"Am"B3 ^A4- A |]
