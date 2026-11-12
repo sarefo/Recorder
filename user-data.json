@@ -51,12 +51,13 @@
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "armenian/little partridge.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-06T17:04:02.205Z"
+      "lastPlayed": "2026-11-12T15:19:54.955Z",
+      "playCount": 1,
+      "createdAt": "2026-11-06T17:04:02.205Z",
+      "updatedAt": "2026-11-12T15:20:17.695Z"
     },
     "australian/waltzing matilda.abc": {
       "status": "good",
@@ -5587,6 +5588,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "armenian/little partridge.abc",
+      "timestamp": "2026-11-12T15:19:54.955Z"
+    },
+    {
       "filePath": "film/little shop of horrors.abc",
       "timestamp": "2026-11-12T13:47:41.700Z"
     },
@@ -5661,10 +5666,6 @@
     {
       "filePath": "tv/fawlty towers.abc",
       "timestamp": "2026-11-12T12:53:31.546Z"
-    },
-    {
-      "filePath": "tv/doraemon.abc",
-      "timestamp": "2026-11-12T12:53:07.151Z"
     }
   ],
   "activity": {
@@ -6059,6 +6060,7 @@
       "scottish/balquidder_lasses.abc": 1
     },
     "2026-11-12": {
+      "armenian/little partridge.abc": 1,
       "breton/les filles des forges de paimpont.abc": 2,
       "breton/son ar chistr.abc": 2,
       "breton/toutouic.abc": 4,
@@ -6872,6 +6874,11 @@
       "path": "tv/biene maja.abc",
       "status": "needs-practice",
       "at": "2026-11-12T13:47:06.638Z"
+    },
+    {
+      "path": "armenian/little partridge.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T15:20:17.695Z"
     }
   ],
   "marks": {
