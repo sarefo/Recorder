@@ -5255,12 +5255,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/the muppet show.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-12T12:58:55.093Z",
       "playCount": 1,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:59:04.230Z"
     },
     "tv/the odd couple.abc": {
       "status": null,
@@ -6789,6 +6790,11 @@
       "path": "tv/rawhide.abc",
       "status": "needs-practice",
       "at": "2026-11-12T12:58:16.158Z"
+    },
+    {
+      "path": "tv/the muppet show.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:59:04.230Z"
     }
   ],
   "marks": {
