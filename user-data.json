@@ -2192,13 +2192,13 @@
       "updatedAt": "2026-11-12T07:12:40.317Z"
     },
     "japanese/yuuhi.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-12T07:12:46.260Z",
       "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.432Z",
-      "updatedAt": "2026-10-25T05:33:08.001Z"
+      "updatedAt": "2026-11-12T07:14:16.845Z"
     },
     "jazz/all of me.abc": {
       "status": "good",
@@ -6649,6 +6649,11 @@
       "path": "japanese/ureshii hinamatsuri.abc",
       "status": "good",
       "at": "2026-11-12T07:12:40.317Z"
+    },
+    {
+      "path": "japanese/yuuhi.abc",
+      "status": "good",
+      "at": "2026-11-12T07:14:16.845Z"
     }
   ],
   "marks": {
@@ -11852,6 +11857,18 @@
       "at": "2026-11-12T07:12:42.213Z",
       "percent": 100,
       "bpm": 110
+    },
+    {
+      "path": "japanese/yuuhi.abc",
+      "at": "2026-11-12T07:14:15.237Z",
+      "percent": 100,
+      "bpm": 92
+    },
+    {
+      "path": "japanese/yuuhi.abc",
+      "at": "2026-11-12T07:14:15.404Z",
+      "percent": 100,
+      "bpm": 92
     }
   ],
   "settings": {}
