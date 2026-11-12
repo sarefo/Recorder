@@ -1206,8 +1206,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-12T13:02:37.600Z",
+      "playCount": 1,
       "createdAt": "2026-11-06T17:04:02.205Z"
     },
     "film/poledouris/anvil of crom.abc": {
@@ -5538,6 +5538,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/pink panther.abc",
+      "timestamp": "2026-11-12T13:02:37.600Z"
+    },
+    {
       "filePath": "tv/yu-gi-oh.abc",
       "timestamp": "2026-11-12T13:01:27.471Z"
     },
@@ -5612,10 +5616,6 @@
     {
       "filePath": "tv/bewitched.abc",
       "timestamp": "2026-11-12T12:52:00.670Z"
-    },
-    {
-      "filePath": "tv/taxi.abc",
-      "timestamp": "2026-11-12T12:51:38.409Z"
     }
   ],
   "activity": {
