@@ -1,0 +1,24 @@
+X: 1
+T: Somewhere That's Green
+O: Alan Menken, 1982
+N: Audrey's ballad from Little Shop of Horrors. Melody (channel 0) of a
+N: hamienet.com MIDI (id 7936), moved down a fifth from G major to C so the range
+N: fits the recorder; chords fitted from the MIDI's accompaniment. Form as in the
+N: source: the verse twice (repeat marks; the second pass's pickup sits inside
+N: them), the bridge, the verse again and the tag. Held notes the sequencer cut
+N: short are sustained to the next onset; the bridge's Ab and Bb7 are the source's
+N: bVI-bVII lift.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: C
+|: z7 G |"C"G2 e2 d c2 F- |"F"F7 E |"G7"F2 d2 c2 B2 |"C"E7 E |
+"Am"E2 c2 B2 cE- |"C"E c2 B3 z c |"D7"A2 B2 c2 A d- |"G7"d6 z G |
+"C7"f3 e2 e2 d |"C7"d2 c2 z2 c_B |"F"_B A2 A3 =Bc- |"D7"c6 G G |
+"C"G2 e2 d c2 F- |"G7"F2 d2 c2 B2 |"C"c8 :|
+z7 c |"Ab"c c2 c2 _e2 d- |"Bb7"d c3 z c2 c |"G7"c G3 F2 G E- |"C"E2 z4 z E |
+"Em"A A2 A2 B2 B- |"G7"B c3 z2 B c |"Dm7"A4 c2 A2 |"G7"B2 c2 d2 e2 |
+"C"G2 e2 d c2 F- |"F"F7 E |"G7"F2 d2 c2 B2 |"C"E7 E |
+"Am"E2 c2 B2 cE- |"C"E c2 B3 z c |"D7"A2 B2 c2 A d- |"G7"d6 z G |
+"C7"f3 e2 e2 d |"C7"d c c2 z2 c_B |"F"_B A2 A3 =B c- |"C"c8 |
+"Am"z2 e2 d2 c2 |"C"G8 |"C"z2 e2 d2 c2 |"G7"F8 |"G7"z2 d2 c2 B2 |"C"c8 |]

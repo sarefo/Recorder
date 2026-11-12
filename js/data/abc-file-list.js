@@ -813,12 +813,6 @@ class AbcFileList {
                 "hash": "d62ea20e35"
         },
         {
-                "name": "Little Shop of Horrors",
-                "file": "film/little shop of horrors.abc",
-                "category": "film",
-                "hash": "6c415515b4"
-        },
-        {
                 "name": "Love Story",
                 "file": "film/love story.abc",
                 "category": "film",
@@ -931,6 +925,18 @@ class AbcFileList {
                 "file": "film/hisaishi/tonari no totoro.abc",
                 "category": "film/hisaishi",
                 "hash": "c5a179af1f"
+        },
+        {
+                "name": "Little Shop of Horrors",
+                "file": "film/little shop of horrors/prologue.abc",
+                "category": "film/little shop of horrors",
+                "hash": "6c415515b4"
+        },
+        {
+                "name": "Somewhere That's Green",
+                "file": "film/little shop of horrors/somewhere thats green.abc",
+                "category": "film/little shop of horrors",
+                "hash": "87c0568633"
         },
         {
                 "name": "Anvil of Crom",
