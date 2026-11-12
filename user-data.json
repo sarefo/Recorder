@@ -5192,8 +5192,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-11-12T12:55:37.316Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-12T13:16:46.131Z",
+      "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/star trek.abc": {
@@ -5538,6 +5538,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/spider-man.abc",
+      "timestamp": "2026-11-12T13:16:46.131Z"
+    },
+    {
       "filePath": "film/pink panther.abc",
       "timestamp": "2026-11-12T13:02:37.600Z"
     },
@@ -5576,10 +5580,6 @@
     {
       "filePath": "tv/the office.abc",
       "timestamp": "2026-11-12T12:56:49.527Z"
-    },
-    {
-      "filePath": "tv/spider-man.abc",
-      "timestamp": "2026-11-12T12:55:37.316Z"
     },
     {
       "filePath": "tv/pippi longstocking.abc",
@@ -6050,7 +6050,7 @@
       "tv/pippi longstocking.abc": 1,
       "tv/popeye.abc": 1,
       "tv/rawhide.abc": 1,
-      "tv/spider-man.abc": 1,
+      "tv/spider-man.abc": 2,
       "tv/taxi.abc": 1,
       "tv/the muppet show.abc": 1,
       "tv/the office.abc": 1,
