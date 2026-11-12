@@ -4855,12 +4855,13 @@
       "updatedAt": "2026-11-12T12:52:29.696Z"
     },
     "tv/biene maja.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-12T13:45:23.510Z",
       "playCount": 1,
-      "createdAt": "2026-11-12T13:45:11.365Z"
+      "createdAt": "2026-11-12T13:45:11.365Z",
+      "updatedAt": "2026-11-12T13:47:06.638Z"
     },
     "tv/blackadder.abc": {
       "status": "needs-practice",
@@ -6833,6 +6834,11 @@
       "path": "tv/yu-gi-oh.abc",
       "status": "needs-practice",
       "at": "2026-11-12T13:01:41.773Z"
+    },
+    {
+      "path": "tv/biene maja.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T13:47:06.638Z"
     }
   ],
   "marks": {
