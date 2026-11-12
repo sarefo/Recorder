@@ -5258,8 +5258,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-12T12:58:55.093Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/the odd couple.abc": {
@@ -5534,6 +5534,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/the muppet show.abc",
+      "timestamp": "2026-11-12T12:58:55.093Z"
+    },
+    {
       "filePath": "tv/rawhide.abc",
       "timestamp": "2026-11-12T12:58:10.410Z"
     },
@@ -5608,10 +5612,6 @@
     {
       "filePath": "tv/gummi bears.abc",
       "timestamp": "2026-11-12T12:50:06.295Z"
-    },
-    {
-      "filePath": "tv/cruel angels thesis.abc",
-      "timestamp": "2026-11-12T12:48:59.878Z"
     }
   ],
   "activity": {
@@ -6048,6 +6048,7 @@
       "tv/rawhide.abc": 1,
       "tv/spider-man.abc": 1,
       "tv/taxi.abc": 1,
+      "tv/the muppet show.abc": 1,
       "tv/the office.abc": 1,
       "yiddish/bei mir bist du schon.abc": 1,
       "yiddish/dos kelbl.abc": 1
