@@ -5443,8 +5443,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-29T04:30:22.378Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-12T10:24:12.652Z",
+      "playCount": 2,
       "createdAt": "2026-10-26T13:35:38.000Z",
       "updatedAt": "2026-10-29T04:31:35.722Z"
     },
@@ -5516,6 +5516,10 @@
   "collections": {},
   "deletedCollections": {},
   "recentlyPlayed": [
+    {
+      "filePath": "yiddish/bei mir bist du schon.abc",
+      "timestamp": "2026-11-12T10:24:12.652Z"
+    },
     {
       "filePath": "italian/tarantella napoletana.abc",
       "timestamp": "2026-11-12T10:21:26.832Z"
@@ -5591,10 +5595,6 @@
     {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-11-12T07:04:35.245Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-11-12T06:55:25.017Z"
     }
   ],
   "activity": {
@@ -6011,7 +6011,8 @@
       "scottish/atholl_braes_1.abc": 6,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/birkhall.abc": 2,
-      "scottish/bottom_bowl.abc": 1
+      "scottish/bottom_bowl.abc": 1,
+      "yiddish/bei mir bist du schon.abc": 1
     }
   },
   "statusLog": [
