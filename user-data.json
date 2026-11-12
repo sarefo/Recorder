@@ -3972,8 +3972,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T04:05:43.094Z",
-      "playCount": 16,
+      "lastPlayed": "2026-11-12T10:08:34.460Z",
+      "playCount": 17,
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/ai vist lo lop.abc": {
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/adiu paure carnaval.abc",
+      "timestamp": "2026-11-12T10:08:34.460Z"
+    },
+    {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-11-12T10:05:17.303Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "tv/flipper.abc",
       "timestamp": "2026-11-10T12:16:55.887Z"
-    },
-    {
-      "filePath": "tv/detective_conan.abc",
-      "timestamp": "2026-11-10T12:14:41.359Z"
     }
   ],
   "activity": {
@@ -5998,6 +5998,7 @@
       "japanese/hashire kotaro.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 4,
       "japanese/yuuhi.abc": 2,
+      "occitan/adiu paure carnaval.abc": 1,
       "scottish/atholl_braes_1.abc": 6,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/birkhall.abc": 2,
