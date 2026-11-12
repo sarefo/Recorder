@@ -2072,8 +2072,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T07:41:51.966Z",
-      "playCount": 44,
+      "lastPlayed": "2026-11-12T09:57:23.226Z",
+      "playCount": 45,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/hanagasa ondo.abc": {
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hana.abc",
+      "timestamp": "2026-11-12T09:57:23.226Z"
+    },
+    {
       "filePath": "japanese/yuuhi.abc",
       "timestamp": "2026-11-12T07:12:46.260Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "film/schindlers list.abc",
       "timestamp": "2026-11-10T12:09:18.067Z"
-    },
-    {
-      "filePath": "film/ghostbusters.abc",
-      "timestamp": "2026-11-10T12:08:43.820Z"
     }
   ],
   "activity": {
@@ -5991,6 +5991,7 @@
     "2026-11-12": {
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
+      "japanese/hana.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 4,
       "japanese/yuuhi.abc": 2,
       "scottish/atholl_braes_1.abc": 6,
@@ -11867,6 +11868,12 @@
     {
       "path": "japanese/yuuhi.abc",
       "at": "2026-11-12T07:14:15.404Z",
+      "percent": 100,
+      "bpm": 92
+    },
+    {
+      "path": "japanese/yuuhi.abc",
+      "at": "2026-11-12T09:57:20.125Z",
       "percent": 100,
       "bpm": 92
     }
