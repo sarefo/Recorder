@@ -2183,20 +2183,20 @@
       "updatedAt": "2026-10-25T05:31:28.722Z"
     },
     "japanese/ureshii hinamatsuri.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-12T07:08:11.485Z",
       "playCount": 4,
       "createdAt": "2026-10-24T11:46:54.432Z",
-      "updatedAt": "2026-10-25T05:32:11.017Z"
+      "updatedAt": "2026-11-12T07:12:40.317Z"
     },
     "japanese/yuuhi.abc": {
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T05:32:15.143Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-12T07:12:46.260Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:33:08.001Z"
     },
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/yuuhi.abc",
+      "timestamp": "2026-11-12T07:12:46.260Z"
+    },
+    {
       "filePath": "japanese/ureshii hinamatsuri.abc",
       "timestamp": "2026-11-12T07:08:11.485Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "film/ghostbusters.abc",
       "timestamp": "2026-11-10T12:08:43.820Z"
-    },
-    {
-      "filePath": "tv/the simpsons.abc",
-      "timestamp": "2026-11-10T12:08:15.133Z"
     }
   ],
   "activity": {
@@ -5992,6 +5992,7 @@
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 4,
+      "japanese/yuuhi.abc": 1,
       "scottish/atholl_braes_1.abc": 6,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/birkhall.abc": 2,
@@ -6643,6 +6644,11 @@
       "path": "scottish/atholl_braes_1.abc",
       "status": "good",
       "at": "2026-11-12T06:41:58.237Z"
+    },
+    {
+      "path": "japanese/ureshii hinamatsuri.abc",
+      "status": "good",
+      "at": "2026-11-12T07:12:40.317Z"
     }
   ],
   "marks": {
@@ -11834,6 +11840,18 @@
       "at": "2026-11-12T06:41:56.381Z",
       "percent": 80,
       "bpm": 144
+    },
+    {
+      "path": "japanese/ureshii hinamatsuri.abc",
+      "at": "2026-11-12T07:12:42.022Z",
+      "percent": 100,
+      "bpm": 110
+    },
+    {
+      "path": "japanese/ureshii hinamatsuri.abc",
+      "at": "2026-11-12T07:12:42.213Z",
+      "percent": 100,
+      "bpm": 110
     }
   ],
   "settings": {}
