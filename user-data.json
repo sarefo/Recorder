@@ -1974,8 +1974,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T05:37:41.802Z",
-      "playCount": 43,
+      "lastPlayed": "2026-11-12T10:21:26.832Z",
+      "playCount": 44,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-11-01T10:41:02.824Z"
     },
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/tarantella napoletana.abc",
+      "timestamp": "2026-11-12T10:21:26.832Z"
+    },
+    {
       "filePath": "italian/bella ciao.abc",
       "timestamp": "2026-11-12T10:20:21.250Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-11-12T06:55:25.017Z"
-    },
-    {
-      "filePath": "scottish/bottom_bowl.abc",
-      "timestamp": "2026-11-12T06:51:37.957Z"
     }
   ],
   "activity": {
@@ -6000,6 +6000,7 @@
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
       "italian/bella ciao.abc": 1,
+      "italian/tarantella napoletana.abc": 2,
       "japanese/hana.abc": 1,
       "japanese/hashire kotaro.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 4,
