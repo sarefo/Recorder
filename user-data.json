@@ -4509,8 +4509,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T06:20:03.883Z",
-      "playCount": 33,
+      "lastPlayed": "2026-11-12T06:39:39.275Z",
+      "playCount": 34,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/aye waukin o.abc": {
@@ -5516,6 +5516,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/atholl_braes_1.abc",
+      "timestamp": "2026-11-12T06:39:39.275Z"
+    },
+    {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-11-11T10:02:37.577Z"
     },
@@ -5590,10 +5594,6 @@
     {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-11-10T11:59:12.423Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-11-10T11:56:26.689Z"
     }
   ],
   "activity": {
@@ -5988,6 +5988,7 @@
       "scottish/balquidder_lasses.abc": 1
     },
     "2026-11-12": {
+      "scottish/atholl_braes_1.abc": 1,
       "scottish/balquidder_lasses.abc": 1
     }
   },
@@ -8698,6 +8699,16 @@
         "at": "2026-11-02T13:50:21.564Z"
       }
     },
+    "scottish/atholl_braes_1.abc": {
+      "46": {
+        "pitch": "B",
+        "prev": "d",
+        "pitchSeen": 18,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-12T06:40:16.985Z"
+      }
+    },
     "scottish/balquidder_lasses.abc": {
       "59": {
         "pitch": "G",
@@ -10602,6 +10613,15 @@
         "11": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "scottish/atholl_braes_1.abc": {
+      "at": "2026-11-12T06:40:06.982Z",
+      "notes": {
+        "46": {
+          "state": "red",
+          "pitch": "B"
         }
       }
     },
