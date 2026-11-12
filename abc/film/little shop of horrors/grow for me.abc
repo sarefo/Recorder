@@ -1,0 +1,19 @@
+X: 1
+T: Grow for Me
+O: Alan Menken, 1982
+N: Seymour's doo-wop shuffle from Little Shop of Horrors. Melody (channel 3) of
+N: a hamienet.com MIDI (id 7933), moved up a tone from Bb to C so the range fits
+N: the recorder; chords fitted from the MIDI's accompaniment (I7-IV7 doo-wop with
+N: G7 and Ab7 colour). The source's swing is straightened; pitches are the
+N: source's. One pass: the verse and its varied repeat (source bars 13-37). The
+N: bridge that follows modulates chromatically and is left out.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: C
+z7 C |"C7"z C FG A2 F2 |"C7"z4 CC FA |"F7"c8 |
+"Am7"FF _Bc d2 _B2 |"F7"z4 FF _Bd |"G7"f8 |"G7"ff ed c2 A2 |
+"F7"z4 FF GA |"Bbm7"_B8 |"G7"z2 ^c2 d4 |"G7"z4 e2 f2 |"C7"ed c6 |
+"C7"CC FG A2 F2 |"C7"z4 CC FA |"F7"c8 |
+"Am7"FF _Bc dc _B2 |"F7"z4 FF _Bd |"G7"f8 |"G7"ff ed c2 A2 |
+"F7"z4 FF GA |"Bbm7"_B8 |"G7"z2 ^c2 d4 |"F7"z4 e2 f2 |"C7"f8 |]

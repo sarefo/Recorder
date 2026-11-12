@@ -1,0 +1,21 @@
+X: 1
+T: Suppertime
+O: Alan Menken, 1982
+N: The plant's blues from Little Shop of Horrors. Melody (channel 0) of a
+N: hamienet.com MIDI (id 7950), moved up a tone from G minor to A minor so the
+N: range fits the recorder; chords fitted from the MIDI's vamp and bass (F7 to
+N: Am7 riff cycle, Dm7 answers, the Fm7 borrow). One pass: the riff verses with
+N: their answer rests, the swinging connector and the lazy "suppertime" hook
+N: with its close (source bars 5-13, 25-38, 45-49). The swung eighths and the
+N: dotted hook rhythm are straightened; pitches are the source's.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Am
+"Am7"z E GA cA GA |"Am7"z8 |"Am7"z E GA cA GA |"Am7"z8 |
+"Am7"z A AA "Dm7"cd cd |"Dm7"z2 cdc A3 |"Am7"z A AA "Dm7"ed cd |"Am7"z c A6 |
+"Am7"z A AA "Em7"cd ee |"Dm7"AA cd "Em7"e4 |"C7"ed ed e cdc |"F7"c A6 a |"Dm7"z c A6 |
+"Dm7"D2 E2 "Am7"D2 E2 |"Am7"z8 |"Dm7"D2 E2 "Am7"D2 E2 |"Am7"z8 |
+"Dm7"D2 E2 "Am7"D2 E2 |"Am7"z7 E |"Am7"DD E2 G4 |"C7"z4 F3 E |
+"Am7"DD E2 G4 |"C7"z4 "Fm7"F4 |"Am7"DD E2 G4 |"C7"z4 F3 E |
+"Am7"DD E2 G4 |"Em7"z4 A3 F |"F7"GE DC E4 |]

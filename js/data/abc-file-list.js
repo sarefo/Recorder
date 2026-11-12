@@ -927,6 +927,12 @@ class AbcFileList {
                 "hash": "c5a179af1f"
         },
         {
+                "name": "Grow for Me",
+                "file": "film/little shop of horrors/grow for me.abc",
+                "category": "film/little shop of horrors",
+                "hash": "3e2113afe9"
+        },
+        {
                 "name": "Little Shop of Horrors",
                 "file": "film/little shop of horrors/prologue.abc",
                 "category": "film/little shop of horrors",
@@ -937,6 +943,12 @@ class AbcFileList {
                 "file": "film/little shop of horrors/somewhere thats green.abc",
                 "category": "film/little shop of horrors",
                 "hash": "87c0568633"
+        },
+        {
+                "name": "Suppertime",
+                "file": "film/little shop of horrors/suppertime.abc",
+                "category": "film/little shop of horrors",
+                "hash": "ae2711be20"
         },
         {
                 "name": "Anvil of Crom",
