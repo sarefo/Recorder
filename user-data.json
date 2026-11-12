@@ -4876,12 +4876,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/cruel angels thesis.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:48:59.878Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:49:17.392Z"
     },
     "tv/dallas.abc": {
       "status": null,
@@ -5517,6 +5518,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/cruel angels thesis.abc",
+      "timestamp": "2026-11-12T12:48:59.878Z"
+    },
+    {
       "filePath": "yiddish/dos kelbl.abc",
       "timestamp": "2026-11-12T10:25:57.564Z"
     },
@@ -5591,10 +5596,6 @@
     {
       "filePath": "japanese/ureshii hinamatsuri.abc",
       "timestamp": "2026-11-12T07:08:11.485Z"
-    },
-    {
-      "filePath": "pop/jamiroquai/virtual insanity.abc",
-      "timestamp": "2026-11-12T07:08:09.283Z"
     }
   ],
   "activity": {
@@ -6012,6 +6013,7 @@
       "scottish/balquidder_lasses.abc": 1,
       "scottish/birkhall.abc": 2,
       "scottish/bottom_bowl.abc": 1,
+      "tv/cruel angels thesis.abc": 2,
       "yiddish/bei mir bist du schon.abc": 1,
       "yiddish/dos kelbl.abc": 1
     }
@@ -6671,6 +6673,11 @@
       "path": "japanese/yuuhi.abc",
       "status": "good",
       "at": "2026-11-12T07:14:16.845Z"
+    },
+    {
+      "path": "tv/cruel angels thesis.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:49:17.392Z"
     }
   ],
   "marks": {
@@ -8996,6 +9003,16 @@
         "at": "2026-11-06T13:07:46.037Z"
       }
     },
+    "tv/cruel angels thesis.abc": {
+      "8": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-12T12:49:09.991Z"
+      }
+    },
     "tv/detective_conan.abc": {
       "5": {
         "pitch": "^F",
@@ -10903,6 +10920,15 @@
         }
       }
     },
+    "tv/cruel angels thesis.abc": {
+      "at": "2026-11-12T12:48:59.983Z",
+      "notes": {
+        "8": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
     "tv/detective_conan.abc": {
       "at": "2026-11-10T12:14:41.543Z",
       "notes": {
@@ -11935,6 +11961,12 @@
       "at": "2026-11-12T10:16:38.777Z",
       "percent": 100,
       "bpm": 104
+    },
+    {
+      "path": "tv/cruel angels thesis.abc",
+      "at": "2026-11-12T12:49:11.841Z",
+      "percent": 100,
+      "bpm": 80
     }
   ],
   "settings": {}
