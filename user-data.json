@@ -5468,8 +5468,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T12:02:39.377Z",
-      "playCount": 31,
+      "lastPlayed": "2026-11-12T10:25:57.564Z",
+      "playCount": 32,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "yiddish/in kamf.abc": {
@@ -5516,6 +5516,10 @@
   "collections": {},
   "deletedCollections": {},
   "recentlyPlayed": [
+    {
+      "filePath": "yiddish/dos kelbl.abc",
+      "timestamp": "2026-11-12T10:25:57.564Z"
+    },
     {
       "filePath": "yiddish/bei mir bist du schon.abc",
       "timestamp": "2026-11-12T10:24:12.652Z"
@@ -5591,10 +5595,6 @@
     {
       "filePath": "pop/jamiroquai/virtual insanity.abc",
       "timestamp": "2026-11-12T07:08:09.283Z"
-    },
-    {
-      "filePath": "chinese/molihua.abc",
-      "timestamp": "2026-11-12T07:04:35.245Z"
     }
   ],
   "activity": {
@@ -6012,7 +6012,8 @@
       "scottish/balquidder_lasses.abc": 1,
       "scottish/birkhall.abc": 2,
       "scottish/bottom_bowl.abc": 1,
-      "yiddish/bei mir bist du schon.abc": 1
+      "yiddish/bei mir bist du schon.abc": 1,
+      "yiddish/dos kelbl.abc": 1
     }
   },
   "statusLog": [
