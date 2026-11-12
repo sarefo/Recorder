@@ -1252,12 +1252,13 @@
       "createdAt": "2026-11-12T15:56:43.004Z"
     },
     "film/little shop of horrors/somewhere thats green.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-12T14:59:28.290Z"
+      "lastPlayed": "2026-11-12T15:57:52.571Z",
+      "playCount": 1,
+      "createdAt": "2026-11-12T14:59:28.290Z",
+      "updatedAt": "2026-11-12T15:58:07.382Z"
     },
     "film/little shop of horrors/sominex.abc": {
       "status": null,
@@ -5684,6 +5685,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/little shop of horrors/somewhere thats green.abc",
+      "timestamp": "2026-11-12T15:57:52.571Z"
+    },
+    {
       "filePath": "film/little shop of horrors/dentist.abc",
       "timestamp": "2026-11-12T15:56:52.843Z"
     },
@@ -5758,10 +5763,6 @@
     {
       "filePath": "tv/game of thrones.abc",
       "timestamp": "2026-11-12T12:54:12.656Z"
-    },
-    {
-      "filePath": "tv/futurama.abc",
-      "timestamp": "2026-11-12T12:53:54.788Z"
     }
   ],
   "activity": {
@@ -6164,6 +6165,7 @@
       "chinese/zou xikou.abc": 1,
       "film/little shop of horrors.abc": 1,
       "film/little shop of horrors/dentist.abc": 1,
+      "film/little shop of horrors/somewhere thats green.abc": 1,
       "german/ach bittrer winter.abc": 2,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
@@ -6976,6 +6978,11 @@
       "path": "armenian/little partridge.abc",
       "status": "needs-practice",
       "at": "2026-11-12T15:20:17.695Z"
+    },
+    {
+      "path": "film/little shop of horrors/somewhere thats green.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T15:58:07.382Z"
     }
   ],
   "marks": {
