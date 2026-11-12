@@ -83,3 +83,12 @@ follows the cadence notes.
   Ny Kirree fo Niaghtey, Helston Furry Dance, geming, huang hua cao,
   670_songs X:1) — all derived from the melody per the abc-chords skill.
   Remaining without chords: 5 by design, 9 deferred (table above).
+- 2026-11-12 (third pass): the Little Shop of Horrors score transcribed and
+  chorded from hamienet MIDIs (whole score: prologue, Somewhere That's Green,
+  Grow for Me, Suppertime, Suddenly Seymour, Dentist!, Da-Doo, Feed Me, Skid
+  Row, Ya Never Know, Mushnik and Son, Gas, Call Back, The Meek Shall Inherit,
+  Sominex, Dentist Chair Intro — ids 7926-7955). Every tune verified bar for
+  bar against its MIDI (session-temp verify scripts; the few remaining diffs
+  are tie continuations of unrepresentable 5-eighth notes). Chords fitted from
+  each MIDI's accompaniment; Dentist's hook chords partly from the melody's
+  own harmony, its source being melody plus drums there.

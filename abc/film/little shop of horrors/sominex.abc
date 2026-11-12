@@ -1,0 +1,17 @@
+X: 1
+T: Sominex
+O: Alan Menken, 1982
+N: The sleeping-pill commercial jingle from Little Shop of Horrors. Melody
+N: (channel 0) of a hamienet.com MIDI (id 7955), key G minor and octave as in the
+N: source; chords fitted from the accompaniment (Gm7 vamp with Cm7 answers and a
+N: D7 turn). The jingle's light sixteenth pushes are straightened to the eighth;
+N: pitches are the source's. Scope: the jingle whole (source bars 8-20); the F#
+N: of the last bar is the source's leading tone.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Gm
+"Gm7"z4 z D G A |"Gm7"B3 z2 D G A |"Gm7"B A G2 z3 G |"Gm7"B A G A G A G A |
+"Cm7"B2 A G2 B2 z |"Cm7"B2 A G2 B2 z |"Gm7"z4 z D G A |"Gm7"B3 z2 G G A |
+"Cm7"B A G A B3 z |"Cm7"z4 B2 A2 |"Gm7"G2 A2 B2 A2 |"Cm7"G2 A2 B2 A2 |
+"D7"G2 ^F2 G2 z2 |]

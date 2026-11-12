@@ -1,0 +1,21 @@
+X: 1
+T: The Meek Shall Inherit
+O: Alan Menken, 1982
+N: Seymour's temptation number from Little Shop of Horrors. Melody is the top
+N: voice of the piano channel in a hamienet.com MIDI (id 7951), key C major and
+N: octave as in the source; the shouted high notes of the builds are folded down
+N: an octave for the recorder, and the vamp's clipped notes are sustained to the
+N: next onset. Chords fitted from the accompaniment (Am7-Dm7 doo-wop, the F7-G7
+N: middle and the E7 lift). The pushing entries are straightened; pitches are
+N: the source's. Form: the theme, the middle section and the theme again (source
+N: bars 23-46); the G# of the middle is written _A.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: C
+"Am7"z2 e2 d2 e2 |"Dm7"f3 z e3 z |"Am7"z2 e2 d2 e2 |"Dm7"d3 z c4 |
+"Am7"z2 e2 d2 e2 |"Dm7"f2 e2 d2 e2 |"E7"d2 c B3 c2 |"Am7"A8 |
+"F7"z2 A2 _A2 =A2 |"G7"B3 z A4 |"F7"z2 A2 _A2 =A2 |"G7"B3 z A4 |
+"F7"z2 A2 _A2 =A2 |"G7"B2 A _A3 =A2 |"G7"B2 A _A3 =A2 |"E7"B3 z B e a B |
+"Am7"e2 e2 d2 e2 |"Dm7"f3 z e3 z |"Am7"z2 e2 d2 e2 |"Dm7"d3 z c4 |
+"Am7"z2 e2 d2 e2 |"Dm7"f2 e2 d2 e2 |"E7"d2 c B3 c2 |"Am7"A8 |]

@@ -1,0 +1,16 @@
+X: 1
+T: Mushnik and Son
+O: Alan Menken, 1982
+N: Mushnik's offer song from Little Shop of Horrors. Melody (channel 1) of a
+N: hamienet.com MIDI (id 7940), octave as in the source; chords fitted from the
+N: accompaniment (the chromatic cliche Cm-Db7-Dm7 under the name-chant). The
+N: pushing syncopations are straightened to half-bar notes; pitches are the
+N: source's. Scope: the "Mushnik and Son" chant with its chromatic climb and the
+N: answer phrase (source bars 33-40, 47-48).
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Cm
+"Cm"z3 c4 z |"Cm"z3 c4 z |"Db7"z3 _d4 z |"Db7"z3 _d4 z |
+"Dm7"z3 d4 z |"G7"z3 e4 z |"Cm"c z4 z3 |"Ab7"e4 "G7"d4 |
+"Cm"c3 "G7"g a f e d |"Cm"c8 |]

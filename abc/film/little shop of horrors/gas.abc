@@ -1,0 +1,17 @@
+X: 1
+T: Gas
+O: Alan Menken, 1982
+N: The gas station holdup cue from Little Shop of Horrors. Melody (channel 0) of
+N: a hamienet.com MIDI (id 7944), moved up an octave into recorder range; key D
+N: minor as in the source; chords fitted from the accompaniment (Dm7 vamp with
+N: Bb, Gm7 and Eb7 answers). The sixteenth-note pushes of the source are
+N: straightened to the eighth; pitches are the source's. Scope: the ostinato
+N: verse and its close (source bars 5-17); the Eb and F# of the last bars are the
+N: source's chromatics.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Dm
+"Dm7"d3 A d3 A |"Dm7"d d d c B B B A |"Gm7"A A A G G G G B |"Eb7"B B B B B B B d |
+"Dm7"d3 z2 z3 |"Dm7"d3 A d3 A |"Dm7"d d d c B B B A |"Gm7"A A A G G G G B |
+"Bb"c d d4- d2 |"Bb7"d3 B d4 |"Bb"d3 _e2 f3 |"Bb"d2 _e f ^f4 |"Gm7"z2 B A G4 |]

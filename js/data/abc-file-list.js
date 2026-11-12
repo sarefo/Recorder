@@ -1081,10 +1081,24 @@ class AbcFileList {
                 "added": "2026-11-07"
         },
         {
+                "name": "Call Back",
+                "file": "film/little shop of horrors/call back.abc",
+                "category": "film/little shop of horrors",
+                "hash": "3f8945dc0b",
+                "added": "2026-11-12"
+        },
+        {
                 "name": "Da-Doo",
                 "file": "film/little shop of horrors/da-doo.abc",
                 "category": "film/little shop of horrors",
                 "hash": "5679d62013",
+                "added": "2026-11-12"
+        },
+        {
+                "name": "Dentist Chair Intro",
+                "file": "film/little shop of horrors/dentist chair intro.abc",
+                "category": "film/little shop of horrors",
+                "hash": "c78227cb3b",
                 "added": "2026-11-12"
         },
         {
@@ -1102,6 +1116,13 @@ class AbcFileList {
                 "added": "2026-11-12"
         },
         {
+                "name": "Gas",
+                "file": "film/little shop of horrors/gas.abc",
+                "category": "film/little shop of horrors",
+                "hash": "cc866a3d2a",
+                "added": "2026-11-12"
+        },
+        {
                 "name": "Grow for Me",
                 "file": "film/little shop of horrors/grow for me.abc",
                 "category": "film/little shop of horrors",
@@ -1113,6 +1134,13 @@ class AbcFileList {
                 "file": "film/little shop of horrors/prologue.abc",
                 "category": "film/little shop of horrors",
                 "hash": "6c415515b4",
+                "added": "2026-11-12"
+        },
+        {
+                "name": "Mushnik and Son",
+                "file": "film/little shop of horrors/mushnik and son.abc",
+                "category": "film/little shop of horrors",
+                "hash": "d547acf0ff",
                 "added": "2026-11-12"
         },
         {
@@ -1130,6 +1158,13 @@ class AbcFileList {
                 "added": "2026-11-12"
         },
         {
+                "name": "Sominex",
+                "file": "film/little shop of horrors/sominex.abc",
+                "category": "film/little shop of horrors",
+                "hash": "2e939f3433",
+                "added": "2026-11-12"
+        },
+        {
                 "name": "Suddenly Seymour",
                 "file": "film/little shop of horrors/suddenly seymour.abc",
                 "category": "film/little shop of horrors",
@@ -1141,6 +1176,20 @@ class AbcFileList {
                 "file": "film/little shop of horrors/suppertime.abc",
                 "category": "film/little shop of horrors",
                 "hash": "ae2711be20",
+                "added": "2026-11-12"
+        },
+        {
+                "name": "The Meek Shall Inherit",
+                "file": "film/little shop of horrors/meek shall inherit.abc",
+                "category": "film/little shop of horrors",
+                "hash": "432aa2f2e2",
+                "added": "2026-11-12"
+        },
+        {
+                "name": "Ya Never Know",
+                "file": "film/little shop of horrors/ya never know.abc",
+                "category": "film/little shop of horrors",
+                "hash": "3a0fb7a1b3",
                 "added": "2026-11-12"
         },
         {

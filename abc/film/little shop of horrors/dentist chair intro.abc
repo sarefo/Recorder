@@ -1,0 +1,16 @@
+X: 1
+T: Dentist Chair Intro
+O: Alan Menken, 1982
+N: The sting that introduces Orin's scene in Little Shop of Horrors. Melody
+N: (channel 0) of a hamienet.com MIDI (id 7943), key C minor; the octave-doubled
+N: final statements are folded into one register for the recorder. Chords fitted
+N: from the accompaniment. The syncopated entries are straightened; pitches are
+N: the source's. All nine bars of the cue (source bars 2-10); it ends on the Fm
+N: that hangs into Dentist!.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Cm
+"Cm"z g g a g2 e2 |"Cm"z g g a g2 e2 |"Cm"z2 a g a g a g |"Cm"a B a g a4 |
+"Bb7"z a a B a2 f2 |"G7"z g g a g2 f2 |"Cm"z g g a g2 e2 |"Cm"z g g a g2 e2 |
+"Fm"a8 |]

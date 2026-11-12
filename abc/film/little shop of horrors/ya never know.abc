@@ -1,0 +1,17 @@
+X: 1
+T: Ya Never Know
+O: Alan Menken, 1982
+N: The urchins' fortune-telling number from Little Shop of Horrors. Melody
+N: (channel 0, track 5) of a hamienet.com MIDI (id 7934), key and octave as in
+N: the source; chords fitted from the piano reduction (Am7-Dm7 doo-wop with Gm7
+N: and F7). The pushing offbeat entries are straightened; pitches are the
+N: source's. One pass: the rising "ya never know" hook twice, the held build and
+N: the verse with its answer (source bars 33-55); the A naturals and E naturals
+N: are written =A and =e over the C minor key.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Cm
+"Am7"d4 =e4 |"Am7"f4 g4 |"F7"=a8 |"Am7"d4 =e4 |"Am7"f4 g4 |"F7"=a8 |
+"F7"=a8 |"Dm7"F3 G =A c2 f |"Am7"z =e2 c2 =A3 |"Dm7"F3 G =A c2 f |
+"Am7"z =e2 c2 =A3 |"Gm7"B3 c d B3 |"C"c4 =e4 |"Gm7"d4 f4 |]

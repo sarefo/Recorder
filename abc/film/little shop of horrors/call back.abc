@@ -1,0 +1,18 @@
+X: 1
+T: Call Back
+O: Alan Menken, 1982
+N: The Somewhere That's Green reprise from Little Shop of Horrors (the "Call
+N: Back" cue). Melody (channel 5) of a hamienet.com MIDI (id 7945), key Ab major
+N: as in the source, range C4 to B4; chords fitted from the accompaniment
+N: (Ab-Db7-Eb7 with the Bb7 lift). The pushing entries are straightened; pitches
+N: are the source's. Scope: source bars 29-45, the hook and the green theme's
+N: closing phrase; the B naturals, Gb and E natural are the source's, written
+N: =B, _G and =E over the Ab key.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Ab
+"Ab"A4 z3 A |"Db7"A2 F4- F z |"Eb7"z4 G A2 B |"Db7"A2 F4- F z |
+"Eb7"z2 G2 A2 B2 |"Eb7"=B2 =B2 _B2 _B2 |"Ab7"A2 A _G3 =E _E |
+"Ab"z4 D2 F2 |"Ab"G4 E4 |"Eb"z2 E2 F2 A2 |"Bb7"B4 _G4 |
+"Bb7"z4 A2 B2 |"Eb"=B2 =B2 _B2 _B2 |"Ab"A2 A2 _G3 _G |"Db7"F2 _G2 A2 F2 |"Gb"_G2 z6 |]
