@@ -5991,7 +5991,7 @@
     "2026-11-12": {
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
-      "japanese/ureshii hinamatsuri.abc": 3,
+      "japanese/ureshii hinamatsuri.abc": 4,
       "scottish/atholl_braes_1.abc": 6,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/birkhall.abc": 2,
@@ -7764,6 +7764,14 @@
         "transSeen": 3,
         "count": 1,
         "at": "2026-11-12T07:09:23.301Z"
+      },
+      "45": {
+        "pitch": "E",
+        "prev": "F",
+        "pitchSeen": 7,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-11-12T07:11:28.561Z"
       }
     },
     "japanese/yuuhi.abc": {
@@ -9949,7 +9957,7 @@
       }
     },
     "japanese/ureshii hinamatsuri.abc": {
-      "at": "2026-11-12T07:09:13.295Z",
+      "at": "2026-11-12T07:11:18.558Z",
       "notes": {
         "7": {
           "state": "red",
@@ -9962,6 +9970,10 @@
         "35": {
           "state": "red",
           "pitch": "F"
+        },
+        "45": {
+          "state": "red",
+          "pitch": "E"
         }
       }
     },
