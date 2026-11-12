@@ -561,14 +561,32 @@ class FileManager {
     }
 
     /**
-     * The latest additions to the repertoire, newest first. Like Recent, one
-     * flat list with each tune's folder beside the name.
+     * Whether the user has marked this tune up in any way: starred, given a
+     * practice status, written notes on, put it in a collection, or colored
+     * any of its notes. Merely playing it does not count.
+     * @param {string} filePath - Path to the file
+     * @returns {boolean}
+     */
+    isAnnotated(filePath) {
+        const data = this.userDataManager.data;
+        const song = data.songs[filePath];
+        return Boolean(song && (song.favorite || song.status || song.notes)) ||
+            Boolean(data.markStates && data.markStates[filePath]) ||
+            Object.values(data.collections || {})
+                .some(collection => collection.songPaths?.includes(filePath));
+    }
+
+    /**
+     * The latest additions to the repertoire the user has not annotated yet,
+     * newest first. Like Recent, one flat list with each tune's folder beside
+     * the name; a tune drops out once it is starred, statused, noted,
+     * collected or marked.
      * @param {number} limit - How many tunes to return
      * @returns {Array} File entries, newest added first
      */
     getLatestAdditions(limit = 20) {
         return this.fileList
-            .filter(file => file.added)
+            .filter(file => file.added && !this.isAnnotated(file.file))
             .sort((a, b) => b.added.localeCompare(a.added) ||
                 a.category.localeCompare(b.category) ||
                 a.name.localeCompare(b.name))
@@ -596,7 +614,7 @@ class FileManager {
         if (!latest.length) {
             const empty = document.createElement('li');
             empty.className = 'no-results-message';
-            empty.textContent = 'No tune ages recorded yet.';
+            empty.textContent = 'No new tunes left unannotated.';
             list.appendChild(empty);
         }
         return list;

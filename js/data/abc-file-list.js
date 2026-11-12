@@ -1081,6 +1081,13 @@ class AbcFileList {
                 "added": "2026-11-07"
         },
         {
+                "name": "Dentist!",
+                "file": "film/little shop of horrors/dentist.abc",
+                "category": "film/little shop of horrors",
+                "hash": "ee0a2480df",
+                "added": "2026-11-12"
+        },
+        {
                 "name": "Grow for Me",
                 "file": "film/little shop of horrors/grow for me.abc",
                 "category": "film/little shop of horrors",
@@ -1099,6 +1106,13 @@ class AbcFileList {
                 "file": "film/little shop of horrors/somewhere thats green.abc",
                 "category": "film/little shop of horrors",
                 "hash": "87c0568633",
+                "added": "2026-11-12"
+        },
+        {
+                "name": "Suddenly Seymour",
+                "file": "film/little shop of horrors/suddenly seymour.abc",
+                "category": "film/little shop of horrors",
+                "hash": "ea938c35ac",
                 "added": "2026-11-12"
         },
         {
