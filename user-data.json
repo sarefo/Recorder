@@ -1965,8 +1965,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T08:03:50.214Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-12T10:20:21.250Z",
+      "playCount": 11,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T06:21:30.721Z"
     },
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/bella ciao.abc",
+      "timestamp": "2026-11-12T10:20:21.250Z"
+    },
+    {
       "filePath": "german/ach bittrer winter.abc",
       "timestamp": "2026-11-12T10:19:16.700Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "scottish/bottom_bowl.abc",
       "timestamp": "2026-11-12T06:51:37.957Z"
-    },
-    {
-      "filePath": "scottish/birkhall.abc",
-      "timestamp": "2026-11-12T06:49:01.312Z"
     }
   ],
   "activity": {
@@ -5999,6 +5999,7 @@
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
+      "italian/bella ciao.abc": 1,
       "japanese/hana.abc": 1,
       "japanese/hashire kotaro.abc": 1,
       "japanese/ureshii hinamatsuri.abc": 4,
