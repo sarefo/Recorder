@@ -327,8 +327,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:15:37.988Z",
-      "playCount": 35,
+      "lastPlayed": "2026-11-12T07:04:35.245Z",
+      "playCount": 36,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/na jiushi wo.abc": {
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/molihua.abc",
+      "timestamp": "2026-11-12T07:04:35.245Z"
+    },
+    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-11-12T06:55:25.017Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "tv/mission impossible.abc",
       "timestamp": "2026-11-10T12:07:28.341Z"
-    },
-    {
-      "filePath": "tv/i dream of jeannie.abc",
-      "timestamp": "2026-11-10T12:04:43.179Z"
     }
   ],
   "activity": {
@@ -5989,6 +5989,7 @@
       "scottish/balquidder_lasses.abc": 1
     },
     "2026-11-12": {
+      "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
       "scottish/atholl_braes_1.abc": 6,
       "scottish/balquidder_lasses.abc": 1,
