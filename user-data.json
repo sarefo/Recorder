@@ -5073,12 +5073,13 @@
       "updatedAt": "2026-11-10T12:06:15.331Z"
     },
     "tv/knight rider.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:57:27.940Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:57:38.870Z"
     },
     "tv/last of the summer wine.abc": {
       "status": null,
@@ -5132,8 +5133,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-12T12:57:54.579Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/pippi longstocking.abc": {
@@ -5146,20 +5147,22 @@
       "updatedAt": "2026-11-12T12:55:24.950Z"
     },
     "tv/popeye.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:57:05.760Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:57:24.326Z"
     },
     "tv/rawhide.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:58:10.410Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:58:16.158Z"
     },
     "tv/scooby doo.abc": {
       "status": null,
@@ -5271,8 +5274,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-12T12:56:49.527Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/the simpsons.abc": {
@@ -5531,6 +5534,26 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/rawhide.abc",
+      "timestamp": "2026-11-12T12:58:10.410Z"
+    },
+    {
+      "filePath": "tv/pinky and the brain.abc",
+      "timestamp": "2026-11-12T12:57:54.579Z"
+    },
+    {
+      "filePath": "tv/knight rider.abc",
+      "timestamp": "2026-11-12T12:57:27.940Z"
+    },
+    {
+      "filePath": "tv/popeye.abc",
+      "timestamp": "2026-11-12T12:57:05.760Z"
+    },
+    {
+      "filePath": "tv/the office.abc",
+      "timestamp": "2026-11-12T12:56:49.527Z"
+    },
+    {
       "filePath": "tv/spider-man.abc",
       "timestamp": "2026-11-12T12:55:37.316Z"
     },
@@ -5589,26 +5612,6 @@
     {
       "filePath": "tv/cruel angels thesis.abc",
       "timestamp": "2026-11-12T12:48:59.878Z"
-    },
-    {
-      "filePath": "yiddish/dos kelbl.abc",
-      "timestamp": "2026-11-12T10:25:57.564Z"
-    },
-    {
-      "filePath": "yiddish/bei mir bist du schon.abc",
-      "timestamp": "2026-11-12T10:24:12.652Z"
-    },
-    {
-      "filePath": "italian/tarantella napoletana.abc",
-      "timestamp": "2026-11-12T10:21:26.832Z"
-    },
-    {
-      "filePath": "italian/bella ciao.abc",
-      "timestamp": "2026-11-12T10:20:21.250Z"
-    },
-    {
-      "filePath": "german/ach bittrer winter.abc",
-      "timestamp": "2026-11-12T10:19:16.700Z"
     }
   ],
   "activity": {
@@ -6038,9 +6041,14 @@
       "tv/gummi bears.abc": 1,
       "tv/happy days.abc": 1,
       "tv/hawaii five-o.abc": 1,
+      "tv/knight rider.abc": 1,
+      "tv/pinky and the brain.abc": 1,
       "tv/pippi longstocking.abc": 1,
+      "tv/popeye.abc": 1,
+      "tv/rawhide.abc": 1,
       "tv/spider-man.abc": 1,
       "tv/taxi.abc": 1,
+      "tv/the office.abc": 1,
       "yiddish/bei mir bist du schon.abc": 1,
       "yiddish/dos kelbl.abc": 1
     }
@@ -6765,6 +6773,21 @@
       "path": "tv/pippi longstocking.abc",
       "status": "needs-practice",
       "at": "2026-11-12T12:55:24.950Z"
+    },
+    {
+      "path": "tv/popeye.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:57:24.326Z"
+    },
+    {
+      "path": "tv/knight rider.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:57:38.870Z"
+    },
+    {
+      "path": "tv/rawhide.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:58:16.158Z"
     }
   ],
   "marks": {
@@ -9280,6 +9303,16 @@
         "at": "2026-11-10T12:07:38.446Z"
       }
     },
+    "tv/pinky and the brain.abc": {
+      "27": {
+        "pitch": "_B",
+        "prev": "_A",
+        "pitchSeen": 5,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-12T12:58:04.687Z"
+      }
+    },
     "tv/pippi longstocking.abc": {
       "5": {
         "pitch": "_B",
@@ -9288,6 +9321,16 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-11-12T12:55:26.710Z"
+      }
+    },
+    "tv/popeye.abc": {
+      "4": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-12T12:57:15.883Z"
       }
     },
     "tv/star trek.abc": {
@@ -11258,10 +11301,28 @@
         }
       }
     },
+    "tv/pinky and the brain.abc": {
+      "at": "2026-11-12T12:57:54.685Z",
+      "notes": {
+        "27": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
     "tv/pippi longstocking.abc": {
       "at": "2026-11-12T12:55:16.701Z",
       "notes": {
         "5": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "tv/popeye.abc": {
+      "at": "2026-11-12T12:57:05.876Z",
+      "notes": {
+        "4": {
           "state": "red",
           "pitch": "_B"
         }
