@@ -4820,36 +4820,40 @@
       "updatedAt": "2026-11-06T13:07:34.755Z"
     },
     "tv/airwolf.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:50:46.917Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:51:12.272Z"
     },
     "tv/alfred hitchcock presents.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:51:15.265Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:51:33.616Z"
     },
     "tv/bewitched.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:52:00.670Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:52:29.696Z"
     },
     "tv/blackadder.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:52:32.067Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:52:59.207Z"
     },
     "tv/casper.abc": {
       "status": null,
@@ -4925,12 +4929,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/doraemon.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:53:07.151Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:53:26.959Z"
     },
     "tv/eastenders.abc": {
       "status": null,
@@ -4949,12 +4954,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/fawlty towers.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:53:31.546Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:53:51.368Z"
     },
     "tv/flipper.abc": {
       "status": null,
@@ -4981,20 +4987,22 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/futurama.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:53:54.788Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:54:09.831Z"
     },
     "tv/game of thrones.abc": {
       "status": null,
-      "favorite": false,
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:54:12.656Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:54:17.264Z"
     },
     "tv/get smart.abc": {
       "status": null,
@@ -5013,28 +5021,31 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/gummi bears.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:50:06.295Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:50:37.313Z"
     },
     "tv/happy days.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "practicing",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:54:32.106Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:54:55.422Z"
     },
     "tv/hawaii five-o.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:54:58.603Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:55:12.735Z"
     },
     "tv/hogans heroes.abc": {
       "status": null,
@@ -5126,12 +5137,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/pippi longstocking.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:55:16.585Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:55:24.950Z"
     },
     "tv/popeye.abc": {
       "status": null,
@@ -5177,8 +5189,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-12T12:55:37.316Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/star trek.abc": {
@@ -5191,12 +5203,13 @@
       "updatedAt": "2026-11-10T12:08:03.953Z"
     },
     "tv/taxi.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T12:51:38.409Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T12:51:56.951Z"
     },
     "tv/the addams family.abc": {
       "status": null,
@@ -5518,6 +5531,62 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/spider-man.abc",
+      "timestamp": "2026-11-12T12:55:37.316Z"
+    },
+    {
+      "filePath": "tv/pippi longstocking.abc",
+      "timestamp": "2026-11-12T12:55:16.585Z"
+    },
+    {
+      "filePath": "tv/hawaii five-o.abc",
+      "timestamp": "2026-11-12T12:54:58.603Z"
+    },
+    {
+      "filePath": "tv/happy days.abc",
+      "timestamp": "2026-11-12T12:54:32.106Z"
+    },
+    {
+      "filePath": "tv/game of thrones.abc",
+      "timestamp": "2026-11-12T12:54:12.656Z"
+    },
+    {
+      "filePath": "tv/futurama.abc",
+      "timestamp": "2026-11-12T12:53:54.788Z"
+    },
+    {
+      "filePath": "tv/fawlty towers.abc",
+      "timestamp": "2026-11-12T12:53:31.546Z"
+    },
+    {
+      "filePath": "tv/doraemon.abc",
+      "timestamp": "2026-11-12T12:53:07.151Z"
+    },
+    {
+      "filePath": "tv/blackadder.abc",
+      "timestamp": "2026-11-12T12:52:32.067Z"
+    },
+    {
+      "filePath": "tv/bewitched.abc",
+      "timestamp": "2026-11-12T12:52:00.670Z"
+    },
+    {
+      "filePath": "tv/taxi.abc",
+      "timestamp": "2026-11-12T12:51:38.409Z"
+    },
+    {
+      "filePath": "tv/alfred hitchcock presents.abc",
+      "timestamp": "2026-11-12T12:51:15.265Z"
+    },
+    {
+      "filePath": "tv/airwolf.abc",
+      "timestamp": "2026-11-12T12:50:46.917Z"
+    },
+    {
+      "filePath": "tv/gummi bears.abc",
+      "timestamp": "2026-11-12T12:50:06.295Z"
+    },
+    {
       "filePath": "tv/cruel angels thesis.abc",
       "timestamp": "2026-11-12T12:48:59.878Z"
     },
@@ -5540,62 +5609,6 @@
     {
       "filePath": "german/ach bittrer winter.abc",
       "timestamp": "2026-11-12T10:19:16.700Z"
-    },
-    {
-      "filePath": "german/es geht eine dunkle wolk herein.abc",
-      "timestamp": "2026-11-12T10:18:04.987Z"
-    },
-    {
-      "filePath": "german/es ist ein schnitter.abc",
-      "timestamp": "2026-11-12T10:16:41.788Z"
-    },
-    {
-      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
-      "timestamp": "2026-11-12T10:15:35.695Z"
-    },
-    {
-      "filePath": "german/maria durch ein dornwald ging.abc",
-      "timestamp": "2026-11-12T10:14:08.105Z"
-    },
-    {
-      "filePath": "occitan/la cambo me fai mau.abc",
-      "timestamp": "2026-11-12T10:11:50.701Z"
-    },
-    {
-      "filePath": "occitan/ai vist lo lop.abc",
-      "timestamp": "2026-11-12T10:10:05.059Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-11-12T10:08:34.460Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-11-12T10:05:17.303Z"
-    },
-    {
-      "filePath": "breton/les filles des forges de paimpont.abc",
-      "timestamp": "2026-11-12T10:03:05.329Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-11-12T10:01:43.359Z"
-    },
-    {
-      "filePath": "japanese/hashire kotaro.abc",
-      "timestamp": "2026-11-12T10:00:12.920Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-11-12T09:57:23.226Z"
-    },
-    {
-      "filePath": "japanese/yuuhi.abc",
-      "timestamp": "2026-11-12T07:12:46.260Z"
-    },
-    {
-      "filePath": "japanese/ureshii hinamatsuri.abc",
-      "timestamp": "2026-11-12T07:08:11.485Z"
     }
   ],
   "activity": {
@@ -6013,7 +6026,21 @@
       "scottish/balquidder_lasses.abc": 1,
       "scottish/birkhall.abc": 2,
       "scottish/bottom_bowl.abc": 1,
+      "tv/airwolf.abc": 1,
+      "tv/alfred hitchcock presents.abc": 1,
+      "tv/bewitched.abc": 1,
+      "tv/blackadder.abc": 1,
       "tv/cruel angels thesis.abc": 2,
+      "tv/doraemon.abc": 1,
+      "tv/fawlty towers.abc": 1,
+      "tv/futurama.abc": 1,
+      "tv/game of thrones.abc": 1,
+      "tv/gummi bears.abc": 1,
+      "tv/happy days.abc": 1,
+      "tv/hawaii five-o.abc": 1,
+      "tv/pippi longstocking.abc": 1,
+      "tv/spider-man.abc": 1,
+      "tv/taxi.abc": 1,
       "yiddish/bei mir bist du schon.abc": 1,
       "yiddish/dos kelbl.abc": 1
     }
@@ -6678,6 +6705,66 @@
       "path": "tv/cruel angels thesis.abc",
       "status": "needs-practice",
       "at": "2026-11-12T12:49:17.392Z"
+    },
+    {
+      "path": "tv/gummi bears.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:50:33.816Z"
+    },
+    {
+      "path": "tv/airwolf.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:51:12.272Z"
+    },
+    {
+      "path": "tv/alfred hitchcock presents.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:51:33.616Z"
+    },
+    {
+      "path": "tv/taxi.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:51:56.951Z"
+    },
+    {
+      "path": "tv/bewitched.abc",
+      "status": "practicing",
+      "at": "2026-11-12T12:52:29.696Z"
+    },
+    {
+      "path": "tv/blackadder.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:52:59.207Z"
+    },
+    {
+      "path": "tv/doraemon.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:53:26.959Z"
+    },
+    {
+      "path": "tv/fawlty towers.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:53:51.368Z"
+    },
+    {
+      "path": "tv/futurama.abc",
+      "status": "practicing",
+      "at": "2026-11-12T12:54:09.831Z"
+    },
+    {
+      "path": "tv/happy days.abc",
+      "status": "practicing",
+      "at": "2026-11-12T12:54:55.422Z"
+    },
+    {
+      "path": "tv/hawaii five-o.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:55:12.735Z"
+    },
+    {
+      "path": "tv/pippi longstocking.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T12:55:24.950Z"
     }
   ],
   "marks": {
@@ -9003,6 +9090,34 @@
         "at": "2026-11-06T13:07:46.037Z"
       }
     },
+    "tv/alfred hitchcock presents.abc": {
+      "18": {
+        "pitch": "_B",
+        "prev": null,
+        "pitchSeen": 2,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-12T12:51:25.378Z"
+      },
+      "24": {
+        "pitch": "_e",
+        "prev": "A",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-12T12:51:25.379Z"
+      }
+    },
+    "tv/blackadder.abc": {
+      "10": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 5,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-12T12:52:42.184Z"
+      }
+    },
     "tv/cruel angels thesis.abc": {
       "8": {
         "pitch": "_B",
@@ -9071,6 +9186,80 @@
         "at": "2026-10-25T10:08:05.630Z"
       }
     },
+    "tv/doraemon.abc": {
+      "39": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-12T12:53:17.264Z"
+      }
+    },
+    "tv/fawlty towers.abc": {
+      "1": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 10,
+        "transSeen": 6,
+        "count": 1,
+        "at": "2026-11-12T12:53:41.657Z"
+      }
+    },
+    "tv/futurama.abc": {
+      "3": {
+        "pitch": "^F",
+        "prev": "G",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-12T12:54:04.900Z"
+      }
+    },
+    "tv/happy days.abc": {
+      "10": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-12T12:54:42.212Z"
+      }
+    },
+    "tv/hawaii five-o.abc": {
+      "2": {
+        "pitch": "_A",
+        "prev": "F",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-12T12:55:08.716Z"
+      },
+      "4": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-12T12:55:08.719Z"
+      },
+      "11": {
+        "pitch": "_E",
+        "prev": "F",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-12T12:55:08.721Z"
+      },
+      "26": {
+        "pitch": "_e",
+        "prev": null,
+        "pitchSeen": 2,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-12T12:55:08.723Z"
+      }
+    },
     "tv/i dream of jeannie.abc": {
       "58": {
         "pitch": "_B",
@@ -9089,6 +9278,16 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-11-10T12:07:38.446Z"
+      }
+    },
+    "tv/pippi longstocking.abc": {
+      "5": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 7,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-12T12:55:26.710Z"
       }
     },
     "tv/star trek.abc": {
@@ -10920,6 +11119,28 @@
         }
       }
     },
+    "tv/alfred hitchcock presents.abc": {
+      "at": "2026-11-12T12:51:15.371Z",
+      "notes": {
+        "18": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "24": {
+          "state": "red",
+          "pitch": "_e"
+        }
+      }
+    },
+    "tv/blackadder.abc": {
+      "at": "2026-11-12T12:52:32.182Z",
+      "notes": {
+        "10": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
     "tv/cruel angels thesis.abc": {
       "at": "2026-11-12T12:48:59.983Z",
       "notes": {
@@ -10962,6 +11183,63 @@
         }
       }
     },
+    "tv/doraemon.abc": {
+      "at": "2026-11-12T12:53:07.262Z",
+      "notes": {
+        "39": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "tv/fawlty towers.abc": {
+      "at": "2026-11-12T12:53:31.654Z",
+      "notes": {
+        "1": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "tv/futurama.abc": {
+      "at": "2026-11-12T12:53:54.895Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "^F"
+        }
+      }
+    },
+    "tv/happy days.abc": {
+      "at": "2026-11-12T12:54:32.209Z",
+      "notes": {
+        "10": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "tv/hawaii five-o.abc": {
+      "at": "2026-11-12T12:54:58.717Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "4": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "11": {
+          "state": "red",
+          "pitch": "_E"
+        },
+        "26": {
+          "state": "red",
+          "pitch": "_e"
+        }
+      }
+    },
     "tv/i dream of jeannie.abc": {
       "at": "2026-11-10T12:04:43.285Z",
       "notes": {
@@ -10975,6 +11253,15 @@
       "at": "2026-11-10T12:07:28.444Z",
       "notes": {
         "2": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "tv/pippi longstocking.abc": {
+      "at": "2026-11-12T12:55:16.701Z",
+      "notes": {
+        "5": {
           "state": "red",
           "pitch": "_B"
         }
