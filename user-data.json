@@ -4534,8 +4534,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T07:43:26.345Z",
-      "playCount": 24,
+      "lastPlayed": "2026-11-12T06:49:01.312Z",
+      "playCount": 25,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-16T07:25:54.141Z"
     },
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/birkhall.abc",
+      "timestamp": "2026-11-12T06:49:01.312Z"
+    },
+    {
       "filePath": "scottish/atholl_braes_1.abc",
       "timestamp": "2026-11-12T06:39:39.275Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "klezmer/alter sher.abc",
       "timestamp": "2026-11-10T12:01:31.562Z"
-    },
-    {
-      "filePath": "french/douce dame jolie.abc",
-      "timestamp": "2026-11-10T11:59:12.423Z"
     }
   ],
   "activity": {
@@ -5990,7 +5990,8 @@
     },
     "2026-11-12": {
       "scottish/atholl_braes_1.abc": 6,
-      "scottish/balquidder_lasses.abc": 1
+      "scottish/balquidder_lasses.abc": 1,
+      "scottish/birkhall.abc": 1
     }
   },
   "statusLog": [
