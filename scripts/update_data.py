@@ -3,6 +3,7 @@ import os
 import re
 import json
 import hashlib
+import datetime
 import subprocess
 
 def is_valid_abc_file(abc_file_path):
@@ -39,12 +40,40 @@ def content_hash(path):
         data = f.read().replace(b'\r\n', b'\n')
     return hashlib.sha1(data).hexdigest()[:10]
 
+def git_added_dates(project_dir):
+    """Date each tune under abc/ first entered git, as YYYY-MM-DD, from one
+    log pass (--no-renames, so a moved file counts as added at its move).
+    Files not in the log yet are left out; the caller dates those today,
+    which is right when the pre-commit hook regenerates this list."""
+    out = {}
+    try:
+        log = subprocess.run(
+            ["git", "log", "--diff-filter=A", "--no-renames", "--name-only",
+             "--format=%as", "--", "abc"],
+            capture_output=True, text=True, check=True, cwd=project_dir,
+            encoding="utf-8", errors="replace").stdout
+    except (OSError, subprocess.CalledProcessError) as e:
+        print(f"Added dates unavailable ({e}); regenerating without them")
+        return out
+    date = None
+    for line in log.splitlines():
+        if not line.strip():
+            continue
+        if line.startswith("abc/") and date:
+            # Log is newest-first, so the first add seen is the latest one
+            out.setdefault(line[4:].replace("\\", "/"), date)
+        else:
+            date = line.strip()
+    return out
+
 def generate_abc_file_list():
     """Scan the abc directory and generate a file list."""
     # Get the directory containing this script
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_dir = os.path.dirname(script_dir)
     abc_dir = os.path.join(project_dir, 'abc')
+    added_dates = git_added_dates(project_dir)
+    today = datetime.date.today().isoformat()
     
     # Ensure the directory exists
     if not os.path.exists(abc_dir):
@@ -77,7 +106,10 @@ def generate_abc_file_list():
                     "name": title,
                     "file": rel_path.replace('\\', '/'),  # Use forward slashes for URLs
                     "category": category,
-                    "hash": content_hash(full_path)
+                    "hash": content_hash(full_path),
+                    # When the tune joined the repertoire; tunes not yet
+                    # committed count as added today
+                    "added": added_dates.get(rel_path.replace('\\', '/'), today)
                 })
     
     # Sort alphabetically by category then name

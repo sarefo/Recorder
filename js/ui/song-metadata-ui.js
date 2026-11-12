@@ -362,6 +362,7 @@ class SongMetadataUI {
             { id: 'practicing', label: 'Practicing', icon: '🟠', count: stats.practicing },
             { id: 'good', label: 'Good', icon: '🟢', count: stats.good },
             { id: 'mastered', label: 'Mastered', icon: '🟣', count: stats.mastered },
+            { id: 'new', label: 'New', icon: '🆕', count: null },
             { id: 'recent', label: 'Recent', icon: '🕐', count: stats.recentlyPlayed }
         ];
 

@@ -364,7 +364,8 @@
     font-weight: var(--font-weight-bold, 700);
 }
 
-/* Recent: one tune per row, last played first, with its folder beside the name */
+/* Recent and New: one tune per row (last played first / newest addition first),
+   with its folder beside the name */
 .files-recent-list {
     flex-basis: 100%;
     max-width: 36rem;

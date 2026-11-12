@@ -8,7 +8,7 @@ class FileManager {
         this.metadataUI = new SongMetadataUI(userDataManager, this);
         this.fileList = AbcFileList.getFiles();
         this.categorizedFiles = this.categorizeFiles();
-        this.currentFilter = 'favorites'; // Current filter: 'all', 'favorites', 'needs-practice', 'practicing', 'good', 'mastered', 'recent', 'collection'
+        this.currentFilter = 'favorites'; // Current filter: 'all', 'favorites', 'needs-practice', 'practicing', 'good', 'mastered', 'new', 'recent', 'collection'
         this.filterChosen = false; // True once the user picks a filter tab
         this.currentCollectionId = null; // Active collection ID when viewing collection
         this.currentFilePath = null; // Currently loaded file path (null when loaded from paste/share)
@@ -513,6 +513,11 @@ class FileManager {
             return;
         }
 
+        if (this.currentFilter === 'new') {
+            container.appendChild(this.createNewList(handleEscape));
+            return;
+        }
+
         // Sort categories alphabetically
         const sortedCategories = Object.keys(this.categorizedFiles).sort();
 
@@ -550,6 +555,48 @@ class FileManager {
             const empty = document.createElement('li');
             empty.className = 'no-results-message';
             empty.textContent = 'No recently played tunes.';
+            list.appendChild(empty);
+        }
+        return list;
+    }
+
+    /**
+     * The latest additions to the repertoire, newest first. Like Recent, one
+     * flat list with each tune's folder beside the name.
+     * @param {number} limit - How many tunes to return
+     * @returns {Array} File entries, newest added first
+     */
+    getLatestAdditions(limit = 20) {
+        return this.fileList
+            .filter(file => file.added)
+            .sort((a, b) => b.added.localeCompare(a.added) ||
+                a.category.localeCompare(b.category) ||
+                a.name.localeCompare(b.name))
+            .slice(0, limit);
+    }
+
+    /**
+     * Builds the New view: one flat list of the most recently added tunes.
+     * Reuses the Recent list styling, so search and note filtering apply too.
+     * @param {Function} handleEscape - Dialog's escape handler, to detach on load
+     * @returns {HTMLUListElement}
+     */
+    createNewList(handleEscape) {
+        const list = document.createElement('ul');
+        list.className = 'files-items files-recent-list';
+        const latest = this.getLatestAdditions();
+        latest.forEach(file => {
+            const item = this.createFileItem(file, handleEscape);
+            const folder = document.createElement('span');
+            folder.className = 'file-item-folder';
+            folder.textContent = file.category;
+            item.firstChild.after(folder);
+            list.appendChild(item);
+        });
+        if (!latest.length) {
+            const empty = document.createElement('li');
+            empty.className = 'no-results-message';
+            empty.textContent = 'No tune ages recorded yet.';
             list.appendChild(empty);
         }
         return list;
@@ -912,6 +959,9 @@ class FileManager {
             case 'good':
             case 'mastered':
                 return songData.status === this.currentFilter;
+
+            case 'new':
+                return this.getLatestAdditions().some(file => file.file === filePath);
 
             case 'recent':
                 const recentSongs = this.userDataManager.getRecentSongs();
