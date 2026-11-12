@@ -5289,12 +5289,13 @@
       "updatedAt": "2026-11-10T12:08:24.793Z"
     },
     "tv/the smurfs.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-11-12T13:00:04.788Z",
       "playCount": 1,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T13:00:46.565Z"
     },
     "tv/the vicar of dibley.abc": {
       "status": null,
@@ -5305,12 +5306,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/the waltons.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T13:00:50.296Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T13:01:06.597Z"
     },
     "tv/the wombles.abc": {
       "status": null,
@@ -5353,12 +5355,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/yu-gi-oh.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
-      "createdAt": "2026-11-07T03:10:49.713Z"
+      "lastPlayed": "2026-11-12T13:01:27.471Z",
+      "playCount": 1,
+      "createdAt": "2026-11-07T03:10:49.713Z",
+      "updatedAt": "2026-11-12T13:01:41.773Z"
     },
     "ugandan/mwana wa nnyabo.abc": {
       "status": null,
@@ -5535,6 +5538,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/yu-gi-oh.abc",
+      "timestamp": "2026-11-12T13:01:27.471Z"
+    },
+    {
+      "filePath": "tv/the waltons.abc",
+      "timestamp": "2026-11-12T13:00:50.296Z"
+    },
+    {
       "filePath": "tv/the smurfs.abc",
       "timestamp": "2026-11-12T13:00:04.788Z"
     },
@@ -5605,14 +5616,6 @@
     {
       "filePath": "tv/taxi.abc",
       "timestamp": "2026-11-12T12:51:38.409Z"
-    },
-    {
-      "filePath": "tv/alfred hitchcock presents.abc",
-      "timestamp": "2026-11-12T12:51:15.265Z"
-    },
-    {
-      "filePath": "tv/airwolf.abc",
-      "timestamp": "2026-11-12T12:50:46.917Z"
     }
   ],
   "activity": {
@@ -6052,6 +6055,8 @@
       "tv/the muppet show.abc": 1,
       "tv/the office.abc": 1,
       "tv/the smurfs.abc": 1,
+      "tv/the waltons.abc": 1,
+      "tv/yu-gi-oh.abc": 1,
       "yiddish/bei mir bist du schon.abc": 1,
       "yiddish/dos kelbl.abc": 1
     }
@@ -6796,6 +6801,21 @@
       "path": "tv/the muppet show.abc",
       "status": "needs-practice",
       "at": "2026-11-12T12:59:04.230Z"
+    },
+    {
+      "path": "tv/the smurfs.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T13:00:46.565Z"
+    },
+    {
+      "path": "tv/the waltons.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T13:01:06.597Z"
+    },
+    {
+      "path": "tv/yu-gi-oh.abc",
+      "status": "needs-practice",
+      "at": "2026-11-12T13:01:41.773Z"
     }
   ],
   "marks": {
@@ -9369,6 +9389,16 @@
         "at": "2026-11-12T13:00:14.901Z"
       }
     },
+    "tv/the waltons.abc": {
+      "29": {
+        "pitch": "_B",
+        "prev": "A",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-12T13:01:00.418Z"
+      }
+    },
     "ukrainian/nich yaka misyachna.abc": {
       "16": {
         "pitch": "_B",
@@ -11363,6 +11393,15 @@
       "at": "2026-11-12T13:00:04.896Z",
       "notes": {
         "4": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "tv/the waltons.abc": {
+      "at": "2026-11-12T13:00:50.411Z",
+      "notes": {
+        "29": {
           "state": "red",
           "pitch": "_B"
         }
