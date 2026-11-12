@@ -12,8 +12,8 @@ M:2/4
 Q:1/4=150
 L:1/8
 K:D
-A4 | A4 | A2 A2 | A2 A2 ||
-|: AEEF | EDDF | GBdB | BA A2 | BCCB | ADDF |1 FEFE | FEFE :|2 E2 FE | ED D2 ||
-|: f2 d2 | B2 A2 | AEFG | FE D2 | f2 d2 | B2 A2 |1 ^GABc | ed d2 :|2 ^GABc ||
-dAcA | dAcA | dAcA | dAcA | d>d d>d | d>d d>d | d>d d>d | d>d d>d ||
-|: G4 | A=cBA | d2 d2 | de B=c | A2 A2 | A=cBA |1 Ggfe | d=cBA :|2 GdAB | G4 |]
+"A"A4 |"A"A4 |"A"A2 A2 |"A"A2 A2 ||
+|: "A"AEEF |"D"EDDF |"G"GBdB |"A"BA A2 |"A7"BCCB |"D"ADDF |1 "A7"FEFE |"A7"FEFE :|2 "A7"E2 FE |"D"ED D2 ||
+|: "D"f2 d2 |"A"B2 A2 |"A"AEFG |"D"FE D2 |"D"f2 d2 |"A"B2 A2 |1 "E7"^GABc |"D"ed d2 :|2 "E7"^GABc ||
+"D7"dAcA |"D7"dAcA |"D7"dAcA |"D7"dAcA |"D7"d>d d>d |"D7"d>d d>d |"A7"d>d d>d |"A7"d>d d>d ||
+|: "G"G4 |"A7"A=cBA |"D"d2 d2 |"D"de B=c |"A"A2 A2 |"A7"A=cBA |1 "D7"Ggfe |"A7"d=cBA :|2 "G"GdAB |"G"G4 |]

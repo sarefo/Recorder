@@ -30,7 +30,7 @@ class AbcFileList {
                 "name": "Which Side Are You On?",
                 "file": "american/which side are you on.abc",
                 "category": "american",
-                "hash": "9b49a2d7b0"
+                "hash": "985817d4a6"
         },
         {
                 "name": "Dos Palomitas",
@@ -174,13 +174,13 @@ class AbcFileList {
                 "name": "El Cant dels Ocells",
                 "file": "catalan/el cant dels ocells.abc",
                 "category": "catalan",
-                "hash": "960e7acd79"
+                "hash": "3eaa99194e"
         },
         {
                 "name": "AAA Dongjia chimi wo chikang",
                 "file": "chinese/670_songs.abc",
                 "category": "chinese",
-                "hash": "06076a8f56"
+                "hash": "f67fc380fa"
         },
         {
                 "name": "Alamuhan \u963f\u62c9\u6728\u6c57",
@@ -210,13 +210,13 @@ class AbcFileList {
                 "name": "Geming shengli zaixiangfeng",
                 "file": "chinese/geming.abc",
                 "category": "chinese",
-                "hash": "21f4743848"
+                "hash": "1001723755"
         },
         {
                 "name": "Huang hua cao",
                 "file": "chinese/huang hua cao.abc",
                 "category": "chinese",
-                "hash": "7296c8857e"
+                "hash": "5b09f7f8e9"
         },
         {
                 "name": "Liangshanbo",
@@ -630,7 +630,7 @@ class AbcFileList {
                 "name": "Galop Infernal",
                 "file": "classical/offenbach/galop infernal.abc",
                 "category": "classical/offenbach",
-                "hash": "89a7f13304"
+                "hash": "2ce28446d0"
         },
         {
                 "name": "Die Forelle",
@@ -666,7 +666,7 @@ class AbcFileList {
                 "name": "Helston Furry Dance",
                 "file": "cornish/helston furry dance.abc",
                 "category": "cornish",
-                "hash": "9b022a86a4"
+                "hash": "309dbc5656"
         },
         {
                 "name": "Guantanamera",
@@ -738,7 +738,7 @@ class AbcFileList {
                 "name": "Chariots of Fire",
                 "file": "film/chariots of fire.abc",
                 "category": "film",
-                "hash": "0752848116"
+                "hash": "82a9535e58"
         },
         {
                 "name": "Circle of Life",
@@ -750,13 +750,13 @@ class AbcFileList {
                 "name": "Colonel Bogey March",
                 "file": "film/colonel bogey.abc",
                 "category": "film",
-                "hash": "6e7c8232e1"
+                "hash": "2474a3dac2"
         },
         {
                 "name": "Concerning Hobbits",
                 "file": "film/concerning hobbits.abc",
                 "category": "film",
-                "hash": "48552dbfc7"
+                "hash": "9b510cfb2c"
         },
         {
                 "name": "Edelweiss",
@@ -798,7 +798,7 @@ class AbcFileList {
                 "name": "Itsumo Nando Demo",
                 "file": "film/itsumo nando demo.abc",
                 "category": "film",
-                "hash": "0ac7c76d21"
+                "hash": "4e33f25837"
         },
         {
                 "name": "Jurassic Park",
@@ -882,7 +882,7 @@ class AbcFileList {
                 "name": "The Pink Panther",
                 "file": "film/pink panther.abc",
                 "category": "film",
-                "hash": "8a3a418397"
+                "hash": "06b0d2474e"
         },
         {
                 "name": "The Third Man",
@@ -1050,7 +1050,7 @@ class AbcFileList {
                 "name": "Reel du r\u00e9prtoire des fr\u00e8res Pigeon",
                 "file": "french/Reel du repertoire des freres pigeon.abc",
                 "category": "french",
-                "hash": "8131dd7401"
+                "hash": "a09b4bec77"
         },
         {
                 "name": "Sous le ciel de Paris",
@@ -1068,7 +1068,7 @@ class AbcFileList {
                 "name": "Mui\u00f1eira de Chantada",
                 "file": "galician/muineira de chantada.abc",
                 "category": "galician",
-                "hash": "55d2f3e186"
+                "hash": "342c6efadb"
         },
         {
                 "name": "Gandagana",
@@ -1188,7 +1188,7 @@ class AbcFileList {
                 "name": "Seikilos Epitaph",
                 "file": "greek/seikilos epitaph.abc",
                 "category": "greek",
-                "hash": "e65a41e45d"
+                "hash": "c962c10c0c"
         },
         {
                 "name": "Aloha \u02bbOe",
@@ -1284,7 +1284,7 @@ class AbcFileList {
                 "name": "She Moved Through the Fair",
                 "file": "irish/she moved through the fair.abc",
                 "category": "irish",
-                "hash": "c51c489d64"
+                "hash": "9011d4b082"
         },
         {
                 "name": "S\u00ed Bheag, S\u00ed Mh\u00f3r",
@@ -1314,7 +1314,7 @@ class AbcFileList {
                 "name": "The Coolin",
                 "file": "irish/the coolin.abc",
                 "category": "irish",
-                "hash": "ce00cd0dc1"
+                "hash": "c7ae9c9bc1"
         },
         {
                 "name": "The Foggy Dew",
@@ -1326,7 +1326,7 @@ class AbcFileList {
                 "name": "The South Wind",
                 "file": "irish/the south wind.abc",
                 "category": "irish",
-                "hash": "ea29e1589d"
+                "hash": "9dedc99eae"
         },
         {
                 "name": "The Wild Rover",
@@ -2820,13 +2820,13 @@ class AbcFileList {
                 "name": "Mylecharaine",
                 "file": "manx/mylecharaine.abc",
                 "category": "manx",
-                "hash": "119b37d10e"
+                "hash": "ad589f996d"
         },
         {
                 "name": "Ny Kirree fo Niaghtey",
                 "file": "manx/ny kirree fo niaghtey.abc",
                 "category": "manx",
-                "hash": "06288c90dd"
+                "hash": "9f7cefbed4"
         },
         {
                 "name": "P\u014dkarekare Ana",
@@ -2970,7 +2970,7 @@ class AbcFileList {
                 "name": "Dwa serduszka",
                 "file": "polish/dwa serduszka.abc",
                 "category": "polish",
-                "hash": "8a0b111c08"
+                "hash": "9db8304722"
         },
         {
                 "name": "Derni\u00e8re Danse",
@@ -3048,7 +3048,7 @@ class AbcFileList {
                 "name": "Yakety Sax",
                 "file": "pop/yakety sax.abc",
                 "category": "pop",
-                "hash": "baaed141f4"
+                "hash": "4d82fb8d10"
         },
         {
                 "name": "A Swingin' Safari",
@@ -3276,7 +3276,7 @@ class AbcFileList {
                 "name": "Aye Waukin, O",
                 "file": "scottish/aye waukin o.abc",
                 "category": "scottish",
-                "hash": "5e21eda07e"
+                "hash": "a1cb84a597"
         },
         {
                 "name": "Balquidder Lasses",
@@ -3336,7 +3336,7 @@ class AbcFileList {
                 "name": "Hector the Hero",
                 "file": "scottish/hector the hero.abc",
                 "category": "scottish",
-                "hash": "e5b48bc621"
+                "hash": "1ef9942a9b"
         },
         {
                 "name": "Highland Fling",
@@ -3360,7 +3360,7 @@ class AbcFileList {
                 "name": "Loch Lomond",
                 "file": "scottish/loch lomond.abc",
                 "category": "scottish",
-                "hash": "b9e3382eff"
+                "hash": "68e663f518"
         },
         {
                 "name": "Sweet Molly",
@@ -3402,7 +3402,7 @@ class AbcFileList {
                 "name": "Nanita Nana",
                 "file": "spanish/nanita nana.abc",
                 "category": "spanish",
-                "hash": "96dd0d9d04"
+                "hash": "f4efb5c962"
         },
         {
                 "name": "Ack V\u00e4rmeland, du sk\u00f6na",
@@ -3930,7 +3930,7 @@ class AbcFileList {
                 "name": "Ar Hyd y Nos",
                 "file": "welsh/ar hyd y nos.abc",
                 "category": "welsh",
-                "hash": "33dbd0dd8a"
+                "hash": "2aa4a3c482"
         },
         {
                 "name": "Llwyn Onn",
@@ -3942,13 +3942,13 @@ class AbcFileList {
                 "name": "Suo G\u00e2n",
                 "file": "welsh/suo gan.abc",
                 "category": "welsh",
-                "hash": "87889765b0"
+                "hash": "3d87f3f778"
         },
         {
                 "name": "Tros y Garreg",
                 "file": "welsh/tros y garreg.abc",
                 "category": "welsh",
-                "hash": "29764da634"
+                "hash": "e403e24035"
         },
         {
                 "name": "Bei Mir Bist Du Sch\u00f6n",

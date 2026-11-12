@@ -6,14 +6,14 @@ L: 1/8
 Q: 3/8=66
 M: 6/8
 K: F
-F/G/|A/F/c3/2A/ GcG|F/D/A3/2F/ E2 F/E/|DEF/G/ CFG/A/|
-BB/A/G/F/ G2 F/G/|A/F/c3/2A/ GcG|F/D/DE/F/ C3|DEF/G/ CFG/A/|
-BB/A/G/F/ F3|z2 A/B/ ccc|cc/d/c/B/ AAA|AA/B/A/G/ FFF/E/|
-DEE/F/ GG/A/G/A/|G2 A/B/ ccc|cc/d/c/B/ AAA|A/B/A/G/F/E D/D/E/F/G/|
-CFG/A/ G3/2G/G/F/|F3 z3|z2 F/G/ A/F/c3/2A/|GcG F/D/A3/2F/|
-E2 F/E/ DEF/G/|CFG/A/ BB/A/G/F/|G2 F/G/ A/F/c3/2A/|GcG F/D/DE/F/|
-C2 C DEF/G/|CFG/A/ BB/A/G/F/|F3 z3|z2 A/B/ ccc|
-cc/d/c/B/ AAA|AA/B/A/G/ FFF/E/|DEE/F/ GG/A/G/A/|G2 A/B/ ccc|
-cc/d/c/B/ AAA|A/B/A/G/F/E/ zD/E/F/G/|CFG/A/ G3/2G/G/F/|F6-|
-F3 z2 F/G/|A/F/c3/2A/ GcG|F/D/A3/2F/ E2 F/E/|DEF/G/ CFG/A/|
-BB/A/G/F/ G2|]
+F/G/|"F"A/F/c3/2A/ GcG|"Dm"F/D/A3/2F/ E2 F/E/|"F"DEF/G/ CFG/A/|
+"Bdim"BB/A/G/F/ "F"G2 F/G/|"F"A/F/c3/2A/ GcG|"Dm"F/D/DE/F/ C3|"F"DEF/G/ CFG/A/|
+"Bdim"BB/A/G/F/ "F"F3|"F"z2 A/B/ ccc|"Dm"cc/d/c/B/ AAA|"F"AA/B/A/G/ FFF/E/|
+"Gm"DEE/F/ GG/A/G/A/|"C7"G2 A/B/ ccc|"Dm"cc/d/c/B/ AAA|"F"A/B/A/G/F/E D/D/E/F/G/|
+"C7"CFG/A/ G3/2G/G/F/|"F"F3 z3|"F"z2 F/G/ A/F/c3/2A/|"Dm"GcG F/D/A3/2F/|
+"F"E2 F/E/ DEF/G/|"F"CFG/A/ BB/A/G/F/|"Bdim"G2 F/G/ A/F/c3/2A/|"Dm"GcG F/D/DE/F/|
+"C7"C2 C DEF/G/|"F"CFG/A/ BB/A/G/F/|"F"F3 z3|"F"z2 A/B/ ccc|
+"Dm"cc/d/c/B/ AAA|"F"AA/B/A/G/ FFF/E/|"Gm"DEE/F/ GG/A/G/A/|"C7"G2 A/B/ ccc|
+"Dm"cc/d/c/B/ AAA|"F"A/B/A/G/F/E/ zD/E/F/G/|"C7"CFG/A/ G3/2G/G/F/|"F"F6-|
+"F"F3 z2 F/G/|"F"A/F/c3/2A/ GcG|"Dm"F/D/A3/2F/ E2 F/E/|"F"DEF/G/ CFG/A/|
+"Bdim"BB/A/G/F/ "F"G2|]

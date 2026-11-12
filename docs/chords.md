@@ -34,53 +34,27 @@ than a pass. Only revisit with a concrete new source.
 | `bartok/romanian folk dances/1 joc cu bata.abc` | Bartók's own piano setting is polytonal, not chord symbols; a faithful reduction needs the two-hand original. |
 | `bartok/romanian folk dances/2 braul.abc` | Same. |
 | `bartok/romanian folk dances/3 pe loc.abc` | Same (mostly drone harmony under a modal line). |
-| `tv/mash.abc` | hamienet MIDI (id 25506): fitted chords were tried and came out wrong — the accompaniment is an orchestral wash. Needs a lead sheet, not a fit. |
+| `tv/mash.abc` — chorded 2026-11-12 from the melody after all; the fitted-from-MIDI route stays dead (see log). |
+| `georgian/gandagana.abc` | 60+ bars, modal, three transposed settings in one file; needs its own session with the musescore source. |
+| `latino/tango/chamberguito.abc` | File is broken: the first `X:1` is empty, the playable setting has (12:7:2 tuplets abcjs ignores, and the transcriber noted the bars don't add up. The guitar chord track exists only as a commented-out voice. Fix the transcription first (re-read Villoldo's score), then chord off that voice. |
+| `film/cannibal holocaust.abc` | Stub with no transcription (header + TODO only). Transcribe first. |
+| `unsorted/dota/alles dur.abc` | Dota is a living band; only tabs sites (linked in the file), no ABC/lead sheet. Deriving from the melody alone would be guessing at a copyrighted arrangement. |
 
 ## To do — TV themes
 
 All 42 remaining themes chorded 2026-11-12 (see log). Nothing left here.
 
-## To do — film, pop, tango (8)
+## To do — film, pop, tango
 
-- [ ] `film/cannibal holocaust.abc` — slow guitar piece; derive
-- [ ] `film/chariots of fire.abc` — Vangelis; palindrome harmony, derive
-- [ ] `film/colonel bogey.abc` — march; easy to derive
-- [ ] `film/concerning hobbits.abc` — derive (D major pedal patterns)
-- [ ] `film/itsumo nando demo.abc` — derive; a lead sheet may exist (mu-tech `index_Japanese_song`?)
-- [ ] `film/pink panther.abc` — derive (chromatic blues; mostly one chord per bar)
-- [ ] `pop/yakety sax.abc` — norbeck transcription, two parts + trio; `tv/yakety sax.abc` has the fitted opening as reference
-- [ ] `latino/tango/chamberguito.abc` — Villoldo; trillian's tango folders hold chorded ABCs
-- [ ] `unsorted/dota/alles dur.abc` — Dota (German band) song; tabs linked in the file (911tabs). Copyright, no ABC source; derive from the bass line if it can be heard, else defer.
+All chorded 2026-11-12 except the deferred ones above (chamberguito,
+cannibal holocaust stub, alles dur).
 
-## To do — traditional songs (23)
+## To do — traditional songs
 
-No published chords for these settings; derive per the abc-chords skill
-(find the real tonic from the cadence, scan half-bar by half-bar). Check
-abcnotation/theSession for a chorded setting first — one look each.
-
-- [ ] `american/which side are you on.abc` — Appalachian song; the melody is close to "Foggy Dew" shapes; simple I-IV-V works
-- [ ] `catalan/el cant dels ocells.abc` — derive; modal, ends on A (Dorian?)
-- [ ] `chinese/670_songs.abc` — X:1 only ("Dongjia chimi wo chikang", Sichuan shange); K:G
-- [ ] `chinese/geming.abc`
-- [ ] `chinese/huang hua cao.abc`
-- [ ] `cornish/helston furry dance.abc`
-- [ ] `french/Reel du repertoire des freres pigeon.abc`
-- [ ] `galician/muineira de chantada.abc`
-- [ ] `georgian/gandagana.abc`
-- [ ] `greek/seikilos epitaph.abc` — complete ancient monody; simple diatonic chords fit, drone-like
-- [ ] `irish/she moved through the fair.abc`
-- [ ] `irish/the coolin.abc`
-- [ ] `irish/the south wind.abc`
-- [ ] `manx/mylecharaine.abc`
-- [ ] `manx/ny kirree fo niaghtey.abc`
-- [ ] `polish/dwa serduszka.abc`
-- [ ] `scottish/aye waukin o.abc`
-- [ ] `scottish/hector the hero.abc` — A major Scottish air, V–I cadences; easy
-- [ ] `scottish/loch lomond.abc`
-- [ ] `spanish/nanita nana.abc`
-- [ ] `welsh/ar hyd y nos.abc`
-- [ ] `welsh/suo gan.abc`
-- [ ] `welsh/tros y garreg.abc`
+All chorded 2026-11-12 except `georgian/gandagana.abc` (deferred). The Chinese
+pentatonic tunes (`670_songs` X:1, geming, huang hua cao) are harmonized
+simply on purpose: pentatonic melodies admit many readings; the chosen one
+follows the cadence notes.
 
 ## Log
 
@@ -98,3 +72,14 @@ abcnotation/theSession for a chorded setting first — one look each.
   qualities are plain triads/sevenths; expect the odd wrong bar, not the odd
   wrong key. `tv/rawhide.abc` already had fitted chords — it had been listed
   here by mistake.
+- 2026-11-12 (second pass): chorded the film/pop set (Pink Panther, Colonel
+  Bogey, Chariots of Fire, Concerning Hobbits, Itsumo Nando Demo, Galop
+  Infernal, pop Yakety Sax — opening bars carried over from the fitted
+  `tv/yakety sax.abc`, trio derived) and the traditional set (Which Side Are
+  You On, El Cant dels Ocells, Seikilos, Dwa Serduszka, Nanita Nana,
+  Muiñeira de Chantada, Reel du répertoire des frères Pigeon, She Moved
+  Through the Fair, The Coolin, The South Wind, Aye Waukin O, Hector the
+  Hero, Loch Lomond, Ar Hyd y Nos, Suo Gân, Tros y Garreg, Mylecharaine,
+  Ny Kirree fo Niaghtey, Helston Furry Dance, geming, huang hua cao,
+  670_songs X:1) — all derived from the melody per the abc-chords skill.
+  Remaining without chords: 5 by design, 9 deferred (table above).

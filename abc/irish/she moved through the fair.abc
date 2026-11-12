@@ -7,9 +7,9 @@ L: 1/8
 Q: 1/4=80
 M: 3/4
 K: Dmix
-(3DEF|G4 FG|A2 A4-|A4 GE|
-C2 D2 D2-|{EDC}D6-|D2 z2 AB|
-c2 d3 A|B A3 F2|G4 {AG} F>G|A6-|A2 z2 AB|
-c2 d3A|BA3 F2|G4 FG|A6-|A2 z2 (3DEF|
-G6-|G4 FG|A6-|A2 z2 GE|
-C2 D2 {EDC}D2-|D6-|D4|]
+(3DEF|"G"G4 FG|"D"A2 A4-|"C"A4 GE|
+"C"C2 D2 D2-|{EDC}"D"D6-|"D"D2 z2 AB|
+"D"c2 d3 A|"G"B A3 F2|"G"G4 {AG} F>G|"D"A6-|"D"A2 z2 AB|
+"D"c2 d3A|"G"BA3 F2|"G"G4 FG|"D"A6-|"D"A2 z2 (3DEF|
+"G"G6-|"G"G4 FG|"D"A6-|"C"A2 z2 GE|
+"C"C2 D2 {EDC}D2-|"D"D6-|"D"D4|]
