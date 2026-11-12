@@ -162,8 +162,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T11:56:26.689Z",
-      "playCount": 13,
+      "lastPlayed": "2026-11-12T10:05:17.303Z",
+      "playCount": 14,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-17T05:42:00.320Z"
     },
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-11-12T10:05:17.303Z"
+    },
+    {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-11-12T10:03:05.329Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "tv/detective_conan.abc",
       "timestamp": "2026-11-10T12:14:41.359Z"
-    },
-    {
-      "filePath": "film/hisaishi/sonatine.abc",
-      "timestamp": "2026-11-10T12:12:30.813Z"
     }
   ],
   "activity": {
@@ -5991,6 +5991,7 @@
     "2026-11-12": {
       "breton/les filles des forges de paimpont.abc": 2,
       "breton/son ar chistr.abc": 2,
+      "breton/toutouic.abc": 2,
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
       "japanese/hana.abc": 1,
