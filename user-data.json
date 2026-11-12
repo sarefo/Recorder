@@ -1507,8 +1507,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T11:49:26.165Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-12T10:16:41.788Z",
+      "playCount": 7,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-30T05:10:04.894Z"
     },
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es ist ein schnitter.abc",
+      "timestamp": "2026-11-12T10:16:41.788Z"
+    },
+    {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-11-12T10:15:35.695Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-11-11T10:02:37.577Z"
-    },
-    {
-      "filePath": "jazz/girl from ipanema.abc",
-      "timestamp": "2026-11-11T09:59:53.512Z"
     }
   ],
   "activity": {
@@ -5994,6 +5994,7 @@
       "breton/toutouic.abc": 4,
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
+      "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
       "japanese/hana.abc": 1,
@@ -11922,6 +11923,12 @@
       "at": "2026-11-12T10:09:59.883Z",
       "percent": 100,
       "bpm": 108
+    },
+    {
+      "path": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "at": "2026-11-12T10:16:38.777Z",
+      "percent": 100,
+      "bpm": 104
     }
   ],
   "settings": {}
