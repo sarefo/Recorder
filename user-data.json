@@ -7664,6 +7664,24 @@
         "at": "2026-10-25T05:17:30.698Z"
       }
     },
+    "japanese/hana.abc": {
+      "11": {
+        "pitch": "G",
+        "prev": "E",
+        "pitchSeen": 12,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-12T09:59:22.361Z"
+      },
+      "12": {
+        "pitch": "c",
+        "prev": "G",
+        "pitchSeen": 12,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-12T09:59:22.864Z"
+      }
+    },
     "japanese/hanagasa ondo.abc": {
       "3": {
         "pitch": "_B",
@@ -9885,6 +9903,19 @@
         "46": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "japanese/hana.abc": {
+      "at": "2026-11-12T09:59:12.861Z",
+      "notes": {
+        "11": {
+          "state": "red",
+          "pitch": "G"
+        },
+        "12": {
+          "state": "red",
+          "pitch": "c"
         }
       }
     },
