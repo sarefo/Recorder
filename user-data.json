@@ -153,8 +153,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T11:54:44.351Z",
-      "playCount": 29,
+      "lastPlayed": "2026-11-12T10:01:43.359Z",
+      "playCount": 30,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-11-03T08:21:15.611Z"
     },
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-11-12T10:01:43.359Z"
+    },
+    {
       "filePath": "japanese/hashire kotaro.abc",
       "timestamp": "2026-11-12T10:00:12.920Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "film/poledouris/robocop.abc",
       "timestamp": "2026-11-10T12:12:02.636Z"
-    },
-    {
-      "filePath": "film/imperial march.abc",
-      "timestamp": "2026-11-10T12:09:45.792Z"
     }
   ],
   "activity": {
@@ -5989,6 +5989,7 @@
       "scottish/balquidder_lasses.abc": 1
     },
     "2026-11-12": {
+      "breton/son ar chistr.abc": 2,
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
       "japanese/hana.abc": 1,
