@@ -813,6 +813,12 @@ class AbcFileList {
                 "hash": "d62ea20e35"
         },
         {
+                "name": "Little Shop of Horrors",
+                "file": "film/little shop of horrors.abc",
+                "category": "film",
+                "hash": "6c415515b4"
+        },
+        {
                 "name": "Love Story",
                 "file": "film/love story.abc",
                 "category": "film",
@@ -3523,6 +3529,12 @@ class AbcFileList {
                 "file": "tv/bewitched.abc",
                 "category": "tv",
                 "hash": "5221be4f00"
+        },
+        {
+                "name": "Biene Maja",
+                "file": "tv/biene maja.abc",
+                "category": "tv",
+                "hash": "ae12328dc9"
         },
         {
                 "name": "Blackadder",

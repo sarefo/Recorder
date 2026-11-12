@@ -1,0 +1,18 @@
+X: 1
+T: Little Shop of Horrors
+O: Alan Menken, 1982
+N: The title song (the show's Prologue). Melody is the top voice of the piano
+N: reduction in a hamienet.com MIDI (id 7926), corroborated bar for bar by a second
+N: arrangement there (id 21233); chords fitted from their accompaniment. Key and
+N: octave as in the source (C minor, D4 to G5). The chant section is written as its
+N: two-bar unit in repeat marks; the source repeats it five times. Its B and E are
+N: naturals over the G-major harmony.
+L: 1/8
+Q: 1/4=120
+M: 4/4
+K: Cm
+"Eb"g4 g2 f2 |"Cm"e8 |"Fm"a4 a2 g2 |"Bb"f8- |"Bb"f8 |
+"Eb"G4 G2 F2 |"Cm"E8 |"Fm"A4 A2 G2 |"Bb"F8 |
+"Eb"G4 G2 F2 |"Cm"E8 |"Fm"A4 A2 G2 |"F#m"^F8 |
+|: "G"=B B B B B B B c |"Am"c c c c "D"c c c c :|
+"Cm"=B3 e2 e2 e |"Cm"e2 d2 "G"=D=E =G=E |]

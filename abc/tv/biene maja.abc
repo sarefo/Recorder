@@ -1,0 +1,20 @@
+X: 1
+T: Biene Maja
+O: Karel Svoboda, 1975
+N: German title song of the Maya the Bee anime, sung by Karel Gott. From a
+N: midis101.com MIDI (id 23524), channel 3, moved up a semitone from E major to F
+N: so the low B3 sits on C4. One pass: the fanfare intro and the first verse; the
+N: MIDI repeats both. The verse's swung dotted-eighth/sixteenth pairs are
+N: straightened and grace notes dropped; pitches are the source's. Chords fitted
+N: from the MIDI's bass and comping.
+L: 1/8
+Q: 1/4=100
+M: 4/4
+K: F
+"F"z C FA dc AF |"C"G8 |"Bb"z C DF BA Gd |"F"c8 |
+"F"z C FA dc AF |"C"G8 |"Bb"z C DF BA GD |"F"F8- |
+"F"F2 c2 d2 e2 |"F"fe ed dc cF |"Gm"G2 d6 |"C"ed dc cB BG |
+"F"F2 f6 |"F"a3 f fc cA |"C"A8 |"C"g3 e ec cB |
+"C"A2 c2 d2 e2 |"F"fe ed dc cF |"Gm"G2 d6 |"C"ed dc cB BG |
+"Dm"F2 "G"f6 |"F"a3 f fc cA |"Bb"c4 f4 |"F"f2 c2 z4 |
+"F"f2 c2 z4 |"F"a2 f2 "C"ee fg |"F"f4 z4 |]
