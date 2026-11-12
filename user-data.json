@@ -5292,8 +5292,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-12T13:00:04.788Z",
+      "playCount": 1,
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/the vicar of dibley.abc": {
@@ -5535,6 +5535,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/the smurfs.abc",
+      "timestamp": "2026-11-12T13:00:04.788Z"
+    },
+    {
       "filePath": "tv/the muppet show.abc",
       "timestamp": "2026-11-12T12:58:55.093Z"
     },
@@ -5609,10 +5613,6 @@
     {
       "filePath": "tv/airwolf.abc",
       "timestamp": "2026-11-12T12:50:46.917Z"
-    },
-    {
-      "filePath": "tv/gummi bears.abc",
-      "timestamp": "2026-11-12T12:50:06.295Z"
     }
   ],
   "activity": {
@@ -6051,6 +6051,7 @@
       "tv/taxi.abc": 1,
       "tv/the muppet show.abc": 1,
       "tv/the office.abc": 1,
+      "tv/the smurfs.abc": 1,
       "yiddish/bei mir bist du schon.abc": 1,
       "yiddish/dos kelbl.abc": 1
     }
@@ -9358,6 +9359,16 @@
         "at": "2026-11-10T12:07:56.060Z"
       }
     },
+    "tv/the smurfs.abc": {
+      "4": {
+        "pitch": "_B",
+        "prev": "d",
+        "pitchSeen": 5,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-12T13:00:14.901Z"
+      }
+    },
     "ukrainian/nich yaka misyachna.abc": {
       "16": {
         "pitch": "_B",
@@ -11343,6 +11354,15 @@
           "pitch": "_e"
         },
         "5": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "tv/the smurfs.abc": {
+      "at": "2026-11-12T13:00:04.896Z",
+      "notes": {
+        "4": {
           "state": "red",
           "pitch": "_B"
         }
