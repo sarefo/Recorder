@@ -1158,8 +1158,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-12T13:47:41.700Z",
+      "playCount": 1,
       "createdAt": "2026-11-12T13:45:11.364Z"
     },
     "film/love story.abc": {
@@ -5555,6 +5555,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/little shop of horrors.abc",
+      "timestamp": "2026-11-12T13:47:41.700Z"
+    },
+    {
       "filePath": "tv/biene maja.abc",
       "timestamp": "2026-11-12T13:45:23.510Z"
     },
@@ -5629,10 +5633,6 @@
     {
       "filePath": "tv/doraemon.abc",
       "timestamp": "2026-11-12T12:53:07.151Z"
-    },
-    {
-      "filePath": "tv/blackadder.abc",
-      "timestamp": "2026-11-12T12:52:32.067Z"
     }
   ],
   "activity": {
@@ -6032,6 +6032,7 @@
       "breton/toutouic.abc": 4,
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
+      "film/little shop of horrors.abc": 1,
       "german/ach bittrer winter.abc": 2,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
@@ -7436,6 +7437,40 @@
         "transSeen": 6,
         "count": 1,
         "at": "2026-11-03T13:14:20.156Z"
+      }
+    },
+    "film/little shop of horrors.abc": {
+      "3": {
+        "pitch": "_e",
+        "prev": "f",
+        "pitchSeen": 5,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-12T13:47:51.806Z"
+      },
+      "4": {
+        "pitch": "_a",
+        "prev": "_e",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-12T13:47:51.809Z"
+      },
+      "12": {
+        "pitch": "_E",
+        "prev": "F",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-12T13:47:51.811Z"
+      },
+      "13": {
+        "pitch": "_A",
+        "prev": "_E",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-12T13:47:51.813Z"
       }
     },
     "film/poledouris/robocop.abc": {
@@ -9916,6 +9951,27 @@
         "2": {
           "state": "red",
           "pitch": "^F"
+        }
+      }
+    },
+    "film/little shop of horrors.abc": {
+      "at": "2026-11-12T13:47:41.810Z",
+      "notes": {
+        "3": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "4": {
+          "state": "red",
+          "pitch": "_a"
+        },
+        "12": {
+          "state": "red",
+          "pitch": "_E"
+        },
+        "13": {
+          "state": "red",
+          "pitch": "_A"
         }
       }
     },
