@@ -6,11 +6,11 @@ L: 1/8
 Q: 1/4=100
 M: 2/4
 K: G
-|: GG AG|B B2 B|BB cB|
-d d2 d|(3ded (3cdc|(3BcB (3ABA|1 Gc BA|GF ED :|2 G4-|
-GG Bd|
-|: {f}g4|{f}g4|{f}g2 {f}g2|{f}g2 {f}g2|
-(~gd) g=f|(~ed) =fe|d4|G4|
-(~gd) g=f|(~ed) =fe|d4|G4
-|(~gd) g=f|(~ed) =fe|(~d^c) ed|
-(~^c_B) AG|{^c}d2 B2|(~AG) AB|1 G4- GG Bd :|2 G4- G2 zD|]
+|: "G"GG AG|"G"B B2 B|"G"BB cB|"G"d d2 d|
+"C"(3ded (3cdc|"G"(3BcB (3ABA|1 "C"Gc BA|"G"GF ED :|2 "G"G4-|
+"G"GG Bd|
+|: "G"{f}g4|"G"{f}g4|"G"{f}g2 {f}g2|"G"{f}g2 {f}g2|
+"G"(~gd) g=f|"C"(~ed) =fe|"D7"d4|"G"G4|
+"G"(~gd) g=f|"C"(~ed) =fe|"D7"d4|"G"G4
+"G"(~gd) g=f|"C"(~ed) =fe|"D7"(~d^c) ed|
+"D7"(~^c_B) AG|"G"{^c}d2 B2|"G"(~AG) AB|1 "G"G4- GG Bd :|2 "G"G4- G2 zD|]

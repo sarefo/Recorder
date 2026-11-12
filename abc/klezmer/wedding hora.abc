@@ -6,11 +6,11 @@ L: 1/16
 Q: 1/4=100
 M: 2/4
 K: Gmin
-BAG^F G2^fg|g^fef edc=B|c3c =BcdB|c2z2 z4|
-BAG^F =F2=ef|f=e_ed edce|d2z2 {d}^cdec|d2z2 z4|
-BAG^F G2^fg|g^fef edc=B|c2 z2 {c}=B2c2|{d}e8|
-cBAG ^FGAB|d^cBc BAG^F|G3G ^FGAF|[1G4 z4:|[2G2 z2 z2 d2|
-|: ^cdb2 b2b2|abbg ^f2g2|a8-|a6 g2|
-^fga2 a2a2|g^fef edce|d2g2d2g2|d6 d2|
-^cdg2 g2g2|Tg3f fedc|dfe2 e2e2|~e2de fedc|
-cBAG ^FGAB|d^cBc BAG^F|G3G ^FGAF|[1 G2 z2 z2 d2:|[2G2 z2 z4|]
+"D7"BAG^F G2^fg|"Cm"g^fef edc=B|"G7"c3c =BcdB|"Cm"c2z2 z4|
+"D7"BAG^F =F2=ef|"C"f=e_ed edce|"D7"d2z2 {d}^cdec|"D7"d2z2 z4|
+"D7"BAG^F G2^fg|"Cm"g^fef edc=B|"Cm"c2 z2 {c}=B2c2|"Cm"{d}e8|
+"D7"cBAG ^FGAB|"D7"d^cBc BAG^F|"Gm"G3G ^FGAF|[1"D7"G4 z4:|[2"Gm"G2 z2 z2 d2|
+|: "Gm"^cdb2 b2b2|"Gm"abbg ^f2g2|"D7"a8-|"Cm"a6 g2|
+"D7"^fga2 a2a2|"C"g^fef edce|"Gm"d2g2d2g2|"D7"d6 d2|
+"Gm"^cdg2 g2g2|"Cm"Tg3f fedc|"C"dfe2 e2e2|"Cm"~e2de fedc|
+"D7"cBAG ^FGAB|"D7"d^cBc BAG^F|"Gm"G3G ^FGAF|[1 "D7"G2 z2 z2 d2:|[2"Gm"G2 z2 z4|]

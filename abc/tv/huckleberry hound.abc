@@ -7,5 +7,5 @@ L: 1/8
 Q: 1/4=120
 M: 4/4
 K: F
-cc =B |c2 A A2 A A_A |A2 F F2 C DE |F2 z2 _G2 z2 |
-G4 zd d_d |d2 B B2 B BA |B2 G G2 C DC |G2 z2 _A2 z2 |A4 z |]
+cc =B |"F"c2 A A2 A A_A |"F"A2 F F2 C DE |"F"F2 z2 _G2 z2 |
+"G"G4 zd d_d |"G"d2 B B2 B BA |"C"B2 G G2 C DC |"G"G2 z2 _A2 z2 |"F"A4 z |]

@@ -29,6 +29,10 @@ class DocsFileList {
         {
                 "name": "Sources of music",
                 "file": "music_sources.md"
+        },
+        {
+                "name": "Tunes without chords",
+                "file": "chords.md"
         }
 ];
     }

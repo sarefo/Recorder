@@ -7,14 +7,14 @@ M:2/4
 Q:1/4=120
 L:1/8
 K:F
-z [P:A] A dA|dA BB|A>G FF|GG AA-|A z dA|
-dA BB|A>G FF|EE DD-|D z dA|dA BB|
-A>G FF|EE DD-|: D z [P:B] A2|F>E D2|
-z A BG|GG G2| z2 AG|AB AG|
-FE FD|DD D2:|z2 [P:C] A2-|A2 G2-|Gc A2|
-AA G2|z G F2|FF E2|A2 z2|D2 D2|
-z2 A2-|A2 G2-|Gc A2|AA G2|
-z G F2|FF E2|A2 z2|d2 d2|]
+z [P:A] "Dm"A dA|"Bb"dA BB|"Dm"A>G FF|"Gm"GG AA-|"Dm"A z dA|
+"Bb"dA BB|"Dm"A>G FF|"Dm"EE DD-|"Dm"D z dA|"Bb"dA BB|
+"Dm"A>G FF|"Dm"EE DD-|: "Dm"D z [P:B] A2|"Dm"F>E D2|
+"Gm"z A BG|"Gm"GG G2| "Gm"z2 AG|"Bb"AB AG|
+"C7"FE FD|"Dm"DD D2:|"Dm"z2 [P:C] A2-|"Gm"A2 G2-|"F"Gc A2|
+"Gm"AA G2|"Dm"z G F2|"C"FF E2|"Dm"A2 z2|"Dm"D2 D2|
+"Dm"z2 A2-|"Gm"A2 G2-|"F"Gc A2|"Gm"AA G2|
+"Dm"z G F2|"C"FF E2|"Dm"A2 z2|"Dm"d2 d2|]
 
 X:1
 T:Daloy Politsey
