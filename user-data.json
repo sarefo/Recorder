@@ -4543,8 +4543,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T03:40:27.334Z",
-      "playCount": 30,
+      "lastPlayed": "2026-11-12T06:51:37.957Z",
+      "playCount": 31,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/caber_feigh.abc": {
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/bottom_bowl.abc",
+      "timestamp": "2026-11-12T06:51:37.957Z"
+    },
+    {
       "filePath": "scottish/birkhall.abc",
       "timestamp": "2026-11-12T06:49:01.312Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "yiddish/dos kelbl.abc",
       "timestamp": "2026-11-10T12:02:39.377Z"
-    },
-    {
-      "filePath": "klezmer/alter sher.abc",
-      "timestamp": "2026-11-10T12:01:31.562Z"
     }
   ],
   "activity": {
@@ -5991,7 +5991,8 @@
     "2026-11-12": {
       "scottish/atholl_braes_1.abc": 6,
       "scottish/balquidder_lasses.abc": 1,
-      "scottish/birkhall.abc": 2
+      "scottish/birkhall.abc": 2,
+      "scottish/bottom_bowl.abc": 1
     }
   },
   "statusLog": [
