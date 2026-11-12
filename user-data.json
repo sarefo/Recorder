@@ -1163,6 +1163,54 @@
       "playCount": 1,
       "createdAt": "2026-11-12T13:45:11.364Z"
     },
+    "film/little shop of horrors/call back.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-12T15:56:43.004Z"
+    },
+    "film/little shop of horrors/da-doo.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-12T15:56:43.004Z"
+    },
+    "film/little shop of horrors/dentist chair intro.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-12T15:56:43.004Z"
+    },
+    "film/little shop of horrors/dentist.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": "2026-11-12T15:56:52.843Z",
+      "playCount": 1,
+      "createdAt": "2026-11-12T15:56:43.004Z"
+    },
+    "film/little shop of horrors/feed me.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-12T15:56:43.004Z"
+    },
+    "film/little shop of horrors/gas.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-12T15:56:43.004Z"
+    },
     "film/little shop of horrors/grow for me.abc": {
       "status": null,
       "favorite": false,
@@ -1170,6 +1218,22 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-11-12T14:59:28.290Z"
+    },
+    "film/little shop of horrors/meek shall inherit.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-12T15:56:43.004Z"
+    },
+    "film/little shop of horrors/mushnik and son.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-12T15:56:43.004Z"
     },
     "film/little shop of horrors/prologue.abc": {
       "status": null,
@@ -1179,6 +1243,14 @@
       "playCount": 0,
       "createdAt": "2026-11-12T14:59:28.290Z"
     },
+    "film/little shop of horrors/skid row.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-12T15:56:43.004Z"
+    },
     "film/little shop of horrors/somewhere thats green.abc": {
       "status": null,
       "favorite": false,
@@ -1187,6 +1259,22 @@
       "playCount": 0,
       "createdAt": "2026-11-12T14:59:28.290Z"
     },
+    "film/little shop of horrors/sominex.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-12T15:56:43.004Z"
+    },
+    "film/little shop of horrors/suddenly seymour.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-12T15:56:43.004Z"
+    },
     "film/little shop of horrors/suppertime.abc": {
       "status": null,
       "favorite": false,
@@ -1194,6 +1282,14 @@
       "lastPlayed": null,
       "playCount": 0,
       "createdAt": "2026-11-12T14:59:28.290Z"
+    },
+    "film/little shop of horrors/ya never know.abc": {
+      "status": null,
+      "favorite": false,
+      "notes": "",
+      "lastPlayed": null,
+      "playCount": 0,
+      "createdAt": "2026-11-12T15:56:43.004Z"
     },
     "film/love story.abc": {
       "status": null,
@@ -5588,6 +5684,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/little shop of horrors/dentist.abc",
+      "timestamp": "2026-11-12T15:56:52.843Z"
+    },
+    {
       "filePath": "armenian/little partridge.abc",
       "timestamp": "2026-11-12T15:19:54.955Z"
     },
@@ -5662,10 +5762,6 @@
     {
       "filePath": "tv/futurama.abc",
       "timestamp": "2026-11-12T12:53:54.788Z"
-    },
-    {
-      "filePath": "tv/fawlty towers.abc",
-      "timestamp": "2026-11-12T12:53:31.546Z"
     }
   ],
   "activity": {
@@ -6067,6 +6163,7 @@
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
       "film/little shop of horrors.abc": 1,
+      "film/little shop of horrors/dentist.abc": 1,
       "german/ach bittrer winter.abc": 2,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
@@ -7510,6 +7607,16 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-11-12T13:47:51.813Z"
+      }
+    },
+    "film/little shop of horrors/dentist.abc": {
+      "8": {
+        "pitch": "_B",
+        "prev": "C",
+        "pitchSeen": 21,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-12T15:57:02.959Z"
       }
     },
     "film/poledouris/robocop.abc": {
@@ -10011,6 +10118,15 @@
         "13": {
           "state": "red",
           "pitch": "_A"
+        }
+      }
+    },
+    "film/little shop of horrors/dentist.abc": {
+      "at": "2026-11-12T15:56:52.955Z",
+      "notes": {
+        "8": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
