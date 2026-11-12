@@ -1480,8 +1480,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T11:44:30.129Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-12T10:19:16.700Z",
+      "playCount": 7,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:49:16.156Z"
     },
@@ -5517,6 +5517,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/ach bittrer winter.abc",
+      "timestamp": "2026-11-12T10:19:16.700Z"
+    },
+    {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-11-12T10:18:04.987Z"
     },
@@ -5591,10 +5595,6 @@
     {
       "filePath": "scottish/birkhall.abc",
       "timestamp": "2026-11-12T06:49:01.312Z"
-    },
-    {
-      "filePath": "scottish/atholl_braes_1.abc",
-      "timestamp": "2026-11-12T06:39:39.275Z"
     }
   ],
   "activity": {
@@ -5994,6 +5994,7 @@
       "breton/toutouic.abc": 4,
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
+      "german/ach bittrer winter.abc": 2,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
