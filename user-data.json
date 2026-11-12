@@ -2186,8 +2186,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T09:53:40.148Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-12T07:08:11.485Z",
+      "playCount": 4,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:32:11.017Z"
     },
@@ -4270,8 +4270,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T08:30:26.745Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-12T07:08:09.283Z",
+      "playCount": 3,
       "createdAt": "2026-11-02T12:53:18.132Z",
       "updatedAt": "2026-11-02T13:03:37.063Z"
     },
@@ -5517,6 +5517,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/ureshii hinamatsuri.abc",
+      "timestamp": "2026-11-12T07:08:11.485Z"
+    },
+    {
+      "filePath": "pop/jamiroquai/virtual insanity.abc",
+      "timestamp": "2026-11-12T07:08:09.283Z"
+    },
+    {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-11-12T07:04:35.245Z"
     },
@@ -5587,14 +5595,6 @@
     {
       "filePath": "tv/the simpsons.abc",
       "timestamp": "2026-11-10T12:08:15.133Z"
-    },
-    {
-      "filePath": "tv/star trek.abc",
-      "timestamp": "2026-11-10T12:07:45.952Z"
-    },
-    {
-      "filePath": "tv/mission impossible.abc",
-      "timestamp": "2026-11-10T12:07:28.341Z"
     }
   ],
   "activity": {
@@ -5991,6 +5991,7 @@
     "2026-11-12": {
       "chinese/molihua.abc": 1,
       "chinese/zou xikou.abc": 1,
+      "japanese/ureshii hinamatsuri.abc": 1,
       "scottish/atholl_braes_1.abc": 6,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/birkhall.abc": 2,
