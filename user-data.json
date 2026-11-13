@@ -4351,8 +4351,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T10:46:12.165Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-13T07:57:21.529Z",
+      "playCount": 11,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-29T07:31:46.377Z"
     },
@@ -5689,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/final_countdown.abc",
+      "timestamp": "2026-11-13T07:57:21.529Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-11-13T07:56:02.173Z"
     },
@@ -5763,10 +5767,6 @@
     {
       "filePath": "film/little shop of horrors/dentist.abc",
       "timestamp": "2026-11-13T05:06:56.726Z"
-    },
-    {
-      "filePath": "film/anything goes.abc",
-      "timestamp": "2026-11-13T05:00:03.155Z"
     }
   ],
   "activity": {
@@ -6232,6 +6232,7 @@
       "israeli/yerushalayim shel zahav.abc": 3,
       "jazz/autumn leaves.abc": 1,
       "jazz/moon river.abc": 2,
+      "pop/final_countdown.abc": 1,
       "scottish/francis_robertson.abc": 1,
       "tv/biene maja.abc": 2
     }
