@@ -223,8 +223,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T05:40:01.078Z",
-      "playCount": 19,
+      "lastPlayed": "2026-11-13T07:41:35.406Z",
+      "playCount": 20,
       "createdAt": "2026-09-27T06:51:55.209Z",
       "updatedAt": "2026-10-26T06:19:13.545Z"
     },
@@ -2078,13 +2078,13 @@
       "createdAt": "2026-10-18T11:52:56.718Z"
     },
     "israeli/yerushalayim shel zahav.abc": {
-      "status": null,
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-13T07:37:20.717Z",
       "playCount": 3,
       "createdAt": "2026-10-18T11:52:56.718Z",
-      "updatedAt": "2026-10-18T12:01:43.176Z"
+      "updatedAt": "2026-11-13T07:41:30.859Z"
     },
     "israeli/zum gali gali.abc": {
       "status": null,
@@ -5689,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "cajun/madame sosthene.abc",
+      "timestamp": "2026-11-13T07:41:35.406Z"
+    },
+    {
       "filePath": "israeli/yerushalayim shel zahav.abc",
       "timestamp": "2026-11-13T07:37:20.717Z"
     },
@@ -5739,10 +5743,6 @@
     {
       "filePath": "argentine/dos palomitas.abc",
       "timestamp": "2026-11-13T05:46:06.447Z"
-    },
-    {
-      "filePath": "cajun/madame sosthene.abc",
-      "timestamp": "2026-11-13T05:40:01.078Z"
     },
     {
       "filePath": "film/little shop of horrors/dentist.abc",
@@ -7037,6 +7037,11 @@
       "path": "tv/biene maja.abc",
       "status": "practicing",
       "at": "2026-11-13T07:37:13.676Z"
+    },
+    {
+      "path": "israeli/yerushalayim shel zahav.abc",
+      "status": "good",
+      "at": "2026-11-13T07:41:30.859Z"
     }
   ],
   "marks": {
@@ -12912,6 +12917,18 @@
       "at": "2026-11-13T05:28:53.020Z",
       "percent": 100,
       "bpm": 120
+    },
+    {
+      "path": "israeli/yerushalayim shel zahav.abc",
+      "at": "2026-11-13T07:41:32.451Z",
+      "percent": 100,
+      "bpm": 84
+    },
+    {
+      "path": "israeli/yerushalayim shel zahav.abc",
+      "at": "2026-11-13T07:41:32.658Z",
+      "percent": 100,
+      "bpm": 84
     }
   ],
   "settings": {}
