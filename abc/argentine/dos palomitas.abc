@@ -3,13 +3,13 @@ T:Dos Palomitas
 O:Argentina
 N:Two Little Pigeons. Melody from the mu-tech.org WorldTrad MIDI arrangement (Argentine folk song); chords from its printed lead sheet and accompaniment. Transposed up a whole step from A minor so the low B fits the recorder range.
 M:3/4
-Q:1/4=80
+Q:1/4=120
 L:1/8
-K:Bm
-"Bm" D2 D2 "F#7"C2 |"Bm" D2 "A7"E4 |"D" F2 F2 "A7"E2 |"D" F2 F4 |
-"G" B6 |"A7" A6 |"D" F6- |"D" F2 z4 |
-"Bm" F2 "G"B2 "A7"A2 |"D" F2 "F#7"E4 |"Bm" D2 D2 "F#7"C2 |"Bm" D2 "A7"E4 |
-"D" F6 |"F#7" E6 |"Bm" D6- |"Bm" D2 z4 |
-"G" B6 |"A7" A6 |"D" F6- |"D" F2 z4 |
-"Bm" F2 "G"B2 "A7"A2 |"D" F2 "F#7"E4 |"Bm" D2 D2 "F#7"C2 |"Bm" D2 "A7"E4 |
-"D" F6 |"F#7" E6 |"Bm" D6 |]
+K:Dm
+"Dm" F2 F2 "A7"E2 |"Dm" F2 "C7"G4 |"F" A2 A2 "C7"G2 |"F" A2 A4 |
+"Bb" d6 |"C7" c6 |"F" A6- |"F" A2 z4 |
+"Dm" A2 "Bb"d2 "C7"c2 |"F" A2 "A7"G4 |"Dm" F2 F2 "A7"E2 |"Dm" F2 "C7"G4 |
+"F" A6 |"A7" G6 |"Dm" F6- |"Dm" F2 z4 |
+"Bb" d6 |"C7" c6 |"F" A6- |"F" A2 z4 |
+"Dm" A2 "Bb"d2 "C7"c2 |"F" A2 "A7"G4 |"Dm" F2 F2 "A7"E2 |"Dm" F2 "C7"G4 |
+"F" A6 |"A7" G6 |"Dm" F6 |]
