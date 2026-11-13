@@ -38,8 +38,8 @@
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": "2026-04-17T00:37:10.916Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-13T05:23:17.574Z",
+      "playCount": 3,
       "createdAt": "2026-01-18T20:46:38.361Z"
     },
     "argentine/dos palomitas.abc": {
@@ -5686,6 +5686,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "american/which side are you on.abc",
+      "timestamp": "2026-11-13T05:23:17.574Z"
+    },
+    {
       "filePath": "american/when johnny comes marching home.abc",
       "timestamp": "2026-11-13T05:22:09.307Z"
     },
@@ -5760,10 +5764,6 @@
     {
       "filePath": "tv/the office.abc",
       "timestamp": "2026-11-12T12:56:49.527Z"
-    },
-    {
-      "filePath": "tv/pippi longstocking.abc",
-      "timestamp": "2026-11-12T12:55:16.585Z"
     }
   ],
   "activity": {
@@ -6215,6 +6215,7 @@
     },
     "2026-11-13": {
       "american/when johnny comes marching home.abc": 2,
+      "american/which side are you on.abc": 1,
       "film/anything goes.abc": 1,
       "film/imperial march.abc": 7,
       "film/little shop of horrors/dentist.abc": 2,
@@ -7009,6 +7010,24 @@
     }
   ],
   "marks": {
+    "american/which side are you on.abc": {
+      "8": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 4,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-13T05:23:27.687Z"
+      },
+      "21": {
+        "pitch": "_E",
+        "prev": "G",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-13T05:23:27.688Z"
+      }
+    },
     "australian/waltzing matilda.abc": {
       "20": {
         "pitch": "_B",
@@ -9715,6 +9734,19 @@
     }
   },
   "markStates": {
+    "american/which side are you on.abc": {
+      "at": "2026-11-13T05:23:17.685Z",
+      "notes": {
+        "8": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "21": {
+          "state": "red",
+          "pitch": "_E"
+        }
+      }
+    },
     "australian/waltzing matilda.abc": {
       "at": "2026-10-27T09:06:38.271Z",
       "notes": {
@@ -12742,6 +12774,24 @@
       "at": "2026-11-13T05:22:00.093Z",
       "percent": 100,
       "bpm": 102
+    },
+    {
+      "path": "american/when johnny comes marching home.abc",
+      "at": "2026-11-13T05:23:11.653Z",
+      "percent": 100,
+      "bpm": 110
+    },
+    {
+      "path": "american/when johnny comes marching home.abc",
+      "at": "2026-11-13T05:23:11.797Z",
+      "percent": 100,
+      "bpm": 110
+    },
+    {
+      "path": "american/when johnny comes marching home.abc",
+      "at": "2026-11-13T05:23:11.925Z",
+      "percent": 100,
+      "bpm": 110
     }
   ],
   "settings": {}
