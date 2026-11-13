@@ -30,8 +30,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:34:35.363Z",
-      "playCount": 15,
+      "lastPlayed": "2026-11-13T07:45:41.036Z",
+      "playCount": 16,
       "createdAt": "2026-07-28T06:53:46.507Z"
     },
     "american/which side are you on.abc": {
@@ -2032,8 +2032,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T05:47:18.578Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-13T07:45:45.721Z",
+      "playCount": 5,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-11-06T10:38:19.807Z"
     },
@@ -5689,6 +5689,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/hevenu shalom aleichem.abc",
+      "timestamp": "2026-11-13T07:45:45.721Z"
+    },
+    {
+      "filePath": "american/when johnny comes marching home.abc",
+      "timestamp": "2026-11-13T07:45:41.036Z"
+    },
+    {
       "filePath": "cajun/madame sosthene.abc",
       "timestamp": "2026-11-13T07:41:35.406Z"
     },
@@ -5707,10 +5715,6 @@
     {
       "filePath": "tv/biene maja.abc",
       "timestamp": "2026-11-13T07:34:41.076Z"
-    },
-    {
-      "filePath": "american/when johnny comes marching home.abc",
-      "timestamp": "2026-11-13T07:34:35.363Z"
     },
     {
       "filePath": "american/which side are you on.abc",
@@ -5735,10 +5739,6 @@
     {
       "filePath": "film/imperial march.abc",
       "timestamp": "2026-11-13T07:23:22.452Z"
-    },
-    {
-      "filePath": "israeli/hevenu shalom aleichem.abc",
-      "timestamp": "2026-11-13T05:47:18.578Z"
     },
     {
       "filePath": "argentine/dos palomitas.abc",
@@ -6226,7 +6226,7 @@
       "film/little shop of horrors/dentist.abc": 2,
       "film/little shop of horrors/somewhere thats green.abc": 1,
       "film/pink panther.abc": 1,
-      "israeli/hevenu shalom aleichem.abc": 1,
+      "israeli/hevenu shalom aleichem.abc": 2,
       "israeli/yerushalayim shel zahav.abc": 3,
       "jazz/autumn leaves.abc": 1,
       "jazz/moon river.abc": 2,
