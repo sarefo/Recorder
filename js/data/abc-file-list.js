@@ -1028,7 +1028,7 @@ class AbcFileList {
                 "name": "The Pink Panther",
                 "file": "film/pink panther.abc",
                 "category": "film",
-                "hash": "7873d0b79f",
+                "hash": "fef736eb6c",
                 "added": "2026-11-07"
         },
         {
