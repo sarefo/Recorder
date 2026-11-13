@@ -1347,8 +1347,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:27:20.109Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-13T09:08:40.744Z",
+      "playCount": 3,
       "createdAt": "2026-11-06T17:04:02.205Z",
       "updatedAt": "2026-11-13T07:27:28.935Z"
     },
@@ -5689,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/pink panther.abc",
+      "timestamp": "2026-11-13T09:08:40.744Z"
+    },
+    {
       "filePath": "japanese/oborozukiyo.abc",
       "timestamp": "2026-11-13T09:08:29.808Z"
     },
@@ -5755,10 +5759,6 @@
     {
       "filePath": "tv/yu-gi-oh.abc",
       "timestamp": "2026-11-13T07:33:38.331Z"
-    },
-    {
-      "filePath": "film/pink panther.abc",
-      "timestamp": "2026-11-13T07:27:20.109Z"
     },
     {
       "filePath": "film/imperial march.abc",
@@ -6227,7 +6227,7 @@
       "film/imperial march.abc": 9,
       "film/little shop of horrors/dentist.abc": 2,
       "film/little shop of horrors/somewhere thats green.abc": 1,
-      "film/pink panther.abc": 1,
+      "film/pink panther.abc": 2,
       "israeli/hevenu shalom aleichem.abc": 2,
       "israeli/yerushalayim shel zahav.abc": 3,
       "japanese/oborozukiyo.abc": 1,
