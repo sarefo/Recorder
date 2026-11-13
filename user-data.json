@@ -985,8 +985,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T08:39:19.766Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-13T05:00:03.155Z",
+      "playCount": 7,
       "createdAt": "2026-11-01T02:08:18.261Z",
       "updatedAt": "2026-11-01T02:19:13.542Z"
     },
@@ -1188,12 +1188,13 @@
       "createdAt": "2026-11-12T15:56:43.004Z"
     },
     "film/little shop of horrors/dentist.abc": {
-      "status": null,
+      "status": "needs-practice",
       "favorite": false,
       "notes": "",
       "lastPlayed": "2026-11-13T04:58:30.656Z",
       "playCount": 2,
-      "createdAt": "2026-11-12T15:56:43.004Z"
+      "createdAt": "2026-11-12T15:56:43.004Z",
+      "updatedAt": "2026-11-13T04:59:57.667Z"
     },
     "film/little shop of horrors/feed me.abc": {
       "status": null,
@@ -5685,6 +5686,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/anything goes.abc",
+      "timestamp": "2026-11-13T05:00:03.155Z"
+    },
+    {
       "filePath": "film/little shop of horrors/dentist.abc",
       "timestamp": "2026-11-13T04:58:30.656Z"
     },
@@ -5759,10 +5764,6 @@
     {
       "filePath": "tv/happy days.abc",
       "timestamp": "2026-11-12T12:54:32.106Z"
-    },
-    {
-      "filePath": "tv/game of thrones.abc",
-      "timestamp": "2026-11-12T12:54:12.656Z"
     }
   ],
   "activity": {
@@ -6213,6 +6214,7 @@
       "yiddish/dos kelbl.abc": 1
     },
     "2026-11-13": {
+      "film/anything goes.abc": 1,
       "film/little shop of horrors/dentist.abc": 1,
       "film/little shop of horrors/somewhere thats green.abc": 1
     }
@@ -6992,6 +6994,11 @@
       "path": "film/little shop of horrors/somewhere thats green.abc",
       "status": "practicing",
       "at": "2026-11-13T04:58:20.315Z"
+    },
+    {
+      "path": "film/little shop of horrors/dentist.abc",
+      "status": "needs-practice",
+      "at": "2026-11-13T04:59:57.667Z"
     }
   ],
   "marks": {
