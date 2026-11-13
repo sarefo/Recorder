@@ -44,12 +44,13 @@
       "updatedAt": "2026-11-13T05:24:51.700Z"
     },
     "argentine/dos palomitas.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "good",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-13T05:24:58.662Z",
       "playCount": 1,
-      "createdAt": "2026-10-24T11:46:54.432Z"
+      "createdAt": "2026-10-24T11:46:54.432Z",
+      "updatedAt": "2026-11-13T05:28:52.004Z"
     },
     "armenian/little partridge.abc": {
       "status": "needs-practice",
@@ -6217,7 +6218,7 @@
     "2026-11-13": {
       "american/when johnny comes marching home.abc": 2,
       "american/which side are you on.abc": 1,
-      "argentine/dos palomitas.abc": 4,
+      "argentine/dos palomitas.abc": 5,
       "film/anything goes.abc": 1,
       "film/imperial march.abc": 7,
       "film/little shop of horrors/dentist.abc": 2,
@@ -7014,6 +7015,11 @@
       "path": "american/which side are you on.abc",
       "status": "good",
       "at": "2026-11-13T05:24:50.380Z"
+    },
+    {
+      "path": "argentine/dos palomitas.abc",
+      "status": "good",
+      "at": "2026-11-13T05:28:49.979Z"
     }
   ],
   "marks": {
@@ -12848,6 +12854,24 @@
       "at": "2026-11-13T05:24:52.772Z",
       "percent": 100,
       "bpm": 90
+    },
+    {
+      "path": "argentine/dos palomitas.abc",
+      "at": "2026-11-13T05:28:52.707Z",
+      "percent": 100,
+      "bpm": 120
+    },
+    {
+      "path": "argentine/dos palomitas.abc",
+      "at": "2026-11-13T05:28:52.859Z",
+      "percent": 100,
+      "bpm": 120
+    },
+    {
+      "path": "argentine/dos palomitas.abc",
+      "at": "2026-11-13T05:28:53.020Z",
+      "percent": 100,
+      "bpm": 120
     }
   ],
   "settings": {}
