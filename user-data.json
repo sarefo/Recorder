@@ -2382,8 +2382,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T12:19:08.726Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-13T07:28:32.418Z",
+      "playCount": 8,
       "createdAt": "2026-10-13T03:57:34.035Z",
       "updatedAt": "2026-11-02T12:21:24.056Z"
     },
@@ -2440,8 +2440,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-11T09:57:03.674Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-13T07:28:36.978Z",
+      "playCount": 9,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-04T01:54:06.152Z"
     },
@@ -5689,6 +5689,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/moon river.abc",
+      "timestamp": "2026-11-13T07:28:36.978Z"
+    },
+    {
+      "filePath": "jazz/blue moon.abc",
+      "timestamp": "2026-11-13T07:28:32.418Z"
+    },
+    {
       "filePath": "film/pink panther.abc",
       "timestamp": "2026-11-13T07:27:20.109Z"
     },
@@ -5759,14 +5767,6 @@
     {
       "filePath": "tv/the smurfs.abc",
       "timestamp": "2026-11-12T13:00:04.788Z"
-    },
-    {
-      "filePath": "tv/the muppet show.abc",
-      "timestamp": "2026-11-12T12:58:55.093Z"
-    },
-    {
-      "filePath": "tv/rawhide.abc",
-      "timestamp": "2026-11-12T12:58:10.410Z"
     }
   ],
   "activity": {
@@ -6226,7 +6226,8 @@
       "film/little shop of horrors/somewhere thats green.abc": 1,
       "film/pink panther.abc": 1,
       "israeli/hevenu shalom aleichem.abc": 1,
-      "israeli/yerushalayim shel zahav.abc": 1
+      "israeli/yerushalayim shel zahav.abc": 1,
+      "jazz/moon river.abc": 2
     }
   },
   "statusLog": [
