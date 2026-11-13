@@ -35,19 +35,20 @@
       "createdAt": "2026-07-28T06:53:46.507Z"
     },
     "american/which side are you on.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "good",
+      "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-13T05:23:17.574Z",
       "playCount": 3,
-      "createdAt": "2026-01-18T20:46:38.361Z"
+      "createdAt": "2026-01-18T20:46:38.361Z",
+      "updatedAt": "2026-11-13T05:24:51.700Z"
     },
     "argentine/dos palomitas.abc": {
       "status": null,
       "favorite": false,
       "notes": "",
-      "lastPlayed": null,
-      "playCount": 0,
+      "lastPlayed": "2026-11-13T05:24:58.662Z",
+      "playCount": 1,
       "createdAt": "2026-10-24T11:46:54.432Z"
     },
     "armenian/little partridge.abc": {
@@ -5686,6 +5687,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "argentine/dos palomitas.abc",
+      "timestamp": "2026-11-13T05:24:58.662Z"
+    },
+    {
       "filePath": "american/which side are you on.abc",
       "timestamp": "2026-11-13T05:23:17.574Z"
     },
@@ -5760,10 +5765,6 @@
     {
       "filePath": "tv/popeye.abc",
       "timestamp": "2026-11-12T12:57:05.760Z"
-    },
-    {
-      "filePath": "tv/the office.abc",
-      "timestamp": "2026-11-12T12:56:49.527Z"
     }
   ],
   "activity": {
@@ -6216,6 +6217,7 @@
     "2026-11-13": {
       "american/when johnny comes marching home.abc": 2,
       "american/which side are you on.abc": 1,
+      "argentine/dos palomitas.abc": 2,
       "film/anything goes.abc": 1,
       "film/imperial march.abc": 7,
       "film/little shop of horrors/dentist.abc": 2,
@@ -7007,6 +7009,11 @@
       "path": "film/imperial march.abc",
       "status": "good",
       "at": "2026-11-13T05:17:15.543Z"
+    },
+    {
+      "path": "american/which side are you on.abc",
+      "status": "good",
+      "at": "2026-11-13T05:24:50.380Z"
     }
   ],
   "marks": {
@@ -7026,6 +7033,24 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-11-13T05:23:27.688Z"
+      }
+    },
+    "argentine/dos palomitas.abc": {
+      "2": {
+        "pitch": "^C",
+        "prev": "D",
+        "pitchSeen": 3,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-13T05:25:08.773Z"
+      },
+      "5": {
+        "pitch": "^F",
+        "prev": "E",
+        "pitchSeen": 12,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-13T05:25:08.775Z"
       }
     },
     "australian/waltzing matilda.abc": {
@@ -9744,6 +9769,19 @@
         "21": {
           "state": "red",
           "pitch": "_E"
+        }
+      }
+    },
+    "argentine/dos palomitas.abc": {
+      "at": "2026-11-13T05:24:58.771Z",
+      "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "^C"
+        },
+        "5": {
+          "state": "red",
+          "pitch": "^F"
         }
       }
     },
@@ -12792,6 +12830,24 @@
       "at": "2026-11-13T05:23:11.925Z",
       "percent": 100,
       "bpm": 110
+    },
+    {
+      "path": "american/which side are you on.abc",
+      "at": "2026-11-13T05:24:52.460Z",
+      "percent": 100,
+      "bpm": 90
+    },
+    {
+      "path": "american/which side are you on.abc",
+      "at": "2026-11-13T05:24:52.628Z",
+      "percent": 100,
+      "bpm": 90
+    },
+    {
+      "path": "american/which side are you on.abc",
+      "at": "2026-11-13T05:24:52.772Z",
+      "percent": 100,
+      "bpm": 90
     }
   ],
   "settings": {}
