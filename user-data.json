@@ -38,8 +38,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T05:23:17.574Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-13T07:33:40.416Z",
+      "playCount": 4,
       "createdAt": "2026-01-18T20:46:38.361Z",
       "updatedAt": "2026-11-13T05:24:51.700Z"
     },
@@ -5509,8 +5509,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T13:01:27.471Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-13T07:33:38.331Z",
+      "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-12T13:01:41.773Z"
     },
@@ -5689,6 +5689,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "american/which side are you on.abc",
+      "timestamp": "2026-11-13T07:33:40.416Z"
+    },
+    {
+      "filePath": "tv/yu-gi-oh.abc",
+      "timestamp": "2026-11-13T07:33:38.331Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-13T07:31:24.255Z"
     },
@@ -5725,10 +5733,6 @@
       "timestamp": "2026-11-13T05:40:01.078Z"
     },
     {
-      "filePath": "american/which side are you on.abc",
-      "timestamp": "2026-11-13T05:23:17.574Z"
-    },
-    {
       "filePath": "american/when johnny comes marching home.abc",
       "timestamp": "2026-11-13T05:22:09.307Z"
     },
@@ -5759,10 +5763,6 @@
     {
       "filePath": "tv/spider-man.abc",
       "timestamp": "2026-11-12T13:16:46.131Z"
-    },
-    {
-      "filePath": "tv/yu-gi-oh.abc",
-      "timestamp": "2026-11-12T13:01:27.471Z"
     },
     {
       "filePath": "tv/the waltons.abc",
@@ -6218,7 +6218,7 @@
     },
     "2026-11-13": {
       "american/when johnny comes marching home.abc": 2,
-      "american/which side are you on.abc": 1,
+      "american/which side are you on.abc": 4,
       "argentine/dos palomitas.abc": 7,
       "film/anything goes.abc": 1,
       "film/imperial march.abc": 9,
