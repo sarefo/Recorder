@@ -2031,8 +2031,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T10:33:17.292Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-13T05:47:18.578Z",
+      "playCount": 4,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-11-06T10:38:19.807Z"
     },
@@ -5688,6 +5688,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/hevenu shalom aleichem.abc",
+      "timestamp": "2026-11-13T05:47:18.578Z"
+    },
+    {
       "filePath": "argentine/dos palomitas.abc",
       "timestamp": "2026-11-13T05:46:06.447Z"
     },
@@ -5762,10 +5766,6 @@
     {
       "filePath": "tv/pinky and the brain.abc",
       "timestamp": "2026-11-12T12:57:54.579Z"
-    },
-    {
-      "filePath": "tv/knight rider.abc",
-      "timestamp": "2026-11-12T12:57:27.940Z"
     }
   ],
   "activity": {
