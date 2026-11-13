@@ -2080,8 +2080,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-18T12:01:16.093Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-13T05:49:14.533Z",
+      "playCount": 2,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-10-18T12:01:43.176Z"
     },
@@ -5688,6 +5688,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/yerushalayim shel zahav.abc",
+      "timestamp": "2026-11-13T05:49:14.533Z"
+    },
+    {
       "filePath": "israeli/hevenu shalom aleichem.abc",
       "timestamp": "2026-11-13T05:47:18.578Z"
     },
@@ -5762,10 +5766,6 @@
     {
       "filePath": "tv/rawhide.abc",
       "timestamp": "2026-11-12T12:58:10.410Z"
-    },
-    {
-      "filePath": "tv/pinky and the brain.abc",
-      "timestamp": "2026-11-12T12:57:54.579Z"
     }
   ],
   "activity": {
@@ -6223,7 +6223,8 @@
       "film/imperial march.abc": 7,
       "film/little shop of horrors/dentist.abc": 2,
       "film/little shop of horrors/somewhere thats green.abc": 1,
-      "israeli/hevenu shalom aleichem.abc": 1
+      "israeli/hevenu shalom aleichem.abc": 1,
+      "israeli/yerushalayim shel zahav.abc": 1
     }
   },
   "statusLog": [
@@ -8010,6 +8011,16 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-11-06T10:33:27.406Z"
+      }
+    },
+    "israeli/yerushalayim shel zahav.abc": {
+      "11": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 7,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-13T05:49:24.644Z"
       }
     },
     "italian/bella ciao.abc": {
@@ -10528,6 +10539,15 @@
         "13": {
           "state": "red",
           "pitch": "_e"
+        }
+      }
+    },
+    "israeli/yerushalayim shel zahav.abc": {
+      "at": "2026-11-13T05:49:14.637Z",
+      "notes": {
+        "11": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
