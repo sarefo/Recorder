@@ -30,8 +30,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:46:58.025Z",
-      "playCount": 17,
+      "lastPlayed": "2026-11-13T07:48:05.294Z",
+      "playCount": 18,
       "createdAt": "2026-07-28T06:53:46.507Z"
     },
     "american/which side are you on.abc": {
@@ -1258,8 +1258,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:37:17.979Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-13T07:47:53.165Z",
+      "playCount": 3,
       "createdAt": "2026-11-12T14:59:28.290Z",
       "updatedAt": "2026-11-13T04:58:20.315Z"
     },
@@ -2032,8 +2032,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:45:45.721Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-13T07:48:00.086Z",
+      "playCount": 6,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-11-06T10:38:19.807Z"
     },
@@ -2355,8 +2355,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:47:01.079Z",
-      "playCount": 24,
+      "lastPlayed": "2026-11-13T07:47:58.415Z",
+      "playCount": 25,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -2382,8 +2382,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:28:32.418Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-13T07:48:03.633Z",
+      "playCount": 9,
       "createdAt": "2026-10-13T03:57:34.035Z",
       "updatedAt": "2026-11-02T12:21:24.056Z"
     },
@@ -2440,8 +2440,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:28:36.978Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-13T07:47:56.866Z",
+      "playCount": 10,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-04T01:54:06.152Z"
     },
@@ -4727,8 +4727,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T09:54:19.235Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-13T07:48:19.249Z",
+      "playCount": 9,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-25T10:01:51.085Z"
     },
@@ -4992,8 +4992,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:34:41.076Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-13T07:48:08.554Z",
+      "playCount": 5,
       "createdAt": "2026-11-12T13:45:11.365Z",
       "updatedAt": "2026-11-13T07:37:13.676Z"
     },
@@ -5460,8 +5460,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T13:00:50.296Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-13T07:47:54.785Z",
+      "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-12T13:01:06.597Z"
     },
@@ -5689,32 +5689,48 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/francis_robertson.abc",
+      "timestamp": "2026-11-13T07:48:19.249Z"
+    },
+    {
+      "filePath": "tv/biene maja.abc",
+      "timestamp": "2026-11-13T07:48:08.554Z"
+    },
+    {
+      "filePath": "american/when johnny comes marching home.abc",
+      "timestamp": "2026-11-13T07:48:05.294Z"
+    },
+    {
+      "filePath": "jazz/blue moon.abc",
+      "timestamp": "2026-11-13T07:48:03.633Z"
+    },
+    {
+      "filePath": "israeli/hevenu shalom aleichem.abc",
+      "timestamp": "2026-11-13T07:48:00.086Z"
+    },
+    {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-11-13T07:47:58.415Z"
+    },
+    {
+      "filePath": "jazz/moon river.abc",
+      "timestamp": "2026-11-13T07:47:56.866Z"
+    },
+    {
+      "filePath": "tv/the waltons.abc",
+      "timestamp": "2026-11-13T07:47:54.785Z"
+    },
+    {
+      "filePath": "film/little shop of horrors/somewhere thats green.abc",
+      "timestamp": "2026-11-13T07:47:53.165Z"
+    },
+    {
       "filePath": "cajun/madame sosthene.abc",
       "timestamp": "2026-11-13T07:47:02.835Z"
     },
     {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-11-13T07:47:01.079Z"
-    },
-    {
-      "filePath": "american/when johnny comes marching home.abc",
-      "timestamp": "2026-11-13T07:46:58.025Z"
-    },
-    {
-      "filePath": "israeli/hevenu shalom aleichem.abc",
-      "timestamp": "2026-11-13T07:45:45.721Z"
-    },
-    {
       "filePath": "israeli/yerushalayim shel zahav.abc",
       "timestamp": "2026-11-13T07:37:20.717Z"
-    },
-    {
-      "filePath": "film/little shop of horrors/somewhere thats green.abc",
-      "timestamp": "2026-11-13T07:37:17.979Z"
-    },
-    {
-      "filePath": "tv/biene maja.abc",
-      "timestamp": "2026-11-13T07:34:41.076Z"
     },
     {
       "filePath": "american/which side are you on.abc",
@@ -5723,14 +5739,6 @@
     {
       "filePath": "tv/yu-gi-oh.abc",
       "timestamp": "2026-11-13T07:33:38.331Z"
-    },
-    {
-      "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-13T07:28:36.978Z"
-    },
-    {
-      "filePath": "jazz/blue moon.abc",
-      "timestamp": "2026-11-13T07:28:32.418Z"
     },
     {
       "filePath": "film/pink panther.abc",
@@ -5759,14 +5767,6 @@
     {
       "filePath": "film/little shop of horrors.abc",
       "timestamp": "2026-11-12T13:47:41.700Z"
-    },
-    {
-      "filePath": "tv/spider-man.abc",
-      "timestamp": "2026-11-12T13:16:46.131Z"
-    },
-    {
-      "filePath": "tv/the waltons.abc",
-      "timestamp": "2026-11-12T13:00:50.296Z"
     }
   ],
   "activity": {
@@ -11559,6 +11559,15 @@
         "86": {
           "state": "red",
           "pitch": "A"
+        }
+      }
+    },
+    "scottish/francis_robertson.abc": {
+      "at": "2026-11-13T07:48:19.357Z",
+      "notes": {
+        "22": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
