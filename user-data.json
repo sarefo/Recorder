@@ -47,8 +47,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T05:24:58.662Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-13T05:36:28.962Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-11-13T05:28:52.004Z"
     },
@@ -5689,7 +5689,7 @@
   "recentlyPlayed": [
     {
       "filePath": "argentine/dos palomitas.abc",
-      "timestamp": "2026-11-13T05:24:58.662Z"
+      "timestamp": "2026-11-13T05:36:28.962Z"
     },
     {
       "filePath": "american/which side are you on.abc",
