@@ -1,13 +1,11 @@
 X: 1
 T: The Imperial March
 O: John Williams, Star Wars, 1980
-N: From a bitmidi.com MIDI (imperial), track 0; rhythm snapped to sixteenths, chords fitted from the arrangement. Moved -3 semitones for range. Opening 17 bars only.
+N: From a bitmidi.com MIDI (imperial), track 0; rhythm snapped to sixteenths, chords fitted from the arrangement. Moved -3 semitones for range. Opening phrase only (12 bars); the source's C-vamp after it is empty bars and left out.
 L: 1/8
 Q: 1/4=102
 M: 4/4
 K: Em
 "E"Ez E2 "C"E2 C3/2G/|"Em"E2 C3/2G/ "C"E2-E/ z3/2|"E"B2 B2 "C"B2 c3/2G/|"Cm"^D2 C3/2G/ "Em"E2 z2|
 "E"e2 E3/2E/ "C"e2 ^d3/2=d/|"Bbm"^c/=c/^c/z3/2 =F ^A2 =A3/2^G/|"Cm"G/F/G/z3/2 C ^D2 C3/2D/|"C"G2 E3/2G/ "E"B2-B/ z3/2|
-"C"e2 E3/2E/ e2 ^d3/2=d/|"Bbm"^c/=c/^c/z3/2 =F ^A2 =A3/2^G/|"Cm"G/F/G/z3/2 C ^D2 C3/2G/|"C"E2 C3/2G/ "E"E2-E/ z3/2|
-z4 "C"z4|z4 "C"z4|z4 "C"z4|z4 "C"z4|
-z4 z4|]
+"C"e2 E3/2E/ e2 ^d3/2=d/|"Bbm"^c/=c/^c/z3/2 =F ^A2 =A3/2^G/|"Cm"G/F/G/z3/2 C ^D2 C3/2G/|"C"E2 C3/2G/ "E"E2-E/ z3/2|]
