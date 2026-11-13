@@ -7547,21 +7547,29 @@
       }
     },
     "film/imperial march.abc": {
+      "17": {
+        "pitch": "_G",
+        "prev": "_B",
+        "pitchSeen": 4,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-13T05:05:22.334Z"
+      },
       "26": {
-        "pitch": "^d",
-        "prev": "e",
+        "pitch": "_a",
+        "prev": "a",
         "pitchSeen": 2,
         "transSeen": 2,
-        "count": 1,
-        "at": "2026-11-10T12:11:47.700Z"
+        "count": 2,
+        "at": "2026-11-13T05:05:53.694Z"
       },
       "28": {
-        "pitch": "^c",
-        "prev": "=d",
+        "pitch": "^f",
+        "prev": "=g",
         "pitchSeen": 4,
         "transSeen": 2,
-        "count": 1,
-        "at": "2026-11-10T12:11:16.601Z"
+        "count": 2,
+        "at": "2026-11-13T05:06:01.286Z"
       },
       "33": {
         "pitch": "^A",
@@ -7586,6 +7594,14 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-11-10T12:09:55.902Z"
+      },
+      "41": {
+        "pitch": "_A",
+        "prev": "F",
+        "pitchSeen": 4,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-13T05:06:15.886Z"
       },
       "61": {
         "pitch": "^A",
@@ -10098,15 +10114,19 @@
       }
     },
     "film/imperial march.abc": {
-      "at": "2026-11-13T05:04:02.842Z",
+      "at": "2026-11-13T05:06:05.882Z",
       "notes": {
+        "17": {
+          "state": "red",
+          "pitch": "_G"
+        },
         "26": {
           "state": "red",
-          "pitch": "^d"
+          "pitch": "_a"
         },
         "28": {
           "state": "red",
-          "pitch": "^c"
+          "pitch": "^f"
         },
         "33": {
           "state": "red",
@@ -10119,6 +10139,10 @@
         "37": {
           "state": "red",
           "pitch": "^F"
+        },
+        "41": {
+          "state": "red",
+          "pitch": "_A"
         },
         "61": {
           "state": "red",
