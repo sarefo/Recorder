@@ -9,18 +9,25 @@ N: from the melody's own harmony. The intro riff's G3 and A3 are folded up an
 N: octave for the recorder; the push syncopations are straightened to the eighth;
 N: pitches are the source's. The source's boogie instrumental between verse and
 N: hook is left out; its A and B naturals are written =A and =B over the C minor
-N: key.
+N: key. Notated at double note values (quarters instead of eighths, eighths
+N: instead of sixteenths) so the rockabilly eighths read plainly; the sounding
+N: tempo is unchanged.
 L: 1/8
-Q: 1/4=120
+Q: 1/2=120
 M: 4/4
 K: Cm
-"Cm"C G =A C C G =A2 |"Cm"C2 B2 c =A2 G |
-"F7"G =A2 =A =A4 |"Dm7"=A4 F G2 =A |"G7"B B2 B B =A G2 |"Cm"B4 c =A2 G |
-"F7"G =A2 =A =A4 |"Dm7"=A4 F G2 =A |"G7"B B2 B B =A2 G |"C7"B2 z4 z =A |
-"Cm"B B B B3 B B |"C7"=A G2 G4 =A |"Am7"c c2 c c =A c2 |"D7"d4 d c2 =A |
-"Gm7"=A B2 B B4 |"Cm"B3 C c =A2 G |
-"G7"=A4 d =B =A2 |"Cm"=A =B2 =B =B2 =A =B |"G7"=A G3 G =A2 =B |
-"Cm"c2 c c c =B =A2 |"G7"c4 d =B2 =A |"Cm"=A =B2 =B =B2 =A =B |
-"C7"=A G3 G =A2 =B |"Cm"c c2 c c2 =B =A |"Cm"c7 =B |
-"Cm"c2 c c c =B c2 |"F7"=B =A4- =A d2 |"G7"d2 d d2 =B d2 |
-"C"=e2 d2 c2 =B2 |"Cm"=B3 c c4 |]
+"Cm"C2 G2 =A2 C2 |"Cm"C2 G2 =A4 |"Cm"C4 B4 |"Cm"c2 =A4 G2 |
+"F7"G2 =A4 =A2 |"F7"=A8 |"Dm7"=A8 |"Dm7"F2 G4 =A2 |
+"G7"B2 B4 B2 |"G7"B2 =A2 G4 |"Cm"B8 |"Cm"c2 =A4 G2 |
+"F7"G2 =A4 =A2 |"F7"=A8 |"Dm7"=A8 |"Dm7"F2 G4 =A2 |
+"G7"B2 B4 B2 |"G7"B2 =A4 G2 |"C7"B4 z4 |"C7"z4 z2 =A2 |
+"Cm"B2 B2 B2 B2- |"Cm"B4 B2 B2 |"C7"=A2 G4 G2- |"C7"G6 =A2 |
+"Am7"c2 c4 c2 |"Am7"c2 =A2 c4 |"D7"d8 |"D7"d2 c4 =A2 |
+"Gm7"=A2 B4 B2 |"Gm7"B8 |"Cm"B6 C2 |"Cm"c2 =A4 G2 |
+"G7"=A8 |"G7"d2 =B2 =A4 |"Cm"=A2 =B4 =B2 |"Cm"=B4 =A2 =B2 |
+"G7"=A2 G6 |"G7"G2 =A4 =B2 |"Cm"c4 c2 c2 |"Cm"c2 =B2 =A4 |
+"G7"c8 |"G7"d2 =B4 =A2 |"Cm"=A2 =B4 =B2 |"Cm"=B4 =A2 =B2 |
+"C7"=A2 G6 |"C7"G2 =A4 =B2 |"Cm"c2 c4 c2 |"Cm"c4 =B2 =A2 |
+"Cm"c8- |"Cm"c6 =B2 |"Cm"c4 c2 c2 |"Cm"c2 =B2 c4 |
+"F7"=B2 =A6- |"F7"=A2- =A2 d4 |"G7"d4 d2 d2- |"G7"d2 =B2 d4 |
+"C"=e4 d4 |"C"c4 =B4 |"Cm"=B6 c2 |"Cm"c8 |]

@@ -1105,7 +1105,7 @@ class AbcFileList {
                 "name": "Dentist!",
                 "file": "film/little shop of horrors/dentist.abc",
                 "category": "film/little shop of horrors",
-                "hash": "ee0a2480df",
+                "hash": "8d34f927ea",
                 "added": "2026-11-12"
         },
         {
@@ -3472,7 +3472,7 @@ class AbcFileList {
                 "file": "norwegian/bruremarsj fra vals\u00f8yfjord.abc",
                 "category": "norwegian",
                 "hash": "b03ee5f418",
-                "added": "2026-11-12"
+                "added": "2026-11-13"
         },
         {
                 "name": "Ja, vi elsker dette landet",
@@ -4088,14 +4088,14 @@ class AbcFileList {
                 "file": "swedish/ack v\u00e4rmeland du sk\u00f6na.abc",
                 "category": "swedish",
                 "hash": "e6750b446d",
-                "added": "2026-11-12"
+                "added": "2026-11-13"
         },
         {
                 "name": "Akta dig f\u00f6r flickor",
                 "file": "swedish/akta dig f\u00f6r flickor.abc",
                 "category": "swedish",
                 "hash": "aec63e7dbe",
-                "added": "2026-11-12"
+                "added": "2026-11-13"
         },
         {
                 "name": "Du gamla, du fria",
@@ -4109,7 +4109,7 @@ class AbcFileList {
                 "file": "swedish/helan g\u00e5r.abc",
                 "category": "swedish",
                 "hash": "7c601d28a5",
-                "added": "2026-11-12"
+                "added": "2026-11-13"
         },
         {
                 "name": "I sommarens soliga dagar",
