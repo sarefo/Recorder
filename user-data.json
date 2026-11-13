@@ -1127,8 +1127,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T05:14:08.478Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-13T07:23:22.452Z",
+      "playCount": 5,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-13T05:17:15.543Z"
     },
@@ -5688,6 +5688,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/imperial march.abc",
+      "timestamp": "2026-11-13T07:23:22.452Z"
+    },
+    {
       "filePath": "israeli/yerushalayim shel zahav.abc",
       "timestamp": "2026-11-13T05:49:14.533Z"
     },
@@ -5710,10 +5714,6 @@
     {
       "filePath": "american/when johnny comes marching home.abc",
       "timestamp": "2026-11-13T05:22:09.307Z"
-    },
-    {
-      "filePath": "film/imperial march.abc",
-      "timestamp": "2026-11-13T05:14:08.478Z"
     },
     {
       "filePath": "film/little shop of horrors/dentist.abc",
@@ -6220,7 +6220,7 @@
       "american/which side are you on.abc": 1,
       "argentine/dos palomitas.abc": 7,
       "film/anything goes.abc": 1,
-      "film/imperial march.abc": 7,
+      "film/imperial march.abc": 8,
       "film/little shop of horrors/dentist.abc": 2,
       "film/little shop of horrors/somewhere thats green.abc": 1,
       "israeli/hevenu shalom aleichem.abc": 1,
