@@ -92,3 +92,11 @@ follows the cadence notes.
   are tie continuations of unrepresentable 5-eighth notes). Chords fitted from
   each MIDI's accompaniment; Dentist's hook chords partly from the melody's
   own harmony, its source being melody plus drums there.
+- 2026-11-13: reworked `film/pink panther.abc` — the game-music transcription
+  was badly wrong (F naturals for F#'s, no C-B bar, the two riff endings
+  swapped, bars of 12 and 16 eighths under a 4/4 header, Cm/Bb chords).
+  Rewritten from three bitmidi arrangements (103005 + 85208 in Em, 103006 in
+  Dm; two independent keys agreeing on every figure). Harmony read off the
+  same accompaniments: a B7 vamp that never resolves, C7 under both A# bars
+  (the melody's A# is C7's 7th), Em only at the final answer bars — much
+  more like the record than the old Cm guess.

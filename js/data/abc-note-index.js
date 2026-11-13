@@ -166,7 +166,7 @@ class AbcNoteIndex {
         "film/oh pretty woman.abc": [60,62,63,64,65,67,68,69],
         "film/once upon a time in the west.abc": [61,66,68,70,73,75,77,78,80,82,83],
         "film/over the rainbow.abc": [62,64,65,67,69,70,71,72,74,76,77,79],
-        "film/pink panther.abc": [62,63,64,65,67,69,70,71,72,75,76],
+        "film/pink panther.abc": [62,63,64,66,67,69,70,71,72,74,75,76],
         "film/poledouris/anvil of crom.abc": [64,67,69,71,72,74,76],
         "film/poledouris/robocop.abc": [60,62,64,66,67,69,71,72,76],
         "film/schindlers list.abc": [60,62,63,64,65,66,67,69,70],

@@ -835,6 +835,31 @@ class UIControls {
 
         // Create slider
         const tempoSlider = this.createTempoSlider();
+
+        // < > nudge buttons: 10% per click, left of the slider
+        const nudgeGroup = document.createElement('div');
+        nudgeGroup.className = 'tempo-nudge-group';
+        const createNudgeButton = (label, delta) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'tempo-nudge';
+            btn.textContent = label;
+            btn.title = `${delta > 0 ? 'Speed up' : 'Slow down'} by 10%`;
+            btn.setAttribute('aria-label', `${delta > 0 ? 'Increase' : 'Decrease'} tempo by 10 percent`);
+            btn.addEventListener('click', () => {
+                const current = parseInt(tempoSlider.value, 10);
+                const next = Math.max(50, Math.min(200, current + delta));
+                if (next === current) return;
+                tempoSlider.value = String(next);
+                tempoValue.textContent = `${next}%`;
+                tempoSlider.dispatchEvent(new Event('change'));
+            });
+            return btn;
+        };
+        nudgeGroup.appendChild(createNudgeButton('<', -10));
+        nudgeGroup.appendChild(createNudgeButton('>', 10));
+        tempoControl.appendChild(nudgeGroup);
+
         tempoControl.appendChild(tempoSlider);
 
         // Create value display

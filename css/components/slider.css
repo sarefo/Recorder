@@ -86,6 +86,46 @@
     color: var(--color-text-muted);
 }
 
+/* ----- < > nudge buttons: ±10% per click, left of the slider ----- */
+.tempo-nudge-group {
+    display: flex;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.tempo-nudge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xs);
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    line-height: 1;
+    cursor: pointer;
+    transition: color var(--motion-fast) var(--ease-standard),
+                border-color var(--motion-fast) var(--ease-standard);
+}
+
+.tempo-nudge:hover {
+    color: var(--color-text);
+    border-color: var(--color-primary);
+}
+
+.tempo-nudge:active {
+    background-color: var(--color-surface-sunken);
+}
+
+.tempo-nudge:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
 /* ----- Mobile main-row tempo control: tighter ----- */
 .mobile-main-row .tempo-control {
     gap: var(--space-1);
