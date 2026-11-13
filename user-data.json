@@ -1344,12 +1344,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "film/pink panther.abc": {
-      "status": null,
-      "favorite": false,
+      "status": "needs-practice",
+      "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T13:02:37.600Z",
-      "playCount": 1,
-      "createdAt": "2026-11-06T17:04:02.205Z"
+      "lastPlayed": "2026-11-13T07:27:20.109Z",
+      "playCount": 2,
+      "createdAt": "2026-11-06T17:04:02.205Z",
+      "updatedAt": "2026-11-13T07:27:28.935Z"
     },
     "film/poledouris/anvil of crom.abc": {
       "status": null,
@@ -5688,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/pink panther.abc",
+      "timestamp": "2026-11-13T07:27:20.109Z"
+    },
+    {
       "filePath": "film/imperial march.abc",
       "timestamp": "2026-11-13T07:23:22.452Z"
     },
@@ -5742,10 +5747,6 @@
     {
       "filePath": "tv/spider-man.abc",
       "timestamp": "2026-11-12T13:16:46.131Z"
-    },
-    {
-      "filePath": "film/pink panther.abc",
-      "timestamp": "2026-11-12T13:02:37.600Z"
     },
     {
       "filePath": "tv/yu-gi-oh.abc",
@@ -6223,6 +6224,7 @@
       "film/imperial march.abc": 9,
       "film/little shop of horrors/dentist.abc": 2,
       "film/little shop of horrors/somewhere thats green.abc": 1,
+      "film/pink panther.abc": 1,
       "israeli/hevenu shalom aleichem.abc": 1,
       "israeli/yerushalayim shel zahav.abc": 1
     }
@@ -7022,6 +7024,11 @@
       "path": "argentine/dos palomitas.abc",
       "status": "good",
       "at": "2026-11-13T05:28:49.979Z"
+    },
+    {
+      "path": "film/pink panther.abc",
+      "status": "needs-practice",
+      "at": "2026-11-13T07:27:28.935Z"
     }
   ],
   "marks": {
