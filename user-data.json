@@ -2284,8 +2284,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T08:00:17.107Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-13T09:08:29.808Z",
+      "playCount": 4,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:25:54.091Z"
     },
@@ -5690,7 +5690,7 @@
   "recentlyPlayed": [
     {
       "filePath": "japanese/oborozukiyo.abc",
-      "timestamp": "2026-11-13T08:00:17.107Z"
+      "timestamp": "2026-11-13T09:08:29.808Z"
     },
     {
       "filePath": "pop/final_countdown.abc",
