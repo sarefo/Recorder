@@ -8,7 +8,7 @@ class AbcNoteIndex {
         "algerian/plouf tizen tizen.abc": [60,62,64,65,67,69],
         "american/when johnny comes marching home.abc": [64,67,69,71,72,74,76],
         "american/which side are you on.abc": [60,62,63,65,67,70,72,74],
-        "argentine/dos palomitas.abc": [61,62,64,66,69,71],
+        "argentine/dos palomitas.abc": [64,65,67,69,72,74],
         "armenian/little partridge.abc": [60,62,64,65,67,69,72,74],
         "australian/waltzing matilda.abc": [60,62,64,65,67,69,70,72,74,76,77],
         "austrian/es wird scho gleich dumpa.abc": [60,64,65,67,69,70,72],

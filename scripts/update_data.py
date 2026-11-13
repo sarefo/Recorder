@@ -48,13 +48,16 @@ def git_added_dates(project_dir):
     out = {}
     try:
         log = subprocess.run(
-            ["git", "log", "--diff-filter=A", "--no-renames", "--name-only",
-             "--format=%as", "--", "abc"],
+            # core.quotepath=false keeps non-ASCII paths unquoted, so they
+            # still match the paths update_data.py walks on disk
+            ["git", "-c", "core.quotepath=false", "log", "--diff-filter=A",
+             "--no-renames", "--name-only", "--format=%as", "--", "abc"],
             capture_output=True, text=True, check=True, cwd=project_dir,
             encoding="utf-8", errors="replace").stdout
     except (OSError, subprocess.CalledProcessError) as e:
         print(f"Added dates unavailable ({e}); regenerating without them")
         return out
+    date_re = re.compile(r"^\d{4}-\d{2}-\d{2}$")
     date = None
     for line in log.splitlines():
         if not line.strip():
@@ -62,8 +65,9 @@ def git_added_dates(project_dir):
         if line.startswith("abc/") and date:
             # Log is newest-first, so the first add seen is the latest one
             out.setdefault(line[4:].replace("\\", "/"), date)
-        else:
+        elif date_re.match(line.strip()):
             date = line.strip()
+        # anything else is not a date and not a path we asked for: skip it
     return out
 
 def generate_abc_file_list():

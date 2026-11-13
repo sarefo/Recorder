@@ -41,7 +41,7 @@ class AbcFileList {
                 "name": "Dos Palomitas",
                 "file": "argentine/dos palomitas.abc",
                 "category": "argentine",
-                "hash": "30a747bd5c",
+                "hash": "3b4b4614a7",
                 "added": "2026-10-24"
         },
         {
@@ -3472,14 +3472,14 @@ class AbcFileList {
                 "file": "norwegian/bruremarsj fra vals\u00f8yfjord.abc",
                 "category": "norwegian",
                 "hash": "b03ee5f418",
-                "added": "2026-11-13"
+                "added": "2026-10-06"
         },
         {
                 "name": "Ja, vi elsker dette landet",
                 "file": "norwegian/ja vi elsker dette landet.abc",
                 "category": "norwegian",
                 "hash": "1a9e1ac42a",
-                "added": "\"abc/norwegian/bruremarsj fra vals\\303\\270yfjord.abc\""
+                "added": "2026-10-06"
         },
         {
                 "name": "Adiu paure Carnaval",
@@ -4088,35 +4088,35 @@ class AbcFileList {
                 "file": "swedish/ack v\u00e4rmeland du sk\u00f6na.abc",
                 "category": "swedish",
                 "hash": "e6750b446d",
-                "added": "2026-11-13"
+                "added": "2026-10-06"
         },
         {
                 "name": "Akta dig f\u00f6r flickor",
                 "file": "swedish/akta dig f\u00f6r flickor.abc",
                 "category": "swedish",
                 "hash": "aec63e7dbe",
-                "added": "2026-11-13"
+                "added": "2025-04-22"
         },
         {
                 "name": "Du gamla, du fria",
                 "file": "swedish/du gamla du fria.abc",
                 "category": "swedish",
                 "hash": "40141d0a93",
-                "added": "\"abc/swedish/ack v\\303\\244rmeland du sk\\303\\266na.abc\""
+                "added": "2026-10-06"
         },
         {
                 "name": "Helan g\u00e5r",
                 "file": "swedish/helan g\u00e5r.abc",
                 "category": "swedish",
                 "hash": "7c601d28a5",
-                "added": "2026-11-13"
+                "added": "2026-10-06"
         },
         {
                 "name": "I sommarens soliga dagar",
                 "file": "swedish/i sommarens soliga dagar.abc",
                 "category": "swedish",
                 "hash": "98965060a9",
-                "added": "\"abc/swedish/helan g\\303\\245r.abc\""
+                "added": "2026-10-06"
         },
         {
                 "name": "Holdiridia",
