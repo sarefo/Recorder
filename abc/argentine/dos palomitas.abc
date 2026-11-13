@@ -1,7 +1,7 @@
 X:1
 T:Dos Palomitas
 O:Argentina
-N:Two Little Pigeons. Melody from the mu-tech.org WorldTrad MIDI arrangement (Argentine folk song); chords from its printed lead sheet and accompaniment. Transposed up a whole step from A minor so the low B fits the recorder range.
+N:Two Little Pigeons. Melody from the mu-tech.org WorldTrad MIDI arrangement (Argentine folk song); chords from its printed lead sheet and accompaniment. Transposed from the source's A minor up a fourth to D minor for the recorder; the closing release bar (F2 z4) mirrors the tune's own section cadences so the loop restarts with a breath.
 M:3/4
 Q:1/4=120
 L:1/8
@@ -12,4 +12,4 @@ K:Dm
 "F" A6 |"A7" G6 |"Dm" F6- |"Dm" F2 z4 |
 "Bb" d6 |"C7" c6 |"F" A6- |"F" A2 z4 |
 "Dm" A2 "Bb"d2 "C7"c2 |"F" A2 "A7"G4 |"Dm" F2 F2 "A7"E2 |"Dm" F2 "C7"G4 |
-"F" A6 |"A7" G6 |"Dm" F6 |]
+"F" A6 |"A7" G6 |"Dm" F6- |"Dm" F2 z4 |]

@@ -41,7 +41,7 @@ class AbcFileList {
                 "name": "Dos Palomitas",
                 "file": "argentine/dos palomitas.abc",
                 "category": "argentine",
-                "hash": "46095c0045",
+                "hash": "30a747bd5c",
                 "added": "2026-10-24"
         },
         {
