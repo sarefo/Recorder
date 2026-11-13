@@ -1258,8 +1258,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T15:57:52.571Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-13T07:37:17.979Z",
+      "playCount": 2,
       "createdAt": "2026-11-12T14:59:28.290Z",
       "updatedAt": "2026-11-13T04:58:20.315Z"
     },
@@ -2081,8 +2081,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T05:49:14.533Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-13T07:37:20.717Z",
+      "playCount": 3,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-10-18T12:01:43.176Z"
     },
@@ -2355,8 +2355,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:31:24.255Z",
-      "playCount": 21,
+      "lastPlayed": "2026-11-13T07:37:16.383Z",
+      "playCount": 23,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -4989,13 +4989,13 @@
       "updatedAt": "2026-11-12T12:52:29.696Z"
     },
     "tv/biene maja.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-13T07:34:41.076Z",
       "playCount": 2,
       "createdAt": "2026-11-12T13:45:11.365Z",
-      "updatedAt": "2026-11-12T13:47:06.638Z"
+      "updatedAt": "2026-11-13T07:37:13.676Z"
     },
     "tv/blackadder.abc": {
       "status": "needs-practice",
@@ -5689,6 +5689,18 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/yerushalayim shel zahav.abc",
+      "timestamp": "2026-11-13T07:37:20.717Z"
+    },
+    {
+      "filePath": "film/little shop of horrors/somewhere thats green.abc",
+      "timestamp": "2026-11-13T07:37:17.979Z"
+    },
+    {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-11-13T07:37:16.383Z"
+    },
+    {
       "filePath": "tv/biene maja.abc",
       "timestamp": "2026-11-13T07:34:41.076Z"
     },
@@ -5705,10 +5717,6 @@
       "timestamp": "2026-11-13T07:33:38.331Z"
     },
     {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-11-13T07:31:24.255Z"
-    },
-    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-13T07:28:36.978Z"
     },
@@ -5723,10 +5731,6 @@
     {
       "filePath": "film/imperial march.abc",
       "timestamp": "2026-11-13T07:23:22.452Z"
-    },
-    {
-      "filePath": "israeli/yerushalayim shel zahav.abc",
-      "timestamp": "2026-11-13T05:49:14.533Z"
     },
     {
       "filePath": "israeli/hevenu shalom aleichem.abc",
@@ -5747,10 +5751,6 @@
     {
       "filePath": "film/anything goes.abc",
       "timestamp": "2026-11-13T05:00:03.155Z"
-    },
-    {
-      "filePath": "film/little shop of horrors/somewhere thats green.abc",
-      "timestamp": "2026-11-12T15:57:52.571Z"
     },
     {
       "filePath": "armenian/little partridge.abc",
@@ -6226,7 +6226,7 @@
       "film/little shop of horrors/somewhere thats green.abc": 1,
       "film/pink panther.abc": 1,
       "israeli/hevenu shalom aleichem.abc": 1,
-      "israeli/yerushalayim shel zahav.abc": 1,
+      "israeli/yerushalayim shel zahav.abc": 2,
       "jazz/autumn leaves.abc": 1,
       "jazz/moon river.abc": 2,
       "tv/biene maja.abc": 2
@@ -7032,6 +7032,11 @@
       "path": "film/pink panther.abc",
       "status": "needs-practice",
       "at": "2026-11-13T07:27:28.935Z"
+    },
+    {
+      "path": "tv/biene maja.abc",
+      "status": "practicing",
+      "at": "2026-11-13T07:37:13.676Z"
     }
   ],
   "marks": {
