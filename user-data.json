@@ -1125,8 +1125,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T05:03:15.076Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-13T05:07:49.094Z",
+      "playCount": 3,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-10T12:10:19.521Z"
     },
@@ -5686,12 +5686,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
-      "filePath": "film/little shop of horrors/dentist.abc",
-      "timestamp": "2026-11-13T05:06:56.726Z"
+      "filePath": "film/imperial march.abc",
+      "timestamp": "2026-11-13T05:07:49.094Z"
     },
     {
-      "filePath": "film/imperial march.abc",
-      "timestamp": "2026-11-13T05:03:15.076Z"
+      "filePath": "film/little shop of horrors/dentist.abc",
+      "timestamp": "2026-11-13T05:06:56.726Z"
     },
     {
       "filePath": "film/anything goes.abc",
