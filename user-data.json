@@ -2284,8 +2284,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T07:37:28.221Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-13T08:00:17.107Z",
+      "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:25:54.091Z"
     },
@@ -5689,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/oborozukiyo.abc",
+      "timestamp": "2026-11-13T08:00:17.107Z"
+    },
+    {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-11-13T07:57:21.529Z"
     },
@@ -5763,10 +5767,6 @@
     {
       "filePath": "argentine/dos palomitas.abc",
       "timestamp": "2026-11-13T05:46:06.447Z"
-    },
-    {
-      "filePath": "film/little shop of horrors/dentist.abc",
-      "timestamp": "2026-11-13T05:06:56.726Z"
     }
   ],
   "activity": {
@@ -6230,6 +6230,7 @@
       "film/pink panther.abc": 1,
       "israeli/hevenu shalom aleichem.abc": 2,
       "israeli/yerushalayim shel zahav.abc": 3,
+      "japanese/oborozukiyo.abc": 1,
       "jazz/autumn leaves.abc": 1,
       "jazz/moon river.abc": 2,
       "pop/final_countdown.abc": 1,
