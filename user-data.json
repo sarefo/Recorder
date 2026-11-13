@@ -1347,8 +1347,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T09:08:40.744Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-13T09:17:06.905Z",
+      "playCount": 4,
       "createdAt": "2026-11-06T17:04:02.205Z",
       "updatedAt": "2026-11-13T07:27:28.935Z"
     },
@@ -5690,7 +5690,7 @@
   "recentlyPlayed": [
     {
       "filePath": "film/pink panther.abc",
-      "timestamp": "2026-11-13T09:08:40.744Z"
+      "timestamp": "2026-11-13T09:17:06.905Z"
     },
     {
       "filePath": "japanese/oborozukiyo.abc",
