@@ -47,8 +47,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T05:39:48.965Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-13T05:40:05.622Z",
+      "playCount": 7,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-11-13T05:28:52.004Z"
     },
@@ -223,8 +223,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-30T02:52:47.923Z",
-      "playCount": 18,
+      "lastPlayed": "2026-11-13T05:40:01.078Z",
+      "playCount": 19,
       "createdAt": "2026-09-27T06:51:55.209Z",
       "updatedAt": "2026-10-26T06:19:13.545Z"
     },
@@ -5689,7 +5689,11 @@
   "recentlyPlayed": [
     {
       "filePath": "argentine/dos palomitas.abc",
-      "timestamp": "2026-11-13T05:39:48.965Z"
+      "timestamp": "2026-11-13T05:40:05.622Z"
+    },
+    {
+      "filePath": "cajun/madame sosthene.abc",
+      "timestamp": "2026-11-13T05:40:01.078Z"
     },
     {
       "filePath": "american/which side are you on.abc",
@@ -5762,10 +5766,6 @@
     {
       "filePath": "tv/knight rider.abc",
       "timestamp": "2026-11-12T12:57:27.940Z"
-    },
-    {
-      "filePath": "tv/popeye.abc",
-      "timestamp": "2026-11-12T12:57:05.760Z"
     }
   ],
   "activity": {
@@ -9861,8 +9861,12 @@
       }
     },
     "cajun/madame sosthene.abc": {
-      "at": "2026-10-30T02:53:26.254Z",
+      "at": "2026-11-13T05:40:01.192Z",
       "notes": {
+        "2": {
+          "state": "red",
+          "pitch": "_B"
+        },
         "9": {
           "state": "green",
           "pitch": "F"
