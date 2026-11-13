@@ -30,8 +30,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-14T05:11:52.928Z",
-      "playCount": 13,
+      "lastPlayed": "2026-11-13T05:22:09.307Z",
+      "playCount": 14,
       "createdAt": "2026-07-28T06:53:46.507Z"
     },
     "american/which side are you on.abc": {
@@ -5686,6 +5686,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "american/when johnny comes marching home.abc",
+      "timestamp": "2026-11-13T05:22:09.307Z"
+    },
+    {
       "filePath": "film/imperial march.abc",
       "timestamp": "2026-11-13T05:14:08.478Z"
     },
@@ -5760,10 +5764,6 @@
     {
       "filePath": "tv/pippi longstocking.abc",
       "timestamp": "2026-11-12T12:55:16.585Z"
-    },
-    {
-      "filePath": "tv/hawaii five-o.abc",
-      "timestamp": "2026-11-12T12:54:58.603Z"
     }
   ],
   "activity": {
@@ -6214,6 +6214,7 @@
       "yiddish/dos kelbl.abc": 1
     },
     "2026-11-13": {
+      "american/when johnny comes marching home.abc": 2,
       "film/anything goes.abc": 1,
       "film/imperial march.abc": 7,
       "film/little shop of horrors/dentist.abc": 2,
@@ -12729,6 +12730,18 @@
       "at": "2026-11-13T05:20:25.918Z",
       "percent": 90,
       "bpm": 91.8
+    },
+    {
+      "path": "film/imperial march.abc",
+      "at": "2026-11-13T05:21:59.926Z",
+      "percent": 100,
+      "bpm": 102
+    },
+    {
+      "path": "film/imperial march.abc",
+      "at": "2026-11-13T05:22:00.093Z",
+      "percent": 100,
+      "bpm": 102
     }
   ],
   "settings": {}
