@@ -1122,13 +1122,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "film/imperial march.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-13T05:14:08.478Z",
       "playCount": 4,
       "createdAt": "2026-11-07T03:10:49.713Z",
-      "updatedAt": "2026-11-10T12:10:19.521Z"
+      "updatedAt": "2026-11-13T05:17:15.543Z"
     },
     "film/itsumo nando demo.abc": {
       "status": null,
@@ -6215,7 +6215,7 @@
     },
     "2026-11-13": {
       "film/anything goes.abc": 1,
-      "film/imperial march.abc": 3,
+      "film/imperial march.abc": 4,
       "film/little shop of horrors/dentist.abc": 2,
       "film/little shop of horrors/somewhere thats green.abc": 1
     }
@@ -7000,6 +7000,11 @@
       "path": "film/little shop of horrors/dentist.abc",
       "status": "needs-practice",
       "at": "2026-11-13T04:59:57.667Z"
+    },
+    {
+      "path": "film/imperial march.abc",
+      "status": "good",
+      "at": "2026-11-13T05:17:15.543Z"
     }
   ],
   "marks": {
