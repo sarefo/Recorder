@@ -47,8 +47,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T05:40:05.622Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-13T05:41:33.467Z",
+      "playCount": 8,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-11-13T05:28:52.004Z"
     },
@@ -5689,7 +5689,7 @@
   "recentlyPlayed": [
     {
       "filePath": "argentine/dos palomitas.abc",
-      "timestamp": "2026-11-13T05:40:05.622Z"
+      "timestamp": "2026-11-13T05:41:33.467Z"
     },
     {
       "filePath": "cajun/madame sosthene.abc",
