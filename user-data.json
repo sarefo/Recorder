@@ -30,8 +30,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T05:22:09.307Z",
-      "playCount": 14,
+      "lastPlayed": "2026-11-13T07:34:35.363Z",
+      "playCount": 15,
       "createdAt": "2026-07-28T06:53:46.507Z"
     },
     "american/which side are you on.abc": {
@@ -4992,8 +4992,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T13:45:23.510Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-13T07:34:41.076Z",
+      "playCount": 2,
       "createdAt": "2026-11-12T13:45:11.365Z",
       "updatedAt": "2026-11-12T13:47:06.638Z"
     },
@@ -5689,6 +5689,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/biene maja.abc",
+      "timestamp": "2026-11-13T07:34:41.076Z"
+    },
+    {
+      "filePath": "american/when johnny comes marching home.abc",
+      "timestamp": "2026-11-13T07:34:35.363Z"
+    },
+    {
       "filePath": "american/which side are you on.abc",
       "timestamp": "2026-11-13T07:33:40.416Z"
     },
@@ -5733,10 +5741,6 @@
       "timestamp": "2026-11-13T05:40:01.078Z"
     },
     {
-      "filePath": "american/when johnny comes marching home.abc",
-      "timestamp": "2026-11-13T05:22:09.307Z"
-    },
-    {
       "filePath": "film/little shop of horrors/dentist.abc",
       "timestamp": "2026-11-13T05:06:56.726Z"
     },
@@ -5755,10 +5759,6 @@
     {
       "filePath": "film/little shop of horrors.abc",
       "timestamp": "2026-11-12T13:47:41.700Z"
-    },
-    {
-      "filePath": "tv/biene maja.abc",
-      "timestamp": "2026-11-12T13:45:23.510Z"
     },
     {
       "filePath": "tv/spider-man.abc",
