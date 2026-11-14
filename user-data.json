@@ -1510,8 +1510,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T10:05:02.185Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-14T02:27:34.870Z",
+      "playCount": 2,
       "createdAt": "2026-10-26T13:35:37.999Z",
       "updatedAt": "2026-11-05T10:08:18.406Z"
     },
@@ -5689,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/hymne a l'amour.abc",
+      "timestamp": "2026-11-14T02:27:34.870Z"
+    },
+    {
       "filePath": "film/anything goes.abc",
       "timestamp": "2026-11-14T01:48:45.723Z"
     },
@@ -5763,10 +5767,6 @@
     {
       "filePath": "tv/yu-gi-oh.abc",
       "timestamp": "2026-11-13T07:33:38.331Z"
-    },
-    {
-      "filePath": "film/imperial march.abc",
-      "timestamp": "2026-11-13T07:23:22.452Z"
     }
   ],
   "activity": {
@@ -6238,7 +6238,8 @@
       "tv/biene maja.abc": 2
     },
     "2026-11-14": {
-      "film/anything goes.abc": 1
+      "film/anything goes.abc": 1,
+      "french/hymne a l'amour.abc": 1
     }
   },
   "statusLog": [
