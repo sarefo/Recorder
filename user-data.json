@@ -4547,8 +4547,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T09:52:48.640Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-14T10:39:38.508Z",
+      "playCount": 6,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/used to know.abc": {
@@ -5689,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/top of the world.abc",
+      "timestamp": "2026-11-14T10:39:38.508Z"
+    },
+    {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-11-14T07:40:14.502Z"
     },
@@ -5763,10 +5767,6 @@
     {
       "filePath": "jazz/blue moon.abc",
       "timestamp": "2026-11-13T07:48:03.633Z"
-    },
-    {
-      "filePath": "israeli/hevenu shalom aleichem.abc",
-      "timestamp": "2026-11-13T07:48:00.086Z"
     }
   ],
   "activity": {
@@ -6248,6 +6248,7 @@
       "occitan/adiu paure carnaval.abc": 1,
       "occitan/la cambo me fai mau.abc": 3,
       "pop/derniere danse.abc": 1,
+      "pop/top of the world.abc": 4,
       "scottish/francis_robertson.abc": 4
     }
   },
