@@ -65,8 +65,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:32:30.149Z",
-      "playCount": 34,
+      "lastPlayed": "2026-11-14T07:37:44.250Z",
+      "playCount": 35,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "austrian/es wird scho gleich dumpa.abc": {
@@ -5689,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "australian/waltzing matilda.abc",
+      "timestamp": "2026-11-14T07:37:44.250Z"
+    },
+    {
       "filePath": "film/imperial march.abc",
       "timestamp": "2026-11-14T07:31:51.525Z"
     },
@@ -5763,10 +5767,6 @@
     {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-13T07:47:56.866Z"
-    },
-    {
-      "filePath": "tv/the waltons.abc",
-      "timestamp": "2026-11-13T07:47:54.785Z"
     }
   ],
   "activity": {
@@ -6238,6 +6238,7 @@
       "tv/biene maja.abc": 2
     },
     "2026-11-14": {
+      "australian/waltzing matilda.abc": 1,
       "film/anything goes.abc": 1,
       "film/imperial march.abc": 2,
       "french/hymne a l'amour.abc": 1,
