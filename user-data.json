@@ -6250,7 +6250,7 @@
       "occitan/adiu paure carnaval.abc": 1,
       "occitan/la cambo me fai mau.abc": 3,
       "pop/derniere danse.abc": 1,
-      "pop/mr sandman.abc": 1,
+      "pop/mr sandman.abc": 2,
       "pop/top of the world.abc": 4,
       "scottish/francis_robertson.abc": 4,
       "trinidadian/jump in the line.abc": 2,
@@ -9179,6 +9179,14 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-26T11:24:54.438Z"
+      },
+      "47": {
+        "pitch": "_d",
+        "prev": "_B",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-14T10:56:59.886Z"
       }
     },
     "pop/no doubt/don't speak.abc": {
@@ -11433,7 +11441,7 @@
       }
     },
     "pop/mr sandman.abc": {
-      "at": "2026-10-26T11:24:43.911Z",
+      "at": "2026-11-14T10:56:49.879Z",
       "notes": {
         "12": {
           "state": "red",
@@ -11442,6 +11450,10 @@
         "19": {
           "state": "red",
           "pitch": "_E"
+        },
+        "47": {
+          "state": "red",
+          "pitch": "_d"
         }
       }
     },
