@@ -4924,8 +4924,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T10:52:51.839Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-14T10:44:12.490Z",
+      "playCount": 11,
       "createdAt": "2026-08-31T03:23:32.151Z",
       "updatedAt": "2026-10-08T07:29:58.605Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "trinidadian/matilda.abc",
+      "timestamp": "2026-11-14T10:44:12.490Z"
+    },
+    {
       "filePath": "trinidadian/jump in the line.abc",
       "timestamp": "2026-11-14T10:43:28.506Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "film/here's to you.abc",
       "timestamp": "2026-11-13T07:53:49.643Z"
-    },
-    {
-      "filePath": "tv/biene maja.abc",
-      "timestamp": "2026-11-13T07:48:08.554Z"
     }
   ],
   "activity": {
@@ -6252,6 +6252,7 @@
       "pop/top of the world.abc": 4,
       "scottish/francis_robertson.abc": 4,
       "trinidadian/jump in the line.abc": 2,
+      "trinidadian/matilda.abc": 1,
       "tv/happy days.abc": 1
     }
   },
