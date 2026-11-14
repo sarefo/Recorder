@@ -4915,8 +4915,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:18:11.692Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-14T10:43:28.506Z",
+      "playCount": 11,
       "createdAt": "2026-08-31T03:23:32.148Z",
       "updatedAt": "2026-11-01T04:32:22.445Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "trinidadian/jump in the line.abc",
+      "timestamp": "2026-11-14T10:43:28.506Z"
+    },
+    {
       "filePath": "tv/happy days.abc",
       "timestamp": "2026-11-14T10:42:06.646Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "tv/biene maja.abc",
       "timestamp": "2026-11-13T07:48:08.554Z"
-    },
-    {
-      "filePath": "american/when johnny comes marching home.abc",
-      "timestamp": "2026-11-13T07:48:05.294Z"
     }
   ],
   "activity": {
@@ -6251,6 +6251,7 @@
       "pop/derniere danse.abc": 1,
       "pop/top of the world.abc": 4,
       "scottish/francis_robertson.abc": 4,
+      "trinidadian/jump in the line.abc": 2,
       "tv/happy days.abc": 1
     }
   },
