@@ -420,8 +420,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T12:17:27.358Z",
-      "playCount": 15,
+      "lastPlayed": "2026-11-14T10:52:34.523Z",
+      "playCount": 16,
       "createdAt": "2026-09-26T04:52:58.455Z",
       "updatedAt": "2026-10-22T05:47:42.192Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/badinerie.abc",
+      "timestamp": "2026-11-14T10:52:34.523Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-11-14T10:47:51.070Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "film/pink panther.abc",
       "timestamp": "2026-11-13T09:17:06.905Z"
-    },
-    {
-      "filePath": "japanese/oborozukiyo.abc",
-      "timestamp": "2026-11-13T09:08:29.808Z"
     }
   ],
   "activity": {
