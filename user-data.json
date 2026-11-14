@@ -4544,12 +4544,13 @@
       "createdAt": "2026-10-15T10:27:48.810Z"
     },
     "pop/top of the world.abc": {
-      "status": null,
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-14T10:39:38.508Z",
       "playCount": 6,
-      "createdAt": "2026-01-18T20:46:38.367Z"
+      "createdAt": "2026-01-18T20:46:38.367Z",
+      "updatedAt": "2026-11-14T10:42:02.929Z"
     },
     "pop/used to know.abc": {
       "status": null,
@@ -5184,8 +5185,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T12:54:32.106Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-14T10:42:06.646Z",
+      "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-12T12:54:55.422Z"
     },
@@ -5689,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/happy days.abc",
+      "timestamp": "2026-11-14T10:42:06.646Z"
+    },
+    {
       "filePath": "pop/top of the world.abc",
       "timestamp": "2026-11-14T10:39:38.508Z"
     },
@@ -5763,10 +5768,6 @@
     {
       "filePath": "american/when johnny comes marching home.abc",
       "timestamp": "2026-11-13T07:48:05.294Z"
-    },
-    {
-      "filePath": "jazz/blue moon.abc",
-      "timestamp": "2026-11-13T07:48:03.633Z"
     }
   ],
   "activity": {
@@ -6249,7 +6250,8 @@
       "occitan/la cambo me fai mau.abc": 3,
       "pop/derniere danse.abc": 1,
       "pop/top of the world.abc": 4,
-      "scottish/francis_robertson.abc": 4
+      "scottish/francis_robertson.abc": 4,
+      "tv/happy days.abc": 1
     }
   },
   "statusLog": [
@@ -7067,6 +7069,11 @@
       "path": "pop/derniere danse.abc",
       "status": "good",
       "at": "2026-11-14T02:31:44.969Z"
+    },
+    {
+      "path": "pop/top of the world.abc",
+      "status": "practicing",
+      "at": "2026-11-14T10:42:02.929Z"
     }
   ],
   "marks": {
