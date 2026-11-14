@@ -1876,8 +1876,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T01:39:44.832Z",
-      "playCount": 18,
+      "lastPlayed": "2026-11-14T07:27:43.774Z",
+      "playCount": 19,
       "createdAt": "2026-07-30T09:51:53.099Z",
       "updatedAt": "2026-11-02T09:45:05.398Z"
     },
@@ -5689,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "irish/johnny i hardly knew ya.abc",
+      "timestamp": "2026-11-14T07:27:43.774Z"
+    },
+    {
       "filePath": "scottish/francis_robertson.abc",
       "timestamp": "2026-11-14T02:31:46.743Z"
     },
@@ -5763,10 +5767,6 @@
     {
       "filePath": "israeli/yerushalayim shel zahav.abc",
       "timestamp": "2026-11-13T07:37:20.717Z"
-    },
-    {
-      "filePath": "american/which side are you on.abc",
-      "timestamp": "2026-11-13T07:33:40.416Z"
     }
   ],
   "activity": {
@@ -6240,6 +6240,7 @@
     "2026-11-14": {
       "film/anything goes.abc": 1,
       "french/hymne a l'amour.abc": 1,
+      "irish/johnny i hardly knew ya.abc": 2,
       "pop/derniere danse.abc": 1,
       "scottish/francis_robertson.abc": 4
     }
