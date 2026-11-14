@@ -4256,13 +4256,13 @@
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/derniere danse.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-14T02:29:18.720Z",
       "playCount": 10,
       "createdAt": "2026-10-14T17:54:41.333Z",
-      "updatedAt": "2026-10-17T10:46:06.768Z"
+      "updatedAt": "2026-11-14T02:31:44.969Z"
     },
     "pop/earth angel.abc": {
       "status": null,
@@ -4727,8 +4727,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:48:19.249Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-14T02:31:46.743Z",
+      "playCount": 10,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-25T10:01:51.085Z"
     },
@@ -5689,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/francis_robertson.abc",
+      "timestamp": "2026-11-14T02:31:46.743Z"
+    },
+    {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-11-14T02:29:18.720Z"
     },
@@ -5719,10 +5723,6 @@
     {
       "filePath": "film/here's to you.abc",
       "timestamp": "2026-11-13T07:53:49.643Z"
-    },
-    {
-      "filePath": "scottish/francis_robertson.abc",
-      "timestamp": "2026-11-13T07:48:19.249Z"
     },
     {
       "filePath": "tv/biene maja.abc",
@@ -6240,7 +6240,8 @@
     "2026-11-14": {
       "film/anything goes.abc": 1,
       "french/hymne a l'amour.abc": 1,
-      "pop/derniere danse.abc": 1
+      "pop/derniere danse.abc": 1,
+      "scottish/francis_robertson.abc": 1
     }
   },
   "statusLog": [
@@ -7053,6 +7054,11 @@
       "path": "israeli/yerushalayim shel zahav.abc",
       "status": "good",
       "at": "2026-11-13T07:41:30.859Z"
+    },
+    {
+      "path": "pop/derniere danse.abc",
+      "status": "good",
+      "at": "2026-11-14T02:31:44.969Z"
     }
   ],
   "marks": {
@@ -12977,6 +12983,12 @@
       "at": "2026-11-14T02:29:17.297Z",
       "percent": 100,
       "bpm": 95
+    },
+    {
+      "path": "pop/derniere danse.abc",
+      "at": "2026-11-14T02:31:42.761Z",
+      "percent": 100,
+      "bpm": 115
     }
   ],
   "settings": {}
