@@ -1876,8 +1876,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-14T07:27:43.774Z",
-      "playCount": 19,
+      "lastPlayed": "2026-11-14T10:55:14.340Z",
+      "playCount": 20,
       "createdAt": "2026-07-30T09:51:53.099Z",
       "updatedAt": "2026-11-02T09:45:05.398Z"
     },
@@ -4430,8 +4430,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-29T03:17:35.445Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-14T10:55:16.449Z",
+      "playCount": 6,
       "createdAt": "2026-10-26T11:24:25.705Z",
       "updatedAt": "2026-10-26T11:24:40.651Z"
     },
@@ -5690,6 +5690,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/mr sandman.abc",
+      "timestamp": "2026-11-14T10:55:16.449Z"
+    },
+    {
+      "filePath": "irish/johnny i hardly knew ya.abc",
+      "timestamp": "2026-11-14T10:55:14.340Z"
+    },
+    {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-11-14T10:52:34.523Z"
     },
@@ -5746,10 +5754,6 @@
       "timestamp": "2026-11-14T07:29:00.649Z"
     },
     {
-      "filePath": "irish/johnny i hardly knew ya.abc",
-      "timestamp": "2026-11-14T07:27:43.774Z"
-    },
-    {
       "filePath": "scottish/francis_robertson.abc",
       "timestamp": "2026-11-14T02:31:46.743Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "film/anything goes.abc",
       "timestamp": "2026-11-14T01:48:45.723Z"
-    },
-    {
-      "filePath": "film/pink panther.abc",
-      "timestamp": "2026-11-13T09:17:06.905Z"
     }
   ],
   "activity": {
@@ -6250,6 +6250,7 @@
       "occitan/adiu paure carnaval.abc": 1,
       "occitan/la cambo me fai mau.abc": 3,
       "pop/derniere danse.abc": 1,
+      "pop/mr sandman.abc": 1,
       "pop/top of the world.abc": 4,
       "scottish/francis_robertson.abc": 4,
       "trinidadian/jump in the line.abc": 2,
