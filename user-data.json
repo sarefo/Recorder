@@ -5527,8 +5527,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T13:19:04.235Z",
-      "playCount": 13,
+      "lastPlayed": "2026-11-14T10:59:31.944Z",
+      "playCount": 14,
       "createdAt": "2026-08-01T08:03:26.600Z",
       "updatedAt": "2026-11-03T13:20:44.905Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "ukrainian/nich yaka misyachna.abc",
+      "timestamp": "2026-11-14T10:59:31.944Z"
+    },
+    {
       "filePath": "japanese/hama chidori.abc",
       "timestamp": "2026-11-14T10:58:08.556Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "pop/derniere danse.abc",
       "timestamp": "2026-11-14T02:29:18.720Z"
-    },
-    {
-      "filePath": "french/hymne a l'amour.abc",
-      "timestamp": "2026-11-14T02:27:34.870Z"
     }
   ],
   "activity": {
@@ -6256,7 +6256,8 @@
       "scottish/francis_robertson.abc": 4,
       "trinidadian/jump in the line.abc": 2,
       "trinidadian/matilda.abc": 1,
-      "tv/happy days.abc": 1
+      "tv/happy days.abc": 1,
+      "ukrainian/nich yaka misyachna.abc": 2
     }
   },
   "statusLog": [
