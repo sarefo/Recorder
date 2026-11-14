@@ -4259,8 +4259,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:20:40.364Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-14T02:29:18.720Z",
+      "playCount": 10,
       "createdAt": "2026-10-14T17:54:41.333Z",
       "updatedAt": "2026-10-17T10:46:06.768Z"
     },
@@ -5689,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/derniere danse.abc",
+      "timestamp": "2026-11-14T02:29:18.720Z"
+    },
+    {
       "filePath": "french/hymne a l'amour.abc",
       "timestamp": "2026-11-14T02:27:34.870Z"
     },
@@ -5763,10 +5767,6 @@
     {
       "filePath": "american/which side are you on.abc",
       "timestamp": "2026-11-13T07:33:40.416Z"
-    },
-    {
-      "filePath": "tv/yu-gi-oh.abc",
-      "timestamp": "2026-11-13T07:33:38.331Z"
     }
   ],
   "activity": {
@@ -6239,7 +6239,8 @@
     },
     "2026-11-14": {
       "film/anything goes.abc": 1,
-      "french/hymne a l'amour.abc": 1
+      "french/hymne a l'amour.abc": 1,
+      "pop/derniere danse.abc": 1
     }
   },
   "statusLog": [
@@ -12970,6 +12971,12 @@
       "at": "2026-11-13T07:41:32.658Z",
       "percent": 100,
       "bpm": 84
+    },
+    {
+      "path": "french/hymne a l'amour.abc",
+      "at": "2026-11-14T02:29:17.297Z",
+      "percent": 100,
+      "bpm": 95
     }
   ],
   "settings": {}
