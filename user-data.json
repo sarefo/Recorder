@@ -9853,6 +9853,14 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-11-03T13:19:14.348Z"
+      },
+      "40": {
+        "pitch": "_e",
+        "prev": null,
+        "pitchSeen": 4,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-14T11:00:24.841Z"
       }
     },
     "yiddish/bei mir bist du schon.abc": {
@@ -11965,13 +11973,17 @@
       }
     },
     "ukrainian/nich yaka misyachna.abc": {
-      "at": "2026-11-03T13:19:04.345Z",
+      "at": "2026-11-14T11:00:14.836Z",
       "notes": {
         "16": {
           "state": "red",
           "pitch": "_B"
         },
         "25": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "40": {
           "state": "red",
           "pitch": "_e"
         }
