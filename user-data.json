@@ -2196,8 +2196,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T05:13:52.425Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-14T10:58:08.556Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:17:12.965Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hama chidori.abc",
+      "timestamp": "2026-11-14T10:58:08.556Z"
+    },
+    {
       "filePath": "pop/mr sandman.abc",
       "timestamp": "2026-11-14T10:55:16.449Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "french/hymne a l'amour.abc",
       "timestamp": "2026-11-14T02:27:34.870Z"
-    },
-    {
-      "filePath": "film/anything goes.abc",
-      "timestamp": "2026-11-14T01:48:45.723Z"
     }
   ],
   "activity": {
@@ -6245,6 +6245,7 @@
       "french/hymne a l'amour.abc": 1,
       "irish/johnny i hardly knew ya.abc": 2,
       "jamaican/banana boat song.abc": 2,
+      "japanese/hama chidori.abc": 2,
       "japanese/hana.abc": 2,
       "jazz/blue bossa.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
