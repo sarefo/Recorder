@@ -2364,8 +2364,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T01:42:10.174Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-14T07:39:11.909Z",
+      "playCount": 3,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-04T01:45:32.242Z"
     },
@@ -5689,6 +5689,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/blue bossa.abc",
+      "timestamp": "2026-11-14T07:39:11.909Z"
+    },
+    {
       "filePath": "australian/waltzing matilda.abc",
       "timestamp": "2026-11-14T07:37:44.250Z"
     },
@@ -5763,10 +5767,6 @@
     {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-13T07:47:58.415Z"
-    },
-    {
-      "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-13T07:47:56.866Z"
     }
   ],
   "activity": {
@@ -6243,6 +6243,7 @@
       "film/imperial march.abc": 2,
       "french/hymne a l'amour.abc": 1,
       "irish/johnny i hardly knew ya.abc": 2,
+      "jazz/blue bossa.abc": 1,
       "occitan/adiu paure carnaval.abc": 1,
       "occitan/la cambo me fai mau.abc": 3,
       "pop/derniere danse.abc": 1,
