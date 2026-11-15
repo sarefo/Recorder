@@ -4993,8 +4993,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:48:08.554Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-15T04:37:30.940Z",
+      "playCount": 6,
       "createdAt": "2026-11-12T13:45:11.365Z",
       "updatedAt": "2026-11-13T07:37:13.676Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/biene maja.abc",
+      "timestamp": "2026-11-15T04:37:30.940Z"
+    },
+    {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-11-15T04:35:04.834Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "jazz/blue bossa.abc",
       "timestamp": "2026-11-14T07:39:11.909Z"
-    },
-    {
-      "filePath": "australian/waltzing matilda.abc",
-      "timestamp": "2026-11-14T07:37:44.250Z"
     }
   ],
   "activity": {
