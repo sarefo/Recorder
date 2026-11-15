@@ -1,14 +1,22 @@
 X: 1
 T: I Dream of Jeannie
 O: Hugo Montenegro, 1966
-N: From a hamienet.com MIDI (id 352766908564040): A part from channel 5,
-N: B part from the lower octave of channel 2. Chords are fitted.
-N: CHECK: only one arrangement found, so nothing to compare it with.
+N: The season 2-5 theme "Jeannie"; season 1 used a waltz by Richard Wess.
+N: From a hamienet.com MIDI (id 352766908564040): A part from channel 5
+N: (muted trumpet), B part from the lower octave of channel 2 (brass).
+N: Form as in the arrangement: A twice, B, A twice, then the Eb-E-F tag.
+N: B-section chords read off the MIDI's bass line (Db-Ab-Gb, i.e. the
+N: B part is in Db major); A-section chords fitted.
+N: CHECK: only one arrangement of this theme exists anywhere (id 13034 is
+N: this MIDI re-uploaded), so the Db-major B part rests on one sequencer.
 L: 1/8
 Q: 1/4=215
 M: 4/4
 K: F
-"Gm"G3 d z3 d |"C"zc ze dz cz |"Dm"F3 d z3 d |"C"zc ze dz cz |
-"Gm"G3 d z3 d |"C"zc ze dz cz |"Dm"F2 z6 |"Dm"z8 |
-"F"f3 f4 f |"Bbm"zf zf _e2 _d2 |"Cm"_e3 c4 e |"Cm"z_e ze _d2 c2 |
-"Bbm"_d3 B4 d|"Bbm"z_d zd c2 B2|"C7"c3 c3 c2|"F"zd zc B2 A2|]
+|:"Gm"G3 d z3 d |"C"zc ze dz cz |"Dm"F3 d z3 d |"C"zc ze dz cz |
+"Gm"G3 d z3 d |"C"zc ze dz cz |"Dm"F2 z6 |"Dm"z8 :|
+"Db"f3 f4 f |"Bbm"zf zf _e2 _d2 |"Ab"_e3 c4 e |"Ab"z_e ze _d2 c2 |
+"Gb"_d3 B4 d|"Gb"z_d zd c2 B2|"F"c3 c3 c2|"C7"zd zc B2 A2 |
+|:"Gm"G3 d z3 d |"C"zc ze dz cz |"Dm"F3 d z3 d |"C"zc ze dz cz |
+"Gm"G3 d z3 d |"C"zc ze dz cz |"Dm"F2 z6 |"Dm"z8 :|
+"Eb"_e2 "E"=e2 "F"f4 |]
