@@ -5352,8 +5352,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T07:26:58.721Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-15T16:12:26.534Z",
+      "playCount": 3,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-15T07:30:26.766Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/star trek.abc",
+      "timestamp": "2026-11-15T16:12:26.534Z"
+    },
+    {
       "filePath": "chinese/molihua.abc",
       "timestamp": "2026-11-15T07:39:12.227Z"
     },
@@ -5704,10 +5708,6 @@
     {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-11-15T07:33:11.553Z"
-    },
-    {
-      "filePath": "tv/star trek.abc",
-      "timestamp": "2026-11-15T07:26:58.721Z"
     },
     {
       "filePath": "french/douce dame jolie.abc",
