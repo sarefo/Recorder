@@ -2484,8 +2484,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T01:41:01.374Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-15T07:17:04.209Z",
+      "playCount": 5,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-03T01:42:47.292Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/summertime.abc",
+      "timestamp": "2026-11-15T07:17:04.209Z"
+    },
+    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-15T07:14:24.297Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "tv/biene maja.abc",
       "timestamp": "2026-11-15T04:37:30.940Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-11-15T04:35:04.834Z"
     }
   ],
   "activity": {
@@ -6262,6 +6262,7 @@
     "2026-11-15": {
       "jazz/moon river.abc": 2,
       "jazz/my funny valentine.abc": 1,
+      "jazz/summertime.abc": 2,
       "pop/final_countdown.abc": 1,
       "tv/i dream of jeannie.abc": 6
     }
