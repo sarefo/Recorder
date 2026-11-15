@@ -2107,8 +2107,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T10:20:21.250Z",
-      "playCount": 11,
+      "lastPlayed": "2026-11-15T07:20:28.793Z",
+      "playCount": 12,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T06:21:30.721Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/bella ciao.abc",
+      "timestamp": "2026-11-15T07:20:28.793Z"
+    },
+    {
       "filePath": "jazz/summertime.abc",
       "timestamp": "2026-11-15T07:17:04.209Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "tv/the waltons.abc",
       "timestamp": "2026-11-15T04:40:52.430Z"
-    },
-    {
-      "filePath": "tv/biene maja.abc",
-      "timestamp": "2026-11-15T04:37:30.940Z"
     }
   ],
   "activity": {
