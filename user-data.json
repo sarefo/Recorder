@@ -5352,8 +5352,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T16:12:26.534Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-15T16:35:58.415Z",
+      "playCount": 4,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-15T07:30:26.766Z"
     },
@@ -5691,7 +5691,7 @@
   "recentlyPlayed": [
     {
       "filePath": "tv/star trek.abc",
-      "timestamp": "2026-11-15T16:12:26.534Z"
+      "timestamp": "2026-11-15T16:35:58.415Z"
     },
     {
       "filePath": "chinese/molihua.abc",
@@ -6274,7 +6274,7 @@
       "tv/star trek.abc": 4
     },
     "2026-11-16": {
-      "tv/star trek.abc": 2
+      "tv/star trek.abc": 5
     }
   },
   "statusLog": [
