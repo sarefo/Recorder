@@ -2214,8 +2214,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-14T07:40:14.502Z",
-      "playCount": 46,
+      "lastPlayed": "2026-11-15T07:33:11.553Z",
+      "playCount": 47,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/hanagasa ondo.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hana.abc",
+      "timestamp": "2026-11-15T07:33:11.553Z"
+    },
+    {
       "filePath": "tv/star trek.abc",
       "timestamp": "2026-11-15T07:26:58.721Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "tv/knight rider.abc",
       "timestamp": "2026-11-15T04:49:51.859Z"
-    },
-    {
-      "filePath": "film/imperial march.abc",
-      "timestamp": "2026-11-15T04:47:30.154Z"
     }
   ],
   "activity": {
@@ -6262,6 +6262,7 @@
     "2026-11-15": {
       "french/douce dame jolie.abc": 1,
       "italian/bella ciao.abc": 3,
+      "japanese/hana.abc": 1,
       "jazz/moon river.abc": 2,
       "jazz/my funny valentine.abc": 1,
       "jazz/summertime.abc": 2,
