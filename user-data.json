@@ -4612,8 +4612,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-13T11:18:39.689Z",
-      "playCount": 16,
+      "lastPlayed": "2026-11-15T04:51:59.857Z",
+      "playCount": 17,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "russian/russian hymn.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "russian/korobeiniki.abc",
+      "timestamp": "2026-11-15T04:51:59.857Z"
+    },
+    {
       "filePath": "tv/knight rider.abc",
       "timestamp": "2026-11-15T04:49:51.859Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "jamaican/banana boat song.abc",
       "timestamp": "2026-11-14T10:45:17.733Z"
-    },
-    {
-      "filePath": "trinidadian/matilda.abc",
-      "timestamp": "2026-11-14T10:44:12.490Z"
     }
   ],
   "activity": {
@@ -9349,6 +9349,16 @@
         "at": "2026-11-02T13:50:21.564Z"
       }
     },
+    "russian/korobeiniki.abc": {
+      "22": {
+        "pitch": "_B",
+        "prev": "G",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-15T04:52:09.966Z"
+      }
+    },
     "scottish/atholl_braes_1.abc": {
       "46": {
         "pitch": "B",
@@ -11634,6 +11644,15 @@
       "at": "2026-11-04T01:42:05.910Z",
       "notes": {
         "11": {
+          "state": "red",
+          "pitch": "_B"
+        }
+      }
+    },
+    "russian/korobeiniki.abc": {
+      "at": "2026-11-15T04:51:59.964Z",
+      "notes": {
+        "22": {
           "state": "red",
           "pitch": "_B"
         }
