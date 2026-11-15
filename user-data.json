@@ -5352,8 +5352,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T12:07:45.952Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-15T07:26:58.721Z",
+      "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-10T12:08:03.953Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/star trek.abc",
+      "timestamp": "2026-11-15T07:26:58.721Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-11-15T07:24:28.064Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "film/imperial march.abc",
       "timestamp": "2026-11-15T04:47:30.154Z"
-    },
-    {
-      "filePath": "tv/pippi longstocking.abc",
-      "timestamp": "2026-11-15T04:45:36.112Z"
     }
   ],
   "activity": {
@@ -6266,7 +6266,8 @@
       "jazz/my funny valentine.abc": 1,
       "jazz/summertime.abc": 2,
       "pop/final_countdown.abc": 1,
-      "tv/i dream of jeannie.abc": 6
+      "tv/i dream of jeannie.abc": 6,
+      "tv/star trek.abc": 2
     }
   },
   "statusLog": [
@@ -9979,6 +9980,14 @@
         "transSeen": 3,
         "count": 1,
         "at": "2026-11-10T12:07:56.060Z"
+      },
+      "13": {
+        "pitch": "_e",
+        "prev": "f",
+        "pitchSeen": 3,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-15T07:27:35.636Z"
       }
     },
     "tv/the smurfs.abc": {
@@ -12204,7 +12213,7 @@
       }
     },
     "tv/star trek.abc": {
-      "at": "2026-11-10T12:07:46.057Z",
+      "at": "2026-11-15T07:27:25.623Z",
       "notes": {
         "1": {
           "state": "red",
@@ -12213,6 +12222,10 @@
         "5": {
           "state": "red",
           "pitch": "_B"
+        },
+        "13": {
+          "state": "red",
+          "pitch": "_e"
         }
       }
     },
