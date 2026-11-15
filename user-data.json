@@ -1649,8 +1649,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T10:16:41.788Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-15T04:25:52.189Z",
+      "playCount": 8,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-30T05:10:04.894Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es ist ein schnitter.abc",
+      "timestamp": "2026-11-15T04:25:52.189Z"
+    },
+    {
       "filePath": "ukrainian/nich yaka misyachna.abc",
       "timestamp": "2026-11-14T10:59:31.944Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "scottish/francis_robertson.abc",
       "timestamp": "2026-11-14T02:31:46.743Z"
-    },
-    {
-      "filePath": "pop/derniere danse.abc",
-      "timestamp": "2026-11-14T02:29:18.720Z"
     }
   ],
   "activity": {
