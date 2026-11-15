@@ -394,8 +394,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T06:55:25.017Z",
-      "playCount": 23,
+      "lastPlayed": "2026-11-15T07:37:12.774Z",
+      "playCount": 24,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/zou xikou.abc",
+      "timestamp": "2026-11-15T07:37:12.774Z"
+    },
+    {
       "filePath": "japanese/kojo no tsuki.abc",
       "timestamp": "2026-11-15T07:35:56.080Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "film/here's to you.abc",
       "timestamp": "2026-11-15T04:53:17.110Z"
-    },
-    {
-      "filePath": "russian/korobeiniki.abc",
-      "timestamp": "2026-11-15T04:51:59.857Z"
     }
   ],
   "activity": {
@@ -6260,6 +6260,7 @@
       "ukrainian/nich yaka misyachna.abc": 2
     },
     "2026-11-15": {
+      "chinese/zou xikou.abc": 2,
       "french/douce dame jolie.abc": 1,
       "italian/bella ciao.abc": 3,
       "japanese/hana.abc": 1,
