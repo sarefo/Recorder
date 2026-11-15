@@ -9433,6 +9433,24 @@
         "at": "2026-10-25T10:20:24.827Z"
       }
     },
+    "scottish/fang_fiddlers.abc": {
+      "60": {
+        "pitch": "A",
+        "prev": "c",
+        "pitchSeen": 8,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-15T04:30:04.286Z"
+      },
+      "62": {
+        "pitch": "E",
+        "prev": "c",
+        "pitchSeen": 9,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-15T04:30:05.063Z"
+      }
+    },
     "scottish/francis_robertson.abc": {
       "22": {
         "pitch": "_B",
@@ -11654,6 +11672,19 @@
         "86": {
           "state": "red",
           "pitch": "A"
+        }
+      }
+    },
+    "scottish/fang_fiddlers.abc": {
+      "at": "2026-11-15T04:29:55.059Z",
+      "notes": {
+        "60": {
+          "state": "red",
+          "pitch": "A"
+        },
+        "62": {
+          "state": "red",
+          "pitch": "E"
         }
       }
     },
