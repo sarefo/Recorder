@@ -165,8 +165,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T10:05:17.303Z",
-      "playCount": 14,
+      "lastPlayed": "2026-11-15T04:35:04.834Z",
+      "playCount": 15,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-17T05:42:00.320Z"
     },
@@ -2148,13 +2148,13 @@
       "updatedAt": "2026-10-25T05:06:42.544Z"
     },
     "japanese/akatombo.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-15T04:33:19.315Z",
       "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.432Z",
-      "updatedAt": "2026-10-25T05:07:58.382Z"
+      "updatedAt": "2026-11-15T04:35:01.778Z"
     },
     "japanese/doko ka de haru ga.abc": {
       "status": "needs-practice",
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-11-15T04:35:04.834Z"
+    },
+    {
       "filePath": "japanese/akatombo.abc",
       "timestamp": "2026-11-15T04:33:19.315Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "australian/waltzing matilda.abc",
       "timestamp": "2026-11-14T07:37:44.250Z"
-    },
-    {
-      "filePath": "film/imperial march.abc",
-      "timestamp": "2026-11-14T07:31:51.525Z"
     }
   ],
   "activity": {
@@ -7080,6 +7080,11 @@
       "path": "pop/top of the world.abc",
       "status": "practicing",
       "at": "2026-11-14T10:42:02.929Z"
+    },
+    {
+      "path": "japanese/akatombo.abc",
+      "status": "practicing",
+      "at": "2026-11-15T04:35:01.778Z"
     }
   ],
   "marks": {
