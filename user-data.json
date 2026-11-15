@@ -2133,8 +2133,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-14T10:45:17.733Z",
-      "playCount": 19,
+      "lastPlayed": "2026-11-15T05:02:02.280Z",
+      "playCount": 20,
       "createdAt": "2026-08-01T08:54:31.908Z",
       "updatedAt": "2026-11-01T10:15:51.983Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jamaican/banana boat song.abc",
+      "timestamp": "2026-11-15T05:02:02.280Z"
+    },
+    {
       "filePath": "classical/bach/chorales/meine seele erhebet den herrn.abc",
       "timestamp": "2026-11-15T05:01:16.232Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "scottish/fang_fiddlers.abc",
       "timestamp": "2026-11-15T04:27:16.176Z"
-    },
-    {
-      "filePath": "german/es ist ein schnitter.abc",
-      "timestamp": "2026-11-15T04:25:52.189Z"
     }
   ],
   "activity": {
