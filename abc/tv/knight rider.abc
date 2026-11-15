@@ -6,6 +6,6 @@ N: CHECK: only one arrangement has this line.
 L: 1/8
 Q: 1/4=120
 M: 4/4
-K: C
-"G7"C^C/=C/ G4 z2 |"G7"z^c/=c/ G4 z2 |"G7"C^C/=C/ Gc ^A4- |"G7"^A2 z2 z4 |
-"G7"z4 C^C/=C/ G2- |"G7"G2 z2 c^c/=c/ G2- |"G7"G3 z C^C/=C/ Gc |"G7"^c8 |]
+K: F
+"C7"F^F/=F/ c4 z2 |"C7"z^f/=f/ c4 z2 |"C7"F^F/=F/ cf ^d4- |"C7"^d2 z2 z4 |
+"C7"z4 F^F/=F/ c2- |"C7"c2 z2 f^f/=f/ c2- |"C7"c3 z F^F/=F/ cf |"C7"^f8 |]
