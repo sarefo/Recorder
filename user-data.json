@@ -5349,13 +5349,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/star trek.abc": {
-      "status": "needs-practice",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-15T07:26:58.721Z",
       "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
-      "updatedAt": "2026-11-10T12:08:03.953Z"
+      "updatedAt": "2026-11-15T07:30:26.766Z"
     },
     "tv/taxi.abc": {
       "status": "needs-practice",
@@ -6267,7 +6267,7 @@
       "jazz/summertime.abc": 2,
       "pop/final_countdown.abc": 1,
       "tv/i dream of jeannie.abc": 6,
-      "tv/star trek.abc": 2
+      "tv/star trek.abc": 3
     }
   },
   "statusLog": [
@@ -7115,6 +7115,11 @@
       "path": "jazz/my funny valentine.abc",
       "status": "good",
       "at": "2026-11-15T07:14:19.689Z"
+    },
+    {
+      "path": "tv/star trek.abc",
+      "status": "good",
+      "at": "2026-11-15T07:30:26.766Z"
     }
   ],
   "marks": {
