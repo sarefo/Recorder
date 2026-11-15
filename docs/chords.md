@@ -110,3 +110,18 @@ follows the cadence notes.
   match our pitches note for note; the 16 bars are the soprano's complete
   statement (the source's final Bb5 is an octave double, out of recorder
   range). Fixed the N: MIDI id typo (was 3527669517973527).
+- 2026-11-16: second pass on `tv/star trek.abc` - the triad spellings were
+  the problem, not the roots. The source voices its beguine stride without
+  thirds in the Gb, Eb, D, G and C zones, so plain Gb/Eb/D/G triads added
+  a Bb under the held Ab (bars 3-4), a G under the held A (bar 7) and an F
+  under the Ab lean (bar 12) - all rubbing at strum strength. Bars 3-4 are
+  now Gbsus2 (Gb-Ab-Db, the melody note is a chord tone), bar 7 Eb5, bar 13
+  G5, bar 14 Cm/F (the harp's Cm over the bass's F stride). Bar 6 is Bb all
+  bar (the Eb chord starts bar 7 in the source), bar 10 Ab all bar with Dm
+  from bar 11, and bar 12 changes at beat 3. Searched for independent
+  harmony sources first: four more hamienet MIDIs turned out to be an empty
+  stub pair, the Motion Picture theme, a game battle cue and a melody-less
+  beguine reharm; pad/clarinet channels of the source MIDI only play the
+  intro. Accompaniment switched from default oom-pah to a beguine stride
+  (`%%MIDI gchord fcfcfcfc`, bass/chord on every eighth), matching the
+  source's bass and harp, which alternate root-fifth voicings per eighth.

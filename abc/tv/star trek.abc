@@ -3,15 +3,17 @@ T: Star Trek (Original Series)
 O: Alexander Courage, 1966
 N: From a hamienet.com MIDI (id 352766951797352), channel 12: the soprano
 N: line (Loulie Jean Norman's wordless part), the complete statement.
-N: Chords are the same MIDI's bass/trombone/harp tracks: a root-fifth beguine
-N: stride. Their voicings are often shell chords; spelled here as triads.
+N: Chords are the same MIDI's bass/trombone/harp tracks, a root-fifth beguine
+N: stride. Sus2 and 5 chords mark bars the source voices without a third,
+N: so the strums do not rub against the held melody notes.
 N: The MIDI is rubato, so note values here are regularized; pitches verified
 N: against the MIDI's trumpet doubling, which matches note for note.
 L: 1/8
+%%MIDI gchord fcfcfcfc
 Q: 1/4=64
 M: 4/4
 K: Bb
-"Bb"F4 e4-|"Bb"e2 d2 (3c2B2A2|"Gb"_A8-|"Gb"_A6 ^F2|
-"Bb"F4 f4-|"Bb"f2 e2 "Eb"(3d2c2B2|"Eb"A6-"D"A2-|"D"A6 _A2|
-"Eb"G6 A2|"Ab"B2 c2 "Dm"(3d2e2d2|"Dm"f8|"Dm"_a6 "G"g2|
-"G7"f4 "Cm"G4-|"F7sus4"G4 c4|"Eb"B8-|"Bb"B8|]
+"Bb"F4 e4-|"Bb"e2 d2 (3c2B2A2|"Gbsus2"_A8-|"Gbsus2"_A6 ^F2|
+"Bb"F4 f4-|"Bb"f2 e2 (3d2c2B2|"Eb5"A6-"D"A2-|"D"A6 _A2|
+"Eb"G6 A2|"Ab"B2 c2 (3d2e2d2|"Dm"f8|"Dm"_a4-"G"_a2 g2|
+"G5"f4 "Cm"G4-|"Cm/F"G4 c4|"Eb"B8-|"Bb"B8|]
