@@ -5219,8 +5219,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T05:03:55.148Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-15T05:53:28.117Z",
+      "playCount": 4,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-10T12:06:15.331Z"
     },
@@ -5691,7 +5691,7 @@
   "recentlyPlayed": [
     {
       "filePath": "tv/i dream of jeannie.abc",
-      "timestamp": "2026-11-15T05:03:55.148Z"
+      "timestamp": "2026-11-15T05:53:28.117Z"
     },
     {
       "filePath": "jamaican/banana boat song.abc",
@@ -6260,7 +6260,7 @@
       "ukrainian/nich yaka misyachna.abc": 2
     },
     "2026-11-15": {
-      "tv/i dream of jeannie.abc": 2
+      "tv/i dream of jeannie.abc": 3
     }
   },
   "statusLog": [
