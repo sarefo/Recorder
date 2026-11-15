@@ -2440,19 +2440,19 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:47:56.866Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-15T07:14:24.297Z",
+      "playCount": 11,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-04T01:54:06.152Z"
     },
     "jazz/my funny valentine.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-15T07:12:53.427Z",
       "playCount": 3,
       "createdAt": "2026-10-13T03:57:34.036Z",
-      "updatedAt": "2026-11-02T12:32:03.829Z"
+      "updatedAt": "2026-11-15T07:14:19.689Z"
     },
     "jazz/night and day.abc": {
       "status": "needs-practice",
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/moon river.abc",
+      "timestamp": "2026-11-15T07:14:24.297Z"
+    },
+    {
       "filePath": "jazz/my funny valentine.abc",
       "timestamp": "2026-11-15T07:12:53.427Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-11-15T04:35:04.834Z"
-    },
-    {
-      "filePath": "japanese/akatombo.abc",
-      "timestamp": "2026-11-15T04:33:19.315Z"
     }
   ],
   "activity": {
@@ -6260,6 +6260,7 @@
       "ukrainian/nich yaka misyachna.abc": 2
     },
     "2026-11-15": {
+      "jazz/moon river.abc": 2,
       "jazz/my funny valentine.abc": 1,
       "pop/final_countdown.abc": 1,
       "tv/i dream of jeannie.abc": 6
@@ -7105,6 +7106,11 @@
       "path": "tv/knight rider.abc",
       "status": "practicing",
       "at": "2026-11-15T04:51:22.558Z"
+    },
+    {
+      "path": "jazz/my funny valentine.abc",
+      "status": "good",
+      "at": "2026-11-15T07:14:19.689Z"
     }
   ],
   "marks": {
