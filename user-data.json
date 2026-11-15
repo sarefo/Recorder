@@ -5290,13 +5290,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/pippi longstocking.abc": {
-      "status": "needs-practice",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-15T04:45:36.112Z",
       "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
-      "updatedAt": "2026-11-12T12:55:24.950Z"
+      "updatedAt": "2026-11-15T04:46:13.471Z"
     },
     "tv/popeye.abc": {
       "status": "needs-practice",
@@ -7090,6 +7090,11 @@
       "path": "tv/the waltons.abc",
       "status": "practicing",
       "at": "2026-11-15T04:41:31.376Z"
+    },
+    {
+      "path": "tv/pippi longstocking.abc",
+      "status": "good",
+      "at": "2026-11-15T04:46:13.471Z"
     }
   ],
   "marks": {
