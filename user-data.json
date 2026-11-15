@@ -1989,8 +1989,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T10:21:26.177Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-15T04:56:33.083Z",
+      "playCount": 4,
       "createdAt": "2026-10-18T11:52:56.717Z",
       "updatedAt": "2026-10-25T10:50:59.432Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/artsa alinu.abc",
+      "timestamp": "2026-11-15T04:56:33.083Z"
+    },
+    {
       "filePath": "argentine/dos palomitas.abc",
       "timestamp": "2026-11-15T04:55:10.190Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "irish/johnny i hardly knew ya.abc",
       "timestamp": "2026-11-14T10:55:14.340Z"
-    },
-    {
-      "filePath": "classical/bach/badinerie.abc",
-      "timestamp": "2026-11-14T10:52:34.523Z"
     }
   ],
   "activity": {
