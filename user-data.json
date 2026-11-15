@@ -2449,8 +2449,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T12:26:20.821Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-15T07:12:53.427Z",
+      "playCount": 3,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-02T12:32:03.829Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/my funny valentine.abc",
+      "timestamp": "2026-11-15T07:12:53.427Z"
+    },
+    {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-11-15T07:08:43.463Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "japanese/akatombo.abc",
       "timestamp": "2026-11-15T04:33:19.315Z"
-    },
-    {
-      "filePath": "french/belle qui tiens ma vie.abc",
-      "timestamp": "2026-11-15T04:31:30.479Z"
     }
   ],
   "activity": {
@@ -6260,6 +6260,7 @@
       "ukrainian/nich yaka misyachna.abc": 2
     },
     "2026-11-15": {
+      "jazz/my funny valentine.abc": 1,
       "pop/final_countdown.abc": 1,
       "tv/i dream of jeannie.abc": 6
     }
@@ -8656,6 +8657,14 @@
       }
     },
     "jazz/my funny valentine.abc": {
+      "16": {
+        "pitch": "_B",
+        "prev": "c",
+        "pitchSeen": 2,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-15T07:13:03.555Z"
+      },
       "38": {
         "pitch": "^c",
         "prev": "d",
@@ -11227,7 +11236,7 @@
       }
     },
     "jazz/my funny valentine.abc": {
-      "at": "2026-11-02T12:29:31.590Z",
+      "at": "2026-11-15T07:12:53.552Z",
       "notes": {
         "2": {
           "state": "red",
@@ -11239,7 +11248,7 @@
         },
         "16": {
           "state": "red",
-          "pitch": "_A"
+          "pitch": "_B"
         },
         "35": {
           "state": "red",
