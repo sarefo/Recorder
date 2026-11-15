@@ -98,5 +98,15 @@ follows the cadence notes.
   Rewritten from three bitmidi arrangements (103005 + 85208 in Em, 103006 in
   Dm; two independent keys agreeing on every figure). Harmony read off the
   same accompaniments: a B7 vamp that never resolves, C7 under both A# bars
-  (the melody's A# is C7's 7th), Em only at the final answer bars — much
+  (the melody's A# is C7's 7th), Em only at the final answer bars - much
   more like the record than the old Cm guess.
+- 2026-11-15: re-chorded `tv/star trek.abc` from the same MIDI (id
+  352766951797352) instead of the fitted guess: bass/trombone/harp walk a
+  root-fifth beguine stride, so the melody's Eb5 over bar 1-2 is a suspension
+  over Bb (not an Eb chord), the held-Ab bars are Gb add9 (the fitted Ab's
+  C natural clashed), and the back half runs Bb-Eb | Eb-D | D-Eb | Eb |
+  Ab-Dm | Dm-G | G7-Cm | F7sus4 (harp Cm over bass F stride) | Eb-Bb.
+  Melody re-verified first: the soprano channel plus the trumpet doubling
+  match our pitches note for note; the 16 bars are the soprano's complete
+  statement (the source's final Bb5 is an octave double, out of recorder
+  range). Fixed the N: MIDI id typo (was 3527669517973527).
