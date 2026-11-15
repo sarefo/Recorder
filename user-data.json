@@ -9829,6 +9829,14 @@
       }
     },
     "tv/i dream of jeannie.abc": {
+      "48": {
+        "pitch": "_e",
+        "prev": "_d",
+        "pitchSeen": 6,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-15T07:06:44.633Z"
+      },
       "55": {
         "pitch": "_d",
         "prev": "_e",
@@ -12095,8 +12103,12 @@
       }
     },
     "tv/i dream of jeannie.abc": {
-      "at": "2026-11-15T06:37:06.666Z",
+      "at": "2026-11-15T07:06:34.628Z",
       "notes": {
+        "48": {
+          "state": "red",
+          "pitch": "_e"
+        },
         "55": {
           "state": "red",
           "pitch": "_d"
