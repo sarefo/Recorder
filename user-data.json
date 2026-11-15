@@ -5293,8 +5293,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T12:55:16.585Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-15T04:45:36.112Z",
+      "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-12T12:55:24.950Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/pippi longstocking.abc",
+      "timestamp": "2026-11-15T04:45:36.112Z"
+    },
+    {
       "filePath": "tv/i dream of jeannie.abc",
       "timestamp": "2026-11-15T04:41:32.478Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "tv/happy days.abc",
       "timestamp": "2026-11-14T10:42:06.646Z"
-    },
-    {
-      "filePath": "pop/top of the world.abc",
-      "timestamp": "2026-11-14T10:39:38.508Z"
     }
   ],
   "activity": {
