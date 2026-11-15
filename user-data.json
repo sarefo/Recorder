@@ -1127,8 +1127,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-14T07:31:51.525Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-15T04:47:30.154Z",
+      "playCount": 7,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-13T05:17:15.543Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "film/imperial march.abc",
+      "timestamp": "2026-11-15T04:47:30.154Z"
+    },
+    {
       "filePath": "tv/pippi longstocking.abc",
       "timestamp": "2026-11-15T04:45:36.112Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "trinidadian/jump in the line.abc",
       "timestamp": "2026-11-14T10:43:28.506Z"
-    },
-    {
-      "filePath": "tv/happy days.abc",
-      "timestamp": "2026-11-14T10:42:06.646Z"
     }
   ],
   "activity": {
