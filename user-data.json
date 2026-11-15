@@ -2151,8 +2151,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T09:58:14.136Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-15T04:33:19.315Z",
+      "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:07:58.382Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/akatombo.abc",
+      "timestamp": "2026-11-15T04:33:19.315Z"
+    },
+    {
       "filePath": "french/belle qui tiens ma vie.abc",
       "timestamp": "2026-11-15T04:31:30.479Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "film/imperial march.abc",
       "timestamp": "2026-11-14T07:31:51.525Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-11-14T07:30:44.757Z"
     }
   ],
   "activity": {
