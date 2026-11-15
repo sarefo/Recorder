@@ -330,8 +330,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T07:04:35.245Z",
-      "playCount": 36,
+      "lastPlayed": "2026-11-15T07:39:12.227Z",
+      "playCount": 37,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "chinese/na jiushi wo.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/molihua.abc",
+      "timestamp": "2026-11-15T07:39:12.227Z"
+    },
+    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-11-15T07:37:12.774Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "cajun/bosco stomp.abc",
       "timestamp": "2026-11-15T04:55:05.938Z"
-    },
-    {
-      "filePath": "film/here's to you.abc",
-      "timestamp": "2026-11-15T04:53:17.110Z"
     }
   ],
   "activity": {
@@ -6260,6 +6260,7 @@
       "ukrainian/nich yaka misyachna.abc": 2
     },
     "2026-11-15": {
+      "chinese/molihua.abc": 2,
       "chinese/zou xikou.abc": 2,
       "french/douce dame jolie.abc": 1,
       "italian/bella ciao.abc": 3,
