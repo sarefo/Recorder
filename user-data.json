@@ -5219,8 +5219,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-10T12:04:43.179Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-15T04:41:32.478Z",
+      "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-10T12:06:15.331Z"
     },
@@ -5458,13 +5458,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/the waltons.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-15T04:40:52.430Z",
       "playCount": 3,
       "createdAt": "2026-11-07T03:10:49.713Z",
-      "updatedAt": "2026-11-12T13:01:06.597Z"
+      "updatedAt": "2026-11-15T04:41:31.376Z"
     },
     "tv/the wombles.abc": {
       "status": null,
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/i dream of jeannie.abc",
+      "timestamp": "2026-11-15T04:41:32.478Z"
+    },
+    {
       "filePath": "tv/the waltons.abc",
       "timestamp": "2026-11-15T04:40:52.430Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "pop/top of the world.abc",
       "timestamp": "2026-11-14T10:39:38.508Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-11-14T07:40:14.502Z"
     }
   ],
   "activity": {
@@ -7085,6 +7085,11 @@
       "path": "japanese/akatombo.abc",
       "status": "practicing",
       "at": "2026-11-15T04:35:01.778Z"
+    },
+    {
+      "path": "tv/the waltons.abc",
+      "status": "practicing",
+      "at": "2026-11-15T04:41:31.376Z"
     }
   ],
   "marks": {
