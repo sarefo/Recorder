@@ -47,8 +47,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-14T10:47:45.953Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-15T04:55:10.190Z",
+      "playCount": 13,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-11-13T05:28:52.004Z"
     },
@@ -191,8 +191,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-11T05:38:39.287Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-15T04:55:05.938Z",
+      "playCount": 5,
       "createdAt": "2026-09-27T06:51:55.209Z"
     },
     "cajun/colinda.abc": {
@@ -5690,6 +5690,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "argentine/dos palomitas.abc",
+      "timestamp": "2026-11-15T04:55:10.190Z"
+    },
+    {
+      "filePath": "cajun/bosco stomp.abc",
+      "timestamp": "2026-11-15T04:55:05.938Z"
+    },
+    {
       "filePath": "film/here's to you.abc",
       "timestamp": "2026-11-15T04:53:17.110Z"
     },
@@ -5760,14 +5768,6 @@
     {
       "filePath": "classical/bach/badinerie.abc",
       "timestamp": "2026-11-14T10:52:34.523Z"
-    },
-    {
-      "filePath": "latino/tango/por una cabeza.abc",
-      "timestamp": "2026-11-14T10:47:51.070Z"
-    },
-    {
-      "filePath": "argentine/dos palomitas.abc",
-      "timestamp": "2026-11-14T10:47:45.953Z"
     }
   ],
   "activity": {
@@ -10053,6 +10053,15 @@
         "23": {
           "state": "red",
           "pitch": "A"
+        }
+      }
+    },
+    "cajun/bosco stomp.abc": {
+      "at": "2026-11-15T04:55:06.046Z",
+      "notes": {
+        "7": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
