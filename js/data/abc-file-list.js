@@ -3660,7 +3660,7 @@ class AbcFileList {
                 "name": "Top of the world",
                 "file": "pop/top of the world.abc",
                 "category": "pop",
-                "hash": "ee1ecc2000",
+                "hash": "7d0b1bb8de",
                 "added": "2025-04-24"
         },
         {
@@ -4388,7 +4388,7 @@ class AbcFileList {
                 "name": "I Dream of Jeannie",
                 "file": "tv/i dream of jeannie.abc",
                 "category": "tv",
-                "hash": "d41f95c56b",
+                "hash": "e1adc4a5ce",
                 "added": "2026-11-07"
         },
         {
@@ -4409,7 +4409,7 @@ class AbcFileList {
                 "name": "Knight Rider",
                 "file": "tv/knight rider.abc",
                 "category": "tv",
-                "hash": "1b2e0c7d6b",
+                "hash": "fc29a231f3",
                 "added": "2026-11-07"
         },
         {

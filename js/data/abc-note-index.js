@@ -627,7 +627,7 @@ class AbcNoteIndex {
         "tv/hogans heroes.abc": [64,65,67,69,71,72,74,76,77,79],
         "tv/huckleberry hound.abc": [60,62,64,65,66,67,68,69,70,71,72,73,74],
         "tv/i dream of jeannie.abc": [65,67,69,70,72,73,74,75,76,77],
-        "tv/knight rider.abc": [60,61,67,70,72,73],
+        "tv/knight rider.abc": [65,66,72,75,77,78],
         "tv/last of the summer wine.abc": [60,62,64,65,67,69,70,72,74],
         "tv/laverne and shirley.abc": [60,62,64,65,67,69,70,72],
         "tv/magnum pi.abc": [67,71,74,76,78,79],
