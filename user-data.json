@@ -4351,8 +4351,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:57:21.529Z",
-      "playCount": 11,
+      "lastPlayed": "2026-11-15T07:08:43.463Z",
+      "playCount": 12,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-29T07:31:46.377Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/final_countdown.abc",
+      "timestamp": "2026-11-15T07:08:43.463Z"
+    },
+    {
       "filePath": "tv/i dream of jeannie.abc",
       "timestamp": "2026-11-15T05:53:28.117Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "french/belle qui tiens ma vie.abc",
       "timestamp": "2026-11-15T04:31:30.479Z"
-    },
-    {
-      "filePath": "scottish/fang_fiddlers.abc",
-      "timestamp": "2026-11-15T04:27:16.176Z"
     }
   ],
   "activity": {
@@ -6260,6 +6260,7 @@
       "ukrainian/nich yaka misyachna.abc": 2
     },
     "2026-11-15": {
+      "pop/final_countdown.abc": 1,
       "tv/i dream of jeannie.abc": 6
     }
   },
