@@ -5035,8 +5035,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T12:48:59.878Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-15T04:59:22.278Z",
+      "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-12T12:49:17.392Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/cruel angels thesis.abc",
+      "timestamp": "2026-11-15T04:59:22.278Z"
+    },
+    {
       "filePath": "classical/bach/adams_fall.abc",
       "timestamp": "2026-11-15T04:57:33.867Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "japanese/hama chidori.abc",
       "timestamp": "2026-11-14T10:58:08.556Z"
-    },
-    {
-      "filePath": "pop/mr sandman.abc",
-      "timestamp": "2026-11-14T10:55:16.449Z"
     }
   ],
   "activity": {
@@ -7295,8 +7295,8 @@
         "prev": "_B",
         "pitchSeen": 1,
         "transSeen": 1,
-        "count": 1,
-        "at": "2026-10-22T05:44:29.482Z"
+        "count": 2,
+        "at": "2026-11-15T04:58:55.785Z"
       }
     },
     "classical/bach/badinerie.abc": {
@@ -10128,7 +10128,7 @@
       }
     },
     "classical/bach/adams_fall.abc": {
-      "at": "2026-10-28T03:43:22.425Z",
+      "at": "2026-11-15T04:58:45.781Z",
       "notes": {
         "5": {
           "state": "red",
@@ -10137,6 +10137,10 @@
         "14": {
           "state": "red",
           "pitch": "_B"
+        },
+        "20": {
+          "state": "red",
+          "pitch": "_A"
         }
       }
     },
