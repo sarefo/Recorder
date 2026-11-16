@@ -10009,6 +10009,14 @@
         "count": 1,
         "at": "2026-11-15T07:29:04.393Z"
       },
+      "20": {
+        "pitch": "_A",
+        "prev": "A",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-16T10:22:57.252Z"
+      },
       "28": {
         "pitch": "_a",
         "prev": "f",
@@ -10016,6 +10024,14 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-11-15T07:28:42.138Z"
+      },
+      "29": {
+        "pitch": "_a",
+        "prev": "f",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-16T10:22:30.595Z"
       }
     },
     "tv/the smurfs.abc": {
@@ -12241,7 +12257,7 @@
       }
     },
     "tv/star trek.abc": {
-      "at": "2026-11-15T07:28:54.389Z",
+      "at": "2026-11-16T10:22:47.244Z",
       "notes": {
         "1": {
           "state": "red",
@@ -12259,7 +12275,15 @@
           "state": "red",
           "pitch": "_A"
         },
+        "20": {
+          "state": "red",
+          "pitch": "_A"
+        },
         "28": {
+          "state": "red",
+          "pitch": "_a"
+        },
+        "29": {
           "state": "red",
           "pitch": "_a"
         }
