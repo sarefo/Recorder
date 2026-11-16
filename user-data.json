@@ -4669,8 +4669,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-11T10:02:37.577Z",
-      "playCount": 55,
+      "lastPlayed": "2026-11-16T11:01:27.129Z",
+      "playCount": 56,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/birkhall.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/balquidder_lasses.abc",
+      "timestamp": "2026-11-16T11:01:27.129Z"
+    },
+    {
       "filePath": "scottish/caber_feigh.abc",
       "timestamp": "2026-11-16T10:31:47.574Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "classical/bach/adams_fall.abc",
       "timestamp": "2026-11-15T04:57:33.867Z"
-    },
-    {
-      "filePath": "israeli/artsa alinu.abc",
-      "timestamp": "2026-11-15T04:56:33.083Z"
     }
   ],
   "activity": {
@@ -6275,6 +6275,8 @@
     },
     "2026-11-16": {
       "japanese/akatombo.abc": 3,
+      "scottish/balquidder_lasses.abc": 1,
+      "scottish/caber_feigh.abc": 4,
       "tv/star trek.abc": 8
     }
   },
@@ -9473,6 +9475,22 @@
       }
     },
     "scottish/caber_feigh.abc": {
+      "14": {
+        "pitch": "d",
+        "prev": "A",
+        "pitchSeen": 15,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-16T11:00:23.909Z"
+      },
+      "50": {
+        "pitch": "A",
+        "prev": "d",
+        "pitchSeen": 8,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-16T11:00:40.520Z"
+      },
       "76": {
         "pitch": "b",
         "prev": "d",
@@ -9480,6 +9498,14 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-28T03:16:24.209Z"
+      },
+      "98": {
+        "pitch": "c",
+        "prev": "A",
+        "pitchSeen": 22,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-16T11:01:20.331Z"
       }
     },
     "scottish/clanranald.abc": {
@@ -11875,11 +11901,23 @@
       }
     },
     "scottish/caber_feigh.abc": {
-      "at": "2026-10-28T03:16:14.206Z",
+      "at": "2026-11-16T11:01:10.326Z",
       "notes": {
+        "14": {
+          "state": "red",
+          "pitch": "d"
+        },
+        "50": {
+          "state": "red",
+          "pitch": "A"
+        },
         "76": {
           "state": "red",
           "pitch": "b"
+        },
+        "98": {
+          "state": "red",
+          "pitch": "c"
         }
       }
     },
