@@ -2148,13 +2148,13 @@
       "updatedAt": "2026-10-25T05:06:42.544Z"
     },
     "japanese/akatombo.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-16T10:29:21.694Z",
       "playCount": 4,
       "createdAt": "2026-10-24T11:46:54.432Z",
-      "updatedAt": "2026-11-15T04:35:01.778Z"
+      "updatedAt": "2026-11-16T10:30:31.130Z"
     },
     "japanese/doko ka de haru ga.abc": {
       "status": "needs-practice",
@@ -6274,7 +6274,7 @@
       "tv/star trek.abc": 4
     },
     "2026-11-16": {
-      "japanese/akatombo.abc": 1,
+      "japanese/akatombo.abc": 3,
       "tv/star trek.abc": 8
     }
   },
@@ -7128,6 +7128,11 @@
       "path": "tv/star trek.abc",
       "status": "good",
       "at": "2026-11-15T07:30:26.766Z"
+    },
+    {
+      "path": "japanese/akatombo.abc",
+      "status": "good",
+      "at": "2026-11-16T10:30:31.130Z"
     }
   ],
   "marks": {
