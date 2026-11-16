@@ -1640,8 +1640,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T10:18:04.987Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-16T11:03:40.551Z",
+      "playCount": 9,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:52:16.545Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es geht eine dunkle wolk herein.abc",
+      "timestamp": "2026-11-16T11:03:40.551Z"
+    },
+    {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-11-16T11:01:27.129Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "tv/cruel angels thesis.abc",
       "timestamp": "2026-11-15T04:59:22.278Z"
-    },
-    {
-      "filePath": "classical/bach/adams_fall.abc",
-      "timestamp": "2026-11-15T04:57:33.867Z"
     }
   ],
   "activity": {
@@ -6274,6 +6274,7 @@
       "tv/star trek.abc": 4
     },
     "2026-11-16": {
+      "german/es geht eine dunkle wolk herein.abc": 1,
       "japanese/akatombo.abc": 3,
       "scottish/balquidder_lasses.abc": 1,
       "scottish/caber_feigh.abc": 4,
