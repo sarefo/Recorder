@@ -4694,8 +4694,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-28T03:15:30.630Z",
-      "playCount": 18,
+      "lastPlayed": "2026-11-16T10:31:47.574Z",
+      "playCount": 19,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/clanranald.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/caber_feigh.abc",
+      "timestamp": "2026-11-16T10:31:47.574Z"
+    },
+    {
       "filePath": "japanese/akatombo.abc",
       "timestamp": "2026-11-16T10:29:21.694Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "israeli/artsa alinu.abc",
       "timestamp": "2026-11-15T04:56:33.083Z"
-    },
-    {
-      "filePath": "argentine/dos palomitas.abc",
-      "timestamp": "2026-11-15T04:55:10.190Z"
     }
   ],
   "activity": {
@@ -13417,6 +13417,30 @@
       "at": "2026-11-16T10:29:20.092Z",
       "percent": 100,
       "bpm": 102
+    },
+    {
+      "path": "japanese/akatombo.abc",
+      "at": "2026-11-16T10:31:45.122Z",
+      "percent": 100,
+      "bpm": 92
+    },
+    {
+      "path": "japanese/akatombo.abc",
+      "at": "2026-11-16T10:31:45.290Z",
+      "percent": 100,
+      "bpm": 92
+    },
+    {
+      "path": "japanese/akatombo.abc",
+      "at": "2026-11-16T10:31:45.435Z",
+      "percent": 100,
+      "bpm": 92
+    },
+    {
+      "path": "japanese/akatombo.abc",
+      "at": "2026-11-16T10:31:45.610Z",
+      "percent": 100,
+      "bpm": 92
     }
   ],
   "settings": {}
