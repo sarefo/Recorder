@@ -2151,8 +2151,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T04:33:19.315Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-16T10:29:21.694Z",
+      "playCount": 4,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-11-15T04:35:01.778Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/akatombo.abc",
+      "timestamp": "2026-11-16T10:29:21.694Z"
+    },
+    {
       "filePath": "tv/star trek.abc",
       "timestamp": "2026-11-15T16:35:58.415Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "argentine/dos palomitas.abc",
       "timestamp": "2026-11-15T04:55:10.190Z"
-    },
-    {
-      "filePath": "cajun/bosco stomp.abc",
-      "timestamp": "2026-11-15T04:55:05.938Z"
     }
   ],
   "activity": {
@@ -6274,6 +6274,7 @@
       "tv/star trek.abc": 4
     },
     "2026-11-16": {
+      "japanese/akatombo.abc": 1,
       "tv/star trek.abc": 8
     }
   },
@@ -13393,6 +13394,24 @@
       "at": "2026-11-14T02:31:42.761Z",
       "percent": 100,
       "bpm": 115
+    },
+    {
+      "path": "tv/star trek.abc",
+      "at": "2026-11-16T10:29:19.796Z",
+      "percent": 100,
+      "bpm": 102
+    },
+    {
+      "path": "tv/star trek.abc",
+      "at": "2026-11-16T10:29:19.946Z",
+      "percent": 100,
+      "bpm": 102
+    },
+    {
+      "path": "tv/star trek.abc",
+      "at": "2026-11-16T10:29:20.092Z",
+      "percent": 100,
+      "bpm": 102
     }
   ],
   "settings": {}
