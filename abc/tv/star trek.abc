@@ -10,7 +10,7 @@ N: The MIDI is rubato, so note values here are regularized; pitches verified
 N: against the MIDI's trumpet doubling, which matches note for note.
 L: 1/8
 %%MIDI gchord fcfcfcfc
-Q: 1/4=64
+Q: 1/4=102
 M: 4/4
 K: Bb
 "Bb"F4 e4-|"Bb"e2 d2 (3c2B2A2|"Gbsus2"_A8-|"Gbsus2"_A6 ^F2|
