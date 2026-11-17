@@ -82,8 +82,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T09:52:24.944Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-17T03:10:34.284Z",
+      "playCount": 9,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-16T08:02:22.809Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "austrian/lieber augustin.abc",
+      "timestamp": "2026-11-17T03:10:34.284Z"
+    },
+    {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-11-16T11:03:40.551Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "japanese/akai kutsu.abc",
       "timestamp": "2026-11-15T05:00:50.179Z"
-    },
-    {
-      "filePath": "tv/cruel angels thesis.abc",
-      "timestamp": "2026-11-15T04:59:22.278Z"
     }
   ],
   "activity": {
@@ -7196,6 +7196,16 @@
         "transSeen": 4,
         "count": 1,
         "at": "2026-11-01T10:19:09.644Z"
+      }
+    },
+    "austrian/lieber augustin.abc": {
+      "5": {
+        "pitch": "^F",
+        "prev": "G",
+        "pitchSeen": 6,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-17T03:10:44.407Z"
       }
     },
     "breton/les filles des forges de paimpont.abc": {
@@ -10179,6 +10189,15 @@
         "8": {
           "state": "red",
           "pitch": "_B"
+        }
+      }
+    },
+    "austrian/lieber augustin.abc": {
+      "at": "2026-11-17T03:10:34.395Z",
+      "notes": {
+        "5": {
+          "state": "red",
+          "pitch": "^F"
         }
       }
     },
