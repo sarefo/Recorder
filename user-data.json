@@ -2214,8 +2214,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T07:33:11.553Z",
-      "playCount": 47,
+      "lastPlayed": "2026-11-17T03:14:35.926Z",
+      "playCount": 48,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/hanagasa ondo.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hana.abc",
+      "timestamp": "2026-11-17T03:14:35.926Z"
+    },
+    {
       "filePath": "japanese/kojo no tsuki.abc",
       "timestamp": "2026-11-17T03:12:13.420Z"
     },
@@ -5724,10 +5728,6 @@
     {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-11-15T07:37:12.774Z"
-    },
-    {
-      "filePath": "japanese/hana.abc",
-      "timestamp": "2026-11-15T07:33:11.553Z"
     },
     {
       "filePath": "french/douce dame jolie.abc",
@@ -8318,6 +8318,30 @@
       }
     },
     "japanese/hana.abc": {
+      "7": {
+        "pitch": "^G",
+        "prev": "A",
+        "pitchSeen": 3,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-17T03:14:46.054Z"
+      },
+      "8": {
+        "pitch": "^F",
+        "prev": "^G",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-17T03:14:46.058Z"
+      },
+      "10": {
+        "pitch": "^C",
+        "prev": "E",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-17T03:14:46.061Z"
+      },
       "11": {
         "pitch": "G",
         "prev": "E",
@@ -8333,6 +8357,14 @@
         "transSeen": 4,
         "count": 1,
         "at": "2026-11-12T09:59:22.864Z"
+      },
+      "14": {
+        "pitch": "^c",
+        "prev": "B",
+        "pitchSeen": 5,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-17T03:14:46.063Z"
       }
     },
     "japanese/hanagasa ondo.abc": {
@@ -11097,8 +11129,20 @@
       }
     },
     "japanese/hana.abc": {
-      "at": "2026-11-12T09:59:12.861Z",
+      "at": "2026-11-17T03:14:36.045Z",
       "notes": {
+        "7": {
+          "state": "red",
+          "pitch": "^G"
+        },
+        "8": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "10": {
+          "state": "red",
+          "pitch": "^C"
+        },
         "11": {
           "state": "red",
           "pitch": "G"
@@ -11106,6 +11150,10 @@
         "12": {
           "state": "red",
           "pitch": "c"
+        },
+        "14": {
+          "state": "red",
+          "pitch": "^c"
         }
       }
     },
