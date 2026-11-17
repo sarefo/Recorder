@@ -1989,8 +1989,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T04:56:33.083Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-17T07:22:40.036Z",
+      "playCount": 5,
       "createdAt": "2026-10-18T11:52:56.717Z",
       "updatedAt": "2026-10-25T10:50:59.432Z"
     },
@@ -4957,8 +4957,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T13:07:35.928Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-17T07:22:38.230Z",
+      "playCount": 7,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-11-06T13:07:34.755Z"
     },
@@ -5690,6 +5690,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/artsa alinu.abc",
+      "timestamp": "2026-11-17T07:22:40.036Z"
+    },
+    {
+      "filePath": "tv/a-team.abc",
+      "timestamp": "2026-11-17T07:22:38.230Z"
+    },
+    {
       "filePath": "film/hisaishi/mononoke.abc",
       "timestamp": "2026-11-17T07:21:05.454Z"
     },
@@ -5760,14 +5768,6 @@
     {
       "filePath": "italian/bella ciao.abc",
       "timestamp": "2026-11-15T07:20:28.793Z"
-    },
-    {
-      "filePath": "jazz/summertime.abc",
-      "timestamp": "2026-11-15T07:17:04.209Z"
-    },
-    {
-      "filePath": "jazz/my funny valentine.abc",
-      "timestamp": "2026-11-15T07:12:53.427Z"
     }
   ],
   "activity": {
@@ -6284,6 +6284,7 @@
       "australian/waltzing matilda.abc": 1,
       "film/hisaishi/mononoke.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
+      "israeli/artsa alinu.abc": 1,
       "israeli/hatikvah.abc": 1,
       "japanese/hana.abc": 1,
       "japanese/kojo no tsuki.abc": 1,
