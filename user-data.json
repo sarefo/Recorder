@@ -2440,8 +2440,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T07:14:24.297Z",
-      "playCount": 11,
+      "lastPlayed": "2026-11-17T03:19:31.088Z",
+      "playCount": 12,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-04T01:54:06.152Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/moon river.abc",
+      "timestamp": "2026-11-17T03:19:31.088Z"
+    },
+    {
       "filePath": "japanese/sakura.abc",
       "timestamp": "2026-11-17T03:17:40.783Z"
     },
@@ -5744,10 +5748,6 @@
     {
       "filePath": "jazz/summertime.abc",
       "timestamp": "2026-11-15T07:17:04.209Z"
-    },
-    {
-      "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-15T07:14:24.297Z"
     },
     {
       "filePath": "jazz/my funny valentine.abc",
@@ -6284,7 +6284,8 @@
       "german/es geht eine dunkle wolk herein.abc": 1,
       "japanese/hana.abc": 1,
       "japanese/kojo no tsuki.abc": 1,
-      "japanese/sakura.abc": 1
+      "japanese/sakura.abc": 1,
+      "jazz/moon river.abc": 3
     }
   },
   "statusLog": [
