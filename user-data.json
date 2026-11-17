@@ -2267,8 +2267,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T07:35:56.080Z",
-      "playCount": 41,
+      "lastPlayed": "2026-11-17T03:12:13.420Z",
+      "playCount": 42,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/momiji.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/kojo no tsuki.abc",
+      "timestamp": "2026-11-17T03:12:13.420Z"
+    },
+    {
       "filePath": "austrian/lieber augustin.abc",
       "timestamp": "2026-11-17T03:10:34.284Z"
     },
@@ -5720,10 +5724,6 @@
     {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-11-15T07:37:12.774Z"
-    },
-    {
-      "filePath": "japanese/kojo no tsuki.abc",
-      "timestamp": "2026-11-15T07:35:56.080Z"
     },
     {
       "filePath": "japanese/hana.abc",
@@ -8355,6 +8355,22 @@
       }
     },
     "japanese/kojo no tsuki.abc": {
+      "0": {
+        "pitch": "^F",
+        "prev": null,
+        "pitchSeen": 15,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-17T03:12:23.534Z"
+      },
+      "3": {
+        "pitch": "^c",
+        "prev": "B",
+        "pitchSeen": 6,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-17T03:12:23.537Z"
+      },
       "7": {
         "pitch": "_B",
         "prev": "d",
@@ -8362,6 +8378,14 @@
         "transSeen": 3,
         "count": 1,
         "at": "2026-11-02T09:58:43.022Z"
+      },
+      "28": {
+        "pitch": "^C",
+        "prev": "D",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-17T03:12:23.539Z"
       }
     },
     "japanese/momiji.abc": {
@@ -11103,11 +11127,23 @@
       }
     },
     "japanese/kojo no tsuki.abc": {
-      "at": "2026-11-02T09:58:33.013Z",
+      "at": "2026-11-17T03:12:13.535Z",
       "notes": {
+        "0": {
+          "state": "red",
+          "pitch": "^F"
+        },
+        "3": {
+          "state": "red",
+          "pitch": "^c"
+        },
         "7": {
           "state": "red",
           "pitch": "_B"
+        },
+        "28": {
+          "state": "red",
+          "pitch": "^C"
         }
       }
     },
