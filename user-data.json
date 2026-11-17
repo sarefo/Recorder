@@ -65,8 +65,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-14T07:37:44.250Z",
-      "playCount": 35,
+      "lastPlayed": "2026-11-17T07:19:34.272Z",
+      "playCount": 36,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "austrian/es wird scho gleich dumpa.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "australian/waltzing matilda.abc",
+      "timestamp": "2026-11-17T07:19:34.272Z"
+    },
+    {
       "filePath": "pop/mr sandman.abc",
       "timestamp": "2026-11-17T03:25:07.746Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-11-15T07:08:43.463Z"
-    },
-    {
-      "filePath": "tv/i dream of jeannie.abc",
-      "timestamp": "2026-11-15T05:53:28.117Z"
     }
   ],
   "activity": {
@@ -6281,6 +6281,7 @@
       "tv/star trek.abc": 8
     },
     "2026-11-17": {
+      "australian/waltzing matilda.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "israeli/hatikvah.abc": 1,
       "japanese/hana.abc": 1,
