@@ -2015,8 +2015,8 @@
       "status": null,
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:32:19.095Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-17T03:22:44.167Z",
+      "playCount": 4,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-10-18T11:57:30.596Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/hatikvah.abc",
+      "timestamp": "2026-11-17T03:22:44.167Z"
+    },
+    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-17T03:19:31.088Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "jamaican/banana boat song.abc",
       "timestamp": "2026-11-15T05:02:02.280Z"
-    },
-    {
-      "filePath": "classical/bach/chorales/meine seele erhebet den herrn.abc",
-      "timestamp": "2026-11-15T05:01:16.232Z"
     }
   ],
   "activity": {
@@ -6282,6 +6282,7 @@
     },
     "2026-11-17": {
       "german/es geht eine dunkle wolk herein.abc": 1,
+      "israeli/hatikvah.abc": 1,
       "japanese/hana.abc": 1,
       "japanese/kojo no tsuki.abc": 1,
       "japanese/sakura.abc": 1,
