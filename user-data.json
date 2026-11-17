@@ -2293,8 +2293,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-23T07:52:05.085Z",
-      "playCount": 21,
+      "lastPlayed": "2026-11-17T03:17:40.783Z",
+      "playCount": 22,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/tinsagu nu hana.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/sakura.abc",
+      "timestamp": "2026-11-17T03:17:40.783Z"
+    },
+    {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-11-17T03:14:35.926Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "classical/bach/chorales/meine seele erhebet den herrn.abc",
       "timestamp": "2026-11-15T05:01:16.232Z"
-    },
-    {
-      "filePath": "japanese/akai kutsu.abc",
-      "timestamp": "2026-11-15T05:00:50.179Z"
     }
   ],
   "activity": {
@@ -6283,7 +6283,8 @@
     "2026-11-17": {
       "german/es geht eine dunkle wolk herein.abc": 1,
       "japanese/hana.abc": 1,
-      "japanese/kojo no tsuki.abc": 1
+      "japanese/kojo no tsuki.abc": 1,
+      "japanese/sakura.abc": 1
     }
   },
   "statusLog": [
@@ -8440,6 +8441,16 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-11-06T07:39:54.656Z"
+      }
+    },
+    "japanese/sakura.abc": {
+      "13": {
+        "pitch": "_B",
+        "prev": "d",
+        "pitchSeen": 6,
+        "transSeen": 3,
+        "count": 1,
+        "at": "2026-11-17T03:17:50.916Z"
       }
     },
     "japanese/tinsagu nu hana.abc": {
@@ -11212,6 +11223,15 @@
         "50": {
           "state": "red",
           "pitch": "E"
+        }
+      }
+    },
+    "japanese/sakura.abc": {
+      "at": "2026-11-17T03:17:40.914Z",
+      "notes": {
+        "13": {
+          "state": "red",
+          "pitch": "_B"
         }
       }
     },
