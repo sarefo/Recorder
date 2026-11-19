@@ -1721,8 +1721,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T10:14:08.105Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-19T03:39:32.921Z",
+      "playCount": 8,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-26T03:48:01.463Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/maria durch ein dornwald ging.abc",
+      "timestamp": "2026-11-19T03:39:32.921Z"
+    },
+    {
       "filePath": "japanese/momiji.abc",
       "timestamp": "2026-11-19T03:37:21.706Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "scottish/caber_feigh.abc",
       "timestamp": "2026-11-16T10:31:47.574Z"
-    },
-    {
-      "filePath": "japanese/akatombo.abc",
-      "timestamp": "2026-11-16T10:29:21.694Z"
     }
   ],
   "activity": {
@@ -6294,6 +6294,7 @@
       "scottish/fang_fiddlers.abc": 1
     },
     "2026-11-19": {
+      "german/maria durch ein dornwald ging.abc": 1,
       "japanese/momiji.abc": 1,
       "scottish/fang_fiddlers.abc": 6,
       "tv/star trek.abc": 3
