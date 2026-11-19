@@ -4716,13 +4716,13 @@
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "scottish/fang_fiddlers.abc": {
-      "status": "practicing",
+      "status": "good",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-17T07:24:10.477Z",
       "playCount": 10,
       "createdAt": "2026-01-18T20:46:38.367Z",
-      "updatedAt": "2026-10-20T11:29:47.698Z"
+      "updatedAt": "2026-11-19T03:29:03.819Z"
     },
     "scottish/francis_robertson.abc": {
       "status": "practicing",
@@ -6294,7 +6294,7 @@
       "scottish/fang_fiddlers.abc": 1
     },
     "2026-11-19": {
-      "scottish/fang_fiddlers.abc": 2
+      "scottish/fang_fiddlers.abc": 4
     }
   },
   "statusLog": [
@@ -7157,6 +7157,11 @@
       "path": "israeli/hatikvah.abc",
       "status": "good",
       "at": "2026-11-17T03:25:05.756Z"
+    },
+    {
+      "path": "scottish/fang_fiddlers.abc",
+      "status": "good",
+      "at": "2026-11-19T03:29:03.819Z"
     }
   ],
   "marks": {
