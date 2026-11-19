@@ -2275,8 +2275,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T05:22:48.084Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-19T03:37:21.706Z",
+      "playCount": 2,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:25:07.083Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/momiji.abc",
+      "timestamp": "2026-11-19T03:37:21.706Z"
+    },
+    {
       "filePath": "tv/star trek.abc",
       "timestamp": "2026-11-19T03:34:29.939Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "japanese/akatombo.abc",
       "timestamp": "2026-11-16T10:29:21.694Z"
-    },
-    {
-      "filePath": "chinese/molihua.abc",
-      "timestamp": "2026-11-15T07:39:12.227Z"
     }
   ],
   "activity": {
@@ -6294,8 +6294,9 @@
       "scottish/fang_fiddlers.abc": 1
     },
     "2026-11-19": {
+      "japanese/momiji.abc": 1,
       "scottish/fang_fiddlers.abc": 6,
-      "tv/star trek.abc": 2
+      "tv/star trek.abc": 3
     }
   },
   "statusLog": [
