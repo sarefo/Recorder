@@ -1622,8 +1622,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T10:19:16.700Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-19T03:45:57.459Z",
+      "playCount": 8,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:49:16.156Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/ach bittrer winter.abc",
+      "timestamp": "2026-11-19T03:45:57.459Z"
+    },
+    {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-11-19T03:44:09.158Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "japanese/kojo no tsuki.abc",
       "timestamp": "2026-11-17T03:12:13.420Z"
-    },
-    {
-      "filePath": "austrian/lieber augustin.abc",
-      "timestamp": "2026-11-17T03:10:34.284Z"
     }
   ],
   "activity": {
@@ -6294,6 +6294,7 @@
       "scottish/fang_fiddlers.abc": 1
     },
     "2026-11-19": {
+      "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
