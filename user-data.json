@@ -1640,8 +1640,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-16T11:03:40.551Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-19T03:44:09.158Z",
+      "playCount": 10,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:52:16.545Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es geht eine dunkle wolk herein.abc",
+      "timestamp": "2026-11-19T03:44:09.158Z"
+    },
+    {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-11-19T03:42:08.318Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "austrian/lieber augustin.abc",
       "timestamp": "2026-11-17T03:10:34.284Z"
-    },
-    {
-      "filePath": "german/es geht eine dunkle wolk herein.abc",
-      "timestamp": "2026-11-16T11:03:40.551Z"
     }
   ],
   "activity": {
@@ -6294,6 +6294,7 @@
       "scottish/fang_fiddlers.abc": 1
     },
     "2026-11-19": {
+      "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
