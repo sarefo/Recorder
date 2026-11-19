@@ -1676,8 +1676,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T10:15:35.695Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-19T03:41:01.869Z",
+      "playCount": 10,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-26T04:37:50.809Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "timestamp": "2026-11-19T03:41:01.869Z"
+    },
+    {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-11-19T03:39:32.921Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "scottish/balquidder_lasses.abc",
       "timestamp": "2026-11-16T11:01:27.129Z"
-    },
-    {
-      "filePath": "scottish/caber_feigh.abc",
-      "timestamp": "2026-11-16T10:31:47.574Z"
     }
   ],
   "activity": {
@@ -6294,6 +6294,7 @@
       "scottish/fang_fiddlers.abc": 1
     },
     "2026-11-19": {
+      "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
       "japanese/momiji.abc": 1,
       "scottish/fang_fiddlers.abc": 6,
