@@ -5352,8 +5352,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T16:35:58.415Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-19T03:34:29.939Z",
+      "playCount": 5,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-15T07:30:26.766Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/star trek.abc",
+      "timestamp": "2026-11-19T03:34:29.939Z"
+    },
+    {
       "filePath": "scottish/fang_fiddlers.abc",
       "timestamp": "2026-11-17T07:24:10.477Z"
     },
@@ -5760,10 +5764,6 @@
     {
       "filePath": "japanese/akatombo.abc",
       "timestamp": "2026-11-16T10:29:21.694Z"
-    },
-    {
-      "filePath": "tv/star trek.abc",
-      "timestamp": "2026-11-15T16:35:58.415Z"
     },
     {
       "filePath": "chinese/molihua.abc",
@@ -6294,7 +6294,8 @@
       "scottish/fang_fiddlers.abc": 1
     },
     "2026-11-19": {
-      "scottish/fang_fiddlers.abc": 6
+      "scottish/fang_fiddlers.abc": 6,
+      "tv/star trek.abc": 2
     }
   },
   "statusLog": [
@@ -10133,6 +10134,14 @@
         "count": 1,
         "at": "2026-11-10T12:07:56.060Z"
       },
+      "7": {
+        "pitch": "_A",
+        "prev": "A",
+        "pitchSeen": 2,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-19T03:34:57.072Z"
+      },
       "13": {
         "pitch": "_e",
         "prev": "f",
@@ -12117,8 +12126,16 @@
       }
     },
     "scottish/fang_fiddlers.abc": {
-      "at": "2026-11-15T04:29:55.059Z",
+      "at": "2026-11-19T03:34:29.904Z",
       "notes": {
+        "1": {
+          "state": "red",
+          "pitch": "_e"
+        },
+        "5": {
+          "state": "red",
+          "pitch": "_B"
+        },
         "60": {
           "state": "red",
           "pitch": "A"
@@ -12455,7 +12472,7 @@
       }
     },
     "tv/star trek.abc": {
-      "at": "2026-11-16T10:22:47.244Z",
+      "at": "2026-11-19T03:34:47.065Z",
       "notes": {
         "1": {
           "state": "red",
@@ -12464,6 +12481,10 @@
         "5": {
           "state": "red",
           "pitch": "_B"
+        },
+        "7": {
+          "state": "red",
+          "pitch": "_A"
         },
         "13": {
           "state": "red",
