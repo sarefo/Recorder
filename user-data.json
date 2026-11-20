@@ -394,8 +394,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T07:37:12.774Z",
-      "playCount": 24,
+      "lastPlayed": "2026-11-20T07:45:25.773Z",
+      "playCount": 25,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
@@ -5173,13 +5173,13 @@
       "createdAt": "2026-11-07T03:10:49.713Z"
     },
     "tv/gummi bears.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-20T07:42:23.010Z",
       "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
-      "updatedAt": "2026-11-12T12:50:37.313Z"
+      "updatedAt": "2026-11-20T07:45:23.848Z"
     },
     "tv/happy days.abc": {
       "status": "practicing",
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/zou xikou.abc",
+      "timestamp": "2026-11-20T07:45:25.773Z"
+    },
+    {
       "filePath": "tv/gummi bears.abc",
       "timestamp": "2026-11-20T07:42:23.010Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "film/hisaishi/mononoke.abc",
       "timestamp": "2026-11-17T07:21:05.454Z"
-    },
-    {
-      "filePath": "australian/waltzing matilda.abc",
-      "timestamp": "2026-11-17T07:19:34.272Z"
     }
   ],
   "activity": {
@@ -6306,6 +6306,7 @@
       "tv/star trek.abc": 3
     },
     "2026-11-20": {
+      "chinese/zou xikou.abc": 1,
       "israeli/artsa alinu.abc": 1,
       "israeli/yerushalayim shel zahav.abc": 1,
       "tv/gummi bears.abc": 1,
@@ -7183,6 +7184,11 @@
       "path": "scottish/fang_fiddlers.abc",
       "status": "practicing",
       "at": "2026-11-19T03:32:08.729Z"
+    },
+    {
+      "path": "tv/gummi bears.abc",
+      "status": "practicing",
+      "at": "2026-11-20T07:45:23.848Z"
     }
   ],
   "marks": {
