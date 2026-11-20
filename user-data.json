@@ -2107,8 +2107,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-20T07:46:56.678Z",
-      "playCount": 13,
+      "lastPlayed": "2026-11-20T08:53:18.138Z",
+      "playCount": 14,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T06:21:30.721Z"
     },
@@ -5690,16 +5690,16 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/bella ciao.abc",
+      "timestamp": "2026-11-20T08:53:18.138Z"
+    },
+    {
       "filePath": "film/hisaishi/mononoke.abc",
       "timestamp": "2026-11-20T07:54:18.306Z"
     },
     {
       "filePath": "japanese/ureshii hinamatsuri.abc",
       "timestamp": "2026-11-20T07:51:45.024Z"
-    },
-    {
-      "filePath": "italian/bella ciao.abc",
-      "timestamp": "2026-11-20T07:46:56.678Z"
     },
     {
       "filePath": "chinese/zou xikou.abc",
@@ -6310,7 +6310,7 @@
       "film/hisaishi/mononoke.abc": 1,
       "israeli/artsa alinu.abc": 1,
       "israeli/yerushalayim shel zahav.abc": 1,
-      "italian/bella ciao.abc": 5,
+      "italian/bella ciao.abc": 7,
       "japanese/ureshii hinamatsuri.abc": 1,
       "tv/gummi bears.abc": 1,
       "tv/pippi longstocking.abc": 2,
