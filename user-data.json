@@ -2081,8 +2081,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:37:20.717Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-20T04:06:10.035Z",
+      "playCount": 4,
       "createdAt": "2026-10-18T11:52:56.718Z",
       "updatedAt": "2026-11-13T07:41:30.859Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/yerushalayim shel zahav.abc",
+      "timestamp": "2026-11-20T04:06:10.035Z"
+    },
+    {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-11-19T03:49:45.854Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-17T03:19:31.088Z"
-    },
-    {
-      "filePath": "japanese/sakura.abc",
-      "timestamp": "2026-11-17T03:17:40.783Z"
     }
   ],
   "activity": {
