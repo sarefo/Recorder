@@ -2107,8 +2107,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-20T08:53:18.138Z",
-      "playCount": 14,
+      "lastPlayed": "2026-11-20T08:55:51.535Z",
+      "playCount": 15,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T06:21:30.721Z"
     },
@@ -5690,12 +5690,12 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
-      "filePath": "french/douce dame jolie.abc",
-      "timestamp": "2026-11-20T08:54:19.680Z"
+      "filePath": "italian/bella ciao.abc",
+      "timestamp": "2026-11-20T08:55:51.535Z"
     },
     {
-      "filePath": "italian/bella ciao.abc",
-      "timestamp": "2026-11-20T08:53:18.138Z"
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-11-20T08:54:19.680Z"
     },
     {
       "filePath": "film/hisaishi/mononoke.abc",
@@ -6311,7 +6311,7 @@
       "french/douce dame jolie.abc": 1,
       "israeli/artsa alinu.abc": 1,
       "israeli/yerushalayim shel zahav.abc": 1,
-      "italian/bella ciao.abc": 7,
+      "italian/bella ciao.abc": 8,
       "japanese/ureshii hinamatsuri.abc": 1,
       "tv/gummi bears.abc": 1,
       "tv/pippi longstocking.abc": 2,
