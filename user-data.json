@@ -2107,8 +2107,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T07:20:28.793Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-20T07:46:56.678Z",
+      "playCount": 13,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T06:21:30.721Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/bella ciao.abc",
+      "timestamp": "2026-11-20T07:46:56.678Z"
+    },
+    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-11-20T07:45:25.773Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "tv/a-team.abc",
       "timestamp": "2026-11-17T07:22:38.230Z"
-    },
-    {
-      "filePath": "film/hisaishi/mononoke.abc",
-      "timestamp": "2026-11-17T07:21:05.454Z"
     }
   ],
   "activity": {
