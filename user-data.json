@@ -264,8 +264,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-10-25T10:37:31.259Z",
-      "playCount": 11,
+      "lastPlayed": "2026-11-20T08:57:06.876Z",
+      "playCount": 12,
       "createdAt": "2026-07-31T10:42:24.802Z",
       "updatedAt": "2026-10-25T10:39:00.131Z"
     },
@@ -1989,8 +1989,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-20T07:37:30.859Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-20T08:56:56.382Z",
+      "playCount": 7,
       "createdAt": "2026-10-18T11:52:56.717Z",
       "updatedAt": "2026-10-25T10:50:59.432Z"
     },
@@ -2337,8 +2337,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T07:12:46.260Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-20T08:57:09.055Z",
+      "playCount": 3,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-11-12T07:14:16.845Z"
     },
@@ -2440,8 +2440,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-17T03:19:31.088Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-20T08:57:11.114Z",
+      "playCount": 13,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-04T01:54:06.152Z"
     },
@@ -5228,8 +5228,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T04:49:51.859Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-20T08:57:10.034Z",
+      "playCount": 3,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-15T04:51:22.558Z"
     },
@@ -5690,6 +5690,26 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/moon river.abc",
+      "timestamp": "2026-11-20T08:57:11.114Z"
+    },
+    {
+      "filePath": "tv/knight rider.abc",
+      "timestamp": "2026-11-20T08:57:10.034Z"
+    },
+    {
+      "filePath": "japanese/yuuhi.abc",
+      "timestamp": "2026-11-20T08:57:09.055Z"
+    },
+    {
+      "filePath": "chinese/baobao yao shuijiao.abc",
+      "timestamp": "2026-11-20T08:57:06.876Z"
+    },
+    {
+      "filePath": "israeli/artsa alinu.abc",
+      "timestamp": "2026-11-20T08:56:56.382Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-11-20T08:56:28.829Z"
     },
@@ -5716,10 +5736,6 @@
     {
       "filePath": "tv/pippi longstocking.abc",
       "timestamp": "2026-11-20T07:39:32.519Z"
-    },
-    {
-      "filePath": "israeli/artsa alinu.abc",
-      "timestamp": "2026-11-20T07:37:30.859Z"
     },
     {
       "filePath": "tv/yu-gi-oh.abc",
@@ -5752,22 +5768,6 @@
     {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-11-19T03:39:32.921Z"
-    },
-    {
-      "filePath": "japanese/momiji.abc",
-      "timestamp": "2026-11-19T03:37:21.706Z"
-    },
-    {
-      "filePath": "tv/star trek.abc",
-      "timestamp": "2026-11-19T03:34:29.939Z"
-    },
-    {
-      "filePath": "scottish/fang_fiddlers.abc",
-      "timestamp": "2026-11-17T07:24:10.477Z"
-    },
-    {
-      "filePath": "philippine/sitsiritsit alibangbang.abc",
-      "timestamp": "2026-11-17T07:24:08.332Z"
     }
   ],
   "activity": {
@@ -6313,6 +6313,7 @@
       "israeli/yerushalayim shel zahav.abc": 1,
       "italian/bella ciao.abc": 8,
       "japanese/ureshii hinamatsuri.abc": 1,
+      "jazz/moon river.abc": 2,
       "tv/gummi bears.abc": 1,
       "tv/pippi longstocking.abc": 2,
       "tv/yu-gi-oh.abc": 1
