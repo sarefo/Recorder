@@ -1501,8 +1501,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-20T08:56:28.829Z",
-      "playCount": 23,
+      "lastPlayed": "2026-11-20T13:32:49.781Z",
+      "playCount": 24,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-18T03:20:14.847Z"
     },
@@ -2107,8 +2107,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-20T08:55:51.535Z",
-      "playCount": 15,
+      "lastPlayed": "2026-11-20T13:32:05.784Z",
+      "playCount": 16,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-22T06:21:30.721Z"
     },
@@ -5690,6 +5690,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-11-20T13:32:49.781Z"
+    },
+    {
+      "filePath": "italian/bella ciao.abc",
+      "timestamp": "2026-11-20T13:32:05.784Z"
+    },
+    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-20T08:57:11.114Z"
     },
@@ -5708,14 +5716,6 @@
     {
       "filePath": "israeli/artsa alinu.abc",
       "timestamp": "2026-11-20T08:56:56.382Z"
-    },
-    {
-      "filePath": "french/douce dame jolie.abc",
-      "timestamp": "2026-11-20T08:56:28.829Z"
-    },
-    {
-      "filePath": "italian/bella ciao.abc",
-      "timestamp": "2026-11-20T08:55:51.535Z"
     },
     {
       "filePath": "film/hisaishi/mononoke.abc",
@@ -6308,10 +6308,10 @@
     "2026-11-20": {
       "chinese/zou xikou.abc": 1,
       "film/hisaishi/mononoke.abc": 1,
-      "french/douce dame jolie.abc": 2,
+      "french/douce dame jolie.abc": 3,
       "israeli/artsa alinu.abc": 1,
       "israeli/yerushalayim shel zahav.abc": 1,
-      "italian/bella ciao.abc": 8,
+      "italian/bella ciao.abc": 10,
       "japanese/ureshii hinamatsuri.abc": 1,
       "jazz/moon river.abc": 2,
       "tv/gummi bears.abc": 1,
