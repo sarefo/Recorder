@@ -1989,8 +1989,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-17T07:22:40.036Z",
-      "playCount": 5,
+      "lastPlayed": "2026-11-20T07:37:30.859Z",
+      "playCount": 6,
       "createdAt": "2026-10-18T11:52:56.717Z",
       "updatedAt": "2026-10-25T10:50:59.432Z"
     },
@@ -5508,12 +5508,12 @@
     },
     "tv/yu-gi-oh.abc": {
       "status": "needs-practice",
-      "favorite": true,
+      "favorite": false,
       "notes": "",
       "lastPlayed": "2026-11-20T07:32:14.784Z",
       "playCount": 3,
       "createdAt": "2026-11-07T03:10:49.713Z",
-      "updatedAt": "2026-11-12T13:01:41.773Z"
+      "updatedAt": "2026-11-20T07:37:29.467Z"
     },
     "ugandan/mwana wa nnyabo.abc": {
       "status": null,
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "israeli/artsa alinu.abc",
+      "timestamp": "2026-11-20T07:37:30.859Z"
+    },
+    {
       "filePath": "tv/yu-gi-oh.abc",
       "timestamp": "2026-11-20T07:32:14.784Z"
     },
@@ -5744,10 +5748,6 @@
     {
       "filePath": "tv/the waltons.abc",
       "timestamp": "2026-11-17T07:24:06.456Z"
-    },
-    {
-      "filePath": "israeli/artsa alinu.abc",
-      "timestamp": "2026-11-17T07:22:40.036Z"
     },
     {
       "filePath": "tv/a-team.abc",
@@ -6306,6 +6306,7 @@
       "tv/star trek.abc": 3
     },
     "2026-11-20": {
+      "israeli/artsa alinu.abc": 1,
       "israeli/yerushalayim shel zahav.abc": 1,
       "tv/yu-gi-oh.abc": 1
     }
