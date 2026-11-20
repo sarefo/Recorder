@@ -1777,7 +1777,7 @@ class AbcFileList {
                 "name": "Bella Ciao",
                 "file": "italian/bella ciao.abc",
                 "category": "italian",
-                "hash": "00c769be51",
+                "hash": "9a72ad5f93",
                 "added": "2025-04-26"
         },
         {
