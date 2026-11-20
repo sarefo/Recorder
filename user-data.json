@@ -5176,8 +5176,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T12:50:06.295Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-20T07:42:23.010Z",
+      "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-12T12:50:37.313Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/gummi bears.abc",
+      "timestamp": "2026-11-20T07:42:23.010Z"
+    },
+    {
       "filePath": "tv/pippi longstocking.abc",
       "timestamp": "2026-11-20T07:39:32.519Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "australian/waltzing matilda.abc",
       "timestamp": "2026-11-17T07:19:34.272Z"
-    },
-    {
-      "filePath": "pop/mr sandman.abc",
-      "timestamp": "2026-11-17T03:25:07.746Z"
     }
   ],
   "activity": {
@@ -6308,6 +6308,7 @@
     "2026-11-20": {
       "israeli/artsa alinu.abc": 1,
       "israeli/yerushalayim shel zahav.abc": 1,
+      "tv/gummi bears.abc": 1,
       "tv/pippi longstocking.abc": 2,
       "tv/yu-gi-oh.abc": 1
     }
