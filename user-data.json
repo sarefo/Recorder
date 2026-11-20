@@ -5510,8 +5510,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:33:38.331Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-20T07:32:14.784Z",
+      "playCount": 3,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-12T13:01:41.773Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/yu-gi-oh.abc",
+      "timestamp": "2026-11-20T07:32:14.784Z"
+    },
+    {
       "filePath": "israeli/yerushalayim shel zahav.abc",
       "timestamp": "2026-11-20T04:06:10.035Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "israeli/hatikvah.abc",
       "timestamp": "2026-11-17T03:22:44.167Z"
-    },
-    {
-      "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-17T03:19:31.088Z"
     }
   ],
   "activity": {
@@ -6306,7 +6306,8 @@
       "tv/star trek.abc": 3
     },
     "2026-11-20": {
-      "israeli/yerushalayim shel zahav.abc": 1
+      "israeli/yerushalayim shel zahav.abc": 1,
+      "tv/yu-gi-oh.abc": 1
     }
   },
   "statusLog": [
@@ -13711,6 +13712,24 @@
     {
       "path": "israeli/yerushalayim shel zahav.abc",
       "at": "2026-11-20T04:08:21.607Z",
+      "percent": 100,
+      "bpm": 84
+    },
+    {
+      "path": "israeli/yerushalayim shel zahav.abc",
+      "at": "2026-11-20T07:32:12.982Z",
+      "percent": 100,
+      "bpm": 84
+    },
+    {
+      "path": "israeli/yerushalayim shel zahav.abc",
+      "at": "2026-11-20T07:32:13.139Z",
+      "percent": 100,
+      "bpm": 84
+    },
+    {
+      "path": "israeli/yerushalayim shel zahav.abc",
+      "at": "2026-11-20T07:32:13.284Z",
       "percent": 100,
       "bpm": 84
     }
