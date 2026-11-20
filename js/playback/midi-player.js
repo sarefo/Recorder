@@ -640,9 +640,52 @@ class MidiPlayer {
      */
     getPickupBeats() {
         const visualObj = window.app?.renderManager?.currentVisualObj;
-        const pickupLength = visualObj?.getPickupLength?.();
         const beatLength = visualObj?.getBeatLength?.();
-        return (pickupLength > 0 && beatLength > 0) ? pickupLength / beatLength : 0;
+        if (!visualObj || !(beatLength > 0)) return 0;
+
+        let pickupLength = visualObj.getPickupLength?.() || 0;
+        if (!(pickupLength > 0)) {
+            // abcjs (6.4.4) measures the first bar only up to the first bar
+            // element, so a tune opening with a repeat sign ("|:EAB|...") is
+            // read as an empty bar and reports no pickup, which throws the
+            // whole metronome grid off by the pickup. Measure it ourselves.
+            pickupLength = this.measureFirstBarLength(visualObj);
+        }
+        return pickupLength > 0 ? pickupLength / beatLength : 0;
+    }
+
+    /**
+     * Duration of the music before the first interior bar line, in whole
+     * notes, or 0 when the tune starts on a downbeat. Leading bar elements
+     * (a repeat sign before the first note) belong to no measure and are
+     * skipped; the sum is clamped so a full first bar counts as no pickup.
+     *
+     * @param {object} visualObj - abcjs tune object from the render manager
+     * @returns {number} Pickup length in whole notes
+     */
+    measureFirstBarLength(visualObj) {
+        for (const line of visualObj.lines || []) {
+            const voice = line?.staff?.[0]?.voices?.[0];
+            if (!voice) continue;
+
+            let length = 0;
+            let started = false;
+            for (const el of voice) {
+                if (el.el_type === 'bar') {
+                    if (started) break; // reached the first bar line
+                    continue;           // bar line before any note ("|:")
+                }
+                if (el.el_type === 'note') {
+                    started = true;
+                    length += el.duration || 0;
+                }
+            }
+            if (started) {
+                const barLength = visualObj.getBarLength?.();
+                return (barLength && length >= barLength) ? 0 : length;
+            }
+        }
+        return 0;
     }
 
     /**

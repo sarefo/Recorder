@@ -4500,7 +4500,7 @@ class AbcFileList {
                 "name": "Star Trek (Original Series)",
                 "file": "tv/star trek.abc",
                 "category": "tv",
-                "hash": "7362e256c6",
+                "hash": "1c5fe816b6",
                 "added": "2026-11-07"
         },
         {
