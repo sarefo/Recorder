@@ -394,8 +394,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-20T07:45:25.773Z",
-      "playCount": 25,
+      "lastPlayed": "2026-11-23T05:38:23.026Z",
+      "playCount": 26,
       "createdAt": "2026-07-31T10:42:24.803Z"
     },
     "classical/bach/adams_fall.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "chinese/zou xikou.abc",
+      "timestamp": "2026-11-23T05:38:23.026Z"
+    },
+    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-23T05:35:17.090Z"
     },
@@ -5740,10 +5744,6 @@
     {
       "filePath": "japanese/ureshii hinamatsuri.abc",
       "timestamp": "2026-11-20T07:51:45.024Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-11-20T07:45:25.773Z"
     },
     {
       "filePath": "tv/gummi bears.abc",
@@ -6319,6 +6319,7 @@
       "tv/yu-gi-oh.abc": 1
     },
     "2026-11-23": {
+      "chinese/zou xikou.abc": 2,
       "french/douce dame jolie.abc": 2,
       "jazz/autumn leaves.abc": 1,
       "jazz/moon river.abc": 3,
