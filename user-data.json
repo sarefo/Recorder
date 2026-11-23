@@ -1544,8 +1544,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T07:43:10.050Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-23T05:42:59.331Z",
+      "playCount": 3,
       "createdAt": "2026-10-26T11:24:25.702Z",
       "updatedAt": "2026-11-05T10:10:17.565Z"
     },
@@ -2284,8 +2284,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T09:08:29.808Z",
-      "playCount": 4,
+      "lastPlayed": "2026-11-23T05:42:57.832Z",
+      "playCount": 5,
       "createdAt": "2026-10-24T11:46:54.432Z",
       "updatedAt": "2026-10-25T05:25:54.091Z"
     },
@@ -2449,8 +2449,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T07:12:53.427Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-23T05:42:56.737Z",
+      "playCount": 4,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-15T07:14:19.689Z"
     },
@@ -4251,8 +4251,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T07:43:11.479Z",
-      "playCount": 18,
+      "lastPlayed": "2026-11-23T05:43:01.190Z",
+      "playCount": 19,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "pop/derniere danse.abc": {
@@ -5293,8 +5293,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-20T07:39:32.519Z",
-      "playCount": 3,
+      "lastPlayed": "2026-11-23T05:42:54.686Z",
+      "playCount": 4,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-15T04:46:13.471Z"
     },
@@ -5690,6 +5690,26 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/bert kaempfert/tootie flutie.abc",
+      "timestamp": "2026-11-23T05:43:01.190Z"
+    },
+    {
+      "filePath": "french/la mer.abc",
+      "timestamp": "2026-11-23T05:42:59.331Z"
+    },
+    {
+      "filePath": "japanese/oborozukiyo.abc",
+      "timestamp": "2026-11-23T05:42:57.832Z"
+    },
+    {
+      "filePath": "jazz/my funny valentine.abc",
+      "timestamp": "2026-11-23T05:42:56.737Z"
+    },
+    {
+      "filePath": "tv/pippi longstocking.abc",
+      "timestamp": "2026-11-23T05:42:54.686Z"
+    },
+    {
       "filePath": "philippine/bahay kubo.abc",
       "timestamp": "2026-11-23T05:40:37.917Z"
     },
@@ -5748,26 +5768,6 @@
     {
       "filePath": "japanese/ureshii hinamatsuri.abc",
       "timestamp": "2026-11-20T07:51:45.024Z"
-    },
-    {
-      "filePath": "tv/gummi bears.abc",
-      "timestamp": "2026-11-20T07:42:23.010Z"
-    },
-    {
-      "filePath": "tv/pippi longstocking.abc",
-      "timestamp": "2026-11-20T07:39:32.519Z"
-    },
-    {
-      "filePath": "tv/yu-gi-oh.abc",
-      "timestamp": "2026-11-20T07:32:14.784Z"
-    },
-    {
-      "filePath": "israeli/yerushalayim shel zahav.abc",
-      "timestamp": "2026-11-20T04:06:10.035Z"
-    },
-    {
-      "filePath": "occitan/la cambo me fai mau.abc",
-      "timestamp": "2026-11-19T03:49:45.854Z"
     }
   ],
   "activity": {
