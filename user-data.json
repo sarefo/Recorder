@@ -4377,8 +4377,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-03T08:32:35.337Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-23T05:25:35.527Z",
+      "playCount": 3,
       "createdAt": "2026-11-02T12:53:18.132Z",
       "updatedAt": "2026-11-02T13:06:05.893Z"
     },
@@ -5185,8 +5185,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-14T10:42:06.646Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-23T05:25:32.954Z",
+      "playCount": 3,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-12T12:54:55.422Z"
     },
@@ -5690,6 +5690,14 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/jamiroquai/canned heat.abc",
+      "timestamp": "2026-11-23T05:25:35.527Z"
+    },
+    {
+      "filePath": "tv/happy days.abc",
+      "timestamp": "2026-11-23T05:25:32.954Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-11-20T13:32:49.781Z"
     },
@@ -5760,14 +5768,6 @@
     {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-11-19T03:42:08.318Z"
-    },
-    {
-      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
-      "timestamp": "2026-11-19T03:41:01.869Z"
-    },
-    {
-      "filePath": "german/maria durch ein dornwald ging.abc",
-      "timestamp": "2026-11-19T03:39:32.921Z"
     }
   ],
   "activity": {
@@ -6319,7 +6319,8 @@
       "tv/yu-gi-oh.abc": 1
     },
     "2026-11-23": {
-      "french/douce dame jolie.abc": 2
+      "french/douce dame jolie.abc": 2,
+      "pop/jamiroquai/canned heat.abc": 1
     }
   },
   "statusLog": [
@@ -9355,6 +9356,14 @@
         "count": 1,
         "at": "2026-11-02T13:05:23.189Z"
       },
+      "57": {
+        "pitch": "_d",
+        "prev": null,
+        "pitchSeen": 3,
+        "transSeen": 0,
+        "count": 1,
+        "at": "2026-11-23T05:26:08.654Z"
+      },
       "148": {
         "pitch": "_E",
         "prev": "D",
@@ -11903,11 +11912,15 @@
       }
     },
     "pop/jamiroquai/canned heat.abc": {
-      "at": "2026-11-02T13:05:13.185Z",
+      "at": "2026-11-23T05:25:58.643Z",
       "notes": {
         "4": {
           "state": "red",
           "pitch": "_B"
+        },
+        "57": {
+          "state": "red",
+          "pitch": "_d"
         },
         "148": {
           "state": "red",
@@ -13773,6 +13786,24 @@
       "at": "2026-11-20T07:32:13.284Z",
       "percent": 100,
       "bpm": 84
+    },
+    {
+      "path": "french/douce dame jolie.abc",
+      "at": "2026-11-23T05:25:30.267Z",
+      "percent": 100,
+      "bpm": 112
+    },
+    {
+      "path": "french/douce dame jolie.abc",
+      "at": "2026-11-23T05:25:30.426Z",
+      "percent": 100,
+      "bpm": 112
+    },
+    {
+      "path": "french/douce dame jolie.abc",
+      "at": "2026-11-23T05:25:30.578Z",
+      "percent": 100,
+      "bpm": 112
     }
   ],
   "settings": {}
