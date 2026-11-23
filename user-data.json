@@ -4173,8 +4173,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-04T09:58:29.998Z",
-      "playCount": 16,
+      "lastPlayed": "2026-11-23T05:40:37.917Z",
+      "playCount": 17,
       "createdAt": "2026-08-01T05:59:20.044Z",
       "updatedAt": "2026-11-01T10:05:28.377Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "philippine/bahay kubo.abc",
+      "timestamp": "2026-11-23T05:40:37.917Z"
+    },
+    {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-11-23T05:38:23.026Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "occitan/la cambo me fai mau.abc",
       "timestamp": "2026-11-19T03:49:45.854Z"
-    },
-    {
-      "filePath": "german/ach bittrer winter.abc",
-      "timestamp": "2026-11-19T03:45:57.459Z"
     }
   ],
   "activity": {
@@ -6323,6 +6323,7 @@
       "french/douce dame jolie.abc": 2,
       "jazz/autumn leaves.abc": 1,
       "jazz/moon river.abc": 3,
+      "philippine/bahay kubo.abc": 1,
       "pop/jamiroquai/canned heat.abc": 2,
       "pop/mr sandman.abc": 1
     }
