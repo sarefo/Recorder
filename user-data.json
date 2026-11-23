@@ -2355,8 +2355,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:47:58.415Z",
-      "playCount": 25,
+      "lastPlayed": "2026-11-23T05:31:44.352Z",
+      "playCount": 26,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-11-23T05:31:44.352Z"
+    },
+    {
       "filePath": "pop/mr sandman.abc",
       "timestamp": "2026-11-23T05:28:30.154Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "german/ach bittrer winter.abc",
       "timestamp": "2026-11-19T03:45:57.459Z"
-    },
-    {
-      "filePath": "german/es geht eine dunkle wolk herein.abc",
-      "timestamp": "2026-11-19T03:44:09.158Z"
     }
   ],
   "activity": {
@@ -6320,6 +6320,7 @@
     },
     "2026-11-23": {
       "french/douce dame jolie.abc": 2,
+      "jazz/autumn leaves.abc": 1,
       "pop/jamiroquai/canned heat.abc": 2,
       "pop/mr sandman.abc": 1
     }
