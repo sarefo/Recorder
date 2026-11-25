@@ -2267,8 +2267,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-17T03:12:13.420Z",
-      "playCount": 42,
+      "lastPlayed": "2026-11-25T05:34:22.520Z",
+      "playCount": 43,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/momiji.abc": {
@@ -2511,8 +2511,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-02T12:39:05.772Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-25T05:34:21.003Z",
+      "playCount": 2,
       "createdAt": "2026-10-13T03:57:34.036Z",
       "updatedAt": "2026-11-02T12:41:48.707Z"
     },
@@ -4439,8 +4439,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T10:56:03.623Z",
-      "playCount": 2,
+      "lastPlayed": "2026-11-25T05:33:51.040Z",
+      "playCount": 3,
       "createdAt": "2026-11-02T13:15:10.953Z",
       "updatedAt": "2026-11-02T13:18:49.234Z"
     },
@@ -5690,6 +5690,18 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/kojo no tsuki.abc",
+      "timestamp": "2026-11-25T05:34:22.520Z"
+    },
+    {
+      "filePath": "jazz/tea for two.abc",
+      "timestamp": "2026-11-25T05:34:21.003Z"
+    },
+    {
+      "filePath": "pop/no doubt/don't speak.abc",
+      "timestamp": "2026-11-25T05:33:51.040Z"
+    },
+    {
       "filePath": "pop/the bangles/eternal flame.abc",
       "timestamp": "2026-11-25T05:30:00.878Z"
     },
@@ -5756,18 +5768,6 @@
     {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-11-25T04:51:17.535Z"
-    },
-    {
-      "filePath": "german/es geht eine dunkle wolk herein.abc",
-      "timestamp": "2026-11-25T04:49:30.627Z"
-    },
-    {
-      "filePath": "german/ach bittrer winter.abc",
-      "timestamp": "2026-11-25T04:48:11.145Z"
-    },
-    {
-      "filePath": "pop/bert kaempfert/tootie flutie.abc",
-      "timestamp": "2026-11-23T05:43:01.190Z"
     }
   ],
   "activity": {
@@ -6337,6 +6337,7 @@
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
+      "japanese/kojo no tsuki.abc": 1,
       "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 1,
       "jazz/moon river.abc": 2,
