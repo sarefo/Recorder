@@ -4677,8 +4677,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T06:49:01.312Z",
-      "playCount": 25,
+      "lastPlayed": "2026-11-25T05:10:26.309Z",
+      "playCount": 26,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-16T07:25:54.141Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "scottish/birkhall.abc",
+      "timestamp": "2026-11-25T05:10:26.309Z"
+    },
+    {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-11-25T05:08:56.731Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "chinese/zou xikou.abc",
       "timestamp": "2026-11-23T05:38:23.026Z"
-    },
-    {
-      "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-23T05:35:17.090Z"
     }
   ],
   "activity": {
