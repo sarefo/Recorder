@@ -139,8 +139,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T10:03:05.329Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-25T05:08:56.731Z",
+      "playCount": 13,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-11-03T08:15:34.884Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/les filles des forges de paimpont.abc",
+      "timestamp": "2026-11-25T05:08:56.731Z"
+    },
+    {
       "filePath": "breton/toutouic.abc",
       "timestamp": "2026-11-25T05:04:40.353Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-23T05:35:17.090Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-11-23T05:31:44.352Z"
     }
   ],
   "activity": {
@@ -6328,6 +6328,7 @@
       "pop/mr sandman.abc": 1
     },
     "2026-11-25": {
+      "breton/les filles des forges de paimpont.abc": 1,
       "breton/son ar chistr.abc": 1,
       "breton/toutouic.abc": 3,
       "french/douce dame jolie.abc": 1,
@@ -7362,6 +7363,14 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-11-25T05:06:16.100Z"
+      },
+      "32": {
+        "pitch": "d",
+        "prev": "B",
+        "pitchSeen": 4,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-25T05:08:47.998Z"
       }
     },
     "cajun/madame sosthene.abc": {
@@ -10432,7 +10441,7 @@
       }
     },
     "breton/toutouic.abc": {
-      "at": "2026-11-25T05:06:06.097Z",
+      "at": "2026-11-25T05:08:37.993Z",
       "notes": {
         "20": {
           "state": "red",
@@ -10449,6 +10458,10 @@
         "31": {
           "state": "red",
           "pitch": "B"
+        },
+        "32": {
+          "state": "red",
+          "pitch": "d"
         }
       }
     },
