@@ -2355,8 +2355,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-23T05:31:44.352Z",
-      "playCount": 26,
+      "lastPlayed": "2026-11-25T05:17:32.233Z",
+      "playCount": 27,
       "createdAt": "2026-10-13T03:57:34.032Z",
       "updatedAt": "2026-10-30T05:00:26.736Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/autumn leaves.abc",
+      "timestamp": "2026-11-25T05:17:32.233Z"
+    },
+    {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-25T05:14:46.186Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "tv/pippi longstocking.abc",
       "timestamp": "2026-11-23T05:42:54.686Z"
-    },
-    {
-      "filePath": "philippine/bahay kubo.abc",
-      "timestamp": "2026-11-23T05:40:37.917Z"
     }
   ],
   "activity": {
@@ -6337,6 +6337,7 @@
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
+      "jazz/autumn leaves.abc": 1,
       "jazz/moon river.abc": 2,
       "occitan/adiu paure carnaval.abc": 1,
       "occitan/ai vist lo lop.abc": 3,
