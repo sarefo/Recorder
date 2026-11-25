@@ -4351,8 +4351,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T07:08:43.463Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-25T05:24:03.064Z",
+      "playCount": 13,
       "createdAt": "2026-01-18T20:46:38.367Z",
       "updatedAt": "2026-10-29T07:31:46.377Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/final_countdown.abc",
+      "timestamp": "2026-11-25T05:24:03.064Z"
+    },
+    {
       "filePath": "jazz/all of me.abc",
       "timestamp": "2026-11-25T05:20:13.455Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "japanese/oborozukiyo.abc",
       "timestamp": "2026-11-23T05:42:57.832Z"
-    },
-    {
-      "filePath": "jazz/my funny valentine.abc",
-      "timestamp": "2026-11-23T05:42:56.737Z"
     }
   ],
   "activity": {
@@ -6344,6 +6344,7 @@
       "occitan/ai vist lo lop.abc": 3,
       "occitan/la cambo me fai mau.abc": 2,
       "pop/bert kaempfert/tootie flutie.abc": 2,
+      "pop/final_countdown.abc": 1,
       "scottish/birkhall.abc": 2
     }
   },
