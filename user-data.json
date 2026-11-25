@@ -165,8 +165,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T04:35:04.834Z",
-      "playCount": 15,
+      "lastPlayed": "2026-11-25T05:04:40.353Z",
+      "playCount": 16,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-17T05:42:00.320Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/toutouic.abc",
+      "timestamp": "2026-11-25T05:04:40.353Z"
+    },
+    {
       "filePath": "breton/son ar chistr.abc",
       "timestamp": "2026-11-25T05:03:19.180Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-23T05:31:44.352Z"
-    },
-    {
-      "filePath": "pop/mr sandman.abc",
-      "timestamp": "2026-11-23T05:28:30.154Z"
     }
   ],
   "activity": {
@@ -6329,6 +6329,7 @@
     },
     "2026-11-25": {
       "breton/son ar chistr.abc": 1,
+      "breton/toutouic.abc": 1,
       "french/douce dame jolie.abc": 1,
       "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
