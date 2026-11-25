@@ -156,8 +156,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-13T07:56:02.173Z",
-      "playCount": 31,
+      "lastPlayed": "2026-11-25T05:03:19.180Z",
+      "playCount": 32,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-11-03T08:21:15.611Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "breton/son ar chistr.abc",
+      "timestamp": "2026-11-25T05:03:19.180Z"
+    },
+    {
       "filePath": "occitan/adiu paure carnaval.abc",
       "timestamp": "2026-11-25T05:01:44.525Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "pop/mr sandman.abc",
       "timestamp": "2026-11-23T05:28:30.154Z"
-    },
-    {
-      "filePath": "pop/jamiroquai/canned heat.abc",
-      "timestamp": "2026-11-23T05:25:35.527Z"
     }
   ],
   "activity": {
@@ -6328,6 +6328,7 @@
       "pop/mr sandman.abc": 1
     },
     "2026-11-25": {
+      "breton/son ar chistr.abc": 1,
       "french/douce dame jolie.abc": 1,
       "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
@@ -13839,6 +13840,18 @@
       "at": "2026-11-25T04:59:40.418Z",
       "percent": 100,
       "bpm": 200
+    },
+    {
+      "path": "occitan/adiu paure carnaval.abc",
+      "at": "2026-11-25T05:03:10.410Z",
+      "percent": 100,
+      "bpm": 108
+    },
+    {
+      "path": "occitan/adiu paure carnaval.abc",
+      "at": "2026-11-25T05:03:10.617Z",
+      "percent": 100,
+      "bpm": 108
     }
   ],
   "settings": {}
