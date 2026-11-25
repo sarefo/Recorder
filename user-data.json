@@ -2240,8 +2240,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T10:00:12.920Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-25T05:36:54.966Z",
+      "playCount": 13,
       "createdAt": "2026-08-31T18:32:58.388Z",
       "updatedAt": "2026-10-17T05:30:22.284Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hashire kotaro.abc",
+      "timestamp": "2026-11-25T05:36:54.966Z"
+    },
+    {
       "filePath": "japanese/hana.abc",
       "timestamp": "2026-11-25T05:35:33.903Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "german/maria durch ein dornwald ging.abc",
       "timestamp": "2026-11-25T04:54:22.569Z"
-    },
-    {
-      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
-      "timestamp": "2026-11-25T04:53:18.182Z"
     }
   ],
   "activity": {
@@ -6338,6 +6338,7 @@
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
       "japanese/hana.abc": 1,
+      "japanese/hashire kotaro.abc": 1,
       "japanese/kojo no tsuki.abc": 1,
       "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 1,
