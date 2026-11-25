@@ -1649,8 +1649,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-19T03:42:08.318Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-25T04:51:17.535Z",
+      "playCount": 10,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-30T05:10:04.894Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es ist ein schnitter.abc",
+      "timestamp": "2026-11-25T04:51:17.535Z"
+    },
+    {
       "filePath": "german/es geht eine dunkle wolk herein.abc",
       "timestamp": "2026-11-25T04:49:30.627Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "chinese/baobao yao shuijiao.abc",
       "timestamp": "2026-11-20T08:57:06.876Z"
-    },
-    {
-      "filePath": "israeli/artsa alinu.abc",
-      "timestamp": "2026-11-20T08:56:56.382Z"
     }
   ],
   "activity": {
@@ -6330,6 +6330,7 @@
     "2026-11-25": {
       "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
+      "german/es ist ein schnitter.abc": 1,
       "pop/bert kaempfert/tootie flutie.abc": 2
     }
   },
