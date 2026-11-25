@@ -2346,8 +2346,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-05T06:32:16.311Z",
-      "playCount": 12,
+      "lastPlayed": "2026-11-25T05:20:13.455Z",
+      "playCount": 13,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-11-02T12:15:59.746Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/all of me.abc",
+      "timestamp": "2026-11-25T05:20:13.455Z"
+    },
+    {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-25T05:17:32.233Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "jazz/my funny valentine.abc",
       "timestamp": "2026-11-23T05:42:56.737Z"
-    },
-    {
-      "filePath": "tv/pippi longstocking.abc",
-      "timestamp": "2026-11-23T05:42:54.686Z"
     }
   ],
   "activity": {
@@ -6337,6 +6337,7 @@
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
+      "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 1,
       "jazz/moon river.abc": 2,
       "occitan/adiu paure carnaval.abc": 1,
