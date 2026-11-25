@@ -4490,8 +4490,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T10:53:02.537Z",
-      "playCount": 6,
+      "lastPlayed": "2026-11-25T05:30:00.878Z",
+      "playCount": 7,
       "createdAt": "2026-11-02T13:15:10.953Z",
       "updatedAt": "2026-11-02T13:26:44.368Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/the bangles/eternal flame.abc",
+      "timestamp": "2026-11-25T05:30:00.878Z"
+    },
+    {
       "filePath": "pop/mad world.abc",
       "timestamp": "2026-11-25T05:27:45.284Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "pop/bert kaempfert/tootie flutie.abc",
       "timestamp": "2026-11-23T05:43:01.190Z"
-    },
-    {
-      "filePath": "french/la mer.abc",
-      "timestamp": "2026-11-23T05:42:59.331Z"
     }
   ],
   "activity": {
@@ -6346,6 +6346,7 @@
       "pop/bert kaempfert/tootie flutie.abc": 2,
       "pop/final_countdown.abc": 1,
       "pop/mad world.abc": 2,
+      "pop/the bangles/eternal flame.abc": 1,
       "scottish/birkhall.abc": 2
     }
   },
