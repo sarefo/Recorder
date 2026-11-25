@@ -4421,8 +4421,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-06T10:58:48.371Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-25T05:27:45.284Z",
+      "playCount": 9,
       "createdAt": "2026-10-27T14:01:49.066Z",
       "updatedAt": "2026-10-28T02:44:12.110Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "pop/mad world.abc",
+      "timestamp": "2026-11-25T05:27:45.284Z"
+    },
+    {
       "filePath": "pop/final_countdown.abc",
       "timestamp": "2026-11-25T05:24:03.064Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "french/la mer.abc",
       "timestamp": "2026-11-23T05:42:59.331Z"
-    },
-    {
-      "filePath": "japanese/oborozukiyo.abc",
-      "timestamp": "2026-11-23T05:42:57.832Z"
     }
   ],
   "activity": {
@@ -6345,6 +6345,7 @@
       "occitan/la cambo me fai mau.abc": 2,
       "pop/bert kaempfert/tootie flutie.abc": 2,
       "pop/final_countdown.abc": 1,
+      "pop/mad world.abc": 2,
       "scottish/birkhall.abc": 2
     }
   },
