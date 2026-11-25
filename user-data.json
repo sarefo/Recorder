@@ -1676,8 +1676,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-19T03:41:01.869Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-25T04:53:18.182Z",
+      "playCount": 11,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-26T04:37:50.809Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
+      "timestamp": "2026-11-25T04:53:18.182Z"
+    },
+    {
       "filePath": "german/es ist ein schnitter.abc",
       "timestamp": "2026-11-25T04:51:17.535Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "japanese/yuuhi.abc",
       "timestamp": "2026-11-20T08:57:09.055Z"
-    },
-    {
-      "filePath": "chinese/baobao yao shuijiao.abc",
-      "timestamp": "2026-11-20T08:57:06.876Z"
     }
   ],
   "activity": {
@@ -6331,6 +6331,7 @@
       "german/ach bittrer winter.abc": 1,
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
+      "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "pop/bert kaempfert/tootie flutie.abc": 2
     }
   },
