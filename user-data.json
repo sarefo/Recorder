@@ -1721,8 +1721,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-19T03:39:32.921Z",
-      "playCount": 8,
+      "lastPlayed": "2026-11-25T04:54:22.569Z",
+      "playCount": 9,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-26T03:48:01.463Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/maria durch ein dornwald ging.abc",
+      "timestamp": "2026-11-25T04:54:22.569Z"
+    },
+    {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-11-25T04:53:18.182Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "tv/knight rider.abc",
       "timestamp": "2026-11-20T08:57:10.034Z"
-    },
-    {
-      "filePath": "japanese/yuuhi.abc",
-      "timestamp": "2026-11-20T08:57:09.055Z"
     }
   ],
   "activity": {
@@ -6332,6 +6332,7 @@
       "german/es geht eine dunkle wolk herein.abc": 1,
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
+      "german/maria durch ein dornwald ging.abc": 1,
       "pop/bert kaempfert/tootie flutie.abc": 2
     }
   },
