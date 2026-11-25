@@ -1640,8 +1640,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-19T03:44:09.158Z",
-      "playCount": 10,
+      "lastPlayed": "2026-11-25T04:49:30.627Z",
+      "playCount": 11,
       "createdAt": "2026-10-24T11:46:54.430Z",
       "updatedAt": "2026-10-24T11:52:16.545Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "german/es geht eine dunkle wolk herein.abc",
+      "timestamp": "2026-11-25T04:49:30.627Z"
+    },
+    {
       "filePath": "german/ach bittrer winter.abc",
       "timestamp": "2026-11-25T04:48:11.145Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "israeli/artsa alinu.abc",
       "timestamp": "2026-11-20T08:56:56.382Z"
-    },
-    {
-      "filePath": "film/hisaishi/mononoke.abc",
-      "timestamp": "2026-11-20T07:54:18.306Z"
     }
   ],
   "activity": {
@@ -6329,6 +6329,7 @@
     },
     "2026-11-25": {
       "german/ach bittrer winter.abc": 1,
+      "german/es geht eine dunkle wolk herein.abc": 1,
       "pop/bert kaempfert/tootie flutie.abc": 2
     }
   },
