@@ -7346,6 +7346,22 @@
         "transSeen": 2,
         "count": 1,
         "at": "2026-10-31T05:15:38.222Z"
+      },
+      "28": {
+        "pitch": "c",
+        "prev": "e",
+        "pitchSeen": 14,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-25T05:05:58.088Z"
+      },
+      "31": {
+        "pitch": "B",
+        "prev": "d",
+        "pitchSeen": 10,
+        "transSeen": 2,
+        "count": 1,
+        "at": "2026-11-25T05:06:16.100Z"
       }
     },
     "cajun/madame sosthene.abc": {
@@ -10416,7 +10432,7 @@
       }
     },
     "breton/toutouic.abc": {
-      "at": "2026-11-10T11:57:26.389Z",
+      "at": "2026-11-25T05:06:06.097Z",
       "notes": {
         "20": {
           "state": "red",
@@ -10425,6 +10441,14 @@
         "23": {
           "state": "red",
           "pitch": "A"
+        },
+        "28": {
+          "state": "red",
+          "pitch": "c"
+        },
+        "31": {
+          "state": "red",
+          "pitch": "B"
         }
       }
     },
