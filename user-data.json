@@ -2214,8 +2214,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-17T03:14:35.926Z",
-      "playCount": 48,
+      "lastPlayed": "2026-11-25T05:35:33.903Z",
+      "playCount": 49,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "japanese/hanagasa ondo.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "japanese/hana.abc",
+      "timestamp": "2026-11-25T05:35:33.903Z"
+    },
+    {
       "filePath": "japanese/kojo no tsuki.abc",
       "timestamp": "2026-11-25T05:34:22.520Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "german/feinsliebchen du sollst mir nicht barfuss gehn.abc",
       "timestamp": "2026-11-25T04:53:18.182Z"
-    },
-    {
-      "filePath": "german/es ist ein schnitter.abc",
-      "timestamp": "2026-11-25T04:51:17.535Z"
     }
   ],
   "activity": {
@@ -6337,6 +6337,7 @@
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
+      "japanese/hana.abc": 1,
       "japanese/kojo no tsuki.abc": 1,
       "jazz/all of me.abc": 1,
       "jazz/autumn leaves.abc": 1,
