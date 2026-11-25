@@ -2440,8 +2440,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-23T05:35:17.090Z",
-      "playCount": 14,
+      "lastPlayed": "2026-11-25T05:14:46.186Z",
+      "playCount": 15,
       "createdAt": "2026-11-03T12:52:58.238Z",
       "updatedAt": "2026-11-04T01:54:06.152Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "jazz/moon river.abc",
+      "timestamp": "2026-11-25T05:14:46.186Z"
+    },
+    {
       "filePath": "scottish/birkhall.abc",
       "timestamp": "2026-11-25T05:10:26.309Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "philippine/bahay kubo.abc",
       "timestamp": "2026-11-23T05:40:37.917Z"
-    },
-    {
-      "filePath": "chinese/zou xikou.abc",
-      "timestamp": "2026-11-23T05:38:23.026Z"
     }
   ],
   "activity": {
@@ -6337,6 +6337,7 @@
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
+      "jazz/moon river.abc": 2,
       "occitan/adiu paure carnaval.abc": 1,
       "occitan/ai vist lo lop.abc": 3,
       "occitan/la cambo me fai mau.abc": 2,
