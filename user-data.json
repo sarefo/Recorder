@@ -4114,8 +4114,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-14T07:30:44.757Z",
-      "playCount": 18,
+      "lastPlayed": "2026-11-25T05:01:44.525Z",
+      "playCount": 19,
       "createdAt": "2026-09-22T12:46:37.241Z"
     },
     "occitan/ai vist lo lop.abc": {
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "occitan/adiu paure carnaval.abc",
+      "timestamp": "2026-11-25T05:01:44.525Z"
+    },
+    {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-11-25T04:59:43.433Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "pop/jamiroquai/canned heat.abc",
       "timestamp": "2026-11-23T05:25:35.527Z"
-    },
-    {
-      "filePath": "tv/happy days.abc",
-      "timestamp": "2026-11-23T05:25:32.954Z"
     }
   ],
   "activity": {
@@ -6334,6 +6334,7 @@
       "german/es ist ein schnitter.abc": 1,
       "german/feinsliebchen du sollst mir nicht barfuss gehn.abc": 1,
       "german/maria durch ein dornwald ging.abc": 1,
+      "occitan/adiu paure carnaval.abc": 1,
       "occitan/ai vist lo lop.abc": 3,
       "occitan/la cambo me fai mau.abc": 2,
       "pop/bert kaempfert/tootie flutie.abc": 2
