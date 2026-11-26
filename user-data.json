@@ -4090,8 +4090,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-09-22T10:50:36.523Z",
-      "playCount": 7,
+      "lastPlayed": "2026-11-26T10:56:59.569Z",
+      "playCount": 8,
       "createdAt": "2026-01-18T20:46:38.366Z"
     },
     "norwegian/bruremarsj fra valsøyfjord.abc": {
@@ -5308,13 +5308,13 @@
       "updatedAt": "2026-11-12T12:57:24.326Z"
     },
     "tv/rawhide.abc": {
-      "status": "needs-practice",
+      "status": "practicing",
       "favorite": true,
       "notes": "",
       "lastPlayed": "2026-11-26T10:53:58.013Z",
       "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
-      "updatedAt": "2026-11-12T12:58:16.158Z"
+      "updatedAt": "2026-11-26T10:56:58.162Z"
     },
     "tv/scooby doo.abc": {
       "status": null,
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "norwegian/bortkomne.abc",
+      "timestamp": "2026-11-26T10:56:59.569Z"
+    },
+    {
       "filePath": "tv/rawhide.abc",
       "timestamp": "2026-11-26T10:53:58.013Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "scottish/birkhall.abc",
       "timestamp": "2026-11-25T05:10:26.309Z"
-    },
-    {
-      "filePath": "breton/les filles des forges de paimpont.abc",
-      "timestamp": "2026-11-25T05:08:56.731Z"
     }
   ],
   "activity": {
@@ -7233,6 +7233,11 @@
       "path": "tv/gummi bears.abc",
       "status": "practicing",
       "at": "2026-11-20T07:45:23.848Z"
+    },
+    {
+      "path": "tv/rawhide.abc",
+      "status": "practicing",
+      "at": "2026-11-26T10:56:58.162Z"
     }
   ],
   "marks": {
@@ -9138,6 +9143,32 @@
         "transSeen": 1,
         "count": 1,
         "at": "2026-10-25T09:41:45.489Z"
+      }
+    },
+    "norwegian/bortkomne.abc": {
+      "12": {
+        "pitch": "_A",
+        "prev": "F",
+        "pitchSeen": 13,
+        "transSeen": 5,
+        "count": 1,
+        "at": "2026-11-26T10:57:09.697Z"
+      },
+      "21": {
+        "pitch": "_B",
+        "prev": "_A",
+        "pitchSeen": 6,
+        "transSeen": 4,
+        "count": 1,
+        "at": "2026-11-26T10:57:09.698Z"
+      },
+      "33": {
+        "pitch": "_E",
+        "prev": "_A",
+        "pitchSeen": 1,
+        "transSeen": 1,
+        "count": 1,
+        "at": "2026-11-26T10:57:09.699Z"
       }
     },
     "occitan/ai vist lo lop.abc": {
@@ -11794,6 +11825,23 @@
         "126": {
           "state": "red",
           "pitch": "f"
+        }
+      }
+    },
+    "norwegian/bortkomne.abc": {
+      "at": "2026-11-26T10:56:59.695Z",
+      "notes": {
+        "12": {
+          "state": "red",
+          "pitch": "_A"
+        },
+        "21": {
+          "state": "red",
+          "pitch": "_B"
+        },
+        "33": {
+          "state": "red",
+          "pitch": "_E"
         }
       }
     },
