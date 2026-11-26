@@ -402,8 +402,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-15T04:57:33.867Z",
-      "playCount": 11,
+      "lastPlayed": "2026-11-26T10:51:40.837Z",
+      "playCount": 12,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-28T03:46:50.733Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "classical/bach/adams_fall.abc",
+      "timestamp": "2026-11-26T10:51:40.837Z"
+    },
+    {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-11-25T05:41:19.337Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "occitan/ai vist lo lop.abc",
       "timestamp": "2026-11-25T04:59:43.433Z"
-    },
-    {
-      "filePath": "occitan/la cambo me fai mau.abc",
-      "timestamp": "2026-11-25T04:58:05.683Z"
     }
   ],
   "activity": {
@@ -6352,6 +6352,9 @@
       "pop/mad world.abc": 2,
       "pop/the bangles/eternal flame.abc": 1,
       "scottish/birkhall.abc": 2
+    },
+    "2026-11-26": {
+      "classical/bach/adams_fall.abc": 1
     }
   },
   "statusLog": [
