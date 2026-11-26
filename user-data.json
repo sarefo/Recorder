@@ -82,8 +82,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-17T03:10:34.284Z",
-      "playCount": 9,
+      "lastPlayed": "2026-11-26T10:53:51.316Z",
+      "playCount": 10,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-10-16T08:02:22.809Z"
     },
@@ -2133,8 +2133,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-25T05:38:41.367Z",
-      "playCount": 21,
+      "lastPlayed": "2026-11-26T10:53:52.556Z",
+      "playCount": 22,
       "createdAt": "2026-08-01T08:54:31.908Z",
       "updatedAt": "2026-11-01T10:15:51.983Z"
     },
@@ -4173,8 +4173,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-23T05:40:37.917Z",
-      "playCount": 17,
+      "lastPlayed": "2026-11-26T10:53:53.859Z",
+      "playCount": 18,
       "createdAt": "2026-08-01T05:59:20.044Z",
       "updatedAt": "2026-11-01T10:05:28.377Z"
     },
@@ -4924,8 +4924,8 @@
       "status": "practicing",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-14T10:44:12.490Z",
-      "playCount": 11,
+      "lastPlayed": "2026-11-26T10:53:56.563Z",
+      "playCount": 12,
       "createdAt": "2026-08-31T03:23:32.151Z",
       "updatedAt": "2026-10-08T07:29:58.605Z"
     },
@@ -5311,8 +5311,8 @@
       "status": "needs-practice",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T12:58:10.410Z",
-      "playCount": 1,
+      "lastPlayed": "2026-11-26T10:53:58.013Z",
+      "playCount": 2,
       "createdAt": "2026-11-07T03:10:49.713Z",
       "updatedAt": "2026-11-12T12:58:16.158Z"
     },
@@ -5690,16 +5690,32 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "tv/rawhide.abc",
+      "timestamp": "2026-11-26T10:53:58.013Z"
+    },
+    {
+      "filePath": "trinidadian/matilda.abc",
+      "timestamp": "2026-11-26T10:53:56.563Z"
+    },
+    {
+      "filePath": "philippine/bahay kubo.abc",
+      "timestamp": "2026-11-26T10:53:53.859Z"
+    },
+    {
+      "filePath": "jamaican/banana boat song.abc",
+      "timestamp": "2026-11-26T10:53:52.556Z"
+    },
+    {
+      "filePath": "austrian/lieber augustin.abc",
+      "timestamp": "2026-11-26T10:53:51.316Z"
+    },
+    {
       "filePath": "classical/bach/adams_fall.abc",
       "timestamp": "2026-11-26T10:51:40.837Z"
     },
     {
       "filePath": "latino/tango/por una cabeza.abc",
       "timestamp": "2026-11-25T05:41:19.337Z"
-    },
-    {
-      "filePath": "jamaican/banana boat song.abc",
-      "timestamp": "2026-11-25T05:38:41.367Z"
     },
     {
       "filePath": "japanese/hashire kotaro.abc",
@@ -5752,22 +5768,6 @@
     {
       "filePath": "breton/les filles des forges de paimpont.abc",
       "timestamp": "2026-11-25T05:08:56.731Z"
-    },
-    {
-      "filePath": "breton/toutouic.abc",
-      "timestamp": "2026-11-25T05:04:40.353Z"
-    },
-    {
-      "filePath": "breton/son ar chistr.abc",
-      "timestamp": "2026-11-25T05:03:19.180Z"
-    },
-    {
-      "filePath": "occitan/adiu paure carnaval.abc",
-      "timestamp": "2026-11-25T05:01:44.525Z"
-    },
-    {
-      "filePath": "occitan/ai vist lo lop.abc",
-      "timestamp": "2026-11-25T04:59:43.433Z"
     }
   ],
   "activity": {
@@ -10408,8 +10408,12 @@
       }
     },
     "austrian/lieber augustin.abc": {
-      "at": "2026-11-17T03:10:34.395Z",
+      "at": "2026-11-26T10:53:51.420Z",
       "notes": {
+        "4": {
+          "state": "red",
+          "pitch": "_B"
+        },
         "5": {
           "state": "red",
           "pitch": "^F"
