@@ -5641,8 +5641,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T10:25:57.564Z",
-      "playCount": 32,
+      "lastPlayed": "2026-11-27T06:34:04.561Z",
+      "playCount": 33,
       "createdAt": "2026-01-18T20:46:38.367Z"
     },
     "yiddish/in kamf.abc": {
@@ -5689,6 +5689,10 @@
   "collections": {},
   "deletedCollections": {},
   "recentlyPlayed": [
+    {
+      "filePath": "yiddish/dos kelbl.abc",
+      "timestamp": "2026-11-27T06:34:04.561Z"
+    },
     {
       "filePath": "italian/tarantella napoletana.abc",
       "timestamp": "2026-11-27T06:31:42.129Z"
@@ -5764,10 +5768,6 @@
     {
       "filePath": "jazz/all of me.abc",
       "timestamp": "2026-11-25T05:20:13.455Z"
-    },
-    {
-      "filePath": "jazz/autumn leaves.abc",
-      "timestamp": "2026-11-25T05:17:32.233Z"
     }
   ],
   "activity": {
@@ -6359,7 +6359,8 @@
     },
     "2026-11-27": {
       "french/douce dame jolie.abc": 1,
-      "italian/tarantella napoletana.abc": 2
+      "italian/tarantella napoletana.abc": 2,
+      "yiddish/dos kelbl.abc": 1
     }
   },
   "statusLog": [
