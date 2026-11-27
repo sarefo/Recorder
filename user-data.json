@@ -1501,8 +1501,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-25T04:55:52.773Z",
-      "playCount": 25,
+      "lastPlayed": "2026-11-27T06:29:34.440Z",
+      "playCount": 26,
       "createdAt": "2026-09-22T12:46:37.240Z",
       "updatedAt": "2026-10-18T03:20:14.847Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "french/douce dame jolie.abc",
+      "timestamp": "2026-11-27T06:29:34.440Z"
+    },
+    {
       "filePath": "norwegian/bortkomne.abc",
       "timestamp": "2026-11-26T10:56:59.569Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "jazz/moon river.abc",
       "timestamp": "2026-11-25T05:14:46.186Z"
-    },
-    {
-      "filePath": "scottish/birkhall.abc",
-      "timestamp": "2026-11-25T05:10:26.309Z"
     }
   ],
   "activity": {
@@ -6356,6 +6356,9 @@
     "2026-11-26": {
       "classical/bach/adams_fall.abc": 1,
       "tv/rawhide.abc": 1
+    },
+    "2026-11-27": {
+      "french/douce dame jolie.abc": 1
     }
   },
   "statusLog": [
