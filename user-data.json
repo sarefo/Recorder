@@ -2116,8 +2116,8 @@
       "status": "good",
       "favorite": true,
       "notes": "",
-      "lastPlayed": "2026-11-12T10:21:26.832Z",
-      "playCount": 44,
+      "lastPlayed": "2026-11-27T06:31:42.129Z",
+      "playCount": 45,
       "createdAt": "2026-01-18T20:46:38.366Z",
       "updatedAt": "2026-11-01T10:41:02.824Z"
     },
@@ -5690,6 +5690,10 @@
   "deletedCollections": {},
   "recentlyPlayed": [
     {
+      "filePath": "italian/tarantella napoletana.abc",
+      "timestamp": "2026-11-27T06:31:42.129Z"
+    },
+    {
       "filePath": "french/douce dame jolie.abc",
       "timestamp": "2026-11-27T06:29:34.440Z"
     },
@@ -5764,10 +5768,6 @@
     {
       "filePath": "jazz/autumn leaves.abc",
       "timestamp": "2026-11-25T05:17:32.233Z"
-    },
-    {
-      "filePath": "jazz/moon river.abc",
-      "timestamp": "2026-11-25T05:14:46.186Z"
     }
   ],
   "activity": {
@@ -6358,7 +6358,8 @@
       "tv/rawhide.abc": 1
     },
     "2026-11-27": {
-      "french/douce dame jolie.abc": 1
+      "french/douce dame jolie.abc": 1,
+      "italian/tarantella napoletana.abc": 2
     }
   },
   "statusLog": [
